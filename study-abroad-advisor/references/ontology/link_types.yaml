@@ -27,6 +27,26 @@ link_types:
     from: RequirementRule
     to: SourceEvidence
     required_for: every_verified_requirement
+  - name: source_evidence_has_snapshot
+    from: SourceEvidence
+    to: SourceSnapshot
+    required_for: source_refresh
+  - name: snapshot_yields_extracted_fact
+    from: SourceSnapshot
+    to: ExtractedFact
+    required_for: raw_to_silver_pipeline
+  - name: extracted_fact_versions
+    from: ExtractedFact
+    to: FactVersion
+    required_for: source_diff
+  - name: extracted_fact_supports_requirement
+    from: ExtractedFact
+    to: RequirementRule
+    required_for: requirement_lineage
+  - name: source_supports_program_fit_fact
+    from: SourceEvidence
+    to: ProgramFitFact
+    required_for: essay_program_claims
   - name: requirement_requires_document
     from: RequirementRule
     to: DocumentArtifact
@@ -63,3 +83,27 @@ link_types:
     from: Task
     to: ApplicationCase
     required_for: auditability
+  - name: action_event_updates_object
+    from: ActionEvent
+    to: ApplicationCase
+    required_for: action_audit
+  - name: pipeline_run_executes_quality_check
+    from: PipelineRun
+    to: QualityCheck
+    required_for: validation_audit
+  - name: lineage_edge_connects_source_to_output
+    from: LineageEdge
+    to: SourceEvidence
+    required_for: source_to_output_traceability
+  - name: applicant_has_student_evidence
+    from: Applicant
+    to: StudentEvidence
+    required_for: essay_claim_support
+  - name: essay_claim_uses_student_evidence
+    from: EssayClaim
+    to: StudentEvidence
+    required_for: no_unsupported_essay_claims
+  - name: essay_claim_uses_program_fit_fact
+    from: EssayClaim
+    to: ProgramFitFact
+    required_for: no_unverified_program_claims

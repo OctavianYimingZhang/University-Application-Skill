@@ -8,7 +8,7 @@ Use `scripts/build_admissions_workbook.py` to create an `.xlsx` workbook from st
 python scripts/build_admissions_workbook.py input.json output.xlsx
 ```
 
-The script uses only Python standard library modules.
+The script uses only Python standard library modules. If `ontology` data exists, the builder runs `scripts/validate_ontology.py` quality gates before rendering. Use `--skip-validation` only for a draft workbook that must not be treated as verified output.
 
 ## Top-Level JSON
 
@@ -27,11 +27,21 @@ Preferred ontology-first input:
     "requirement_rules": [],
     "document_artifacts": [],
     "source_evidence": [],
+    "source_snapshots": [],
+    "extracted_facts": [],
+    "fact_versions": [],
+    "lineage_edges": [],
+    "quality_checks": [],
+    "pipeline_runs": [],
+    "action_events": [],
     "tasks": [],
     "risk_flags": [],
     "deadlines": [],
     "offer_decisions": [],
     "visa_immigration_cases": [],
+    "student_evidence": [],
+    "program_fit_facts": [],
+    "essay_claims": [],
     "links": []
   }
 }
@@ -55,7 +65,7 @@ Legacy input is still accepted:
 
 All arrays are optional. Missing values are written as blanks.
 
-When both ontology and legacy arrays exist, the builder renders both. The ontology remains the source of truth; legacy sheets are compatibility views.
+When both ontology and legacy arrays exist, core views are derived from ontology objects first. Legacy arrays are used only when the equivalent ontology objects are absent, and should be treated as draft compatibility input.
 
 ## Student Profile
 
@@ -107,6 +117,16 @@ The builder renders these ontology arrays when present:
 - `ontology.offer_decisions` -> `Offer Decisions`
 - `ontology.visa_immigration_cases` -> `Visa Cases`
 - `ontology.source_evidence` -> `Source Evidence`
+- `ontology.source_snapshots` -> `Source Snapshots`
+- `ontology.extracted_facts` -> `Extracted Facts`
+- `ontology.fact_versions` -> `Fact Versions`
+- `ontology.lineage_edges` -> `Lineage Edges`
+- `ontology.quality_checks` -> `Quality Checks`
+- `ontology.pipeline_runs` -> `Pipeline Runs`
+- `ontology.action_events` -> `Action Events`
+- `ontology.student_evidence` -> `Student Evidence`
+- `ontology.program_fit_facts` -> `Program Fit Facts`
+- `ontology.essay_claims` -> `Essay Claims`
 
 Use IDs consistently:
 
@@ -123,6 +143,152 @@ Use IDs consistently:
 - `offer_id`
 - `visa_case_id`
 - `source_evidence_id`
+- `source_snapshot_id`
+- `extracted_fact_id`
+- `fact_version_id`
+- `lineage_edge_id`
+- `quality_check_id`
+- `pipeline_run_id`
+- `action_event_id`
+- `student_evidence_id`
+- `program_fit_fact_id`
+- `essay_claim_id`
+
+## Source Snapshot Columns
+
+Use these keys where available:
+
+- `source_snapshot_id`
+- `source_evidence_id`
+- `url`
+- `retrieved_at`
+- `content_hash`
+- `raw_title`
+- `raw_excerpt`
+- `http_status`
+- `cycle_hint`
+- `snapshot_status`
+- `notes`
+
+## Extracted Fact Columns
+
+Use these keys where available:
+
+- `extracted_fact_id`
+- `source_snapshot_id`
+- `entity_type`
+- `entity_id`
+- `fact_text`
+- `normalized_key`
+- `extraction_confidence`
+- `extraction_method`
+- `verification_status`
+- `notes`
+
+## Fact Version Columns
+
+Use these keys where available:
+
+- `fact_version_id`
+- `extracted_fact_id`
+- `previous_value`
+- `current_value`
+- `changed_at`
+- `change_type`
+- `impact_scope`
+- `notes`
+
+## Lineage Edge Columns
+
+Use these keys where available:
+
+- `lineage_edge_id`
+- `from_object_id`
+- `from_object_type`
+- `to_object_id`
+- `to_object_type`
+- `transformation`
+- `evidence_required`
+- `notes`
+
+## Quality Check Columns
+
+Use these keys where available:
+
+- `quality_check_id`
+- `check_name`
+- `target_object_type`
+- `severity`
+- `logic`
+- `on_fail`
+- `status`
+- `notes`
+
+## Pipeline Run Columns
+
+Use these keys where available:
+
+- `pipeline_run_id`
+- `workflow_name`
+- `started_at`
+- `finished_at`
+- `input_object_ids`
+- `output_object_ids`
+- `quality_check_ids`
+- `status`
+- `notes`
+
+## Action Event Columns
+
+Use these keys where available:
+
+- `action_event_id`
+- `action_type`
+- `actor`
+- `target_object_id`
+- `before_state`
+- `after_state`
+- `validation_results`
+- `source_evidence_ids`
+- `created_at`
+- `notes`
+
+## Student Evidence Columns
+
+Use these keys where available:
+
+- `student_evidence_id`
+- `applicant_id`
+- `evidence_type`
+- `description`
+- `document_id`
+- `verification_status`
+- `notes`
+
+## Program Fit Fact Columns
+
+Use these keys where available:
+
+- `program_fit_fact_id`
+- `program_id`
+- `fact_type`
+- `fact_text`
+- `source_evidence_id`
+- `verification_status`
+- `notes`
+
+## Essay Claim Columns
+
+Use these keys where available:
+
+- `essay_claim_id`
+- `application_case_id`
+- `claim_type`
+- `claim_text`
+- `student_evidence_ids`
+- `program_fit_fact_ids`
+- `status`
+- `notes`
 
 ## Application Case Columns
 

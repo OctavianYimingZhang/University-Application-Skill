@@ -17,6 +17,8 @@ from pathlib import Path
 from typing import Any, Iterable
 from xml.sax.saxutils import escape
 
+from validate_ontology import build_indexes, check_lineage_refs, check_quality, check_refs, summarize
+
 
 PROFILE_KEYS = [
     "applicant_id",
@@ -376,6 +378,122 @@ SOURCE_COLUMNS = [
     ("notes", "Notes"),
 ]
 
+SOURCE_SNAPSHOT_COLUMNS = [
+    ("source_snapshot_id", "Source Snapshot ID"),
+    ("source_evidence_id", "Source Evidence ID"),
+    ("url", "URL"),
+    ("retrieved_at", "Retrieved At"),
+    ("content_hash", "Content Hash"),
+    ("raw_title", "Raw Title"),
+    ("raw_excerpt", "Raw Excerpt"),
+    ("http_status", "HTTP Status"),
+    ("cycle_hint", "Cycle Hint"),
+    ("snapshot_status", "Snapshot Status"),
+    ("notes", "Notes"),
+]
+
+EXTRACTED_FACT_COLUMNS = [
+    ("extracted_fact_id", "Extracted Fact ID"),
+    ("source_snapshot_id", "Source Snapshot ID"),
+    ("entity_type", "Entity Type"),
+    ("entity_id", "Entity ID"),
+    ("fact_text", "Fact Text"),
+    ("normalized_key", "Normalized Key"),
+    ("extraction_confidence", "Extraction Confidence"),
+    ("extraction_method", "Extraction Method"),
+    ("verification_status", "Verification Status"),
+    ("notes", "Notes"),
+]
+
+FACT_VERSION_COLUMNS = [
+    ("fact_version_id", "Fact Version ID"),
+    ("extracted_fact_id", "Extracted Fact ID"),
+    ("previous_value", "Previous Value"),
+    ("current_value", "Current Value"),
+    ("changed_at", "Changed At"),
+    ("change_type", "Change Type"),
+    ("impact_scope", "Impact Scope"),
+    ("notes", "Notes"),
+]
+
+LINEAGE_EDGE_COLUMNS = [
+    ("lineage_edge_id", "Lineage Edge ID"),
+    ("from_object_id", "From Object ID"),
+    ("from_object_type", "From Object Type"),
+    ("to_object_id", "To Object ID"),
+    ("to_object_type", "To Object Type"),
+    ("transformation", "Transformation"),
+    ("evidence_required", "Evidence Required"),
+    ("notes", "Notes"),
+]
+
+QUALITY_CHECK_COLUMNS = [
+    ("quality_check_id", "Quality Check ID"),
+    ("check_name", "Check Name"),
+    ("target_object_type", "Target Object Type"),
+    ("severity", "Severity"),
+    ("logic", "Logic"),
+    ("on_fail", "On Fail"),
+    ("status", "Status"),
+    ("notes", "Notes"),
+]
+
+PIPELINE_RUN_COLUMNS = [
+    ("pipeline_run_id", "Pipeline Run ID"),
+    ("workflow_name", "Workflow Name"),
+    ("started_at", "Started At"),
+    ("finished_at", "Finished At"),
+    ("input_object_ids", "Input Object IDs"),
+    ("output_object_ids", "Output Object IDs"),
+    ("quality_check_ids", "Quality Check IDs"),
+    ("status", "Status"),
+    ("notes", "Notes"),
+]
+
+ACTION_EVENT_COLUMNS = [
+    ("action_event_id", "Action Event ID"),
+    ("action_type", "Action Type"),
+    ("actor", "Actor"),
+    ("target_object_id", "Target Object ID"),
+    ("before_state", "Before State"),
+    ("after_state", "After State"),
+    ("validation_results", "Validation Results"),
+    ("source_evidence_ids", "Source Evidence IDs"),
+    ("created_at", "Created At"),
+    ("notes", "Notes"),
+]
+
+STUDENT_EVIDENCE_COLUMNS = [
+    ("student_evidence_id", "Student Evidence ID"),
+    ("applicant_id", "Applicant ID"),
+    ("evidence_type", "Evidence Type"),
+    ("description", "Description"),
+    ("document_id", "Document ID"),
+    ("verification_status", "Verification Status"),
+    ("notes", "Notes"),
+]
+
+PROGRAM_FIT_FACT_COLUMNS = [
+    ("program_fit_fact_id", "Program Fit Fact ID"),
+    ("program_id", "Program ID"),
+    ("fact_type", "Fact Type"),
+    ("fact_text", "Fact Text"),
+    ("source_evidence_id", "Source Evidence ID"),
+    ("verification_status", "Verification Status"),
+    ("notes", "Notes"),
+]
+
+ESSAY_CLAIM_COLUMNS = [
+    ("essay_claim_id", "Essay Claim ID"),
+    ("application_case_id", "Application Case ID"),
+    ("claim_type", "Claim Type"),
+    ("claim_text", "Claim Text"),
+    ("student_evidence_ids", "Student Evidence IDs"),
+    ("program_fit_fact_ids", "Program Fit Fact IDs"),
+    ("status", "Status"),
+    ("notes", "Notes"),
+]
+
 
 def as_text(value: Any) -> str:
     if value is None:
@@ -431,6 +549,241 @@ def first_nonempty_rows(*values: Any) -> list[dict[str, Any]]:
         if rows:
             return rows
     return []
+
+
+def index_by(rows: list[dict[str, Any]], key: str) -> dict[str, dict[str, Any]]:
+    return {str(row[key]): row for row in rows if row.get(key)}
+
+
+def first_source(
+    source_ids: Any,
+    sources_by_id: dict[str, dict[str, Any]],
+) -> dict[str, Any]:
+    if isinstance(source_ids, str):
+        return sources_by_id.get(source_ids, {})
+    if isinstance(source_ids, list):
+        for source_id in source_ids:
+            source = sources_by_id.get(str(source_id), {})
+            if source:
+                return source
+    return {}
+
+
+def source_text(source: dict[str, Any]) -> str:
+    return as_text(source.get("url") or source.get("title") or source.get("source_evidence_id"))
+
+
+def checked_text(source: dict[str, Any]) -> str:
+    return as_text(source.get("checked_at") or source.get("checked_date"))
+
+
+def derive_school_shortlist(ontology: dict[str, Any]) -> list[dict[str, Any]]:
+    institutions = index_by(ontology_rows(ontology, "institutions"), "institution_id")
+    programs = index_by(ontology_rows(ontology, "programs"), "program_id")
+    sources = index_by(ontology_rows(ontology, "source_evidence"), "source_evidence_id")
+    rows_out: list[dict[str, Any]] = []
+    for case in ontology_rows(ontology, "application_cases"):
+        program = programs.get(str(case.get("program_id", "")), {})
+        institution_id = as_text(case.get("institution_id") or program.get("institution_id"))
+        institution = institutions.get(institution_id, {})
+        source = first_source(
+            case.get("source_evidence_ids") or program.get("source_evidence_ids") or institution.get("source_evidence_ids"),
+            sources,
+        )
+        rows_out.append(
+            {
+                "application_case_id": case.get("application_case_id"),
+                "institution_id": institution_id,
+                "source_evidence_ids": case.get("source_evidence_ids") or program.get("source_evidence_ids") or institution.get("source_evidence_ids"),
+                "country": institution.get("country"),
+                "region": institution.get("country"),
+                "school": case.get("school") or institution.get("name_official"),
+                "city": institution.get("city"),
+                "campus": program.get("campus"),
+                "degree_level": program.get("degree_level"),
+                "fit_category": case.get("fit_category"),
+                "academic_fit": case.get("academic_fit"),
+                "budget_fit": case.get("budget_fit"),
+                "location_fit": case.get("location_fit"),
+                "career_research_fit": case.get("career_research_fit"),
+                "visa_work_notes": case.get("visa_work_fit"),
+                "rationale": case.get("risk_summary"),
+                "official_source": source_text(source),
+                "check_date": checked_text(source),
+                "notes": case.get("notes"),
+            }
+        )
+    return rows_out
+
+
+def matching_requirement_texts(requirements: list[dict[str, Any]], program_id: str, categories: set[str]) -> str:
+    return as_text(
+        [
+            rule.get("requirement_text")
+            for rule in requirements
+            if str(rule.get("program_id", "")) == program_id and rule.get("rule_category") in categories
+        ]
+    )
+
+
+def derive_program_comparison(ontology: dict[str, Any]) -> list[dict[str, Any]]:
+    institutions = index_by(ontology_rows(ontology, "institutions"), "institution_id")
+    cases_by_program: dict[str, dict[str, Any]] = {}
+    for case in ontology_rows(ontology, "application_cases"):
+        if case.get("program_id"):
+            cases_by_program[str(case["program_id"])] = case
+    sources = index_by(ontology_rows(ontology, "source_evidence"), "source_evidence_id")
+    requirements = ontology_rows(ontology, "requirement_rules")
+    rows_out: list[dict[str, Any]] = []
+    for program in ontology_rows(ontology, "programs"):
+        program_id = str(program.get("program_id", ""))
+        institution = institutions.get(str(program.get("institution_id", "")), {})
+        case = cases_by_program.get(program_id, {})
+        source = first_source(program.get("source_evidence_ids") or institution.get("source_evidence_ids"), sources)
+        rows_out.append(
+            {
+                "program_id": program.get("program_id"),
+                "institution_id": program.get("institution_id"),
+                "application_case_id": case.get("application_case_id"),
+                "source_evidence_ids": program.get("source_evidence_ids") or institution.get("source_evidence_ids"),
+                "region": institution.get("country"),
+                "country": institution.get("country"),
+                "school": institution.get("name_official"),
+                "program": program.get("official_name"),
+                "award": program.get("award"),
+                "program_type": program.get("degree_level"),
+                "direction_group": program.get("subject_area"),
+                "application_status": case.get("status"),
+                "fit_risk": case.get("risk_summary"),
+                "coursework_training": program.get("coursework_training") or program.get("notes"),
+                "entry_requirements": matching_requirement_texts(requirements, program_id, {"academic", "document", "credential_evaluation"}),
+                "language_requirements": matching_requirement_texts(requirements, program_id, {"language"}),
+                "duration_mode": as_text([program.get("duration"), program.get("mode")]),
+                "application_time_status": case.get("timing_fit"),
+                "fees_funding": program.get("tuition_fee"),
+                "applicant_judgement": case.get("academic_fit"),
+                "application_system": case.get("route") or program.get("application_route"),
+                "official_source": source_text(source),
+                "check_date": checked_text(source),
+                "notes": program.get("notes"),
+            }
+        )
+    return rows_out
+
+
+def derive_requirements_matrix(ontology: dict[str, Any]) -> list[dict[str, Any]]:
+    institutions = index_by(ontology_rows(ontology, "institutions"), "institution_id")
+    programs = index_by(ontology_rows(ontology, "programs"), "program_id")
+    cases = index_by(ontology_rows(ontology, "application_cases"), "application_case_id")
+    sources = index_by(ontology_rows(ontology, "source_evidence"), "source_evidence_id")
+    rows_out: list[dict[str, Any]] = []
+    for rule in ontology_rows(ontology, "requirement_rules"):
+        program = programs.get(str(rule.get("program_id", "")), {})
+        case = cases.get(str(rule.get("application_case_id", "")), {})
+        institution = institutions.get(str(case.get("institution_id") or program.get("institution_id") or ""), {})
+        source = first_source(rule.get("source_evidence_id"), sources)
+        text = rule.get("requirement_text")
+        row = {
+            "requirement_rule_id": rule.get("requirement_rule_id"),
+            "application_case_id": rule.get("application_case_id"),
+            "source_evidence_id": rule.get("source_evidence_id"),
+            "program_id": rule.get("program_id"),
+            "school": case.get("school") or institution.get("name_official"),
+            "program": case.get("program") or program.get("official_name"),
+            "deadline": text if rule.get("rule_category") == "deadline" else "",
+            "application_system": text if rule.get("rule_category") == "application_route" else case.get("route") or program.get("application_route"),
+            "source": source_text(source),
+            "check_date": checked_text(source),
+            "notes": rule.get("notes") or rule.get("verification_status"),
+        }
+        document_type = as_text(rule.get("required_document_type")).lower()
+        category = as_text(rule.get("rule_category")).lower()
+        if "transcript" in document_type:
+            row["transcript"] = text
+        elif "degree" in document_type or "enrollment" in document_type:
+            row["degree_certificate"] = text
+        elif "reference" in document_type or "recommendation" in document_type:
+            row["references"] = text
+        elif document_type in {"cv", "resume"}:
+            row["cv_resume"] = text
+        elif "sop" in document_type or "essay" in document_type:
+            row["essay_sop"] = text
+        elif "portfolio" in document_type:
+            row["portfolio"] = text
+        elif "test" in document_type:
+            row["test_scores"] = text
+        elif category == "language":
+            row["language_test"] = rule.get("required_document_type")
+            row["language_minimum"] = text
+        elif category in {"academic", "credential_evaluation"}:
+            row["gpa_requirement"] = text
+        elif category == "fee":
+            row["application_fee"] = text
+        else:
+            row["notes"] = as_text([row.get("notes"), text])
+        rows_out.append(row)
+    return rows_out
+
+
+def derive_essay_plan(ontology: dict[str, Any]) -> list[dict[str, Any]]:
+    cases = index_by(ontology_rows(ontology, "application_cases"), "application_case_id")
+    programs = index_by(ontology_rows(ontology, "programs"), "program_id")
+    institutions = index_by(ontology_rows(ontology, "institutions"), "institution_id")
+    evidence = index_by(ontology_rows(ontology, "student_evidence"), "student_evidence_id")
+    fit_facts = index_by(ontology_rows(ontology, "program_fit_facts"), "program_fit_fact_id")
+    sources = index_by(ontology_rows(ontology, "source_evidence"), "source_evidence_id")
+    rows_out: list[dict[str, Any]] = []
+    for claim in ontology_rows(ontology, "essay_claims"):
+        case = cases.get(str(claim.get("application_case_id", "")), {})
+        program = programs.get(str(case.get("program_id", "")), {})
+        institution = institutions.get(str(case.get("institution_id") or program.get("institution_id") or ""), {})
+        linked_evidence = [evidence.get(str(item), {}) for item in claim.get("student_evidence_ids", []) if evidence.get(str(item))]
+        linked_fits = [fit_facts.get(str(item), {}) for item in claim.get("program_fit_fact_ids", []) if fit_facts.get(str(item))]
+        first_fit_source = first_source([fit.get("source_evidence_id") for fit in linked_fits], sources)
+        rows_out.append(
+            {
+                "school": case.get("school") or institution.get("name_official"),
+                "program": case.get("program") or program.get("official_name"),
+                "essay_type": claim.get("claim_type"),
+                "evidence_needed": [item.get("description") for item in linked_evidence],
+                "program_specific_angle": [item.get("fact_text") for item in linked_fits],
+                "academic_depth_notes": claim.get("claim_text"),
+                "status": claim.get("status"),
+                "source": source_text(first_fit_source),
+                "notes": claim.get("notes"),
+            }
+        )
+    return rows_out
+
+
+def derive_submission_checklist(ontology: dict[str, Any]) -> list[dict[str, Any]]:
+    cases = index_by(ontology_rows(ontology, "application_cases"), "application_case_id")
+    programs = index_by(ontology_rows(ontology, "programs"), "program_id")
+    institutions = index_by(ontology_rows(ontology, "institutions"), "institution_id")
+    sources = index_by(ontology_rows(ontology, "source_evidence"), "source_evidence_id")
+    rows_out: list[dict[str, Any]] = []
+    for task in ontology_rows(ontology, "tasks"):
+        case = cases.get(str(task.get("application_case_id", "")), {})
+        program = programs.get(str(case.get("program_id", "")), {})
+        institution = institutions.get(str(case.get("institution_id") or program.get("institution_id") or ""), {})
+        source = first_source(task.get("source_evidence_id"), sources)
+        rows_out.append(
+            {
+                "task_id": task.get("task_id"),
+                "application_case_id": task.get("application_case_id"),
+                "blocking_requirement_ids": task.get("blocking_requirement_ids"),
+                "school": case.get("school") or institution.get("name_official"),
+                "program": case.get("program") or program.get("official_name"),
+                "system": case.get("route") or program.get("application_route"),
+                "task": task.get("task_type"),
+                "owner": task.get("owner"),
+                "deadline": task.get("due_at"),
+                "status": task.get("status"),
+                "source": source_text(source),
+                "notes": task.get("notes"),
+            }
+        )
+    return rows_out
 
 
 def profile_table(profile: dict[str, Any], title: str, note: str) -> list[list[str]]:
@@ -647,9 +1000,13 @@ def build_sheets(data: dict[str, Any]) -> list[tuple[str, list[list[str]]]]:
     if not profile and applicants:
         profile = applicants[0]
 
-    programs = first_nonempty_rows(data.get("programs"), ontology.get("programs"))
-    sources = row_list(data.get("sources")) + ontology_rows(ontology, "source_evidence")
-    submission_tasks = first_nonempty_rows(data.get("submission_tasks"), ontology.get("tasks"))
+    school_shortlist_rows = derive_school_shortlist(ontology) or row_list(data.get("school_shortlist"))
+    program_view_rows = derive_program_comparison(ontology) or row_list(data.get("programs"))
+    requirements_view_rows = derive_requirements_matrix(ontology) or row_list(data.get("requirements"))
+    essay_view_rows = derive_essay_plan(ontology) or row_list(data.get("essay_plan"))
+    submission_view_rows = derive_submission_checklist(ontology) or row_list(data.get("submission_tasks"))
+    source_evidence = ontology_rows(ontology, "source_evidence")
+    sources = row_list(data.get("sources")) + source_evidence
 
     sheets: list[tuple[str, list[list[str]]]] = []
     sheets.append(("Profile", profile_table(profile, title, note)))
@@ -688,16 +1045,48 @@ def build_sheets(data: dict[str, Any]) -> list[tuple[str, list[list[str]]]]:
     visa_cases = ontology_rows(ontology, "visa_immigration_cases")
     if visa_cases:
         sheets.append(("Visa Cases", make_table("Visa Cases", note, VISA_COLUMNS, visa_cases)))
+    if source_evidence:
+        sheets.append(("Source Evidence", make_table("Source Evidence", note, SOURCE_COLUMNS, source_evidence)))
+    source_snapshots = ontology_rows(ontology, "source_snapshots")
+    if source_snapshots:
+        sheets.append(("Source Snapshots", make_table("Source Snapshots", note, SOURCE_SNAPSHOT_COLUMNS, source_snapshots)))
+    extracted_facts = ontology_rows(ontology, "extracted_facts")
+    if extracted_facts:
+        sheets.append(("Extracted Facts", make_table("Extracted Facts", note, EXTRACTED_FACT_COLUMNS, extracted_facts)))
+    fact_versions = ontology_rows(ontology, "fact_versions")
+    if fact_versions:
+        sheets.append(("Fact Versions", make_table("Fact Versions", note, FACT_VERSION_COLUMNS, fact_versions)))
+    lineage_edges = ontology_rows(ontology, "lineage_edges")
+    if lineage_edges:
+        sheets.append(("Lineage Edges", make_table("Lineage Edges", note, LINEAGE_EDGE_COLUMNS, lineage_edges)))
+    quality_checks = ontology_rows(ontology, "quality_checks")
+    if quality_checks:
+        sheets.append(("Quality Checks", make_table("Quality Checks", note, QUALITY_CHECK_COLUMNS, quality_checks)))
+    pipeline_runs = ontology_rows(ontology, "pipeline_runs")
+    if pipeline_runs:
+        sheets.append(("Pipeline Runs", make_table("Pipeline Runs", note, PIPELINE_RUN_COLUMNS, pipeline_runs)))
+    action_events = ontology_rows(ontology, "action_events")
+    if action_events:
+        sheets.append(("Action Events", make_table("Action Events", note, ACTION_EVENT_COLUMNS, action_events)))
+    student_evidence = ontology_rows(ontology, "student_evidence")
+    if student_evidence:
+        sheets.append(("Student Evidence", make_table("Student Evidence", note, STUDENT_EVIDENCE_COLUMNS, student_evidence)))
+    program_fit_facts = ontology_rows(ontology, "program_fit_facts")
+    if program_fit_facts:
+        sheets.append(("Program Fit Facts", make_table("Program Fit Facts", note, PROGRAM_FIT_FACT_COLUMNS, program_fit_facts)))
+    essay_claims = ontology_rows(ontology, "essay_claims")
+    if essay_claims:
+        sheets.append(("Essay Claims", make_table("Essay Claims", note, ESSAY_CLAIM_COLUMNS, essay_claims)))
 
-    sheets.append(("School Shortlist", make_table("School Shortlist", note, SCHOOL_COLUMNS, row_list(data.get("school_shortlist")))))
-    sheets.append(("Program Comparison", make_table("Program Comparison", note, PROGRAM_COLUMNS, programs)))
-    sheets.append(("Requirements Matrix", make_table("Requirements Matrix", note, REQUIREMENT_COLUMNS, row_list(data.get("requirements")))))
-    sheets.append(("Essay Plan", make_table("Essay Plan", note, ESSAY_COLUMNS, row_list(data.get("essay_plan")))))
-    sheets.append(("Submission Checklist", make_table("Submission Checklist", note, SUBMISSION_COLUMNS, submission_tasks)))
+    sheets.append(("School Shortlist", make_table("School Shortlist", note, SCHOOL_COLUMNS, school_shortlist_rows)))
+    sheets.append(("Program Comparison", make_table("Program Comparison", note, PROGRAM_COLUMNS, program_view_rows)))
+    sheets.append(("Requirements Matrix", make_table("Requirements Matrix", note, REQUIREMENT_COLUMNS, requirements_view_rows)))
+    sheets.append(("Essay Plan", make_table("Essay Plan", note, ESSAY_COLUMNS, essay_view_rows)))
+    sheets.append(("Submission Checklist", make_table("Submission Checklist", note, SUBMISSION_COLUMNS, submission_view_rows)))
     sheets.append(("Source Log", make_table("Source Log", note, SOURCE_COLUMNS, sources)))
 
     grouped: dict[str, list[dict[str, Any]]] = {}
-    for program in programs:
+    for program in program_view_rows:
         if not isinstance(program, dict):
             continue
         key = as_text(program.get("region")) or as_text(program.get("country")) or "Programs"
@@ -732,13 +1121,35 @@ def load_json(path: Path) -> dict[str, Any]:
     return data
 
 
+def validate_before_render(data: dict[str, Any]) -> None:
+    ontology = data.get("ontology") if isinstance(data.get("ontology"), dict) else {}
+    if not ontology:
+        return
+    report: list[dict[str, Any]] = []
+    indexes = build_indexes(ontology, report)
+    check_refs(ontology, indexes, report)
+    check_lineage_refs(ontology, indexes, report)
+    check_quality(ontology, indexes, report)
+    result = summarize(report)
+    if result["status"] == "failed":
+        print(json.dumps(result, indent=2, sort_keys=True), file=sys.stderr)
+        raise SystemExit("Ontology validation failed; workbook was not rendered.")
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Build a study-abroad admissions workbook from JSON.")
     parser.add_argument("input_json", type=Path, help="Path to structured admissions JSON.")
     parser.add_argument("output_xlsx", type=Path, help="Path for the generated .xlsx workbook.")
+    parser.add_argument(
+        "--skip-validation",
+        action="store_true",
+        help="Render a draft workbook without ontology quality gates. Do not use for final or verified outputs.",
+    )
     args = parser.parse_args(argv)
 
     data = load_json(args.input_json)
+    if not args.skip_validation:
+        validate_before_render(data)
     sheets = build_sheets(data)
     write_xlsx(sheets, args.output_xlsx)
     print(f"Wrote {args.output_xlsx}")

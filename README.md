@@ -33,9 +33,12 @@ The workbook is not the source of truth. It is a view over ontology objects.
 
 ```mermaid
 flowchart LR
-    Sources["Official Sources"] --> Evidence["SourceEvidence"]
-    Evidence --> Objects["Ontology Objects"]
-    Objects --> Actions["Controlled Actions"]
+    Sources["Official Sources"] --> Snapshots["SourceSnapshot"]
+    Snapshots --> Facts["ExtractedFact"]
+    Facts --> Evidence["SourceEvidence"]
+    Evidence --> Objects["Verified Ontology Objects"]
+    Objects --> Checks["Quality Checks"]
+    Checks --> Actions["Controlled Actions"]
     Actions --> Gates["Workflow Gates"]
     Gates --> Views["Workbook / Dashboard / Checklist Views"]
 ```
@@ -54,6 +57,32 @@ Minimum object set:
 - `RiskFlag`
 
 Additional objects such as `Deadline`, `OfferDecision`, and `VisaImmigrationCase` are used when the case reaches deadlines, offers, deposits, post-offer documents, visa, residence permit, or pre-arrival planning.
+
+Data-processing and governance objects are used when sources are researched or final outputs are rendered:
+
+- `SourceSnapshot`
+- `ExtractedFact`
+- `FactVersion`
+- `LineageEdge`
+- `QualityCheck`
+- `PipelineRun`
+- `ActionEvent`
+- `StudentEvidence`
+- `ProgramFitFact`
+- `EssayClaim`
+
+## Data Lifecycle
+
+The Skill follows a layered admissions data workflow:
+
+| Layer | Objects | Purpose |
+| --- | --- | --- |
+| Bronze | `SourceSnapshot` | Preserve raw official source snapshots, retrieval time, URL, status, and hash. |
+| Silver | `ExtractedFact` | Store candidate facts extracted from snapshots without treating them as verified. |
+| Gold | `RequirementRule`, `Deadline`, `ProgramFitFact`, `RiskFlag`, `Task` | Use only source-backed facts for decisions, risk, checklists, and essay planning. |
+| Platinum | Workbook views, shortlist, essay plan, submission checklist | Render user-facing outputs from verified ontology objects. |
+
+Final recommendations must not come directly from raw web pages or extracted candidate facts. They must pass through quality checks and preserve lineage.
 
 ## Why Ontology Matters
 
@@ -97,18 +126,53 @@ Every material fact must link to `SourceEvidence`:
 
 If official evidence is missing, the Skill marks the fact as `needs_official_check`.
 
+## Quality And Lineage
+
+The repository includes a dependency-free validator:
+
+```bash
+python study-abroad-advisor/scripts/validate_ontology.py study-abroad-advisor/tests/fixtures/ontology_mvp.json
+```
+
+Core checks include:
+
+- no verified requirement without source evidence
+- no deadline with due time but missing timezone
+- no submitted case with open blockers
+- no verified program-fit fact without source evidence
+- no approved essay claim without student evidence and program-fit evidence
+- stale source warnings
+
+Every final output should be traceable through `LineageEdge`, for example:
+
+```text
+SourceSnapshot -> ExtractedFact -> RequirementRule -> ApplicationCase -> WorkbookCell
+StudentEvidence + ProgramFitFact -> EssayClaim -> SOPParagraph
+```
+
 ## Main Skill Resources
 
 - [`SKILL.md`](study-abroad-advisor/SKILL.md): entrypoint and operating rules.
 - [`references/intake.md`](study-abroad-advisor/references/intake.md): adaptive intake and brainstorming workflow.
 - [`references/research.md`](study-abroad-advisor/references/research.md): source hierarchy and research rules.
 - [`references/ontology.md`](study-abroad-advisor/references/ontology.md): ontology operating model.
+- [`references/data-lifecycle.md`](study-abroad-advisor/references/data-lifecycle.md): Bronze/Silver/Gold/Platinum pipeline.
+- [`references/quality-checks.md`](study-abroad-advisor/references/quality-checks.md): quality gates and failure policy.
+- [`references/lineage.md`](study-abroad-advisor/references/lineage.md): source-to-output traceability.
+- [`references/governance.md`](study-abroad-advisor/references/governance.md): privacy and public/private data separation.
+- [`references/refresh-policy.md`](study-abroad-advisor/references/refresh-policy.md): source staleness and fact-diff policy.
+- [`references/release-process.md`](study-abroad-advisor/references/release-process.md): controlled release process for rule bundles.
 - [`references/ontology/object_types.yaml`](study-abroad-advisor/references/ontology/object_types.yaml): object schemas.
 - [`references/ontology/action_types.yaml`](study-abroad-advisor/references/ontology/action_types.yaml): controlled actions.
 - [`references/ontology/workflow_gates.yaml`](study-abroad-advisor/references/ontology/workflow_gates.yaml): state transition gates.
 - [`references/ontology/rule_bundles.yaml`](study-abroad-advisor/references/ontology/rule_bundles.yaml): country-route rule bundle templates.
+- [`references/ontology/quality_checks.yaml`](study-abroad-advisor/references/ontology/quality_checks.yaml): machine-readable validation checks.
+- [`references/ontology/lineage_rules.yaml`](study-abroad-advisor/references/ontology/lineage_rules.yaml): required lineage paths.
+- [`references/ontology/access_policies.yaml`](study-abroad-advisor/references/ontology/access_policies.yaml): data access and redaction policy.
+- [`references/ontology/view_definitions.yaml`](study-abroad-advisor/references/ontology/view_definitions.yaml): declarative view dependencies and freshness rules.
 - [`references/workbook-schema.md`](study-abroad-advisor/references/workbook-schema.md): JSON contract for workbook views.
 - [`scripts/build_admissions_workbook.py`](study-abroad-advisor/scripts/build_admissions_workbook.py): dependency-free XLSX builder.
+- [`scripts/validate_ontology.py`](study-abroad-advisor/scripts/validate_ontology.py): dependency-free ontology validator.
 
 ## Workbook Builder
 
@@ -117,6 +181,8 @@ The builder accepts ontology-first JSON and legacy array-based JSON.
 ```bash
 python study-abroad-advisor/scripts/build_admissions_workbook.py input.json output.xlsx
 ```
+
+When ontology data is present, the builder validates quality gates before rendering. `--skip-validation` exists only for draft output and must not be used for verified recommendations.
 
 When ontology data is present, the workbook renders object-state views such as:
 
@@ -133,6 +199,16 @@ When ontology data is present, the workbook renders object-state views such as:
 - offer decisions
 - visa cases
 - source evidence
+- source snapshots
+- extracted facts
+- fact versions
+- lineage edges
+- quality checks
+- pipeline runs
+- action events
+- student evidence
+- program fit facts
+- essay claims
 
 Legacy views such as school shortlist, program comparison, requirements matrix, essay plan, submission checklist, source log, and regional program sheets remain supported.
 

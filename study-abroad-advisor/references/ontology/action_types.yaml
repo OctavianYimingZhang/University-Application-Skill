@@ -9,6 +9,7 @@ action_types:
       - create or update ApplicationCase.route
       - create route-specific Task objects
       - attach candidate RequirementRule objects
+      - create ActionEvent with before_state, after_state, validations, and source evidence
     validations:
       - must_have_source_evidence_for_route
     blocked_output:
@@ -26,6 +27,8 @@ action_types:
       - set valid_from, stale_after_days, and verification status
       - create RequirementRule
       - link Program to RequirementRule
+      - create LineageEdge from SourceEvidence or ExtractedFact to RequirementRule
+      - create ActionEvent for the verified or blocked update
     validations:
       - source_type must be official, government, application_system, test_provider, ranking_provider, peer_reviewed, or textbook as appropriate
       - unverified sources cannot produce verified requirements
@@ -38,6 +41,7 @@ action_types:
       - map required document types to DocumentArtifact objects
       - create missing DocumentArtifact placeholders
       - create request_document Task objects
+      - create ActionEvent for generated checklist objects
     validations:
       - cannot include unverified requirement as final
 
@@ -48,6 +52,7 @@ action_types:
     logic:
       - confirm document identity, language, expiry, version, and linked requirement
       - set DocumentArtifact.status to verified
+      - create ActionEvent for document state transition
     validations:
       - required translations and legalisation must be resolved
 
@@ -60,6 +65,7 @@ action_types:
       - run submission readiness gate
       - set ApplicationCase.status to submitted
       - create monitoring Task objects
+      - create ActionEvent for submission state transition
     validations:
       - all mandatory requirements verified
       - all required documents uploaded or submitted
@@ -75,6 +81,7 @@ action_types:
       - create VisaImmigrationCase
       - attach destination-country rule bundle candidates
       - create visa document and appointment tasks
+      - create ActionEvent for visa workflow creation
     validations:
       - offer or post-offer document route must be official or needs_official_check
 
@@ -83,6 +90,19 @@ action_types:
       source_evidence_id: ref[SourceEvidence]
     logic:
       - re-open official source
-      - compare facts_supported against current page
-      - update checked_at, stale_after_days, and verification status
+      - create SourceSnapshot with content hash and retrieval metadata
+      - compare ExtractedFact values against prior snapshots
+      - create FactVersion records for new, changed, removed, or unchanged facts
+      - update checked_at, stale_after_days, and verification status only after review
       - create conflict RiskFlag if source changed or contradicts another source
+      - create ActionEvent for refresh outcome
+
+  ValidateOntology:
+    inputs:
+      ontology_json_path: string
+    logic:
+      - run scripts/validate_ontology.py
+      - emit JSON report
+      - create PipelineRun and QualityCheck objects when structured output is being persisted
+    validations:
+      - blocker or error findings prevent verified output

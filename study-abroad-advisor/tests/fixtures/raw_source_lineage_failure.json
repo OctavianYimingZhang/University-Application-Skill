@@ -1,0 +1,74 @@
+{
+  "workbook_title": "Raw Source Lineage Failure Fixture",
+  "generated_on": "2026-05-23",
+  "ontology": {
+    "applicants": [
+      {
+        "applicant_id": "app_lineage_001",
+        "citizenship_countries": ["China"],
+        "residence_country": "China",
+        "education_country": "China",
+        "passport_country": "China",
+        "target_degree_level": "taught_master",
+        "target_intake": "2027",
+        "target_countries": ["United Kingdom"]
+      }
+    ],
+    "institutions": [
+      {
+        "institution_id": "inst_lineage_001",
+        "name_official": "Lineage Fixture University",
+        "country": "United Kingdom",
+        "source_evidence_ids": ["src_lineage_001"]
+      }
+    ],
+    "programs": [
+      {
+        "program_id": "prog_lineage_001",
+        "institution_id": "inst_lineage_001",
+        "official_name": "MSc Lineage Fixture",
+        "degree_level": "taught_master",
+        "verification_status": "verified",
+        "source_evidence_ids": ["src_lineage_001"]
+      }
+    ],
+    "application_cases": [
+      {
+        "application_case_id": "case_lineage_001",
+        "applicant_id": "app_lineage_001",
+        "program_id": "prog_lineage_001",
+        "institution_id": "inst_lineage_001",
+        "status": "researching"
+      }
+    ],
+    "source_evidence": [
+      {
+        "source_evidence_id": "src_lineage_001",
+        "source_type": "official_program_page",
+        "title": "Lineage fixture source",
+        "publisher": "Lineage Fixture University",
+        "url": "https://example.edu/lineage",
+        "facts_supported": ["Entry requirement"],
+        "checked_at": "2026-05-23",
+        "retrieved_at": "2026-05-23T00:00:00Z",
+        "reliability": "official",
+        "stale_after_days": 3650,
+        "verification_status": "verified"
+      }
+    ],
+    "requirement_rules": [
+      {
+        "requirement_rule_id": "req_lineage_001",
+        "application_case_id": "case_lineage_001",
+        "program_id": "prog_lineage_001",
+        "jurisdiction": "United Kingdom",
+        "rule_category": "academic",
+        "requirement_text": "This verified requirement intentionally skips SourceSnapshot and ExtractedFact lineage.",
+        "source_evidence_id": "src_lineage_001",
+        "checked_at": "2026-05-23",
+        "stale_after_days": 3650,
+        "verification_status": "verified"
+      }
+    ]
+  }
+}

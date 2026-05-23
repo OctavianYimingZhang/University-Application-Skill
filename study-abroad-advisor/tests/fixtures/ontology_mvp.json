@@ -122,6 +122,131 @@
         "verification_status": "needs_official_check"
       }
     ],
+    "source_snapshots": [
+      {
+        "source_snapshot_id": "snap_001",
+        "source_evidence_id": "src_001",
+        "url": "https://example.edu/program",
+        "retrieved_at": "2026-05-23T00:00:00Z",
+        "content_hash": "placeholder-fixture-hash",
+        "raw_title": "Official program page placeholder",
+        "raw_excerpt": "Fixture excerpt for validator and workbook tests only.",
+        "http_status": "200",
+        "cycle_hint": "2027",
+        "snapshot_status": "current"
+      }
+    ],
+    "extracted_facts": [
+      {
+        "extracted_fact_id": "fact_001",
+        "source_snapshot_id": "snap_001",
+        "entity_type": "program",
+        "entity_id": "prog_001",
+        "fact_text": "The test fixture program exists only as a placeholder.",
+        "normalized_key": "program.exists",
+        "extraction_confidence": "high",
+        "extraction_method": "manual",
+        "verification_status": "candidate"
+      }
+    ],
+    "fact_versions": [
+      {
+        "fact_version_id": "fv_001",
+        "extracted_fact_id": "fact_001",
+        "previous_value": "",
+        "current_value": "The test fixture program exists only as a placeholder.",
+        "changed_at": "2026-05-23T00:00:00Z",
+        "change_type": "new",
+        "impact_scope": ["case_001"]
+      }
+    ],
+    "lineage_edges": [
+      {
+        "lineage_edge_id": "le_001",
+        "from_object_id": "snap_001",
+        "from_object_type": "SourceSnapshot",
+        "to_object_id": "fact_001",
+        "to_object_type": "ExtractedFact",
+        "transformation": "Manual extraction from fixture source snapshot.",
+        "evidence_required": true
+      },
+      {
+        "lineage_edge_id": "le_002",
+        "from_object_id": "fact_001",
+        "from_object_type": "ExtractedFact",
+        "to_object_id": "req_001",
+        "to_object_type": "RequirementRule",
+        "transformation": "Candidate requirement derived from extracted fact and awaiting official verification.",
+        "evidence_required": true
+      }
+    ],
+    "quality_checks": [
+      {
+        "quality_check_id": "qc_001",
+        "check_name": "no_verified_requirement_without_source",
+        "target_object_type": "RequirementRule",
+        "severity": "blocker",
+        "logic": "Verified RequirementRule must resolve SourceEvidence.",
+        "on_fail": "abort_output",
+        "status": "passed"
+      }
+    ],
+    "pipeline_runs": [
+      {
+        "pipeline_run_id": "run_001",
+        "workflow_name": "fixture_validate_ontology",
+        "started_at": "2026-05-23T00:00:00Z",
+        "finished_at": "2026-05-23T00:00:01Z",
+        "input_object_ids": ["src_001", "snap_001", "fact_001", "req_001"],
+        "output_object_ids": ["qc_001"],
+        "quality_check_ids": ["qc_001"],
+        "status": "success"
+      }
+    ],
+    "action_events": [
+      {
+        "action_event_id": "ae_001",
+        "action_type": "ValidateOntology",
+        "actor": "script",
+        "target_object_id": "case_001",
+        "before_state": {"status": "route_unresolved"},
+        "after_state": {"status": "route_unresolved"},
+        "validation_results": ["qc_001"],
+        "source_evidence_ids": ["src_001"],
+        "created_at": "2026-05-23T00:00:01Z"
+      }
+    ],
+    "student_evidence": [
+      {
+        "student_evidence_id": "se_001",
+        "applicant_id": "app_001",
+        "evidence_type": "course",
+        "description": "Biology coursework evidence must be replaced with a real transcript or course list before essay drafting.",
+        "document_id": "doc_001",
+        "verification_status": "user_stated"
+      }
+    ],
+    "program_fit_facts": [
+      {
+        "program_fit_fact_id": "pff_001",
+        "program_id": "prog_001",
+        "fact_type": "module",
+        "fact_text": "Program module fit is a placeholder and needs the official curriculum page.",
+        "source_evidence_id": "src_001",
+        "verification_status": "needs_official_check"
+      }
+    ],
+    "essay_claims": [
+      {
+        "essay_claim_id": "ec_001",
+        "application_case_id": "case_001",
+        "claim_type": "program_fit",
+        "claim_text": "Draft claim only: the student's biology coursework may connect to the target program after official curriculum verification.",
+        "student_evidence_ids": ["se_001"],
+        "program_fit_fact_ids": ["pff_001"],
+        "status": "candidate"
+      }
+    ],
     "tasks": [
       {
         "task_id": "task_001",

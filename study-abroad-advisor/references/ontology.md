@@ -8,10 +8,13 @@ Treat the application cycle as an object graph:
 
 ```text
 Raw official sources
+-> SourceSnapshot
+-> ExtractedFact
 -> SourceEvidence
 -> Applicant, EducationCredential, Institution, Program, ApplicationCase
--> RequirementRule, DocumentArtifact, Task, RiskFlag, Deadline, OfferDecision, VisaImmigrationCase
--> controlled actions and workflow gates
+-> RequirementRule, ProgramFitFact, StudentEvidence, EssayClaim, DocumentArtifact, Task, RiskFlag, Deadline, OfferDecision, VisaImmigrationCase
+-> FactVersion, LineageEdge, QualityCheck, PipelineRun, ActionEvent
+-> controlled actions, quality checks, and workflow gates
 -> workbook, dashboard, checklist, essay plan, and source-log views
 ```
 
@@ -33,6 +36,19 @@ For an MVP, create at least:
 - `RiskFlag`
 
 Add `Deadline`, `OfferDecision`, and `VisaImmigrationCase` when deadlines, offers, deposits, CAS/I-20/CoE/LOA/PAL/TAL/CAQ/VPD, visa, or residence-permit steps become relevant.
+
+Add data-processing objects when official sources are researched or outputs are rendered:
+
+- `SourceSnapshot`
+- `ExtractedFact`
+- `FactVersion`
+- `LineageEdge`
+- `QualityCheck`
+- `PipelineRun`
+- `ActionEvent`
+- `StudentEvidence`
+- `ProgramFitFact`
+- `EssayClaim`
 
 ## Required Separation
 
@@ -88,6 +104,41 @@ Every material fact must link to `SourceEvidence`:
 
 If evidence is missing, set `verification_status: needs_official_check`.
 
+## Data Lifecycle
+
+Use four layers:
+
+- Bronze: raw official page, portal, visa, ranking, or test-provider snapshots as `SourceSnapshot`.
+- Silver: candidate facts extracted from snapshots as `ExtractedFact`.
+- Gold: verified facts used for decisions as `RequirementRule`, `Deadline`, `ProgramFitFact`, `RiskFlag`, and `Task`.
+- Platinum: user-facing views such as workbook, shortlist, essay plan, and checklist.
+
+No final recommendation may be produced from Bronze or Silver objects directly.
+
+## Quality Checks
+
+Before rendering a verified workbook or final recommendation, run checks equivalent to `ontology/quality_checks.yaml`. Blocker failures must prevent verified output and create a task or risk.
+
+Core checks:
+
+- No verified requirement without source evidence.
+- No deadline with due time but missing timezone.
+- No submitted case with open mandatory blockers.
+- No verified program-fit fact without source evidence.
+- No approved essay claim without student evidence and program-fit evidence.
+- No stale source silently treated as verified.
+
+## Lineage
+
+Every final output should be traceable:
+
+```text
+SourceSnapshot -> ExtractedFact -> RequirementRule -> ApplicationCase -> RiskFlag / Task / Deadline -> WorkbookCell
+SourceEvidence(program module page) -> ProgramFitFact -> EssayClaim -> SOPParagraph
+```
+
+If lineage cannot be established, label the output as `needs_official_check` or `unsupported`.
+
 ## Output Pattern
 
 Prefer object-state output over generic advice:
@@ -118,4 +169,8 @@ This prevents unsupported recommendations because every requirement, task, and r
 - `ontology/rule_bundles.yaml`: country-route rule bundle templates.
 - `ontology/workflow_gates.yaml`: state transition gates.
 - `ontology/views.yaml`: workbook and dashboard views.
+- `ontology/quality_checks.yaml`: check definitions for validator and output gates.
+- `ontology/lineage_rules.yaml`: required traceability paths.
+- `ontology/access_policies.yaml`: privacy, redaction, and public/private sharing rules.
+- `ontology/view_definitions.yaml`: declarative materialized-view definitions.
 - `ontology/ontology.schema.json`: JSON shape for structured ontology data.

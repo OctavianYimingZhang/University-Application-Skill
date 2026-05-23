@@ -152,6 +152,91 @@ object_types:
       stale_after_days: int
       quote_or_excerpt: string
 
+  SourceSnapshot:
+    primary_key: source_snapshot_id
+    properties:
+      source_snapshot_id: string
+      source_evidence_id: ref[SourceEvidence]
+      url: string
+      retrieved_at: datetime
+      content_hash: string
+      raw_title: string
+      raw_excerpt: string
+      http_status: string
+      cycle_hint: string
+      snapshot_status: enum[current, stale, changed, unavailable]
+
+  ExtractedFact:
+    primary_key: extracted_fact_id
+    properties:
+      extracted_fact_id: string
+      source_snapshot_id: ref[SourceSnapshot]
+      entity_type: enum[institution, program, requirement, deadline, fee, visa_rule, ranking, curriculum, essay_prompt, program_fit]
+      entity_id: string
+      fact_text: string
+      normalized_key: string
+      extraction_confidence: enum[high, medium, low]
+      extraction_method: enum[manual, model_assisted, parser]
+      verification_status: enum[unverified, candidate, verified, conflict, stale]
+
+  FactVersion:
+    primary_key: fact_version_id
+    properties:
+      fact_version_id: string
+      extracted_fact_id: ref[ExtractedFact]
+      previous_value: string
+      current_value: string
+      changed_at: datetime
+      change_type: enum[new, changed, removed, unchanged]
+      impact_scope: list[ref[ApplicationCase]]
+
+  LineageEdge:
+    primary_key: lineage_edge_id
+    properties:
+      lineage_edge_id: string
+      from_object_id: string
+      from_object_type: string
+      to_object_id: string
+      to_object_type: string
+      transformation: string
+      evidence_required: boolean
+
+  QualityCheck:
+    primary_key: quality_check_id
+    properties:
+      quality_check_id: string
+      check_name: string
+      target_object_type: string
+      severity: enum[info, warning, error, blocker]
+      logic: string
+      on_fail: enum[warn, create_task, create_risk, block_state_transition, abort_output]
+      status: enum[passed, failed, skipped]
+
+  PipelineRun:
+    primary_key: pipeline_run_id
+    properties:
+      pipeline_run_id: string
+      workflow_name: string
+      started_at: datetime
+      finished_at: datetime
+      input_object_ids: list[string]
+      output_object_ids: list[string]
+      quality_check_ids: list[ref[QualityCheck]]
+      status: enum[success, failed, partial, aborted]
+
+  ActionEvent:
+    primary_key: action_event_id
+    properties:
+      action_event_id: string
+      action_type: string
+      actor: enum[user, assistant, script, system]
+      target_object_id: string
+      before_state: object
+      after_state: object
+      validation_results: list[ref[QualityCheck]]
+      source_evidence_ids: list[ref[SourceEvidence]]
+      created_at: datetime
+
   Task:
     primary_key: task_id
     properties:
@@ -209,3 +294,34 @@ object_types:
       post_offer_document_id: ref[DocumentArtifact]
       required_document_ids: list[ref[DocumentArtifact]]
       source_evidence_ids: list[ref[SourceEvidence]]
+
+  StudentEvidence:
+    primary_key: student_evidence_id
+    properties:
+      student_evidence_id: string
+      applicant_id: ref[Applicant]
+      evidence_type: enum[course, grade, project, internship, research, publication, competition, skill, life_context]
+      description: string
+      document_id: ref[DocumentArtifact]
+      verification_status: enum[user_stated, document_verified, unverified]
+
+  ProgramFitFact:
+    primary_key: program_fit_fact_id
+    properties:
+      program_fit_fact_id: string
+      program_id: ref[Program]
+      fact_type: enum[module, lab, supervisor, capstone, placement, accreditation, research_theme]
+      fact_text: string
+      source_evidence_id: ref[SourceEvidence]
+      verification_status: enum[verified, stale, needs_official_check]
+
+  EssayClaim:
+    primary_key: essay_claim_id
+    properties:
+      essay_claim_id: string
+      application_case_id: ref[ApplicationCase]
+      claim_type: enum[achievement, motivation, research_fit, program_fit, career_goal, context]
+      claim_text: string
+      student_evidence_ids: list[ref[StudentEvidence]]
+      program_fit_fact_ids: list[ref[ProgramFitFact]]
+      status: enum[candidate, approved, unsupported, removed]

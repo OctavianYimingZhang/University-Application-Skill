@@ -1,0 +1,54 @@
+{
+  "workbook_title": "Missing Source Failure Fixture",
+  "generated_on": "2026-05-23",
+  "ontology": {
+    "applicants": [
+      {
+        "applicant_id": "app_fail_001",
+        "citizenship_countries": ["China"],
+        "residence_country": "China",
+        "education_country": "China",
+        "passport_country": "China",
+        "target_degree_level": "taught_master",
+        "target_intake": "2027",
+        "target_countries": ["United Kingdom"]
+      }
+    ],
+    "institutions": [
+      {
+        "institution_id": "inst_fail_001",
+        "name_official": "Failure Fixture University",
+        "country": "United Kingdom"
+      }
+    ],
+    "programs": [
+      {
+        "program_id": "prog_fail_001",
+        "institution_id": "inst_fail_001",
+        "official_name": "MSc Failure Fixture",
+        "degree_level": "taught_master",
+        "verification_status": "needs_official_check"
+      }
+    ],
+    "application_cases": [
+      {
+        "application_case_id": "case_fail_001",
+        "applicant_id": "app_fail_001",
+        "program_id": "prog_fail_001",
+        "institution_id": "inst_fail_001",
+        "status": "researching"
+      }
+    ],
+    "requirement_rules": [
+      {
+        "requirement_rule_id": "req_fail_001",
+        "application_case_id": "case_fail_001",
+        "program_id": "prog_fail_001",
+        "jurisdiction": "United Kingdom",
+        "rule_category": "language",
+        "requirement_text": "This verified requirement intentionally lacks SourceEvidence.",
+        "verification_status": "verified"
+      }
+    ]
+  }
+}

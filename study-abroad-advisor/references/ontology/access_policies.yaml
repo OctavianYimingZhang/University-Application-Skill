@@ -1,0 +1,36 @@
+access_policies:
+  private_applicant_fields:
+    objects:
+      - Applicant
+      - DocumentArtifact
+      - VisaImmigrationCase
+      - StudentEvidence
+    redacted_in_public_outputs:
+      - legal_name_passport
+      - date_of_birth
+      - passport_number
+      - applicant_email
+      - bank_statement
+      - recommender_email
+      - visa_refusal_history
+      - medical_record
+
+  public_program_knowledge:
+    objects:
+      - Institution
+      - Program
+      - RequirementRule
+      - SourceEvidence
+      - SourceSnapshot
+    shareable_when:
+      - no applicant-specific private field
+      - source_type is official or public
+
+  workbook_exports:
+    public_export:
+      redact_private_applicant_fields: true
+      include_source_urls: true
+      include_object_ids: true
+    private_working_copy:
+      redact_private_applicant_fields: false
+      requires_explicit_user_request: true

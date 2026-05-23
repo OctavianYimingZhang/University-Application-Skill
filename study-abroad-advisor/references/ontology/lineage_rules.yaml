@@ -1,0 +1,35 @@
+lineage_rules:
+  requirement_to_view:
+    required_path:
+      - SourceSnapshot
+      - ExtractedFact
+      - RequirementRule
+      - ApplicationCase
+      - WorkbookCell
+    minimum_required_objects:
+      - SourceEvidence
+      - RequirementRule
+
+  essay_claim_to_sop:
+    required_path:
+      - StudentEvidence
+      - ProgramFitFact
+      - EssayClaim
+      - SOPParagraph
+    minimum_required_objects:
+      - StudentEvidence
+      - ProgramFitFact
+      - SourceEvidence
+
+  source_change_to_risk:
+    required_path:
+      - SourceSnapshot
+      - FactVersion
+      - ApplicationCase
+      - RiskFlag
+
+orphan_policy:
+  RequirementRule_without_SourceEvidence: blocker
+  EssayClaim_without_StudentEvidence: error
+  ProgramFitFact_without_SourceEvidence: error
+  RiskFlag_without_case_or_evidence: warning

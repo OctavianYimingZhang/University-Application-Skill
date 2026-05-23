@@ -57,9 +57,22 @@ views:
   SourceLogView:
     source_objects:
       - SourceEvidence
+      - SourceSnapshot
+      - ExtractedFact
+      - FactVersion
     purpose: audit every material fact, checked date, source type, stale-after period, and supported facts
+
+  LineageAuditView:
+    source_objects:
+      - LineageEdge
+      - QualityCheck
+      - PipelineRun
+      - ActionEvent
+    purpose: audit how raw snapshots became verified objects, rendered workbook rows, essay claims, tasks, and risk flags
 
 workbook_policy:
   - Render views from ontology objects.
   - Preserve legacy workbook sheets for compatibility.
   - Never treat a workbook cell as verified unless the backing object has SourceEvidence and verification_status is verified.
+  - Prefer declarative view dependencies and freshness rules from view_definitions.yaml for final outputs.
+  - Preserve LineageEdge references for every final recommendation, checklist item, and essay claim.
