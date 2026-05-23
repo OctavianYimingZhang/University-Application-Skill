@@ -1,0 +1,4 @@
+interface:
+  display_name: "Study Abroad Advisor"
+  short_description: "Plan admissions from school selection to submission"
+  default_prompt: "Use $study-abroad-advisor to plan and manage a study-abroad application cycle from intake to submission."
