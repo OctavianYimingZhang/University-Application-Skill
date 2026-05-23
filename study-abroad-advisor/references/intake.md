@@ -9,7 +9,9 @@ Collect these fields before research:
 - Degree level: undergraduate, taught master's, research master's, PhD, transfer, visiting/exchange, foundation/pre-master's, or other.
 - Target intake year and term.
 - Intended countries or regions, and countries excluded.
+- Citizenship country or countries, residence country, passport country, visa application country if different, and any dual citizenship.
 - Current education country, institution, major, degree status, graduation date, GPA, GPA scale, class rank if available, and grading evidence.
+- Language of instruction, document language, grading scale document availability, and whether translations, notarization, apostille, legalisation, or credential evaluation may be needed.
 - Target field, adjacent fields accepted, and fields excluded.
 - Relevant coursework with grades, research, projects, internships, publications, competitions, certifications, technical skills, languages, and work experience.
 - Budget per year and total budget, including tuition, living cost, application fees, testing, deposit, visa, insurance, and travel.
@@ -19,7 +21,9 @@ Collect these fields before research:
 - Test status: IELTS, TOEFL, PTE, Duolingo, SAT, ACT, AP, IB, A-level, GRE, GMAT, LSAT, MCAT, or other relevant exams.
 - Risk tolerance: ambitious, balanced, conservative, or only high-probability offers.
 - Scholarships or funding requirements.
-- Time constraints: deadlines, current application cycle, document availability, recommender availability, and visa timing.
+- Funding source country, sponsor relationship, bank-statement availability, currency constraints, and whether financial evidence must support visa or residence-permit rules.
+- Time constraints: deadlines, current application cycle, document availability, recommender availability, visa timing, post-offer document timing, and arrival timing.
+- Prior residence history when it may affect TB tests, medical exams, police certificates, local visa-office documents, or residence-permit steps.
 
 ## Question Batches
 
@@ -32,6 +36,7 @@ Batch 1: target shape
 - Field and fields to exclude.
 - Budget.
 - Ranking or prestige constraints.
+- Citizenship, residence, passport, and education country if the student did not already state them.
 
 Batch 2: academic eligibility
 
@@ -40,6 +45,7 @@ Batch 2: academic eligibility
 - Research/projects/internships.
 - Test scores and planned test dates.
 - English-medium study or waiver evidence.
+- Document language, grading evidence, predicted/final status, and credential-evaluation uncertainty.
 
 Batch 3: fit and constraints
 
@@ -56,6 +62,7 @@ Batch 4: execution readiness
 - Deadlines the student must meet.
 - Essay history and strongest evidence.
 - Any red flags: low grades in prerequisite courses, gap years, failed courses, visa history, disciplinary issues, or missing documents.
+- Funding evidence, passport validity, name consistency across documents, and local visa/residence document constraints.
 
 ## Brainstorming Prompts
 
@@ -67,6 +74,9 @@ Use these only when the student is vague:
 - "Would you rather maximize ranking, admission probability, budget safety, job outcome, research fit, or city fit?"
 - "What would make a school unacceptable even if it is highly ranked?"
 - "Which constraint is fixed: country, budget, ranking, field, or deadline?"
+- "Are citizenship, residence, education country, and passport country all the same? If not, list each separately."
+- "Which documents are not in English or the destination country's accepted language?"
+- "Which step is most likely to block submission: GPA evidence, language test, recommender, funding proof, passport, essay, portfolio, or visa document?"
 
 ## Output After Intake
 
@@ -78,5 +88,6 @@ Return a profile summary with:
 - Academic risks.
 - Missing facts.
 - Research plan and source types to verify.
+- Ontology seed objects: `Applicant`, `EducationCredential`, provisional `ApplicationCase` scope, missing `DocumentArtifact` placeholders, and blocking `Task` objects.
 
 Do not recommend schools until the fixed constraints and academic baseline are clear enough to avoid misleading results.

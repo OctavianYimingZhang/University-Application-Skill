@@ -1,0 +1,65 @@
+link_types:
+  - name: applicant_has_credential
+    from: Applicant
+    to: EducationCredential
+    required_for: profile_completeness
+  - name: applicant_has_document
+    from: Applicant
+    to: DocumentArtifact
+    required_for: document_gap_detection
+  - name: applicant_creates_application_case
+    from: Applicant
+    to: ApplicationCase
+    required_for: all_program_applications
+  - name: application_case_targets_program
+    from: ApplicationCase
+    to: Program
+    required_for: program_selection
+  - name: program_belongs_to_institution
+    from: Program
+    to: Institution
+    required_for: route_resolution
+  - name: program_has_requirement
+    from: Program
+    to: RequirementRule
+    required_for: requirement_verification
+  - name: requirement_supported_by_source
+    from: RequirementRule
+    to: SourceEvidence
+    required_for: every_verified_requirement
+  - name: requirement_requires_document
+    from: RequirementRule
+    to: DocumentArtifact
+    required_for: materials_workflow
+  - name: application_case_has_task
+    from: ApplicationCase
+    to: Task
+    required_for: workflow_execution
+  - name: application_case_has_risk
+    from: ApplicationCase
+    to: RiskFlag
+    required_for: risk_classification
+  - name: application_case_has_deadline
+    from: ApplicationCase
+    to: Deadline
+    required_for: deadline_planning
+  - name: application_case_has_offer
+    from: ApplicationCase
+    to: OfferDecision
+    required_for: post_offer_workflow
+  - name: offer_triggers_visa_case
+    from: OfferDecision
+    to: VisaImmigrationCase
+    required_for: visa_workflow
+  - name: visa_case_requires_document
+    from: VisaImmigrationCase
+    to: DocumentArtifact
+    required_for: visa_readiness
+  - name: task_blocked_by_requirement
+    from: Task
+    to: RequirementRule
+    required_for: blocking_task_visibility
+  - name: task_updates_application_case
+    from: Task
+    to: ApplicationCase
+    required_for: auditability

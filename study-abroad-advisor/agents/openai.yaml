@@ -1,4 +1,4 @@
 interface:
   display_name: "Study Abroad Advisor"
-  short_description: "Plan admissions from school selection to submission"
-  default_prompt: "Use $study-abroad-advisor to plan and manage a study-abroad application cycle from intake to submission."
+  short_description: "Run admissions as source-backed ontology objects"
+  default_prompt: "Use $study-abroad-advisor to manage a study-abroad application cycle as source-backed ontology objects from intake to submission."

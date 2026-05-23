@@ -1,0 +1,150 @@
+{
+  "workbook_title": "Ontology MVP Application Plan",
+  "generated_on": "2026-05-23",
+  "ontology": {
+    "applicants": [
+      {
+        "applicant_id": "app_001",
+        "preferred_name": "Test Student",
+        "citizenship_countries": ["China"],
+        "residence_country": "United Kingdom",
+        "education_country": "United Kingdom",
+        "passport_country": "China",
+        "target_degree_level": "taught_master",
+        "target_intake": "2027",
+        "target_countries": ["United Kingdom", "Canada", "Netherlands"],
+        "budget_annual": "Needs exact amount",
+        "risk_tolerance": "balanced",
+        "data_completeness_status": "usable"
+      }
+    ],
+    "education_credentials": [
+      {
+        "credential_id": "cred_001",
+        "applicant_id": "app_001",
+        "country": "United Kingdom",
+        "institution": "Example University",
+        "qualification_type": "BSc",
+        "major": "Biology",
+        "gpa_value": "First-class predicted",
+        "gpa_scale": "UK honours",
+        "language_of_instruction": "English",
+        "status": "predicted"
+      }
+    ],
+    "institutions": [
+      {
+        "institution_id": "inst_001",
+        "name_official": "Example University",
+        "country": "United Kingdom",
+        "city": "Example City",
+        "institution_type": "university",
+        "application_systems": ["university_portal"],
+        "source_evidence_ids": ["src_001"]
+      }
+    ],
+    "programs": [
+      {
+        "program_id": "prog_001",
+        "institution_id": "inst_001",
+        "official_name": "MSc Example Biology",
+        "award": "MSc",
+        "degree_level": "taught_master",
+        "subject_area": "Biology",
+        "campus": "Main campus",
+        "mode": "full_time",
+        "application_route": "university_portal",
+        "verification_status": "needs_official_check",
+        "source_evidence_ids": ["src_001"]
+      }
+    ],
+    "application_cases": [
+      {
+        "application_case_id": "case_001",
+        "applicant_id": "app_001",
+        "program_id": "prog_001",
+        "institution_id": "inst_001",
+        "school": "Example University",
+        "program": "MSc Example Biology",
+        "cycle": "2027",
+        "intake": "September 2027",
+        "route": "university_portal",
+        "status": "route_unresolved",
+        "fit_category": "target",
+        "academic_fit": "Needs prerequisite verification",
+        "budget_fit": "Needs tuition verification",
+        "timing_fit": "Needs deadline verification",
+        "visa_work_fit": "Needs route verification",
+        "risk_summary": "Route and requirements need official checks",
+        "blocking_tasks": ["task_001"]
+      }
+    ],
+    "requirement_rules": [
+      {
+        "requirement_rule_id": "req_001",
+        "application_case_id": "case_001",
+        "program_id": "prog_001",
+        "jurisdiction": "United Kingdom",
+        "rule_category": "language",
+        "requirement_text": "English requirement or waiver must be verified from the official program page.",
+        "required_document_type": "language_score",
+        "source_evidence_id": "src_001",
+        "checked_at": "2026-05-23",
+        "stale_after_days": 30,
+        "verification_status": "needs_official_check"
+      }
+    ],
+    "document_artifacts": [
+      {
+        "document_id": "doc_001",
+        "applicant_id": "app_001",
+        "application_case_id": "case_001",
+        "document_type": "language_score",
+        "language": "English",
+        "translation_required": false,
+        "legalisation_required": false,
+        "status": "missing",
+        "linked_requirement_ids": ["req_001"]
+      }
+    ],
+    "source_evidence": [
+      {
+        "source_evidence_id": "src_001",
+        "source_type": "official_program_page",
+        "title": "Official program page placeholder",
+        "publisher": "Example University",
+        "url": "https://example.edu/program",
+        "facts_supported": ["Program exists in test fixture only"],
+        "checked_at": "2026-05-23",
+        "retrieved_at": "2026-05-23T00:00:00Z",
+        "reliability": "official",
+        "stale_after_days": 30,
+        "verification_status": "needs_official_check"
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "application_case_id": "case_001",
+        "task_type": "verify_source",
+        "owner": "advisor",
+        "status": "not_started",
+        "blocking_requirement_ids": ["req_001"],
+        "evidence_required": true,
+        "source_evidence_id": "src_001",
+        "notes": "Replace placeholder source with official live source before advising."
+      }
+    ],
+    "risk_flags": [
+      {
+        "risk_id": "risk_001",
+        "application_case_id": "case_001",
+        "category": "source_conflict",
+        "severity": "blocker",
+        "rationale": "Fixture uses placeholder source; live official source required.",
+        "evidence_id": "src_001",
+        "status": "open"
+      }
+    ]
+  }
+}

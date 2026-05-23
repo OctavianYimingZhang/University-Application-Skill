@@ -19,9 +19,18 @@ from xml.sax.saxutils import escape
 
 
 PROFILE_KEYS = [
+    "applicant_id",
     "student_name",
     "degree_level",
     "target_intake",
+    "citizenship_countries",
+    "residence_country",
+    "education_country",
+    "passport_country",
+    "visa_application_country",
+    "document_language",
+    "funding_source_country",
+    "prior_residence_history",
     "current_country",
     "current_institution",
     "current_major",
@@ -40,7 +49,111 @@ PROFILE_KEYS = [
     "missing_facts",
 ]
 
+APPLICANT_COLUMNS = [
+    ("applicant_id", "Applicant ID"),
+    ("legal_name_passport", "Legal Name on Passport"),
+    ("preferred_name", "Preferred Name"),
+    ("date_of_birth", "Date of Birth"),
+    ("citizenship_countries", "Citizenship Countries"),
+    ("residence_country", "Residence Country"),
+    ("education_country", "Education Country"),
+    ("passport_country", "Passport Country"),
+    ("dual_citizenship", "Dual Citizenship"),
+    ("visa_application_country", "Visa Application Country"),
+    ("document_language", "Document Language"),
+    ("funding_source_country", "Funding Source Country"),
+    ("prior_residence_history", "Prior Residence History"),
+    ("target_degree_level", "Target Degree Level"),
+    ("target_intake", "Target Intake"),
+    ("target_countries", "Target Countries"),
+    ("budget_total", "Budget Total"),
+    ("budget_annual", "Budget Annual"),
+    ("career_or_research_goal", "Career / Research Goal"),
+    ("risk_tolerance", "Risk Tolerance"),
+    ("data_completeness_status", "Data Completeness Status"),
+    ("notes", "Notes"),
+]
+
+CREDENTIAL_COLUMNS = [
+    ("credential_id", "Credential ID"),
+    ("applicant_id", "Applicant ID"),
+    ("country", "Country"),
+    ("institution", "Institution"),
+    ("qualification_type", "Qualification Type"),
+    ("major", "Major"),
+    ("start_date", "Start Date"),
+    ("end_date", "End Date"),
+    ("expected_graduation_date", "Expected Graduation Date"),
+    ("gpa_value", "GPA Value"),
+    ("gpa_scale", "GPA Scale"),
+    ("class_rank", "Class Rank"),
+    ("grading_evidence_document_id", "Grading Evidence Document ID"),
+    ("language_of_instruction", "Language of Instruction"),
+    ("status", "Status"),
+    ("notes", "Notes"),
+]
+
+INSTITUTION_COLUMNS = [
+    ("institution_id", "Institution ID"),
+    ("name_official", "Official Name"),
+    ("country", "Country"),
+    ("city", "City"),
+    ("campus_list", "Campus List"),
+    ("institution_type", "Institution Type"),
+    ("application_systems", "Application Systems"),
+    ("visa_sponsor_status", "Visa Sponsor Status"),
+    ("dli_number", "DLI Number"),
+    ("recognised_sponsor_status", "Recognised Sponsor Status"),
+    ("source_evidence_ids", "Source Evidence IDs"),
+    ("notes", "Notes"),
+]
+
+PROGRAM_OBJECT_COLUMNS = [
+    ("program_id", "Program ID"),
+    ("institution_id", "Institution ID"),
+    ("official_name", "Official Program Name"),
+    ("award", "Award"),
+    ("degree_level", "Degree Level"),
+    ("subject_area", "Subject Area"),
+    ("campus", "Campus"),
+    ("duration", "Duration"),
+    ("mode", "Mode"),
+    ("intake_terms", "Intake Terms"),
+    ("application_route", "Application Route"),
+    ("tuition_fee", "Tuition Fee"),
+    ("deadline_set_id", "Deadline Set ID"),
+    ("source_evidence_ids", "Source Evidence IDs"),
+    ("verification_status", "Verification Status"),
+    ("notes", "Notes"),
+]
+
+APPLICATION_CASE_COLUMNS = [
+    ("application_case_id", "Application Case ID"),
+    ("applicant_id", "Applicant ID"),
+    ("program_id", "Program ID"),
+    ("institution_id", "Institution ID"),
+    ("school", "School"),
+    ("program", "Program"),
+    ("cycle", "Cycle"),
+    ("intake", "Intake"),
+    ("route", "Route"),
+    ("status", "Status"),
+    ("fit_category", "Fit Category"),
+    ("academic_fit", "Academic Fit"),
+    ("budget_fit", "Budget Fit"),
+    ("timing_fit", "Timing Fit"),
+    ("visa_work_fit", "Visa / Work Fit"),
+    ("risk_summary", "Risk Summary"),
+    ("last_verified_at", "Last Verified At"),
+    ("blocking_tasks", "Blocking Tasks"),
+    ("source_evidence_ids", "Source Evidence IDs"),
+    ("notes", "Notes"),
+]
+
 SCHOOL_COLUMNS = [
+    ("application_case_id", "Application Case ID"),
+    ("institution_id", "Institution ID"),
+    ("source_evidence_ids", "Source Evidence IDs"),
     ("country", "Country"),
     ("region", "Region"),
     ("school", "School"),
@@ -66,6 +179,9 @@ SCHOOL_COLUMNS = [
 
 PROGRAM_COLUMNS = [
     ("program_id", "Program ID"),
+    ("institution_id", "Institution ID"),
+    ("application_case_id", "Application Case ID"),
+    ("source_evidence_ids", "Source Evidence IDs"),
     ("region", "Region"),
     ("country", "Country"),
     ("school", "School"),
@@ -93,7 +209,28 @@ PROGRAM_COLUMNS = [
     ("notes", "Notes / Needs Check"),
 ]
 
+REQUIREMENT_RULE_COLUMNS = [
+    ("requirement_rule_id", "Requirement Rule ID"),
+    ("application_case_id", "Application Case ID"),
+    ("program_id", "Program ID"),
+    ("jurisdiction", "Jurisdiction"),
+    ("rule_category", "Rule Category"),
+    ("applies_when", "Applies When"),
+    ("requirement_text", "Requirement Text"),
+    ("required_document_type", "Required Document Type"),
+    ("source_evidence_id", "Source Evidence ID"),
+    ("checked_at", "Checked At"),
+    ("valid_from", "Valid From"),
+    ("valid_until", "Valid Until"),
+    ("stale_after_days", "Stale After Days"),
+    ("verification_status", "Verification Status"),
+    ("notes", "Notes"),
+]
+
 REQUIREMENT_COLUMNS = [
+    ("requirement_rule_id", "Requirement Rule ID"),
+    ("application_case_id", "Application Case ID"),
+    ("source_evidence_id", "Source Evidence ID"),
     ("program_id", "Program ID"),
     ("school", "School"),
     ("program", "Program"),
@@ -115,6 +252,23 @@ REQUIREMENT_COLUMNS = [
     ("notes", "Notes / Needs Check"),
 ]
 
+DOCUMENT_COLUMNS = [
+    ("document_id", "Document ID"),
+    ("applicant_id", "Applicant ID"),
+    ("application_case_id", "Application Case ID"),
+    ("document_type", "Document Type"),
+    ("issuing_country", "Issuing Country"),
+    ("language", "Language"),
+    ("translation_required", "Translation Required"),
+    ("legalisation_required", "Legalisation Required"),
+    ("version", "Version"),
+    ("status", "Status"),
+    ("expiry_date", "Expiry Date"),
+    ("linked_requirement_ids", "Linked Requirement IDs"),
+    ("file_name", "File Name"),
+    ("notes", "Notes"),
+]
+
 ESSAY_COLUMNS = [
     ("school", "School"),
     ("program", "Program"),
@@ -130,6 +284,9 @@ ESSAY_COLUMNS = [
 ]
 
 SUBMISSION_COLUMNS = [
+    ("task_id", "Task ID"),
+    ("application_case_id", "Application Case ID"),
+    ("blocking_requirement_ids", "Blocking Requirement IDs"),
     ("school", "School"),
     ("program", "Program"),
     ("system", "System / Portal"),
@@ -142,7 +299,67 @@ SUBMISSION_COLUMNS = [
     ("notes", "Notes"),
 ]
 
+TASK_COLUMNS = [
+    ("task_id", "Task ID"),
+    ("application_case_id", "Application Case ID"),
+    ("task_type", "Task Type"),
+    ("owner", "Owner"),
+    ("due_at", "Due At"),
+    ("timezone", "Timezone"),
+    ("status", "Status"),
+    ("blocking_requirement_ids", "Blocking Requirement IDs"),
+    ("evidence_required", "Evidence Required"),
+    ("source_evidence_id", "Source Evidence ID"),
+    ("notes", "Notes"),
+]
+
+RISK_COLUMNS = [
+    ("risk_id", "Risk ID"),
+    ("application_case_id", "Application Case ID"),
+    ("category", "Category"),
+    ("severity", "Severity"),
+    ("rationale", "Rationale"),
+    ("evidence_id", "Evidence ID"),
+    ("status", "Status"),
+    ("notes", "Notes"),
+]
+
+DEADLINE_COLUMNS = [
+    ("deadline_id", "Deadline ID"),
+    ("application_case_id", "Application Case ID"),
+    ("deadline_type", "Deadline Type"),
+    ("due_at", "Due At"),
+    ("timezone", "Timezone"),
+    ("source_evidence_id", "Source Evidence ID"),
+    ("verification_status", "Verification Status"),
+    ("notes", "Notes"),
+]
+
+OFFER_COLUMNS = [
+    ("offer_id", "Offer ID"),
+    ("application_case_id", "Application Case ID"),
+    ("decision", "Decision"),
+    ("conditions", "Conditions"),
+    ("deposit_due_at", "Deposit Due At"),
+    ("post_offer_document_type", "Post-Offer Document Type"),
+    ("source_evidence_id", "Source Evidence ID"),
+    ("notes", "Notes"),
+]
+
+VISA_COLUMNS = [
+    ("visa_case_id", "Visa Case ID"),
+    ("application_case_id", "Application Case ID"),
+    ("destination_country", "Destination Country"),
+    ("visa_or_permit_type", "Visa / Permit Type"),
+    ("route_status", "Route Status"),
+    ("post_offer_document_id", "Post-Offer Document ID"),
+    ("required_document_ids", "Required Document IDs"),
+    ("source_evidence_ids", "Source Evidence IDs"),
+    ("notes", "Notes"),
+]
+
 SOURCE_COLUMNS = [
+    ("source_evidence_id", "Source Evidence ID"),
     ("source_id", "Source ID"),
     ("entity", "Entity"),
     ("title", "Title"),
@@ -150,7 +367,12 @@ SOURCE_COLUMNS = [
     ("source_type", "Source Type"),
     ("facts_supported", "Facts Supported"),
     ("checked_date", "Checked Date"),
+    ("checked_at", "Checked At"),
+    ("retrieved_at", "Retrieved At"),
     ("reliability", "Reliability"),
+    ("stale_after_days", "Stale After Days"),
+    ("verification_status", "Verification Status"),
+    ("quote_or_excerpt", "Quote / Excerpt"),
     ("notes", "Notes"),
 ]
 
@@ -170,7 +392,20 @@ def as_text(value: Any) -> str:
 
 
 def value_for(row: dict[str, Any], key: str) -> str:
-    return as_text(row.get(key, ""))
+    if key in row:
+        return as_text(row.get(key, ""))
+    aliases = {
+        "program": "official_name",
+        "school": "name_official",
+        "check_date": "checked_at",
+        "checked_date": "checked_at",
+        "source_id": "source_evidence_id",
+        "source_evidence_id": "source_id",
+    }
+    alias = aliases.get(key)
+    if alias:
+        return as_text(row.get(alias, ""))
+    return ""
 
 
 def make_table(title: str, note: str, columns: list[tuple[str, str]], rows: list[dict[str, Any]]) -> list[list[str]]:
@@ -178,6 +413,24 @@ def make_table(title: str, note: str, columns: list[tuple[str, str]], rows: list
     for row in rows:
         table.append([value_for(row, key) for key, _ in columns])
     return table
+
+
+def row_list(value: Any) -> list[dict[str, Any]]:
+    if not isinstance(value, list):
+        return []
+    return [item for item in value if isinstance(item, dict)]
+
+
+def ontology_rows(ontology: dict[str, Any], key: str) -> list[dict[str, Any]]:
+    return row_list(ontology.get(key))
+
+
+def first_nonempty_rows(*values: Any) -> list[dict[str, Any]]:
+    for value in values:
+        rows = row_list(value)
+        if rows:
+            return rows
+    return []
 
 
 def profile_table(profile: dict[str, Any], title: str, note: str) -> list[list[str]]:
@@ -383,25 +636,74 @@ def styles_xml() -> str:
 def build_sheets(data: dict[str, Any]) -> list[tuple[str, list[list[str]]]]:
     title = as_text(data.get("workbook_title")) or "Study Abroad Application Plan"
     generated_on = as_text(data.get("generated_on")) or date.today().isoformat()
-    note = f"Generated on {generated_on}. Admissions facts must be verified against official sources; blanks mean unavailable, not assumed."
+    note = (
+        f"Generated on {generated_on}. Ontology objects are the source of truth; "
+        "admissions facts must link to SourceEvidence; blanks mean unavailable, not assumed."
+    )
+    ontology = data.get("ontology") if isinstance(data.get("ontology"), dict) else {}
+
+    applicants = ontology_rows(ontology, "applicants")
+    profile = data.get("student_profile") if isinstance(data.get("student_profile"), dict) else {}
+    if not profile and applicants:
+        profile = applicants[0]
+
+    programs = first_nonempty_rows(data.get("programs"), ontology.get("programs"))
+    sources = row_list(data.get("sources")) + ontology_rows(ontology, "source_evidence")
+    submission_tasks = first_nonempty_rows(data.get("submission_tasks"), ontology.get("tasks"))
 
     sheets: list[tuple[str, list[list[str]]]] = []
-    sheets.append(("Profile", profile_table(data.get("student_profile") or {}, title, note)))
-    sheets.append(("School Shortlist", make_table("School Shortlist", note, SCHOOL_COLUMNS, data.get("school_shortlist") or [])))
-    sheets.append(("Program Comparison", make_table("Program Comparison", note, PROGRAM_COLUMNS, data.get("programs") or [])))
-    sheets.append(("Requirements Matrix", make_table("Requirements Matrix", note, REQUIREMENT_COLUMNS, data.get("requirements") or [])))
-    sheets.append(("Essay Plan", make_table("Essay Plan", note, ESSAY_COLUMNS, data.get("essay_plan") or [])))
-    sheets.append(("Submission Checklist", make_table("Submission Checklist", note, SUBMISSION_COLUMNS, data.get("submission_tasks") or [])))
-    sheets.append(("Source Log", make_table("Source Log", note, SOURCE_COLUMNS, data.get("sources") or [])))
+    sheets.append(("Profile", profile_table(profile, title, note)))
+
+    if applicants:
+        sheets.append(("Applicant Objects", make_table("Applicant Objects", note, APPLICANT_COLUMNS, applicants)))
+    credentials = ontology_rows(ontology, "education_credentials")
+    if credentials:
+        sheets.append(("Credentials", make_table("Education Credentials", note, CREDENTIAL_COLUMNS, credentials)))
+    institutions = ontology_rows(ontology, "institutions")
+    if institutions:
+        sheets.append(("Institution Objects", make_table("Institution Objects", note, INSTITUTION_COLUMNS, institutions)))
+    if ontology_rows(ontology, "programs"):
+        sheets.append(("Program Objects", make_table("Program Objects", note, PROGRAM_OBJECT_COLUMNS, ontology_rows(ontology, "programs"))))
+    application_cases = ontology_rows(ontology, "application_cases")
+    if application_cases:
+        sheets.append(("Application Cases", make_table("Application Cases", note, APPLICATION_CASE_COLUMNS, application_cases)))
+    requirement_rules = ontology_rows(ontology, "requirement_rules")
+    if requirement_rules:
+        sheets.append(("Requirement Rules", make_table("Requirement Rules", note, REQUIREMENT_RULE_COLUMNS, requirement_rules)))
+    documents = ontology_rows(ontology, "document_artifacts")
+    if documents:
+        sheets.append(("Document Artifacts", make_table("Document Artifacts", note, DOCUMENT_COLUMNS, documents)))
+    tasks = ontology_rows(ontology, "tasks")
+    if tasks:
+        sheets.append(("Tasks", make_table("Tasks", note, TASK_COLUMNS, tasks)))
+    risks = ontology_rows(ontology, "risk_flags")
+    if risks:
+        sheets.append(("Risk Flags", make_table("Risk Flags", note, RISK_COLUMNS, risks)))
+    deadlines = ontology_rows(ontology, "deadlines")
+    if deadlines:
+        sheets.append(("Deadlines", make_table("Deadlines", note, DEADLINE_COLUMNS, deadlines)))
+    offers = ontology_rows(ontology, "offer_decisions")
+    if offers:
+        sheets.append(("Offer Decisions", make_table("Offer Decisions", note, OFFER_COLUMNS, offers)))
+    visa_cases = ontology_rows(ontology, "visa_immigration_cases")
+    if visa_cases:
+        sheets.append(("Visa Cases", make_table("Visa Cases", note, VISA_COLUMNS, visa_cases)))
+
+    sheets.append(("School Shortlist", make_table("School Shortlist", note, SCHOOL_COLUMNS, row_list(data.get("school_shortlist")))))
+    sheets.append(("Program Comparison", make_table("Program Comparison", note, PROGRAM_COLUMNS, programs)))
+    sheets.append(("Requirements Matrix", make_table("Requirements Matrix", note, REQUIREMENT_COLUMNS, row_list(data.get("requirements")))))
+    sheets.append(("Essay Plan", make_table("Essay Plan", note, ESSAY_COLUMNS, row_list(data.get("essay_plan")))))
+    sheets.append(("Submission Checklist", make_table("Submission Checklist", note, SUBMISSION_COLUMNS, submission_tasks)))
+    sheets.append(("Source Log", make_table("Source Log", note, SOURCE_COLUMNS, sources)))
 
     grouped: dict[str, list[dict[str, Any]]] = {}
-    for program in data.get("programs") or []:
+    for program in programs:
         if not isinstance(program, dict):
             continue
         key = as_text(program.get("region")) or as_text(program.get("country")) or "Programs"
         grouped.setdefault(key, []).append(program)
     for group, rows in sorted(grouped.items()):
-        sheet_title = f"{group} Programs"
+        sheet_title = group if group.lower().endswith("programs") else f"{group} Programs"
         sheets.append((sheet_title, make_table(sheet_title, note, PROGRAM_COLUMNS, rows)))
     return sheets
 

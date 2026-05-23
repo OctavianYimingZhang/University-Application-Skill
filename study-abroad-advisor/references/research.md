@@ -17,15 +17,31 @@ Do not rely on agent blogs, marketing agencies, influencer posts, forums, social
 
 ## Verification Standard
 
-For each program-level fact, record:
+For each program-level, application-route, or visa/residence fact, create or update a `SourceEvidence` object and record:
 
 - Source URL.
 - Page title or institution.
 - Fact supported by that source.
 - Date checked.
 - Whether the fact is official, ranking-provider, government, test-provider, peer-reviewed, or unverified.
+- Staleness period appropriate to the fact. Deadlines, fees, visa rules, and test-score policies should be treated as stale quickly unless the official page gives a cycle-specific date.
 
 If a source cannot verify a fact, write "Needs official check" rather than guessing.
+
+## Ontology-First Research Loop
+
+For every researched candidate:
+
+1. Create or update `Institution`.
+2. Create or update `Program`.
+3. Resolve the likely `ApplicationSystem` or route.
+4. Create an `ApplicationCase` for the applicant-program pair.
+5. Convert each requirement into a `RequirementRule`.
+6. Attach `SourceEvidence` to every rule.
+7. Create `Task` objects for unresolved facts, missing documents, source conflicts, deadline checks, and route checks.
+8. Create `RiskFlag` objects for academic, budget, deadline, visa, document, source-conflict, and fit risks.
+
+Do not treat the workbook as the source of truth. It is a view over these objects.
 
 ## School Shortlist Logic
 
@@ -46,6 +62,7 @@ Evaluate each school on:
 - City/campus fit: location, campus, commute, climate, lifestyle, industry or research ecosystem.
 - Career/research fit: employment path, PhD path, professional accreditation, lab/supervisor fit, internship or placement structure.
 - Timing fit: deadlines, rolling admissions, document readiness, visa timing.
+- Route complexity: centralized system, direct portal, ranking of choices, counselor flow, post-offer document dependency, residence permit, visa case, or institution-led immigration step.
 
 ## Program Drill-Down Logic
 
@@ -62,3 +79,19 @@ After a school is shortlisted:
 Always state the ranking source and year. Do not mix university ranking, subject ranking, domestic ranking, and department reputation as if they are the same metric.
 
 Country-specific admissions systems, visa rules, fee status, work rights, and credential requirements must be checked from official pages during the task. Do not assume current rules from memory.
+
+## Route Resolution
+
+Resolve route before final checklists. Common route families include:
+
+- UK undergraduate: UCAS plus program-specific official university checks.
+- UK postgraduate: university portal or field-specific centralized route where official evidence confirms it.
+- US undergraduate: Common App, Coalition, university portal, or another official route.
+- US F/M route: SEVP-approved school, post-offer I-20, SEVIS fee, DS-160, interview, and entry timing as official pages require.
+- Canada: institution application, DLI/LOA, province-specific PAL/TAL or CAQ where official rules apply, and study permit route.
+- Australia: provider application, CoE, subclass 500 route, and current Genuine Student evidence requirements where official rules apply.
+- Germany: direct application, uni-assist, VPD, Hochschulstart, blocked-account or visa/residence route as official rules require.
+- Netherlands: Studielink or institutional route, and institution-led residence permit flow where official rules apply.
+- Sweden: Universityadmissions.se, ranked choices, application/tuition fee rules, and residence permit route.
+
+If no official source confirms the route for a specific program and applicant profile, set route status to `needs_official_check` and create a blocking route-verification task.

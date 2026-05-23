@@ -1,0 +1,88 @@
+action_types:
+  ResolveApplicationRoute:
+    inputs:
+      applicant_id: ref[Applicant]
+      program_id: ref[Program]
+    logic:
+      - inspect destination country, degree level, institution application systems, citizenship, residence, and education country
+      - search official application-system or institution route evidence
+      - create or update ApplicationCase.route
+      - create route-specific Task objects
+      - attach candidate RequirementRule objects
+    validations:
+      - must_have_source_evidence_for_route
+    blocked_output:
+      - set route to needs_official_check
+      - create blocking route-verification Task
+
+  VerifyRequirement:
+    inputs:
+      application_case_id: ref[ApplicationCase]
+      requirement_candidate: object
+      source_evidence_id: ref[SourceEvidence]
+    logic:
+      - validate source type and checked date
+      - attach source evidence
+      - set valid_from, stale_after_days, and verification status
+      - create RequirementRule
+      - link Program to RequirementRule
+    validations:
+      - source_type must be official, government, application_system, test_provider, ranking_provider, peer_reviewed, or textbook as appropriate
+      - unverified sources cannot produce verified requirements
+
+  CreateDocumentChecklist:
+    inputs:
+      application_case_id: ref[ApplicationCase]
+    logic:
+      - read verified RequirementRule objects
+      - map required document types to DocumentArtifact objects
+      - create missing DocumentArtifact placeholders
+      - create request_document Task objects
+    validations:
+      - cannot include unverified requirement as final
+
+  MarkDocumentVerified:
+    inputs:
+      document_id: ref[DocumentArtifact]
+      source_evidence_id: ref[SourceEvidence]
+    logic:
+      - confirm document identity, language, expiry, version, and linked requirement
+      - set DocumentArtifact.status to verified
+    validations:
+      - required translations and legalisation must be resolved
+
+  MarkApplicationSubmitted:
+    inputs:
+      application_case_id: ref[ApplicationCase]
+      submitted_at: datetime
+      confirmation_number: string
+    logic:
+      - run submission readiness gate
+      - set ApplicationCase.status to submitted
+      - create monitoring Task objects
+    validations:
+      - all mandatory requirements verified
+      - all required documents uploaded or submitted
+      - deadline and timezone confirmed
+      - source log complete
+
+  TriggerVisaWorkflow:
+    inputs:
+      application_case_id: ref[ApplicationCase]
+      offer_id: ref[OfferDecision]
+    logic:
+      - identify post-offer document dependency
+      - create VisaImmigrationCase
+      - attach destination-country rule bundle candidates
+      - create visa document and appointment tasks
+    validations:
+      - offer or post-offer document route must be official or needs_official_check
+
+  RefreshPolicySource:
+    inputs:
+      source_evidence_id: ref[SourceEvidence]
+    logic:
+      - re-open official source
+      - compare facts_supported against current page
+      - update checked_at, stale_after_days, and verification status
+      - create conflict RiskFlag if source changed or contradicts another source

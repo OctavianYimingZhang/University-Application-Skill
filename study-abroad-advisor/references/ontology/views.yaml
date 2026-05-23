@@ -1,0 +1,65 @@
+views:
+  ApplicantView:
+    source_objects:
+      - Applicant
+      - EducationCredential
+      - DocumentArtifact
+    purpose: show profile completeness and missing intake fields
+
+  ShortlistView:
+    source_objects:
+      - ApplicationCase
+      - Program
+      - Institution
+      - RiskFlag
+      - SourceEvidence
+    purpose: compare reach, target, and safer options with source-backed fit notes
+
+  ProgramComparisonView:
+    source_objects:
+      - Program
+      - Institution
+      - RequirementRule
+      - SourceEvidence
+    purpose: compare exact programs, curriculum, fees, routes, and requirements
+
+  RequirementMatrixView:
+    source_objects:
+      - RequirementRule
+      - DocumentArtifact
+      - SourceEvidence
+    purpose: show verified, stale, conflicting, and needs-check requirements
+
+  DocumentGapView:
+    source_objects:
+      - DocumentArtifact
+      - RequirementRule
+      - Task
+    purpose: show missing, expired, untranslated, unverified, uploaded, and submitted documents
+
+  SubmissionTaskView:
+    source_objects:
+      - Task
+      - ApplicationCase
+      - Deadline
+      - RiskFlag
+    purpose: show critical path, blockers, owners, due times, and time zones
+
+  VisaRouteView:
+    source_objects:
+      - OfferDecision
+      - VisaImmigrationCase
+      - RequirementRule
+      - DocumentArtifact
+      - SourceEvidence
+    purpose: show post-offer document dependency and visa/residence-permit readiness
+
+  SourceLogView:
+    source_objects:
+      - SourceEvidence
+    purpose: audit every material fact, checked date, source type, stale-after period, and supported facts
+
+workbook_policy:
+  - Render views from ontology objects.
+  - Preserve legacy workbook sheets for compatibility.
+  - Never treat a workbook cell as verified unless the backing object has SourceEvidence and verification_status is verified.

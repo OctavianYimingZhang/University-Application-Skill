@@ -2,6 +2,8 @@
 
 Use this workflow after target programs are chosen.
 
+Submission is a state transition on `ApplicationCase`, not just a checklist. Do not mark a case submitted unless the submission readiness gate in `references/ontology/workflow_gates.yaml` passes.
+
 ## Per-Program Checklist
 
 For each program, verify and record:
@@ -20,6 +22,8 @@ For each program, verify and record:
 - Standardized tests and score reporting.
 - Passport, identity, residency, fee status, or visa-related documents.
 - Scholarship, funding, assistantship, lab contact, supervisor approval, or interview steps.
+- Route-specific post-offer dependency, such as I-20, CAS, CoE, LOA, PAL/TAL, CAQ, VPD, residence-permit sponsorship, or another official document where applicable.
+- Source evidence ID for every material requirement.
 
 ## File Naming
 
@@ -56,3 +60,14 @@ Confirm:
 - Source log contains official evidence for all requirements.
 
 If any requirement is unclear, mark it "Needs official check" and do not infer.
+
+## Object Updates
+
+Update ontology objects during submission work:
+
+- `RequirementRule`: set `verification_status` only when official source evidence exists.
+- `DocumentArtifact`: move through `missing`, `requested`, `received`, `verified`, `uploaded`, `submitted`, or `expired`.
+- `Task`: set owner, due time, timezone, blockers, and status.
+- `ApplicationCase`: advance only through gate-approved states.
+- `RiskFlag`: create or update blocker risks when deadline, document, source, visa, funding, or identity evidence is incomplete.
+- `VisaImmigrationCase`: create only after the offer or post-offer document path is known enough to identify the official route.
