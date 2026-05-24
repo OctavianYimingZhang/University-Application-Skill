@@ -34,6 +34,9 @@ Preferred ontology-first input:
     "quality_checks": [],
     "pipeline_runs": [],
     "action_events": [],
+    "user_setups": [],
+    "preference_weights": [],
+    "interaction_states": [],
     "tasks": [],
     "risk_flags": [],
     "deadlines": [],
@@ -124,6 +127,9 @@ The builder renders these ontology arrays when present:
 - `ontology.quality_checks` -> `Quality Checks`
 - `ontology.pipeline_runs` -> `Pipeline Runs`
 - `ontology.action_events` -> `Action Events`
+- `ontology.user_setups` -> `User Setup`
+- `ontology.preference_weights` -> `Preference Weights`
+- `ontology.interaction_states` -> `Interaction State`
 - `ontology.student_evidence` -> `Student Evidence`
 - `ontology.program_fit_facts` -> `Program Fit Facts`
 - `ontology.essay_claims` -> `Essay Claims`
@@ -150,6 +156,9 @@ Use IDs consistently:
 - `quality_check_id`
 - `pipeline_run_id`
 - `action_event_id`
+- `user_setup_id`
+- `preference_weight_id`
+- `interaction_state_id`
 - `student_evidence_id`
 - `program_fit_fact_id`
 - `essay_claim_id`
@@ -251,6 +260,54 @@ Use these keys where available:
 - `validation_results`
 - `source_evidence_ids`
 - `created_at`
+- `notes`
+
+## User Setup Columns
+
+Use these keys where available:
+
+- `user_setup_id`
+- `applicant_id`
+- `workflow_mode`
+- `output_mode`
+- `recommendation_count`
+- `preferred_depth`
+- `ask_style`
+- `source_policy`
+- `privacy_mode`
+- `export_format`
+- `created_at`
+- `updated_at`
+- `notes`
+
+## Preference Weight Columns
+
+Use these keys where available:
+
+- `preference_weight_id`
+- `user_setup_id`
+- `ranking_weight`
+- `admission_safety_weight`
+- `budget_weight`
+- `city_weight`
+- `career_weight`
+- `research_fit_weight`
+- `visa_work_route_weight`
+- `deadline_feasibility_weight`
+- `notes`
+
+## Interaction State Columns
+
+Use these keys where available:
+
+- `interaction_state_id`
+- `user_setup_id`
+- `current_step`
+- `completed_cards`
+- `missing_fields`
+- `blocker_count`
+- `warning_count`
+- `next_recommended_action`
 - `notes`
 
 ## Student Evidence Columns

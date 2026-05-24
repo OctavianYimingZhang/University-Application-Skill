@@ -1,0 +1,133 @@
+onboarding_flow:
+  entry:
+    title: Study Abroad Advisor Setup
+    prompt: Choose what you want to do now.
+    field: workflow_mode
+    control: single_choice
+    options:
+      - quick_triage
+      - full_shortlist
+      - exact_program_selection
+      - requirement_audit
+      - essay_sop
+      - workbook_build
+      - submission_readiness
+      - source_refresh
+      - visa_route
+
+  output_mode:
+    title: Output reliability
+    prompt: Choose how strict the source and validation requirements should be.
+    field: output_mode
+    control: single_choice
+    options:
+      - brainstorm
+      - draft
+      - source_backed
+      - verified
+
+  cards:
+    workflow_goal:
+      fields:
+        - workflow_mode
+        - output_mode
+        - preferred_depth
+        - ask_style
+    target_shape:
+      fields:
+        - target_degree_level
+        - target_intake
+        - target_countries
+        - target_field
+    identity_route:
+      fields:
+        - citizenship_countries
+        - residence_country
+        - passport_country
+        - education_country
+        - visa_application_country
+    academic_profile:
+      fields:
+        - current_institution
+        - current_major
+        - gpa_value
+        - gpa_scale
+        - language_status
+        - core_courses
+    budget_preferences:
+      fields:
+        - budget_annual
+        - ranking_weight
+        - admission_safety_weight
+        - budget_weight
+        - city_weight
+        - career_weight
+        - research_fit_weight
+        - visa_work_route_weight
+        - deadline_feasibility_weight
+    privacy_export:
+      fields:
+        - privacy_mode
+        - export_format
+    status_diagnostics:
+      fields:
+        - can_do
+        - cannot_do
+        - blockers
+        - warnings
+        - next_questions
+
+  routes:
+    quick_triage:
+      required_cards:
+        - workflow_goal
+        - target_shape
+        - academic_profile
+      gate: QuickTriageGate
+    full_shortlist:
+      required_cards:
+        - workflow_goal
+        - target_shape
+        - identity_route
+        - academic_profile
+        - budget_preferences
+        - privacy_export
+      gate: FullShortlistGate
+    exact_program_selection:
+      required_cards:
+        - workflow_goal
+        - target_shape
+        - academic_profile
+      gate: ExactProgramSelectionGate
+    requirement_audit:
+      required_cards:
+        - workflow_goal
+        - target_shape
+        - identity_route
+      gate: RequirementAuditGate
+    essay_sop:
+      required_cards:
+        - workflow_goal
+        - target_shape
+        - academic_profile
+      gate: EssaySOPGate
+    workbook_build:
+      required_cards:
+        - workflow_goal
+        - privacy_export
+      gate: WorkbookBuildGate
+    submission_readiness:
+      required_cards:
+        - workflow_goal
+        - target_shape
+        - identity_route
+      gate: SubmissionReadinessGate
+    source_refresh:
+      required_cards:
+        - workflow_goal
+      gate: SourceRefreshGate
+    visa_route:
+      required_cards:
+        - workflow_goal
+        - identity_route
+      gate: VisaRouteGate

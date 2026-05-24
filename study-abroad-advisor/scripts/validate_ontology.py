@@ -15,6 +15,8 @@ from datetime import date, datetime, timedelta
 from pathlib import Path
 from typing import Any
 
+from validate_setup import validate_setup_data
+
 
 OBJECT_ARRAYS = {
     "Applicant": ("applicants", "applicant_id"),
@@ -32,6 +34,9 @@ OBJECT_ARRAYS = {
     "QualityCheck": ("quality_checks", "quality_check_id"),
     "PipelineRun": ("pipeline_runs", "pipeline_run_id"),
     "ActionEvent": ("action_events", "action_event_id"),
+    "UserSetup": ("user_setups", "user_setup_id"),
+    "PreferenceWeight": ("preference_weights", "preference_weight_id"),
+    "InteractionState": ("interaction_states", "interaction_state_id"),
     "Task": ("tasks", "task_id"),
     "RiskFlag": ("risk_flags", "risk_id"),
     "Deadline": ("deadlines", "deadline_id"),
@@ -62,6 +67,9 @@ REF_FIELDS = [
     ("OfferDecision", "application_case_id", "ApplicationCase"),
     ("OfferDecision", "source_evidence_id", "SourceEvidence"),
     ("VisaImmigrationCase", "application_case_id", "ApplicationCase"),
+    ("UserSetup", "applicant_id", "Applicant"),
+    ("PreferenceWeight", "user_setup_id", "UserSetup"),
+    ("InteractionState", "user_setup_id", "UserSetup"),
     ("StudentEvidence", "applicant_id", "Applicant"),
     ("StudentEvidence", "document_id", "DocumentArtifact"),
     ("ProgramFitFact", "program_id", "Program"),
@@ -379,6 +387,28 @@ def check_quality(ontology: dict[str, Any], indexes: dict[str, dict[str, dict[st
             continue
         if stale_after < today:
             add(report, "source_staleness_check", "warning", "SourceEvidence is stale and should be refreshed.", source)
+
+    for setup in rows(ontology, "UserSetup"):
+        setup_report = validate_setup_data(setup)
+        if setup_report.get("status") == "passed":
+            continue
+        missing = setup_report.get("missing_fields", [])
+        if missing:
+            add(
+                report,
+                "task_gate_required_fields_present",
+                "error",
+                f"UserSetup task gate is missing required fields: {', '.join(map(str, missing))}.",
+                setup,
+            )
+        for finding in setup_report.get("schema_findings", []):
+            add(
+                report,
+                "valid_user_setup_mode",
+                str(finding.get("severity", "error")),
+                str(finding.get("message", "UserSetup schema validation failed.")),
+                setup,
+            )
 
 
 def summarize(report: list[dict[str, Any]]) -> dict[str, Any]:

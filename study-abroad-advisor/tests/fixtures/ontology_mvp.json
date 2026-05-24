@@ -216,6 +216,56 @@
         "created_at": "2026-05-23T00:00:01Z"
       }
     ],
+    "user_setups": [
+      {
+        "user_setup_id": "setup_001",
+        "applicant_id": "app_001",
+        "workflow_mode": "quick_triage",
+        "output_mode": "draft",
+        "recommendation_count": 10,
+        "preferred_depth": "standard",
+        "ask_style": "compact_batches",
+        "source_policy": "official_only",
+        "privacy_mode": "public_redacted",
+        "export_format": "workbook",
+        "created_at": "2026-05-23T00:00:00Z",
+        "updated_at": "2026-05-23T00:00:00Z",
+        "profile": {
+          "target_degree_level": "taught_master",
+          "target_field": "Biology",
+          "target_countries": ["United Kingdom", "Canada", "Netherlands"],
+          "education_country": "United Kingdom",
+          "gpa_value": "First-class predicted",
+          "gpa_scale": "UK honours"
+        }
+      }
+    ],
+    "preference_weights": [
+      {
+        "preference_weight_id": "pw_001",
+        "user_setup_id": "setup_001",
+        "ranking_weight": 6,
+        "admission_safety_weight": 7,
+        "budget_weight": 8,
+        "city_weight": 5,
+        "career_weight": 6,
+        "research_fit_weight": 7,
+        "visa_work_route_weight": 5,
+        "deadline_feasibility_weight": 8
+      }
+    ],
+    "interaction_states": [
+      {
+        "interaction_state_id": "state_001",
+        "user_setup_id": "setup_001",
+        "current_step": "quick_triage",
+        "completed_cards": ["workflow_goal", "target_shape", "academic_profile"],
+        "missing_fields": [],
+        "blocker_count": 0,
+        "warning_count": 0,
+        "next_recommended_action": "Prepare a draft research plan and missing-facts summary."
+      }
+    ],
     "student_evidence": [
       {
         "student_evidence_id": "se_001",

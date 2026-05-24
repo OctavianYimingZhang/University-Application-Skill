@@ -1,4 +1,29 @@
 action_types:
+  ConfigureUserSetup:
+    inputs:
+      user_setup_candidate: object
+    logic:
+      - capture workflow_mode, output_mode, ask_style, source_policy, privacy_mode, and export_format
+      - create or update UserSetup
+      - create or update PreferenceWeight when ranking, safety, budget, city, career, research, visa/work, or deadline weights are provided
+      - create or update InteractionState with completed cards, missing fields, blockers, warnings, and next recommended action
+      - run scripts/validate_setup.py when setup JSON is available
+    validations:
+      - workflow_mode and output_mode must be valid enum values
+      - task-scoped gate missing fields must be reported before verified output
+
+  DiagnoseAdmissionsCase:
+    inputs:
+      ontology_json_path: string
+      user_setup_json_path: string
+    logic:
+      - run scripts/doctor_admissions_case.py
+      - combine setup validation, task-scoped gates, and ontology quality checks
+      - report can_do, cannot_do, blockers, warnings, and next_questions
+      - do not advance workflow state directly
+    validations:
+      - diagnosis output is advisory unless a separate controlled action updates ontology state
+
   ResolveApplicationRoute:
     inputs:
       applicant_id: ref[Applicant]

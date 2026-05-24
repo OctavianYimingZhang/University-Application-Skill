@@ -8,24 +8,54 @@ Open-source Codex Skill for managing international university applications as a 
 
 The Skill does not treat admissions advice as a one-time answer. It treats each application as an evolving object graph with evidence, state, blockers, and controlled transitions.
 
+The user-facing entry point is a guided setup layer. The Skill first asks for the current task, reliability level, and the minimum facts needed for that task. It supports quick triage, full shortlists, exact program selection, requirement audits, essay/SOP work, workbook rendering, submission readiness, source refresh, and visa-route research without forcing every request through full intake.
+
 ## Core Workflow
 
 ```mermaid
 flowchart TD
-    A["Profile Graph Build"] --> B["Route Resolution"]
-    B --> C["Program Discovery"]
-    C --> D["Requirement Verification"]
-    D --> E["Eligibility & Risk Classification"]
-    E --> F["Shortlist Decision"]
-    F --> G["Materials Workflow"]
-    G --> H["Portal Submission"]
-    H --> I["Offer & Deposit"]
-    I --> J["Visa / Residence Permit"]
-    J --> K["Pre-arrival"]
-    K --> L["Monitoring"]
+    A["Setup Mode Selection"] --> B["Output Reliability Selection"]
+    B --> C["Task-Scoped Gate"]
+    C --> D["Minimum Intake Batch"]
+    D --> E["Profile Graph Build"]
+    E --> F["Route Resolution"]
+    F --> G["Program Discovery"]
+    G --> H["Requirement Verification"]
+    H --> I["Eligibility & Risk Classification"]
+    I --> J["Shortlist Decision"]
+    J --> K["Materials Workflow"]
+    K --> L["Portal Submission"]
+    L --> M["Offer & Deposit"]
+    M --> N["Visa / Residence Permit"]
+    N --> O["Pre-arrival"]
+    O --> P["Monitoring"]
 ```
 
 Each step is gated. If required information or official evidence is missing, the Skill creates blocking tasks and marks facts as `needs_official_check` instead of guessing.
+
+## Guided Setup Layer
+
+The setup layer keeps user interaction separate from admissions facts:
+
+- `UserSetup`: selected workflow mode, output track, depth, source policy, privacy mode, and export target.
+- `PreferenceWeight`: ranking, admission safety, budget, city, career, research fit, visa/work, and deadline-feasibility weights.
+- `InteractionState`: completed setup cards, missing fields, blockers, warnings, and next questions.
+
+Supported workflow modes:
+
+| Mode | Purpose |
+| --- | --- |
+| `quick_triage` | Early brainstorming and missing-field discovery. |
+| `full_shortlist` | School shortlist with reach/target/safer split. |
+| `exact_program_selection` | Exact program comparison inside shortlisted schools. |
+| `requirement_audit` | Official requirement matrix for known programs. |
+| `essay_sop` | Evidence collection, academic-interest exploration, and statement planning. |
+| `workbook_build` | Render structured case data into an `.xlsx` workbook. |
+| `submission_readiness` | Pre-submit blocker and checklist review. |
+| `source_refresh` | Refresh stale sources and identify impacted facts. |
+| `visa_route` | Post-offer visa or residence-permit route research. |
+
+Output tracks are explicit. `brainstorm` and `draft` outputs can guide thinking but must label unverified facts. `source_backed` and `verified` outputs require official evidence, lineage, freshness checks, and quality gates before final recommendations or submission decisions.
 
 ## Ontology-First Design
 
@@ -45,6 +75,9 @@ flowchart LR
 
 Minimum object set:
 
+- `UserSetup`
+- `PreferenceWeight`
+- `InteractionState`
 - `Applicant`
 - `EducationCredential`
 - `Institution`
@@ -134,6 +167,14 @@ The repository includes a dependency-free validator:
 python study-abroad-advisor/scripts/validate_ontology.py study-abroad-advisor/tests/fixtures/ontology_mvp.json
 ```
 
+Setup can be generated and checked before exposing the full ontology:
+
+```bash
+python study-abroad-advisor/scripts/onboard_admissions.py --mode full_shortlist --output-mode draft
+python study-abroad-advisor/scripts/validate_setup.py study-abroad-advisor/tests/fixtures/user_setup_full_shortlist.json
+python study-abroad-advisor/scripts/doctor_admissions_case.py study-abroad-advisor/tests/fixtures/ontology_mvp.json
+```
+
 Core checks include:
 
 - no verified requirement without source evidence
@@ -142,6 +183,8 @@ Core checks include:
 - no verified program-fit fact without source evidence
 - no approved essay claim without student evidence and program-fit evidence
 - stale source warnings
+- valid setup mode and output mode
+- task-gate required fields before gated output
 
 Every final output should be traceable through `LineageEdge`, for example:
 
@@ -156,6 +199,11 @@ StudentEvidence + ProgramFitFact -> EssayClaim -> SOPParagraph
 - [`references/intake.md`](study-abroad-advisor/references/intake.md): adaptive intake and brainstorming workflow.
 - [`references/research.md`](study-abroad-advisor/references/research.md): source hierarchy and research rules.
 - [`references/ontology.md`](study-abroad-advisor/references/ontology.md): ontology operating model.
+- [`references/setup/setup-workflow.md`](study-abroad-advisor/references/setup/setup-workflow.md): setup modes, output tracks, and task-scoped gates.
+- [`references/setup/onboarding-flow.yaml`](study-abroad-advisor/references/setup/onboarding-flow.yaml): setup cards and workflow routing.
+- [`references/setup/task-gates.yaml`](study-abroad-advisor/references/setup/task-gates.yaml): required fields by task.
+- [`references/setup/user-setup.schema.json`](study-abroad-advisor/references/setup/user-setup.schema.json): user setup JSON schema.
+- [`references/setup/prompt-templates.md`](study-abroad-advisor/references/setup/prompt-templates.md): guided prompt templates.
 - [`references/data-lifecycle.md`](study-abroad-advisor/references/data-lifecycle.md): Bronze/Silver/Gold/Platinum pipeline.
 - [`references/quality-checks.md`](study-abroad-advisor/references/quality-checks.md): quality gates and failure policy.
 - [`references/lineage.md`](study-abroad-advisor/references/lineage.md): source-to-output traceability.
@@ -173,6 +221,9 @@ StudentEvidence + ProgramFitFact -> EssayClaim -> SOPParagraph
 - [`references/workbook-schema.md`](study-abroad-advisor/references/workbook-schema.md): JSON contract for workbook views.
 - [`scripts/build_admissions_workbook.py`](study-abroad-advisor/scripts/build_admissions_workbook.py): dependency-free XLSX builder.
 - [`scripts/validate_ontology.py`](study-abroad-advisor/scripts/validate_ontology.py): dependency-free ontology validator.
+- [`scripts/validate_setup.py`](study-abroad-advisor/scripts/validate_setup.py): dependency-free setup and task-gate validator.
+- [`scripts/doctor_admissions_case.py`](study-abroad-advisor/scripts/doctor_admissions_case.py): blocker, warning, allowed-output, and next-question diagnostic.
+- [`scripts/onboard_admissions.py`](study-abroad-advisor/scripts/onboard_admissions.py): setup packet generator for guided onboarding.
 
 ## Workbook Builder
 
@@ -206,6 +257,9 @@ When ontology data is present, the workbook renders object-state views such as:
 - quality checks
 - pipeline runs
 - action events
+- user setup
+- preference weights
+- interaction state
 - student evidence
 - program fit facts
 - essay claims

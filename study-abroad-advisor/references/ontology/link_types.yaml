@@ -91,6 +91,18 @@ link_types:
     from: PipelineRun
     to: QualityCheck
     required_for: validation_audit
+  - name: applicant_has_user_setup
+    from: Applicant
+    to: UserSetup
+    required_for: setup_workflow_selection
+  - name: user_setup_has_preference_weights
+    from: UserSetup
+    to: PreferenceWeight
+    required_for: explainable_shortlist_ranking
+  - name: user_setup_has_interaction_state
+    from: UserSetup
+    to: InteractionState
+    required_for: setup_progress_tracking
   - name: lineage_edge_connects_source_to_output
     from: LineageEdge
     to: SourceEvidence

@@ -11,6 +11,7 @@ Raw official sources
 -> SourceSnapshot
 -> ExtractedFact
 -> SourceEvidence
+-> UserSetup, PreferenceWeight, InteractionState
 -> Applicant, EducationCredential, Institution, Program, ApplicationCase
 -> RequirementRule, ProgramFitFact, StudentEvidence, EssayClaim, DocumentArtifact, Task, RiskFlag, Deadline, OfferDecision, VisaImmigrationCase
 -> FactVersion, LineageEdge, QualityCheck, PipelineRun, ActionEvent
@@ -50,6 +51,14 @@ Add data-processing objects when official sources are researched or outputs are 
 - `ProgramFitFact`
 - `EssayClaim`
 
+Add setup objects when the user enters through a guided workflow:
+
+- `UserSetup`
+- `PreferenceWeight`
+- `InteractionState`
+
+These objects describe the current task, output reliability, privacy/export mode, preference weights, missing fields, and next action. They do not replace applicant facts.
+
 ## Required Separation
 
 Do not collapse these fields:
@@ -66,6 +75,16 @@ Do not collapse these fields:
 Different countries use these fields for different rules. A Chinese citizen studying in the UK, an Indian citizen studying in the UAE, and a US citizen applying to the Netherlands can trigger different language-waiver, document, visa, fee, and residence-permit paths even if their target degree looks similar.
 
 ## State-Machine Workflow
+
+Before full intake, route the user through task setup when the request is broad or ambiguous:
+
+```text
+Setup Mode Selection
+-> Output Reliability Selection
+-> Task-Scoped Gate
+-> Minimum Intake Batch
+-> Doctor Report
+```
 
 Use this progression:
 
@@ -85,6 +104,8 @@ Profile Graph Build
 ```
 
 Each step has a gate in `ontology/workflow_gates.yaml`. If the gate fails, create blocking `Task` and `RiskFlag` objects instead of advancing state.
+
+Use task-scoped gates from `setup/task-gates.yaml` before the full state-machine gate. Not every task requires full intake.
 
 ## Evidence Discipline
 

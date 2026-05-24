@@ -19,6 +19,9 @@ Use this skill as a zero-hallucination admissions operating ontology. The job is
 - Do not produce final recommendations directly from raw web pages. Use the data lifecycle: `SourceSnapshot -> ExtractedFact -> verified RequirementRule / ProgramFitFact -> ApplicationCase / RiskFlag / View`.
 - Every rendered workbook row, essay claim, risk flag, recommendation, and checklist item must be traceable through `LineageEdge` records to upstream evidence.
 - Run ontology quality checks before producing verified outputs. A failed blocker check must create a task or risk and prevent the state transition or verified workbook.
+- Support two explicit output tracks. Draft track is allowed for brainstorming, scoping, missing-field reports, and research plans, but must label unverified facts and cannot be called final. Verified track requires `SourceEvidence`, lineage, freshness policy, and quality checks before final recommendations, verified workbooks, final checklists, submission state transitions, or visa-ready status.
+- Start with setup mode when the user's request is broad or ambiguous. Use `UserSetup`, `PreferenceWeight`, and `InteractionState` to capture the current workflow mode, output reliability, privacy/export preference, preference weights, missing fields, blockers, and next questions before exposing ontology internals.
+- Use task-scoped gates. Do not force full intake for requirement audits, essay planning, workbook rendering, source refresh, or visa-route research when a smaller task gate is sufficient.
 - Advance workflow state only through gates and actions. Do not mark an `ApplicationCase` submitted, visa-ready, or complete until required objects, verified rules, source logs, and document states satisfy the gate.
 - Preserve official program, module, school, department, campus, and application-system names verbatim.
 - Recommend around 10 schools unless the user asks for another count. Split into reach, target, and safer choices using the student's constraints and source-backed eligibility signals.
@@ -26,39 +29,45 @@ Use this skill as a zero-hallucination admissions operating ontology. The job is
 
 ## Workflow
 
-1. **Intake and brainstorming**
+1. **Setup and task routing**
+   - Read `references/setup/setup-workflow.md`, `references/setup/onboarding-flow.yaml`, and `references/setup/task-gates.yaml`.
+   - If the user has not chosen a mode, ask the smallest setup batch: workflow mode, output mode, target degree/field/country shape, and whether the desired output is draft or verified.
+   - Create or update `UserSetup`, `PreferenceWeight`, and `InteractionState` objects. Keep them separate from applicant facts.
+   - Run `scripts/validate_setup.py` when setup JSON exists. Run `scripts/doctor_admissions_case.py` when ontology JSON exists and the user needs a blocker report or next-question list.
+
+2. **Intake and brainstorming**
    - Read `references/intake.md`.
    - Create or update `Applicant` and `EducationCredential` objects from the profile. Keep citizenship, residence country, education country, passport country, document language, and funding source country as separate fields.
    - Ask setup-style questions in small batches. Include both choice questions and fill-in prompts that help the student discover hidden constraints.
    - Produce a concise applicant profile and confirm unresolved gaps before research.
 
-2. **Profile graph and route resolution**
+3. **Profile graph and route resolution**
    - Read `references/ontology.md`, `references/data-lifecycle.md`, and `references/ontology/workflow_gates.yaml`.
    - Resolve destination-country and degree-level routes before final checklists: for example UCAS, Common App, university portal, uni-assist, Studielink, Universityadmissions.se, DLI/LOA/study permit, CoE/subclass 500, or other official routes.
    - If route evidence is missing, create a blocking `Task` and mark the route as `needs_official_check`.
 
-3. **School shortlist**
+4. **School shortlist**
    - Read `references/research.md`.
    - Search by country, degree level, field, GPA fit, cost, city/campus preference, ranking constraints, language constraints, work/visa goals, deadline feasibility, and scholarship needs.
    - Build a school-level shortlist before deciding exact programs.
 
-4. **Exact program selection**
+5. **Exact program selection**
    - For each shortlisted school, find all materially relevant programs in the target department or adjacent departments.
    - Compare curriculum/module structure, academic prerequisites, research or tutor/lab fit, award type, duration, campus, fees, application route, and risks.
    - Create or update `Institution`, `Program`, and `ApplicationCase` objects. Recommend the exact program(s), not only the school.
 
-5. **Requirement rules and risk**
+6. **Requirement rules and risk**
    - Map every target program to transcripts, degree certificates, GPA or class requirements, language scores, references, CV/resume, SOP/essays, portfolio, tests, application fees, deadlines, translations, credential evaluations, and application system.
    - Verify score equivalencies such as IELTS, TOEFL, PTE, Duolingo, GRE, GMAT, AP, A-level, IB, or local GPA only from official pages.
    - Store requirements as `RequirementRule` objects linked to `SourceEvidence`, not as free-text notes. Use `RiskFlag` objects for academic, budget, deadline, visa, document, source-conflict, and fit risks; never fabricate admission-probability percentages.
    - Run `scripts/validate_ontology.py` against structured ontology JSON when available, especially before rendering a verified workbook or final checklist.
 
-6. **Essay and SOP development**
+7. **Essay and SOP development**
    - Read `references/essay-sop.md`.
    - Collect real student evidence before drafting. Help the student understand academic interests in depth, then connect verified interests to program content.
    - Draft a reusable core statement and school/program-specific variants only from true evidence and verified program facts. Every school-specific claim should map to `StudentEvidence`, `ProgramFitFact`, and `EssayClaim` objects.
 
-7. **Materials, submission, and monitoring**
+8. **Materials, submission, and monitoring**
    - Read `references/submission.md`.
    - Create `DocumentArtifact` and `Task` objects for missing, expired, untranslated, unverified, uploaded, and submitted documents.
    - Walk the student through the official portal or common application system requirements.
@@ -81,6 +90,11 @@ The builder runs ontology quality checks before rendering when ontology data exi
 - `references/intake.md`: adaptive setup-style question workflow.
 - `references/research.md`: source hierarchy, verification rules, and selection logic.
 - `references/ontology.md`: ontology-first operating model and state-machine rules.
+- `references/setup/setup-workflow.md`: guided setup workflow, draft/verified tracks, and task-scoped intake rules.
+- `references/setup/onboarding-flow.yaml`: setup cards and routing from workflow mode to gate.
+- `references/setup/task-gates.yaml`: minimum required fields and allowed/blocked outputs by task.
+- `references/setup/user-setup.schema.json`: schema for user-facing setup JSON.
+- `references/setup/prompt-templates.md`: user-facing setup prompt templates.
 - `references/data-lifecycle.md`: bronze/silver/gold/platinum admissions data pipeline.
 - `references/quality-checks.md`: executable quality-check intent and failure policy.
 - `references/lineage.md`: source-to-output traceability rules.
@@ -102,3 +116,6 @@ The builder runs ontology quality checks before rendering when ontology data exi
 - `references/submission.md`: document and portal checklist workflow.
 - `scripts/build_admissions_workbook.py`: dependency-free `.xlsx` builder for structured admissions data.
 - `scripts/validate_ontology.py`: dependency-free ontology validator that emits JSON reports and fails on blocker/error checks.
+- `scripts/validate_setup.py`: dependency-free setup validator for workflow mode, output mode, and task-gate missing fields.
+- `scripts/doctor_admissions_case.py`: dependency-free diagnostic report for allowed outputs, blocked outputs, blockers, warnings, and next questions.
+- `scripts/onboard_admissions.py`: dependency-free setup packet generator for guided onboarding.

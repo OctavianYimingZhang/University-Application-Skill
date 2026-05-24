@@ -463,6 +463,48 @@ ACTION_EVENT_COLUMNS = [
     ("notes", "Notes"),
 ]
 
+USER_SETUP_COLUMNS = [
+    ("user_setup_id", "User Setup ID"),
+    ("applicant_id", "Applicant ID"),
+    ("workflow_mode", "Workflow Mode"),
+    ("output_mode", "Output Mode"),
+    ("recommendation_count", "Recommendation Count"),
+    ("preferred_depth", "Preferred Depth"),
+    ("ask_style", "Ask Style"),
+    ("source_policy", "Source Policy"),
+    ("privacy_mode", "Privacy Mode"),
+    ("export_format", "Export Format"),
+    ("created_at", "Created At"),
+    ("updated_at", "Updated At"),
+    ("notes", "Notes"),
+]
+
+PREFERENCE_WEIGHT_COLUMNS = [
+    ("preference_weight_id", "Preference Weight ID"),
+    ("user_setup_id", "User Setup ID"),
+    ("ranking_weight", "Ranking Weight"),
+    ("admission_safety_weight", "Admission Safety Weight"),
+    ("budget_weight", "Budget Weight"),
+    ("city_weight", "City Weight"),
+    ("career_weight", "Career Weight"),
+    ("research_fit_weight", "Research Fit Weight"),
+    ("visa_work_route_weight", "Visa / Work Route Weight"),
+    ("deadline_feasibility_weight", "Deadline Feasibility Weight"),
+    ("notes", "Notes"),
+]
+
+INTERACTION_STATE_COLUMNS = [
+    ("interaction_state_id", "Interaction State ID"),
+    ("user_setup_id", "User Setup ID"),
+    ("current_step", "Current Step"),
+    ("completed_cards", "Completed Cards"),
+    ("missing_fields", "Missing Fields"),
+    ("blocker_count", "Blocker Count"),
+    ("warning_count", "Warning Count"),
+    ("next_recommended_action", "Next Recommended Action"),
+    ("notes", "Notes"),
+]
+
 STUDENT_EVIDENCE_COLUMNS = [
     ("student_evidence_id", "Student Evidence ID"),
     ("applicant_id", "Applicant ID"),
@@ -1068,6 +1110,15 @@ def build_sheets(data: dict[str, Any]) -> list[tuple[str, list[list[str]]]]:
     action_events = ontology_rows(ontology, "action_events")
     if action_events:
         sheets.append(("Action Events", make_table("Action Events", note, ACTION_EVENT_COLUMNS, action_events)))
+    user_setups = ontology_rows(ontology, "user_setups")
+    if user_setups:
+        sheets.append(("User Setup", make_table("User Setup", note, USER_SETUP_COLUMNS, user_setups)))
+    preference_weights = ontology_rows(ontology, "preference_weights")
+    if preference_weights:
+        sheets.append(("Preference Weights", make_table("Preference Weights", note, PREFERENCE_WEIGHT_COLUMNS, preference_weights)))
+    interaction_states = ontology_rows(ontology, "interaction_states")
+    if interaction_states:
+        sheets.append(("Interaction State", make_table("Interaction State", note, INTERACTION_STATE_COLUMNS, interaction_states)))
     student_evidence = ontology_rows(ontology, "student_evidence")
     if student_evidence:
         sheets.append(("Student Evidence", make_table("Student Evidence", note, STUDENT_EVIDENCE_COLUMNS, student_evidence)))

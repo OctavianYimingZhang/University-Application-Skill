@@ -6,6 +6,15 @@ views:
       - DocumentArtifact
     purpose: show profile completeness and missing intake fields
 
+  SetupProgressView:
+    source_objects:
+      - UserSetup
+      - PreferenceWeight
+      - InteractionState
+      - Task
+      - QualityCheck
+    purpose: show selected workflow mode, output reliability, setup completeness, blockers, allowed outputs, and next questions
+
   ShortlistView:
     source_objects:
       - ApplicationCase

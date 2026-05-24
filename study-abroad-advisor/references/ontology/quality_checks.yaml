@@ -46,3 +46,15 @@ quality_checks:
     severity: warning
     logic: route and visa rules should include applies_when conditions over applicant and route attributes
     on_fail: create_task
+
+  valid_user_setup_mode:
+    target: UserSetup
+    severity: error
+    logic: workflow_mode and output_mode must match references/setup/user-setup.schema.json
+    on_fail: abort_output
+
+  task_gate_required_fields_present:
+    target: UserSetup
+    severity: error
+    logic: selected workflow_mode must satisfy the required fields in references/setup/task-gates.yaml before gated output
+    on_fail: abort_output

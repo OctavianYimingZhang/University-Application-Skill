@@ -237,6 +237,48 @@ object_types:
       source_evidence_ids: list[ref[SourceEvidence]]
       created_at: datetime
 
+  UserSetup:
+    primary_key: user_setup_id
+    properties:
+      user_setup_id: string
+      applicant_id: ref[Applicant]
+      workflow_mode: enum[quick_triage, full_shortlist, exact_program_selection, requirement_audit, essay_sop, workbook_build, submission_readiness, source_refresh, visa_route]
+      output_mode: enum[brainstorm, draft, source_backed, verified]
+      recommendation_count: int
+      preferred_depth: enum[brief, standard, deep]
+      ask_style: enum[compact_batches, step_by_step, form_like]
+      source_policy: enum[official_only, official_plus_rankings, draft_with_unverified_markers]
+      privacy_mode: enum[public_redacted, private_working_copy]
+      export_format: enum[chat_summary, table, workbook, ontology_json]
+      created_at: datetime
+      updated_at: datetime
+
+  PreferenceWeight:
+    primary_key: preference_weight_id
+    properties:
+      preference_weight_id: string
+      user_setup_id: ref[UserSetup]
+      ranking_weight: int
+      admission_safety_weight: int
+      budget_weight: int
+      city_weight: int
+      career_weight: int
+      research_fit_weight: int
+      visa_work_route_weight: int
+      deadline_feasibility_weight: int
+
+  InteractionState:
+    primary_key: interaction_state_id
+    properties:
+      interaction_state_id: string
+      user_setup_id: ref[UserSetup]
+      current_step: string
+      completed_cards: list[string]
+      missing_fields: list[string]
+      blocker_count: int
+      warning_count: int
+      next_recommended_action: string
+
   Task:
     primary_key: task_id
     properties:

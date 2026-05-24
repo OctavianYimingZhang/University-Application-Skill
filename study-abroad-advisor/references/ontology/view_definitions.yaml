@@ -1,4 +1,22 @@
 view_definitions:
+  SetupProgressView:
+    source_objects:
+      - UserSetup
+      - PreferenceWeight
+      - InteractionState
+      - Task
+      - QualityCheck
+    dependencies:
+      - UserSetup.workflow_mode
+      - UserSetup.output_mode
+      - InteractionState.missing_fields
+    materialization:
+      renderer: chat_or_workbook
+      sheet_name: Setup Progress
+    blocking_conditions:
+      - invalid_workflow_mode
+      - missing_task_gate_required_fields_for_verified_output
+
   RequirementMatrixView:
     source_objects:
       - ApplicationCase

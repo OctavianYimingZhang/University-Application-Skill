@@ -1,0 +1,10 @@
+{
+  "user_setup_id": "setup_missing_001",
+  "workflow_mode": "full_shortlist",
+  "output_mode": "verified",
+  "profile": {
+    "target_degree_level": "taught_master",
+    "target_countries": ["United Kingdom"],
+    "target_field": "Computer Science"
+  }
+}
