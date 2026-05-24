@@ -27,6 +27,7 @@ Do not force every task through full intake.
 - Use `RequirementAuditGate` when the user only wants official requirements for known programs.
 - Use `EssaySOPGate` when the user wants statement planning or drafting.
 - Use `WorkbookBuildGate` when structured case data already exists.
+- Use `ProgrammeTableCleaningGate` when the user wants programme-list Excel workbooks cleaned into the 11-column objective official-information format.
 - Use `SubmissionReadinessGate` only for pre-submit review.
 - Use `SourceRefreshGate` when old sources need refresh or diff.
 - Use `VisaRouteGate` only when offer/post-offer document or government-route logic is relevant.
@@ -42,7 +43,8 @@ Ask in setup cards rather than exposing ontology internals:
 5. Academic background, GPA scale, language status, and evidence documents.
 6. Preference weights and budget.
 7. Privacy/export mode.
-8. Doctor status: allowed outputs, blocked outputs, blockers, warnings, and next questions.
+8. Programme-table cleaning paths, when relevant: source workbook directory/files and cleaned output directory.
+9. Doctor status: allowed outputs, blocked outputs, blockers, warnings, and next questions.
 
 Use compact batches by default. Ask only the minimum questions needed for the selected task gate.
 

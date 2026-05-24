@@ -40,6 +40,11 @@ DEFAULT_QUESTIONS = {
         "What ontology JSON or structured case data should be rendered?",
         "Should the workbook be draft or verified?",
     ],
+    "programme_table_cleaning": [
+        "What source workbook directory or .xlsx files should be cleaned?",
+        "What output directory should receive the cleaned workbooks?",
+        "Should source files remain unchanged, or did the user explicitly request copy-back overwrite?",
+    ],
 }
 
 
@@ -87,6 +92,7 @@ def main(argv: list[str] | None = None) -> int:
         "requirement_audit",
         "essay_sop",
         "workbook_build",
+        "programme_table_cleaning",
         "submission_readiness",
         "source_refresh",
         "visa_route",

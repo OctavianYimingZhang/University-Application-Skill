@@ -10,6 +10,8 @@ python scripts/build_admissions_workbook.py input.json output.xlsx
 
 The script uses only Python standard library modules. If `ontology` data exists, the builder runs `scripts/validate_ontology.py` quality gates before rendering. Use `--skip-validation` only for a draft workbook that must not be treated as verified output.
 
+For cleaned public-facing programme exports, use `scripts/clean_programme_workbooks.py` and `scripts/verify_programme_workbooks.py` instead of the ontology workbook builder. See `references/programme-table-cleaning.md`.
+
 ## Top-Level JSON
 
 Preferred ontology-first input:
@@ -611,3 +613,21 @@ Use these keys where available:
 - Put unresolved issues in notes columns.
 - Put object IDs in every view that can be traced back to ontology objects.
 - Do not mark a row verified unless the backing object has `SourceEvidence` and `verification_status` is `verified`.
+
+## Cleaned Programme Export
+
+The cleaned programme export is a separate publication-oriented format with exactly 11 columns:
+
+- `学校`
+- `Program`
+- `Award`
+- `项目类型/学习方式`
+- `课程/训练/毕业要求`
+- `学术背景/限制条件`
+- `申请材料/研究要求`
+- `申请时间/状态`
+- `费用/资金/特殊事项`
+- `官方来源`
+- `核对日期`
+
+This export deliberately removes ranking, country/region, department, subjective fit/risk, and internal QA fields. Use it only when the user wants an objective official-information table, not a full admissions planning workbook.

@@ -56,6 +56,17 @@ Input: ontology JSON or structured case data
 Render an admissions workbook only after validator checks pass. If validation fails, output the blocker report instead.
 ```
 
+## Programme Table Cleaning
+
+```text
+Use study-abroad-advisor.
+workflow_mode: programme_table_cleaning
+output_mode: source_backed
+Source workbook directory or files:
+Cleaned output directory:
+Clean programme sheets into the 11-column objective official-information format. Do not overwrite originals unless explicitly requested. Run the verifier after cleaning.
+```
+
 ## Submission Readiness
 
 ```text

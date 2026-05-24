@@ -93,6 +93,19 @@ task_gates:
     blocked_outputs:
       - verified_workbook_with_blocker_or_error_findings
 
+  ProgrammeTableCleaningGate:
+    workflow_mode: programme_table_cleaning
+    required:
+      - source_workbook_dir_or_files
+      - cleaned_output_dir
+    allowed_outputs:
+      - cleaned_programme_workbooks
+      - verification_report
+      - objective_11_column_official_table
+    blocked_outputs:
+      - copy_back_without_explicit_user_request
+      - subjective_fit_or_risk_columns_in_clean_export
+
   SubmissionReadinessGate:
     workflow_mode: submission_readiness
     required:

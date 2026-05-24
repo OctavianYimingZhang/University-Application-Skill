@@ -242,7 +242,7 @@ object_types:
     properties:
       user_setup_id: string
       applicant_id: ref[Applicant]
-      workflow_mode: enum[quick_triage, full_shortlist, exact_program_selection, requirement_audit, essay_sop, workbook_build, submission_readiness, source_refresh, visa_route]
+      workflow_mode: enum[quick_triage, full_shortlist, exact_program_selection, requirement_audit, essay_sop, workbook_build, programme_table_cleaning, submission_readiness, source_refresh, visa_route]
       output_mode: enum[brainstorm, draft, source_backed, verified]
       recommendation_count: int
       preferred_depth: enum[brief, standard, deep]

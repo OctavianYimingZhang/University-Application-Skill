@@ -17,6 +17,7 @@ The core design rule is simple: recommendations are not treated as casual chat o
 | Essays/SOPs | Evidence collection, academic-interest exploration, reusable core statement planning, and school-specific variants. |
 | Submission | Portal/common-system checklist, document state tracking, recommender tasks, deadline checks, and final blockers. |
 | Outputs | Chat summaries, tables, ontology JSON, and `.xlsx` workbooks generated from structured case data. |
+| Programme table cleaning | Cleans programme-list workbooks into an objective 11-column official-information export. |
 
 ## Why This Exists
 
@@ -40,7 +41,7 @@ Install the Skill into Codex:
 
 ```bash
 mkdir -p ~/.codex/skills
-rsync -a study-abroad-advisor/ ~/.codex/skills/study-abroad-advisor/
+rsync -a study-abroad-advisor/ ~/.codex/skills/University-Application-Skill/
 ```
 
 Use it in Codex:
@@ -58,6 +59,13 @@ python study-abroad-advisor/scripts/validate_ontology.py study-abroad-advisor/te
 python study-abroad-advisor/scripts/build_admissions_workbook.py study-abroad-advisor/tests/fixtures/ontology_mvp.json /tmp/application_plan.xlsx
 ```
 
+Clean official programme-list workbooks:
+
+```bash
+python study-abroad-advisor/scripts/clean_programme_workbooks.py --source-dir input_workbooks --out-dir cleaned_workbooks
+python study-abroad-advisor/scripts/verify_programme_workbooks.py --dir cleaned_workbooks
+```
+
 ## Workflow Modes
 
 The user-facing entry point is a guided setup layer. The Skill first asks for the current task, reliability level, and minimum required facts. It supports these modes without forcing every request through full intake:
@@ -70,6 +78,7 @@ The user-facing entry point is a guided setup layer. The Skill first asks for th
 | `requirement_audit` | Official requirements need verification for known programs. |
 | `essay_sop` | The student needs SOP/essay evidence, structure, or variants. |
 | `workbook_build` | Structured case data should be rendered into an `.xlsx` workbook. |
+| `programme_table_cleaning` | Programme-list workbooks need the objective 11-column official-information export. |
 | `submission_readiness` | The student needs a pre-submit blocker and checklist review. |
 | `source_refresh` | Existing admissions sources need freshness checks or diffs. |
 | `visa_route` | Offer or post-offer documents trigger visa/residence route research. |
@@ -114,6 +123,26 @@ The setup layer keeps user interaction separate from admissions facts:
 - `InteractionState`: completed setup cards, missing fields, blockers, warnings, and next questions.
 
 Admissions facts remain in `Applicant`, `EducationCredential`, `Program`, `ApplicationCase`, `RequirementRule`, `DocumentArtifact`, `SourceEvidence`, `Task`, and `RiskFlag` objects.
+
+## Official Programme Table Cleaning
+
+The repository includes the former `official-programme-table-cleaner` workflow as part of this Skill. It converts programme comparison workbooks into an objective export with exactly 11 columns:
+
+```text
+学校
+Program
+Award
+项目类型/学习方式
+课程/训练/毕业要求
+学术背景/限制条件
+申请材料/研究要求
+申请时间/状态
+费用/资金/特殊事项
+官方来源
+核对日期
+```
+
+This export removes country/region, rankings, direction groups, department fields, subjective feasibility, fit/risk advice, and internal QA fields. It is intended for clean official-information tables, not for preserving the full internal admissions ontology.
 
 ## Ontology-First Design
 
@@ -277,7 +306,10 @@ StudentEvidence + ProgramFitFact -> EssayClaim -> SOPParagraph
 - [`references/ontology/access_policies.yaml`](study-abroad-advisor/references/ontology/access_policies.yaml): data access and redaction policy.
 - [`references/ontology/view_definitions.yaml`](study-abroad-advisor/references/ontology/view_definitions.yaml): declarative view dependencies and freshness rules.
 - [`references/workbook-schema.md`](study-abroad-advisor/references/workbook-schema.md): JSON contract for workbook views.
+- [`references/programme-table-cleaning.md`](study-abroad-advisor/references/programme-table-cleaning.md): 11-column official programme table cleaning rules.
 - [`scripts/build_admissions_workbook.py`](study-abroad-advisor/scripts/build_admissions_workbook.py): dependency-free XLSX builder.
+- [`scripts/clean_programme_workbooks.py`](study-abroad-advisor/scripts/clean_programme_workbooks.py): programme workbook cleaner.
+- [`scripts/verify_programme_workbooks.py`](study-abroad-advisor/scripts/verify_programme_workbooks.py): cleaned programme workbook verifier.
 - [`scripts/validate_ontology.py`](study-abroad-advisor/scripts/validate_ontology.py): dependency-free ontology validator.
 - [`scripts/validate_setup.py`](study-abroad-advisor/scripts/validate_setup.py): dependency-free setup and task-gate validator.
 - [`scripts/doctor_admissions_case.py`](study-abroad-advisor/scripts/doctor_admissions_case.py): blocker, warning, allowed-output, and next-question diagnostic.

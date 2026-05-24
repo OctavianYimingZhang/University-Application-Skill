@@ -1,6 +1,6 @@
 ---
 name: study-abroad-advisor
-description: End-to-end study-abroad admissions advising for school shortlisting, exact program selection, admissions requirement mapping, essay/SOP planning, and submission preparation. Use when a student asks for help choosing universities or programs, comparing majors, finding official admission requirements, preparing application materials, writing or adapting statements, building application spreadsheets, or replacing a study-abroad agency workflow.
+description: End-to-end study-abroad admissions advising for school shortlisting, exact program selection, admissions requirement mapping, essay/SOP planning, submission preparation, and official programme table cleaning. Use when a student asks for help choosing universities or programs, comparing majors, finding official admission requirements, preparing application materials, writing or adapting statements, building or cleaning application spreadsheets, or replacing a study-abroad agency workflow.
 ---
 
 # Study Abroad Advisor
@@ -26,6 +26,7 @@ Use this skill as a zero-hallucination admissions operating ontology. The job is
 - Preserve official program, module, school, department, campus, and application-system names verbatim.
 - Recommend around 10 schools unless the user asks for another count. Split into reach, target, and safer choices using the student's constraints and source-backed eligibility signals.
 - Work at program level after the school shortlist. For each chosen school, discover the relevant department or school, list plausible programs, compare curriculum, entry requirements, campus, fees, outcomes, and fit, then narrow to the exact program(s) to apply for.
+- When cleaning programme-list workbooks for publication, use the objective 11-column official-information format in `references/programme-table-cleaning.md`; remove ranking, geography, department, subjective fit/risk, and internal QA columns from that export.
 
 ## Workflow
 
@@ -85,6 +86,15 @@ python scripts/build_admissions_workbook.py input.json outputs/application_plan.
 
 The builder runs ontology quality checks before rendering when ontology data exists. Use `--skip-validation` only for explicitly draft, non-verified workbooks. The workbook should include object-state views, application cases, school shortlist, program comparison, requirement rules, document gaps, tasks, risk flags, visa route status, essay plan, submission checklist, source log, and regional program sheets when program data exists.
 
+For cleaned official programme exports, read `references/programme-table-cleaning.md` and use:
+
+```bash
+python scripts/clean_programme_workbooks.py --source-dir input_workbooks --out-dir cleaned_workbooks
+python scripts/verify_programme_workbooks.py --dir cleaned_workbooks
+```
+
+These scripts assume row 3 contains headers and data starts on row 4. Write to a separate output directory first; use `--copy-back` only when the user explicitly asks to overwrite source workbooks.
+
 ## Resource Map
 
 - `references/intake.md`: adaptive setup-style question workflow.
@@ -112,9 +122,12 @@ The builder runs ontology quality checks before rendering when ontology data exi
 - `references/ontology/access_policies.yaml`: privacy and redaction policy.
 - `references/ontology/view_definitions.yaml`: declarative view definitions with dependencies and freshness.
 - `references/workbook-schema.md`: JSON input contract and sheet schema.
+- `references/programme-table-cleaning.md`: objective 11-column official programme table export rules.
 - `references/essay-sop.md`: statement and essay evidence workflow.
 - `references/submission.md`: document and portal checklist workflow.
 - `scripts/build_admissions_workbook.py`: dependency-free `.xlsx` builder for structured admissions data.
+- `scripts/clean_programme_workbooks.py`: `.xlsx` cleaner for objective 11-column official programme exports.
+- `scripts/verify_programme_workbooks.py`: verifier for cleaned programme workbook headers, banned phrases, official URLs, dates, filters, and freeze panes.
 - `scripts/validate_ontology.py`: dependency-free ontology validator that emits JSON reports and fails on blocker/error checks.
 - `scripts/validate_setup.py`: dependency-free setup validator for workflow mode, output mode, and task-gate missing fields.
 - `scripts/doctor_admissions_case.py`: dependency-free diagnostic report for allowed outputs, blocked outputs, blockers, warnings, and next questions.

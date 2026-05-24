@@ -11,6 +11,7 @@ onboarding_flow:
       - requirement_audit
       - essay_sop
       - workbook_build
+      - programme_table_cleaning
       - submission_readiness
       - source_refresh
       - visa_route
@@ -69,6 +70,11 @@ onboarding_flow:
       fields:
         - privacy_mode
         - export_format
+    programme_table_cleaning:
+      fields:
+        - source_workbook_dir_or_files
+        - cleaned_output_dir
+        - copy_back_requested
     status_diagnostics:
       fields:
         - can_do
@@ -116,6 +122,12 @@ onboarding_flow:
         - workflow_goal
         - privacy_export
       gate: WorkbookBuildGate
+    programme_table_cleaning:
+      required_cards:
+        - workflow_goal
+        - programme_table_cleaning
+        - privacy_export
+      gate: ProgrammeTableCleaningGate
     submission_readiness:
       required_cards:
         - workflow_goal

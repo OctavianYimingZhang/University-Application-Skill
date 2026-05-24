@@ -34,6 +34,8 @@ FIELD_ALIASES = {
     "essay_prompt_or_statement_goal": ["essay_prompt", "statement_goal", "prompt"],
     "word_limit_if_known": ["word_limit", "word_limit_if_known"],
     "ontology_json_or_structured_case_data": ["ontology_json", "structured_case_data", "ontology"],
+    "source_workbook_dir_or_files": ["source_workbook_dir", "source_dir", "workbook_files", "workbooks", "files"],
+    "cleaned_output_dir": ["cleaned_output_dir", "out_dir", "output_dir"],
     "target_application_cases": ["target_application_cases", "application_cases"],
     "document_status": ["document_status", "document_artifacts"],
     "deadline_timezone": ["deadline_timezone", "timezone", "deadlines"],
@@ -67,6 +69,8 @@ NEXT_QUESTIONS = {
     "essay_prompt_or_statement_goal": "What prompt or statement goal should the essay answer?",
     "student_evidence": "What real courses, projects, research, work, or achievements support the essay?",
     "ontology_json_or_structured_case_data": "Provide ontology JSON or structured case data for workbook rendering.",
+    "source_workbook_dir_or_files": "Provide the source workbook directory or specific .xlsx files to clean.",
+    "cleaned_output_dir": "Provide the output directory for cleaned programme workbooks.",
 }
 
 

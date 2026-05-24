@@ -24,6 +24,19 @@ action_types:
     validations:
       - diagnosis output is advisory unless a separate controlled action updates ontology state
 
+  CleanProgrammeTable:
+    inputs:
+      source_workbook_dir_or_files: string
+      cleaned_output_dir: string
+    logic:
+      - read references/programme-table-cleaning.md
+      - run scripts/clean_programme_workbooks.py into a separate output directory
+      - run scripts/verify_programme_workbooks.py on cleaned outputs
+      - report verification failures instead of copying back
+    validations:
+      - source workbooks must keep row 3 headers and row 4 data shape unless the user authorizes manual adaptation
+      - copy-back overwrite requires explicit user request
+
   ResolveApplicationRoute:
     inputs:
       applicant_id: ref[Applicant]
