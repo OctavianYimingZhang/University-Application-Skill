@@ -1,14 +1,86 @@
-# University Application Skill
+# Study Abroad Advisor Codex Skill
 
-Open-source Codex Skill for managing international university applications as a source-backed admissions operating ontology.
+`study-abroad-advisor` is an open-source Codex Skill for running international university applications as a guided, source-backed workflow.
 
-## What This Skill Does
+It is built to replace the opaque parts of a study-abroad agency workflow: profile intake, school shortlisting, exact program selection, official requirement mapping, essay/SOP planning, submission readiness, offer tracking, and visa or residence-permit preparation.
 
-`study-abroad-advisor` is designed to replace a study-abroad agency workflow with a verifiable AI workflow. It helps a student move from early brainstorming to school selection, exact program selection, requirements tracking, essay planning, submission preparation, offer handling, and visa or residence-permit readiness.
+The core design rule is simple: recommendations are not treated as casual chat output. Admissions facts become structured objects with official evidence, state, blockers, freshness, and lineage.
 
-The Skill does not treat admissions advice as a one-time answer. It treats each application as an evolving object graph with evidence, state, blockers, and controlled transitions.
+## At A Glance
 
-The user-facing entry point is a guided setup layer. The Skill first asks for the current task, reliability level, and the minimum facts needed for that task. It supports quick triage, full shortlists, exact program selection, requirement audits, essay/SOP work, workbook rendering, submission readiness, source refresh, and visa-route research without forcing every request through full intake.
+| Area | What the Skill provides |
+| --- | --- |
+| Guided intake | Setup-style questions that collect only the fields needed for the current task. |
+| School selection | Around 10 schools split into reach, target, and safer choices when enough verified context exists. |
+| Program selection | Program-level comparison inside each school, including curriculum, route, fees, campus, requirements, and fit. |
+| Requirements | A source-backed matrix for transcripts, language scores, references, essays, fees, deadlines, routes, and documents. |
+| Essays/SOPs | Evidence collection, academic-interest exploration, reusable core statement planning, and school-specific variants. |
+| Submission | Portal/common-system checklist, document state tracking, recommender tasks, deadline checks, and final blockers. |
+| Outputs | Chat summaries, tables, ontology JSON, and `.xlsx` workbooks generated from structured case data. |
+
+## Why This Exists
+
+International admissions work fails when facts are mixed with guesses. A student's citizenship, residence country, education country, passport country, document language, funding source, GPA scale, target intake, and visa route can all change the correct answer.
+
+This Skill keeps those facts separate and forces material claims to be either:
+
+- verified from official or high-quality sources
+- labeled as draft or unverified
+- blocked until evidence is available
+
+That makes the workflow auditable. It also makes it possible to refresh stale sources, detect unresolved blockers, and explain why a school or program is recommended.
+
+## Boundaries
+
+The Skill does not guarantee admission, invent acceptance probabilities, replace official university instructions, or provide legal immigration advice. For verified outputs, it requires current official sources or marks the item as unresolved.
+
+## Quick Start
+
+Install the Skill into Codex:
+
+```bash
+mkdir -p ~/.codex/skills
+rsync -a study-abroad-advisor/ ~/.codex/skills/study-abroad-advisor/
+```
+
+Use it in Codex:
+
+```text
+$study-abroad-advisor
+Help me plan a master's application cycle. Start with guided setup questions before recommending schools.
+```
+
+Run local validation:
+
+```bash
+python study-abroad-advisor/scripts/validate_setup.py study-abroad-advisor/tests/fixtures/user_setup_full_shortlist.json
+python study-abroad-advisor/scripts/validate_ontology.py study-abroad-advisor/tests/fixtures/ontology_mvp.json
+python study-abroad-advisor/scripts/build_admissions_workbook.py study-abroad-advisor/tests/fixtures/ontology_mvp.json /tmp/application_plan.xlsx
+```
+
+## Workflow Modes
+
+The user-facing entry point is a guided setup layer. The Skill first asks for the current task, reliability level, and minimum required facts. It supports these modes without forcing every request through full intake:
+
+| Mode | Use when |
+| --- | --- |
+| `quick_triage` | The student is still exploring countries, fields, or feasibility. |
+| `full_shortlist` | The student wants a school shortlist and reach/target/safer split. |
+| `exact_program_selection` | Schools are known and exact programs need comparison. |
+| `requirement_audit` | Official requirements need verification for known programs. |
+| `essay_sop` | The student needs SOP/essay evidence, structure, or variants. |
+| `workbook_build` | Structured case data should be rendered into an `.xlsx` workbook. |
+| `submission_readiness` | The student needs a pre-submit blocker and checklist review. |
+| `source_refresh` | Existing admissions sources need freshness checks or diffs. |
+| `visa_route` | Offer or post-offer documents trigger visa/residence route research. |
+
+Output tracks are explicit:
+
+| Track | Meaning |
+| --- | --- |
+| `brainstorm` / `draft` | Useful for exploration; unverified facts must be labeled. |
+| `source_backed` | Uses cited sources but may still have unresolved checks. |
+| `verified` | Requires official evidence, lineage, freshness policy, and quality gates before final outputs. |
 
 ## Core Workflow
 
@@ -33,7 +105,7 @@ flowchart TD
 
 Each step is gated. If required information or official evidence is missing, the Skill creates blocking tasks and marks facts as `needs_official_check` instead of guessing.
 
-## Guided Setup Layer
+## Setup Objects
 
 The setup layer keeps user interaction separate from admissions facts:
 
@@ -41,21 +113,7 @@ The setup layer keeps user interaction separate from admissions facts:
 - `PreferenceWeight`: ranking, admission safety, budget, city, career, research fit, visa/work, and deadline-feasibility weights.
 - `InteractionState`: completed setup cards, missing fields, blockers, warnings, and next questions.
 
-Supported workflow modes:
-
-| Mode | Purpose |
-| --- | --- |
-| `quick_triage` | Early brainstorming and missing-field discovery. |
-| `full_shortlist` | School shortlist with reach/target/safer split. |
-| `exact_program_selection` | Exact program comparison inside shortlisted schools. |
-| `requirement_audit` | Official requirement matrix for known programs. |
-| `essay_sop` | Evidence collection, academic-interest exploration, and statement planning. |
-| `workbook_build` | Render structured case data into an `.xlsx` workbook. |
-| `submission_readiness` | Pre-submit blocker and checklist review. |
-| `source_refresh` | Refresh stale sources and identify impacted facts. |
-| `visa_route` | Post-offer visa or residence-permit route research. |
-
-Output tracks are explicit. `brainstorm` and `draft` outputs can guide thinking but must label unverified facts. `source_backed` and `verified` outputs require official evidence, lineage, freshness checks, and quality gates before final recommendations or submission decisions.
+Admissions facts remain in `Applicant`, `EducationCredential`, `Program`, `ApplicationCase`, `RequirementRule`, `DocumentArtifact`, `SourceEvidence`, `Task`, and `RiskFlag` objects.
 
 ## Ontology-First Design
 
