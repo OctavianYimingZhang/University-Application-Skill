@@ -622,7 +622,7 @@ The cleaned programme export is a separate publication-oriented format with exac
 - `Program`
 - `Award`
 - `项目类型/学习方式`
-- `课程/训练/毕业要求`
+- `课程/训练内容`
 - `学术背景/限制条件`
 - `申请材料/研究要求`
 - `申请时间/状态`
@@ -630,4 +630,4 @@ The cleaned programme export is a separate publication-oriented format with exac
 - `官方来源`
 - `核对日期`
 
-This export deliberately removes ranking, country/region, department, subjective fit/risk, and internal QA fields. Use it only when the user wants an objective official-information table, not a full admissions planning workbook.
+This export deliberately removes ranking, country/region, department, subjective fit/risk, and internal QA fields. `项目类型/学习方式` must use `Type/Delivery/Mode/Duration`, `课程/训练内容` must separate knowledge topics, methods/tools, practical training, and outputs, and `学术背景/限制条件` must separate degree/grade, subject background, prerequisites/skills, language, standardized tests, and work/qualification restrictions. Use it only when the user wants an objective official-information table, not a full admissions planning workbook.

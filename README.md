@@ -133,7 +133,7 @@ The repository includes the former `official-programme-table-cleaner` workflow a
 Program
 Award
 项目类型/学习方式
-课程/训练/毕业要求
+课程/训练内容
 学术背景/限制条件
 申请材料/研究要求
 申请时间/状态
@@ -142,7 +142,7 @@ Award
 核对日期
 ```
 
-This export removes country/region, rankings, direction groups, department fields, subjective feasibility, fit/risk advice, and internal QA fields. It is intended for clean official-information tables, not for preserving the full internal admissions ontology.
+This export removes country/region, rankings, direction groups, department fields, subjective feasibility, fit/risk advice, and internal QA fields. `项目类型/学习方式` is standardized as `Type/Delivery/Mode/Duration`; `课程/训练内容` is structured as knowledge topics, methods/tools, practical training, and outputs; `学术背景/限制条件` is structured as degree/grade, subject background, prerequisites/skills, language, standardized tests, and work/qualification restrictions. It is intended for clean official-information tables, not for preserving the full internal admissions ontology.
 
 ## Ontology-First Design
 

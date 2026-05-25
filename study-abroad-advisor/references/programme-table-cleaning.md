@@ -16,7 +16,7 @@ Every cleaned worksheet must use exactly these 11 columns in this order:
 2. `Program`
 3. `Award`
 4. `项目类型/学习方式`
-5. `课程/训练/毕业要求`
+5. `课程/训练内容`
 6. `学术背景/限制条件`
 7. `申请材料/研究要求`
 8. `申请时间/状态`
@@ -48,6 +48,7 @@ Program介绍 + 课程/训练
 申请要求
 学制/学习方式
 费用/资金/重要信息
+课程/训练/毕业要求
 ```
 
 ## Field Mapping
@@ -58,11 +59,29 @@ Program介绍 + 课程/训练
 
 `Award`: award type only, such as `MPhil`, `MSc`, `MRes`, `MA`, `MBA`, `LLM`, `MPH`, or `MEng`.
 
-`项目类型/学习方式`: taught/research/professional/conversion, full-time/part-time/online/hybrid/campus-based, duration, credits/units, and start term. Do not include course content, entry requirements, language requirements, deadlines, fees, fit, or application advice.
+`项目类型/学习方式`: use this exact structure:
 
-`课程/训练/毕业要求`: official curriculum, training, research, project, and graduation structure only. This can include core modules, electives, research project, dissertation, thesis, lab work, fieldwork, placement, internship, seminars, workshops, capstone, assessment, oral presentation, portfolio, or viva. Do not repeat school, programme, award, duration, deadline, fee, source, or date.
+```text
+Type=...；Delivery=...；Mode=...；Duration=...；Credits=...
+```
 
-`学术背景/限制条件`: objective eligibility only. This includes degree requirement, GPA/honours/classification, required subject background, prerequisites, required skills, language requirements, IELTS/TOEFL/PTE, GRE/GMAT, work experience, professional registration, licence, internal/external restrictions, supervisor requirement, visa-related eligibility restriction, or ATAS when framed as eligibility/compliance.
+`Credits` is optional and may appear only when the official source lists credits, units, ECTS, CATS, or equivalent credit volume. Allowed `Type` values are `Taught`, `Research`, `Taught+Research`, `Professional`, `Executive/Professional`, `Conversion`, and `Directory/Listing`; use `Type=官网未列明` only when no objective source signal exists. Allowed `Delivery` values are `On-campus`, `Online`, `Hybrid`, `Distance`, `Block/Residential`, `Clinical/Placement-based`, `Field-based`, and `官网未列明`. Allowed `Mode` values are `FT`, `PT`, `FT/PT`, `Flexible`, and `官网未列明`. Do not include subject area, academic topics, city, school location, start date, deadline, application status, funding, fees, `需核对`, `uncertain`, or informal labels such as `工程/交叉`.
+
+`课程/训练内容`: official curriculum, training, research, project, and learning-activity content only. Structure the cell as:
+
+```text
+知识主题：...。方法/工具：...。实践训练：...。项目输出：...。
+```
+
+Use official module lists, curriculum pages, course structures, learning outcomes, programme specifications, assessment descriptions, dissertation/project pages, placement pages, and lab/fieldwork pages. Do not write generic encyclopedia summaries. Do not focus on graduation administration. Do not repeat school, programme, award, duration, deadline, fee, source, or date. If the official source does not provide detailed syllabus information, state that explicitly inside the structured labels, for example `知识主题：官网未列明 detailed syllabus。`
+
+`学术背景/限制条件`: objective eligibility only. Structure the cell as:
+
+```text
+学位/成绩：...。专业背景：...。先修/技能：...。语言：...。标化：...。工作/资格/限制：...。
+```
+
+Extract degree class, GPA/honours/classification, required or preferred subject background, prerequisites, required skills, IELTS/TOEFL/PTE/Duolingo exact scores and subscores, GRE/GMAT status, work experience, professional registration, licence, internal/external restrictions, supervisor requirement, visa-related eligibility restriction, and ATAS when framed as eligibility/compliance. GRE/GMAT must be stated as required, optional, not required, not accepted, or `官网未列明`; do not use vague wording such as `视情况`.
 
 `申请材料/研究要求`: application documents and research-specific documents. This includes CV, personal statement, SOP, references, transcripts, writing sample, portfolio, research proposal, supervisor contact, interview, essay questions, sample work, and professional certificates. Do not put language scores, degree requirements, deadlines, fees, course content, or subjective preparation advice here.
 
@@ -76,7 +95,7 @@ Program介绍 + 课程/训练
 
 ## Empty Values
 
-Use short factual placeholders only:
+Use short factual placeholders only, and keep structured fields structured:
 
 ```text
 官网未列明。
@@ -84,6 +103,8 @@ Use short factual placeholders only:
 Requirements page 未列出。
 Fees page 未列出。
 Application portal 信息未公开。
+知识主题：官网未列明 detailed syllabus。方法/工具：官网未列明。实践训练：官网未列明。项目输出：官网未列明。
+学位/成绩：官网未列明。专业背景：官网未列明。先修/技能：官网未列明。语言：官网未列明。标化：GRE/GMAT 官网未列明。工作/资格/限制：官网未列明。
 ```
 
 Do not use long process notes such as `源表未保留`, `需官网复核`, `以项目页为准`, or `费用、资金或重要信息需进一步核对`.
@@ -105,6 +126,8 @@ Remove or rewrite subjective, advisory, ranking, and internal-process language:
 以官网为准
 需官网复核
 申请者应
+需核验
+核验
 建议
 适合
 风险
@@ -116,6 +139,10 @@ Remove or rewrite subjective, advisory, ranking, and internal-process language:
 冲刺
 保底
 竞争激烈
+Duration/mode uncertain
+uncertain from gathered evidence
+需核对
+工程/交叉
 ```
 
 If an official source explicitly says `designed for`, `intended for`, `suitable for`, `recommended`, `preferred`, or `required`, rewrite it as an official-source fact, not advisor judgment.
@@ -125,7 +152,7 @@ If an official source explicitly says `designed for`, `intended for`, `suitable 
 | Field | Suggested limit |
 | --- | ---: |
 | `项目类型/学习方式` | 80 Chinese characters |
-| `课程/训练/毕业要求` | 220 Chinese characters |
+| `课程/训练内容` | 220 Chinese characters |
 | `学术背景/限制条件` | 260 Chinese characters |
 | `申请材料/研究要求` | 200 Chinese characters |
 | `申请时间/状态` | 300 Chinese characters |
@@ -134,6 +161,12 @@ If an official source explicitly says `designed for`, `intended for`, `suitable 
 | `核对日期` | 10 characters |
 
 When a cell is too long, delete process language and duplicated facts before shortening factual content. Do not compensate by shrinking font size.
+
+## QA Rules
+
+- `项目类型/学习方式` must contain `Type=`, `Delivery=`, `Mode=`, and `Duration=`. It fails if it contains subject words, application status, deadlines, fees, cities used as location claims, `需核对`, `uncertain`, or informal category labels.
+- `课程/训练内容` must include at least two of `知识主题：`, `方法/工具：`, `实践训练：`, and `项目输出：`. It fails if it is only `官网未列明`, repeats school/programme/award identifiers, or mixes in duration, deadline, fee, language, GPA, or application-material facts.
+- `学术背景/限制条件` must keep the six required labels. It fails if it is only `官网未列明`, contains subjective fit/risk language, uses vague GRE/GMAT language, or hides exact language subscores when the official source provides them.
 
 ## Workflow
 

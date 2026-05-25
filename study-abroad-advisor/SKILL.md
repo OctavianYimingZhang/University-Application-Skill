@@ -95,6 +95,8 @@ python scripts/verify_programme_workbooks.py --dir cleaned_workbooks
 
 These scripts assume row 3 contains headers and data starts on row 4. Write to a separate output directory first; use `--copy-back` only when the user explicitly asks to overwrite source workbooks.
 
+The cleaned export must keep `项目类型/学习方式` in `Type/Delivery/Mode/Duration` form, split `课程/训练内容` into knowledge topics, methods/tools, practical training, and outputs, and split `学术背景/限制条件` into degree/grade, subject background, prerequisites/skills, language, standardized tests, and work/qualification restrictions.
+
 ## Resource Map
 
 - `references/intake.md`: adaptive setup-style question workflow.
