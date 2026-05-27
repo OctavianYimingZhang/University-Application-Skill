@@ -1,6 +1,6 @@
 ---
 name: study-abroad-advisor
-description: End-to-end study-abroad admissions advising for school shortlisting, exact program selection, admissions requirement mapping, essay/SOP planning, submission preparation, and official programme table cleaning. Use when a student asks for help choosing universities or programs, comparing majors, finding official admission requirements, preparing application materials, writing or adapting statements, building or cleaning application spreadsheets, or replacing a study-abroad agency workflow.
+description: End-to-end study-abroad admissions advising for school shortlisting, exact program selection, admissions requirement mapping, essay/SOP planning, submission preparation, official programme table cleaning, and Skill maintenance checks. Use when a student asks for help choosing universities or programs, comparing majors, finding official admission requirements, preparing application materials, writing or adapting statements, building or cleaning application spreadsheets, checking or updating this Skill, or replacing a study-abroad agency workflow.
 ---
 
 # Study Abroad Advisor
@@ -81,7 +81,7 @@ Use `scripts/build_admissions_workbook.py` when the user asks for a spreadsheet 
 Example:
 
 ```bash
-python scripts/build_admissions_workbook.py input.json outputs/application_plan.xlsx
+python3 scripts/build_admissions_workbook.py input.json outputs/application_plan.xlsx
 ```
 
 The builder runs ontology quality checks before rendering when ontology data exists. Use `--skip-validation` only for explicitly draft, non-verified workbooks. The workbook should include object-state views, application cases, school shortlist, program comparison, requirement rules, document gaps, tasks, risk flags, visa route status, essay plan, submission checklist, source log, and regional program sheets when program data exists.
@@ -89,13 +89,26 @@ The builder runs ontology quality checks before rendering when ontology data exi
 For cleaned official programme exports, read `references/programme-table-cleaning.md` and use:
 
 ```bash
-python scripts/clean_programme_workbooks.py --source-dir input_workbooks --out-dir cleaned_workbooks
-python scripts/verify_programme_workbooks.py --dir cleaned_workbooks
+python3 scripts/clean_programme_workbooks.py --source-dir input_workbooks --out-dir cleaned_workbooks
+python3 scripts/verify_programme_workbooks.py --dir cleaned_workbooks
 ```
 
 These scripts assume row 3 contains headers and data starts on row 4. Write to a separate output directory first; use `--copy-back` only when the user explicitly asks to overwrite source workbooks.
 
 The cleaned export must keep `项目类型/学习方式` in `Type/Delivery/Mode/Duration` form, split `课程/训练内容` into knowledge topics, methods/tools, practical training, and outputs, and split `学术背景/限制条件` into degree/grade, subject background, prerequisites/skills, language, standardized tests, and work/qualification restrictions.
+
+## Maintenance / Self-Check / Update
+
+When the user asks to check, validate, update, repair, refresh, or release this Skill package:
+
+1. Run `python3 scripts/skill_maintenance.py doctor` first.
+2. If the user asks for an update, run `python3 scripts/skill_maintenance.py update --dry-run` first and show incoming commits and changed files.
+3. Only run `python3 scripts/skill_maintenance.py update --yes` after explicit user approval.
+4. Do not update when the git working tree is dirty.
+5. Do not modify private materials, generated outputs, user data, run manifests, source maps, QA logs, `.skill_backups/`, or local audit folders.
+6. After any update, run the manifest health commands.
+7. If health checks fail, treat the update as failed and do not use the new Skill state.
+8. For proposed Skill improvements, use `python3 scripts/skill_maintenance.py proposal --trigger "<reason>"` or create a patch/issue/PR-style proposal; do not directly rewrite the Skill contract unless explicitly requested.
 
 ## Resource Map
 
@@ -127,6 +140,8 @@ The cleaned export must keep `项目类型/学习方式` in `Type/Delivery/Mode/
 - `references/programme-table-cleaning.md`: objective 11-column official programme table export rules.
 - `references/essay-sop.md`: statement and essay evidence workflow.
 - `references/submission.md`: document and portal checklist workflow.
+- `skill_manifest.json`: manifest for self-check, safe update, and health command configuration.
+- `scripts/skill_maintenance.py`: doctor, dry-run update, safe update, and proposal helper.
 - `scripts/build_admissions_workbook.py`: dependency-free `.xlsx` builder for structured admissions data.
 - `scripts/clean_programme_workbooks.py`: `.xlsx` cleaner for objective 11-column official programme exports.
 - `scripts/verify_programme_workbooks.py`: verifier for cleaned programme workbook headers, banned phrases, official URLs, dates, filters, and freeze panes.

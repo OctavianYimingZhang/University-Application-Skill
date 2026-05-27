@@ -1,0 +1,4 @@
+interface:
+  display_name: "Study Abroad Advisor"
+  short_description: "Run guided admissions workflows, programme tables, and Skill health checks"
+  default_prompt: "Use $study-abroad-advisor to plan and manage a study-abroad application cycle through guided setup, official-source verification, workbook views, essay planning, submission readiness, objective programme table cleaning, and Skill maintenance checks."
