@@ -1,73 +1,20 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Study Abroad Advisor User Setup",
+  "title": "UserSetup",
   "type": "object",
-  "required": ["workflow_mode", "output_mode"],
+  "required": ["task_type", "output_format"],
   "properties": {
-    "user_setup_id": { "type": "string" },
-    "applicant_id": { "type": "string" },
-    "workflow_mode": {
-      "type": "string",
-      "enum": [
-        "quick_triage",
-        "full_shortlist",
-        "exact_program_selection",
-        "requirement_audit",
-        "essay_sop",
-        "workbook_build",
-        "programme_table_cleaning",
-        "submission_readiness",
-        "source_refresh",
-        "visa_route"
-      ],
-      "title": "Workflow mode",
-      "description": "The task the user wants to complete now."
-    },
-    "output_mode": {
-      "type": "string",
-      "enum": ["brainstorm", "draft", "source_backed", "verified"],
-      "title": "Output reliability",
-      "description": "How strict evidence and validation should be."
-    },
-    "recommendation_count": {
-      "type": "integer",
-      "minimum": 1,
-      "maximum": 30,
-      "default": 10
-    },
-    "preferred_depth": {
-      "type": "string",
-      "enum": ["brief", "standard", "deep"],
-      "default": "standard"
-    },
-    "ask_style": {
-      "type": "string",
-      "enum": ["compact_batches", "step_by_step", "form_like"],
-      "default": "compact_batches"
-    },
-    "source_policy": {
-      "type": "string",
-      "enum": ["official_only", "official_plus_rankings", "draft_with_unverified_markers"],
-      "default": "official_only"
-    },
-    "privacy_mode": {
-      "type": "string",
-      "enum": ["public_redacted", "private_working_copy"],
-      "default": "public_redacted"
-    },
-    "export_format": {
-      "type": "string",
-      "enum": ["chat_summary", "table", "workbook", "ontology_json"],
-      "default": "chat_summary"
-    },
-    "profile": {
-      "type": "object",
-      "additionalProperties": true
-    },
-    "preference_weights": {
-      "type": "object",
-      "additionalProperties": true
-    }
+    "task_type": {"type": "string"},
+    "output_format": {"type": "string"},
+    "degree_level": {"type": "string"},
+    "subject_area": {"type": "string"},
+    "target_country_or_region": {"type": "string"},
+    "academic_background": {"type": "string"},
+    "language_scores": {"type": "object"},
+    "budget": {"type": "string"},
+    "intake_term": {"type": "string"},
+    "source_policy": {"type": "string"},
+    "constraints": {"type": "array", "items": {"type": "string"}}
   },
   "additionalProperties": true
 }

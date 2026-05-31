@@ -1,81 +1,13 @@
 # Setup Prompt Templates
 
-Use these templates when the user wants a guided entry point instead of a full ontology discussion.
+## Broad shortlist request
 
-## Full Shortlist
+Ask for degree level, target country, subject, intake term, budget, academic background, language scores, and constraints.
 
-```text
-Use study-abroad-advisor.
-workflow_mode: full_shortlist
-output_mode: draft first, verified later
-Target degree:
-Target intake:
-Target countries:
-Current education:
-Major:
-GPA and scale:
-Annual budget:
-Career or research goal:
-Risk preference:
-Ask only the first compact batch of necessary questions. Do not recommend schools yet.
-```
+## Requirement-check request
 
-## Requirement Audit
+Ask for program names or URLs, applicant qualification, citizenship if visa rules matter, and desired output format.
 
-```text
-Use study-abroad-advisor.
-workflow_mode: requirement_audit
-output_mode: source_backed
-Target program:
-Official URL:
-Target intake:
-Citizenship / residence country / education country / passport country:
-Use official sources only. Output RequirementRule objects, SourceEvidence, stale_after_days, verification_status, and blocking tasks.
-```
+## Essay/SOP request
 
-## Essay SOP
-
-```text
-Use study-abroad-advisor.
-workflow_mode: essay_sop
-output_mode: draft
-Target program:
-Essay prompt:
-Word limit:
-Real student evidence:
-Build StudentEvidence, ProgramFitFact, and EssayClaim first. Do not draft the full essay yet.
-```
-
-## Workbook Build
-
-```text
-Use study-abroad-advisor.
-workflow_mode: workbook_build
-output_mode: verified
-Input: ontology JSON or structured case data
-Render an admissions workbook only after validator checks pass. If validation fails, output the blocker report instead.
-```
-
-## Programme Table Cleaning
-
-```text
-Use study-abroad-advisor.
-workflow_mode: programme_table_cleaning
-output_mode: source_backed
-Source workbook directory or files:
-Cleaned output directory:
-Clean programme sheets into the 11-column objective official-information format. Do not overwrite originals unless explicitly requested. Run the verifier after cleaning.
-```
-
-## Submission Readiness
-
-```text
-Use study-abroad-advisor.
-workflow_mode: submission_readiness
-output_mode: verified
-Target application cases:
-Document status:
-Portal status:
-Deadlines:
-Run readiness gates before marking anything submitted.
-```
+Ask for program, prompt, word limit, applicant background, achievements, source documents, and tone preference.

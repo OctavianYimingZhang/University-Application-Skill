@@ -1,93 +1,17 @@
-# Intake Workflow
+# Intake
 
-Use this file before school or program recommendations. The goal is to extract constraints the student may not know how to state.
+Collect only fields needed for the requested output.
 
-## Required Profile
+## Core fields
 
-Collect these fields before research:
+- target country or region
+- degree level
+- subject or program area
+- current qualification and grades
+- language scores or test plan
+- budget and funding constraints
+- intended intake term
+- citizenship or visa route, if visa guidance is requested
+- constraints such as location, ranking preference, work placement, or delivery mode
 
-- Degree level: undergraduate, taught master's, research master's, PhD, transfer, visiting/exchange, foundation/pre-master's, or other.
-- Target intake year and term.
-- Intended countries or regions, and countries excluded.
-- Citizenship country or countries, residence country, passport country, visa application country if different, and any dual citizenship.
-- Current education country, institution, major, degree status, graduation date, GPA, GPA scale, class rank if available, and grading evidence.
-- Language of instruction, document language, grading scale document availability, and whether translations, notarization, apostille, legalisation, or credential evaluation may be needed.
-- Target field, adjacent fields accepted, and fields excluded.
-- Relevant coursework with grades, research, projects, internships, publications, competitions, certifications, technical skills, languages, and work experience.
-- Budget per year and total budget, including tuition, living cost, application fees, testing, deposit, visa, insurance, and travel.
-- City/campus preferences: major city, quieter campus, climate, safety, commute, language environment, family proximity, industry access, or no preference.
-- Ranking constraints: school ranking, subject ranking, domestic prestige, professional accreditation, or no ranking requirement.
-- Career or research goal: job market, PhD, clinical/professional path, immigration/work authorization, family business, or undecided.
-- Test status: IELTS, TOEFL, PTE, Duolingo, SAT, ACT, AP, IB, A-level, GRE, GMAT, LSAT, MCAT, or other relevant exams.
-- Risk tolerance: ambitious, balanced, conservative, or only high-probability offers.
-- Scholarships or funding requirements.
-- Funding source country, sponsor relationship, bank-statement availability, currency constraints, and whether financial evidence must support visa or residence-permit rules.
-- Time constraints: deadlines, current application cycle, document availability, recommender availability, visa timing, post-offer document timing, and arrival timing.
-- Prior residence history when it may affect TB tests, medical exams, police certificates, local visa-office documents, or residence-permit steps.
-
-## Question Batches
-
-Ask no more than 5 to 7 questions per batch. Prefer multiple-choice questions when choices clarify tradeoffs, and use fill-in questions when facts are needed.
-
-Batch 1: target shape
-
-- Degree level and target intake.
-- Countries or regions.
-- Field and fields to exclude.
-- Budget.
-- Ranking or prestige constraints.
-- Citizenship, residence, passport, and education country if the student did not already state them.
-
-Batch 2: academic eligibility
-
-- Current institution, country, major, GPA, GPA scale, rank.
-- Key coursework with grades.
-- Research/projects/internships.
-- Test scores and planned test dates.
-- English-medium study or waiver evidence.
-- Document language, grading evidence, predicted/final status, and credential-evaluation uncertainty.
-
-Batch 3: fit and constraints
-
-- City/campus lifestyle preferences.
-- Career/research goal and backup goal.
-- Risk tolerance.
-- Visa/work/immigration importance.
-- Scholarship need.
-
-Batch 4: execution readiness
-
-- Documents already available.
-- Recommenders and expected strength.
-- Deadlines the student must meet.
-- Essay history and strongest evidence.
-- Any red flags: low grades in prerequisite courses, gap years, failed courses, visa history, disciplinary issues, or missing documents.
-- Funding evidence, passport validity, name consistency across documents, and local visa/residence document constraints.
-
-## Brainstorming Prompts
-
-Use these only when the student is vague:
-
-- "List three courses you liked and three courses you disliked. Include grades if possible."
-- "Name one topic you would read about without being forced."
-- "Name one skill you can prove with evidence, not just claim."
-- "Would you rather maximize ranking, admission probability, budget safety, job outcome, research fit, or city fit?"
-- "What would make a school unacceptable even if it is highly ranked?"
-- "Which constraint is fixed: country, budget, ranking, field, or deadline?"
-- "Are citizenship, residence, education country, and passport country all the same? If not, list each separately."
-- "Which documents are not in English or the destination country's accepted language?"
-- "Which step is most likely to block submission: GPA evidence, language test, recommender, funding proof, passport, essay, portfolio, or visa document?"
-
-## Output After Intake
-
-Return a profile summary with:
-
-- Fixed constraints.
-- Flexible preferences.
-- Academic strengths.
-- Academic risks.
-- Missing facts.
-- Research plan and source types to verify.
-- Ontology seed objects: `Applicant`, `EducationCredential`, provisional `ApplicationCase` scope, missing `DocumentArtifact` placeholders, and blocking `Task` objects.
-
-Do not recommend schools until the fixed constraints and academic baseline are clear enough to avoid misleading results.
+If a field affects eligibility, mark it as required before final recommendations.

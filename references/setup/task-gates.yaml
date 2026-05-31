@@ -1,148 +1,25 @@
-task_gates:
-  QuickTriageGate:
-    workflow_mode: quick_triage
+gates:
+  shortlist:
     required:
-      - target_degree_level
-      - target_field
-      - target_countries_or_regions
-      - current_education_country
-      - gpa_or_equivalent
-    allowed_outputs:
-      - brainstorm
-      - missing_fields_report
-      - research_plan
-    blocked_outputs:
-      - verified_shortlist
-      - final_recommendation
-
-  FullShortlistGate:
-    workflow_mode: full_shortlist
-    required:
-      - target_degree_level
-      - target_intake
-      - target_countries
-      - citizenship_countries
-      - residence_country
-      - education_country
-      - passport_country
-      - gpa_value
-      - gpa_scale
-      - budget_annual
-      - language_status
-      - risk_tolerance
-    allowed_outputs:
-      - draft_shortlist
-      - school_shortlist
-      - reach_target_safer_split
-      - draft_application_cases
-    blocked_outputs:
-      - verified_shortlist_without_source_evidence
-      - final_recommendation_without_quality_checks
-
-  ExactProgramSelectionGate:
-    workflow_mode: exact_program_selection
-    required:
-      - school_list
-      - target_degree_level
-      - target_field
+      - degree_level
+      - subject_area
+      - target_country_or_region
       - academic_background
-    allowed_outputs:
-      - department_program_map
-      - program_comparison
-      - inclusion_exclusion_rationale
-    blocked_outputs:
-      - final_program_choice_without_official_program_sources
-
-  RequirementAuditGate:
-    workflow_mode: requirement_audit
+      - intake_term
+  requirement_check:
     required:
-      - applicant_route_fields
-      - program_official_name_or_url
-      - target_intake
-      - target_degree_level
-    allowed_outputs:
-      - requirement_matrix
-      - source_log
-      - missing_requirement_tasks
-    blocked_outputs:
-      - verified_requirement_without_source_evidence
-
-  EssaySOPGate:
-    workflow_mode: essay_sop
+      - program_name_or_url
+      - applicant_qualification
+      - source_policy
+  visa_readiness:
     required:
-      - target_program_or_program_cluster
-      - essay_prompt_or_statement_goal
-      - student_evidence
-      - word_limit_if_known
-    allowed_outputs:
-      - essay_claim_graph
-      - outline
-      - draft_statement
-    blocked_outputs:
-      - school_specific_claim_without_program_fit_fact
-      - invented_achievement
-
-  WorkbookBuildGate:
-    workflow_mode: workbook_build
-    required:
-      - ontology_json_or_structured_case_data
-      - output_mode
-    allowed_outputs:
-      - draft_workbook
-      - verified_workbook_if_quality_checks_pass
-    blocked_outputs:
-      - verified_workbook_with_blocker_or_error_findings
-
-  ProgrammeTableCleaningGate:
-    workflow_mode: programme_table_cleaning
-    required:
-      - source_workbook_dir_or_files
-      - cleaned_output_dir
-    allowed_outputs:
-      - cleaned_programme_workbooks
-      - verification_report
-      - objective_11_column_official_table
-    blocked_outputs:
-      - copy_back_without_explicit_user_request
-      - subjective_fit_or_risk_columns_in_clean_export
-
-  SubmissionReadinessGate:
-    workflow_mode: submission_readiness
-    required:
-      - target_application_cases
-      - document_status
-      - deadline_timezone
-      - application_system
-      - source_log
-    allowed_outputs:
-      - submission_blocker_report
-      - submission_checklist
-      - pre_submit_review
-    blocked_outputs:
-      - submitted_state_without_gate_pass
-
-  SourceRefreshGate:
-    workflow_mode: source_refresh
-    required:
-      - source_evidence_or_ontology_json
-    allowed_outputs:
-      - stale_source_report
-      - source_diff
-      - impacted_application_cases
-    blocked_outputs:
-      - silent_verified_output_from_stale_source
-
-  VisaRouteGate:
-    workflow_mode: visa_route
-    required:
+      - citizenship
       - destination_country
-      - citizenship_countries
-      - residence_country
-      - passport_country
-      - offer_or_post_offer_document_status
-    allowed_outputs:
-      - visa_route_research_plan
-      - visa_requirement_matrix
-      - missing_post_offer_tasks
-    blocked_outputs:
-      - visa_ready_status_without_government_source
+      - intended_intake
+      - funding_plan
+  essay_plan:
+    required:
+      - program_name
+      - prompt
+      - word_limit
+      - applicant_background

@@ -1,0 +1,45 @@
+{
+  "case_title": "MSc shortlist fixture",
+  "target_country_or_region": "United Kingdom",
+  "degree_level": "Master's",
+  "subject_area": "Data Science",
+  "intake_term": "September 2026",
+  "applicant": {
+    "current_qualification": "Bachelor's degree",
+    "academic_background": "Quantitative major",
+    "language_status": "IELTS planned"
+  },
+  "programs": [
+    {
+      "program_name": "Example MSc Data Science",
+      "institution": "Example University",
+      "country": "United Kingdom",
+      "status": "research_needed"
+    }
+  ],
+  "requirements": [
+    {
+      "program_name": "Example MSc Data Science",
+      "requirement_type": "academic",
+      "requirement": "Verify official entry requirement before recommendation",
+      "source_url": "https://example.edu/program",
+      "access_date": "2026-05-31"
+    }
+  ],
+  "documents": [
+    {"document": "Transcript", "status": "needed"},
+    {"document": "Personal statement", "status": "needed"}
+  ],
+  "deadlines": [
+    {"item": "Application deadline", "date": "source required", "source_url": "https://example.edu/program"}
+  ],
+  "risks_and_gaps": [
+    {"risk": "Language score missing", "severity": "blocker until verified"}
+  ],
+  "tasks": [
+    {"task": "Check official program page", "owner": "applicant", "status": "open"}
+  ],
+  "sources": [
+    {"title": "Example program page", "url": "https://example.edu/program", "access_date": "2026-05-31"}
+  ]
+}
