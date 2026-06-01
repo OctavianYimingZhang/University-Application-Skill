@@ -2,19 +2,93 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "UserSetup",
   "type": "object",
-  "required": ["task_type", "output_format"],
+  "anyOf": [
+    {"required": ["workflow_mode", "output_mode"]},
+    {"required": ["task_type", "output_format"]}
+  ],
   "properties": {
-    "task_type": {"type": "string"},
+    "user_setup_id": {"type": "string"},
+    "applicant_id": {"type": "string"},
+    "workflow_mode": {
+      "type": "string",
+      "enum": [
+        "quick_triage",
+        "full_shortlist",
+        "exact_program_selection",
+        "requirement_audit",
+        "essay_sop",
+        "workbook_build",
+        "programme_table_cleaning",
+        "submission_readiness",
+        "source_refresh",
+        "visa_route"
+      ]
+    },
+    "task_type": {
+      "type": "string",
+      "enum": ["shortlist", "requirement_check", "visa_readiness", "essay_plan"]
+    },
+    "output_mode": {
+      "type": "string",
+      "enum": ["brainstorm", "draft", "source_backed", "verified"]
+    },
     "output_format": {"type": "string"},
-    "degree_level": {"type": "string"},
-    "subject_area": {"type": "string"},
-    "target_country_or_region": {"type": "string"},
-    "academic_background": {"type": "string"},
-    "language_scores": {"type": "object"},
-    "budget": {"type": "string"},
-    "intake_term": {"type": "string"},
+    "recommendation_count": {"type": "integer", "minimum": 1},
+    "preferred_depth": {"type": "string"},
+    "ask_style": {
+      "type": "string",
+      "enum": ["compact_batches", "step_by_step", "form_like"]
+    },
     "source_policy": {"type": "string"},
-    "constraints": {"type": "array", "items": {"type": "string"}}
+    "privacy_mode": {"type": "string"},
+    "export_format": {"type": "string"},
+    "ranking_weight": {"type": ["number", "string"]},
+    "admission_safety_weight": {"type": ["number", "string"]},
+    "budget_weight": {"type": ["number", "string"]},
+    "city_weight": {"type": ["number", "string"]},
+    "career_weight": {"type": ["number", "string"]},
+    "research_fit_weight": {"type": ["number", "string"]},
+    "visa_work_route_weight": {"type": ["number", "string"]},
+    "deadline_feasibility_weight": {"type": ["number", "string"]},
+    "source_workbook_dir_or_files": {
+      "oneOf": [
+        {"type": "string"},
+        {"type": "array", "items": {"type": "string"}}
+      ]
+    },
+    "source_workbook_dir": {"type": "string"},
+    "cleaned_output_dir": {"type": "string"},
+    "copy_back_requested": {"type": "boolean"},
+    "can_do": {"type": "array", "items": {"type": "string"}},
+    "cannot_do": {"type": "array", "items": {"type": "string"}},
+    "blockers": {"type": "array", "items": {"type": "string"}},
+    "warnings": {"type": "array", "items": {"type": "string"}},
+    "next_questions": {"type": "array", "items": {"type": "string"}},
+    "profile": {
+      "type": "object",
+      "properties": {
+        "target_degree_level": {"type": "string"},
+        "target_intake": {"type": "string"},
+        "target_countries": {"type": "array", "items": {"type": "string"}},
+        "citizenship_countries": {"type": "array", "items": {"type": "string"}},
+        "residence_country": {"type": "string"},
+        "education_country": {"type": "string"},
+        "passport_country": {"type": "string"},
+        "visa_application_country": {"type": "string"},
+        "target_field": {"type": "string"},
+        "current_institution": {"type": "string"},
+        "current_major": {"type": "string"},
+        "current_qualification": {"type": "string"},
+        "academic_background": {"type": "string"},
+        "gpa_value": {"type": "string"},
+        "gpa_scale": {"type": "string"},
+        "language_status": {"type": "string"},
+        "core_courses": {"type": "array", "items": {"type": "string"}},
+        "budget_annual": {"type": "string"},
+        "constraints": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": true
+    }
   },
   "additionalProperties": true
 }

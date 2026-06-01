@@ -27,6 +27,7 @@ Use [`SKILL.md`](SKILL.md). Reference files are loaded only when needed.
 
 ```bash
 python3 -m compileall -q scripts
+python3 scripts/check_setup_contract.py
 python3 scripts/validate_setup.py tests/fixtures/user_setup_full_shortlist.json
 python3 scripts/build_admissions_workbook.py tests/fixtures/admissions_case_mvp.json /tmp/application_plan.xlsx
 ```

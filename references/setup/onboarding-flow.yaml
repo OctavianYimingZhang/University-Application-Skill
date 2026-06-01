@@ -76,6 +76,7 @@ onboarding_flow:
         - cleaned_output_dir
         - copy_back_requested
     status_diagnostics:
+      output_only: true
       fields:
         - can_do
         - cannot_do
@@ -89,7 +90,7 @@ onboarding_flow:
         - workflow_goal
         - target_shape
         - academic_profile
-      gate: QuickTriageGate
+      gate: quick_triage
     full_shortlist:
       required_cards:
         - workflow_goal
@@ -98,48 +99,48 @@ onboarding_flow:
         - academic_profile
         - budget_preferences
         - privacy_export
-      gate: FullShortlistGate
+      gate: full_shortlist
     exact_program_selection:
       required_cards:
         - workflow_goal
         - target_shape
         - academic_profile
-      gate: ExactProgramSelectionGate
+      gate: exact_program_selection
     requirement_audit:
       required_cards:
         - workflow_goal
         - target_shape
         - identity_route
-      gate: RequirementAuditGate
+      gate: requirement_audit
     essay_sop:
       required_cards:
         - workflow_goal
         - target_shape
         - academic_profile
-      gate: EssaySOPGate
+      gate: essay_sop
     workbook_build:
       required_cards:
         - workflow_goal
         - privacy_export
-      gate: WorkbookBuildGate
+      gate: workbook_build
     programme_table_cleaning:
       required_cards:
         - workflow_goal
         - programme_table_cleaning
         - privacy_export
-      gate: ProgrammeTableCleaningGate
+      gate: programme_table_cleaning
     submission_readiness:
       required_cards:
         - workflow_goal
         - target_shape
         - identity_route
-      gate: SubmissionReadinessGate
+      gate: submission_readiness
     source_refresh:
       required_cards:
         - workflow_goal
-      gate: SourceRefreshGate
+      gate: source_refresh
     visa_route:
       required_cards:
         - workflow_goal
         - identity_route
-      gate: VisaRouteGate
+      gate: visa_route

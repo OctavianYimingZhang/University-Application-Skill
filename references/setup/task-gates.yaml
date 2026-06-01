@@ -1,25 +1,54 @@
 gates:
-  shortlist:
-    required:
-      - degree_level
-      - subject_area
-      - target_country_or_region
-      - academic_background
-      - intake_term
-  requirement_check:
-    required:
-      - program_name_or_url
-      - applicant_qualification
-      - source_policy
-  visa_readiness:
-    required:
-      - citizenship
-      - destination_country
-      - intended_intake
-      - funding_plan
-  essay_plan:
-    required:
-      - program_name
-      - prompt
-      - word_limit
-      - applicant_background
+  quick_triage:
+    required_any:
+      target_degree: [profile.target_degree_level, degree_level]
+      destination: [profile.target_countries, target_country_or_region]
+      field: [profile.target_field, subject_area]
+      academic_signal: [profile.gpa_value, profile.academic_background, profile.current_qualification, profile.current_major]
+  full_shortlist:
+    required_any:
+      target_degree: [profile.target_degree_level, degree_level]
+      intake: [profile.target_intake, intake_term]
+      destination: [profile.target_countries, target_country_or_region]
+      field: [profile.target_field, subject_area]
+      grade_value: [profile.gpa_value, profile.academic_background, profile.current_qualification]
+      grade_scale: [profile.gpa_scale, profile.academic_background, profile.current_qualification]
+      budget: [profile.budget_annual, budget]
+  exact_program_selection:
+    required_any:
+      target_degree: [profile.target_degree_level, degree_level]
+      destination: [profile.target_countries, target_country_or_region]
+      field: [profile.target_field, subject_area]
+      academic_signal: [profile.gpa_value, profile.academic_background, profile.current_qualification]
+  requirement_audit:
+    required_any:
+      programme: [program_name_or_url, program_names_or_urls, target_programs, program_name]
+      applicant_qualification: [applicant_qualification, profile.current_qualification, profile.academic_background]
+      source_policy: [source_policy]
+  essay_sop:
+    required_any:
+      programme: [program_name, target_programs]
+      prompt: [prompt, essay_prompt]
+      word_limit: [word_limit]
+      applicant_background: [applicant_background, profile.academic_background, profile.current_qualification]
+  workbook_build:
+    required_any:
+      export_format: [export_format]
+  programme_table_cleaning:
+    required_any:
+      source_workbook: [source_workbook_dir_or_files, source_workbook_dir, source_workbook_files]
+      cleaned_output: [cleaned_output_dir]
+  submission_readiness:
+    required_any:
+      programme: [program_name_or_url, program_names_or_urls, target_programs, program_name]
+      citizenship: [profile.citizenship_countries, citizenship]
+      destination: [profile.target_countries, destination_country, target_country_or_region]
+  source_refresh:
+    required_any:
+      source: [source_urls, source_url, program_name_or_url, program_names_or_urls]
+  visa_route:
+    required_any:
+      citizenship: [profile.citizenship_countries, citizenship]
+      destination: [profile.target_countries, destination_country, target_country_or_region]
+      intake: [profile.target_intake, intake_term, intended_intake]
+      funding: [profile.budget_annual, funding_plan, budget]

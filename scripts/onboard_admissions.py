@@ -6,30 +6,77 @@ import argparse
 import json
 from pathlib import Path
 
+WORKFLOW_ALIASES = {
+    "shortlist": "full_shortlist",
+    "requirement_check": "requirement_audit",
+    "visa_readiness": "visa_route",
+    "essay_plan": "essay_sop",
+}
 
-def build_template(task_type: str, output_format: str) -> dict:
-    return {
-        'task_type': task_type,
-        'output_format': output_format,
-        'degree_level': '',
-        'subject_area': '',
-        'target_country_or_region': '',
-        'academic_background': '',
-        'language_scores': {},
-        'budget': '',
-        'intake_term': '',
-        'source_policy': 'official_sources_required',
-        'constraints': [],
+OUTPUT_ALIASES = {
+    "chat_summary": "draft",
+    "table": "draft",
+    "workbook": "draft",
+    "source_backed_table": "source_backed",
+    "verified_workbook": "verified",
+}
+
+
+def build_template(workflow_mode: str, output_mode: str) -> dict:
+    workflow_mode = WORKFLOW_ALIASES.get(workflow_mode, workflow_mode)
+    output_mode = OUTPUT_ALIASES.get(output_mode, output_mode)
+    data = {
+        "user_setup_id": "",
+        "workflow_mode": workflow_mode,
+        "output_mode": output_mode,
+        "recommendation_count": 10,
+        "preferred_depth": "standard",
+        "ask_style": "compact_batches",
+        "source_policy": "official_only",
+        "privacy_mode": "public_redacted",
+        "export_format": "table",
+        "ranking_weight": "",
+        "admission_safety_weight": "",
+        "budget_weight": "",
+        "city_weight": "",
+        "career_weight": "",
+        "research_fit_weight": "",
+        "visa_work_route_weight": "",
+        "deadline_feasibility_weight": "",
+        "profile": {
+            "target_degree_level": "",
+            "target_intake": "",
+            "target_countries": [],
+            "citizenship_countries": [],
+            "residence_country": "",
+            "education_country": "",
+            "passport_country": "",
+            "visa_application_country": "",
+            "target_field": "",
+            "current_institution": "",
+            "current_major": "",
+            "gpa_value": "",
+            "gpa_scale": "",
+            "language_status": "",
+            "core_courses": [],
+            "budget_annual": "",
+            "constraints": [],
+        },
     }
+    if workflow_mode == "programme_table_cleaning":
+        data["source_workbook_dir_or_files"] = []
+        data["cleaned_output_dir"] = ""
+        data["copy_back_requested"] = False
+    return data
 
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument('--task-type', default='shortlist')
-    parser.add_argument('--output-format', default='chat_summary')
+    parser.add_argument('--workflow-mode', '--task-type', dest='workflow_mode', default='full_shortlist')
+    parser.add_argument('--output-mode', '--output-format', dest='output_mode', default='draft')
     parser.add_argument('--output', type=Path)
     args = parser.parse_args()
-    data = build_template(args.task_type, args.output_format)
+    data = build_template(args.workflow_mode, args.output_mode)
     text = json.dumps(data, ensure_ascii=False, indent=2) + '\n'
     if args.output:
         args.output.write_text(text, encoding='utf-8')
