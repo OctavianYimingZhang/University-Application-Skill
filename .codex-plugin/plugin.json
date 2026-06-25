@@ -1,0 +1,44 @@
+{
+  "name": "university-application-skill",
+  "version": "0.2.0",
+  "description": "Multiple-skill university application planning system with source-backed programme research, requirement audits, materials checks, writing studio, and submission readiness.",
+  "author": {
+    "name": "Octavian Yiming Zhang"
+  },
+  "homepage": "https://github.com/OctavianYimingZhang/University-Application-Skill",
+  "repository": "https://github.com/OctavianYimingZhang/University-Application-Skill",
+  "license": "MIT",
+  "keywords": [
+    "university-application",
+    "study-abroad",
+    "admissions",
+    "requirements",
+    "personal-statement",
+    "sop",
+    "materials-check",
+    "programme-research"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "University Application Skill",
+    "shortDescription": "Plan source-backed university applications and admissions writing workflows.",
+    "longDescription": "University Application Skill routes admissions requests into focused workflows for official programme research, hard requirement audits, materials readiness, interactive SOP and personal-statement planning, submission readiness, visa-sensitive notes, and programme table cleaning. It forbids admission-probability prediction and keeps requirements tied to official source evidence.",
+    "developerName": "Octavian Yiming Zhang",
+    "category": "Education",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://octavianyimingzhang.github.io/University-Application-Skill/",
+    "privacyPolicyURL": "https://openai.com/policies/privacy-policy/",
+    "termsOfServiceURL": "https://openai.com/policies/terms-of-use/",
+    "defaultPrompt": [
+      "Build a source-backed shortlist for my target field.",
+      "Check the hard requirements for this programme.",
+      "Help me plan my personal statement with evidence before drafting."
+    ],
+    "brandColor": "#22C55E",
+    "screenshots": []
+  }
+}

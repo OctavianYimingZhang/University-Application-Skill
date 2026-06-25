@@ -1,4 +1,18 @@
 interface:
-  display_name: "Study Abroad Advisor"
-  short_description: "Run guided admissions workflows, programme tables, and Skill health checks"
-  default_prompt: "Use $study-abroad-advisor to plan and manage a study-abroad application cycle through guided setup, official-source verification, workbook views, essay planning, submission readiness, objective programme table cleaning, and Skill maintenance checks."
+  display_name: "University Application Skill"
+  short_description: "Run source-backed admissions research, materials checks, and writing planning"
+  default_prompt: "Use $study-abroad-advisor to plan a university application cycle with official-source programme research, hard requirement audits, document readiness checks, interactive SOP or personal-statement planning, submission readiness, and workbook exports."
+multi_skill_system:
+  plugin_router_skill: "skills/study-abroad-advisor/SKILL.md"
+  index_skill: "skills/university-application-index/SKILL.md"
+  focused_skills:
+    - "university-application-index"
+    - "program-research"
+    - "requirement-audit"
+    - "materials-check"
+    - "application-writing-studio"
+    - "submission-readiness"
+    - "programme-table-cleaning"
+source_policy:
+  hard_requirements: "official_only"
+  probability_prediction: "prohibited"

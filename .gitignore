@@ -4,3 +4,13 @@ __pycache__/
 outputs/
 *.tmp
 .skill_backups/
+node_modules/
+web/node_modules/
+web/dist/
+web/.vite/
+web/.npm-cache/
+web/*.tsbuildinfo
+web/vite.config.js
+web/vite.config.d.ts
+playwright-report/
+test-results/
