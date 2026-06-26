@@ -2,7 +2,7 @@
 
 A multiple-skill Codex package for source-backed university application planning.
 
-It supports official programme research, hard requirement audits, application-material readiness checks, interactive SOP/personal-statement planning, submission readiness, visa-sensitive notes, programme table cleaning, and workbook exports. It explicitly does not produce admission-probability predictions.
+It supports official programme research, hard requirement audits, application-material readiness checks, interactive SOP/personal-statement planning, submission readiness, visa-sensitive notes, programme table cleaning, workbook exports, and blank-by-default long-memory orchestration for writing voice, course coverage, slide-delta notes, and user preferences. It explicitly does not produce admission-probability predictions.
 
 ## Web App
 
@@ -14,6 +14,7 @@ Main surfaces:
 - Application Checklist: simulate material readiness against a selected programme.
 - Writing Studio: lock the writing brief, choose narrative options, map evidence, and block unsupported claims before drafting.
 - Codex OAuth Runtime: a Hermes-style panel that calls Codex account/OAuth actions through Codex app-server or the included local HTTP bridge without storing bearer tokens in the browser.
+- Memory Studio: a static browser page at [`web/public/memory.html`](web/public/memory.html) for uploading writing samples, adding lecture/slide-delta notes, and exporting private memory JSON or compact ChatGPT/Codex memory packs.
 
 GitHub Pages deployment is configured through `.github/workflows/pages.yml`.
 
@@ -21,6 +22,12 @@ Expected Pages URL:
 
 ```text
 https://octavianyimingzhang.github.io/University-Application-Skill/
+```
+
+Expected Memory Studio URL after Pages deployment:
+
+```text
+https://octavianyimingzhang.github.io/University-Application-Skill/memory.html
 ```
 
 ## Skill Entrypoints
@@ -36,7 +43,7 @@ Focused Skills live under [`skills/`](skills/):
 | `program-research` | Collect and compare official programme pages. |
 | `requirement-audit` | Check hard academic, language, fee, deadline, and document requirements. |
 | `materials-check` | Simulate application-material readiness. |
-| `application-writing-studio` | Plan SOPs, personal statements, and programme-fit writing from evidence. |
+| `application-writing-studio` | Plan SOPs, personal statements, and programme-fit writing from evidence and optional writing-voice memory. |
 | `submission-readiness` | Run final pre-submission blocker checks. |
 | `programme-table-cleaning` | Clean and verify official programme tables/workbooks. |
 
@@ -44,13 +51,42 @@ Focused Skills live under [`skills/`](skills/):
 
 | Path | Purpose |
 | --- | --- |
-| `SKILL.md` | Root workflow contract. |
+| `SKILL.md` | Root workflow and memory contract. |
 | `skills/` | Plugin router and focused Skill entrypoints. |
-| `references/` | Intake, research, essay/SOP, submission, workbook, and quality guidance. |
+| `references/` | Intake, research, essay/SOP, memory, submission, workbook, and quality guidance. |
+| `memory/` | Blank memory templates only; private populated files are ignored by git. |
 | `scripts/` | Route planning, review-question payloads, validation, publishing, workbook rendering, and programme-table utilities. |
-| `web/` | Interactive admissions website prototype. |
+| `web/` | Interactive admissions website prototype plus static Memory Studio page. |
 | `.codex-plugin/` | Plugin metadata. |
 | `.github/workflows/` | Skill health and GitHub Pages workflows. |
+| `COPY_PACKAGE.md` | Copy-safe installation and distribution notes for the website, Skill, scripts, and blank memory templates. |
+
+## Blank Memory Policy
+
+The public GitHub version must not contain populated user memory.
+
+Allowed in the repository:
+
+- blank schemas;
+- empty JSON templates;
+- generic memory category names;
+- UI code that lets a user create a private export.
+
+Not allowed in the repository:
+
+- real writing samples;
+- real lecture notes or slide annotations;
+- private applicant facts;
+- credentials, tokens, emails, visa data, or local account details;
+- filled `memory/local-*` files.
+
+The recommended local path for a private copy is:
+
+```text
+memory/local-user-memory.json
+```
+
+That path is ignored by git.
 
 ## Local Checks
 
