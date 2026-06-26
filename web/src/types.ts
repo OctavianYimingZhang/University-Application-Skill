@@ -59,6 +59,10 @@ export interface CatalogueProgramOption {
   award: string;
   url: string;
   note: string;
+  duration?: string;
+  mode?: string;
+  status?: string;
+  sourceStatus?: SourceStatus;
 }
 
 export interface CatalogueSource {
@@ -79,6 +83,7 @@ export interface InstitutionCatalogue {
   checked: string;
   sources: CatalogueSource[];
   examples: CatalogueProgramOption[];
+  programs?: CatalogueProgramOption[];
   extractionNote: string;
   caveat: string;
 }

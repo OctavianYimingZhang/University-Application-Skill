@@ -1,4 +1,5 @@
 import type { CatalogueProgramOption, InstitutionCatalogue, InstitutionGroup, Program, ProgramLevel, Region } from "../types";
+import { cambridgeCatalogueChecked, cambridgePrograms } from "./cambridgePrograms";
 
 const checked = "2026-06-25";
 
@@ -54,7 +55,7 @@ export const institutionCatalogues: InstitutionCatalogue[] = [
     shortName: "Cambridge",
     group: "UK Core",
     region: "United Kingdom",
-    checked,
+    checked: cambridgeCatalogueChecked,
     sources: [
       source("Undergraduate", "Undergraduate courses", "https://www.undergraduate.study.cam.ac.uk/courses", "Complete HTML", "Course names and links are exposed in one official page."),
       source("Postgraduate", "Postgraduate course directory", "https://www.postgraduate.study.cam.ac.uk/courses", "Paginated HTML", "Official Drupal Views directory; crawl pagination and taught/research filters."),
@@ -65,8 +66,9 @@ export const institutionCatalogues: InstitutionCatalogue[] = [
       option("cambridge-pg-advanced-computer-science", "Postgraduate", "Advanced Computer Science", "MPhil", "https://www.postgraduate.study.cam.ac.uk/courses/directory/cscsmpacs"),
       option("cambridge-pg-2d-materials", "Postgraduate", "2D Materials of Tomorrow", "PhD", "https://www.postgraduate.study.cam.ac.uk/courses/directory/egegpdtwo"),
     ],
-    extractionNote: "Crawl server-rendered PG pages and filters `taught_research=154` and `taught_research=153`.",
-    caveat: "Some PG entries may be closed for the current cycle; preserve status from the source.",
+    programs: cambridgePrograms,
+    extractionNote: "Official Cambridge catalogue rows loaded: 33 undergraduate courses and 359 postgraduate directory rows.",
+    caveat: "Some PG entries are closed for the current cycle; status is preserved from the official directory row.",
   },
   {
     id: "imperial",
@@ -335,7 +337,12 @@ export const allInstitutionCatalogues = [...institutionCatalogues, ...usAndSinga
 export const groups: InstitutionGroup[] = ["UK Core", "US News Top 30", "Singapore"];
 
 export function programFromCatalogueOption(catalogue: InstitutionCatalogue, item: CatalogueProgramOption): Program {
-  const sourceStatus = item.note.startsWith("Open official") ? "Catalogue linked" : "Verified";
+  const sourceStatus = item.sourceStatus ?? (item.note.startsWith("Open official") ? "Catalogue linked" : "Verified");
+  const duration = item.duration ?? "See official programme page";
+  const mode = item.mode ?? "See official programme page";
+  const status = item.status && item.status !== "Open in official directory" && !item.note.includes(item.status)
+    ? ` ${item.status}.`
+    : "";
   return {
     id: item.id,
     name: item.name,
@@ -344,16 +351,16 @@ export function programFromCatalogueOption(catalogue: InstitutionCatalogue, item
     region: catalogue.region,
     level: item.level,
     award: item.award,
-    duration: "See official programme page",
-    mode: "See official programme page",
+    duration,
+    mode,
     year: "Current official catalogue",
     sourceUrl: item.url,
     sourceTitle: item.note,
     sourceStatus,
     sourceChecked: catalogue.checked,
-    code: "See official programme page",
+    code: item.award,
     fees: regionFee[catalogue.region],
-    summary: `${item.name} at ${catalogue.name}. ${item.note}.`,
+    summary: `${item.name} at ${catalogue.name}. ${item.note}.${status}`,
     hardRequirements: [
       { category: "Academic", label: "Academic", value: "See official programme page", sourceUrl: item.url, sourceTitle: item.note },
       { category: "Language", label: "English", value: regionLanguage[catalogue.region], sourceUrl: item.url, sourceTitle: item.note },

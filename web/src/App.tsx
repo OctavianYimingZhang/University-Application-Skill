@@ -179,6 +179,35 @@ function RequirementChips({ program }: { program: Program }) {
   );
 }
 
+function ProgramMeta({ program }: { program: Program }) {
+  const flags = [
+    program.sourceTitle.includes("Closed this cycle") ? "Closed this cycle" : "",
+    program.sourceTitle.includes("EPSRC CDT") ? "EPSRC CDT" : "",
+  ];
+  const meta = [program.award, program.mode, ...flags]
+    .filter((item) => item && item !== "See official programme page" && item !== "Open in official directory");
+  return (
+    <div className="program-meta">
+      {meta.map((item) => <span key={`${program.id}-${item}`}>{item}</span>)}
+    </div>
+  );
+}
+
+function SourceCell({ program }: { program: Program }) {
+  const label = program.sourceUrl.includes("postgraduate.study.cam.ac.uk/courses/directory")
+    ? "Official directory row"
+    : "Official programme page";
+  return (
+    <span className="code-cell">
+      <span>
+        <strong>{label}</strong>
+        <small>{program.sourceStatus}</small>
+      </span>
+      <svg viewBox="0 0 24 24"><path d="m9 18 6-6-6-6" /></svg>
+    </span>
+  );
+}
+
 function ProgramTable({
   level,
   rows,
@@ -211,10 +240,9 @@ function ProgramTable({
       <div className="program-table" role="table">
         <div className="table-head" role="row">
           <span>Program</span>
-          <span>Requirements (typical minimum)</span>
+          <span>Route</span>
           <span>Duration</span>
-          <span>Fees</span>
-          <span>Code</span>
+          <span>Source</span>
         </div>
         {!rows.length && (
           <div className="empty-state">
@@ -224,14 +252,13 @@ function ProgramTable({
         )}
         {rows.map((program) => (
           <button className={`program-row ${selected.id === program.id ? "selected" : ""}`} key={program.id} onClick={() => setSelected(program)} role="row">
-            <span>
+            <span className="program-name-cell">
               <strong>{program.name}</strong>
-              <small>{program.level}</small>
+              <small>{program.institution} / {program.level}</small>
             </span>
-            <RequirementChips program={program} />
-            <span>{program.duration}</span>
-            <span>{program.fees}</span>
-            <span className="code-cell">{program.code}<svg viewBox="0 0 24 24"><path d="m9 18 6-6-6-6" /></svg></span>
+            <ProgramMeta program={program} />
+            <span className="duration-cell">{program.duration}</span>
+            <SourceCell program={program} />
           </button>
         ))}
       </div>
@@ -631,7 +658,7 @@ export default function App() {
   const [activeView, setActiveView] = useState("Programs");
   const [level, setLevel] = useState<ProgramLevel>("Undergraduate");
   const [group, setGroup] = useState<InstitutionGroup>("UK Core");
-  const [catalogueId, setCatalogueId] = useState("manchester");
+  const [catalogueId, setCatalogueId] = useState("cambridge");
   const [selected, setSelected] = useState<Program>(programs.find((program) => program.id === "bsc-genetics") ?? programs[0]);
   const [oauthState, setOauthState] = useState<CodexOAuthPanelState>({
     status: "unchecked",
@@ -641,7 +668,8 @@ export default function App() {
   });
   const selectedCatalogue = allInstitutionCatalogues.find((catalogue) => catalogue.id === catalogueId) ?? allInstitutionCatalogues[0];
   const rows = useMemo(() => {
-    const catalogueRows = selectedCatalogue.examples
+    const catalogueOptions = selectedCatalogue.programs ?? selectedCatalogue.examples;
+    const catalogueRows = catalogueOptions
       .filter((item) => item.level === level)
       .map((item) => programFromCatalogueOption(selectedCatalogue, item));
     const detailRows = selectedCatalogue.id === "manchester"
