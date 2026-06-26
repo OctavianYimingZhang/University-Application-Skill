@@ -13,7 +13,7 @@ Main surfaces:
 - Program Explorer: filter UK Core, U.S. News Top 30 cutoff, NUS, and NTU catalogue coverage; click official UG/PG programme options and inspect source-backed hard requirements where detail pages are seeded.
 - Application Checklist: simulate material readiness against a selected programme.
 - Writing Studio: lock the writing brief, choose narrative options, map evidence, and block unsupported claims before drafting.
-- Codex OAuth Bridge: a static-safe integration panel that mirrors explicit Codex/Hermes-style status, start, refresh, and reset actions without storing tokens in the browser.
+- Codex OAuth Runtime: a Hermes-style panel that calls Codex account/OAuth actions through Codex app-server or the included local HTTP bridge without storing bearer tokens in the browser.
 
 GitHub Pages deployment is configured through `.github/workflows/pages.yml`.
 
@@ -81,7 +81,19 @@ npm run dev
 npm run build
 ```
 
-The GitHub Pages build is static. The Codex OAuth tab does not perform token exchange in the browser. Real Codex auth must run through Codex CLI/Desktop or a trusted bridge endpoint supplied as `?codex_bridge=https://...`.
+The GitHub Pages build is static. Browser pages cannot safely perform Codex token exchange or read local Codex auth files. Use the included local bridge when testing the OAuth tab:
+
+```bash
+node scripts/codex_oauth_bridge.mjs --port 8787
+```
+
+Then open the site with:
+
+```text
+?codex_bridge=http://127.0.0.1:8787
+```
+
+The bridge exposes only `GET /codex/status`, `POST /codex/start-oauth`, `POST /codex/refresh`, and `POST /codex/logout`, and it proxies those calls to `codex app-server --stdio`.
 
 ## Source Policy
 

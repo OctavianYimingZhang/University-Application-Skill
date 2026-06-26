@@ -1,4 +1,13 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, type Dispatch, type SetStateAction } from "react";
+import {
+  getInitialCodexEndpoint,
+  logoutCodex,
+  readCodexAccount,
+  rememberCodexEndpoint,
+  startCodexLogin,
+  validateCodexEndpoint,
+  type CodexLoginFlow,
+} from "./codexAuth";
 import { allInstitutionCatalogues, groups, programFromCatalogueOption } from "./data/catalogues";
 import { programs, sourcePages } from "./data/programs";
 import type { InstitutionCatalogue, InstitutionGroup, MaterialItem, NarrativeOption, Program, ProgramLevel } from "./types";
@@ -12,6 +21,12 @@ interface CodexOAuthPanelState {
   lastCheckedAt?: string;
   message: string;
   events: string[];
+  accountLabel?: string;
+  authUrl?: string;
+  verificationUrl?: string;
+  userCode?: string;
+  endpointKind?: string;
+  endpointMessage?: string;
 }
 
 const baseMaterials: MaterialItem[] = [
@@ -436,48 +451,170 @@ function SourceView({ program, catalogue }: { program: Program; catalogue: Insti
   );
 }
 
-function CodexOAuthView({ state, setState }: { state: CodexOAuthPanelState; setState: (state: CodexOAuthPanelState) => void }) {
+function CodexOAuthView({
+  state,
+  setState,
+}: {
+  state: CodexOAuthPanelState;
+  setState: Dispatch<SetStateAction<CodexOAuthPanelState>>;
+}) {
+  const [endpoint, setEndpoint] = useState(getInitialCodexEndpoint);
+  const validation = validateCodexEndpoint(endpoint);
+  const busy = state.action !== "idle" && state.action !== "resetting";
   const now = () => new Date().toLocaleString();
-  const append = (message: string, status: CodexOAuthStatus, action: CodexOAuthAction = "idle") => {
-    setState({
+
+  const append = (
+    message: string,
+    status: CodexOAuthStatus,
+    action: CodexOAuthAction = "idle",
+    extra: Partial<CodexOAuthPanelState> = {},
+  ) => {
+    const timestamp = now();
+    setState((previous) => ({
+      ...previous,
+      ...extra,
       status,
       action,
-      lastCheckedAt: now(),
+      lastCheckedAt: timestamp,
       message,
-      events: [`${now()} / ${message}`, ...state.events].slice(0, 6),
+      endpointKind: validation.kind,
+      endpointMessage: validation.message,
+      events: [`${timestamp} / ${message}`, ...previous.events].slice(0, 8),
+    }));
+  };
+
+  const run = async (action: CodexOAuthAction, task: () => Promise<void>) => {
+    append(`Running ${action.replace("_", " ")}.`, state.status, action);
+    try {
+      rememberCodexEndpoint(endpoint);
+      await task();
+    } catch (error) {
+      append(error instanceof Error ? error.message : "Codex OAuth action failed.", "error", "idle");
+    }
+  };
+
+  const checkStatus = async (refreshToken: boolean) => {
+    await run(refreshToken ? "refreshing_status" : "checking_status", async () => {
+      const account = await readCodexAccount(endpoint, refreshToken);
+      const accountLabel = account.account
+        ? `${account.account.type}${account.account.email ? ` / ${account.account.email}` : ""}${account.account.planType ? ` / ${account.account.planType}` : ""}`
+        : undefined;
+      append(account.connected ? "Codex OAuth account is connected." : "No Codex OAuth account is connected.", account.connected ? "connected" : "needs_sign_in", "idle", {
+        accountLabel,
+        authUrl: undefined,
+        verificationUrl: undefined,
+        userCode: undefined,
+      });
     });
   };
-  const bridgeUrl = new URLSearchParams(window.location.search).get("codex_bridge") ?? "";
-  const bridgeConfigured = bridgeUrl.startsWith("https://") || bridgeUrl.startsWith("http://127.0.0.1") || bridgeUrl.startsWith("http://localhost");
+
+  const startLogin = async (flow: CodexLoginFlow) => {
+    await run("starting_oauth", async () => {
+      const login = await startCodexLogin(endpoint, flow);
+      if (login.type === "chatgpt") {
+        window.open(login.authUrl, "_blank", "noopener,noreferrer");
+        append("Codex browser OAuth opened. Complete sign-in, then refresh status.", "opening_oauth", "idle", {
+          authUrl: login.authUrl,
+          verificationUrl: undefined,
+          userCode: undefined,
+        });
+        return;
+      }
+
+      if (login.type === "chatgptDeviceCode") {
+        append("Codex device-code OAuth started. Enter the code, then refresh status.", "pending_verification", "idle", {
+          authUrl: undefined,
+          verificationUrl: login.verificationUrl,
+          userCode: login.userCode,
+        });
+        return;
+      }
+
+      if (login.authUrl) {
+        window.open(login.authUrl, "_blank", "noopener,noreferrer");
+      }
+      append(login.message ?? "Bridge started Codex OAuth. Complete sign-in, then refresh status.", "pending_verification", "idle", {
+        authUrl: login.authUrl,
+        verificationUrl: login.verificationUrl,
+        userCode: login.userCode,
+      });
+    });
+  };
+
+  const disconnect = async () => {
+    await run("resetting", async () => {
+      await logoutCodex(endpoint);
+      append("Codex OAuth account was logged out through the configured endpoint.", "needs_sign_in", "idle", {
+        accountLabel: undefined,
+        authUrl: undefined,
+        verificationUrl: undefined,
+        userCode: undefined,
+      });
+    });
+  };
+
+  const resetPanel = () => {
+    setState({
+      status: "unchecked",
+      action: "resetting",
+      message: "Panel reset. No token data was read or stored.",
+      events: [],
+      endpointKind: validation.kind,
+      endpointMessage: validation.message,
+    });
+  };
+
   return (
     <section className="source-page">
       <div className="panel-heading">
         <div>
-          <h1>Codex OAuth Bridge</h1>
-          <p>Static-safe Codex connection panel. Token exchange must happen in Codex CLI, Codex Desktop, or a trusted local/server bridge.</p>
+          <h1>Codex OAuth Runtime</h1>
+          <p>Hermes-style integration: Codex owns OAuth; this website calls Codex app-server or a trusted bridge and never stores bearer tokens.</p>
         </div>
         <span className={`oauth-state ${state.status}`}>{state.status.replace("_", " ")}</span>
       </div>
       <div className="oauth-grid">
+        <div className="oauth-panel oauth-panel-wide">
+          <h3>Endpoint</h3>
+          <label className="field-label" htmlFor="codex-endpoint">Codex HTTP bridge or app-server WebSocket</label>
+          <div className="endpoint-row">
+            <input
+              id="codex-endpoint"
+              className="text-input"
+              value={endpoint}
+              onChange={(event) => setEndpoint(event.target.value)}
+              spellCheck={false}
+            />
+            <button className="ghost-button" onClick={() => { rememberCodexEndpoint(endpoint); append("Endpoint saved locally.", validation.valid ? "unchecked" : "error"); }}>Save</button>
+          </div>
+          <p className={validation.valid ? "status-line pass" : "status-line error"}>{validation.message}</p>
+          <pre>{`node scripts/codex_oauth_bridge.mjs --port 8787\n\n# Then open:\n?codex_bridge=http://127.0.0.1:8787\n\n# Origin-free clients can also use:\ncodex app-server --listen ws://127.0.0.1:4500`}</pre>
+        </div>
         <div className="oauth-panel">
-          <h3>Explicit Controls</h3>
+          <h3>OAuth Controls</h3>
           <p>{state.message}</p>
           <div className="button-row">
-            <button className="primary-button" onClick={() => append(bridgeConfigured ? "Bridge configured. Ready to query status endpoint." : "No trusted bridge configured. Static GitHub Pages cannot read local Codex auth.", bridgeConfigured ? "needs_sign_in" : "static_blocked", "checking_status")}>Check Status</button>
-            <button className="ghost-button" onClick={() => append("Open a terminal and run codex login --device-auth or codex login. Then refresh status here.", "pending_verification", "starting_oauth")}>Start OAuth</button>
-            <button className="ghost-button" onClick={() => append(bridgeConfigured ? "Refresh requested through bridge contract. Await backend verification." : "Still waiting for a trusted bridge. Browser state is not treated as proof.", bridgeConfigured ? "pending_verification" : "static_blocked", "refreshing_status")}>Refresh Status</button>
-            <button className="ghost-button" onClick={() => setState({ status: "unchecked", action: "resetting", message: "Panel reset. No token data was read or stored.", events: [] })}>Reset Panel</button>
+            <button className="primary-button" disabled={!validation.valid || busy} onClick={() => checkStatus(false)}>Check Status</button>
+            <button className="ghost-button" disabled={!validation.valid || busy} onClick={() => startLogin("browser")}>Browser OAuth</button>
+            <button className="ghost-button" disabled={!validation.valid || busy} onClick={() => startLogin("device")}>Device Code</button>
+            <button className="ghost-button" disabled={!validation.valid || busy} onClick={() => checkStatus(true)}>Refresh Auth</button>
+            <button className="ghost-button" disabled={!validation.valid || busy} onClick={disconnect}>Logout</button>
+            <button className="ghost-button" onClick={resetPanel}>Reset Panel</button>
           </div>
         </div>
         <div className="oauth-panel">
-          <h3>Local Codex Commands</h3>
-          <pre>{`codex login status\ncodex login --device-auth\ncodex login\ncodex doctor --json`}</pre>
-          <p>Use these commands locally. The website only records explicit status events and never stores bearer values.</p>
+          <h3>Account Snapshot</h3>
+          <div className="info-row"><span>Runtime</span><strong>{validation.kind ?? "Unconfigured"}</strong></div>
+          <div className="info-row"><span>Last check</span><strong>{state.lastCheckedAt ?? "Not checked"}</strong></div>
+          <div className="info-row"><span>Account</span><strong>{state.accountLabel ?? "Not connected"}</strong></div>
+          {state.authUrl && <a className="source-card compact-link" href={state.authUrl} target="_blank" rel="noreferrer">Open browser OAuth URL</a>}
+          {state.verificationUrl && <a className="source-card compact-link" href={state.verificationUrl} target="_blank" rel="noreferrer">Open device verification URL</a>}
+          {state.userCode && <p className="device-code">{state.userCode}</p>}
         </div>
         <div className="oauth-panel">
           <h3>Bridge Contract</h3>
-          <pre>{`GET /codex/status -> { "connected": true }\nPOST /codex/start-oauth -> { "url": "https://..." }\nPOST /codex/refresh -> { "connected": true }`}</pre>
-          <p>Pass a trusted endpoint with <code>?codex_bridge=https://...</code>. Public Pages deployments must not include client secrets.</p>
+          <pre>{`GET /codex/status\nPOST /codex/start-oauth { "flow": "browser" | "device" }\nPOST /codex/refresh\nPOST /codex/logout`}</pre>
+          <p>Public Pages deployments must call a localhost or HTTPS bridge when they cannot reach Codex app-server directly.</p>
         </div>
         <div className="oauth-panel">
           <h3>Event Log</h3>
