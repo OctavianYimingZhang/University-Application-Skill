@@ -1,8 +1,14 @@
 import { useEffect, useMemo, useState, type Dispatch, type SetStateAction } from "react";
 import {
   getInitialCodexEndpoint,
+  getInitialCodexBridgeNonce,
+  hasExplicitCodexEndpoint,
+  isDefaultCodexEndpoint,
+  isGithubPagesRuntime,
   logoutCodex,
+  probeCodexBridge,
   readCodexAccount,
+  rememberCodexBridgeNonce,
   rememberCodexEndpoint,
   startCodexLogin,
   validateCodexEndpoint,
@@ -14,6 +20,7 @@ import type { InstitutionCatalogue, InstitutionGroup, MaterialItem, NarrativeOpt
 
 type CodexOAuthStatus = "unchecked" | "static_blocked" | "needs_sign_in" | "opening_oauth" | "pending_verification" | "connected" | "error";
 type CodexOAuthAction = "idle" | "checking_status" | "starting_oauth" | "refreshing_status" | "resetting";
+type BridgeHealthStatus = "unknown" | "checking" | "ready" | "blocked";
 
 interface CodexOAuthPanelState {
   status: CodexOAuthStatus;
@@ -251,8 +258,8 @@ function ProgramTable({
             <span>{catalogue.caveat}</span>
           </div>
         )}
-        {rows.map((program) => (
-          <button className={`program-row ${selected.id === program.id ? "selected" : ""}`} key={program.id} onClick={() => setSelected(program)} role="row">
+        {rows.map((program, index) => (
+          <button className={`program-row ${selected.id === program.id ? "selected" : ""}`} key={`${program.id}-${index}`} onClick={() => setSelected(program)} role="row">
             <span className="program-name-cell">
               <strong>{program.name}</strong>
               <small>{program.institution} / {program.level}</small>
@@ -487,9 +494,21 @@ function CodexOAuthView({
   setState: Dispatch<SetStateAction<CodexOAuthPanelState>>;
 }) {
   const [endpoint, setEndpoint] = useState(getInitialCodexEndpoint);
+  const [bridgeNonce, setBridgeNonce] = useState(getInitialCodexBridgeNonce);
+  const [bridgeHealth, setBridgeHealth] = useState<{ status: BridgeHealthStatus; message: string; nonceRequired?: boolean }>({
+    status: "unknown",
+    message: "Bridge health has not been checked.",
+  });
   const validation = validateCodexEndpoint(endpoint);
   const busy = state.action !== "idle" && state.action !== "resetting";
   const now = () => new Date().toLocaleString();
+  const defaultStaticBridgeBlocked = validation.kind === "bridge-http" && isGithubPagesRuntime() && isDefaultCodexEndpoint(endpoint) && !hasExplicitCodexEndpoint() && bridgeHealth.status !== "ready";
+  const nonceBlocked = validation.kind === "bridge-http" && bridgeHealth.nonceRequired === true && !bridgeNonce.trim();
+  const oauthControlsDisabled = !validation.valid || busy || defaultStaticBridgeBlocked || nonceBlocked;
+
+  useEffect(() => {
+    setBridgeHealth({ status: "unknown", message: "Bridge health has not been checked." });
+  }, [endpoint]);
 
   const append = (
     message: string,
@@ -515,15 +534,28 @@ function CodexOAuthView({
     append(`Running ${action.replace("_", " ")}.`, state.status, action);
     try {
       rememberCodexEndpoint(endpoint);
+      rememberCodexBridgeNonce(bridgeNonce);
       await task();
     } catch (error) {
       append(error instanceof Error ? error.message : "Codex OAuth action failed.", "error", "idle");
     }
   };
 
+  const checkBridgeHealth = async () => {
+    await run("checking_status", async () => {
+      setBridgeHealth({ status: "checking", message: "Checking local bridge health." });
+      const health = await probeCodexBridge(endpoint, bridgeNonce);
+      const message = health.nonceRequired && !bridgeNonce.trim()
+        ? "Bridge is reachable but requires the nonce printed by scripts/codex_oauth_bridge.mjs."
+        : "Bridge health check passed.";
+      setBridgeHealth({ status: "ready", message, nonceRequired: health.nonceRequired });
+      append(message, health.nonceRequired && !bridgeNonce.trim() ? "static_blocked" : "unchecked", "idle");
+    });
+  };
+
   const checkStatus = async (refreshToken: boolean) => {
     await run(refreshToken ? "refreshing_status" : "checking_status", async () => {
-      const account = await readCodexAccount(endpoint, refreshToken);
+      const account = await readCodexAccount(endpoint, refreshToken, bridgeNonce);
       const accountLabel = account.account
         ? `${account.account.type}${account.account.email ? ` / ${account.account.email}` : ""}${account.account.planType ? ` / ${account.account.planType}` : ""}`
         : undefined;
@@ -537,10 +569,21 @@ function CodexOAuthView({
   };
 
   const startLogin = async (flow: CodexLoginFlow) => {
+    const popup = flow === "browser" ? window.open("about:blank", "_blank") : null;
+    let popupNavigated = false;
+    if (popup) {
+      popup.opener = null;
+    }
+
     await run("starting_oauth", async () => {
-      const login = await startCodexLogin(endpoint, flow);
+      const login = await startCodexLogin(endpoint, flow, bridgeNonce);
       if (login.type === "chatgpt") {
-        window.open(login.authUrl, "_blank", "noopener,noreferrer");
+        if (popup) {
+          popup.location.href = login.authUrl;
+          popupNavigated = true;
+        } else {
+          window.open(login.authUrl, "_blank", "noopener,noreferrer");
+        }
         append("Codex browser OAuth opened. Complete sign-in, then refresh status.", "opening_oauth", "idle", {
           authUrl: login.authUrl,
           verificationUrl: undefined,
@@ -550,6 +593,7 @@ function CodexOAuthView({
       }
 
       if (login.type === "chatgptDeviceCode") {
+        popup?.close();
         append("Codex device-code OAuth started. Enter the code, then refresh status.", "pending_verification", "idle", {
           authUrl: undefined,
           verificationUrl: login.verificationUrl,
@@ -559,7 +603,14 @@ function CodexOAuthView({
       }
 
       if (login.authUrl) {
-        window.open(login.authUrl, "_blank", "noopener,noreferrer");
+        if (popup) {
+          popup.location.href = login.authUrl;
+          popupNavigated = true;
+        } else {
+          window.open(login.authUrl, "_blank", "noopener,noreferrer");
+        }
+      } else {
+        popup?.close();
       }
       append(login.message ?? "Bridge started Codex OAuth. Complete sign-in, then refresh status.", "pending_verification", "idle", {
         authUrl: login.authUrl,
@@ -567,11 +618,14 @@ function CodexOAuthView({
         userCode: login.userCode,
       });
     });
+    if (popup && !popupNavigated) {
+      popup.close();
+    }
   };
 
   const disconnect = async () => {
     await run("resetting", async () => {
-      await logoutCodex(endpoint);
+      await logoutCodex(endpoint, bridgeNonce);
       append("Codex OAuth account was logged out through the configured endpoint.", "needs_sign_in", "idle", {
         accountLabel: undefined,
         authUrl: undefined,
@@ -582,6 +636,7 @@ function CodexOAuthView({
   };
 
   const resetPanel = () => {
+    setBridgeHealth({ status: "unknown", message: "Bridge health has not been checked." });
     setState({
       status: "unchecked",
       action: "resetting",
@@ -613,20 +668,31 @@ function CodexOAuthView({
               onChange={(event) => setEndpoint(event.target.value)}
               spellCheck={false}
             />
-            <button className="ghost-button" onClick={() => { rememberCodexEndpoint(endpoint); append("Endpoint saved locally.", validation.valid ? "unchecked" : "error"); }}>Save</button>
+            <button className="ghost-button" onClick={() => { rememberCodexEndpoint(endpoint); rememberCodexBridgeNonce(bridgeNonce); append("Endpoint saved locally.", validation.valid ? "unchecked" : "error"); }}>Save</button>
           </div>
+          <label className="field-label" htmlFor="codex-bridge-nonce">Local bridge nonce</label>
+          <input
+            id="codex-bridge-nonce"
+            className="text-input"
+            value={bridgeNonce}
+            onChange={(event) => setBridgeNonce(event.target.value)}
+            placeholder="Paste codex_bridge_nonce printed by the bridge"
+            spellCheck={false}
+          />
           <p className={validation.valid ? "status-line pass" : "status-line error"}>{validation.message}</p>
-          <pre>{`node scripts/codex_oauth_bridge.mjs --port 8787\n\n# Then open:\n?codex_bridge=http://127.0.0.1:8787\n\n# Origin-free clients can also use:\ncodex app-server --listen ws://127.0.0.1:4500`}</pre>
+          <p className={bridgeHealth.status === "ready" && !nonceBlocked ? "status-line pass" : "status-line error"}>{defaultStaticBridgeBlocked ? "Static Pages default bridge is blocked until /health succeeds." : bridgeHealth.message}</p>
+          <pre>{`node scripts/codex_oauth_bridge.mjs --port 8787\n\n# Then open with the printed nonce:\n?codex_bridge=http://127.0.0.1:8787&codex_bridge_nonce=PASTE_PRINTED_NONCE\n\n# Origin-free clients can also use:\ncodex app-server --listen ws://127.0.0.1:4500`}</pre>
         </div>
         <div className="oauth-panel">
           <h3>OAuth Controls</h3>
           <p>{state.message}</p>
           <div className="button-row">
-            <button className="primary-button" disabled={!validation.valid || busy} onClick={() => checkStatus(false)}>Check Status</button>
-            <button className="ghost-button" disabled={!validation.valid || busy} onClick={() => startLogin("browser")}>Browser OAuth</button>
-            <button className="ghost-button" disabled={!validation.valid || busy} onClick={() => startLogin("device")}>Device Code</button>
-            <button className="ghost-button" disabled={!validation.valid || busy} onClick={() => checkStatus(true)}>Refresh Auth</button>
-            <button className="ghost-button" disabled={!validation.valid || busy} onClick={disconnect}>Logout</button>
+            <button className="primary-button" disabled={!validation.valid || busy || validation.kind !== "bridge-http"} onClick={checkBridgeHealth}>Probe Bridge</button>
+            <button className="primary-button" disabled={oauthControlsDisabled} onClick={() => checkStatus(false)}>Check Status</button>
+            <button className="ghost-button" disabled={oauthControlsDisabled} onClick={() => startLogin("browser")}>Browser OAuth</button>
+            <button className="ghost-button" disabled={oauthControlsDisabled} onClick={() => startLogin("device")}>Device Code</button>
+            <button className="ghost-button" disabled={oauthControlsDisabled} onClick={() => checkStatus(true)}>Refresh Auth</button>
+            <button className="ghost-button" disabled={oauthControlsDisabled} onClick={disconnect}>Logout</button>
             <button className="ghost-button" onClick={resetPanel}>Reset Panel</button>
           </div>
         </div>

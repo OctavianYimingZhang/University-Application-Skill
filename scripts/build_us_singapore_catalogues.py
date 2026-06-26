@@ -52,11 +52,61 @@ def soup(url: str) -> BeautifulSoup:
     return BeautifulSoup(data, "lxml")
 
 
+def decode_nuxt_payload(page: BeautifulSoup) -> dict:
+    script = page.find("script", id="__NUXT_DATA__")
+    if script is None or not script.string:
+        raise RuntimeError("Nuxt payload not found")
+    payload = json.loads(script.string)
+    cache: dict[int, object] = {}
+    resolving: set[int] = set()
+
+    def resolve_value(value):
+        if isinstance(value, bool) or value is None:
+            return value
+        if isinstance(value, int):
+            return resolve_index(value) if 0 <= value < len(payload) else value
+        if isinstance(value, list):
+            if value and value[0] in {"Reactive", "ShallowReactive", "Ref", "ComputedRef"}:
+                return resolve_value(value[1]) if len(value) > 1 else None
+            if value and value[0] == "Set":
+                return [resolve_value(item) for item in value[1:]]
+            return [resolve_value(item) for item in value]
+        if isinstance(value, dict):
+            return {key: resolve_value(item) for key, item in value.items()}
+        return value
+
+    def resolve_index(index: int):
+        if index in cache:
+            return cache[index]
+        if index in resolving:
+            return None
+        resolving.add(index)
+        output = resolve_value(payload[index])
+        resolving.remove(index)
+        cache[index] = output
+        return output
+
+    root = resolve_index(0)
+    if not isinstance(root, dict):
+        raise RuntimeError("Nuxt payload root did not decode to an object")
+    return root
+
+
 def clean_text(value: str) -> str:
     value = html.unescape(value)
+    value = value.replace("\u00ad", "")
     value = re.sub(r"[\u00a0\t\r\f\v]+", " ", value)
     value = re.sub(r" *\n *", " ", value)
     return re.sub(r" {2,}", " ", value).strip()
+
+
+def clean_coursedog_text(value: str) -> str:
+    text = clean_text(value).strip("\"' ")
+    return (
+        text.replace("Acad/Prfnl", "Academic/Professional")
+        .replace("Dsgntd Emph", "Designated Emphasis")
+        .strip()
+    )
 
 
 def slug(value: str) -> str:
@@ -362,6 +412,188 @@ def parse_duke_ug() -> list[dict[str, str]]:
     return rows
 
 
+def parse_duke_pg() -> list[dict[str, str]]:
+    school_urls = [
+        ("Divinity School", "https://divinity.bulletins.duke.edu/programs/"),
+        ("Fuqua School of Business", "https://fuqua.bulletins.duke.edu/programs/"),
+        ("Graduate School", "https://graduateschool.bulletins.duke.edu/programs/"),
+        ("Law School", "https://law.bulletins.duke.edu/programs/"),
+        ("School of Medicine", "https://medicine.bulletins.duke.edu/programs/"),
+        ("Nicholas School", "https://nicholas.bulletins.duke.edu/programs/"),
+        ("School of Nursing", "https://nursing.bulletins.duke.edu/programs/"),
+        ("Pratt Professional", "https://prattprofessional.bulletins.duke.edu/programs/"),
+        ("Sanford School", "https://sanford.bulletins.duke.edu/programs/"),
+    ]
+    skip_labels = {"Overview & Policies", "See All Programs"}
+    rows: list[dict[str, str]] = []
+
+    def award_from_path(label: str, path: str) -> str:
+        award = award_from_text(label, "")
+        if award:
+            return award
+        parts = [part for part in path.split("/") if part]
+        family = parts[1] if len(parts) > 1 else ""
+        if family.startswith("dr"):
+            return "Doctoral"
+        if family == "masters":
+            return "Master's"
+        if "certificate" in family:
+            return "Certificate"
+        return "Graduate"
+
+    for school, source_url in school_urls:
+        page = soup(source_url)
+        root = decode_nuxt_payload(page)
+        found: list[tuple[str, str]] = []
+
+        def walk(value) -> None:
+            if isinstance(value, dict):
+                label = value.get("label")
+                path = value.get("url") or value.get("path") or value.get("slug")
+                if isinstance(label, str) and isinstance(path, str) and "/allprograms/" in path:
+                    parts = [part for part in path.split("/") if part]
+                    if len(parts) >= 3:
+                        found.append((label, path))
+                for child in value.values():
+                    walk(child)
+            elif isinstance(value, list):
+                for child in value:
+                    walk(child)
+
+        walk(root)
+        for label, path in found:
+            name = clean_text(label)
+            if not name or name in skip_labels:
+                continue
+            rows.append(
+                row(
+                    "",
+                    "duke",
+                    "Postgraduate",
+                    name,
+                    award_from_path(name, path),
+                    absolute(source_url, path),
+                    "Official Duke school bulletin all-programs row",
+                    mode=school,
+                )
+            )
+    rows = dedupe(rows)
+    if len(rows) < 200:
+        raise RuntimeError(f"Duke PG count below threshold: {len(rows)}")
+    return rows
+
+
+def parse_coursedog_programs(prefix: str, source_url: str, note: str, *, forced_level: str | None = None) -> list[dict[str, str]]:
+    page = soup(source_url)
+    root = decode_nuxt_payload(page)
+    settings = root.get("pinia", {}).get("settings", {})
+    school = settings.get("school")
+    catalog_id = settings.get("activeCatalog")
+    filters = settings.get("programsFilters")
+    if not school or not catalog_id or not isinstance(filters, dict):
+        raise RuntimeError(f"Coursedog settings missing from {source_url}")
+
+    effective = settings.get("effectiveDatesRange") or {}
+    params = {
+        "catalogId": catalog_id,
+        "skip": "0",
+        "limit": "50000",
+        "sortBy": "name",
+        "columns": "code,name,type,level,degreeDesignation,contacts,transcriptDescription,programGroupId,cipCode,campus,catalogDisplayName",
+    }
+    if effective.get("effectiveStartDate"):
+        params["effectiveDatesRange"] = effective["effectiveStartDate"]
+    endpoint = f"https://app.coursedog.com/api/v1/cm/{school}/programs/search/%24filters?{urllib.parse.urlencode(params)}"
+    origin = urllib.parse.urlunparse(urllib.parse.urlparse(source_url)._replace(path="", params="", query="", fragment=""))
+    request = urllib.request.Request(
+        endpoint,
+        data=json.dumps({"condition": "AND", "filters": [filters]}, separators=(",", ":")).encode("utf-8"),
+        headers={
+            "User-Agent": UA,
+            "Accept": "application/json",
+            "Content-Type": "application/json",
+            "Referer": source_url,
+            "Origin": origin,
+            "X-Requested-With": "catalog",
+        },
+    )
+    context = ssl._create_unverified_context()
+    with urllib.request.urlopen(request, timeout=60, context=context) as response:
+        payload = json.loads(response.read().decode("utf-8", "replace"))
+    records = payload.get("data") or []
+    expected = int(payload.get("listLength") or 0)
+    if expected and len(records) != expected:
+        raise RuntimeError(f"{prefix} Coursedog expected {expected} rows, got {len(records)}")
+
+    def display_name(record: dict) -> str:
+        return clean_text(record.get("catalogDisplayName") or record.get("transcriptDescription") or record.get("name") or record.get("code") or "")
+
+    def display_award(record: dict) -> str:
+        degree = clean_coursedog_text(record.get("degreeDesignation") or "")
+        if degree:
+            return degree
+        text = clean_coursedog_text(record.get("transcriptDescription") or record.get("type") or "")
+        paren = re.search(r"\(([^()]{1,60})\)\s*$", text)
+        if paren:
+            return clean_text(paren.group(1))
+        kind = clean_coursedog_text(record.get("type") or "")
+        if kind.startswith("Major -"):
+            return "Major"
+        if kind.startswith("Minor"):
+            return "Minor"
+        return kind or "Program"
+
+    def display_level(record: dict) -> str:
+        if forced_level:
+            return forced_level
+        degree = clean_coursedog_text(record.get("degreeDesignation") or "")
+        source_level = clean_coursedog_text(record.get("level") or "")
+        kind = clean_coursedog_text(record.get("type") or "")
+        if "Undergraduate" in source_level or "Bachelor" in degree or "(MIN)" in kind:
+            return "Undergraduate"
+        return "Postgraduate"
+
+    rows: list[dict[str, str]] = []
+    for record in records:
+        name = display_name(record)
+        group_id = clean_text(record.get("programGroupId") or record.get("id") or record.get("_id") or slug(name))
+        if not name or not group_id:
+            continue
+        level = display_level(record)
+        rows.append(
+            row(
+                "",
+                prefix,
+                level,
+                name,
+                display_award(record),
+                f"{source_url.rstrip('/')}/{urllib.parse.quote(group_id, safe='')}",
+                note,
+                mode=clean_coursedog_text(record.get("level") or ""),
+                status="; ".join(part for part in [clean_coursedog_text(record.get("type") or ""), clean_coursedog_text(record.get("status") or "")] if part),
+            )
+        )
+    rows = dedupe(rows)
+    if len(rows) != expected:
+        raise RuntimeError(f"{prefix} Coursedog rendered {len(rows)} rows after dedupe; expected {expected}")
+    return rows
+
+
+def parse_stanford() -> list[dict[str, str]]:
+    rows = parse_coursedog_programs("stanford", "https://bulletin.stanford.edu/programs", "Official Stanford Bulletin Coursedog programme row")
+    if len(rows) < 300:
+        raise RuntimeError(f"Stanford count below threshold: {len(rows)}")
+    return rows
+
+
+def parse_berkeley() -> list[dict[str, str]]:
+    ug = parse_coursedog_programs("berkeley", "https://undergraduate.catalog.berkeley.edu/programs", "Official UC Berkeley undergraduate Coursedog programme row", forced_level="Undergraduate")
+    pg = parse_coursedog_programs("berkeley", "https://graduate.catalog.berkeley.edu/programs", "Official UC Berkeley graduate Coursedog programme row", forced_level="Postgraduate")
+    if len(ug) < 200 or len(pg) < 180:
+        raise RuntimeError(f"Berkeley counts below threshold: UG {len(ug)}, PG {len(pg)}")
+    return [*ug, *pg]
+
+
 def parse_cornell() -> tuple[list[dict[str, str]], list[dict[str, str]]]:
     rows = link_rows(
         "cornell",
@@ -565,6 +797,413 @@ def parse_ucla_pg() -> list[dict[str, str]]:
     return dedupe(rows)
 
 
+def parse_brown_pg() -> list[dict[str, str]]:
+    source_url = "https://graduateprograms.brown.edu/graduate_programs"
+    page = soup(source_url)
+    rows: list[dict[str, str]] = []
+    for item in page.select(".views-row"):
+        link = item.select_one("h2 a[href]")
+        if not link:
+            continue
+        degree = item.select_one(".views-field-field-program-degree-type .field-content")
+        name = clean_text(link.get_text(" ", strip=True))
+        award = clean_text(degree.get_text(" ", strip=True)) if degree else award_from_text(name, "Graduate")
+        rows.append(
+            row(
+                "",
+                "brown",
+                "Postgraduate",
+                name,
+                award,
+                absolute(source_url, link.get("href") or ""),
+                "Official Brown Graduate Program Finder row",
+            )
+        )
+    rows = dedupe(rows)
+    if len(rows) < 90:
+        raise RuntimeError(f"Brown PG count below threshold: {len(rows)}")
+    return rows
+
+
+def parse_vanderbilt_catalog(source_url: str, level: str, catalogue_label: str, minimum: int) -> list[dict[str, str]]:
+    page_url = source_url.split("#", 1)[0]
+    data = fetch(page_url)
+    subdomain_match = re.search(r"window\.subdomain\s*=\s*[\"']([^\"']+)", data)
+    catalog_match = re.search(r"window\.catalogId\s*=\s*[\"']([^\"']+)", data)
+    if not subdomain_match or not catalog_match:
+        raise RuntimeError(f"Vanderbilt Kuali catalog settings missing from {source_url}")
+    endpoint = f"{subdomain_match.group(1).rstrip('/')}/api/v1/catalog/programs/{catalog_match.group(1)}"
+    records = fetch_json(endpoint)
+    rows: list[dict[str, str]] = []
+    for record in records:
+        if not isinstance(record, dict):
+            continue
+        title = clean_text(record.get("title") or record.get("name") or "")
+        record_id = clean_text(record.get("id") or "")
+        if not title or not record_id:
+            continue
+        title = re.sub(r"\s+-\s+GS$", "", title).strip()
+        title = re.sub(r"\((Major|Minor|Certificate)\s*$", r"(\1)", title, flags=re.I)
+        award = "Program"
+        paren = re.search(r"\(([^()]{1,80})\)\s*$", title)
+        if paren:
+            award = clean_text(paren.group(1))
+            if award.lower() in {"major", "minor", "certificate"}:
+                award = award.title()
+        elif "Certificate" in title:
+            award = "Certificate"
+        elif re.search(r"\b(PhD|Ph\.D\.|Doctor|Doctoral)\b", title):
+            award = "Doctoral"
+        elif re.search(r"\b(MA|MS|MFA|MEd|M\.Ed\.|MBA|Master)\b", title):
+            award = "Master's"
+        rows.append(
+            row(
+                "",
+                "vanderbilt",
+                level,
+                title,
+                award,
+                f"{page_url}#/programs/{urllib.parse.quote(record_id, safe='')}",
+                "Official Vanderbilt Kuali catalog API row",
+                mode=catalogue_label,
+            )
+        )
+    rows = dedupe(rows)
+    if len(rows) < minimum:
+        raise RuntimeError(f"Vanderbilt {catalogue_label} count below threshold: {len(rows)}")
+    return rows
+
+
+def parse_vanderbilt() -> list[dict[str, str]]:
+    specs = [
+        ("https://www.vanderbilt.edu/catalogs/kuali/undergraduate-26-27.php", "Undergraduate", "Undergraduate Catalog 2026-27", 250),
+        ("https://www.vanderbilt.edu/catalogs/kuali/divinity-25-26.php", "Postgraduate", "Divinity School Catalog 2025-26", 4),
+        ("https://www.vanderbilt.edu/catalogs/kuali/graduate-25-26.php#/home", "Postgraduate", "Graduate School Catalog 2025-26", 120),
+        ("https://www.vanderbilt.edu/catalogs/kuali/law-25-26.php", "Postgraduate", "Law School Catalog 2025-26", 3),
+        ("https://www.vanderbilt.edu/catalogs/kuali/owen-25-26.php", "Postgraduate", "Owen Graduate School Catalog 2025-26", 20),
+        ("https://www.vanderbilt.edu/catalogs/kuali/peabody-25-26.php", "Postgraduate", "Peabody Professional Catalog 2025-26", 30),
+        ("https://www.vanderbilt.edu/catalogs/kuali/som-25-26.php#/home", "Postgraduate", "School of Medicine Catalog 2025-26", 15),
+        ("https://www.vanderbilt.edu/catalogs/kuali/nursing-25-26.php", "Postgraduate", "School of Nursing Catalog 2025-26", 40),
+    ]
+    rows: list[dict[str, str]] = []
+    for source_url, level, catalogue_label, minimum in specs:
+        rows.extend(parse_vanderbilt_catalog(source_url, level, catalogue_label, minimum))
+    rows = dedupe(rows)
+    if len(rows) < 500:
+        raise RuntimeError(f"Vanderbilt count below threshold: {len(rows)}")
+    return rows
+
+
+def parse_caltech() -> list[dict[str, str]]:
+    source_url = "https://catalog.caltech.edu/current/areas-of-study-and-research/"
+    page = soup(source_url)
+    specs = [
+        (
+            "Undergraduate",
+            "/current/information-for-undergraduate-students/graduation-requirements-all-options/",
+            "Official Caltech undergraduate option/minor catalog row",
+            "Option",
+        ),
+        (
+            "Postgraduate",
+            "/current/information-for-graduate-students/special-regulations-for-graduate-options/",
+            "Official Caltech graduate option catalog row",
+            "Graduate option",
+        ),
+    ]
+    rows: list[dict[str, str]] = []
+    skip_prefixes = ("Core Institute", "Typical First-Year", "Other First-Year")
+
+    def caltech_award(text: str, level: str) -> str:
+        if level == "Postgraduate":
+            return "Graduate option"
+        if "Option and Minor" in text:
+            return "Option and Minor"
+        if "Minor" in text:
+            return "Minor"
+        if "Option" in text:
+            return "Option"
+        return "Undergraduate option"
+
+    for level, path_prefix, note, default_award in specs:
+        for anchor in page.select(f'a[href^="{path_prefix}"]'):
+            text = clean_text(anchor.get_text(" ", strip=True))
+            href = anchor.get("href") or ""
+            if not text or text.startswith(skip_prefixes) or href.rstrip("/") == path_prefix.rstrip("/"):
+                continue
+            rows.append(row("", "caltech", level, text, caltech_award(text, level) or default_award, absolute(source_url, href), note))
+    rows = dedupe(rows)
+    if len([item for item in rows if item["level"] == "Undergraduate"]) < 30 or len([item for item in rows if item["level"] == "Postgraduate"]) < 30:
+        raise RuntimeError(f"Caltech counts below threshold: {len(rows)}")
+    return rows
+
+
+def parse_georgetown_pg() -> list[dict[str, str]]:
+    source_url = "https://grad.georgetown.edu/programs/"
+    endpoint = "https://grad.georgetown.edu/wp-admin/admin-ajax.php"
+    base_fields = [
+        ("post-id", "1335"),
+        ("filter-by-keyword", ""),
+        ("filter-by-maximum-program-length[]", ""),
+    ]
+    skip_link_labels = {
+        "Application",
+        "Apply Now",
+        "Request More Information",
+        "Contact Program",
+        "Compare Programs",
+        "How to Apply",
+        "Admissions Requirements",
+    }
+    rows: list[dict[str, str]] = []
+    for offset in range(0, 600, 15):
+        fields = [
+            *base_fields,
+            ("action", "post-filter-fetch-posts"),
+            ("postCount", str(offset)),
+            ("verb", "found"),
+        ]
+        request = urllib.request.Request(
+            endpoint,
+            data=urllib.parse.urlencode(fields).encode("utf-8"),
+            headers={
+                "User-Agent": UA,
+                "Accept": "application/json",
+                "Referer": source_url,
+                "X-Requested-With": "XMLHttpRequest",
+            },
+        )
+        context = ssl._create_unverified_context()
+        with urllib.request.urlopen(request, timeout=35, context=context) as response:
+            payload = json.loads(response.read().decode("utf-8", "replace"))
+        cards = BeautifulSoup(payload.get("display", ""), "lxml").select(".aos-list-program")
+        for card in cards:
+            title = card.select_one("h2.aos-list-title, h2")
+            if not title:
+                continue
+            raw_name = clean_text(title.get_text(" ", strip=True))
+            if "," in raw_name and any(marker in raw_name.rsplit(",", 1)[1] for marker in ["Master", "Doctor", "Certificate", "LLM", "J.D.", "Ph.D.", "M.D.", "Bachelor"]):
+                name, award = [clean_text(part) for part in raw_name.rsplit(",", 1)]
+            else:
+                name, award = raw_name, "Graduate"
+            preferred_link = None
+            for anchor in card.select("a[href]"):
+                label = clean_text(anchor.get_text(" ", strip=True))
+                if not label or label in skip_link_labels or "School" in label:
+                    continue
+                preferred_link = anchor
+                break
+            rows.append(
+                row(
+                    "",
+                    "georgetown",
+                    "Postgraduate",
+                    name,
+                    award,
+                    absolute(source_url, preferred_link.get("href")) if preferred_link else source_url,
+                    "Official Georgetown graduate programme finder AJAX row",
+                )
+            )
+        if payload.get("hideButton") or not cards:
+            break
+    rows = dedupe(rows)
+    if len(rows) < 130:
+        raise RuntimeError(f"Georgetown graduate count below threshold: {len(rows)}")
+    return rows
+
+
+def parse_ucsd_ug() -> list[dict[str, str]]:
+    source_url = "https://admissions.ucsd.edu/why/majors/index.html"
+    page = soup(source_url)
+    rows: list[dict[str, str]] = []
+    for major_list in page.select("ul.area_of_study_dept_major_list"):
+        for anchor in major_list.select("li > a[href]"):
+            parent = anchor.find_parent("li")
+            if parent and parent.find("ul"):
+                continue
+            name = clean_text(anchor.get_text(" ", strip=True)).rstrip("*").strip()
+            if not name:
+                continue
+            award = "B.S." if re.search(r"\bB\.S\.$", name) else "B.A." if re.search(r"\bB\.A\.$", name) else "Major"
+            rows.append(row("", "ucsd", "Undergraduate", name, award, absolute(source_url, anchor.get("href") or ""), "Official UC San Diego admissions undergraduate majors row"))
+    rows = dedupe(rows)
+    if len(rows) < 160:
+        raise RuntimeError(f"UCSD undergraduate count below threshold: {len(rows)}")
+    return rows
+
+
+def parse_ucsd_pg() -> list[dict[str, str]]:
+    source_url = "https://grad.ucsd.edu/admissions/programs.html"
+    page = soup(source_url)
+    container = None
+    for heading in page.select("h2"):
+        if clean_text(heading.get_text(" ", strip=True)) == "All Programs":
+            container = heading.find_next_sibling("div")
+            break
+    if container is None:
+        raise RuntimeError("UCSD graduate All Programs container not found")
+    rows: list[dict[str, str]] = []
+    for item in container.select("ul > li"):
+        link = item.select_one("a[href]")
+        name = clean_text(item.get_text(" ", strip=True))
+        if not name or not link:
+            continue
+        rows.append(
+            row(
+                "",
+                "ucsd",
+                "Postgraduate",
+                name,
+                award_from_text(name, "Graduate"),
+                absolute(source_url, link.get("href") or ""),
+                "Official UC San Diego graduate admissions all-programs row",
+            )
+        )
+    rows = dedupe(rows)
+    if len(rows) < 45:
+        raise RuntimeError(f"UCSD graduate count below threshold: {len(rows)}")
+    return rows
+
+
+def parse_uva_ug() -> list[dict[str, str]]:
+    source_url = "https://www.virginia.edu/majors-minors/"
+    page = soup(source_url)
+    program_list = None
+    for heading in page.select("section.body-copy h2, h2"):
+        if clean_text(heading.get_text(" ", strip=True)) == "Undergraduate Majors and Minors":
+            program_list = heading.find_next("ul", class_="majors-list")
+            break
+    if program_list is None:
+        raise RuntimeError("UVA undergraduate majors/minors list not found")
+    rows: list[dict[str, str]] = []
+    for anchor in program_list.select("li > a[href]"):
+        name = clean_text(anchor.get_text(" ", strip=True))
+        if not name:
+            continue
+        rows.append(
+            row(
+                "",
+                "uva",
+                "Undergraduate",
+                name,
+                "Major/Minor",
+                absolute(source_url, anchor.get("href") or ""),
+                "Official UVA undergraduate majors and minors row",
+            )
+        )
+    rows = dedupe(rows)
+    if len(rows) < 100:
+        raise RuntimeError(f"UVA undergraduate count below threshold: {len(rows)}")
+    return rows
+
+
+def parse_uf_ug() -> list[dict[str, str]]:
+    source_url = "https://catalog.ufl.edu/UGRD/programs/"
+    page = soup(source_url)
+    rows: list[dict[str, str]] = []
+    for item in page.select("li.item"):
+        title = item.select_one(".text--title .title")
+        kind = item.select_one(".text--title .type")
+        link = item.select_one("a.learn-more[href]")
+        name = clean_text(title.get_text(" ", strip=True)) if title else ""
+        award = clean_text(kind.get_text(" ", strip=True)) if kind else ""
+        if not name or not award or not link:
+            continue
+        award = award.replace("major", "Major").replace("minor", "Minor").replace("certificate", "Certificate")
+        description = item.select_one(".description p")
+        rows.append(
+            row(
+                "",
+                "uf",
+                "Undergraduate",
+                name,
+                award,
+                absolute(source_url, link.get("href") or ""),
+                "Official University of Florida undergraduate programs row",
+                status=clean_text(description.get_text(" ", strip=True)) if description else "",
+            )
+        )
+    rows = dedupe(rows)
+    if len(rows) < 400:
+        raise RuntimeError(f"UF undergraduate count below threshold: {len(rows)}")
+    return rows
+
+
+def parse_wustl() -> list[dict[str, str]]:
+    source_url = "https://bulletin.wustl.edu/programs/"
+    base = "https://bulletin.wustl.edu/"
+    ug_directories = [
+        "undergrad/architecture/majors/",
+        "undergrad/architecture/minors/",
+        "undergrad/art/majors/",
+        "undergrad/art/minors/",
+        "undergrad/artsci/majors/",
+        "undergrad/artsci/minors/",
+        "undergrad/artsci/additional/",
+        "undergrad/business/majors/",
+        "undergrad/business/minors/",
+        "undergrad/engineering/majors/",
+        "undergrad/engineering/minors/",
+        "undergrad/caps/programs/",
+    ]
+    pg_directories = [
+        "grad/architecture/degrees/",
+        "grad/artsci/degrees/",
+        "grad/business/graduate-masters/",
+        "grad/business/dual-degrees/",
+        "grad/business/doctoral/",
+        "grad/engineering/degrees/",
+        "medicine/degrees-offerings/",
+        "grad/caps/masters/",
+        "grad/caps/additional/",
+        "grad/caps/online/",
+    ]
+    pg_direct_pages = [
+        ("MDes for Human-Computer Interaction + Emerging Technology", "MDes", "grad/art/mdes-design/"),
+        ("MFA in Illustration & Visual Culture", "MFA", "grad/art/mfa-illustration-visual-culture/"),
+        ("MFA in Visual Art", "MFA", "grad/art/mfa-visual-art/"),
+        ("Juris Doctor (JD)", "JD", "law/juris-doctor/"),
+        ("Master of Laws (LLM)", "LLM", "law/master-of-law/"),
+        ("Master of Legal Studies (MLS)", "MLS", "law/master-of-legal-studies/"),
+        ("Juris Scientiae Doctoris (JSD)", "JSD", "law/juris-scientiae-doctoris/"),
+        ("Master of Public Health", "MPH", "publichealth/mph/"),
+        ("PhD in Public Health Sciences", "PhD", "publichealth/phd-public-health-sciences/"),
+        ("Master of Social Work", "MSW", "brownschool/msw/"),
+        ("Master of Social Policy", "MSP", "brownschool/msp/"),
+        ("PhD in Social Work", "PhD", "brownschool/phd-social-work/"),
+        ("Division of Biology & Biomedical Sciences", "PhD", "grad/cross-school-phd-programs/dbbs/"),
+        ("Division of Computational & Data Sciences", "PhD", "grad/cross-school-phd-programs/dcds/"),
+        ("Institute of Materials Science & Engineering", "PhD", "grad/cross-school-phd-programs/imse/"),
+    ]
+    rows: list[dict[str, str]] = []
+
+    def add_directory(level: str, path: str) -> None:
+        directory_url = absolute(base, path)
+        directory_page = soup(directory_url)
+        for anchor in directory_page.select("#textcontainer a[href], .page_content a[href]"):
+            text = clean_text(anchor.get_text(" ", strip=True))
+            href = anchor.get("href") or ""
+            if not text or href.startswith("#") or len(text) == 1 or text in {"Bulletin", "Undergraduate", "Graduate & Professional"}:
+                continue
+            url = absolute(directory_url, href)
+            target_path = urllib.parse.urlparse(url).path
+            directory_path = f"/{path.rstrip('/')}"
+            if target_path.startswith(f"{directory_path}/") or target_path.rstrip("/") == directory_path:
+                rows.append(row("", "wustl", level, text, award_from_text(text, "Program"), url, "Official WashU Bulletin whitelisted programme row"))
+
+    for directory in ug_directories:
+        add_directory("Undergraduate", directory)
+    for directory in pg_directories:
+        add_directory("Postgraduate", directory)
+    for name, award, path in pg_direct_pages:
+        rows.append(row("", "wustl", "Postgraduate", name, award, absolute(base, path), "Official WashU Bulletin whitelisted programme row"))
+
+    rows = dedupe(rows)
+    if len(rows) < 500:
+        raise RuntimeError(f"WashU count below threshold: {len(rows)}")
+    return rows
+
+
 def parse_ntu_ug() -> list[dict[str, str]]:
     source_url = "https://www.ntu.edu.sg/admissions/undergraduate-programmes"
     page = soup(source_url)
@@ -699,27 +1338,34 @@ def simple_sources() -> dict[str, list[dict[str, str]]]:
     return {
         "harvard": [*parse_harvard("Undergraduate"), *parse_harvard("Postgraduate")],
         "mit": [*mit_ug, *mit_pg],
+        "stanford": parse_stanford(),
         "yale": [
             *link_rows("yale", "Undergraduate", "https://catalog.yale.edu/ycps/majors-in-yale-college/", "#content a[href]", "Official Yale College majors row", default_award="Major", href_contains="catalog.yale.edu/ycps/subjects-of-instruction/", minimum=75),
             *link_rows("yale", "Postgraduate", "https://catalog.yale.edu/gsas/degree-granting-departments-programs/", "#content a[href]", "Official Yale GSAS degree-granting departments/programs row", default_award="Graduate", href_contains="catalog.yale.edu/gsas/degree-granting-departments-programs/", minimum=60),
         ],
         "uchicago": link_rows("uchicago", "Undergraduate", "http://collegecatalog.uchicago.edu/thecollege/programsofstudy/", "#content a[href]", "Official UChicago College programme of study row", default_award="Major", href_contains="collegecatalog.uchicago.edu/thecollege/", minimum=60),
         "jhu": [*jhu_ug, *jhu_pg],
-        "duke": parse_duke_ug(),
+        "duke": [*parse_duke_ug(), *parse_duke_pg()],
         "penn": [
             *link_rows("penn", "Undergraduate", "https://catalog.upenn.edu/undergraduate/programs/", ".az_sitemap li a[href]", "Official Penn undergraduate programs A-Z row", default_award="UG", href_contains="catalog.upenn.edu/undergraduate/programs/", minimum=300),
             *link_rows("penn", "Postgraduate", "https://catalog.upenn.edu/graduate/programs/", ".az_sitemap li a[href]", "Official Penn graduate programs A-Z row", default_award="Graduate", href_contains="catalog.upenn.edu/graduate/programs/", minimum=300),
         ],
+        "caltech": parse_caltech(),
         "northwestern": [
             *link_rows("northwestern", "Undergraduate", "https://catalogs.northwestern.edu/undergraduate/programs-az/", ".az_sitemap li a[href]", "Official Northwestern undergraduate programs A-Z row", default_award="UG", href_contains="catalogs.northwestern.edu/undergraduate/", minimum=180),
             *link_rows("northwestern", "Postgraduate", "https://www.northwestern.edu/academics/graduate-a-to-z.html", "table a[href]", "Official Northwestern graduate degree programs table row", default_award="Graduate", minimum=180),
         ],
-        "brown": link_rows("brown", "Undergraduate", "https://bulletin.brown.edu/the-college/concentrations/", "#content a[href]", "Official Brown undergraduate concentrations row", default_award="Concentration", href_contains="bulletin.brown.edu/the-college/concentrations/", minimum=80),
+        "brown": [
+            *link_rows("brown", "Undergraduate", "https://bulletin.brown.edu/the-college/concentrations/", "#content a[href]", "Official Brown undergraduate concentrations row", default_award="Concentration", href_contains="bulletin.brown.edu/the-college/concentrations/", minimum=80),
+            *parse_brown_pg(),
+        ],
+        "vanderbilt": parse_vanderbilt(),
         "cornell": [*cornell_ug, *cornell_pg],
         "rice": [
             *parse_rice("Undergraduate", "https://ga.rice.edu/undergraduate-students/academic-opportunities/degree-chart/"),
             *parse_rice("Postgraduate", "https://ga.rice.edu/graduate-students/academic-opportunities/degree-chart/"),
         ],
+        "wustl": parse_wustl(),
         "dartmouth": [
             *parse_dartmouth("Undergraduate", "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate"),
             *parse_dartmouth("Postgraduate", "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate"),
@@ -729,11 +1375,18 @@ def simple_sources() -> dict[str, list[dict[str, str]]]:
             *link_rows("notre-dame", "Undergraduate", "https://catalog.nd.edu/programs/", "table a[href]", "Official Notre Dame academic programs table row", default_award="UG", href_contains="catalog.nd.edu/undergraduate/", minimum=150),
             *parse_notre_dame_grad(),
         ],
+        "berkeley": parse_berkeley(),
         "cmu": [*parse_cmu_ug(), *parse_cmu_pg()],
         "emory": [*parse_emory_ug(), *parse_emory_pg()],
+        "georgetown": parse_georgetown_pg(),
         "ucla": parse_ucla_pg(),
+        "ucsd": [*parse_ucsd_ug(), *parse_ucsd_pg()],
         "unc": link_rows("unc", "Undergraduate", "https://catalog.unc.edu/undergraduate/programs-study/", ".az_sitemap li a[href]", "Official UNC undergraduate programs of study row", default_award="UG", href_contains="catalog.unc.edu/undergraduate/programs-study/", minimum=180),
-        "uf": link_rows("uf", "Postgraduate", "https://gradcatalog.ufl.edu/graduate/programs-college/", "#content a[href]", "Official University of Florida graduate majors by college row", default_award="Graduate", href_contains="gradcatalog.ufl.edu/graduate/colleges-departments/", minimum=150),
+        "uva": parse_uva_ug(),
+        "uf": [
+            *parse_uf_ug(),
+            *link_rows("uf", "Postgraduate", "https://gradcatalog.ufl.edu/graduate/programs-college/", "#content a[href]", "Official University of Florida graduate majors by college row", default_award="Graduate", href_contains="gradcatalog.ufl.edu/graduate/colleges-departments/", minimum=150),
+        ],
         "ut-austin": [
             *parse_ut("Undergraduate", "https://catalog.utexas.edu/undergraduate/the-university/degree-programs/"),
             *parse_ut("Postgraduate", "https://catalog.utexas.edu/graduate/graduate-study/degree-programs/"),

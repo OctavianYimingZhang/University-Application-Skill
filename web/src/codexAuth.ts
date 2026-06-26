@@ -10,6 +10,11 @@ export interface CodexEndpointValidation {
   message: string;
 }
 
+export interface CodexBridgeHealth {
+  ok: boolean;
+  nonceRequired?: boolean;
+}
+
 export interface CodexAccountInfo {
   type: string;
   email?: string;
@@ -45,6 +50,8 @@ export type CodexLoginResult =
     };
 
 const endpointStorageKey = "soleil.codex.oauth.endpoint";
+const bridgeNonceStorageKey = "soleil.codex.oauth.bridgeNonce";
+const defaultBridgeEndpoint = "http://127.0.0.1:8787";
 
 function isRecord(value: unknown): value is JsonObject {
   return typeof value === "object" && value !== null && !Array.isArray(value);
@@ -61,7 +68,7 @@ function trimTrailingSlash(value: string) {
 
 export function getInitialCodexEndpoint() {
   if (typeof window === "undefined") {
-    return "http://127.0.0.1:8787";
+    return defaultBridgeEndpoint;
   }
 
   const params = new URLSearchParams(window.location.search);
@@ -70,13 +77,56 @@ export function getInitialCodexEndpoint() {
     return fromQuery;
   }
 
-  return window.localStorage.getItem(endpointStorageKey) ?? "http://127.0.0.1:8787";
+  return window.localStorage.getItem(endpointStorageKey) ?? defaultBridgeEndpoint;
 }
 
 export function rememberCodexEndpoint(endpoint: string) {
   if (typeof window !== "undefined") {
     window.localStorage.setItem(endpointStorageKey, endpoint.trim());
   }
+}
+
+export function getInitialCodexBridgeNonce() {
+  if (typeof window === "undefined") {
+    return "";
+  }
+
+  const params = new URLSearchParams(window.location.search);
+  const fromQuery = params.get("codex_bridge_nonce") ?? params.get("codex_nonce");
+  if (fromQuery) {
+    return fromQuery;
+  }
+
+  return window.localStorage.getItem(bridgeNonceStorageKey) ?? "";
+}
+
+export function rememberCodexBridgeNonce(nonce: string) {
+  if (typeof window !== "undefined") {
+    const value = nonce.trim();
+    if (value) {
+      window.localStorage.setItem(bridgeNonceStorageKey, value);
+    } else {
+      window.localStorage.removeItem(bridgeNonceStorageKey);
+    }
+  }
+}
+
+export function isDefaultCodexEndpoint(input: string) {
+  return trimTrailingSlash(input.trim()) === defaultBridgeEndpoint;
+}
+
+export function hasExplicitCodexEndpoint() {
+  if (typeof window === "undefined") {
+    return false;
+  }
+
+  const params = new URLSearchParams(window.location.search);
+  const stored = window.localStorage.getItem(endpointStorageKey);
+  return params.has("codex_ws") || params.has("codex_bridge") || Boolean(stored && !isDefaultCodexEndpoint(stored));
+}
+
+export function isGithubPagesRuntime() {
+  return typeof window !== "undefined" && window.location.hostname.endsWith("github.io");
 }
 
 export function validateCodexEndpoint(input: string): CodexEndpointValidation {
@@ -242,13 +292,21 @@ async function withCodexClient<T>(endpoint: string, task: (client: CodexRpcClien
   }
 }
 
-async function fetchBridge<T>(endpoint: string, path: string, init?: RequestInit) {
+function bridgeHeaders(nonce?: string) {
+  return nonce?.trim() ? { "x-codex-bridge-nonce": nonce.trim() } : {};
+}
+
+async function fetchBridge<T>(endpoint: string, path: string, init?: RequestInit, nonce?: string) {
+  const headers = new Headers(init?.headers);
+  headers.set("content-type", "application/json");
+  const nonceValue = bridgeHeaders(nonce)["x-codex-bridge-nonce"];
+  if (nonceValue) {
+    headers.set("x-codex-bridge-nonce", nonceValue);
+  }
+
   const response = await fetch(`${endpoint}${path}`, {
     ...init,
-    headers: {
-      "content-type": "application/json",
-      ...(init?.headers ?? {}),
-    },
+    headers,
   });
 
   if (!response.ok) {
@@ -320,7 +378,16 @@ function normalizeLogin(payload: unknown): CodexLoginResult {
   };
 }
 
-export async function readCodexAccount(endpoint: string, refreshToken: boolean) {
+export async function probeCodexBridge(endpoint: string, bridgeNonce?: string) {
+  const validation = validateCodexEndpoint(endpoint);
+  if (!validation.valid || validation.kind !== "bridge-http") {
+    throw new Error(validation.kind === "app-server-ws" ? "Health probe is only used for HTTP bridge endpoints." : validation.message);
+  }
+
+  return await fetchBridge<CodexBridgeHealth>(validation.endpoint, "/health", { method: "GET" }, bridgeNonce);
+}
+
+export async function readCodexAccount(endpoint: string, refreshToken: boolean, bridgeNonce?: string) {
   const validation = validateCodexEndpoint(endpoint);
   if (!validation.valid || !validation.kind) {
     throw new Error(validation.message);
@@ -329,7 +396,7 @@ export async function readCodexAccount(endpoint: string, refreshToken: boolean) 
   if (validation.kind === "bridge-http") {
     return normalizeAccount(await fetchBridge(validation.endpoint, refreshToken ? "/codex/refresh" : "/codex/status", {
       method: refreshToken ? "POST" : "GET",
-    }));
+    }, bridgeNonce));
   }
 
   return withCodexClient(validation.endpoint, async (client) => {
@@ -338,7 +405,7 @@ export async function readCodexAccount(endpoint: string, refreshToken: boolean) 
   });
 }
 
-export async function startCodexLogin(endpoint: string, flow: CodexLoginFlow) {
+export async function startCodexLogin(endpoint: string, flow: CodexLoginFlow, bridgeNonce?: string) {
   const validation = validateCodexEndpoint(endpoint);
   if (!validation.valid || !validation.kind) {
     throw new Error(validation.message);
@@ -348,7 +415,7 @@ export async function startCodexLogin(endpoint: string, flow: CodexLoginFlow) {
     return normalizeLogin(await fetchBridge(validation.endpoint, "/codex/start-oauth", {
       method: "POST",
       body: JSON.stringify({ flow }),
-    }));
+    }, bridgeNonce));
   }
 
   return withCodexClient(validation.endpoint, async (client) => {
@@ -359,14 +426,14 @@ export async function startCodexLogin(endpoint: string, flow: CodexLoginFlow) {
   });
 }
 
-export async function logoutCodex(endpoint: string) {
+export async function logoutCodex(endpoint: string, bridgeNonce?: string) {
   const validation = validateCodexEndpoint(endpoint);
   if (!validation.valid || !validation.kind) {
     throw new Error(validation.message);
   }
 
   if (validation.kind === "bridge-http") {
-    await fetchBridge(validation.endpoint, "/codex/logout", { method: "POST" });
+    await fetchBridge(validation.endpoint, "/codex/logout", { method: "POST" }, bridgeNonce);
     return;
   }
 

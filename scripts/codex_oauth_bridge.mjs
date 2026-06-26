@@ -2,6 +2,7 @@
 
 import { createServer } from "node:http";
 import { spawn } from "node:child_process";
+import { randomBytes } from "node:crypto";
 
 const defaultAllowedOrigins = new Set([
   "https://octavianyimingzhang.github.io",
@@ -17,6 +18,8 @@ function parseArgs(argv) {
     host: "127.0.0.1",
     codexBin: "codex",
     allowedOrigins: new Set(defaultAllowedOrigins),
+    nonce: randomBytes(18).toString("base64url"),
+    requireNonce: true,
   };
 
   for (let index = 0; index < argv.length; index += 1) {
@@ -34,8 +37,14 @@ function parseArgs(argv) {
     } else if (arg === "--allow-origin" && next) {
       options.allowedOrigins.add(next);
       index += 1;
+    } else if (arg === "--nonce" && next) {
+      options.nonce = next;
+      options.requireNonce = true;
+      index += 1;
+    } else if (arg === "--no-nonce") {
+      options.requireNonce = false;
     } else if (arg === "--help" || arg === "-h") {
-      console.log(`Usage: node scripts/codex_oauth_bridge.mjs [--port 8787] [--host 127.0.0.1] [--codex-bin codex] [--allow-origin ORIGIN]\n\nEndpoints:\n  GET  /health\n  GET  /codex/status\n  POST /codex/start-oauth  { \"flow\": \"browser\" | \"device\" }\n  POST /codex/refresh\n  POST /codex/logout`);
+      console.log(`Usage: node scripts/codex_oauth_bridge.mjs [--port 8787] [--host 127.0.0.1] [--codex-bin codex] [--allow-origin ORIGIN] [--nonce VALUE] [--no-nonce]\n\nEndpoints:\n  GET  /health\n  GET  /codex/status\n  POST /codex/start-oauth  { \"flow\": \"browser\" | \"device\" }\n  POST /codex/refresh\n  POST /codex/logout`);
       process.exit(0);
     }
   }
@@ -224,11 +233,16 @@ function sendJson(response, statusCode, data, corsOrigin) {
     "cache-control": "no-store",
     "access-control-allow-origin": corsOrigin,
     "access-control-allow-methods": "GET,POST,OPTIONS",
-    "access-control-allow-headers": "content-type",
+    "access-control-allow-headers": "content-type, x-codex-bridge-nonce",
     "access-control-allow-private-network": "true",
     "vary": "Origin, Access-Control-Request-Private-Network",
   });
   response.end(JSON.stringify(data));
+}
+
+function readNonce(request) {
+  const value = request.headers["x-codex-bridge-nonce"];
+  return Array.isArray(value) ? value[0] : value;
 }
 
 function createBridgeServer(options, codex) {
@@ -246,7 +260,12 @@ function createBridgeServer(options, codex) {
 
     try {
       if (request.method === "GET" && request.url === "/health") {
-        sendJson(response, 200, { ok: true }, cors.origin);
+        sendJson(response, 200, { ok: true, nonceRequired: options.requireNonce }, cors.origin);
+        return;
+      }
+
+      if (request.url?.startsWith("/codex/") && options.requireNonce && readNonce(request) !== options.nonce) {
+        sendJson(response, 401, { error: "Missing or invalid Codex bridge nonce." }, cors.origin);
         return;
       }
 
@@ -290,6 +309,12 @@ const server = createBridgeServer(options, codex);
 server.listen(options.port, options.host, () => {
   console.log(`Codex OAuth bridge listening on http://${options.host}:${options.port}`);
   console.log(`Allowed origins: ${Array.from(options.allowedOrigins).join(", ")}`);
+  if (options.requireNonce) {
+    console.log(`Bridge nonce: ${options.nonce}`);
+    console.log(`Website URL parameter: ?codex_bridge=http://${options.host}:${options.port}&codex_bridge_nonce=${options.nonce}`);
+  } else {
+    console.log("Bridge nonce disabled by --no-nonce.");
+  }
 });
 
 for (const signal of ["SIGINT", "SIGTERM"]) {
