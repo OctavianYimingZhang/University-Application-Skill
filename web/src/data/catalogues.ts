@@ -1,5 +1,13 @@
 import type { CatalogueProgramOption, InstitutionCatalogue, InstitutionGroup, Program, ProgramLevel, Region } from "../types";
 import { cambridgeCatalogueChecked, cambridgePrograms } from "./cambridgePrograms";
+import { edinburghCatalogueChecked, edinburghPrograms } from "./edinburghPrograms";
+import { imperialCatalogueChecked, imperialPrograms } from "./imperialPrograms";
+import { kclCatalogueChecked, kclPrograms } from "./kclPrograms";
+import { lbsCatalogueChecked, lbsPrograms } from "./lbsPrograms";
+import { lseCatalogueChecked, lsePrograms } from "./lsePrograms";
+import { manchesterCatalogueChecked, manchesterPrograms } from "./manchesterPrograms";
+import { uclCatalogueChecked, uclPrograms } from "./uclPrograms";
+import { warwickCatalogueChecked, warwickPrograms } from "./warwickPrograms";
 
 const checked = "2026-06-25";
 
@@ -37,8 +45,8 @@ export const institutionCatalogues: InstitutionCatalogue[] = [
     region: "United Kingdom",
     checked,
     sources: [
-      source("Undergraduate", "Undergraduate courses A-Z", "https://www.ox.ac.uk/admissions/undergraduate/courses/course-listing", "Complete HTML", "UG course names and URLs are exposed in the official A-Z page."),
-      source("Postgraduate", "Graduate course search", "https://www.ox.ac.uk/admissions/graduate/courses/find-your-course", "Search/API required", "Official search tool; automated clients may hit Cloudflare and must use browser/API handling."),
+      source("Undergraduate", "Undergraduate courses A-Z", "https://www.ox.ac.uk/admissions/undergraduate/courses/course-listing", "Complete HTML", "UG course names and URLs are exposed in the official A-Z page when Cloudflare allows access."),
+      source("Postgraduate", "Graduate course search", "https://www.ox.ac.uk/admissions/graduate/courses/find-your-course", "Search/API required", "Official search tool covers graduate courses; raw automated clients may hit Cloudflare and must use browser/API handling."),
     ],
     examples: [
       option("oxford-ug-biochemistry", "Undergraduate", "Biochemistry (Molecular and Cellular)", "BA", "https://www.ox.ac.uk/admissions/undergraduate/courses/course-listing/biochemistry-molecular-and-cellular"),
@@ -46,8 +54,8 @@ export const institutionCatalogues: InstitutionCatalogue[] = [
       option("oxford-pg-advanced-computer-science", "Postgraduate", "Advanced Computer Science", "MSc", "https://www.ox.ac.uk/admissions/graduate/courses/msc-advanced-computer-science"),
       option("oxford-pg-computer-science", "Postgraduate", "Computer Science", "DPhil", "https://www.ox.ac.uk/admissions/graduate/courses/dphil-computer-science"),
     ],
-    extractionNote: "Use the UG A-Z list directly; use the official graduate search with taught/research filters for PG.",
-    caveat: "PG search output is tool dependent; do not infer a complete PG list from isolated detail pages.",
+    extractionNote: "Official entry points are verified, but raw catalogue extraction is currently blocked by Oxford Cloudflare in this environment.",
+    caveat: "Do not infer a complete Oxford list from isolated detail pages; use only a verified official listing/API/browser-rendered result set.",
   },
   {
     id: "cambridge",
@@ -76,7 +84,7 @@ export const institutionCatalogues: InstitutionCatalogue[] = [
     shortName: "Imperial",
     group: "UK Core",
     region: "United Kingdom",
-    checked,
+    checked: imperialCatalogueChecked,
     sources: [
       source("Undergraduate", "Undergraduate course search", "https://www.imperial.ac.uk/study/courses/?courseType=Undergraduate", "Paginated HTML", "Official course cards are server-rendered and paginated."),
       source("Postgraduate", "Postgraduate taught course search", "https://www.imperial.ac.uk/study/courses/?courseType=Postgraduate%20taught", "Paginated HTML", "Official PGT cards are server-rendered and paginated."),
@@ -88,7 +96,8 @@ export const institutionCatalogues: InstitutionCatalogue[] = [
       option("imperial-pg-advanced-computing", "Postgraduate", "Advanced Computing", "MSc", "https://www.imperial.ac.uk/study/courses/postgraduate-taught/2026/advanced-computing/"),
       option("imperial-pg-advanced-aeronautical", "Postgraduate", "Advanced Aeronautical Engineering", "MSc", "https://www.imperial.ac.uk/study/courses/postgraduate-taught/2026/advanced-aeronautical-engineering/"),
     ],
-    extractionNote: "Use courseType query values exactly and crawl pagination.",
+    programs: imperialPrograms,
+    extractionNote: "Official Imperial course search rows loaded: 73 undergraduate courses and 175 postgraduate taught rows. Doctoral discovery remains route/project based.",
     caveat: "Doctoral programmes should be modelled as route/project discovery unless Imperial publishes a central doctoral catalogue.",
   },
   {
@@ -97,7 +106,7 @@ export const institutionCatalogues: InstitutionCatalogue[] = [
     shortName: "UCL",
     group: "UK Core",
     region: "United Kingdom",
-    checked,
+    checked: uclCatalogueChecked,
     sources: [
       source("Undergraduate", "Undergraduate degrees", "https://www.ucl.ac.uk/prospective-students/undergraduate/degrees", "Complete HTML", "Result anchors expose UG degree names and links."),
       source("Postgraduate", "Graduate taught degrees", "https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees", "Complete HTML", "Taught degree anchors are exposed in HTML."),
@@ -109,7 +118,8 @@ export const institutionCatalogues: InstitutionCatalogue[] = [
       option("ucl-pg-advanced-audiology", "Postgraduate", "Advanced Audiology", "MSc", "https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees/advanced-audiology-msc"),
       option("ucl-pg-anthropology", "Postgraduate", "Anthropology", "MPhil/PhD", "https://www.ucl.ac.uk/prospective-students/graduate/research-degrees/anthropology-mphil-phd"),
     ],
-    extractionNote: "Parse anchors under UG, taught PG, and research PG catalogue paths.",
+    programs: uclPrograms,
+    extractionNote: "Official UCL programme rows loaded: 437 undergraduate degrees, 556 graduate taught rows, and 144 graduate research rows.",
     caveat: "Keep taught and research postgraduate entries as separate programme types.",
   },
   {
@@ -118,10 +128,10 @@ export const institutionCatalogues: InstitutionCatalogue[] = [
     shortName: "LSE",
     group: "UK Core",
     region: "United Kingdom",
-    checked,
+    checked: lseCatalogueChecked,
     sources: [
-      source("Undergraduate", "Programme search", "https://www.lse.ac.uk/programmes/search-courses", "Search/API required", "Search page embeds a partial first batch; full UG list requires pagination/search."),
-      source("Postgraduate", "Graduate available programmes", "https://www.lse.ac.uk/study-at-lse/Graduate/Available-programmes", "Complete HTML", "Graduate availability page exposes programme links and status columns."),
+      source("Undergraduate", "Programme search", "https://www.lse.ac.uk/programmes/search-courses", "Search/API required", "Official Contensis programme search exposes all UG records through the public startup-token API."),
+      source("Postgraduate", "Graduate available programmes", "https://www.lse.ac.uk/study-at-lse/Graduate/Available-programmes", "Complete HTML", "Graduate availability page exposes programme links and Home/Overseas status columns."),
     ],
     examples: [
       option("lse-ug-accounting-finance", "Undergraduate", "Accounting and Finance", "BSc", "https://www.lse.ac.uk/study-at-lse/undergraduate/bsc-accounting-and-finance"),
@@ -129,8 +139,9 @@ export const institutionCatalogues: InstitutionCatalogue[] = [
       option("lse-pg-data-science", "Postgraduate", "Data Science", "MSc", "https://www.lse.ac.uk/study-at-lse/graduate/msc-data-science"),
       option("lse-pg-computational-social-science", "Postgraduate", "Computational Social Science", "MPhil/PhD", "https://www.lse.ac.uk/study-at-lse/graduate/mphilphd-computational-social-science"),
     ],
-    extractionNote: "Use the programme search for UG and the graduate availability table for PG.",
-    caveat: "Graduate link text can include programme codes; preserve codes separately before display cleanup.",
+    programs: lsePrograms,
+    extractionNote: "Official LSE rows loaded: 43 undergraduate programme-search API rows and 220 graduate availability table rows.",
+    caveat: "Graduate availability rows preserve Home/Overseas application status text from the official 2026/7 table.",
   },
   {
     id: "lbs",
@@ -138,7 +149,7 @@ export const institutionCatalogues: InstitutionCatalogue[] = [
     shortName: "LBS",
     group: "UK Core",
     region: "United Kingdom",
-    checked,
+    checked: lbsCatalogueChecked,
     sources: [
       source("Undergraduate", "No undergraduate degree catalogue", "https://www.london.edu/about/london-business-school/programmes", "No degree catalogue", "LBS does not publish an undergraduate degree catalogue."),
       source("Postgraduate", "Masters degrees", "https://www.london.edu/masters-degrees", "Complete HTML", "Masters portfolio links are exposed in official HTML."),
@@ -150,7 +161,8 @@ export const institutionCatalogues: InstitutionCatalogue[] = [
       option("lbs-pg-mba", "Postgraduate", "MBA", "MBA", "https://www.london.edu/masters-degrees/mba"),
       option("lbs-pg-finance-phd", "Postgraduate", "Finance", "PhD", "https://www.london.edu/faculty-and-research/finance/phd-programme"),
     ],
-    extractionNote: "Classify degree programmes separately from executive education, online short courses, and summer school.",
+    programs: lbsPrograms,
+    extractionNote: "Official LBS rows loaded: no undergraduate degree catalogue, 10 masters degree roots, and 7 PhD subject-area pages. Executive education and short courses are excluded.",
     caveat: "No undergraduate degree options are listed for LBS.",
   },
   {
@@ -159,11 +171,11 @@ export const institutionCatalogues: InstitutionCatalogue[] = [
     shortName: "KCL",
     group: "UK Core",
     region: "United Kingdom",
-    checked,
+    checked: kclCatalogueChecked,
     sources: [
-      source("Undergraduate", "Undergraduate courses", "https://www.kcl.ac.uk/study/undergraduate/courses", "Search/API required", "Static HTML exposes a first batch; full coverage needs Contensis/browser execution."),
-      source("Postgraduate", "Postgraduate taught A-Z", "https://www.kcl.ac.uk/study/postgraduate-taught/postgraduate-taught-courses-a-z", "Search/API required", "Static HTML is incomplete without app/API data."),
-      source("Postgraduate", "Postgraduate research areas", "https://www.kcl.ac.uk/study/postgraduate-research/areas", "Search/API required", "Official PGR area index; full extraction needs app/API data."),
+      source("Undergraduate", "Undergraduate courses", "https://www.kcl.ac.uk/study/undergraduate/courses", "Search/API required", "Official Contensis API exposes published undergraduate course rows."),
+      source("Postgraduate", "Postgraduate taught A-Z", "https://www.kcl.ac.uk/study/postgraduate-taught/postgraduate-taught-courses-a-z", "Search/API required", "Official Contensis API exposes published postgraduate taught rows."),
+      source("Postgraduate", "Postgraduate research areas", "https://www.kcl.ac.uk/study/postgraduate-research/areas", "Search/API required", "Official Contensis API exposes published postgraduate research area rows."),
     ],
     examples: [
       option("kcl-ug-accounting-finance", "Undergraduate", "Accounting & Finance", "BSc", "https://www.kcl.ac.uk/study/undergraduate/courses/accounting-finance-bsc"),
@@ -171,8 +183,9 @@ export const institutionCatalogues: InstitutionCatalogue[] = [
       option("kcl-pg-advanced-computing", "Postgraduate", "Advanced Computing", "MSc", "https://www.kcl.ac.uk/study/postgraduate-taught/courses/advanced-computing-msc"),
       option("kcl-pg-neuroscience", "Postgraduate", "Basic & Clinical Neuroscience", "MPhil/PhD", "https://www.kcl.ac.uk/study/postgraduate-research/areas/basic-and-clinical-neuroscience-mdres-mphil-phd"),
     ],
-    extractionNote: "Use official catalogue entry points; full extraction likely needs browser-context JS or authorised Contensis feed access.",
-    caveat: "Do not treat static HTML alone as complete KCL coverage.",
+    programs: kclPrograms,
+    extractionNote: "Official KCL rows loaded: 152 undergraduate courses, 237 postgraduate taught courses, and 88 postgraduate research areas.",
+    caveat: "Rows are generated from KCL's published Contensis entries; list pages remain paginated.",
   },
   {
     id: "manchester",
@@ -180,7 +193,7 @@ export const institutionCatalogues: InstitutionCatalogue[] = [
     shortName: "Manchester",
     group: "UK Core",
     region: "United Kingdom",
-    checked,
+    checked: manchesterCatalogueChecked,
     sources: [
       source("Undergraduate", "Undergraduate courses 2026", "https://www.manchester.ac.uk/study/undergraduate/courses/2026/", "Complete HTML", "Official `/xml/` fragment contains all UG rows."),
       source("Postgraduate", "Masters courses", "https://www.manchester.ac.uk/study/masters/courses/list/", "Complete HTML", "Official `/xml/` fragment contains all masters rows."),
@@ -192,7 +205,8 @@ export const institutionCatalogues: InstitutionCatalogue[] = [
       option("manchester-pg-advanced-cs", "Postgraduate", "Advanced Computer Science", "MSc", "https://www.manchester.ac.uk/study/masters/courses/list/21573/msc-advanced-computer-science/"),
       option("manchester-pgr-accounting-finance", "Postgraduate", "Accounting and Finance", "PhD", "https://www.manchester.ac.uk/study/postgraduate-research/programmes/list/19378/phd-accounting-and-finance/"),
     ],
-    extractionNote: "Fetch each catalogue `/xml/` fragment and resolve course links against the parent URL.",
+    programs: manchesterPrograms,
+    extractionNote: "Official Manchester catalogue rows loaded: 366 undergraduate courses, 321 master's rows, and 247 postgraduate research rows.",
     caveat: "UG path is entry-year-specific and must be refreshed when Manchester rolls the catalogue year.",
   },
   {
@@ -201,7 +215,7 @@ export const institutionCatalogues: InstitutionCatalogue[] = [
     shortName: "Warwick",
     group: "UK Core",
     region: "United Kingdom",
-    checked,
+    checked: warwickCatalogueChecked,
     sources: [
       source("Undergraduate", "Undergraduate courses", "https://warwick.ac.uk/study/undergraduate/courses/", "Search/API required", "UG list is available through the official SiteBuilder2 data-entry JSON API."),
       source("Postgraduate", "Postgraduate courses", "https://warwick.ac.uk/study/postgraduate/courses/", "Complete HTML", "PG programme cards are exposed in the official page HTML."),
@@ -212,7 +226,8 @@ export const institutionCatalogues: InstitutionCatalogue[] = [
       option("warwick-pg-biomedical-engineering", "Postgraduate", "Biomedical Engineering", "MSc", "https://warwick.ac.uk/study/postgraduate/courses/msc-biomedical-engineering"),
       option("warwick-pg-business-management", "Postgraduate", "Business and Management", "MRes/PhD", "https://warwick.ac.uk/study/postgraduate/courses/mres-phd-business-management"),
     ],
-    extractionNote: "For UG, use Warwick SiteBuilder2 API and exclude hidden entries.",
+    programs: warwickPrograms,
+    extractionNote: "Official Warwick rows loaded: 189 undergraduate SiteBuilder API rows and 258 postgraduate course page rows.",
     caveat: "PG combines taught and research cards; preserve tags from source.",
   },
   {
@@ -221,7 +236,7 @@ export const institutionCatalogues: InstitutionCatalogue[] = [
     shortName: "Edinburgh",
     group: "UK Core",
     region: "United Kingdom",
-    checked,
+    checked: edinburghCatalogueChecked,
     sources: [
       source("Undergraduate", "Undergraduate A-Z", "https://study.ed.ac.uk/programmes/undergraduate-a-z", "Complete HTML", "Degree Finder rows are server-rendered."),
       source("Postgraduate", "Postgraduate taught A-Z", "https://study.ed.ac.uk/programmes/postgraduate-taught-a-z", "Complete HTML", "Degree Finder rows are server-rendered."),
@@ -233,7 +248,8 @@ export const institutionCatalogues: InstitutionCatalogue[] = [
       option("edinburgh-pg-ai-business", "Postgraduate", "AI for Business", "MSc", "https://study.ed.ac.uk/programmes/postgraduate-taught/1138-ai-for-business"),
       option("edinburgh-pgr-agriculture-food-security", "Postgraduate", "Agriculture and Food Security", "PhD/MScR", "https://study.ed.ac.uk/programmes/postgraduate-research/957-agriculture-and-food-security"),
     ],
-    extractionNote: "Parse Degree Finder Drupal view rows under each A-Z page.",
+    programs: edinburghPrograms,
+    extractionNote: "Official Edinburgh Degree Finder rows loaded: 349 undergraduate courses, 280 postgraduate taught rows, and 187 postgraduate research rows.",
     caveat: "Use study.ed.ac.uk Degree Finder rather than older www.ed.ac.uk study pages.",
   },
 ];
