@@ -7,7 +7,9 @@ import { lbsCatalogueChecked, lbsPrograms } from "./lbsPrograms";
 import { lseCatalogueChecked, lsePrograms } from "./lsePrograms";
 import { manchesterCatalogueChecked, manchesterPrograms } from "./manchesterPrograms";
 import { oxfordCatalogueChecked, oxfordPrograms } from "./oxfordPrograms";
+import { singaporeCatalogueChecked, singaporeProgramsByInstitution } from "./singaporePrograms";
 import { uclCatalogueChecked, uclPrograms } from "./uclPrograms";
+import { usCatalogueChecked, usProgramsByInstitution } from "./usPrograms";
 import { warwickCatalogueChecked, warwickPrograms } from "./warwickPrograms";
 
 const checked = "2026-06-25";
@@ -298,7 +300,7 @@ export const usAndSingaporeCatalogues: InstitutionCatalogue[] = [
     group: "US News Top 30" as InstitutionGroup,
     region: "United States" as Region,
     rankNote,
-    checked,
+    checked: usCatalogueChecked,
     sources: [
       source("Undergraduate", ugLabel, ugUrl, "Official index", "Official undergraduate programme catalogue or admissions major index."),
       source("Postgraduate", pgLabel, pgUrl, "Official index", "Official graduate/professional programme catalogue or graduate school programme index."),
@@ -307,8 +309,13 @@ export const usAndSingaporeCatalogues: InstitutionCatalogue[] = [
       option(`${id}-ug-catalogue`, "Undergraduate", `${shortName} undergraduate programme catalogue`, "UG", ugUrl, "Open official UG programme index"),
       option(`${id}-pg-catalogue`, "Postgraduate", `${shortName} postgraduate programme catalogue`, "Graduate", pgUrl, "Open official graduate programme index"),
     ],
-    extractionNote: "Coverage is implemented through official catalogue/index entry points; individual hard requirements must be read from the relevant programme page.",
-    caveat: "U.S. institutions distribute requirements across schools, departments, and admissions offices; the app marks unsupported details as source gaps.",
+    programs: usProgramsByInstitution[id],
+    extractionNote: usProgramsByInstitution[id]
+      ? `Official catalogue rows loaded: ${usProgramsByInstitution[id].length} programme rows. Individual hard requirements must still be read from the relevant programme page.`
+      : "Coverage remains at official catalogue/index entry-point level because automated row extraction was blocked or not count-validated.",
+    caveat: usProgramsByInstitution[id]
+      ? "U.S. institutions distribute requirements across schools, departments, and admissions offices; unsupported details remain source gaps."
+      : "Source row extraction is skipped until the official source can be accessed and count-validated without human verification or guessing.",
   })),
   {
     id: "nus",
@@ -317,17 +324,18 @@ export const usAndSingaporeCatalogues: InstitutionCatalogue[] = [
     group: "Singapore",
     region: "Singapore",
     rankNote: "Singapore expansion requested by user",
-    checked,
+    checked: singaporeCatalogueChecked,
     sources: [
-      source("Undergraduate", "Undergraduate programmes", "https://www.nus.edu.sg/oam/undergraduate-programmes", "Official index", "Official NUS undergraduate programme index."),
-      source("Postgraduate", "Postgraduate programme portal", "https://study.nus.edu.sg/programme", "Search/API required", "Official NUS postgraduate programme portal with public Salesforce-backed search."),
+      source("Undergraduate", "Undergraduate programmes", "https://www.nus.edu.sg/oam/undergraduate-programmes", "Official index", "Official NUS undergraduate programme index; automated access returned Incapsula challenge, so UG row generation is skipped."),
+      source("Postgraduate", "Postgraduate programme portal", "https://study.nus.edu.sg/programme", "Search/API required", "Official NUS postgraduate programme portal backed by first-party LWR Apex search."),
     ],
     examples: [
       option("nus-ug-programmes", "Undergraduate", "NUS undergraduate programme catalogue", "UG", "https://www.nus.edu.sg/oam/undergraduate-programmes", "Open official UG programme index"),
       option("nus-pg-programmes", "Postgraduate", "NUS postgraduate programme catalogue", "Graduate", "https://study.nus.edu.sg/programme", "Open official postgraduate programme portal"),
     ],
-    extractionNote: "Use official NUS admissions and Registrar programme pages, then follow faculty-specific requirement pages.",
-    caveat: "Faculty programme pages may carry separate eligibility, English, and fee details.",
+    programs: singaporeProgramsByInstitution.nus,
+    extractionNote: `Official NUS Study postgraduate rows loaded: ${singaporeProgramsByInstitution.nus?.length ?? 0} LWR Apex programme rows. Undergraduate OAM source remains linked but not generated because automated access returned a human-verification challenge.`,
+    caveat: "NUS undergraduate rows are source-blocked in this environment; do not infer them from qualification-specific PDFs. Faculty programme pages may carry separate eligibility, English, and fee details.",
   },
   {
     id: "ntu",
@@ -336,16 +344,17 @@ export const usAndSingaporeCatalogues: InstitutionCatalogue[] = [
     group: "Singapore",
     region: "Singapore",
     rankNote: "Singapore expansion requested by user",
-    checked,
+    checked: singaporeCatalogueChecked,
     sources: [
-      source("Undergraduate", "Degree programmes", "https://www.ntu.edu.sg/education/degree-programmes", "Official index", "Official NTU central degree programme index."),
+      source("Undergraduate", "Undergraduate programmes", "https://www.ntu.edu.sg/admissions/undergraduate-programmes", "Complete HTML", "Official NTU undergraduate programme cards are server-rendered."),
       source("Postgraduate", "Graduate College programmes", "https://www.ntu.edu.sg/graduate-college/admissions/programme/graduate-programmes", "Official index", "Official NTU Graduate College programme listing."),
     ],
     examples: [
-      option("ntu-ug-programmes", "Undergraduate", "NTU undergraduate programme catalogue", "UG", "https://www.ntu.edu.sg/education/degree-programmes", "Open official central degree programme index"),
+      option("ntu-ug-programmes", "Undergraduate", "NTU undergraduate programme catalogue", "UG", "https://www.ntu.edu.sg/admissions/undergraduate-programmes", "Open official central degree programme index"),
       option("ntu-pg-programmes", "Postgraduate", "NTU graduate programme catalogue", "Graduate", "https://www.ntu.edu.sg/graduate-college/admissions/programme/graduate-programmes", "Open official graduate programme listing"),
     ],
-    extractionNote: "Use official NTU admissions programme pages and follow college/school detail links.",
+    programs: singaporeProgramsByInstitution.ntu,
+    extractionNote: `Official NTU rows loaded: ${singaporeProgramsByInstitution.ntu?.filter((program) => program.level === "Undergraduate").length ?? 0} undergraduate cards and ${singaporeProgramsByInstitution.ntu?.filter((program) => program.level === "Postgraduate").length ?? 0} graduate cards.`,
     caveat: "NTU graduate taught/research route details are often school-specific.",
   },
 ];

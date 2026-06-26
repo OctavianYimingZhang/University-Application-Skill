@@ -1,0 +1,820 @@
+#!/usr/bin/env python3
+"""Build conservative US and Singapore programme catalogues from official sources."""
+
+from __future__ import annotations
+
+import datetime as dt
+import html
+import json
+import re
+import ssl
+import urllib.error
+import urllib.parse
+import urllib.request
+from pathlib import Path
+from typing import Iterable
+
+from bs4 import BeautifulSoup
+
+ROOT = Path(__file__).resolve().parents[1]
+US_OUT = ROOT / "web" / "src" / "data" / "usPrograms.ts"
+SG_OUT = ROOT / "web" / "src" / "data" / "singaporePrograms.ts"
+CHECKED = dt.date.today().isoformat()
+UA = "Mozilla/5.0 University-Application-Skill/0.1"
+
+
+def fetch(url: str) -> str:
+    request = urllib.request.Request(
+        url,
+        headers={
+            "User-Agent": UA,
+            "Accept": "text/html,application/xhtml+xml,application/json",
+            "Accept-Language": "en-US,en;q=0.9",
+        },
+    )
+    try:
+        with urllib.request.urlopen(request, timeout=35) as response:
+            return response.read().decode("utf-8", "replace")
+    except urllib.error.URLError:
+        context = ssl._create_unverified_context()
+        with urllib.request.urlopen(request, timeout=35, context=context) as response:
+            return response.read().decode("utf-8", "replace")
+
+
+def fetch_json(url: str) -> dict:
+    return json.loads(fetch(url))
+
+
+def soup(url: str) -> BeautifulSoup:
+    data = fetch(url)
+    if "Just a moment" in data or "_Incapsula_Resource" in data or "Human Verification" in data:
+        raise RuntimeError(f"Source challenge detected for {url}")
+    return BeautifulSoup(data, "lxml")
+
+
+def clean_text(value: str) -> str:
+    value = html.unescape(value)
+    value = re.sub(r"[\u00a0\t\r\f\v]+", " ", value)
+    value = re.sub(r" *\n *", " ", value)
+    return re.sub(r" {2,}", " ", value).strip()
+
+
+def slug(value: str) -> str:
+    value = clean_text(value).lower()
+    value = value.replace("&", " and ")
+    value = re.sub(r"[^a-z0-9]+", "-", value).strip("-")
+    return value or "programme"
+
+
+def absolute(base: str, href: str) -> str:
+    return urllib.parse.urljoin(base, href)
+
+
+def ts_string(value: str) -> str:
+    return json.dumps(value, ensure_ascii=False)
+
+
+def award_from_text(text: str, default: str) -> str:
+    text = clean_text(text)
+    paren = re.search(r"\(([^()]{1,80})\)\s*$", text)
+    if paren:
+        return clean_text(paren.group(1))
+    comma = re.search(r",\s*([A-Z][A-Za-z./& -]{1,45})(?::|$)", text)
+    if comma:
+        return clean_text(comma.group(1))
+    if "Minor" in text:
+        return "Minor"
+    if "Major" in text:
+        return "Major"
+    return default
+
+
+UG_MARKERS = [
+    "Bachelor",
+    "A.B.",
+    "S.B.",
+    "A.L.B.",
+    "BA",
+    "BS",
+    "BSc",
+    "B.S.",
+    "B.A.",
+    "BBA",
+    "BFA",
+    "BMus",
+    "Minor",
+    "Major",
+    "Undergraduate",
+]
+
+PG_MARKERS = [
+    "Master",
+    "M.A.",
+    "M.S.",
+    "MSc",
+    "MBA",
+    "M.B.A.",
+    "MEng",
+    "M.P.P.",
+    "PhD",
+    "Ph.D.",
+    "Doctor",
+    "DNP",
+    "JD",
+    "J.D.",
+    "LLM",
+    "LL.M.",
+    "MD",
+    "M.D.",
+    "Graduate",
+    "Post-Master",
+    "Certificate",
+]
+
+
+def infer_level(award: str, name: str = "") -> str | None:
+    combined = f"{award} {name}"
+    if any(marker in combined for marker in UG_MARKERS):
+        return "Undergraduate"
+    if any(marker in combined for marker in PG_MARKERS):
+        return "Postgraduate"
+    return None
+
+
+def row(
+    institution: str,
+    prefix: str,
+    level: str,
+    name: str,
+    award: str,
+    url: str,
+    note: str,
+    *,
+    mode: str = "",
+    duration: str = "",
+    status: str = "",
+) -> dict[str, str]:
+    name = clean_text(name)
+    award = clean_text(award) or "See official programme page"
+    fields = {
+        "id": f"{prefix}-{level.lower()[:2]}-{slug(name)}-{slug(award)}",
+        "name": name,
+        "level": level,
+        "award": award,
+        "url": url,
+        "note": note,
+    }
+    if mode:
+        fields["mode"] = clean_text(mode)
+    if duration:
+        fields["duration"] = clean_text(duration)
+    if status:
+        fields["status"] = clean_text(status)
+    if institution:
+        fields["sourceStatus"] = "Verified"
+    return fields
+
+
+def dedupe(rows: Iterable[dict[str, str]]) -> list[dict[str, str]]:
+    seen: set[str] = set()
+    output: list[dict[str, str]] = []
+    for item in rows:
+        if not item["name"] or item["name"] in set("ABCDEFGHIJKLMNOPQRSTUVWXYZ"):
+            continue
+        key = item["id"]
+        if key in seen:
+            suffix = slug(item["url"].rstrip("/").split("/")[-1])
+            key = f"{key}-{suffix}"
+            item = {**item, "id": key}
+        if key in seen:
+            continue
+        seen.add(key)
+        output.append(item)
+    return output
+
+
+def link_rows(
+    prefix: str,
+    level: str,
+    source_url: str,
+    selector: str,
+    note: str,
+    *,
+    default_award: str,
+    href_contains: str | None = None,
+    exclude_same_path: bool = True,
+    minimum: int = 1,
+) -> list[dict[str, str]]:
+    page = soup(source_url)
+    source_path = urllib.parse.urlparse(source_url).path.rstrip("/")
+    rows: list[dict[str, str]] = []
+    for anchor in page.select(selector):
+        text = clean_text(anchor.get_text(" ", strip=True))
+        href = anchor.get("href") or ""
+        if not text or href.startswith("#") or href.startswith("mailto:") or href.startswith("javascript:"):
+            continue
+        url = absolute(source_url, href)
+        path = urllib.parse.urlparse(url).path.rstrip("/")
+        if exclude_same_path and path == source_path:
+            continue
+        if href_contains and href_contains not in url:
+            continue
+        rows.append(row("", prefix, level, text, award_from_text(text, default_award), url, note))
+    rows = dedupe(rows)
+    if len(rows) < minimum:
+        raise RuntimeError(f"Expected at least {minimum} rows from {source_url}, got {len(rows)}")
+    return rows
+
+
+def parse_harvard(level: str) -> list[dict[str, str]]:
+    endpoint = "https://www.harvard.edu/wp-json/tribe-core/v1/program-browser"
+    records: dict[str, dict] = {}
+    expected: int | None = None
+    degree = "undergraduate" if level == "Undergraduate" else "graduate"
+    for page in range(1, 20):
+        params = urllib.parse.urlencode({"degree_levels": degree, "page": page})
+        payload = fetch_json(f"{endpoint}?{params}")
+        if expected is None:
+            expected = int(payload["meta"]["pagination"].get("total_results") or 0)
+        page_records = payload.get("records") or []
+        if not page_records:
+            break
+        for record in page_records:
+            records[str(record["id"])] = record
+        if expected and len(records) >= expected:
+            break
+    if expected and len(records) != expected:
+        raise RuntimeError(f"Harvard {degree} expected {expected} records, got {len(records)}")
+
+    rows: list[dict[str, str]] = []
+    for record in records.values():
+        certs = record.get("certifications") or []
+        if level == "Undergraduate":
+            awards = [c.get("initials") or c.get("name") for c in certs if "Bachelor" in c.get("name", "") or c.get("initials") in {"A.B.", "S.B.", "A.L.B."}]
+        else:
+            awards = [c.get("initials") or c.get("name") for c in certs if "Bachelor" not in c.get("name", "") and c.get("initials") not in {"A.B.", "S.B.", "A.L.B."}]
+        rows.append(
+            row(
+                "",
+                "harvard",
+                level,
+                record["name"],
+                ", ".join(a for a in awards if a) or ("UG" if level == "Undergraduate" else "Graduate"),
+                record["route"],
+                "Official Harvard Program Browser API row",
+                mode="Program Browser",
+            )
+        )
+    return dedupe(rows)
+
+
+def parse_mit() -> tuple[list[dict[str, str]], list[dict[str, str]]]:
+    source_url = "https://catalog.mit.edu/degree-charts/"
+    page = soup(source_url)
+    output: dict[str, list[dict[str, str]]] = {"Undergraduate": [], "Postgraduate": []}
+    ids = {
+        "Undergraduate": "undergraduatedegreestextcontainer",
+        "Postgraduate": "graduatedegreestextcontainer",
+    }
+    for level, container_id in ids.items():
+        container = page.find(id=container_id)
+        if container is None:
+            raise RuntimeError(f"MIT missing {container_id}")
+        for anchor in container.select('a[href*="/degree-charts/"]'):
+            text = clean_text(anchor.get_text(" ", strip=True))
+            url = absolute(source_url, anchor.get("href") or "")
+            if not text or url.rstrip("/") == source_url.rstrip("/"):
+                continue
+            award = award_from_text(text, "Degree chart")
+            if level == "Undergraduate" and award.startswith("Course"):
+                award = "Undergraduate degree chart"
+            output[level].append(row("", "mit", level, text, award, url, "Official MIT degree chart row"))
+    if len(output["Undergraduate"]) < 40 or len(output["Postgraduate"]) < 35:
+        raise RuntimeError("MIT degree chart counts below expected threshold")
+    return dedupe(output["Undergraduate"]), dedupe(output["Postgraduate"])
+
+
+def parse_jhu() -> tuple[list[dict[str, str]], list[dict[str, str]]]:
+    source_url = "https://e-catalogue.jhu.edu/programs/"
+    page = soup(source_url)
+    ug: list[dict[str, str]] = []
+    pg: list[dict[str, str]] = []
+    for item in page.select("li.item"):
+        title = item.select_one(".title")
+        link = item.select_one("a[href]")
+        if not title or not link:
+            continue
+        name = clean_text(title.get_text(" ", strip=True))
+        keywords = [clean_text(node.get_text(" ", strip=True)) for node in item.select(".keyword")]
+        keyword_text = "; ".join(keywords)
+        if "Bachelor's" in keywords or "Minors" in keywords:
+            level = "Undergraduate"
+        elif any(k in keyword_text for k in ["Master", "Doctoral", "Certificate", "Post-Master"]):
+            level = "Postgraduate"
+        else:
+            continue
+        award = next((k for k in keywords if k in {"Bachelor's", "Master's", "Doctoral", "Certificate", "Minors"} or "Certificate" in k), award_from_text(name, "Program"))
+        target = ug if level == "Undergraduate" else pg
+        target.append(
+            row(
+                "",
+                "jhu",
+                level,
+                name,
+                award,
+                absolute(source_url, link.get("href") or ""),
+                "Official Johns Hopkins Program Explorer row",
+                mode="; ".join(k for k in keywords if k in {"Full-time", "Part-time", "Online", "In-person", "Hybrid"}) or "See official programme page",
+                status=keyword_text,
+            )
+        )
+    if len(ug) < 100 or len(pg) < 250:
+        raise RuntimeError(f"JHU counts below expected threshold: UG {len(ug)}, PG {len(pg)}")
+    return dedupe(ug), dedupe(pg)
+
+
+def parse_duke_ug() -> list[dict[str, str]]:
+    source_url = "https://undergraduate.bulletins.duke.edu/"
+    data = fetch(source_url)
+    pattern = re.compile(
+        r'\{"type":\d+,"label":\d+,"pageId":\d+,"slug":\d+,"linkType":\d+,"url":\d+\},'
+        r'"([^"]+)","[^"]*","([^"]+)","([^"]+)"'
+    )
+    rows: list[dict[str, str]] = []
+    for match in pattern.finditer(data):
+        name, _slug, path = match.groups()
+        if "/allprograms/" not in path:
+            continue
+        rows.append(
+            row(
+                "",
+                "duke",
+                "Undergraduate",
+                name,
+                award_from_text(name, "UG"),
+                absolute(source_url, path),
+                "Official Duke Undergraduate Instruction Bulletin all-programs row",
+            )
+        )
+    rows = dedupe(rows)
+    if len(rows) < 140:
+        raise RuntimeError(f"Duke UG count below threshold: {len(rows)}")
+    return rows
+
+
+def parse_cornell() -> tuple[list[dict[str, str]], list[dict[str, str]]]:
+    rows = link_rows(
+        "cornell",
+        "Undergraduate",
+        "https://courses.cornell.edu/programs/",
+        ".az_sitemap li a[href]",
+        "Official Cornell Courses of Study A-Z row",
+        default_award="Program",
+        href_contains="courses.cornell.edu/programs/",
+        minimum=300,
+    )
+    ug: list[dict[str, str]] = []
+    pg: list[dict[str, str]] = []
+    for item in rows:
+        award = award_from_text(item["name"], item["award"])
+        level = infer_level(award, item["name"])
+        if not level:
+            continue
+        adjusted = {**item, "level": level, "award": award, "id": f"cornell-{level.lower()[:2]}-{slug(item['name'])}-{slug(award)}"}
+        (ug if level == "Undergraduate" else pg).append(adjusted)
+    if len(ug) < 150 or len(pg) < 90:
+        raise RuntimeError(f"Cornell counts below expected threshold: UG {len(ug)}, PG {len(pg)}")
+    return dedupe(ug), dedupe(pg)
+
+
+def parse_notre_dame_grad() -> list[dict[str, str]]:
+    source_url = "https://graduateschool.nd.edu/degree-programs/"
+    page = soup(source_url)
+    rows: list[dict[str, str]] = []
+    for item in page.select("li.grid-item"):
+        link = item.select_one("a.card-link[href]")
+        label = item.select_one(".card-label")
+        if not link:
+            continue
+        name = clean_text(link.get_text(" ", strip=True))
+        award = clean_text(label.get_text(" ", strip=True)) if label else award_from_text(name, "Graduate")
+        rows.append(
+            row(
+                "",
+                "notre-dame",
+                "Postgraduate",
+                name,
+                award,
+                absolute(source_url, link.get("href") or ""),
+                "Official Notre Dame Graduate School degree programme card",
+                mode="Graduate School",
+            )
+        )
+    if len(rows) < 80:
+        raise RuntimeError(f"Notre Dame graduate count below expected threshold: {len(rows)}")
+    return dedupe(rows)
+
+
+def parse_dartmouth(level: str, source_url: str) -> list[dict[str, str]]:
+    page = soup(source_url)
+    marker = "departments-programs-undergraduate" if level == "Undergraduate" else "departments-programs-graduate"
+    rows: list[dict[str, str]] = []
+    for anchor in page.select("main a[href]"):
+        text = clean_text(anchor.get_text(" ", strip=True))
+        url = absolute(source_url, anchor.get("href") or "")
+        path = urllib.parse.urlparse(url).path.rstrip("/")
+        if not text or marker not in path or path.endswith(marker):
+            continue
+        rows.append(row("", "dartmouth", level, text, award_from_text(text, "Department/Program"), url, "Official Dartmouth ORC department/program row"))
+    if len(rows) < (50 if level == "Undergraduate" else 25):
+        raise RuntimeError(f"Dartmouth {level} count below threshold: {len(rows)}")
+    return dedupe(rows)
+
+
+def parse_rice(level: str, source_url: str) -> list[dict[str, str]]:
+    return link_rows(
+        "rice",
+        level,
+        source_url,
+        "table a[href]",
+        f"Official Rice {level.lower()} degree chart row",
+        default_award="Degree chart",
+        href_contains="ga.rice.edu/programs-study/",
+        minimum=140,
+    )
+
+
+def parse_cmu_ug() -> list[dict[str, str]]:
+    source_url = "http://coursecatalog.web.cmu.edu/degreesoffered/"
+    page = soup(source_url)
+    rows: list[dict[str, str]] = []
+    for container in page.select("div.page_content.tab_content"):
+        if container.get("id") == "textcontainer":
+            continue
+        for li in container.select("li"):
+            text = clean_text(li.get_text(" ", strip=True))
+            if not text:
+                continue
+            link = li.select_one("a[href]")
+            rows.append(
+                row(
+                    "",
+                    "cmu",
+                    "Undergraduate",
+                    text,
+                    award_from_text(text, "UG"),
+                    absolute(source_url, link.get("href")) if link and link.get("href") else source_url,
+                    "Official CMU undergraduate degrees offered tab row",
+                )
+            )
+    if len(rows) < 80:
+        raise RuntimeError(f"CMU UG count below threshold: {len(rows)}")
+    return dedupe(rows)
+
+
+def parse_cmu_pg() -> list[dict[str, str]]:
+    source_url = "http://coursecatalog.web.cmu.edu/degreesoffered/graduate-degrees/"
+    page = soup(source_url)
+    rows: list[dict[str, str]] = []
+    for li in page.select("main li"):
+        text = clean_text(li.get_text(" ", strip=True))
+        if not text or len(text) < 4:
+            continue
+        if not any(marker in text for marker in ["M.", "Master", "Ph.D", "PhD", "Doctor"]):
+            continue
+        rows.append(row("", "cmu", "Postgraduate", text, award_from_text(text, "Graduate"), source_url, "Official CMU graduate degrees offered list row"))
+    if len(rows) < 120:
+        raise RuntimeError(f"CMU PG count below threshold: {len(rows)}")
+    return dedupe(rows)
+
+
+def parse_emory_ug() -> list[dict[str, str]]:
+    source_url = "https://catalog.college.emory.edu/academics/concentrations/index.html"
+    page = soup(source_url)
+    rows: list[dict[str, str]] = []
+    for card in page.select(".card-body"):
+        title = card.select_one(".card-title")
+        name = clean_text(title.get_text(" ", strip=True)) if title else ""
+        if not name:
+            continue
+        for anchor in card.select('a[href^="majors/"], a[href^="minors/"]'):
+            award = clean_text(anchor.get_text(" ", strip=True))
+            href = anchor.get("href") or ""
+            if not award or not href:
+                continue
+            rows.append(row("", "emory", "Undergraduate", name, award, absolute(source_url, href), "Official Emory College majors and minors row"))
+    if len(rows) < 100:
+        raise RuntimeError(f"Emory UG count below threshold: {len(rows)}")
+    return dedupe(rows)
+
+
+def parse_emory_pg() -> list[dict[str, str]]:
+    source_url = "https://gs.emory.edu/degree-programs/index.html"
+    page = soup(source_url)
+    rows: list[dict[str, str]] = []
+    for dialog in page.select(".modal-dialog.filter-results__modal-dialog"):
+        title = dialog.select_one("h2.modal-title")
+        award = dialog.select_one(".filter-results__types")
+        website = dialog.find("a", string=re.compile("Program Website", re.I))
+        if not title:
+            continue
+        rows.append(
+            row(
+                "",
+                "emory",
+                "Postgraduate",
+                clean_text(title.get_text(" ", strip=True)),
+                clean_text(award.get_text(" ", strip=True)) if award else "Graduate",
+                absolute(source_url, website.get("href")) if website and website.get("href") else source_url,
+                "Official Emory Laney Graduate School degree program modal",
+                mode="Laney Graduate School",
+            )
+        )
+    if len(rows) < 50:
+        raise RuntimeError(f"Emory PG count below threshold: {len(rows)}")
+    return dedupe(rows)
+
+
+def parse_ut(level: str, source_url: str) -> list[dict[str, str]]:
+    page = soup(source_url)
+    rows: list[dict[str, str]] = []
+    for tr in page.select("table tr"):
+        cells = [clean_text(td.get_text(" ", strip=True)) for td in tr.select("td")]
+        if len(cells) < 2 or not cells[0]:
+            continue
+        rows.append(row("", "ut-austin", level, cells[0], cells[1], source_url, "Official UT Austin degree programs table row"))
+    if len(rows) < 150:
+        raise RuntimeError(f"UT Austin {level} count below threshold: {len(rows)}")
+    return dedupe(rows)
+
+
+def parse_ucla_pg() -> list[dict[str, str]]:
+    source_url = "https://grad.ucla.edu/programs/"
+    page = soup(source_url)
+    rows: list[dict[str, str]] = []
+    for anchor in page.select('main p a[href*="grad.ucla.edu/programs/"]'):
+        text = clean_text(anchor.get_text(" ", strip=True))
+        url = absolute(source_url, anchor.get("href") or "")
+        if not text or text.endswith("Department") or text.endswith("School") or "Department/" in url.rstrip("/").split("/")[-1]:
+            continue
+        if text in {"Programs A-Z", "Programs Sorted by Schools"}:
+            continue
+        rows.append(row("", "ucla", "Postgraduate", text, award_from_text(text, "Graduate"), url, "Official UCLA graduate programs A-Z row"))
+    if len(rows) < 120:
+        raise RuntimeError(f"UCLA PG count below threshold: {len(rows)}")
+    return dedupe(rows)
+
+
+def parse_ntu_ug() -> list[dict[str, str]]:
+    source_url = "https://www.ntu.edu.sg/admissions/undergraduate-programmes"
+    page = soup(source_url)
+    rows: list[dict[str, str]] = []
+    seen_urls: set[str] = set()
+    for anchor in page.select('div.card-rows__item > a.img-card.img-card--horizontal[href*="/education/undergraduate-programme/"]'):
+        url = absolute(source_url, anchor.get("href") or "")
+        normalized_url = url.split("#", 1)[0].rstrip("/")
+        if normalized_url in seen_urls:
+            continue
+        seen_urls.add(normalized_url)
+        title = anchor.select_one(".img-card__title")
+        subtitle = anchor.select_one(".img-card__subtitle")
+        desc = anchor.select_one(".img-card__desc")
+        name = clean_text(title.get_text(" ", strip=True)) if title else clean_text(anchor.get_text(" ", strip=True))
+        if not name:
+            continue
+        rows.append(
+            row(
+                "",
+                "ntu",
+                "Undergraduate",
+                name,
+                clean_text(subtitle.get_text(" ", strip=True)) if subtitle else "UG",
+                url,
+                "Official NTU undergraduate programme card",
+                status=clean_text(desc.get_text(" ", strip=True)) if desc else "",
+            )
+        )
+    if len(rows) < 200:
+        raise RuntimeError(f"NTU UG count below threshold: {len(rows)}")
+    return dedupe(rows)
+
+
+def parse_ntu_pg() -> list[dict[str, str]]:
+    source_url = "https://www.ntu.edu.sg/graduate-college/admissions/programme/graduate-programmes"
+    page = soup(source_url)
+    rows: list[dict[str, str]] = []
+    seen_urls: set[str] = set()
+    for anchor in page.select('div.card-rows__item > a.img-card.img-card--horizontal[href*="/education/graduate-programme/"]'):
+        url = absolute(source_url, anchor.get("href") or "")
+        normalized_url = url.split("#", 1)[0].rstrip("/")
+        if normalized_url in seen_urls:
+            continue
+        seen_urls.add(normalized_url)
+        title = anchor.select_one(".img-card__title")
+        subtitle = anchor.select_one(".img-card__subtitle")
+        desc = anchor.select_one(".img-card__desc")
+        name = clean_text(title.get_text(" ", strip=True)) if title else clean_text(anchor.get_text(" ", strip=True))
+        if not name:
+            continue
+        rows.append(
+            row(
+                "",
+                "ntu",
+                "Postgraduate",
+                name,
+                award_from_text(name, clean_text(subtitle.get_text(" ", strip=True)) if subtitle else "Graduate"),
+                url,
+                "Official NTU graduate programme card",
+                mode=clean_text(subtitle.get_text(" ", strip=True)) if subtitle else "",
+                status=clean_text(desc.get_text(" ", strip=True)) if desc else "",
+            )
+        )
+    if len(rows) < 150:
+        raise RuntimeError(f"NTU PG count below threshold: {len(rows)}")
+    return dedupe(rows)
+
+
+def parse_nus_pg() -> list[dict[str, str]]:
+    endpoint = "https://study.nus.edu.sg/lwr/apex/v67.0/ShopFrontController/searchProgrammes"
+    source_url = "https://study.nus.edu.sg/programme"
+    params = {
+        "programmeType": "",
+        "interestArea": "",
+        "keyword": "",
+        "modeOfStudy": "",
+        "facultyIds": "",
+        "intakePeriod": "",
+    }
+    query = urllib.parse.urlencode({"methodParams": json.dumps(params, separators=(",", ":"))})
+    request = urllib.request.Request(
+        f"{endpoint}?{query}",
+        headers={
+            "User-Agent": UA,
+            "Accept": "application/json",
+            "Referer": source_url,
+            "x-sfdc-page-scope-id": "default",
+        },
+    )
+    context = ssl._create_unverified_context()
+    with urllib.request.urlopen(request, timeout=35, context=context) as response:
+        payload = json.loads(response.read().decode("utf-8", "replace"))
+    rows: list[dict[str, str]] = []
+    for wrapper in payload:
+        programme = wrapper.get("programme") or {}
+        name = clean_text(programme.get("Title__c") or programme.get("Name") or "")
+        if not name:
+            continue
+        faculties = wrapper.get("faculties") or []
+        faculty_names = "; ".join(clean_text(f.get("Name") or "") for f in faculties if f.get("Name"))
+        rows.append(
+            row(
+                "",
+                "nus",
+                "Postgraduate",
+                name,
+                clean_text(programme.get("Type__c") or "Graduate"),
+                absolute(source_url, programme.get("Program_Page_Link__c") or source_url),
+                "Official NUS Study programme LWR Apex row",
+                mode=clean_text(programme.get("Mode_of_Study__c") or ""),
+                status="; ".join(
+                    part
+                    for part in [
+                        f"Faculty: {faculty_names}" if faculty_names else "",
+                        f"Intake: {clean_text(programme.get('Intake_Period__c') or '')}" if programme.get("Intake_Period__c") else "",
+                    ]
+                    if part
+                ),
+            )
+        )
+    rows = dedupe(rows)
+    if len(rows) != 244:
+        raise RuntimeError(f"NUS PG expected 244 rows, got {len(rows)}")
+    return rows
+
+
+def simple_sources() -> dict[str, list[dict[str, str]]]:
+    mit_ug, mit_pg = parse_mit()
+    cornell_ug, cornell_pg = parse_cornell()
+    jhu_ug, jhu_pg = parse_jhu()
+    return {
+        "harvard": [*parse_harvard("Undergraduate"), *parse_harvard("Postgraduate")],
+        "mit": [*mit_ug, *mit_pg],
+        "yale": [
+            *link_rows("yale", "Undergraduate", "https://catalog.yale.edu/ycps/majors-in-yale-college/", "#content a[href]", "Official Yale College majors row", default_award="Major", href_contains="catalog.yale.edu/ycps/subjects-of-instruction/", minimum=75),
+            *link_rows("yale", "Postgraduate", "https://catalog.yale.edu/gsas/degree-granting-departments-programs/", "#content a[href]", "Official Yale GSAS degree-granting departments/programs row", default_award="Graduate", href_contains="catalog.yale.edu/gsas/degree-granting-departments-programs/", minimum=60),
+        ],
+        "uchicago": link_rows("uchicago", "Undergraduate", "http://collegecatalog.uchicago.edu/thecollege/programsofstudy/", "#content a[href]", "Official UChicago College programme of study row", default_award="Major", href_contains="collegecatalog.uchicago.edu/thecollege/", minimum=60),
+        "jhu": [*jhu_ug, *jhu_pg],
+        "duke": parse_duke_ug(),
+        "penn": [
+            *link_rows("penn", "Undergraduate", "https://catalog.upenn.edu/undergraduate/programs/", ".az_sitemap li a[href]", "Official Penn undergraduate programs A-Z row", default_award="UG", href_contains="catalog.upenn.edu/undergraduate/programs/", minimum=300),
+            *link_rows("penn", "Postgraduate", "https://catalog.upenn.edu/graduate/programs/", ".az_sitemap li a[href]", "Official Penn graduate programs A-Z row", default_award="Graduate", href_contains="catalog.upenn.edu/graduate/programs/", minimum=300),
+        ],
+        "northwestern": [
+            *link_rows("northwestern", "Undergraduate", "https://catalogs.northwestern.edu/undergraduate/programs-az/", ".az_sitemap li a[href]", "Official Northwestern undergraduate programs A-Z row", default_award="UG", href_contains="catalogs.northwestern.edu/undergraduate/", minimum=180),
+            *link_rows("northwestern", "Postgraduate", "https://www.northwestern.edu/academics/graduate-a-to-z.html", "table a[href]", "Official Northwestern graduate degree programs table row", default_award="Graduate", minimum=180),
+        ],
+        "brown": link_rows("brown", "Undergraduate", "https://bulletin.brown.edu/the-college/concentrations/", "#content a[href]", "Official Brown undergraduate concentrations row", default_award="Concentration", href_contains="bulletin.brown.edu/the-college/concentrations/", minimum=80),
+        "cornell": [*cornell_ug, *cornell_pg],
+        "rice": [
+            *parse_rice("Undergraduate", "https://ga.rice.edu/undergraduate-students/academic-opportunities/degree-chart/"),
+            *parse_rice("Postgraduate", "https://ga.rice.edu/graduate-students/academic-opportunities/degree-chart/"),
+        ],
+        "dartmouth": [
+            *parse_dartmouth("Undergraduate", "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate"),
+            *parse_dartmouth("Postgraduate", "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate"),
+        ],
+        "columbia": link_rows("columbia", "Undergraduate", "https://bulletin.columbia.edu/columbia-college/departments-instruction/", "#content a[href]", "Official Columbia College departments/programs row", default_award="Department/Program", href_contains="bulletin.columbia.edu/columbia-college/departments-instruction/", minimum=50),
+        "notre-dame": [
+            *link_rows("notre-dame", "Undergraduate", "https://catalog.nd.edu/programs/", "table a[href]", "Official Notre Dame academic programs table row", default_award="UG", href_contains="catalog.nd.edu/undergraduate/", minimum=150),
+            *parse_notre_dame_grad(),
+        ],
+        "cmu": [*parse_cmu_ug(), *parse_cmu_pg()],
+        "emory": [*parse_emory_ug(), *parse_emory_pg()],
+        "ucla": parse_ucla_pg(),
+        "unc": link_rows("unc", "Undergraduate", "https://catalog.unc.edu/undergraduate/programs-study/", ".az_sitemap li a[href]", "Official UNC undergraduate programs of study row", default_award="UG", href_contains="catalog.unc.edu/undergraduate/programs-study/", minimum=180),
+        "uf": link_rows("uf", "Postgraduate", "https://gradcatalog.ufl.edu/graduate/programs-college/", "#content a[href]", "Official University of Florida graduate majors by college row", default_award="Graduate", href_contains="gradcatalog.ufl.edu/graduate/colleges-departments/", minimum=150),
+        "ut-austin": [
+            *parse_ut("Undergraduate", "https://catalog.utexas.edu/undergraduate/the-university/degree-programs/"),
+            *parse_ut("Postgraduate", "https://catalog.utexas.edu/graduate/graduate-study/degree-programs/"),
+        ],
+    }
+
+
+def render_rows(name: str, rows: list[dict[str, str]]) -> str:
+    lines = [f"export const {name}: CatalogueProgramOption[] = ["]
+    for item in rows:
+        fields = [
+            f"id: {ts_string(item['id'])}",
+            f"name: {ts_string(item['name'])}",
+            f"level: {ts_string(item['level'])}",
+            f"award: {ts_string(item['award'])}",
+            f"url: {ts_string(item['url'])}",
+            f"note: {ts_string(item['note'])}",
+        ]
+        for optional in ["duration", "mode", "status", "sourceStatus"]:
+            if item.get(optional):
+                fields.append(f"{optional}: {ts_string(item[optional])}")
+        lines.append(f"  {{ {', '.join(fields)} }},")
+    lines.append("];")
+    return "\n".join(lines)
+
+
+def render_map(name: str, mapping: dict[str, str]) -> str:
+    lines = [f"export const {name}: Record<string, CatalogueProgramOption[]> = {{"]
+    for key, value in mapping.items():
+        lines.append(f"  {ts_string(key)}: {value},")
+    lines.append("};")
+    return "\n".join(lines)
+
+
+def write_us(programs: dict[str, list[dict[str, str]]]) -> None:
+    parts = ['import type { CatalogueProgramOption } from "../types";', "", f"export const usCatalogueChecked = {ts_string(CHECKED)};", ""]
+    mapping: dict[str, str] = {}
+    for institution, rows in sorted(programs.items()):
+        const_name = f"{institution.replace('-', '')}Programs"
+        parts.append(f"export const {institution.replace('-', '')}ProgramCount = {len(rows)};")
+        parts.append(render_rows(const_name, rows))
+        parts.append("")
+        mapping[institution] = const_name
+    parts.append(render_map("usProgramsByInstitution", mapping))
+    parts.append("")
+    US_OUT.write_text("\n".join(parts), encoding="utf-8")
+
+
+def write_singapore() -> None:
+    nus_pg_rows = parse_nus_pg()
+    ntu_rows = [*parse_ntu_ug(), *parse_ntu_pg()]
+    parts = [
+        'import type { CatalogueProgramOption } from "../types";',
+        "",
+        f"export const singaporeCatalogueChecked = {ts_string(CHECKED)};",
+        f"export const nusPostgraduateCount = {len(nus_pg_rows)};",
+        f"export const ntuProgramCount = {len(ntu_rows)};",
+        "",
+        render_rows("nusPrograms", nus_pg_rows),
+        "",
+        render_rows("ntuPrograms", ntu_rows),
+        "",
+        "export const singaporeProgramsByInstitution: Record<string, CatalogueProgramOption[]> = {",
+        "  nus: nusPrograms,",
+        "  ntu: ntuPrograms,",
+        "};",
+        "",
+    ]
+    SG_OUT.write_text("\n".join(parts), encoding="utf-8")
+    return len(nus_pg_rows) + len(ntu_rows)
+
+
+def main() -> int:
+    programs = simple_sources()
+    write_us(programs)
+    total_singapore = write_singapore()
+    total_us = sum(len(rows) for rows in programs.values())
+    print(f"Wrote {US_OUT.relative_to(ROOT)} with {total_us} US rows across {len(programs)} institutions")
+    print(f"Wrote {SG_OUT.relative_to(ROOT)} with {total_singapore} Singapore rows")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

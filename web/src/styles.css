@@ -57,7 +57,8 @@ h3 { font-size: 13px; color: #cdd9d5; text-transform: uppercase; letter-spacing:
 p, li, small { color: var(--muted); line-height: 1.55; }
 .segment { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--line); border-radius: 5px; overflow: hidden; }
 .segment.stack { grid-template-columns: 1fr; }
-.segment button { padding: 12px; background: transparent; color: #cfd8d5; }
+.filter-rail .segment:not(.stack) { grid-template-columns: 1fr; }
+.segment button { min-width: 0; padding: 12px; background: transparent; color: #cfd8d5; overflow-wrap: anywhere; }
 .segment button.selected { background: #155f42; color: #fff; }
 .select-input { width: 100%; min-height: 42px; border: 1px solid var(--line); border-radius: 5px; background: #071014; color: var(--text); padding: 0 12px; }
 .check-row, .radio-row { display: flex; align-items: center; gap: 10px; min-height: 34px; color: #d4dcda; }
