@@ -88,6 +88,23 @@
         "constraints": {"type": "array", "items": {"type": "string"}}
       },
       "additionalProperties": true
+    },
+    "memory": {
+      "type": "object",
+      "properties": {
+        "schema_version": {"type": "string"},
+        "privacy_mode": {"type": "string"},
+        "profile": {"type": "object", "additionalProperties": true},
+        "course_memory": {"type": "array", "items": {"type": "object", "additionalProperties": true}},
+        "lecture_delta_memory": {"type": "array", "items": {"type": "object", "additionalProperties": true}},
+        "writing_voice": {"type": "object", "additionalProperties": true},
+        "notes_preferences": {"type": "array", "items": {"type": "object", "additionalProperties": true}},
+        "exam_preparation_preferences": {"type": "array", "items": {"type": "object", "additionalProperties": true}},
+        "application_preferences": {"type": "array", "items": {"type": "object", "additionalProperties": true}},
+        "source_log": {"type": "array", "items": {"type": "object", "additionalProperties": true}},
+        "conflicts": {"type": "array", "items": {"type": "object", "additionalProperties": true}}
+      },
+      "additionalProperties": true
     }
   },
   "additionalProperties": true
