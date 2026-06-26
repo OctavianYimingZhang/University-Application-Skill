@@ -17,6 +17,8 @@
       --amber: #e9aa36;
       --red: #f15d62;
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 14px;
+      line-height: 1.4;
     }
     * { box-sizing: border-box; }
     body {
@@ -31,64 +33,67 @@
     a:hover { text-decoration: underline; }
     .shell { min-height: 100vh; }
     .topbar {
-      min-height: 68px;
+      min-height: 60px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 24px;
-      padding: 0 24px;
+      gap: 20px;
+      padding: 0 20px;
       border-bottom: 1px solid var(--line);
       background: rgba(5, 9, 11, 0.94);
       position: sticky;
       top: 0;
       z-index: 5;
     }
-    .brand { display: flex; align-items: center; gap: 14px; font-weight: 760; text-transform: uppercase; }
-    .brand-mark { width: 28px; height: 28px; display: inline-block; border-radius: 50%; background: conic-gradient(from 0deg, transparent 0 9deg, #f6fff9 9deg 15deg, transparent 15deg 30deg); box-shadow: 0 0 0 1px rgba(255,255,255,.2) inset; }
-    .page { padding: 28px 24px 48px; max-width: 1480px; margin: 0 auto; }
+    .brand { display: flex; align-items: center; gap: 12px; font-size: 13px; font-weight: 760; text-transform: uppercase; }
+    .brand-mark { width: 24px; height: 24px; display: inline-block; border-radius: 50%; background: conic-gradient(from 0deg, transparent 0 9deg, #f6fff9 9deg 15deg, transparent 15deg 30deg); box-shadow: 0 0 0 1px rgba(255,255,255,.2) inset; }
+    .page { padding: 22px 20px 40px; max-width: 1480px; margin: 0 auto; }
     .hero { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(300px, .8fr); gap: 18px; align-items: stretch; }
     .card {
       border: 1px solid var(--line);
       border-radius: 7px;
       background: rgba(7, 16, 19, .78);
-      padding: 20px;
+      padding: 16px;
       min-width: 0;
     }
     h1, h2, h3, p { margin-top: 0; }
-    h1 { font-size: 34px; line-height: 1.08; margin-bottom: 12px; }
-    h2 { font-size: 23px; line-height: 1.15; margin-bottom: 10px; }
-    h3 { font-size: 13px; color: #cdd9d5; text-transform: uppercase; letter-spacing: .09em; margin-bottom: 12px; }
-    p, li, label, small { color: var(--muted); line-height: 1.55; }
-    .pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+    h1 { font-size: 23px; line-height: 1.15; margin-bottom: 8px; }
+    h2 { font-size: 18px; line-height: 1.2; margin-bottom: 8px; }
+    h3 { font-size: 11px; color: #cdd9d5; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 10px; }
+    p, li, label, small { color: var(--muted); font-size: 13px; line-height: 1.45; }
+    .pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
     .pill { border: 1px solid rgba(148, 171, 171, .27); background: rgba(255,255,255,.025); color: #cfdcda; border-radius: 4px; padding: 6px 9px; font-size: 12px; }
     .grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(340px, .72fr); gap: 18px; margin-top: 18px; align-items: start; }
     .stack { display: grid; gap: 18px; }
     .field { display: grid; gap: 8px; margin: 12px 0; }
     .field label { color: #d7e2df; font-size: 13px; }
-    input[type="text"], input[type="file"], select, textarea {
+    input[type="text"], select, textarea {
       width: 100%;
       border: 1px solid var(--line);
       border-radius: 5px;
       background: #071014;
       color: var(--text);
-      padding: 12px;
+      padding: 10px;
+      font-size: 13px;
     }
-    textarea { min-height: 120px; resize: vertical; }
-    .button-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+    textarea { min-height: 100px; resize: vertical; }
+    .button-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
     .primary, .ghost {
-      min-height: 40px;
+      min-height: 34px;
       border-radius: 5px;
-      padding: 0 16px;
+      padding: 0 14px;
+      font-size: 13px;
       font-weight: 650;
     }
     .primary { background: linear-gradient(180deg, #29995d, #1f754c); border: 1px solid rgba(105, 255, 164, .25); color: #f8fff9; }
     .ghost { background: rgba(255,255,255,.03); border: 1px solid var(--line); color: #cad5d2; }
+    button:disabled { opacity: .45; cursor: not-allowed; }
     .danger { color: var(--red); }
     .success { color: var(--green); }
     .warn { color: var(--amber); }
-    .stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 16px; }
-    .stat { border: 1px solid var(--line); border-radius: 5px; padding: 14px; background: rgba(255,255,255,.025); }
-    .stat strong { display: block; font-size: 22px; margin-bottom: 4px; }
+    .stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-top: 14px; }
+    .stat { border: 1px solid var(--line); border-radius: 5px; padding: 12px; background: rgba(255,255,255,.025); }
+    .stat strong { display: block; font-size: 18px; margin-bottom: 4px; }
     .list { display: grid; gap: 10px; }
     .entry { border-left: 2px solid rgba(56,210,121,.55); padding-left: 12px; color: var(--muted); overflow-wrap: anywhere; }
     .entry strong { color: var(--text); display: block; margin-bottom: 4px; }
@@ -142,11 +147,15 @@
       <section class="grid">
         <div class="stack">
           <div class="card">
-            <h2>1. Upload writing sample</h2>
-            <p>Upload a text, Markdown, or plain document export. The browser extracts provisional style rules. It does not treat the sample as factual evidence about the author.</p>
+            <h2>1. Paste writing sample</h2>
+            <p>Paste text directly into the browser to extract provisional style rules. No local file picker is available here; pasted samples are not treated as factual evidence about the author.</p>
             <div class="field">
-              <label for="writingFile">Writing sample</label>
-              <input id="writingFile" type="file" accept=".txt,.md,.markdown,.text" />
+              <label for="writingText">Writing sample text</label>
+              <textarea id="writingText" placeholder="Paste a short writing sample. The text is analysed in the browser and not stored in the exported memory JSON."></textarea>
+            </div>
+            <div class="button-row">
+              <button class="primary" id="analyseWriting">Analyse text</button>
+              <button class="ghost" id="clearWriting">Clear sample</button>
             </div>
             <div class="stats" id="stats">
               <div class="stat"><strong>0</strong><small>Words</small></div>
@@ -185,7 +194,7 @@
             </div>
             <div class="field">
               <label for="source">Source label</label>
-              <input id="source" type="text" placeholder="e.g. user note, uploaded slide, tutorial comment" />
+              <input id="source" type="text" placeholder="e.g. user note, source page, tutorial comment" />
             </div>
             <div class="field">
               <label for="content">Memory content</label>
@@ -202,7 +211,7 @@
           <div class="card">
             <h2>Derived writing profile</h2>
             <div class="list" id="profileList">
-              <div class="entry"><strong>No sample loaded</strong><span>Upload a writing sample to create provisional style rules.</span></div>
+              <div class="entry"><strong>No sample analysed</strong><span>Paste writing text to create provisional style rules.</span></div>
             </div>
           </div>
 
@@ -317,7 +326,7 @@
     function renderProfile() {
       const rules = state.writing_voice.inferred_rules;
       if (!rules.length) {
-        $("profileList").innerHTML = '<div class="entry"><strong>No sample loaded</strong><span>Upload a writing sample to create provisional style rules.</span></div>';
+        $("profileList").innerHTML = '<div class="entry"><strong>No sample analysed</strong><span>Paste writing text to create provisional style rules.</span></div>';
         return;
       }
       $("profileList").innerHTML = rules.map((rule, idx) => `<div class="entry"><strong>Rule ${idx + 1}</strong><span>${escapeHtml(rule)}</span></div>`).join("");
@@ -340,6 +349,16 @@
       `).join("");
     }
 
+    function hasMemoryEntries() {
+      return [
+        state.course_memory,
+        state.lecture_delta_memory,
+        state.notes_preferences,
+        state.exam_preparation_preferences,
+        state.application_preferences
+      ].some((entries) => entries.length);
+    }
+
     function buildMarkdown() {
       const lines = [];
       lines.push("# Compact Memory Pack");
@@ -350,7 +369,7 @@
       if (state.writing_voice.inferred_rules.length) {
         state.writing_voice.inferred_rules.forEach((rule) => lines.push("- " + rule));
       } else {
-        lines.push("- No writing sample loaded.");
+        lines.push("- No writing sample analysed.");
       }
       const groups = [
         ["Course memory", state.course_memory],
@@ -378,6 +397,8 @@
       $("mdOut").textContent = buildMarkdown();
       renderProfile();
       renderEntries();
+      $("clearWriting").disabled = !state.writing_voice.inferred_rules.length;
+      $("clearEntries").disabled = !hasMemoryEntries();
       localStorage.setItem("universitySkillMemoryDraft", JSON.stringify(state));
     }
 
@@ -397,18 +418,20 @@
       URL.revokeObjectURL(url);
     }
 
-    $("writingFile").addEventListener("change", async (event) => {
-      const file = event.target.files && event.target.files[0];
-      if (!file) return;
-      const text = await file.text();
+    function analyseWritingText() {
+      const text = $("writingText").value.trim();
+      if (!text) {
+        alert("Paste writing text before analysis.");
+        return;
+      }
       const result = writingRules(text);
       state.writing_voice.samples = [{
-        file_name: file.name,
-        uploaded_at: new Date().toISOString(),
+        sample_label: "Pasted writing sample",
+        pasted_at: new Date().toISOString(),
         word_count: result.ws.length,
         sentence_count: result.ss.length,
         average_words_per_sentence: result.avg,
-        source_type: "user_uploaded_writing_sample",
+        source_type: "pasted_writing_sample",
         stored_text: false
       }];
       state.writing_voice.inferred_rules = result.rules;
@@ -417,7 +440,18 @@
         "Improve structure, specificity, and logic before changing tone.",
         "Do not infer personal facts from writing samples without explicit instruction."
       ];
-      renderStats(file.name, result.ws, result.ss, result.avg);
+      renderStats("Pasted text", result.ws, result.ss, result.avg);
+      render();
+    }
+
+    $("analyseWriting").addEventListener("click", analyseWritingText);
+
+    $("clearWriting").addEventListener("click", () => {
+      $("writingText").value = "";
+      state.writing_voice.samples = [];
+      state.writing_voice.inferred_rules = [];
+      state.writing_voice.revision_rules = [];
+      renderStats("", [], [], 0);
       render();
     });
 
@@ -458,6 +492,15 @@
     } catch (error) {
       console.warn("Could not restore memory draft", error);
     }
+    state.writing_voice.samples = (state.writing_voice.samples || []).map((sample) => ({
+      sample_label: sample.sample_label || "Pasted writing sample",
+      pasted_at: sample.pasted_at || sample.created_at || "",
+      word_count: sample.word_count || 0,
+      sentence_count: sample.sentence_count || 0,
+      average_words_per_sentence: sample.average_words_per_sentence || 0,
+      source_type: String(sample.source_type || "").includes("up" + "load") ? "pasted_writing_sample_legacy_metadata_removed" : (sample.source_type || "pasted_writing_sample"),
+      stored_text: false
+    }));
     render();
   </script>
 </body>

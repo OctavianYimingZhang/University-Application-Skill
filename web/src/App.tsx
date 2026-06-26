@@ -37,15 +37,17 @@ interface CodexOAuthPanelState {
 }
 
 const baseMaterials: MaterialItem[] = [
-  { id: "transcript", name: "Academic transcript", scope: "All post-16 or degree study", status: "Complete", evidence: "Transcript.pdf", check: "Pass", note: "Must match academic requirement route." },
-  { id: "english", name: "English language test", scope: "IELTS or TOEFL if required", status: "Complete", evidence: "IELTS_Report.pdf", check: "Pass", note: "Check exact component scores on source page." },
-  { id: "statement", name: "Personal statement", scope: "Programme-specific writing", status: "In Progress", evidence: "PS_Draft_v1.md", check: "Unresolved", note: "Needs evidence-backed narrative and programme fit." },
-  { id: "reference", name: "Reference", scope: "Academic referee", status: "Complete", evidence: "Reference_Letter.pdf", check: "Pass", note: "Referee identity and submission route must match portal." },
-  { id: "passport", name: "Passport or ID", scope: "Identity document", status: "Complete", evidence: "Passport.pdf", check: "Pass", note: "Valid ID for application account." },
-  { id: "funding", name: "Fee / funding note", scope: "Tuition funding plan", status: "Complete", evidence: "Funding_Plan.pdf", check: "Pass", note: "Shows ability to pay tuition if requested." },
-  { id: "course-code", name: "Course code", scope: "UCAS or direct application", status: "Complete", evidence: "Selected in case", check: "Pass", note: "Confirm exact code before submission." },
-  { id: "extra", name: "Additional documents", scope: "Portfolio, CV, research proposal if required", status: "Not Required", evidence: "-", check: "N/A", note: "No extra document requirement in the current seed." },
+  { id: "transcript", name: "Academic transcript", scope: "All post-16 or degree study", status: "Unresolved", evidence: "Not provided", check: "Unresolved", note: "List transcript evidence in this session before checking it against the academic route." },
+  { id: "english", name: "English language test", scope: "IELTS or TOEFL if required", status: "Unresolved", evidence: "Not provided", check: "Unresolved", note: "Add test-result evidence in this session, then check exact component scores on the source page." },
+  { id: "statement", name: "Personal statement", scope: "Programme-specific writing", status: "Unresolved", evidence: "Not provided", check: "Unresolved", note: "Needs evidence-backed narrative and programme fit before any draft is treated as ready." },
+  { id: "reference", name: "Reference", scope: "Academic referee", status: "Unresolved", evidence: "Not provided", check: "Unresolved", note: "Confirm referee identity and submission route in this session." },
+  { id: "passport", name: "Passport or ID", scope: "Identity document", status: "Unresolved", evidence: "Not provided", check: "Unresolved", note: "Add identity-document evidence in this session before marking it ready." },
+  { id: "funding", name: "Fee / funding note", scope: "Tuition funding plan", status: "Unresolved", evidence: "Not provided", check: "Unresolved", note: "Add funding evidence in this session if the programme or portal asks for it." },
+  { id: "course-code", name: "Course code", scope: "UCAS or direct application", status: "Unresolved", evidence: "Not confirmed in portal", check: "Unresolved", note: "Confirm exact code in the official application route before submission." },
+  { id: "extra", name: "Additional documents", scope: "Portfolio, CV, research proposal if required", status: "Unresolved", evidence: "Not provided", check: "Unresolved", note: "Check the selected programme page before deciding whether extra documents are required." },
 ];
+
+const freshMaterials = () => baseMaterials.map((item) => ({ ...item }));
 
 const narrativeOptions: NarrativeOption[] = [
   {
@@ -91,12 +93,6 @@ function Header({ activeView, setActiveView }: { activeView: string; setActiveVi
           </button>
         ))}
       </nav>
-      <div className="topbar-actions">
-        <button className="icon-button" aria-label="Notifications">
-          <svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9" /><path d="M10 21h4" /></svg>
-        </button>
-        <button className="primary-button">Start Case</button>
-      </div>
     </header>
   );
 }
@@ -109,6 +105,7 @@ function FilterRail({
   catalogueId,
   setCatalogueId,
   catalogues,
+  resetFilters,
 }: {
   level: ProgramLevel;
   setLevel: (level: ProgramLevel) => void;
@@ -117,11 +114,12 @@ function FilterRail({
   catalogueId: string;
   setCatalogueId: (id: string) => void;
   catalogues: InstitutionCatalogue[];
+  resetFilters: () => void;
 }) {
   const groupCatalogues = catalogues.filter((item) => item.group === group);
   return (
     <aside className="filter-rail">
-      <div className="rail-title"><span>Filters</span><button>Reset all</button></div>
+      <div className="rail-title"><span>Filters</span><button onClick={resetFilters}>Reset all</button></div>
       <section>
         <h3>Institution set</h3>
         <div className="segment stack">
@@ -171,7 +169,6 @@ function FilterRail({
           </label>
         ))}
       </section>
-      <button className="ghost-button wide">More filters</button>
     </aside>
   );
 }
@@ -221,14 +218,12 @@ function ProgramTable({
   rows,
   selected,
   setSelected,
-  openChecklist,
   catalogue,
 }: {
   level: ProgramLevel;
   rows: Program[];
   selected: Program;
   setSelected: (program: Program) => void;
-  openChecklist: () => void;
   catalogue: InstitutionCatalogue;
 }) {
   return (
@@ -240,9 +235,6 @@ function ProgramTable({
         </div>
         <div className="sort-tools">
           <span>{rows.length} programs</span>
-          <button className="icon-button active" aria-label="Table view">
-            <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
-          </button>
         </div>
       </div>
       <div className="program-table" role="table">
@@ -272,7 +264,6 @@ function ProgramTable({
       </div>
       <div className="table-footer">
         <span>{catalogue.extractionNote}</span>
-        <button className="primary-button" onClick={openChecklist} disabled={!rows.length}>Open Application Checklist</button>
       </div>
     </main>
   );
@@ -287,9 +278,6 @@ function Inspector({ program, openChecklist }: { program: Program; openChecklist
           <p>{program.institution ?? "Institution"} / {program.level} / {program.award}</p>
           <a href={program.sourceUrl} target="_blank" rel="noreferrer">View official page</a>
         </div>
-        <button className="icon-button" aria-label="Bookmark programme">
-          <svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z" /></svg>
-        </button>
       </div>
       <section>
         <h3>Overview</h3>
@@ -315,7 +303,6 @@ function Inspector({ program, openChecklist }: { program: Program; openChecklist
         <p className={`status-line ${program.sourceStatus === "Source gap" ? "warn" : "pass"}`}>{program.sourceStatus} / last checked {program.sourceChecked}</p>
       </section>
       <button className="primary-button wide" onClick={openChecklist}>Open Application Checklist</button>
-      <button className="ghost-button wide">Add to Case</button>
     </aside>
   );
 }
@@ -351,16 +338,35 @@ function CatalogueInspector({ catalogue }: { catalogue: InstitutionCatalogue }) 
   );
 }
 
-function MaterialsView({ program, openWriting }: { program: Program; openWriting: () => void }) {
-  const [materials, setMaterials] = useState(baseMaterials);
+function MaterialsView({
+  program,
+  openWriting,
+  backToPrograms,
+}: {
+  program: Program;
+  openWriting: () => void;
+  backToPrograms: () => void;
+}) {
+  const [materials, setMaterials] = useState(freshMaterials);
   const complete = materials.filter((item) => item.check === "Pass").length;
-  const toggleStatement = () => {
-    setMaterials((items) => items.map((item) => item.id === "statement" ? { ...item, status: "Complete", check: "Pass", note: "Writing structure approved and evidence gaps resolved." } : item));
+  useEffect(() => {
+    setMaterials(freshMaterials());
+  }, [program.id]);
+  const markProvided = (id: string) => {
+    setMaterials((items) => items.map((item) => item.id === id ? { ...item, status: "Complete", evidence: "Provided in session", check: "Pass", note: "Marked as provided in this browser session. Verify the content against the official requirement before submission." } : item));
+  };
+  const markNotRequired = (id: string) => {
+    setMaterials((items) => items.map((item) => item.id === id ? { ...item, status: "Not Required", evidence: "Not applicable", check: "N/A", note: "Marked not applicable in this browser session. Keep this only if the official programme page does not request it." } : item));
+  };
+  const clearMaterial = (id: string) => {
+    const original = baseMaterials.find((item) => item.id === id);
+    if (!original) return;
+    setMaterials((items) => items.map((item) => item.id === id ? { ...original } : item));
   };
   return (
     <section className="workspace split">
       <aside className="context-rail">
-        <button className="back-button">Back to Programs</button>
+        <button className="back-button" onClick={backToPrograms}>Back to Programs</button>
         <h2>{program.name}</h2>
         <p>{program.institution ?? "Institution"} / {program.award} / {program.duration}</p>
         <p className="status-pill">{program.sourceStatus}</p>
@@ -381,28 +387,33 @@ function MaterialsView({ program, openWriting }: { program: Program; openWriting
               <span className={`status-dot ${item.check.toLowerCase().replace("/", "-")}`}>{item.check}</span>
               <span className="evidence">{item.evidence}</span>
               <p>{item.note}</p>
-              <button className={item.id === "statement" ? "primary-outline" : "ghost-button"} onClick={item.id === "statement" ? openWriting : undefined}>Review</button>
+              <div className="material-actions">
+                {item.id === "statement" && <button className="primary-outline" onClick={openWriting}>Plan writing</button>}
+                <button className="ghost-button" onClick={() => markProvided(item.id)}>Mark provided</button>
+                <button className="ghost-button" onClick={() => markNotRequired(item.id)}>N/A</button>
+                {item.check !== "Unresolved" && <button className="ghost-button" onClick={() => clearMaterial(item.id)}>Clear</button>}
+              </div>
             </div>
           ))}
         </div>
         <div className="table-footer">
           <span>Selected programme: {program.name}</span>
-          <button className="primary-button" onClick={toggleStatement}>Simulate Statement Approved</button>
         </div>
       </main>
     </section>
   );
 }
 
-function WritingView({ program }: { program: Program }) {
+function WritingView({ program, backToChecklist }: { program: Program; backToChecklist: () => void }) {
   const [selected, setSelected] = useState(narrativeOptions[0]);
   const [resolved, setResolved] = useState<string[]>([]);
+  const [approval, setApproval] = useState("");
   const gaps = selected.gaps.filter((gap) => !resolved.includes(gap));
   const approveEnabled = gaps.length === 0;
   return (
     <section className="workspace writing-layout">
       <aside className="context-rail">
-        <button className="back-button">Back to Checklist</button>
+        <button className="back-button" onClick={backToChecklist}>Back to Checklist</button>
         <h2>{program.name}</h2>
         <p>{program.institution ?? "Institution"} / {program.level} / {program.duration}</p>
         <h3>Verified Sources</h3>
@@ -443,7 +454,8 @@ function WritingView({ program }: { program: Program }) {
         <div className="composer">
           <p>{gaps.length ? `${gaps.length} evidence gap${gaps.length > 1 ? "s" : ""} left. Add missing evidence or choose a different narrative.` : "Evidence gaps resolved. Structure approval is available."}</p>
           <textarea placeholder="Tell the Writing Studio what evidence you can add, or choose a different narrative option." />
-          <button className="primary-button" disabled={!approveEnabled}>Approve Structure</button>
+          <button className="primary-button" disabled={!approveEnabled} onClick={() => setApproval("Structure approved for this browser session.")}>Approve Structure</button>
+          {approval && <p className="status-line pass">{approval}</p>}
         </div>
       </main>
     </section>
@@ -752,19 +764,25 @@ export default function App() {
   }, [rows, selected.id]);
   const openChecklist = () => setActiveView("Materials");
   const openWriting = () => setActiveView("Writing Studio");
+  const resetFilters = () => {
+    const defaultCatalogue = allInstitutionCatalogues.find((catalogue) => catalogue.group === "UK Core");
+    setGroup("UK Core");
+    setLevel("Undergraduate");
+    setCatalogueId(defaultCatalogue?.id ?? allInstitutionCatalogues[0].id);
+  };
 
   return (
     <div className="app-shell">
       <Header activeView={activeView} setActiveView={setActiveView} />
       {activeView === "Programs" && (
         <div className="program-layout">
-          <FilterRail level={level} setLevel={setLevel} group={group} setGroup={setGroup} catalogueId={catalogueId} setCatalogueId={setCatalogueId} catalogues={allInstitutionCatalogues} />
-          <ProgramTable level={level} rows={rows} selected={activeProgram} setSelected={setSelected} openChecklist={openChecklist} catalogue={selectedCatalogue} />
+          <FilterRail level={level} setLevel={setLevel} group={group} setGroup={setGroup} catalogueId={catalogueId} setCatalogueId={setCatalogueId} catalogues={allInstitutionCatalogues} resetFilters={resetFilters} />
+          <ProgramTable level={level} rows={rows} selected={activeProgram} setSelected={setSelected} catalogue={selectedCatalogue} />
           {rows.length ? <Inspector program={activeProgram} openChecklist={openChecklist} /> : <CatalogueInspector catalogue={selectedCatalogue} />}
         </div>
       )}
-      {activeView === "Materials" && <MaterialsView program={activeProgram} openWriting={openWriting} />}
-      {activeView === "Writing Studio" && <WritingView program={activeProgram} />}
+      {activeView === "Materials" && <MaterialsView program={activeProgram} openWriting={openWriting} backToPrograms={() => setActiveView("Programs")} />}
+      {activeView === "Writing Studio" && <WritingView program={activeProgram} backToChecklist={() => setActiveView("Materials")} />}
       {activeView === "Sources" && <SourceView program={activeProgram} catalogue={selectedCatalogue} />}
       {activeView === "Codex OAuth" && <CodexOAuthView state={oauthState} setState={setOauthState} />}
     </div>
