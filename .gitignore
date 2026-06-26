@@ -14,3 +14,11 @@ web/vite.config.js
 web/vite.config.d.ts
 playwright-report/
 test-results/
+
+# Local/private memory files. Keep repository templates blank.
+memory/local-*
+memory/private-*
+memory/*.local.json
+memory/*.private.json
+*.memory.local.json
+*.memory.private.json
