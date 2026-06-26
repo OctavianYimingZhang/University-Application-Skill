@@ -1,30 +1,36 @@
 import { useEffect, useMemo, useState, type Dispatch, type SetStateAction } from "react";
 import {
-  getInitialCodexEndpoint,
-  getInitialCodexBridgeNonce,
+  AI_PROVIDER_PROFILES,
+  applyAIProviderDefaults,
+  buildAIConfigPreview,
+  getAIProviderProfile,
+  getInitialAIConfig,
   hasExplicitCodexEndpoint,
   isDefaultCodexEndpoint,
   isGithubPagesRuntime,
   logoutCodex,
   probeCodexBridge,
   readCodexAccount,
-  rememberCodexBridgeNonce,
-  rememberCodexEndpoint,
+  rememberAIConfig,
   startCodexLogin,
+  validateAIConfig,
   validateCodexEndpoint,
+  type AIConfig,
+  type AIConfigFormat,
+  type AIProviderId,
   type CodexLoginFlow,
 } from "./codexAuth";
 import { allInstitutionCatalogues, groups, programFromCatalogueOption } from "./data/catalogues";
-import { programs, sourcePages } from "./data/programs";
+import { programs } from "./data/programs";
 import type { InstitutionCatalogue, InstitutionGroup, MaterialItem, NarrativeOption, Program, ProgramLevel } from "./types";
 
-type CodexOAuthStatus = "unchecked" | "static_blocked" | "needs_sign_in" | "opening_oauth" | "pending_verification" | "connected" | "error";
-type CodexOAuthAction = "idle" | "checking_status" | "starting_oauth" | "refreshing_status" | "resetting";
+type AIConfigStatus = "unchecked" | "static_blocked" | "needs_sign_in" | "opening_oauth" | "pending_verification" | "connected" | "configured" | "error";
+type AIConfigAction = "idle" | "checking_status" | "starting_oauth" | "refreshing_status" | "saving_config" | "resetting";
 type BridgeHealthStatus = "unknown" | "checking" | "ready" | "blocked";
 
-interface CodexOAuthPanelState {
-  status: CodexOAuthStatus;
-  action: CodexOAuthAction;
+interface AIConfigPanelState {
+  status: AIConfigStatus;
+  action: AIConfigAction;
   lastCheckedAt?: string;
   message: string;
   events: string[];
@@ -32,22 +38,129 @@ interface CodexOAuthPanelState {
   authUrl?: string;
   verificationUrl?: string;
   userCode?: string;
+  runtime?: string;
   endpointKind?: string;
-  endpointMessage?: string;
+  configMessage?: string;
 }
 
-const baseMaterials: MaterialItem[] = [
-  { id: "transcript", name: "Academic transcript", scope: "All post-16 or degree study", status: "Unresolved", evidence: "Not provided", check: "Unresolved", note: "List transcript evidence in this session before checking it against the academic route." },
-  { id: "english", name: "English language test", scope: "IELTS or TOEFL if required", status: "Unresolved", evidence: "Not provided", check: "Unresolved", note: "Add test-result evidence in this session, then check exact component scores on the source page." },
-  { id: "statement", name: "Personal statement", scope: "Programme-specific writing", status: "Unresolved", evidence: "Not provided", check: "Unresolved", note: "Needs evidence-backed narrative and programme fit before any draft is treated as ready." },
-  { id: "reference", name: "Reference", scope: "Academic referee", status: "Unresolved", evidence: "Not provided", check: "Unresolved", note: "Confirm referee identity and submission route in this session." },
-  { id: "passport", name: "Passport or ID", scope: "Identity document", status: "Unresolved", evidence: "Not provided", check: "Unresolved", note: "Add identity-document evidence in this session before marking it ready." },
-  { id: "funding", name: "Fee / funding note", scope: "Tuition funding plan", status: "Unresolved", evidence: "Not provided", check: "Unresolved", note: "Add funding evidence in this session if the programme or portal asks for it." },
-  { id: "course-code", name: "Course code", scope: "UCAS or direct application", status: "Unresolved", evidence: "Not confirmed in portal", check: "Unresolved", note: "Confirm exact code in the official application route before submission." },
-  { id: "extra", name: "Additional documents", scope: "Portfolio, CV, research proposal if required", status: "Unresolved", evidence: "Not provided", check: "Unresolved", note: "Check the selected programme page before deciding whether extra documents are required." },
+interface WritingRequirement {
+  id: string;
+  title: string;
+  prompt: string;
+  wordLimit: string;
+  sourceUrl: string;
+  sourceStatus: "Source-backed document requirement" | "Needs official prompt verification" | "Planning placeholder";
+  sourceTitle: string;
+}
+
+interface ProgramRequirementGroup {
+  program: Program;
+  requirements: WritingRequirement[];
+}
+
+const globalMaterialTemplates: MaterialItem[] = [
+  { id: "academic-record", name: "GPA / academic record", scope: "Reusable academic evidence", status: "Unresolved", evidence: "Not provided", check: "Unresolved", note: "Record the grade scale, transcript status, and any conversion notes in this session before checking programme thresholds." },
+  { id: "language-test", name: "English language result", scope: "Reusable IELTS / TOEFL / PTE evidence", status: "Unresolved", evidence: "Not provided", check: "Unresolved", note: "Record test type, date, overall score, and component scores before matching programme language rules." },
+  { id: "identity", name: "Passport or ID evidence", scope: "Reusable identity evidence", status: "Unresolved", evidence: "Not provided", check: "Unresolved", note: "Record only that valid identity evidence exists. Do not upload local files into this prototype." },
+  { id: "reference-contact", name: "Reference readiness", scope: "Reusable referee plan", status: "Unresolved", evidence: "Not provided", check: "Unresolved", note: "Record referee name/category and submission route only after the applicant has confirmed it." },
+  { id: "funding-plan", name: "Funding plan", scope: "Reusable fee / scholarship evidence", status: "Unresolved", evidence: "Not provided", check: "Unresolved", note: "Record funding status when a programme, portal, or visa route requires it." },
 ];
 
-const freshMaterials = () => baseMaterials.map((item) => ({ ...item }));
+const freshMaterials = (items: MaterialItem[]) => items.map((item) => ({ ...item }));
+
+const writingDocPattern = /statement|essay|personal|purpose|writing|proposal|cv|resume|portfolio/i;
+
+function institutionKey(program: Program) {
+  return `${program.id} ${program.institution ?? ""} ${program.sourceUrl}`.toLowerCase();
+}
+
+function getWritingRequirements(program: Program): WritingRequirement[] {
+  const key = institutionKey(program);
+
+  if (key.includes("umich") || key.includes("michigan")) {
+    return [1, 2, 3].map((slot) => ({
+      id: `michigan-placeholder-${slot}`,
+      title: `Michigan writing slot ${slot}`,
+      prompt: "User-requested planning slot. Needs official prompt verification from the current Michigan application route before drafting.",
+      wordLimit: "Needs official prompt verification",
+      sourceUrl: program.sourceUrl,
+      sourceStatus: "Planning placeholder",
+      sourceTitle: program.sourceTitle,
+    }));
+  }
+
+  if (key.includes("cambridge")) {
+    return [{
+      id: "cambridge-writing-verification",
+      title: "Cambridge application writing item",
+      prompt: "Personal statement or course-route writing requirement must be verified against the official application route before drafting.",
+      wordLimit: "Needs official prompt verification",
+      sourceUrl: program.sourceUrl,
+      sourceStatus: "Needs official prompt verification",
+      sourceTitle: program.sourceTitle,
+    }];
+  }
+
+  const writingDocuments = program.documents.filter((document) => writingDocPattern.test(document));
+  if (writingDocuments.length) {
+    return writingDocuments.map((document, index) => ({
+      id: `source-doc-${index + 1}`,
+      title: document,
+      prompt: "Document requirement appears in the loaded programme material list. Exact prompt, audience, and word limit still need official page or portal verification.",
+      wordLimit: "Needs official prompt verification",
+      sourceUrl: program.sourceUrl,
+      sourceStatus: program.sourceStatus === "Verified" ? "Source-backed document requirement" : "Needs official prompt verification",
+      sourceTitle: program.sourceTitle,
+    }));
+  }
+
+  return [{
+    id: "writing-verification-needed",
+    title: "Writing requirement verification",
+    prompt: "No source-backed writing prompt is loaded for this programme. Verify the official page or portal before treating any essay as required.",
+    wordLimit: "Needs official prompt verification",
+    sourceUrl: program.sourceUrl,
+    sourceStatus: "Needs official prompt verification",
+    sourceTitle: program.sourceTitle,
+  }];
+}
+
+function createProgramMaterials(program: Program): MaterialItem[] {
+  const writingRequirements = getWritingRequirements(program);
+  const documentMaterials = program.documents
+    .filter((document) => !writingDocPattern.test(document))
+    .map((document, index) => ({
+      id: `${program.id}-document-${index + 1}`,
+      name: document,
+      scope: `${program.name} / ${program.level}`,
+      status: "Unresolved" as const,
+      evidence: "Not provided",
+      check: "Unresolved" as const,
+      note: "Programme-specific requirement from the loaded source list. Record evidence in this session only after checking the official route.",
+    }));
+
+  return [
+    {
+      id: `${program.id}-route-code`,
+      name: "Application route and programme code",
+      scope: program.code || "Official programme route",
+      status: "Unresolved",
+      evidence: "Not confirmed in portal",
+      check: "Unresolved",
+      note: "Confirm exact programme title, code, cycle, and application route on the official source before submission.",
+    },
+    ...writingRequirements.map((requirement) => ({
+      id: `${program.id}-writing-${requirement.id}`,
+      name: requirement.title,
+      scope: requirement.wordLimit,
+      status: "Unresolved" as const,
+      evidence: "Not provided",
+      check: "Unresolved" as const,
+      note: `${requirement.prompt} Source status: ${requirement.sourceStatus}.`,
+    })),
+    ...documentMaterials,
+  ];
+}
 
 const narrativeOptions: NarrativeOption[] = [
   {
@@ -87,7 +200,7 @@ function Header({ activeView, setActiveView }: { activeView: string; setActiveVi
     <header className="topbar">
       <Logo />
       <nav className="nav-tabs" aria-label="Primary">
-        {["Programs", "Materials", "Writing Studio", "Sources", "Codex OAuth"].map((item) => (
+        {["Programs", "Materials", "Writing Studio", "AI Config"].map((item) => (
           <button className={activeView === item ? "active" : ""} key={item} onClick={() => setActiveView(item)}>
             {item}
           </button>
@@ -142,33 +255,6 @@ function FilterRail({
           ))}
         </div>
       </section>
-      <section>
-        <h3>Qualification route</h3>
-        {["A-level / IB", "US high school", "Bachelor degree", "Other"].map((item, index) => (
-          <label className="check-row" key={item}>
-            <input type="checkbox" defaultChecked={index < 2} />
-            <span>{item}</span>
-          </label>
-        ))}
-      </section>
-      <section>
-        <h3>English language</h3>
-        {["IELTS Academic", "TOEFL iBT", "PTE Academic"].map((item, index) => (
-          <label className="check-row" key={item}>
-            <input type="checkbox" defaultChecked={index < 2} />
-            <span>{item}</span>
-          </label>
-        ))}
-      </section>
-      <section>
-        <h3>Budget per year</h3>
-        {["Any", "Under GBP 15,000", "GBP 15,000-25,000", "GBP 25,000+"].map((item, index) => (
-          <label className="radio-row" key={item}>
-            <input type="radio" name="budget" defaultChecked={index === 0} />
-            <span>{item}</span>
-          </label>
-        ))}
-      </section>
     </aside>
   );
 }
@@ -203,13 +289,13 @@ function SourceCell({ program }: { program: Program }) {
     ? "Official directory row"
     : "Official programme page";
   return (
-    <span className="code-cell">
+    <a className="code-cell source-link-cell" href={program.sourceUrl} target="_blank" rel="noreferrer" onClick={(event) => event.stopPropagation()}>
       <span>
         <strong>{label}</strong>
         <small>{program.sourceStatus}</small>
       </span>
       <svg viewBox="0 0 24 24"><path d="m9 18 6-6-6-6" /></svg>
-    </span>
+    </a>
   );
 }
 
@@ -219,12 +305,16 @@ function ProgramTable({
   selected,
   setSelected,
   catalogue,
+  casePrograms,
+  toggleCaseProgram,
 }: {
   level: ProgramLevel;
   rows: Program[];
   selected: Program;
   setSelected: (program: Program) => void;
   catalogue: InstitutionCatalogue;
+  casePrograms: Program[];
+  toggleCaseProgram: (program: Program) => void;
 }) {
   return (
     <main className="program-panel">
@@ -243,6 +333,7 @@ function ProgramTable({
           <span>Route</span>
           <span>Duration</span>
           <span>Source</span>
+          <span>Case</span>
         </div>
         {!rows.length && (
           <div className="empty-state">
@@ -251,15 +342,18 @@ function ProgramTable({
           </div>
         )}
         {rows.map((program, index) => (
-          <button className={`program-row ${selected.id === program.id ? "selected" : ""}`} key={`${program.id}-${index}`} onClick={() => setSelected(program)} role="row">
-            <span className="program-name-cell">
+          <div className={`program-row ${selected.id === program.id ? "selected" : ""}`} key={`${program.id}-${index}`} onClick={() => setSelected(program)} role="row">
+            <button className="program-name-cell program-select-cell" onClick={(event) => { event.stopPropagation(); setSelected(program); }}>
               <strong>{program.name}</strong>
               <small>{program.institution} / {program.level}</small>
-            </span>
+            </button>
             <ProgramMeta program={program} />
             <span className="duration-cell">{program.duration}</span>
             <SourceCell program={program} />
-          </button>
+            <button className={casePrograms.some((item) => item.id === program.id) ? "case-toggle active" : "case-toggle"} onClick={(event) => { event.stopPropagation(); toggleCaseProgram(program); }}>
+              {casePrograms.some((item) => item.id === program.id) ? "In case" : "Add"}
+            </button>
+          </div>
         ))}
       </div>
       <div className="table-footer">
@@ -269,7 +363,17 @@ function ProgramTable({
   );
 }
 
-function Inspector({ program, openChecklist }: { program: Program; openChecklist: () => void }) {
+function Inspector({
+  program,
+  openChecklist,
+  inCase,
+  toggleCaseProgram,
+}: {
+  program: Program;
+  openChecklist: () => void;
+  inCase: boolean;
+  toggleCaseProgram: (program: Program) => void;
+}) {
   return (
     <aside className="inspector">
       <div className="inspector-title">
@@ -302,6 +406,7 @@ function Inspector({ program, openChecklist }: { program: Program; openChecklist
         <h3>Source Status</h3>
         <p className={`status-line ${program.sourceStatus === "Source gap" ? "warn" : "pass"}`}>{program.sourceStatus} / last checked {program.sourceChecked}</p>
       </section>
+      <button className="ghost-button wide" onClick={() => toggleCaseProgram(program)}>{inCase ? "Remove from Writing Case" : "Add to Writing Case"}</button>
       <button className="primary-button wide" onClick={openChecklist}>Open Application Checklist</button>
     </aside>
   );
@@ -340,86 +445,241 @@ function CatalogueInspector({ catalogue }: { catalogue: InstitutionCatalogue }) 
 
 function MaterialsView({
   program,
+  casePrograms,
+  toggleCaseProgram,
   openWriting,
   backToPrograms,
 }: {
   program: Program;
+  casePrograms: Program[];
+  toggleCaseProgram: (program: Program) => void;
   openWriting: () => void;
   backToPrograms: () => void;
 }) {
-  const [materials, setMaterials] = useState(freshMaterials);
-  const complete = materials.filter((item) => item.check === "Pass").length;
+  const [globalMaterials, setGlobalMaterials] = useState(() => freshMaterials(globalMaterialTemplates));
+  const [caseMaterials, setCaseMaterials] = useState<Record<string, MaterialItem[]>>({});
+  const selectedPrograms = casePrograms;
+  const caseKey = selectedPrograms.map((item) => item.id).join("|");
+
   useEffect(() => {
-    setMaterials(freshMaterials());
-  }, [program.id]);
-  const markProvided = (id: string) => {
-    setMaterials((items) => items.map((item) => item.id === id ? { ...item, status: "Complete", evidence: "Provided in session", check: "Pass", note: "Marked as provided in this browser session. Verify the content against the official requirement before submission." } : item));
+    setCaseMaterials((previous) => {
+      const next = { ...previous };
+      selectedPrograms.forEach((item) => {
+        if (!next[item.id]) {
+          next[item.id] = createProgramMaterials(item);
+        }
+      });
+      return next;
+    });
+  }, [caseKey, selectedPrograms]);
+
+  const programRows = selectedPrograms.map((item) => ({
+    program: item,
+    materials: caseMaterials[item.id] ?? createProgramMaterials(item),
+  }));
+  const totalMaterials = globalMaterials.length + programRows.reduce((sum, row) => sum + row.materials.length, 0);
+  const complete = globalMaterials.filter((item) => item.check === "Pass").length
+    + programRows.reduce((sum, row) => sum + row.materials.filter((item) => item.check === "Pass").length, 0);
+
+  const recordGlobal = (id: string) => {
+    setGlobalMaterials((items) => items.map((item) => item.id === id ? { ...item, status: "Complete", evidence: "Recorded in session", check: "Pass", note: "Evidence was recorded in this browser session. Keep source verification separate from file upload." } : item));
   };
-  const markNotRequired = (id: string) => {
-    setMaterials((items) => items.map((item) => item.id === id ? { ...item, status: "Not Required", evidence: "Not applicable", check: "N/A", note: "Marked not applicable in this browser session. Keep this only if the official programme page does not request it." } : item));
+  const markGlobalNotRequired = (id: string) => {
+    setGlobalMaterials((items) => items.map((item) => item.id === id ? { ...item, status: "Not Required", evidence: "Not applicable", check: "N/A", note: "Marked not applicable in this browser session. Use only when the applicant route does not require it." } : item));
   };
-  const clearMaterial = (id: string) => {
-    const original = baseMaterials.find((item) => item.id === id);
+  const clearGlobal = (id: string) => {
+    const original = globalMaterialTemplates.find((item) => item.id === id);
     if (!original) return;
-    setMaterials((items) => items.map((item) => item.id === id ? { ...original } : item));
+    setGlobalMaterials((items) => items.map((item) => item.id === id ? { ...original } : item));
+  };
+  const recordProgramMaterial = (programId: string, id: string) => {
+    setCaseMaterials((lists) => ({
+      ...lists,
+      [programId]: (lists[programId] ?? []).map((item) => item.id === id ? { ...item, status: "Complete", evidence: "Recorded in session", check: "Pass", note: "Evidence was recorded in this browser session. Verify the content against the official requirement before submission." } : item),
+    }));
+  };
+  const markProgramNotRequired = (programId: string, id: string) => {
+    setCaseMaterials((lists) => ({
+      ...lists,
+      [programId]: (lists[programId] ?? []).map((item) => item.id === id ? { ...item, status: "Not Required", evidence: "Not applicable", check: "N/A", note: "Marked not applicable in this browser session. Keep this only if the official programme route does not request it." } : item),
+    }));
+  };
+  const clearProgramMaterial = (targetProgram: Program, id: string) => {
+    const original = createProgramMaterials(targetProgram).find((item) => item.id === id);
+    if (!original) return;
+    setCaseMaterials((lists) => ({
+      ...lists,
+      [targetProgram.id]: (lists[targetProgram.id] ?? []).map((item) => item.id === id ? { ...original } : item),
+    }));
   };
   return (
     <section className="workspace split">
       <aside className="context-rail">
         <button className="back-button" onClick={backToPrograms}>Back to Programs</button>
-        <h2>{program.name}</h2>
-        <p>{program.institution ?? "Institution"} / {program.award} / {program.duration}</p>
-        <p className="status-pill">{program.sourceStatus}</p>
-        <h3>Hard Requirements Summary</h3>
+        <h2>Application Case</h2>
+        <p>Common evidence is recorded once. Programme-specific documents stay inside each selected case.</p>
+        <button className="ghost-button wide" onClick={() => toggleCaseProgram(program)}>{casePrograms.some((item) => item.id === program.id) ? "Remove Current Program" : "Add Current Program"}</button>
+        <h3>Selected Programs</h3>
+        <div className="case-list">
+          {selectedPrograms.length ? selectedPrograms.map((item) => (
+            <button key={item.id} className="case-program-pill" onClick={() => toggleCaseProgram(item)}>
+              <strong>{item.name}</strong>
+              <span>{item.institution ?? "Institution"}</span>
+            </button>
+          )) : <p>No programs added yet.</p>}
+        </div>
+        <h3>Current Program Requirements</h3>
         <RequirementChips program={program} />
       </aside>
       <main className="checklist-panel">
         <div className="panel-heading compact">
           <h1>Application Checklist</h1>
-          <div className="progress"><span style={{ width: `${(complete / materials.length) * 100}%` }} /> </div>
-          <p>{complete} of {materials.length} complete</p>
+          <div className="progress"><span style={{ width: `${totalMaterials ? (complete / totalMaterials) * 100 : 0}%` }} /> </div>
+          <p>{complete} of {totalMaterials} complete</p>
         </div>
-        <div className="material-table">
-          {materials.map((item, index) => (
-            <div className={`material-row ${item.check === "Unresolved" ? "attention" : ""}`} key={item.id}>
-              <span className="row-number">{index + 1}</span>
-              <div><strong>{item.name}</strong><small>{item.scope}</small></div>
-              <span className={`status-dot ${item.check.toLowerCase().replace("/", "-")}`}>{item.check}</span>
-              <span className="evidence">{item.evidence}</span>
-              <p>{item.note}</p>
-              <div className="material-actions">
-                {item.id === "statement" && <button className="primary-outline" onClick={openWriting}>Plan writing</button>}
-                <button className="ghost-button" onClick={() => markProvided(item.id)}>Mark provided</button>
-                <button className="ghost-button" onClick={() => markNotRequired(item.id)}>N/A</button>
-                {item.check !== "Unresolved" && <button className="ghost-button" onClick={() => clearMaterial(item.id)}>Clear</button>}
+        <section className="material-section">
+          <div className="section-heading">
+            <div>
+              <h2>Common Material Vault</h2>
+              <p>Records reusable evidence only. No local file is uploaded or pre-marked as ready.</p>
+            </div>
+          </div>
+          <div className="material-table">
+            {globalMaterials.map((item, index) => (
+              <div className={`material-row ${item.check === "Unresolved" ? "attention" : ""}`} key={item.id}>
+                <span className="row-number">{index + 1}</span>
+                <div><strong>{item.name}</strong><small>{item.scope}</small></div>
+                <span className={`status-dot ${item.check.toLowerCase().replace("/", "-")}`}>{item.check}</span>
+                <span className="evidence">{item.evidence}</span>
+                <p>{item.note}</p>
+                <div className="material-actions">
+                  <button className="ghost-button" onClick={() => recordGlobal(item.id)}>Record evidence</button>
+                  <button className="ghost-button" onClick={() => markGlobalNotRequired(item.id)}>N/A</button>
+                  {item.check !== "Unresolved" && <button className="ghost-button" onClick={() => clearGlobal(item.id)}>Clear</button>}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+        <section className="material-section">
+          <div className="section-heading">
+            <div>
+              <h2>Programme-Specific Materials</h2>
+              <p>Each selected programme keeps its own route, writing, and document checks.</p>
+            </div>
+            <button className="primary-outline" onClick={openWriting} disabled={!selectedPrograms.length}>Open Writing Studio</button>
+          </div>
+          {!programRows.length && (
+            <div className="empty-state">
+              <strong>No programme case selected.</strong>
+              <span>Add the current programme or go back to Programs and add more options.</span>
+            </div>
+          )}
+          {programRows.map((row) => (
+            <div className="case-program-card" key={row.program.id}>
+              <div className="case-program-heading">
+                <div>
+                  <h3>{row.program.institution ?? "Institution"}</h3>
+                  <h2>{row.program.name}</h2>
+                  <p>{row.program.level} / {row.program.award} / {row.program.duration}</p>
+                </div>
+                <button className="ghost-button" onClick={() => toggleCaseProgram(row.program)}>Remove</button>
+              </div>
+              <div className="material-table">
+                {row.materials.map((item, index) => (
+                  <div className={`material-row ${item.check === "Unresolved" ? "attention" : ""}`} key={item.id}>
+                    <span className="row-number">{index + 1}</span>
+                    <div><strong>{item.name}</strong><small>{item.scope}</small></div>
+                    <span className={`status-dot ${item.check.toLowerCase().replace("/", "-")}`}>{item.check}</span>
+                    <span className="evidence">{item.evidence}</span>
+                    <p>{item.note}</p>
+                    <div className="material-actions">
+                      {item.id.includes("-writing-") && <button className="primary-outline" onClick={openWriting}>Plan writing</button>}
+                      <button className="ghost-button" onClick={() => recordProgramMaterial(row.program.id, item.id)}>Record evidence</button>
+                      <button className="ghost-button" onClick={() => markProgramNotRequired(row.program.id, item.id)}>N/A</button>
+                      {item.check !== "Unresolved" && <button className="ghost-button" onClick={() => clearProgramMaterial(row.program, item.id)}>Clear</button>}
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           ))}
-        </div>
+        </section>
         <div className="table-footer">
-          <span>Selected programme: {program.name}</span>
+          <span>Current programme: {program.name}</span>
         </div>
       </main>
     </section>
   );
 }
 
-function WritingView({ program, backToChecklist }: { program: Program; backToChecklist: () => void }) {
+function requirementKey(program: Program, requirement: WritingRequirement) {
+  return `${program.id}:${requirement.id}`;
+}
+
+function buildWritingGroups(casePrograms: Program[]): ProgramRequirementGroup[] {
+  return casePrograms.map((program) => ({ program, requirements: getWritingRequirements(program) }));
+}
+
+function WritingView({
+  rows,
+  casePrograms,
+  toggleCaseProgram,
+  backToChecklist,
+}: {
+  rows: Program[];
+  casePrograms: Program[];
+  toggleCaseProgram: (program: Program) => void;
+  backToChecklist: () => void;
+}) {
   const [selected, setSelected] = useState(narrativeOptions[0]);
   const [resolved, setResolved] = useState<string[]>([]);
   const [approval, setApproval] = useState("");
+  const [programQuery, setProgramQuery] = useState("");
+  const [activeRequirementId, setActiveRequirementId] = useState("");
+  const writingGroups = useMemo(() => buildWritingGroups(casePrograms), [casePrograms]);
+  const requirementRows = useMemo(() => writingGroups.flatMap((group) => group.requirements.map((requirement) => ({
+    key: requirementKey(group.program, requirement),
+    program: group.program,
+    requirement,
+  }))), [writingGroups]);
+  const requirementKeys = requirementRows.map((item) => item.key).join("|");
+  useEffect(() => {
+    if (requirementRows.length && !requirementRows.some((item) => item.key === activeRequirementId)) {
+      setActiveRequirementId(requirementRows[0].key);
+      setApproval("");
+    }
+  }, [activeRequirementId, requirementKeys, requirementRows]);
+  const activeRequirement = requirementRows.find((item) => item.key === activeRequirementId) ?? requirementRows[0];
+  const filteredRows = rows
+    .filter((item) => `${item.name} ${item.institution ?? ""} ${item.award}`.toLowerCase().includes(programQuery.trim().toLowerCase()))
+    .slice(0, 48);
   const gaps = selected.gaps.filter((gap) => !resolved.includes(gap));
-  const approveEnabled = gaps.length === 0;
+  const approveEnabled = Boolean(activeRequirement) && gaps.length === 0;
   return (
     <section className="workspace writing-layout">
       <aside className="context-rail">
         <button className="back-button" onClick={backToChecklist}>Back to Checklist</button>
-        <h2>{program.name}</h2>
-        <p>{program.institution ?? "Institution"} / {program.level} / {program.duration}</p>
-        <h3>Verified Sources</h3>
-        <a href={program.sourceUrl} target="_blank" rel="noreferrer">Programme page</a>
-        <h3>Writing Brief</h3>
-        <p>Personal statement must connect applicant evidence to programme fit. Unsupported claims remain blocked.</p>
+        <h2>Writing Case Programs</h2>
+        <p>Select one or more programmes from the current catalogue. Writing counts stay caveated unless official prompts are loaded.</p>
+        <input className="text-input" value={programQuery} onChange={(event) => setProgramQuery(event.target.value)} placeholder="Search current catalogue" />
+        <div className="program-picker-list">
+          {filteredRows.map((item) => (
+            <button key={item.id} className={casePrograms.some((program) => program.id === item.id) ? "program-picker selected" : "program-picker"} onClick={() => toggleCaseProgram(item)}>
+              <strong>{item.name}</strong>
+              <span>{item.institution ?? "Institution"} / {item.level}</span>
+            </button>
+          ))}
+        </div>
+        <h3>Selected</h3>
+        <div className="case-list">
+          {casePrograms.length ? casePrograms.map((item) => (
+            <button key={item.id} className="case-program-pill" onClick={() => toggleCaseProgram(item)}>
+              <strong>{item.name}</strong>
+              <span>Remove</span>
+            </button>
+          )) : <p>No programmes selected.</p>}
+        </div>
       </aside>
       <main className="checklist-panel">
         <div className="writing-steps">
@@ -428,105 +688,122 @@ function WritingView({ program, backToChecklist }: { program: Program; backToChe
           ))}
         </div>
         <div className="panel-heading compact">
-          <h1>Step 3 of 6 / Narrative Options</h1>
-          <p>Select the thesis direction that best reflects real evidence. The structure is blocked until gaps are resolved.</p>
+          <h1>Writing Studio</h1>
+          <p>{casePrograms.length} selected program{casePrograms.length === 1 ? "" : "s"} / {requirementRows.length} writing item{requirementRows.length === 1 ? "" : "s"} to plan or verify.</p>
         </div>
-        <div className="writing-grid">
-          <div className="option-stack">
-            <h3>Narrative Options</h3>
-            {narrativeOptions.map((optionItem) => (
-              <button className={`narrative-option ${selected.id === optionItem.id ? "selected" : ""}`} key={optionItem.id} onClick={() => { setSelected(optionItem); setResolved([]); }}>
-                <strong>{optionItem.title}</strong>
-                <span>{optionItem.body}</span>
-              </button>
-            ))}
+        <div className="requirement-groups">
+          {!writingGroups.length && (
+            <div className="empty-state">
+              <strong>No writing case selected.</strong>
+              <span>Add programmes from the left rail before planning narratives.</span>
+            </div>
+          )}
+          {writingGroups.map((group) => (
+            <section className="requirement-group" key={group.program.id}>
+              <div className="case-program-heading">
+                <div>
+                  <h3>{group.program.institution ?? "Institution"} — {group.requirements.length} item{group.requirements.length === 1 ? "" : "s"}</h3>
+                  <h2>{group.program.name}</h2>
+                </div>
+                <a href={group.program.sourceUrl} target="_blank" rel="noreferrer">Official source</a>
+              </div>
+              <div className="requirement-list">
+                {group.requirements.map((requirement) => {
+                  const key = requirementKey(group.program, requirement);
+                  return (
+                    <button key={key} className={activeRequirement?.key === key ? "requirement-card selected" : "requirement-card"} onClick={() => { setActiveRequirementId(key); setApproval(""); }}>
+                      <strong>{requirement.title}</strong>
+                      <span>{requirement.prompt}</span>
+                      <small>{requirement.wordLimit} / {requirement.sourceStatus}</small>
+                    </button>
+                  );
+                })}
+              </div>
+            </section>
+          ))}
+        </div>
+        {activeRequirement ? (
+          <>
+            <div className="writing-grid">
+              <div className="option-stack">
+                <h3>Narrative Options</h3>
+                {narrativeOptions.map((optionItem) => (
+                  <button className={`narrative-option ${selected.id === optionItem.id ? "selected" : ""}`} key={optionItem.id} onClick={() => { setSelected(optionItem); setResolved([]); }}>
+                    <strong>{optionItem.title}</strong>
+                    <span>{optionItem.body}</span>
+                  </button>
+                ))}
+              </div>
+              <div className="evidence-map">
+                <h3>Evidence Map</h3>
+                <p className="active-brief">{activeRequirement.program.name}: {activeRequirement.requirement.title}</p>
+                {selected.evidence.map((item) => <p className="evidence-pass" key={item}>{item}</p>)}
+                {selected.gaps.map((gap) => (
+                  <button className={`gap-item ${resolved.includes(gap) ? "resolved" : ""}`} key={gap} onClick={() => setResolved((items) => items.includes(gap) ? items.filter((item) => item !== gap) : [...items, gap])}>
+                    {gap}
+                  </button>
+                ))}
+              </div>
+            </div>
+            <div className="composer">
+              <p>{gaps.length ? `${gaps.length} evidence gap${gaps.length > 1 ? "s" : ""} left. Add missing evidence or choose a different narrative.` : "Evidence gaps resolved. Structure approval is available for the selected writing item."}</p>
+              <textarea placeholder="Tell the Writing Studio what evidence you can add, or choose a different narrative option." />
+              <button className="primary-button" disabled={!approveEnabled} onClick={() => setApproval("Structure approved for this browser session. Drafting remains blocked until official prompt details are verified.")}>Approve Structure</button>
+              {approval && <p className="status-line pass">{approval}</p>}
+            </div>
+          </>
+        ) : (
+          <div className="empty-state">
+            <strong>Writing planning is blocked.</strong>
+            <span>Select at least one programme and writing item before approving a structure.</span>
           </div>
-          <div className="evidence-map">
-            <h3>Evidence Map</h3>
-            {selected.evidence.map((item) => <p className="evidence-pass" key={item}>{item}</p>)}
-            {selected.gaps.map((gap) => (
-              <button className={`gap-item ${resolved.includes(gap) ? "resolved" : ""}`} key={gap} onClick={() => setResolved((items) => items.includes(gap) ? items.filter((item) => item !== gap) : [...items, gap])}>
-                {gap}
-              </button>
-            ))}
-          </div>
-        </div>
-        <div className="composer">
-          <p>{gaps.length ? `${gaps.length} evidence gap${gaps.length > 1 ? "s" : ""} left. Add missing evidence or choose a different narrative.` : "Evidence gaps resolved. Structure approval is available."}</p>
-          <textarea placeholder="Tell the Writing Studio what evidence you can add, or choose a different narrative option." />
-          <button className="primary-button" disabled={!approveEnabled} onClick={() => setApproval("Structure approved for this browser session.")}>Approve Structure</button>
-          {approval && <p className="status-line pass">{approval}</p>}
-        </div>
+        )}
       </main>
     </section>
   );
 }
 
-function SourceView({ program, catalogue }: { program: Program; catalogue: InstitutionCatalogue }) {
-  return (
-    <section className="source-page">
-      <div className="panel-heading">
-        <div>
-          <h1>Source Drawer</h1>
-          <p>Every hard requirement in this prototype is tied to an official page or marked for official-page review.</p>
-        </div>
-      </div>
-      <div className="source-grid">
-        {catalogue.sources.map((source) => (
-          <a className="source-card" key={source.url} href={source.url} target="_blank" rel="noreferrer">
-            <strong>{catalogue.shortName}: {source.label}</strong>
-            <span>{source.url}</span>
-            <small>{source.coverage} / {source.note}</small>
-          </a>
-        ))}
-        {catalogue.id === "manchester" && sourcePages.map((source) => (
-          <a className="source-card" key={source.url} href={source.url} target="_blank" rel="noreferrer">
-            <strong>{source.label}</strong>
-            <span>{source.url}</span>
-            <small>Last checked {source.checked}</small>
-          </a>
-        ))}
-        {program.hardRequirements.map((req) => (
-          <a className="source-card" key={`${req.label}-${req.value}`} href={req.sourceUrl} target="_blank" rel="noreferrer">
-            <strong>{req.category}: {req.label}</strong>
-            <span>{req.value}</span>
-            <small>{req.sourceTitle}</small>
-          </a>
-        ))}
-      </div>
-    </section>
-  );
-}
+const configFormatLabels: Record<AIConfigFormat, string> = {
+  env: "ENV",
+  json: "JSON",
+  yaml: "YAML",
+  curl: "cURL",
+  cli: "CLI",
+};
 
-function CodexOAuthView({
+function AIConfigView({
   state,
   setState,
 }: {
-  state: CodexOAuthPanelState;
-  setState: Dispatch<SetStateAction<CodexOAuthPanelState>>;
+  state: AIConfigPanelState;
+  setState: Dispatch<SetStateAction<AIConfigPanelState>>;
 }) {
-  const [endpoint, setEndpoint] = useState(getInitialCodexEndpoint);
-  const [bridgeNonce, setBridgeNonce] = useState(getInitialCodexBridgeNonce);
+  const [config, setConfig] = useState<AIConfig>(getInitialAIConfig);
   const [bridgeHealth, setBridgeHealth] = useState<{ status: BridgeHealthStatus; message: string; nonceRequired?: boolean }>({
     status: "unknown",
     message: "Bridge health has not been checked.",
   });
-  const validation = validateCodexEndpoint(endpoint);
+  const profile = getAIProviderProfile(config.providerId);
+  const configValidation = validateAIConfig(config);
+  const codexEndpointValidation = validateCodexEndpoint(config.endpoint);
+  const preview = buildAIConfigPreview(config);
+  const isCodexRuntime = profile.runtime === "codex-oauth";
   const busy = state.action !== "idle" && state.action !== "resetting";
   const now = () => new Date().toLocaleString();
-  const defaultStaticBridgeBlocked = validation.kind === "bridge-http" && isGithubPagesRuntime() && isDefaultCodexEndpoint(endpoint) && !hasExplicitCodexEndpoint() && bridgeHealth.status !== "ready";
-  const nonceBlocked = validation.kind === "bridge-http" && bridgeHealth.nonceRequired === true && !bridgeNonce.trim();
-  const oauthControlsDisabled = !validation.valid || busy || defaultStaticBridgeBlocked || nonceBlocked;
+  const defaultStaticBridgeBlocked = isCodexRuntime && codexEndpointValidation.kind === "bridge-http" && isGithubPagesRuntime() && isDefaultCodexEndpoint(config.endpoint) && !hasExplicitCodexEndpoint() && bridgeHealth.status !== "ready";
+  const nonceBlocked = isCodexRuntime && codexEndpointValidation.kind === "bridge-http" && bridgeHealth.nonceRequired === true && !config.bridgeNonce.trim();
+  const oauthControlsDisabled = !isCodexRuntime || !codexEndpointValidation.valid || busy || defaultStaticBridgeBlocked || nonceBlocked;
+  const credentialOptions = profile.credentialEnvVars.length ? profile.credentialEnvVars : [config.keyEnvVar || "AI_API_KEY"];
 
   useEffect(() => {
     setBridgeHealth({ status: "unknown", message: "Bridge health has not been checked." });
-  }, [endpoint]);
+  }, [config.endpoint, config.providerId]);
 
   const append = (
     message: string,
-    status: CodexOAuthStatus,
-    action: CodexOAuthAction = "idle",
-    extra: Partial<CodexOAuthPanelState> = {},
+    status: AIConfigStatus,
+    action: AIConfigAction = "idle",
+    extra: Partial<AIConfigPanelState> = {},
   ) => {
     const timestamp = now();
     setState((previous) => ({
@@ -536,38 +813,46 @@ function CodexOAuthView({
       action,
       lastCheckedAt: timestamp,
       message,
-      endpointKind: validation.kind,
-      endpointMessage: validation.message,
+      runtime: profile.runtime,
+      endpointKind: isCodexRuntime ? codexEndpointValidation.kind : undefined,
+      configMessage: isCodexRuntime ? codexEndpointValidation.message : configValidation.message,
       events: [`${timestamp} / ${message}`, ...previous.events].slice(0, 8),
     }));
   };
 
-  const run = async (action: CodexOAuthAction, task: () => Promise<void>) => {
+  const run = async (action: AIConfigAction, task: () => Promise<void>) => {
     append(`Running ${action.replace("_", " ")}.`, state.status, action);
     try {
-      rememberCodexEndpoint(endpoint);
-      rememberCodexBridgeNonce(bridgeNonce);
+      rememberAIConfig(config);
       await task();
     } catch (error) {
-      append(error instanceof Error ? error.message : "Codex OAuth action failed.", "error", "idle");
+      append(error instanceof Error ? error.message : "AI configuration action failed.", "error", "idle");
     }
+  };
+
+  const updateConfig = (patch: Partial<AIConfig>) => setConfig((previous) => ({ ...previous, ...patch }));
+  const updateProvider = (providerId: AIProviderId) => setConfig((previous) => applyAIProviderDefaults(previous, providerId));
+  const saveConfig = () => {
+    rememberAIConfig(config);
+    const result = validateAIConfig(config);
+    append(result.valid ? "AI configuration saved locally. Runtime secrets must stay in environment variables or the selected CLI." : result.message, result.valid ? "configured" : "error", "idle");
   };
 
   const checkBridgeHealth = async () => {
     await run("checking_status", async () => {
       setBridgeHealth({ status: "checking", message: "Checking local bridge health." });
-      const health = await probeCodexBridge(endpoint, bridgeNonce);
-      const message = health.nonceRequired && !bridgeNonce.trim()
+      const health = await probeCodexBridge(config.endpoint, config.bridgeNonce);
+      const message = health.nonceRequired && !config.bridgeNonce.trim()
         ? "Bridge is reachable but requires the nonce printed by scripts/codex_oauth_bridge.mjs."
         : "Bridge health check passed.";
       setBridgeHealth({ status: "ready", message, nonceRequired: health.nonceRequired });
-      append(message, health.nonceRequired && !bridgeNonce.trim() ? "static_blocked" : "unchecked", "idle");
+      append(message, health.nonceRequired && !config.bridgeNonce.trim() ? "static_blocked" : "unchecked", "idle");
     });
   };
 
   const checkStatus = async (refreshToken: boolean) => {
     await run(refreshToken ? "refreshing_status" : "checking_status", async () => {
-      const account = await readCodexAccount(endpoint, refreshToken, bridgeNonce);
+      const account = await readCodexAccount(config.endpoint, refreshToken, config.bridgeNonce);
       const accountLabel = account.account
         ? `${account.account.type}${account.account.email ? ` / ${account.account.email}` : ""}${account.account.planType ? ` / ${account.account.planType}` : ""}`
         : undefined;
@@ -588,7 +873,7 @@ function CodexOAuthView({
     }
 
     await run("starting_oauth", async () => {
-      const login = await startCodexLogin(endpoint, flow, bridgeNonce);
+      const login = await startCodexLogin(config.endpoint, flow, config.bridgeNonce);
       if (login.type === "chatgpt") {
         if (popup) {
           popup.location.href = login.authUrl;
@@ -637,7 +922,7 @@ function CodexOAuthView({
 
   const disconnect = async () => {
     await run("resetting", async () => {
-      await logoutCodex(endpoint, bridgeNonce);
+      await logoutCodex(config.endpoint, config.bridgeNonce);
       append("Codex OAuth account was logged out through the configured endpoint.", "needs_sign_in", "idle", {
         accountLabel: undefined,
         authUrl: undefined,
@@ -651,11 +936,12 @@ function CodexOAuthView({
     setBridgeHealth({ status: "unknown", message: "Bridge health has not been checked." });
     setState({
       status: "unchecked",
-      action: "resetting",
+      action: "idle",
       message: "Panel reset. No token data was read or stored.",
       events: [],
-      endpointKind: validation.kind,
-      endpointMessage: validation.message,
+      runtime: profile.runtime,
+      endpointKind: isCodexRuntime ? codexEndpointValidation.kind : undefined,
+      configMessage: configValidation.message,
     });
   };
 
@@ -663,43 +949,82 @@ function CodexOAuthView({
     <section className="source-page">
       <div className="panel-heading">
         <div>
-          <h1>Codex OAuth Runtime</h1>
-          <p>Hermes-style integration: Codex owns OAuth; this website calls Codex app-server or a trusted bridge and never stores bearer tokens.</p>
+          <h1>AI Configuration</h1>
+          <p>Hermes-style provider setup: choose an AI runtime, model, credential source, and export format. Codex OAuth is one provider option, not the whole configuration layer.</p>
         </div>
         <span className={`oauth-state ${state.status}`}>{state.status.replace("_", " ")}</span>
       </div>
       <div className="oauth-grid">
         <div className="oauth-panel oauth-panel-wide">
-          <h3>Endpoint</h3>
-          <label className="field-label" htmlFor="codex-endpoint">Codex HTTP bridge or app-server WebSocket</label>
-          <div className="endpoint-row">
-            <input
-              id="codex-endpoint"
-              className="text-input"
-              value={endpoint}
-              onChange={(event) => setEndpoint(event.target.value)}
-              spellCheck={false}
-            />
-            <button className="ghost-button" onClick={() => { rememberCodexEndpoint(endpoint); rememberCodexBridgeNonce(bridgeNonce); append("Endpoint saved locally.", validation.valid ? "unchecked" : "error"); }}>Save</button>
+          <h3>Provider Setup</h3>
+          <div className="config-grid">
+            <label className="config-field" htmlFor="ai-provider">
+              <span className="field-label">Provider</span>
+              <select id="ai-provider" className="select-input" value={config.providerId} onChange={(event) => updateProvider(event.target.value as AIProviderId)}>
+                {AI_PROVIDER_PROFILES.map((item) => <option key={item.id} value={item.id}>{item.label}</option>)}
+              </select>
+            </label>
+            <label className="config-field" htmlFor="ai-format">
+              <span className="field-label">Output format</span>
+              <select id="ai-format" className="select-input" value={config.configFormat} onChange={(event) => updateConfig({ configFormat: event.target.value as AIConfigFormat })}>
+                {(Object.keys(configFormatLabels) as AIConfigFormat[]).map((item) => <option key={item} value={item}>{configFormatLabels[item]}</option>)}
+              </select>
+            </label>
+            <label className="config-field" htmlFor="ai-model">
+              <span className="field-label">Model</span>
+              <input id="ai-model" className="text-input" value={config.model} onChange={(event) => updateConfig({ model: event.target.value })} spellCheck={false} />
+            </label>
+            {profile.credentialEnvVars.length > 0 && (
+              <label className="config-field" htmlFor="ai-key-env">
+                <span className="field-label">Credential environment variable</span>
+                <input id="ai-key-env" className="text-input" list="ai-key-env-options" value={config.keyEnvVar} onChange={(event) => updateConfig({ keyEnvVar: event.target.value })} spellCheck={false} />
+                <datalist id="ai-key-env-options">
+                  {credentialOptions.map((item) => <option key={item} value={item} />)}
+                </datalist>
+              </label>
+            )}
+            {profile.runtime !== "codex-oauth" && profile.runtime !== "cli" && (
+              <label className="config-field" htmlFor="ai-base-url">
+                <span className="field-label">API base URL</span>
+                <input id="ai-base-url" className="text-input" value={config.baseUrl} onChange={(event) => updateConfig({ baseUrl: event.target.value })} spellCheck={false} />
+              </label>
+            )}
+            {isCodexRuntime && (
+              <>
+                <label className="config-field" htmlFor="ai-endpoint">
+                  <span className="field-label">Codex bridge or app-server endpoint</span>
+                  <input id="ai-endpoint" className="text-input" value={config.endpoint} onChange={(event) => updateConfig({ endpoint: event.target.value })} spellCheck={false} />
+                </label>
+                <label className="config-field" htmlFor="ai-bridge-nonce">
+                  <span className="field-label">Local bridge nonce</span>
+                  <input id="ai-bridge-nonce" className="text-input" value={config.bridgeNonce} onChange={(event) => updateConfig({ bridgeNonce: event.target.value })} placeholder="Paste codex_bridge_nonce printed by the bridge" spellCheck={false} />
+                </label>
+              </>
+            )}
+            {profile.runtime === "cli" && (
+              <label className="config-field config-field-wide" htmlFor="ai-cli-command">
+                <span className="field-label">CLI command template</span>
+                <textarea id="ai-cli-command" className="command-input" value={config.cliCommand} onChange={(event) => updateConfig({ cliCommand: event.target.value })} spellCheck={false} />
+              </label>
+            )}
           </div>
-          <label className="field-label" htmlFor="codex-bridge-nonce">Local bridge nonce</label>
-          <input
-            id="codex-bridge-nonce"
-            className="text-input"
-            value={bridgeNonce}
-            onChange={(event) => setBridgeNonce(event.target.value)}
-            placeholder="Paste codex_bridge_nonce printed by the bridge"
-            spellCheck={false}
-          />
-          <p className={validation.valid ? "status-line pass" : "status-line error"}>{validation.message}</p>
-          <p className={bridgeHealth.status === "ready" && !nonceBlocked ? "status-line pass" : "status-line error"}>{defaultStaticBridgeBlocked ? "Static Pages default bridge is blocked until /health succeeds." : bridgeHealth.message}</p>
-          <pre>{`node scripts/codex_oauth_bridge.mjs --port 8787\n\n# Then open with the printed nonce:\n?codex_bridge=http://127.0.0.1:8787&codex_bridge_nonce=PASTE_PRINTED_NONCE\n\n# Origin-free clients can also use:\ncodex app-server --listen ws://127.0.0.1:4500`}</pre>
+          <p className={configValidation.valid ? "status-line pass" : "status-line error"}>{configValidation.message}</p>
+          {isCodexRuntime && <p className={bridgeHealth.status === "ready" && !nonceBlocked ? "status-line pass" : "status-line error"}>{defaultStaticBridgeBlocked ? "Static Pages default bridge is blocked until /health succeeds." : bridgeHealth.message}</p>}
+          <ul className="provider-notes">
+            {profile.notes.map((item) => <li key={item}>{item}</li>)}
+          </ul>
+        </div>
+        <div className="oauth-panel oauth-panel-wide">
+          <h3>{preview.title}</h3>
+          <pre>{preview.body}</pre>
+          <p>Secrets are represented as environment variable names. Do not paste raw API keys into this browser page.</p>
         </div>
         <div className="oauth-panel">
-          <h3>OAuth Controls</h3>
+          <h3>Configuration Controls</h3>
           <p>{state.message}</p>
           <div className="button-row">
-            <button className="primary-button" disabled={!validation.valid || busy || validation.kind !== "bridge-http"} onClick={checkBridgeHealth}>Probe Bridge</button>
+            <button className="primary-button" disabled={busy} onClick={saveConfig}>Save Config</button>
+            <button className="primary-button" disabled={!isCodexRuntime || !codexEndpointValidation.valid || busy || codexEndpointValidation.kind !== "bridge-http"} onClick={checkBridgeHealth}>Probe Bridge</button>
             <button className="primary-button" disabled={oauthControlsDisabled} onClick={() => checkStatus(false)}>Check Status</button>
             <button className="ghost-button" disabled={oauthControlsDisabled} onClick={() => startLogin("browser")}>Browser OAuth</button>
             <button className="ghost-button" disabled={oauthControlsDisabled} onClick={() => startLogin("device")}>Device Code</button>
@@ -709,18 +1034,33 @@ function CodexOAuthView({
           </div>
         </div>
         <div className="oauth-panel">
-          <h3>Account Snapshot</h3>
-          <div className="info-row"><span>Runtime</span><strong>{validation.kind ?? "Unconfigured"}</strong></div>
+          <h3>Runtime Snapshot</h3>
+          <div className="info-row"><span>Provider</span><strong>{profile.label}</strong></div>
+          <div className="info-row"><span>Runtime</span><strong>{profile.runtime}</strong></div>
+          <div className="info-row"><span>Model</span><strong>{config.model}</strong></div>
+          <div className="info-row"><span>Credential</span><strong>{profile.credentialEnvVars.length ? config.keyEnvVar : "No browser secret"}</strong></div>
           <div className="info-row"><span>Last check</span><strong>{state.lastCheckedAt ?? "Not checked"}</strong></div>
-          <div className="info-row"><span>Account</span><strong>{state.accountLabel ?? "Not connected"}</strong></div>
+          {isCodexRuntime && <div className="info-row"><span>Account</span><strong>{state.accountLabel ?? "Not connected"}</strong></div>}
           {state.authUrl && <a className="source-card compact-link" href={state.authUrl} target="_blank" rel="noreferrer">Open browser OAuth URL</a>}
           {state.verificationUrl && <a className="source-card compact-link" href={state.verificationUrl} target="_blank" rel="noreferrer">Open device verification URL</a>}
           {state.userCode && <p className="device-code">{state.userCode}</p>}
         </div>
         <div className="oauth-panel">
-          <h3>Bridge Contract</h3>
-          <pre>{`GET /codex/status\nPOST /codex/start-oauth { "flow": "browser" | "device" }\nPOST /codex/refresh\nPOST /codex/logout`}</pre>
-          <p>Public Pages deployments must call a localhost or HTTPS bridge when they cannot reach Codex app-server directly.</p>
+          <h3>Adapter Contract</h3>
+          <pre>{`AI config shape:
+{
+  "provider": "${config.providerId}",
+  "model": "${config.model}",
+  "credential": "environment variable or CLI session",
+  "format": "${config.configFormat}"
+}
+
+Codex compatibility:
+GET /codex/status
+POST /codex/start-oauth { "flow": "browser" | "device" }
+POST /codex/refresh
+POST /codex/logout`}</pre>
+          <p>Public Pages deployments must use a localhost or HTTPS bridge for browser-restricted local runtimes.</p>
         </div>
         <div className="oauth-panel">
           <h3>Event Log</h3>
@@ -739,10 +1079,11 @@ export default function App() {
   const [group, setGroup] = useState<InstitutionGroup>("UK Core");
   const [catalogueId, setCatalogueId] = useState("cambridge");
   const [selected, setSelected] = useState<Program>(programs.find((program) => program.id === "bsc-genetics") ?? programs[0]);
-  const [oauthState, setOauthState] = useState<CodexOAuthPanelState>({
+  const [casePrograms, setCasePrograms] = useState<Program[]>([]);
+  const [aiConfigState, setAIConfigState] = useState<AIConfigPanelState>({
     status: "unchecked",
     action: "idle",
-    message: "No status check has run. Use explicit controls before connecting a local Codex bridge.",
+    message: "No configuration check has run. Save a provider setup before connecting a local runtime.",
     events: [],
   });
   const selectedCatalogue = allInstitutionCatalogues.find((catalogue) => catalogue.id === catalogueId) ?? allInstitutionCatalogues[0];
@@ -762,8 +1103,23 @@ export default function App() {
       setSelected(rows[0]);
     }
   }, [rows, selected.id]);
-  const openChecklist = () => setActiveView("Materials");
-  const openWriting = () => setActiveView("Writing Studio");
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0 });
+  }, [activeView]);
+  const addCaseProgram = (program: Program) => {
+    setCasePrograms((items) => items.some((item) => item.id === program.id) ? items : [...items, program]);
+  };
+  const toggleCaseProgram = (program: Program) => {
+    setCasePrograms((items) => items.some((item) => item.id === program.id) ? items.filter((item) => item.id !== program.id) : [...items, program]);
+  };
+  const openChecklist = () => {
+    addCaseProgram(activeProgram);
+    setActiveView("Materials");
+  };
+  const openWriting = () => {
+    addCaseProgram(activeProgram);
+    setActiveView("Writing Studio");
+  };
   const resetFilters = () => {
     const defaultCatalogue = allInstitutionCatalogues.find((catalogue) => catalogue.group === "UK Core");
     setGroup("UK Core");
@@ -777,14 +1133,13 @@ export default function App() {
       {activeView === "Programs" && (
         <div className="program-layout">
           <FilterRail level={level} setLevel={setLevel} group={group} setGroup={setGroup} catalogueId={catalogueId} setCatalogueId={setCatalogueId} catalogues={allInstitutionCatalogues} resetFilters={resetFilters} />
-          <ProgramTable level={level} rows={rows} selected={activeProgram} setSelected={setSelected} catalogue={selectedCatalogue} />
-          {rows.length ? <Inspector program={activeProgram} openChecklist={openChecklist} /> : <CatalogueInspector catalogue={selectedCatalogue} />}
+          <ProgramTable level={level} rows={rows} selected={activeProgram} setSelected={setSelected} catalogue={selectedCatalogue} casePrograms={casePrograms} toggleCaseProgram={toggleCaseProgram} />
+          {rows.length ? <Inspector program={activeProgram} openChecklist={openChecklist} inCase={casePrograms.some((item) => item.id === activeProgram.id)} toggleCaseProgram={toggleCaseProgram} /> : <CatalogueInspector catalogue={selectedCatalogue} />}
         </div>
       )}
-      {activeView === "Materials" && <MaterialsView program={activeProgram} openWriting={openWriting} backToPrograms={() => setActiveView("Programs")} />}
-      {activeView === "Writing Studio" && <WritingView program={activeProgram} backToChecklist={() => setActiveView("Materials")} />}
-      {activeView === "Sources" && <SourceView program={activeProgram} catalogue={selectedCatalogue} />}
-      {activeView === "Codex OAuth" && <CodexOAuthView state={oauthState} setState={setOauthState} />}
+      {activeView === "Materials" && <MaterialsView program={activeProgram} casePrograms={casePrograms} toggleCaseProgram={toggleCaseProgram} openWriting={openWriting} backToPrograms={() => setActiveView("Programs")} />}
+      {activeView === "Writing Studio" && <WritingView rows={rows} casePrograms={casePrograms} toggleCaseProgram={toggleCaseProgram} backToChecklist={() => setActiveView("Materials")} />}
+      {activeView === "AI Config" && <AIConfigView state={aiConfigState} setState={setAIConfigState} />}
     </div>
   );
 }

@@ -2,12 +2,60 @@ type JsonObject = Record<string, unknown>;
 
 export type CodexEndpointKind = "app-server-ws" | "bridge-http";
 export type CodexLoginFlow = "browser" | "device";
+export type AIRuntimeMode = "codex-oauth" | "api-key" | "openai-compatible" | "local-api" | "cli";
+export type AIConfigFormat = "env" | "json" | "yaml" | "curl" | "cli";
+export type AIProviderId =
+  | "codex-oauth"
+  | "openai-api"
+  | "openrouter-api"
+  | "anthropic-api"
+  | "gemini-api"
+  | "deepseek-api"
+  | "ollama-local"
+  | "openai-compatible"
+  | "hermes-cli"
+  | "custom-cli";
 
 export interface CodexEndpointValidation {
   endpoint: string;
   kind?: CodexEndpointKind;
   valid: boolean;
   message: string;
+}
+
+export interface AIProviderProfile {
+  id: AIProviderId;
+  label: string;
+  runtime: AIRuntimeMode;
+  defaultModel: string;
+  defaultBaseUrl?: string;
+  credentialEnvVars: string[];
+  defaultCliCommand?: string;
+  notes: string[];
+}
+
+export interface AIConfig {
+  providerId: AIProviderId;
+  model: string;
+  baseUrl: string;
+  endpoint: string;
+  bridgeNonce: string;
+  keyEnvVar: string;
+  cliCommand: string;
+  configFormat: AIConfigFormat;
+}
+
+export interface AIConfigValidation {
+  valid: boolean;
+  message: string;
+  runtime: AIRuntimeMode;
+  endpointKind?: CodexEndpointKind;
+}
+
+export interface AIConfigPreview {
+  title: string;
+  body: string;
+  notes: string[];
 }
 
 export interface CodexBridgeHealth {
@@ -49,9 +97,104 @@ export type CodexLoginResult =
       message?: string;
     };
 
-const endpointStorageKey = "soleil.codex.oauth.endpoint";
-const bridgeNonceStorageKey = "soleil.codex.oauth.bridgeNonce";
+const aiConfigStorageKey = "soleil.ai.config";
+const endpointStorageKey = "soleil.ai.endpoint";
+const bridgeNonceStorageKey = "soleil.ai.bridgeNonce";
+const legacyEndpointStorageKey = "soleil.codex.oauth.endpoint";
+const legacyBridgeNonceStorageKey = "soleil.codex.oauth.bridgeNonce";
 const defaultBridgeEndpoint = "http://127.0.0.1:8787";
+
+export const AI_PROVIDER_PROFILES: AIProviderProfile[] = [
+  {
+    id: "codex-oauth",
+    label: "Codex OAuth / Local Bridge",
+    runtime: "codex-oauth",
+    defaultModel: "codex-default",
+    credentialEnvVars: [],
+    notes: ["Uses the existing Codex app-server or trusted localhost bridge.", "The page never reads Codex tokens."],
+  },
+  {
+    id: "openai-api",
+    label: "OpenAI API",
+    runtime: "openai-compatible",
+    defaultModel: "gpt-4.1",
+    defaultBaseUrl: "https://api.openai.com/v1",
+    credentialEnvVars: ["OPENAI_API_KEY"],
+    notes: ["OpenAI-compatible chat completions format."],
+  },
+  {
+    id: "openrouter-api",
+    label: "OpenRouter API",
+    runtime: "openai-compatible",
+    defaultModel: "openai/gpt-4.1",
+    defaultBaseUrl: "https://openrouter.ai/api/v1",
+    credentialEnvVars: ["OPENROUTER_API_KEY"],
+    notes: ["OpenAI-compatible routing format with provider-qualified model names."],
+  },
+  {
+    id: "anthropic-api",
+    label: "Anthropic API",
+    runtime: "api-key",
+    defaultModel: "claude-sonnet-4",
+    defaultBaseUrl: "https://api.anthropic.com/v1",
+    credentialEnvVars: ["ANTHROPIC_API_KEY"],
+    notes: ["Provider-specific messages API format."],
+  },
+  {
+    id: "gemini-api",
+    label: "Gemini API",
+    runtime: "api-key",
+    defaultModel: "gemini-2.5-pro",
+    defaultBaseUrl: "https://generativelanguage.googleapis.com/v1beta",
+    credentialEnvVars: ["GEMINI_API_KEY", "GOOGLE_API_KEY"],
+    notes: ["Provider-specific generateContent format."],
+  },
+  {
+    id: "deepseek-api",
+    label: "DeepSeek API",
+    runtime: "openai-compatible",
+    defaultModel: "deepseek-chat",
+    defaultBaseUrl: "https://api.deepseek.com/v1",
+    credentialEnvVars: ["DEEPSEEK_API_KEY"],
+    notes: ["OpenAI-compatible chat completions format."],
+  },
+  {
+    id: "ollama-local",
+    label: "Ollama Local API",
+    runtime: "local-api",
+    defaultModel: "llama3.1",
+    defaultBaseUrl: "http://127.0.0.1:11434",
+    credentialEnvVars: [],
+    notes: ["Local HTTP runtime; no browser-stored secret."],
+  },
+  {
+    id: "openai-compatible",
+    label: "Custom OpenAI-Compatible API",
+    runtime: "openai-compatible",
+    defaultModel: "model-name",
+    defaultBaseUrl: "https://api.example.com/v1",
+    credentialEnvVars: ["AI_API_KEY"],
+    notes: ["Use for vLLM, LM Studio server mode, LiteLLM, or a compatible proxy."],
+  },
+  {
+    id: "hermes-cli",
+    label: "Hermes CLI Profile",
+    runtime: "cli",
+    defaultModel: "openrouter/horizon-beta",
+    credentialEnvVars: ["OPENROUTER_API_KEY", "OPENAI_API_KEY", "ANTHROPIC_API_KEY"],
+    defaultCliCommand: "hermes --model {model}",
+    notes: ["CLI command template; edit it to match the installed Hermes command surface."],
+  },
+  {
+    id: "custom-cli",
+    label: "Custom CLI Adapter",
+    runtime: "cli",
+    defaultModel: "model-name",
+    credentialEnvVars: ["AI_API_KEY"],
+    defaultCliCommand: "your-cli --model {model}",
+    notes: ["Use for Codex CLI, Claude Code, Gemini CLI, Aider, OpenCode, or any local wrapper."],
+  },
+];
 
 function isRecord(value: unknown): value is JsonObject {
   return typeof value === "object" && value !== null && !Array.isArray(value);
@@ -66,18 +209,361 @@ function trimTrailingSlash(value: string) {
   return value.endsWith("/") ? value.slice(0, -1) : value;
 }
 
+function profileById(providerId: string | null | undefined) {
+  return AI_PROVIDER_PROFILES.find((profile) => profile.id === providerId) ?? AI_PROVIDER_PROFILES[0];
+}
+
+function isAIProviderId(value: string): value is AIProviderId {
+  return AI_PROVIDER_PROFILES.some((profile) => profile.id === value);
+}
+
+function isAIConfigFormat(value: string): value is AIConfigFormat {
+  return ["env", "json", "yaml", "curl", "cli"].includes(value);
+}
+
+function parseStoredAIConfig(value: string | null): Partial<AIConfig> {
+  if (!value) {
+    return {};
+  }
+
+  try {
+    const parsed = JSON.parse(value);
+    return isRecord(parsed) ? parsed as Partial<AIConfig> : {};
+  } catch {
+    return {};
+  }
+}
+
+function readStorage(key: string) {
+  if (typeof window === "undefined") {
+    return null;
+  }
+
+  return window.localStorage.getItem(key);
+}
+
+function firstCredentialEnvVar(profile: AIProviderProfile) {
+  return profile.credentialEnvVars[0] ?? "AI_API_KEY";
+}
+
+function normalizeConfig(config: AIConfig): AIConfig {
+  const profile = profileById(config.providerId);
+  return {
+    providerId: profile.id,
+    model: config.model.trim() || profile.defaultModel,
+    baseUrl: trimTrailingSlash(config.baseUrl.trim() || (profile.defaultBaseUrl ?? "")),
+    endpoint: trimTrailingSlash(config.endpoint.trim() || defaultBridgeEndpoint),
+    bridgeNonce: config.bridgeNonce.trim(),
+    keyEnvVar: config.keyEnvVar.trim() || firstCredentialEnvVar(profile),
+    cliCommand: config.cliCommand.trim() || (profile.defaultCliCommand ?? ""),
+    configFormat: config.configFormat,
+  };
+}
+
+export function getAIProviderProfile(providerId: AIProviderId) {
+  return profileById(providerId);
+}
+
+export function getInitialAIConfig(): AIConfig {
+  if (typeof window === "undefined") {
+    const profile = AI_PROVIDER_PROFILES[0];
+    return {
+      providerId: profile.id,
+      model: profile.defaultModel,
+      baseUrl: profile.defaultBaseUrl ?? "",
+      endpoint: defaultBridgeEndpoint,
+      bridgeNonce: "",
+      keyEnvVar: firstCredentialEnvVar(profile),
+      cliCommand: profile.defaultCliCommand ?? "",
+      configFormat: "env",
+    };
+  }
+
+  const params = new URLSearchParams(window.location.search);
+  const stored = parseStoredAIConfig(window.localStorage.getItem(aiConfigStorageKey));
+  const providerFromQuery = params.get("ai_provider");
+  const providerId = providerFromQuery && isAIProviderId(providerFromQuery)
+    ? providerFromQuery
+    : isAIProviderId(String(stored.providerId))
+      ? stored.providerId as AIProviderId
+      : "codex-oauth";
+  const profile = profileById(providerId);
+  const formatFromQuery = params.get("ai_format");
+  const configFormat = formatFromQuery && isAIConfigFormat(formatFromQuery)
+    ? formatFromQuery
+    : isAIConfigFormat(String(stored.configFormat))
+      ? stored.configFormat as AIConfigFormat
+      : "env";
+
+  return normalizeConfig({
+    providerId,
+    model: params.get("ai_model") ?? stored.model ?? profile.defaultModel,
+    baseUrl: params.get("ai_base_url") ?? stored.baseUrl ?? profile.defaultBaseUrl ?? "",
+    endpoint:
+      params.get("ai_endpoint") ??
+      params.get("codex_ws") ??
+      params.get("codex_bridge") ??
+      stored.endpoint ??
+      readStorage(endpointStorageKey) ??
+      readStorage(legacyEndpointStorageKey) ??
+      defaultBridgeEndpoint,
+    bridgeNonce:
+      params.get("ai_bridge_nonce") ??
+      params.get("codex_bridge_nonce") ??
+      params.get("codex_nonce") ??
+      stored.bridgeNonce ??
+      readStorage(bridgeNonceStorageKey) ??
+      readStorage(legacyBridgeNonceStorageKey) ??
+      "",
+    keyEnvVar: params.get("ai_key_env") ?? stored.keyEnvVar ?? firstCredentialEnvVar(profile),
+    cliCommand: params.get("ai_cli") ?? stored.cliCommand ?? profile.defaultCliCommand ?? "",
+    configFormat,
+  });
+}
+
+export function rememberAIConfig(config: AIConfig) {
+  if (typeof window === "undefined") {
+    return;
+  }
+
+  const normalized = normalizeConfig(config);
+  window.localStorage.setItem(aiConfigStorageKey, JSON.stringify(normalized));
+  window.localStorage.setItem(endpointStorageKey, normalized.endpoint);
+  if (normalized.bridgeNonce) {
+    window.localStorage.setItem(bridgeNonceStorageKey, normalized.bridgeNonce);
+  } else {
+    window.localStorage.removeItem(bridgeNonceStorageKey);
+  }
+}
+
+export function applyAIProviderDefaults(config: AIConfig, providerId: AIProviderId): AIConfig {
+  const profile = profileById(providerId);
+  return normalizeConfig({
+    ...config,
+    providerId: profile.id,
+    model: profile.defaultModel,
+    baseUrl: profile.defaultBaseUrl ?? "",
+    keyEnvVar: firstCredentialEnvVar(profile),
+    cliCommand: profile.defaultCliCommand ?? "",
+    endpoint: config.endpoint || defaultBridgeEndpoint,
+  });
+}
+
+function validateUrl(input: string, allowPlainLoopback = false) {
+  let url: URL;
+  try {
+    url = new URL(input);
+  } catch {
+    return "URL is invalid.";
+  }
+
+  if (url.username || url.password) {
+    return "Do not embed credentials in URLs.";
+  }
+
+  if (url.protocol === "http:" && !allowPlainLoopback && !isLoopbackHost(url.hostname)) {
+    return "Plain HTTP is allowed only for localhost or 127.0.0.1.";
+  }
+
+  if (url.protocol !== "http:" && url.protocol !== "https:") {
+    return "Use http:// or https://.";
+  }
+
+  return "";
+}
+
+export function validateAIConfig(config: AIConfig): AIConfigValidation {
+  const normalized = normalizeConfig(config);
+  const profile = profileById(normalized.providerId);
+
+  if (!normalized.model) {
+    return { valid: false, message: "Model is required.", runtime: profile.runtime };
+  }
+
+  if (profile.runtime === "codex-oauth") {
+    const endpointValidation = validateCodexEndpoint(normalized.endpoint);
+    return {
+      valid: endpointValidation.valid,
+      message: endpointValidation.message,
+      runtime: profile.runtime,
+      endpointKind: endpointValidation.kind,
+    };
+  }
+
+  if (profile.runtime === "cli") {
+    return normalized.cliCommand
+      ? { valid: true, message: "CLI command template is configured. Secrets must stay in the CLI environment.", runtime: profile.runtime }
+      : { valid: false, message: "CLI command template is required.", runtime: profile.runtime };
+  }
+
+  if (profile.credentialEnvVars.length && !/^[A-Z_][A-Z0-9_]*$/.test(normalized.keyEnvVar)) {
+    return { valid: false, message: "Credential environment variable must look like OPENAI_API_KEY.", runtime: profile.runtime };
+  }
+
+  if (!normalized.baseUrl) {
+    return { valid: false, message: "Base URL is required for API providers.", runtime: profile.runtime };
+  }
+
+  const urlError = validateUrl(normalized.baseUrl, profile.runtime === "local-api");
+  return {
+    valid: !urlError,
+    message: urlError || "AI API configuration is valid. Store only the environment variable name here, not the key value.",
+    runtime: profile.runtime,
+  };
+}
+
+function interpolateCliCommand(config: AIConfig) {
+  const normalized = normalizeConfig(config);
+  return normalized.cliCommand
+    .split("{model}").join(normalized.model)
+    .split("{baseUrl}").join(normalized.baseUrl)
+    .split("{endpoint}").join(normalized.endpoint)
+    .split("{envVar}").join(normalized.keyEnvVar);
+}
+
+function yamlLine(key: string, value: string, indent = "") {
+  return `${indent}${key}: ${JSON.stringify(value)}`;
+}
+
+function openAiCompatibleCurl(config: AIConfig) {
+  const normalized = normalizeConfig(config);
+  const base = normalized.baseUrl.replace(/\/$/, "");
+  return `curl "${base}/chat/completions" \\
+  -H "Authorization: Bearer $${normalized.keyEnvVar}" \\
+  -H "Content-Type: application/json" \\
+  -d '${JSON.stringify({
+    model: normalized.model,
+    messages: [{ role: "user", content: "Write a one sentence status update." }],
+  })}'`;
+}
+
+export function buildAIConfigPreview(config: AIConfig): AIConfigPreview {
+  const normalized = normalizeConfig(config);
+  const profile = profileById(normalized.providerId);
+  const notes = profile.notes;
+  const commonJson = {
+    provider: profile.id,
+    runtime: profile.runtime,
+    model: normalized.model,
+    credential: profile.credentialEnvVars.length ? { env: normalized.keyEnvVar } : "none",
+    baseUrl: normalized.baseUrl || undefined,
+    endpoint: profile.runtime === "codex-oauth" ? normalized.endpoint : undefined,
+  };
+
+  if (normalized.configFormat === "json") {
+    return { title: "JSON config", body: JSON.stringify(commonJson, null, 2), notes };
+  }
+
+  if (normalized.configFormat === "yaml") {
+    const body = [
+      yamlLine("provider", profile.id),
+      yamlLine("runtime", profile.runtime),
+      yamlLine("model", normalized.model),
+      profile.credentialEnvVars.length ? "credential:" : "credential: none",
+      ...(profile.credentialEnvVars.length ? [yamlLine("env", normalized.keyEnvVar, "  ")] : []),
+      normalized.baseUrl ? "endpoint:" : "",
+      normalized.baseUrl ? yamlLine("base_url", normalized.baseUrl, "  ") : "",
+      profile.runtime === "codex-oauth" ? yamlLine("codex_endpoint", normalized.endpoint) : "",
+    ].filter(Boolean).join("\n");
+    return { title: "YAML config", body, notes };
+  }
+
+  if (normalized.configFormat === "cli") {
+    if (profile.runtime === "codex-oauth") {
+      return {
+        title: "Codex bridge commands",
+        body: `node scripts/codex_oauth_bridge.mjs --port 8787\ncodex app-server --listen ws://127.0.0.1:4500`,
+        notes,
+      };
+    }
+
+    const secretLine = profile.credentialEnvVars.length ? `export ${normalized.keyEnvVar}=...` : "# No API key environment variable is required.";
+    return { title: "CLI command template", body: `${secretLine}\n${interpolateCliCommand(normalized)}`, notes };
+  }
+
+  if (normalized.configFormat === "curl") {
+    if (profile.runtime === "codex-oauth") {
+      return {
+        title: "Codex bridge HTTP contract",
+        body: `curl "${normalized.endpoint}/codex/status"${normalized.bridgeNonce ? ` \\\n  -H "x-codex-bridge-nonce: ${normalized.bridgeNonce}"` : ""}`,
+        notes,
+      };
+    }
+
+    if (profile.id === "anthropic-api") {
+      return {
+        title: "Anthropic messages request",
+        body: `curl "${normalized.baseUrl.replace(/\/$/, "")}/messages" \\
+  -H "x-api-key: $${normalized.keyEnvVar}" \\
+  -H "anthropic-version: 2023-06-01" \\
+  -H "Content-Type: application/json" \\
+  -d '${JSON.stringify({
+    model: normalized.model,
+    max_tokens: 1024,
+    messages: [{ role: "user", content: "Write a one sentence status update." }],
+  })}'`,
+        notes,
+      };
+    }
+
+    if (profile.id === "gemini-api") {
+      return {
+        title: "Gemini generateContent request",
+        body: `curl "${normalized.baseUrl.replace(/\/$/, "")}/models/${normalized.model}:generateContent?key=$${normalized.keyEnvVar}" \\
+  -H "Content-Type: application/json" \\
+  -d '${JSON.stringify({ contents: [{ parts: [{ text: "Write a one sentence status update." }] }] })}'`,
+        notes,
+      };
+    }
+
+    if (profile.id === "ollama-local") {
+      return {
+        title: "Ollama local chat request",
+        body: `curl "${normalized.baseUrl.replace(/\/$/, "")}/api/chat" \\
+  -H "Content-Type: application/json" \\
+  -d '${JSON.stringify({
+    model: normalized.model,
+    messages: [{ role: "user", content: "Write a one sentence status update." }],
+    stream: false,
+  })}'`,
+        notes,
+      };
+    }
+
+    return { title: "OpenAI-compatible chat request", body: openAiCompatibleCurl(normalized), notes };
+  }
+
+  if (profile.runtime === "codex-oauth") {
+    const lines = [
+      "AI_PROVIDER=codex-oauth",
+      `AI_MODEL=${normalized.model}`,
+      `CODEX_ENDPOINT=${normalized.endpoint}`,
+      normalized.bridgeNonce ? `CODEX_BRIDGE_NONCE=${normalized.bridgeNonce}` : "# CODEX_BRIDGE_NONCE=printed-by-local-bridge",
+    ];
+    return { title: "Environment config", body: lines.join("\n"), notes };
+  }
+
+  const lines = [
+    `AI_PROVIDER=${profile.id}`,
+    `AI_MODEL=${normalized.model}`,
+    normalized.baseUrl ? `AI_BASE_URL=${normalized.baseUrl}` : "",
+    profile.credentialEnvVars.length ? `${normalized.keyEnvVar}=...` : "# No API key environment variable is required.",
+  ].filter(Boolean);
+  return { title: "Environment config", body: lines.join("\n"), notes };
+}
+
 export function getInitialCodexEndpoint() {
   if (typeof window === "undefined") {
     return defaultBridgeEndpoint;
   }
 
   const params = new URLSearchParams(window.location.search);
-  const fromQuery = params.get("codex_ws") ?? params.get("codex_bridge");
+  const fromQuery = params.get("ai_endpoint") ?? params.get("codex_ws") ?? params.get("codex_bridge");
   if (fromQuery) {
     return fromQuery;
   }
 
-  return window.localStorage.getItem(endpointStorageKey) ?? defaultBridgeEndpoint;
+  return window.localStorage.getItem(endpointStorageKey) ?? window.localStorage.getItem(legacyEndpointStorageKey) ?? defaultBridgeEndpoint;
 }
 
 export function rememberCodexEndpoint(endpoint: string) {
@@ -92,12 +578,12 @@ export function getInitialCodexBridgeNonce() {
   }
 
   const params = new URLSearchParams(window.location.search);
-  const fromQuery = params.get("codex_bridge_nonce") ?? params.get("codex_nonce");
+  const fromQuery = params.get("ai_bridge_nonce") ?? params.get("codex_bridge_nonce") ?? params.get("codex_nonce");
   if (fromQuery) {
     return fromQuery;
   }
 
-  return window.localStorage.getItem(bridgeNonceStorageKey) ?? "";
+  return window.localStorage.getItem(bridgeNonceStorageKey) ?? window.localStorage.getItem(legacyBridgeNonceStorageKey) ?? "";
 }
 
 export function rememberCodexBridgeNonce(nonce: string) {
@@ -121,8 +607,9 @@ export function hasExplicitCodexEndpoint() {
   }
 
   const params = new URLSearchParams(window.location.search);
-  const stored = window.localStorage.getItem(endpointStorageKey);
-  return params.has("codex_ws") || params.has("codex_bridge") || Boolean(stored && !isDefaultCodexEndpoint(stored));
+  const storedConfig = parseStoredAIConfig(window.localStorage.getItem(aiConfigStorageKey));
+  const stored = window.localStorage.getItem(endpointStorageKey) ?? storedConfig.endpoint;
+  return params.has("ai_endpoint") || params.has("codex_ws") || params.has("codex_bridge") || Boolean(stored && !isDefaultCodexEndpoint(stored));
 }
 
 export function isGithubPagesRuntime() {
