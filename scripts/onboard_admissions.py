@@ -22,6 +22,26 @@ OUTPUT_ALIASES = {
 }
 
 
+def build_blank_memory() -> dict:
+    return {
+        "schema_version": "2026-06-26",
+        "privacy_mode": "local_only",
+        "profile": {},
+        "course_memory": [],
+        "lecture_delta_memory": [],
+        "writing_voice": {
+            "samples": [],
+            "inferred_rules": [],
+            "revision_rules": [],
+        },
+        "notes_preferences": [],
+        "exam_preparation_preferences": [],
+        "application_preferences": [],
+        "source_log": [],
+        "conflicts": [],
+    }
+
+
 def build_template(workflow_mode: str, output_mode: str) -> dict:
     workflow_mode = WORKFLOW_ALIASES.get(workflow_mode, workflow_mode)
     output_mode = OUTPUT_ALIASES.get(output_mode, output_mode)
@@ -62,6 +82,7 @@ def build_template(workflow_mode: str, output_mode: str) -> dict:
             "budget_annual": "",
             "constraints": [],
         },
+        "memory": build_blank_memory(),
     }
     if workflow_mode == "programme_table_cleaning":
         data["source_workbook_dir_or_files"] = []
