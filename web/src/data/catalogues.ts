@@ -6,6 +6,7 @@ import { kclCatalogueChecked, kclPrograms } from "./kclPrograms";
 import { lbsCatalogueChecked, lbsPrograms } from "./lbsPrograms";
 import { lseCatalogueChecked, lsePrograms } from "./lsePrograms";
 import { manchesterCatalogueChecked, manchesterPrograms } from "./manchesterPrograms";
+import { oxfordCatalogueChecked, oxfordPrograms } from "./oxfordPrograms";
 import { uclCatalogueChecked, uclPrograms } from "./uclPrograms";
 import { warwickCatalogueChecked, warwickPrograms } from "./warwickPrograms";
 
@@ -43,10 +44,10 @@ export const institutionCatalogues: InstitutionCatalogue[] = [
     shortName: "Oxford",
     group: "UK Core",
     region: "United Kingdom",
-    checked,
+    checked: oxfordCatalogueChecked,
     sources: [
-      source("Undergraduate", "Undergraduate courses A-Z", "https://www.ox.ac.uk/admissions/undergraduate/courses/course-listing", "Complete HTML", "UG course names and URLs are exposed in the official A-Z page when Cloudflare allows access."),
-      source("Postgraduate", "Graduate course search", "https://www.ox.ac.uk/admissions/graduate/courses/find-your-course", "Search/API required", "Official search tool covers graduate courses; raw automated clients may hit Cloudflare and must use browser/API handling."),
+      source("Undergraduate", "Undergraduate courses listing", "https://www.ox.ac.uk/admissions/undergraduate/courses/course-listing", "Search/API required", "Official `/api/listing/163` rows expose UG course cards and are loaded by the listing page."),
+      source("Postgraduate", "Graduate course search", "https://www.ox.ac.uk/admissions/graduate/courses/find-your-course", "Search/API required", "Official `/api/listing/3405` rows expose graduate course cards and are loaded by the search page."),
     ],
     examples: [
       option("oxford-ug-biochemistry", "Undergraduate", "Biochemistry (Molecular and Cellular)", "BA", "https://www.ox.ac.uk/admissions/undergraduate/courses/course-listing/biochemistry-molecular-and-cellular"),
@@ -54,8 +55,9 @@ export const institutionCatalogues: InstitutionCatalogue[] = [
       option("oxford-pg-advanced-computer-science", "Postgraduate", "Advanced Computer Science", "MSc", "https://www.ox.ac.uk/admissions/graduate/courses/msc-advanced-computer-science"),
       option("oxford-pg-computer-science", "Postgraduate", "Computer Science", "DPhil", "https://www.ox.ac.uk/admissions/graduate/courses/dphil-computer-science"),
     ],
-    extractionNote: "Official entry points are verified, but raw catalogue extraction is currently blocked by Oxford Cloudflare in this environment.",
-    caveat: "Do not infer a complete Oxford list from isolated detail pages; use only a verified official listing/API/browser-rendered result set.",
+    programs: oxfordPrograms,
+    extractionNote: "Official Oxford listing API rows loaded: 52 undergraduate courses and 407 postgraduate course cards. Generation uses browser-backed same-origin fetch and validates fetched rows against Oxford `meta.count`.",
+    caveat: "Oxford may show human verification to repeated automated access; skip refresh and keep source-blocked rather than inferring rows if official API fetches cannot pass count validation.",
   },
   {
     id: "cambridge",

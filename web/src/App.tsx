@@ -184,8 +184,9 @@ function ProgramMeta({ program }: { program: Program }) {
     program.sourceTitle.includes("Closed this cycle") ? "Closed this cycle" : "",
     program.sourceTitle.includes("EPSRC CDT") ? "EPSRC CDT" : "",
   ];
-  const meta = [program.award, program.mode, ...flags]
-    .filter((item) => item && item !== "See official programme page" && item !== "Open in official directory");
+  const meta = Array.from(new Set(
+    [program.award, program.mode, ...flags].filter((item) => item && item !== "See official programme page" && item !== "Open in official directory"),
+  ));
   return (
     <div className="program-meta">
       {meta.map((item) => <span key={`${program.id}-${item}`}>{item}</span>)}
