@@ -49,8 +49,10 @@ interface WritingRequirement {
   prompt: string;
   wordLimit: string;
   sourceUrl: string;
-  sourceStatus: "Source-backed document requirement" | "Needs official prompt verification" | "Planning placeholder";
+  sourceStatus: "Official prompt loaded" | "Source-backed document requirement" | "Needs official prompt verification";
   sourceTitle: string;
+  required: string;
+  sourceChecked: string;
 }
 
 interface ProgramRequirementGroup {
@@ -78,26 +80,55 @@ function getWritingRequirements(program: Program): WritingRequirement[] {
   const key = institutionKey(program);
 
   if (key.includes("umich") || key.includes("michigan")) {
-    return [1, 2, 3].map((slot) => ({
-      id: `michigan-placeholder-${slot}`,
-      title: `Michigan writing slot ${slot}`,
-      prompt: "User-requested planning slot. Needs official prompt verification from the current Michigan application route before drafting.",
-      wordLimit: "Needs official prompt verification",
-      sourceUrl: program.sourceUrl,
-      sourceStatus: "Planning placeholder",
-      sourceTitle: program.sourceTitle,
-    }));
+    const sourceUrl = "https://admissions.umich.edu/apply/first-year-applicants/essay-questions";
+    return [
+      {
+        id: "umich-common-app-personal-essay",
+        title: "Common Application personal essay",
+        prompt: "Common Application personal essay slot. Verify the current official prompt list before drafting.",
+        wordLimit: "250-650 words",
+        sourceUrl,
+        sourceStatus: "Needs official prompt verification",
+        sourceTitle: "University of Michigan Essay Questions",
+        required: "Expected through the Common Application route; verify in the official portal",
+        sourceChecked: "2026-06-26",
+      },
+      {
+        id: "umich-leadership-contribution",
+        title: "Leadership and future contribution essay",
+        prompt: "University of Michigan supplemental essay slot about leadership and future contribution. Verify current official wording before drafting.",
+        wordLimit: "100-300 words",
+        sourceUrl,
+        sourceStatus: "Needs official prompt verification",
+        sourceTitle: "University of Michigan Questions",
+        required: "Expected for first-year applicants; verify in the official portal",
+        sourceChecked: "2026-06-26",
+      },
+      {
+        id: "umich-college-school-fit",
+        title: "College or school fit essay",
+        prompt: "University of Michigan supplemental essay slot about the selected undergraduate college or school. Verify current official wording before drafting.",
+        wordLimit: "100-550 words",
+        sourceUrl,
+        sourceStatus: "Needs official prompt verification",
+        sourceTitle: "University of Michigan Questions",
+        required: "Expected for first-year applicants; verify in the official portal",
+        sourceChecked: "2026-06-26",
+      },
+    ];
   }
 
   if (key.includes("cambridge")) {
     return [{
-      id: "cambridge-writing-verification",
-      title: "Cambridge application writing item",
-      prompt: "Personal statement or course-route writing requirement must be verified against the official application route before drafting.",
-      wordLimit: "Needs official prompt verification",
-      sourceUrl: program.sourceUrl,
-      sourceStatus: "Needs official prompt verification",
-      sourceTitle: program.sourceTitle,
+      id: "cambridge-additional-personal-statement",
+      title: "Cambridge-specific additional personal statement",
+      prompt: "Use the optional statement for Cambridge/course-specific reasons or subject exploration not fully covered in the UCAS personal statement.",
+      wordLimit: "1200 characters",
+      sourceUrl: "https://www.undergraduate.study.cam.ac.uk/apply/how/cambridge-application",
+      sourceStatus: "Official prompt loaded",
+      sourceTitle: "Completing My Cambridge Application",
+      required: "Optional; recommended if the Cambridge course differs significantly from other UCAS choices",
+      sourceChecked: "2026-06-26",
     }];
   }
 
@@ -111,6 +142,8 @@ function getWritingRequirements(program: Program): WritingRequirement[] {
       sourceUrl: program.sourceUrl,
       sourceStatus: program.sourceStatus === "Verified" ? "Source-backed document requirement" : "Needs official prompt verification",
       sourceTitle: program.sourceTitle,
+      required: "Programme document list includes this writing-related item",
+      sourceChecked: program.sourceChecked,
     }));
   }
 
@@ -122,6 +155,8 @@ function getWritingRequirements(program: Program): WritingRequirement[] {
     sourceUrl: program.sourceUrl,
     sourceStatus: "Needs official prompt verification",
     sourceTitle: program.sourceTitle,
+    required: "Not verified",
+    sourceChecked: program.sourceChecked,
   }];
 }
 
@@ -269,17 +304,58 @@ function RequirementChips({ program }: { program: Program }) {
   );
 }
 
+function cleanDegreeLabel(program: Program) {
+  const award = program.award.trim();
+  const awardText = `${award} ${program.name} ${program.id}`;
+  const slashDegree = awardText.match(/\b(MPhil\/PhD|MSc\/PGDip\/PGCert\/PGA|PGA\/PGCert\/PGDip\/MSc|PGCert\/PGDip\/MSc)\b/i)?.[0];
+  if (slashDegree) return slashDegree;
+
+  const degree = awardText.match(/\b(PhD|MPhil|MSc|MA|MBA|MRes|MSt|MFA|MPH|MEd|LLM|PGDip|PGCert|PGCE|BA|BSc|BEng|MEng|MBBS)\b/i)?.[0];
+  if (degree) return degree;
+  if (/master'?s by coursework/i.test(award)) return "Master's";
+  if (/master'?s degree/i.test(award)) return "Master's";
+  if (/doctor/i.test(award)) return "PhD";
+  return award.length <= 20 ? award : "Degree";
+}
+
+function getTeachingRoute(program: Program) {
+  const text = `${program.award} ${program.mode} ${program.name} ${program.id}`.toLowerCase();
+  if (/\b(by research|research|phd|mphil|mres)\b/.test(text)) return "Research";
+  if (/\b(taught|coursework)\b/.test(text)) return "Taught";
+  if (program.level === "Postgraduate" && /\b(msc|ma|mba|mst|mfa|mph|med|llm|pgdip|pgcert|pgce)\b/i.test(cleanDegreeLabel(program))) {
+    return "Taught";
+  }
+  return "";
+}
+
+function getStudyModeLabels(program: Program) {
+  const labels: string[] = [];
+  const mode = program.mode.toLowerCase();
+  if (/full[\s-]?time/.test(mode)) labels.push("Full-Time");
+  if (/part[\s-]?time/.test(mode)) labels.push("Part-Time");
+  if (/\bonline\b/.test(mode)) labels.push("Online");
+  return Array.from(new Set(labels));
+}
+
 function ProgramMeta({ program }: { program: Program }) {
-  const flags = [
-    program.sourceTitle.includes("Closed this cycle") ? "Closed this cycle" : "",
-    program.sourceTitle.includes("EPSRC CDT") ? "EPSRC CDT" : "",
-  ];
-  const meta = Array.from(new Set(
-    [program.award, program.mode, ...flags].filter((item) => item && item !== "See official programme page" && item !== "Open in official directory"),
-  ));
+  const meta = Array.from(new Set([cleanDegreeLabel(program), getTeachingRoute(program)].filter(Boolean)));
   return (
     <div className="program-meta">
       {meta.map((item) => <span key={`${program.id}-${item}`}>{item}</span>)}
+    </div>
+  );
+}
+
+function DurationMeta({ program }: { program: Program }) {
+  const modes = getStudyModeLabels(program);
+  return (
+    <div className="duration-cell">
+      <span>{program.duration || "See official programme page"}</span>
+      {modes.length > 0 && (
+        <div className="duration-modes">
+          {modes.map((mode) => <span key={`${program.id}-${mode}`}>{mode}</span>)}
+        </div>
+      )}
     </div>
   );
 }
@@ -348,7 +424,7 @@ function ProgramTable({
               <small>{program.institution} / {program.level}</small>
             </button>
             <ProgramMeta program={program} />
-            <span className="duration-cell">{program.duration}</span>
+            <DurationMeta program={program} />
             <SourceCell program={program} />
             <button className={casePrograms.some((item) => item.id === program.id) ? "case-toggle active" : "case-toggle"} onClick={(event) => { event.stopPropagation(); toggleCaseProgram(program); }}>
               {casePrograms.some((item) => item.id === program.id) ? "In case" : "Add"}
@@ -622,20 +698,18 @@ function buildWritingGroups(casePrograms: Program[]): ProgramRequirementGroup[] 
 }
 
 function WritingView({
-  rows,
   casePrograms,
-  toggleCaseProgram,
   backToChecklist,
+  openPrograms,
 }: {
-  rows: Program[];
   casePrograms: Program[];
-  toggleCaseProgram: (program: Program) => void;
   backToChecklist: () => void;
+  openPrograms: () => void;
 }) {
   const [selected, setSelected] = useState(narrativeOptions[0]);
   const [resolved, setResolved] = useState<string[]>([]);
   const [approval, setApproval] = useState("");
-  const [programQuery, setProgramQuery] = useState("");
+  const [activeProgramId, setActiveProgramId] = useState("");
   const [activeRequirementId, setActiveRequirementId] = useState("");
   const writingGroups = useMemo(() => buildWritingGroups(casePrograms), [casePrograms]);
   const requirementRows = useMemo(() => writingGroups.flatMap((group) => group.requirements.map((requirement) => ({
@@ -644,41 +718,71 @@ function WritingView({
     requirement,
   }))), [writingGroups]);
   const requirementKeys = requirementRows.map((item) => item.key).join("|");
+  const activeGroup = writingGroups.find((group) => group.program.id === activeProgramId) ?? writingGroups[0];
+
   useEffect(() => {
-    if (requirementRows.length && !requirementRows.some((item) => item.key === activeRequirementId)) {
-      setActiveRequirementId(requirementRows[0].key);
+    if (writingGroups.length && !writingGroups.some((group) => group.program.id === activeProgramId)) {
+      setActiveProgramId(writingGroups[0].program.id);
       setApproval("");
     }
-  }, [activeRequirementId, requirementKeys, requirementRows]);
+    if (!writingGroups.length && activeProgramId) {
+      setActiveProgramId("");
+    }
+  }, [activeProgramId, writingGroups]);
+
+  useEffect(() => {
+    const activeKeys = activeGroup?.requirements.map((requirement) => requirementKey(activeGroup.program, requirement)) ?? [];
+    if (activeKeys.length && !activeKeys.includes(activeRequirementId)) {
+      setActiveRequirementId(activeKeys[0]);
+      setApproval("");
+    }
+    if (!requirementRows.length && activeRequirementId) {
+      setActiveRequirementId("");
+    }
+  }, [activeGroup, activeRequirementId, requirementKeys, requirementRows.length]);
+
   const activeRequirement = requirementRows.find((item) => item.key === activeRequirementId) ?? requirementRows[0];
-  const filteredRows = rows
-    .filter((item) => `${item.name} ${item.institution ?? ""} ${item.award}`.toLowerCase().includes(programQuery.trim().toLowerCase()))
-    .slice(0, 48);
   const gaps = selected.gaps.filter((gap) => !resolved.includes(gap));
   const approveEnabled = Boolean(activeRequirement) && gaps.length === 0;
+  const focusProgram = (group: ProgramRequirementGroup) => {
+    const firstRequirement = group.requirements[0];
+    if (!firstRequirement) return;
+    setActiveProgramId(group.program.id);
+    setActiveRequirementId(requirementKey(group.program, firstRequirement));
+    setApproval("");
+  };
+  const approveStructure = () => {
+    if (!activeRequirement) return;
+    const sourceVerified = activeRequirement.requirement.sourceStatus !== "Needs official prompt verification";
+    setApproval(sourceVerified
+      ? "Structure approved for this browser session. Drafting can proceed from this source-backed prompt."
+      : "Structure recorded as a planning draft. Verify the official prompt before drafting.");
+  };
+
   return (
     <section className="workspace writing-layout">
       <aside className="context-rail">
         <button className="back-button" onClick={backToChecklist}>Back to Checklist</button>
-        <h2>Writing Case Programs</h2>
-        <p>Select one or more programmes from the current catalogue. Writing counts stay caveated unless official prompts are loaded.</p>
-        <input className="text-input" value={programQuery} onChange={(event) => setProgramQuery(event.target.value)} placeholder="Search current catalogue" />
-        <div className="program-picker-list">
-          {filteredRows.map((item) => (
-            <button key={item.id} className={casePrograms.some((program) => program.id === item.id) ? "program-picker selected" : "program-picker"} onClick={() => toggleCaseProgram(item)}>
-              <strong>{item.name}</strong>
-              <span>{item.institution ?? "Institution"} / {item.level}</span>
+        <h2>Selected Programs</h2>
+        <p>Writing Studio only plans documents for programmes already selected in Programs.</p>
+        <div className="selected-program-stack">
+          {writingGroups.length ? writingGroups.map((group) => (
+            <button key={group.program.id} className={`selected-program-card ${activeGroup?.program.id === group.program.id ? "active" : ""}`} onClick={() => focusProgram(group)}>
+              <strong>{group.program.name}</strong>
+              <span>{group.program.institution ?? "Institution"} / {cleanDegreeLabel(group.program)}</span>
+              <div className="mini-requirement-list">
+                {group.requirements.map((requirement) => (
+                  <span key={requirement.id}>{requirement.title} · {requirement.wordLimit}</span>
+                ))}
+              </div>
             </button>
-          ))}
-        </div>
-        <h3>Selected</h3>
-        <div className="case-list">
-          {casePrograms.length ? casePrograms.map((item) => (
-            <button key={item.id} className="case-program-pill" onClick={() => toggleCaseProgram(item)}>
-              <strong>{item.name}</strong>
-              <span>Remove</span>
-            </button>
-          )) : <p>No programmes selected.</p>}
+          )) : (
+            <div className="rail-empty">
+              <strong>No selected programmes.</strong>
+              <span>Add programmes from Programs first.</span>
+              <button className="ghost-button wide" onClick={openPrograms}>Open Programs</button>
+            </div>
+          )}
         </div>
       </aside>
       <main className="checklist-panel">
@@ -691,37 +795,53 @@ function WritingView({
           <h1>Writing Studio</h1>
           <p>{casePrograms.length} selected program{casePrograms.length === 1 ? "" : "s"} / {requirementRows.length} writing item{requirementRows.length === 1 ? "" : "s"} to plan or verify.</p>
         </div>
-        <div className="requirement-groups">
-          {!writingGroups.length && (
-            <div className="empty-state">
-              <strong>No writing case selected.</strong>
-              <span>Add programmes from the left rail before planning narratives.</span>
-            </div>
-          )}
-          {writingGroups.map((group) => (
-            <section className="requirement-group" key={group.program.id}>
+        {!activeGroup ? (
+          <div className="empty-state writing-empty">
+            <strong>No writing case selected.</strong>
+            <span>Add programmes from Programs before planning narratives.</span>
+            <button className="primary-outline" onClick={openPrograms}>Open Programs</button>
+          </div>
+        ) : (
+          <>
+            <section className="active-program-panel">
               <div className="case-program-heading">
                 <div>
-                  <h3>{group.program.institution ?? "Institution"} — {group.requirements.length} item{group.requirements.length === 1 ? "" : "s"}</h3>
-                  <h2>{group.program.name}</h2>
+                  <h3>{activeGroup.program.institution ?? "Institution"} / {activeGroup.program.level}</h3>
+                  <h2>{activeGroup.program.name}</h2>
+                  <p>{cleanDegreeLabel(activeGroup.program)} / {getTeachingRoute(activeGroup.program) || "Route not classified"} / {activeGroup.program.duration}</p>
                 </div>
-                <a href={group.program.sourceUrl} target="_blank" rel="noreferrer">Official source</a>
+                <a href={activeGroup.program.sourceUrl} target="_blank" rel="noreferrer">Official source</a>
               </div>
               <div className="requirement-list">
-                {group.requirements.map((requirement) => {
-                  const key = requirementKey(group.program, requirement);
+                {activeGroup.requirements.map((requirement) => {
+                  const key = requirementKey(activeGroup.program, requirement);
                   return (
                     <button key={key} className={activeRequirement?.key === key ? "requirement-card selected" : "requirement-card"} onClick={() => { setActiveRequirementId(key); setApproval(""); }}>
                       <strong>{requirement.title}</strong>
-                      <span>{requirement.prompt}</span>
-                      <small>{requirement.wordLimit} / {requirement.sourceStatus}</small>
+                      <span>{requirement.wordLimit} / {requirement.required}</span>
+                      <small>{requirement.sourceStatus}</small>
                     </button>
                   );
                 })}
               </div>
             </section>
-          ))}
-        </div>
+            {activeRequirement && (
+              <section className="requirement-detail-panel">
+                <h3>Writing Requirement Detail</h3>
+                <h2>{activeRequirement.requirement.title}</h2>
+                <div className="requirement-detail-grid">
+                  <div><span>Prompt / task</span><strong>{activeRequirement.requirement.prompt}</strong></div>
+                  <div><span>Word count</span><strong>{activeRequirement.requirement.wordLimit}</strong></div>
+                  <div><span>Required</span><strong>{activeRequirement.requirement.required}</strong></div>
+                  <div><span>Source</span><strong>{activeRequirement.requirement.sourceTitle}</strong></div>
+                  <div><span>Status</span><strong>{activeRequirement.requirement.sourceStatus}</strong></div>
+                  <div><span>Checked</span><strong>{activeRequirement.requirement.sourceChecked}</strong></div>
+                </div>
+                <a href={activeRequirement.requirement.sourceUrl} target="_blank" rel="noreferrer">Open official prompt/source</a>
+              </section>
+            )}
+          </>
+        )}
         {activeRequirement ? (
           <>
             <div className="writing-grid">
@@ -748,8 +868,8 @@ function WritingView({
             <div className="composer">
               <p>{gaps.length ? `${gaps.length} evidence gap${gaps.length > 1 ? "s" : ""} left. Add missing evidence or choose a different narrative.` : "Evidence gaps resolved. Structure approval is available for the selected writing item."}</p>
               <textarea placeholder="Tell the Writing Studio what evidence you can add, or choose a different narrative option." />
-              <button className="primary-button" disabled={!approveEnabled} onClick={() => setApproval("Structure approved for this browser session. Drafting remains blocked until official prompt details are verified.")}>Approve Structure</button>
-              {approval && <p className="status-line pass">{approval}</p>}
+              <button className="primary-button" disabled={!approveEnabled} onClick={approveStructure}>Approve Structure</button>
+              {approval && <p className={approval.includes("Verify") ? "status-line warn" : "status-line pass"}>{approval}</p>}
             </div>
           </>
         ) : (
@@ -1138,7 +1258,7 @@ export default function App() {
         </div>
       )}
       {activeView === "Materials" && <MaterialsView program={activeProgram} casePrograms={casePrograms} toggleCaseProgram={toggleCaseProgram} openWriting={openWriting} backToPrograms={() => setActiveView("Programs")} />}
-      {activeView === "Writing Studio" && <WritingView rows={rows} casePrograms={casePrograms} toggleCaseProgram={toggleCaseProgram} backToChecklist={() => setActiveView("Materials")} />}
+      {activeView === "Writing Studio" && <WritingView casePrograms={casePrograms} backToChecklist={() => setActiveView("Materials")} openPrograms={() => setActiveView("Programs")} />}
       {activeView === "AI Config" && <AIConfigView state={aiConfigState} setState={setAIConfigState} />}
     </div>
   );
