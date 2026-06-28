@@ -1,8 +1,9 @@
-import { useEffect, useMemo, useState, type Dispatch, type SetStateAction } from "react";
+import { useEffect, useMemo, useRef, useState, type ChangeEvent, type Dispatch, type DragEvent, type MutableRefObject, type SetStateAction } from "react";
 import {
   AI_PROVIDER_PROFILES,
   applyAIProviderDefaults,
   buildAIConfigPreview,
+  extractInspirationFile,
   getAIProviderProfile,
   getInitialAIConfig,
   hasExplicitCodexEndpoint,
@@ -19,6 +20,7 @@ import {
   type AIConfigFormat,
   type AIProviderId,
   type CodexLoginFlow,
+  type ExtractedInspirationBlock,
 } from "./codexAuth";
 import { allInstitutionCatalogues, groups, programFromCatalogueOption } from "./data/catalogues";
 import { programs } from "./data/programs";
@@ -60,10 +62,62 @@ interface ProgramRequirementGroup {
   requirements: WritingRequirement[];
 }
 
+type InspirationFileStatus = "reading" | "ready" | "needs_bridge" | "needs_annotation" | "analyzing" | "analyzed" | "error";
+type InspirationSourceKind = "text" | "pdf" | "docx" | "pptx" | "xlsx" | "spreadsheet" | "image" | "unsupported";
+type InspirationCategory = "Interest Signals" | "Knowledge Evidence" | "Methods / Concepts" | "Possible Essay Angles" | "Unsupported Claims";
+
+interface InspirationFile {
+  id: string;
+  name: string;
+  size: number;
+  mimeType: string;
+  sourceKind: InspirationSourceKind;
+  status: InspirationFileStatus;
+  extractedTextPreview: string;
+  extractionWarnings: string[];
+  blocks: ExtractedInspirationBlock[];
+  manualNote: string;
+}
+
+interface InspirationInsight {
+  id: string;
+  fileId: string;
+  category: InspirationCategory;
+  claim: string;
+  evidenceExcerpt: string;
+  pageOrSlide: string;
+  essayUse: string;
+  needsUserConfirmation: boolean;
+}
+
+const maxInspirationFileBytes = 25 * 1024 * 1024;
+const textFileExtensions = new Set([".txt", ".md", ".markdown", ".csv", ".tsv", ".html", ".htm", ".json"]);
+const bridgeFileExtensions = new Set([".pdf", ".docx", ".pptx", ".xlsx"]);
+const imageFileExtensions = new Set([".png", ".jpg", ".jpeg", ".webp"]);
+const sourceKindLabels: Record<InspirationSourceKind, string> = {
+  text: "Text",
+  pdf: "PDF",
+  docx: "DOCX",
+  pptx: "PPTX",
+  xlsx: "XLSX",
+  spreadsheet: "Spreadsheet",
+  image: "Image",
+  unsupported: "Manual note",
+};
+const inspirationStatusLabels: Record<InspirationFileStatus, string> = {
+  reading: "Reading",
+  ready: "Ready",
+  needs_bridge: "Bridge needed",
+  needs_annotation: "Manual note needed",
+  analyzing: "Analyzing",
+  analyzed: "Analyzed",
+  error: "Error",
+};
+
 const globalMaterialTemplates: MaterialItem[] = [
   { id: "academic-record", name: "GPA / academic record", scope: "Reusable academic evidence", status: "Unresolved", evidence: "Not provided", check: "Unresolved", note: "Record the grade scale, transcript status, and any conversion notes in this session before checking programme thresholds." },
   { id: "language-test", name: "English language result", scope: "Reusable IELTS / TOEFL / PTE evidence", status: "Unresolved", evidence: "Not provided", check: "Unresolved", note: "Record test type, date, overall score, and component scores before matching programme language rules." },
-  { id: "identity", name: "Passport or ID evidence", scope: "Reusable identity evidence", status: "Unresolved", evidence: "Not provided", check: "Unresolved", note: "Record only that valid identity evidence exists. Do not upload local files into this prototype." },
+  { id: "identity", name: "Passport or ID evidence", scope: "Reusable identity evidence", status: "Unresolved", evidence: "Not provided", check: "Unresolved", note: "Record only that valid identity evidence exists. Keep identity documents separate from Writing Studio inspiration files." },
   { id: "reference-contact", name: "Reference readiness", scope: "Reusable referee plan", status: "Unresolved", evidence: "Not provided", check: "Unresolved", note: "Record referee name/category and submission route only after the applicant has confirmed it." },
   { id: "funding-plan", name: "Funding plan", scope: "Reusable fee / scholarship evidence", status: "Unresolved", evidence: "Not provided", check: "Unresolved", note: "Record funding status when a programme, portal, or visa route requires it." },
 ];
@@ -220,6 +274,146 @@ const narrativeOptions: NarrativeOption[] = [
     gaps: ["Concrete research or lab evidence", "Specific Manchester programme fit"],
   },
 ];
+
+function fileExtension(name: string) {
+  const index = name.lastIndexOf(".");
+  return index >= 0 ? name.slice(index).toLowerCase() : "";
+}
+
+function makeClientId(prefix: string) {
+  if (globalThis.crypto?.randomUUID) {
+    return `${prefix}-${globalThis.crypto.randomUUID()}`;
+  }
+  return `${prefix}-${Date.now()}-${Math.random().toString(36).slice(2)}`;
+}
+
+function formatFileSize(size: number) {
+  if (size < 1024) return `${size} B`;
+  if (size < 1024 * 1024) return `${(size / 1024).toFixed(1)} KB`;
+  return `${(size / (1024 * 1024)).toFixed(1)} MB`;
+}
+
+function getInspirationSourceKind(file: File): InspirationSourceKind {
+  const ext = fileExtension(file.name);
+  if (textFileExtensions.has(ext) || file.type.startsWith("text/")) return ext === ".csv" || ext === ".tsv" ? "spreadsheet" : "text";
+  if (ext === ".pdf" || file.type === "application/pdf") return "pdf";
+  if (ext === ".docx") return "docx";
+  if (ext === ".pptx") return "pptx";
+  if (ext === ".xlsx") return "xlsx";
+  if (imageFileExtensions.has(ext) || file.type.startsWith("image/")) return "image";
+  return "unsupported";
+}
+
+function isBrowserReadableTextFile(file: File) {
+  const ext = fileExtension(file.name);
+  return textFileExtensions.has(ext) || file.type.startsWith("text/") || file.type === "application/json";
+}
+
+function needsBridgeExtraction(file: InspirationFile) {
+  return bridgeFileExtensions.has(fileExtension(file.name)) || ["pdf", "docx", "pptx", "xlsx"].includes(file.sourceKind);
+}
+
+function compactPreview(text: string, limit = 1200) {
+  const compact = text.replace(/\s+/g, " ").trim();
+  return compact.length > limit ? `${compact.slice(0, limit).trim()}...` : compact;
+}
+
+function splitInsightSentences(text: string) {
+  return text
+    .replace(/\s+/g, " ")
+    .split(/(?<=[.!?])\s+|[\n;]+/)
+    .map((item) => item.trim())
+    .filter((item) => item.length > 28);
+}
+
+function findSentence(blocks: ExtractedInspirationBlock[], pattern: RegExp) {
+  for (const block of blocks) {
+    const match = splitInsightSentences(block.text).find((sentence) => pattern.test(sentence));
+    if (match) {
+      return { sentence: match, label: block.label };
+    }
+  }
+  return undefined;
+}
+
+function firstSentence(blocks: ExtractedInspirationBlock[]) {
+  for (const block of blocks) {
+    const sentence = splitInsightSentences(block.text)[0];
+    if (sentence) {
+      return { sentence, label: block.label };
+    }
+  }
+  return undefined;
+}
+
+function buildInsightsFromText(file: InspirationFile, blocks: ExtractedInspirationBlock[], writingContext: string): InspirationInsight[] {
+  const insights: InspirationInsight[] = [];
+  const addInsight = (
+    category: InspirationCategory,
+    match: { sentence: string; label: string } | undefined,
+    claim: string,
+    essayUse: string,
+  ) => {
+    if (!match || insights.some((item) => item.category === category)) return;
+    insights.push({
+      id: `${file.id}-${category.toLowerCase().replace(/[^a-z]+/g, "-")}-${insights.length + 1}`,
+      fileId: file.id,
+      category,
+      claim,
+      evidenceExcerpt: compactPreview(match.sentence, 280),
+      pageOrSlide: match.label,
+      essayUse,
+      needsUserConfirmation: true,
+    });
+  };
+
+  addInsight(
+    "Interest Signals",
+    findSentence(blocks, /interest|curious|curiosity|motivat|fascinat|question|explor|investigat|why|goal|aim|intend|hope/i),
+    `Possible interest signal from ${file.name}.`,
+    `Use only after the user confirms this reflects their real curiosity for ${writingContext}.`,
+  );
+  addInsight(
+    "Knowledge Evidence",
+    findSentence(blocks, /lecture|module|course|seminar|reading|paper|article|chapter|theory|concept|framework|case study|assessment/i),
+    `Possible source-backed knowledge evidence from ${file.name}.`,
+    "Use to make academic interest concrete without claiming personal achievement.",
+  );
+  addInsight(
+    "Methods / Concepts",
+    findSentence(blocks, /method|assay|protocol|dataset|analysis|experiment|lab|fieldwork|survey|interview|model|regression|statistics|python|matlab|spss|stata|pcr|gel electrophoresis/i),
+    `Method or concept that may support a technical writing angle.`,
+    "Use to show discipline knowledge; confirm whether the user used it or only learned it.",
+  );
+  addInsight(
+    "Unsupported Claims",
+    findSentence(blocks, /passion|passionate|excellent|exceptional|outstanding|strong|lifelong|always loved|dream|unique/i),
+    "Potential unsupported wording that needs evidence before it can appear in an essay.",
+    "Convert broad passion language into source-backed curiosity, or remove it.",
+  );
+
+  const fallback = firstSentence(blocks);
+  addInsight(
+    "Possible Essay Angles",
+    fallback,
+    `Discussion seed for ${writingContext}.`,
+    "Use as a planning angle only after confirming the user's ownership and relevance.",
+  );
+
+  return insights.slice(0, 6);
+}
+
+function fileToBase64(file: File) {
+  return new Promise<string>((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onerror = () => reject(new Error("Could not read file."));
+    reader.onload = () => {
+      const value = typeof reader.result === "string" ? reader.result : "";
+      resolve(value.includes(",") ? value.split(",", 2)[1] : value);
+    };
+    reader.readAsDataURL(file);
+  });
+}
 
 function Logo() {
   return (
@@ -617,7 +811,7 @@ function MaterialsView({
           <div className="section-heading">
             <div>
               <h2>Common Material Vault</h2>
-              <p>Records reusable evidence only. No local file is uploaded or pre-marked as ready.</p>
+              <p>Records reusable evidence only. Writing Studio inspiration files do not pre-mark checklist items as ready.</p>
             </div>
           </div>
           <div className="material-table">
@@ -701,16 +895,33 @@ function WritingView({
   casePrograms,
   backToChecklist,
   openPrograms,
+  inspirationFileRefs,
+  inspirationFiles,
+  setInspirationFiles,
+  inspirationInsights,
+  setInspirationInsights,
+  approvedInsights,
+  setApprovedInsights,
 }: {
   casePrograms: Program[];
   backToChecklist: () => void;
   openPrograms: () => void;
+  inspirationFileRefs: MutableRefObject<Map<string, File>>;
+  inspirationFiles: InspirationFile[];
+  setInspirationFiles: Dispatch<SetStateAction<InspirationFile[]>>;
+  inspirationInsights: InspirationInsight[];
+  setInspirationInsights: Dispatch<SetStateAction<InspirationInsight[]>>;
+  approvedInsights: string[];
+  setApprovedInsights: Dispatch<SetStateAction<string[]>>;
 }) {
+  const inspirationInputRef = useRef<HTMLInputElement>(null);
   const [selected, setSelected] = useState(narrativeOptions[0]);
   const [resolved, setResolved] = useState<string[]>([]);
   const [approval, setApproval] = useState("");
   const [activeProgramId, setActiveProgramId] = useState("");
   const [activeRequirementId, setActiveRequirementId] = useState("");
+  const [draggingInspiration, setDraggingInspiration] = useState(false);
+  const [inspirationNotice, setInspirationNotice] = useState("");
   const writingGroups = useMemo(() => buildWritingGroups(casePrograms), [casePrograms]);
   const requirementRows = useMemo(() => writingGroups.flatMap((group) => group.requirements.map((requirement) => ({
     key: requirementKey(group.program, requirement),
@@ -744,6 +955,16 @@ function WritingView({
   const activeRequirement = requirementRows.find((item) => item.key === activeRequirementId) ?? requirementRows[0];
   const gaps = selected.gaps.filter((gap) => !resolved.includes(gap));
   const approveEnabled = Boolean(activeRequirement) && gaps.length === 0;
+  const activeWritingContext = activeRequirement ? `${activeRequirement.program.name} / ${activeRequirement.requirement.title}` : "selected writing item";
+  const approvedInsightRows = inspirationInsights.filter((insight) => approvedInsights.includes(insight.id));
+  const approvedInsightSet = new Set(approvedInsights);
+  const updateInspirationFile = (id: string, patch: Partial<InspirationFile>) => {
+    setInspirationFiles((files) => files.map((file) => file.id === id ? { ...file, ...patch } : file));
+  };
+  const storeInsightsForFile = (fileId: string, insights: InspirationInsight[]) => {
+    setInspirationInsights((items) => [...items.filter((item) => item.fileId !== fileId), ...insights]);
+    setApprovedInsights((items) => items.filter((item) => !item.startsWith(`${fileId}-`)));
+  };
   const focusProgram = (group: ProgramRequirementGroup) => {
     const firstRequirement = group.requirements[0];
     if (!firstRequirement) return;
@@ -757,6 +978,162 @@ function WritingView({
     setApproval(sourceVerified
       ? "Structure approved for this browser session. Drafting can proceed from this source-backed prompt."
       : "Structure recorded as a planning draft. Verify the official prompt before drafting.");
+  };
+  const handleInspirationFiles = async (fileList: FileList | File[]) => {
+    const files = Array.from(fileList);
+    if (!files.length) return;
+    const accepted = files.slice(0, 5);
+    setInspirationNotice(files.length > 5 ? "Only the first 5 files from this batch were added." : "");
+
+    for (const file of accepted) {
+      const id = makeClientId("inspiration");
+      const sourceKind = getInspirationSourceKind(file);
+      const baseFile: InspirationFile = {
+        id,
+        name: file.name,
+        size: file.size,
+        mimeType: file.type || "application/octet-stream",
+        sourceKind,
+        status: file.size > maxInspirationFileBytes ? "error" : isBrowserReadableTextFile(file) ? "reading" : sourceKind === "image" || sourceKind === "unsupported" ? "needs_annotation" : "needs_bridge",
+        extractedTextPreview: "",
+        extractionWarnings: file.size > maxInspirationFileBytes
+          ? ["File exceeds the 25MB extraction limit."]
+          : sourceKind === "image"
+            ? ["Image upload is registered. Add a manual note unless OCR is available through a later bridge capability."]
+            : sourceKind === "unsupported"
+              ? ["Automatic extraction is not available for this file type. Add manual notes before using it for inspiration."]
+              : needsBridgeExtraction({ id, name: file.name, size: file.size, mimeType: file.type || "application/octet-stream", sourceKind, status: "needs_bridge", extractedTextPreview: "", extractionWarnings: [], blocks: [], manualNote: "" })
+                ? ["Connect the Codex bridge to extract this file type."]
+                : [],
+        blocks: [],
+        manualNote: "",
+      };
+
+      inspirationFileRefs.current.set(id, file);
+      setInspirationFiles((items) => [...items, baseFile]);
+
+      if (file.size <= maxInspirationFileBytes && isBrowserReadableTextFile(file)) {
+        try {
+          const text = await file.text();
+          const block = { label: "Document text", text };
+          updateInspirationFile(id, {
+            status: "ready",
+            extractedTextPreview: compactPreview(text),
+            extractionWarnings: [],
+            blocks: [block],
+          });
+        } catch (error) {
+          updateInspirationFile(id, {
+            status: "error",
+            extractionWarnings: [error instanceof Error ? error.message : "Could not read this file in the browser."],
+          });
+        }
+      }
+    }
+  };
+  const handleFileInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+    if (event.currentTarget.files) {
+      void handleInspirationFiles(event.currentTarget.files);
+      event.currentTarget.value = "";
+    }
+  };
+  const handleDrop = (event: DragEvent<HTMLDivElement>) => {
+    event.preventDefault();
+    setDraggingInspiration(false);
+    if (event.dataTransfer.files.length) {
+      void handleInspirationFiles(event.dataTransfer.files);
+    }
+  };
+  const analyzeManualNote = (file: InspirationFile) => {
+    const note = file.manualNote.trim();
+    if (!note) {
+      updateInspirationFile(file.id, {
+        status: "needs_annotation",
+        extractionWarnings: ["Add a manual note before analyzing this file for writing inspiration."],
+      });
+      setInspirationNotice("Add a manual note that names the relevant topic, reading, method, or slide content.");
+      return true;
+    }
+    const blocks = [{ label: "Manual note", text: note }];
+    const source = { ...file, blocks, extractedTextPreview: compactPreview(note), status: "analyzed" as const };
+    const insights = buildInsightsFromText(source, blocks, activeWritingContext);
+    updateInspirationFile(file.id, {
+      status: "analyzed",
+      blocks,
+      extractedTextPreview: compactPreview(note),
+      extractionWarnings: ["Insights came from user-entered manual notes, not automatic file extraction."],
+    });
+    storeInsightsForFile(file.id, insights);
+    setInspirationNotice(insights.length ? "Manual note analyzed. Confirm specific insights before using them in the evidence map." : "Manual note saved, but no usable insight was detected.");
+    return true;
+  };
+  const analyzeInspirationFile = async (fileId: string) => {
+    const fileMeta = inspirationFiles.find((file) => file.id === fileId);
+    if (!fileMeta) return;
+
+    if (fileMeta.sourceKind === "image" || fileMeta.sourceKind === "unsupported" || (fileMeta.manualNote.trim() && ["needs_annotation", "needs_bridge", "error"].includes(fileMeta.status))) {
+      analyzeManualNote(fileMeta);
+      return;
+    }
+
+    if (fileMeta.blocks.length && !needsBridgeExtraction(fileMeta)) {
+      const insights = buildInsightsFromText(fileMeta, fileMeta.blocks, activeWritingContext);
+      updateInspirationFile(fileId, { status: "analyzed" });
+      storeInsightsForFile(fileId, insights);
+      setInspirationNotice(insights.length ? "Text file analyzed. Confirm each insight before it enters the evidence map." : "No usable insight was detected in this text file.");
+      return;
+    }
+
+    const file = inspirationFileRefs.current.get(fileId);
+    if (!file) {
+      updateInspirationFile(fileId, { status: "error", extractionWarnings: ["Browser file handle is no longer available. Remove and upload the file again."] });
+      return;
+    }
+    if (file.size > maxInspirationFileBytes) {
+      updateInspirationFile(fileId, { status: "error", extractionWarnings: ["File exceeds the 25MB extraction limit."] });
+      return;
+    }
+
+    updateInspirationFile(fileId, { status: "analyzing", extractionWarnings: [] });
+    try {
+      const config = getInitialAIConfig();
+      const contentBase64 = await fileToBase64(file);
+      const result = await extractInspirationFile(config.endpoint, config.bridgeNonce, {
+        name: file.name,
+        mimeType: file.type || "application/octet-stream",
+        contentBase64,
+      });
+      const status: InspirationFileStatus = result.blocks.length ? "analyzed" : result.ok ? "needs_annotation" : "error";
+      updateInspirationFile(fileId, {
+        status,
+        blocks: result.blocks,
+        extractedTextPreview: result.preview ? compactPreview(result.preview) : "",
+        extractionWarnings: result.warnings.length ? result.warnings : result.error ? [result.error] : [],
+      });
+      const insights = result.blocks.length ? buildInsightsFromText({ ...fileMeta, blocks: result.blocks }, result.blocks, activeWritingContext) : [];
+      storeInsightsForFile(fileId, insights);
+      setInspirationNotice(result.blocks.length
+        ? "Bridge extraction complete. Confirm insights before using them in the evidence map."
+        : "The bridge did not extract text. Add manual notes for this file.");
+    } catch (error) {
+      updateInspirationFile(fileId, {
+        status: "needs_bridge",
+        extractionWarnings: [error instanceof Error ? error.message : "Codex bridge extraction failed."],
+      });
+      setInspirationNotice("Connect or refresh the Codex bridge in AI Config, then retry extraction.");
+    }
+  };
+  const removeInspirationFile = (fileId: string) => {
+    inspirationFileRefs.current.delete(fileId);
+    setInspirationFiles((files) => files.filter((file) => file.id !== fileId));
+    setInspirationInsights((items) => items.filter((item) => item.fileId !== fileId));
+    setApprovedInsights((items) => items.filter((item) => !item.startsWith(`${fileId}-`)));
+  };
+  const toggleInsightApproval = (insightId: string) => {
+    setApprovedInsights((items) => items.includes(insightId) ? items.filter((item) => item !== insightId) : [...items, insightId]);
+  };
+  const updateManualNote = (fileId: string, manualNote: string) => {
+    updateInspirationFile(fileId, { manualNote });
   };
 
   return (
@@ -787,7 +1164,7 @@ function WritingView({
       </aside>
       <main className="checklist-panel">
         <div className="writing-steps">
-          {["Brief Lock", "Evidence Inventory", "Narrative Options", "Programme Fit Paragraph", "Critical Review", "Draft Gate"].map((step, index) => (
+          {["Brief Lock", "Prompt Detail", "Inspiration Intake", "Narrative Options", "Evidence Map", "Draft Gate"].map((step, index) => (
             <span className={index < 2 ? "done" : index === 2 ? "current" : ""} key={step}>{index + 1}. {step}</span>
           ))}
         </div>
@@ -840,6 +1217,101 @@ function WritingView({
                 <a href={activeRequirement.requirement.sourceUrl} target="_blank" rel="noreferrer">Open official prompt/source</a>
               </section>
             )}
+            <section className="inspiration-panel">
+              <div className="inspiration-heading">
+                <div>
+                  <h3>Inspiration Files</h3>
+                  <h2>Source-backed idea pool</h2>
+                  <p>Upload assignments, lecture slides, readings, coursework, or notes as planning evidence. These files do not mark application materials complete.</p>
+                </div>
+                <span>{inspirationFiles.length} file{inspirationFiles.length === 1 ? "" : "s"} / {approvedInsightRows.length} approved insight{approvedInsightRows.length === 1 ? "" : "s"}</span>
+              </div>
+              <div
+                className={`upload-dropzone ${draggingInspiration ? "dragging" : ""}`}
+                onDragOver={(event) => { event.preventDefault(); setDraggingInspiration(true); }}
+                onDragLeave={() => setDraggingInspiration(false)}
+                onDrop={handleDrop}
+              >
+                <input
+                  ref={inspirationInputRef}
+                  className="sr-only"
+                  type="file"
+                  multiple
+                  accept=".pdf,.docx,.pptx,.xlsx,.csv,.txt,.md,.markdown,.html,.htm,.json,.png,.jpg,.jpeg,.webp"
+                  onChange={handleFileInputChange}
+                />
+                <div>
+                  <strong>Drop files here</strong>
+                  <span>TXT/MD/CSV/JSON/HTML preview in browser. PDF/DOCX/PPTX/XLSX use the Codex bridge. Images use manual notes in v1.</span>
+                </div>
+                <button className="primary-outline" onClick={() => inspirationInputRef.current?.click()}>Choose files</button>
+              </div>
+              {inspirationNotice && <p className="status-line warn">{inspirationNotice}</p>}
+              <div className="inspiration-file-list">
+                {inspirationFiles.length ? inspirationFiles.map((file) => {
+                  const fileInsights = inspirationInsights.filter((insight) => insight.fileId === file.id);
+                  const useManualNote = file.sourceKind === "image" || file.sourceKind === "unsupported" || file.status === "needs_annotation" || file.manualNote.trim();
+                  return (
+                    <article className="inspiration-file-card" key={file.id}>
+                      <div className="file-card-top">
+                        <div>
+                          <h4>{file.name}</h4>
+                          <div className="file-meta">
+                            <span>{sourceKindLabels[file.sourceKind]}</span>
+                            <span>{formatFileSize(file.size)}</span>
+                            <span>{file.mimeType || "application/octet-stream"}</span>
+                          </div>
+                        </div>
+                        <span className={`file-status ${file.status}`}>{inspirationStatusLabels[file.status]}</span>
+                      </div>
+                      {file.extractedTextPreview && <p className="file-preview">{file.extractedTextPreview}</p>}
+                      {file.extractionWarnings.length > 0 && (
+                        <div className="warning-list">
+                          {file.extractionWarnings.map((warning) => <span key={warning}>{warning}</span>)}
+                        </div>
+                      )}
+                      {useManualNote && (
+                        <textarea
+                          className="manual-note-input"
+                          value={file.manualNote}
+                          onChange={(event) => updateManualNote(file.id, event.currentTarget.value)}
+                          placeholder="Manual note: relevant topic, method, reading, slide point, or assignment idea. Do not state an achievement unless it is truly yours."
+                        />
+                      )}
+                      <div className="file-actions">
+                        <button className="primary-outline" disabled={file.status === "analyzing"} onClick={() => void analyzeInspirationFile(file.id)}>
+                          {file.status === "analyzing" ? "Analyzing" : file.manualNote.trim() && useManualNote ? "Analyze note" : "Analyze for inspiration"}
+                        </button>
+                        <button className="ghost-button" onClick={() => removeInspirationFile(file.id)}>Remove</button>
+                      </div>
+                      {fileInsights.length > 0 && (
+                        <div className="insight-grid">
+                          {fileInsights.map((insight) => {
+                            const approved = approvedInsightSet.has(insight.id);
+                            return (
+                              <div className={`insight-card ${approved ? "approved" : ""}`} key={insight.id}>
+                                <span>{insight.category}</span>
+                                <strong>{insight.claim}</strong>
+                                <p>{insight.evidenceExcerpt}</p>
+                                <small>{insight.pageOrSlide} / {insight.essayUse}</small>
+                                <button className={approved ? "ghost-button" : "primary-outline"} onClick={() => toggleInsightApproval(insight.id)}>
+                                  {approved ? "Remove from evidence map" : "Use in evidence map"}
+                                </button>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      )}
+                    </article>
+                  );
+                }) : (
+                  <div className="inspiration-empty">
+                    <strong>No inspiration files uploaded in this session.</strong>
+                    <span>Use this area for writing inspiration only; official application materials still stay in the checklist.</span>
+                  </div>
+                )}
+              </div>
+            </section>
           </>
         )}
         {activeRequirement ? (
@@ -858,6 +1330,16 @@ function WritingView({
                 <h3>Evidence Map</h3>
                 <p className="active-brief">{activeRequirement.program.name}: {activeRequirement.requirement.title}</p>
                 {selected.evidence.map((item) => <p className="evidence-pass" key={item}>{item}</p>)}
+                {approvedInsightRows.length > 0 && (
+                  <div className="approved-insight-list">
+                    <h4>Confirmed inspiration</h4>
+                    {approvedInsightRows.map((insight) => (
+                      <p className="evidence-pass uploaded" key={insight.id}>
+                        {insight.category}: {insight.evidenceExcerpt}
+                      </p>
+                    ))}
+                  </div>
+                )}
                 {selected.gaps.map((gap) => (
                   <button className={`gap-item ${resolved.includes(gap) ? "resolved" : ""}`} key={gap} onClick={() => setResolved((items) => items.includes(gap) ? items.filter((item) => item !== gap) : [...items, gap])}>
                     {gap}
@@ -1179,7 +1661,8 @@ Codex compatibility:
 GET /codex/status
 POST /codex/start-oauth { "flow": "browser" | "device" }
 POST /codex/refresh
-POST /codex/logout`}</pre>
+POST /codex/logout
+POST /writing/inspiration/extract`}</pre>
           <p>Public Pages deployments must use a localhost or HTTPS bridge for browser-restricted local runtimes.</p>
         </div>
         <div className="oauth-panel">
@@ -1206,6 +1689,10 @@ export default function App() {
     message: "No configuration check has run. Save a provider setup before connecting a local runtime.",
     events: [],
   });
+  const inspirationFileRefs = useRef<Map<string, File>>(new Map());
+  const [inspirationFiles, setInspirationFiles] = useState<InspirationFile[]>([]);
+  const [inspirationInsights, setInspirationInsights] = useState<InspirationInsight[]>([]);
+  const [approvedInsights, setApprovedInsights] = useState<string[]>([]);
   const selectedCatalogue = allInstitutionCatalogues.find((catalogue) => catalogue.id === catalogueId) ?? allInstitutionCatalogues[0];
   const rows = useMemo(() => {
     const catalogueOptions = selectedCatalogue.programs ?? selectedCatalogue.examples;
@@ -1258,7 +1745,20 @@ export default function App() {
         </div>
       )}
       {activeView === "Materials" && <MaterialsView program={activeProgram} casePrograms={casePrograms} toggleCaseProgram={toggleCaseProgram} openWriting={openWriting} backToPrograms={() => setActiveView("Programs")} />}
-      {activeView === "Writing Studio" && <WritingView casePrograms={casePrograms} backToChecklist={() => setActiveView("Materials")} openPrograms={() => setActiveView("Programs")} />}
+      {activeView === "Writing Studio" && (
+        <WritingView
+          casePrograms={casePrograms}
+          backToChecklist={() => setActiveView("Materials")}
+          openPrograms={() => setActiveView("Programs")}
+          inspirationFileRefs={inspirationFileRefs}
+          inspirationFiles={inspirationFiles}
+          setInspirationFiles={setInspirationFiles}
+          inspirationInsights={inspirationInsights}
+          setInspirationInsights={setInspirationInsights}
+          approvedInsights={approvedInsights}
+          setApprovedInsights={setApprovedInsights}
+        />
+      )}
       {activeView === "AI Config" && <AIConfigView state={aiConfigState} setState={setAIConfigState} />}
     </div>
   );

@@ -97,6 +97,28 @@ export type CodexLoginResult =
       message?: string;
     };
 
+export interface ExtractedInspirationBlock {
+  label: string;
+  text: string;
+}
+
+export interface ExtractInspirationFileRequest {
+  name: string;
+  mimeType: string;
+  contentBase64: string;
+}
+
+export interface ExtractInspirationFileResult {
+  ok: boolean;
+  fileName: string;
+  mimeType: string;
+  sizeBytes: number;
+  blocks: ExtractedInspirationBlock[];
+  preview: string;
+  warnings: string[];
+  error?: string;
+}
+
 const aiConfigStorageKey = "soleil.ai.config";
 const endpointStorageKey = "soleil.ai.endpoint";
 const bridgeNonceStorageKey = "soleil.ai.bridgeNonce";
@@ -485,7 +507,7 @@ export function buildAIConfigPreview(config: AIConfig): AIConfigPreview {
     if (profile.runtime === "codex-oauth") {
       return {
         title: "Codex bridge HTTP contract",
-        body: `curl "${normalized.endpoint}/codex/status"${normalized.bridgeNonce ? ` \\\n  -H "x-codex-bridge-nonce: ${normalized.bridgeNonce}"` : ""}`,
+        body: `curl "${normalized.endpoint}/codex/status"${normalized.bridgeNonce ? ` \\\n  -H "x-codex-bridge-nonce: ${normalized.bridgeNonce}"` : ""}\n\ncurl "${normalized.endpoint}/writing/inspiration/extract" \\\n  -H "content-type: application/json"${normalized.bridgeNonce ? ` \\\n  -H "x-codex-bridge-nonce: ${normalized.bridgeNonce}"` : ""} \\\n  -d '{"name":"notes.txt","mimeType":"text/plain","contentBase64":"..."}'`,
         notes,
       };
     }
@@ -797,7 +819,16 @@ async function fetchBridge<T>(endpoint: string, path: string, init?: RequestInit
   });
 
   if (!response.ok) {
-    throw new Error(`Bridge ${path} returned HTTP ${response.status}.`);
+    let message = `Bridge ${path} returned HTTP ${response.status}.`;
+    try {
+      const payload = await response.json();
+      if (isRecord(payload) && typeof payload.error === "string") {
+        message = payload.error;
+      }
+    } catch {
+      // Keep the status-based message when the bridge does not return JSON.
+    }
+    throw new Error(message);
   }
 
   return await response.json() as T;
@@ -865,6 +896,44 @@ function normalizeLogin(payload: unknown): CodexLoginResult {
   };
 }
 
+function normalizeExtractResult(payload: unknown): ExtractInspirationFileResult {
+  if (!isRecord(payload)) {
+    return {
+      ok: false,
+      fileName: "uploaded-file",
+      mimeType: "application/octet-stream",
+      sizeBytes: 0,
+      blocks: [],
+      preview: "",
+      warnings: ["Bridge returned an invalid extraction response."],
+      error: "Bridge returned an invalid extraction response.",
+    };
+  }
+
+  const blocks = Array.isArray(payload.blocks)
+    ? payload.blocks.flatMap((block) => {
+      if (!isRecord(block) || typeof block.label !== "string" || typeof block.text !== "string") {
+        return [];
+      }
+      return [{ label: block.label, text: block.text }];
+    })
+    : [];
+  const warnings = Array.isArray(payload.warnings)
+    ? payload.warnings.filter((warning): warning is string => typeof warning === "string")
+    : [];
+
+  return {
+    ok: Boolean(payload.ok),
+    fileName: typeof payload.fileName === "string" ? payload.fileName : "uploaded-file",
+    mimeType: typeof payload.mimeType === "string" ? payload.mimeType : "application/octet-stream",
+    sizeBytes: typeof payload.sizeBytes === "number" ? payload.sizeBytes : 0,
+    blocks,
+    preview: typeof payload.preview === "string" ? payload.preview : blocks.map((block) => `${block.label}: ${block.text}`).join("\n\n"),
+    warnings,
+    error: typeof payload.error === "string" ? payload.error : undefined,
+  };
+}
+
 export async function probeCodexBridge(endpoint: string, bridgeNonce?: string) {
   const validation = validateCodexEndpoint(endpoint);
   if (!validation.valid || validation.kind !== "bridge-http") {
@@ -927,4 +996,20 @@ export async function logoutCodex(endpoint: string, bridgeNonce?: string) {
   await withCodexClient(validation.endpoint, async (client) => {
     await client.request("account/logout");
   });
+}
+
+export async function extractInspirationFile(endpoint: string, bridgeNonce: string, request: ExtractInspirationFileRequest) {
+  const validation = validateCodexEndpoint(endpoint);
+  if (!validation.valid || !validation.kind) {
+    throw new Error(validation.message);
+  }
+  if (validation.kind !== "bridge-http") {
+    throw new Error("Writing inspiration extraction requires the trusted HTTP bridge endpoint.");
+  }
+
+  const payload = await fetchBridge<unknown>(validation.endpoint, "/writing/inspiration/extract", {
+    method: "POST",
+    body: JSON.stringify(request),
+  }, bridgeNonce);
+  return normalizeExtractResult(payload);
 }

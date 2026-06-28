@@ -72,6 +72,7 @@
     "framework": "React + Vite + TypeScript",
     "coverage": "UK Core, U.S. News Top 30 cutoff, NUS, NTU, and Manchester Biosciences detail seed",
     "codex_oauth": "static-safe bridge panel; no browser-side token exchange or token storage",
+    "writing_inspiration_uploads": "runtime-only browser uploads with optional local Codex bridge extraction; no user files committed",
     "deploy": "GitHub Pages workflow",
     "pages_url": "https://octavianyimingzhang.github.io/University-Application-Skill/"
   },

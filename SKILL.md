@@ -52,6 +52,7 @@ Memory categories:
 | `course_memory` | Course/module coverage, lecture sequence, formulas, examples, and assessed skills. |
 | `lecture_delta_memory` | What the teacher said that was not on slides, slide corrections, skipped content, verbal examples, exam hints. |
 | `writing_voice` | User-uploaded writing samples, inferred style rules, revision constraints, and phrasing preferences. |
+| `source_inspiration` | Runtime-uploaded assignments, slides, readings, notes, and manual annotations used for writing ideas after user confirmation. |
 | `notes_preferences` | Preferred notes density, bilingual layout, formula formatting, diagrams, tables, and explanation style. |
 | `exam_preparation_preferences` | Past-paper priority, mark-scheme style, common weak points, and answer format. |
 | `application_preferences` | Programme-fit writing rules, admissions priorities, document conventions, and source policy. |
@@ -68,7 +69,7 @@ Before using memory, identify the category needed, retrieve only the smallest re
 6. Structured case file: applicant, target routes, programmes, requirements, documents, deadlines, writing tasks, risks, tasks, memory references, and source log.
 7. Hard-requirement audit: separate academic, language, subject, document, fee, deadline, and route-specific requirements from interpretation.
 8. Materials check: simulate submission readiness by checking each required item against the programme source and applicant evidence.
-9. Writing Studio: lock the writing brief, build evidence inventory, load writing-voice memory if supplied, generate narrative options, map programme fit, review unsupported claims, then request planning approval before drafting.
+9. Writing Studio: lock the writing brief, load writing-voice memory if supplied, run source inspiration intake for uploaded files, build evidence inventory, generate narrative options, map programme fit, review unsupported claims, then request planning approval before drafting.
 10. Output: chat summary, table, workbook, essay plan, document checklist, timeline, source-backed action plan, memory pack, or website case view.
 11. Quality check: verify every hard requirement against a source before presenting it as final; verify memory claims against their recorded source before treating them as durable.
 
@@ -79,6 +80,8 @@ Admissions writing is a planning and evidence task before it is a drafting task.
 - Lock the writing brief before planning: programme, prompt, word limit, audience, submission use, applicant background, and source policy.
 - Build an evidence inventory from the applicant before making claims.
 - Load writing-voice memory only from user-supplied writing samples, explicit user preferences, or private local memory supplied in the current task.
+- Treat runtime-uploaded assignments, slides, readings, notes, and images as source inspiration until the user confirms an insight for the evidence map.
+- Distinguish what the user studied or found interesting from what the user personally did or achieved.
 - Generate multiple narrative options only from supplied evidence.
 - Block unsupported claims about achievements, hardship, leadership, research, publications, awards, internships, or conversations.
 - Use programme-specific facts only after source verification.
@@ -111,5 +114,7 @@ Admissions writing is a planning and evidence task before it is a drafting task.
 - `scripts/build_admissions_workbook.py <case.json> <output.xlsx>`: render a source-backed workbook.
 - `scripts/onboard_admissions.py`: create a blank setup JSON template with an empty memory scaffold.
 - `scripts/check_setup_contract.py`: check setup schema, gates, fixtures, and template drift.
+- `scripts/codex_oauth_bridge.mjs`: local HTTP bridge for Codex OAuth status/actions and Writing Studio inspiration extraction.
+- `scripts/extract_inspiration_file.py`: parse runtime-uploaded inspiration files for text blocks with page, slide, or sheet references.
 - `scripts/clean_programme_workbooks.py`: clean official programme tables.
 - `scripts/verify_programme_workbooks.py`: verify cleaned programme workbooks.

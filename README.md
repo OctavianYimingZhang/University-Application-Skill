@@ -12,7 +12,7 @@ Main surfaces:
 
 - Program Explorer: filter UK Core, U.S. News Top 30 cutoff, NUS, and NTU catalogue coverage; click official UG/PG programme options and inspect source-backed hard requirements where detail pages are seeded.
 - Application Checklist: simulate material readiness against a selected programme.
-- Writing Studio: lock the writing brief, choose narrative options, map evidence, and block unsupported claims before drafting.
+- Writing Studio: lock the writing brief, upload runtime inspiration files, choose narrative options, map confirmed evidence, and block unsupported claims before drafting.
 - Codex OAuth Runtime: a Hermes-style panel that calls Codex account/OAuth actions through Codex app-server or the included local HTTP bridge without storing bearer tokens in the browser.
 - Memory Studio: a static browser page at [`web/public/memory.html`](web/public/memory.html) for uploading writing samples, adding lecture/slide-delta notes, and exporting private memory JSON or compact ChatGPT/Codex memory packs.
 
@@ -43,7 +43,7 @@ Focused Skills live under [`skills/`](skills/):
 | `program-research` | Collect and compare official programme pages. |
 | `requirement-audit` | Check hard academic, language, fee, deadline, and document requirements. |
 | `materials-check` | Simulate application-material readiness. |
-| `application-writing-studio` | Plan SOPs, personal statements, and programme-fit writing from evidence and optional writing-voice memory. |
+| `application-writing-studio` | Plan SOPs, personal statements, and programme-fit writing from evidence, confirmed file-derived inspiration, and optional writing-voice memory. |
 | `submission-readiness` | Run final pre-submission blocker checks. |
 | `programme-table-cleaning` | Clean and verify official programme tables/workbooks. |
 
@@ -129,7 +129,7 @@ Then open the site with:
 ?codex_bridge=http://127.0.0.1:8787
 ```
 
-The bridge exposes only `GET /codex/status`, `POST /codex/start-oauth`, `POST /codex/refresh`, and `POST /codex/logout`, and it proxies those calls to `codex app-server --stdio`.
+The bridge exposes `GET /codex/status`, `POST /codex/start-oauth`, `POST /codex/refresh`, `POST /codex/logout`, and `POST /writing/inspiration/extract`. OAuth calls proxy to `codex app-server --stdio`; inspiration extraction stays local and uses `scripts/extract_inspiration_file.py`.
 
 ## Source Policy
 

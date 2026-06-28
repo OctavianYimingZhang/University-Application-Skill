@@ -3,6 +3,14 @@
 import { createServer } from "node:http";
 import { spawn } from "node:child_process";
 import { randomBytes } from "node:crypto";
+import { dirname, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
+
+const scriptDir = dirname(fileURLToPath(import.meta.url));
+const inspirationExtractorPath = resolve(scriptDir, "extract_inspiration_file.py");
+const maxCodexBodyChars = 8192;
+const maxInspirationFiles = 5;
+const maxInspirationBodyChars = 190 * 1024 * 1024;
 
 const defaultAllowedOrigins = new Set([
   "https://octavianyimingzhang.github.io",
@@ -44,7 +52,7 @@ function parseArgs(argv) {
     } else if (arg === "--no-nonce") {
       options.requireNonce = false;
     } else if (arg === "--help" || arg === "-h") {
-      console.log(`Usage: node scripts/codex_oauth_bridge.mjs [--port 8787] [--host 127.0.0.1] [--codex-bin codex] [--allow-origin ORIGIN] [--nonce VALUE] [--no-nonce]\n\nEndpoints:\n  GET  /health\n  GET  /codex/status\n  POST /codex/start-oauth  { \"flow\": \"browser\" | \"device\" }\n  POST /codex/refresh\n  POST /codex/logout`);
+      console.log(`Usage: node scripts/codex_oauth_bridge.mjs [--port 8787] [--host 127.0.0.1] [--codex-bin codex] [--allow-origin ORIGIN] [--nonce VALUE] [--no-nonce]\n\nEndpoints:\n  GET  /health\n  GET  /codex/status\n  POST /codex/start-oauth  { \"flow\": \"browser\" | \"device\" }\n  POST /codex/refresh\n  POST /codex/logout\n  POST /writing/inspiration/extract`);
       process.exit(0);
     }
   }
@@ -193,14 +201,21 @@ function normalizeAccount(result) {
   };
 }
 
-function readBody(request) {
+class HttpError extends Error {
+  constructor(statusCode, message) {
+    super(message);
+    this.statusCode = statusCode;
+  }
+}
+
+function readBody(request, maxChars = maxCodexBodyChars) {
   return new Promise((resolve, reject) => {
     let body = "";
     request.setEncoding("utf8");
     request.on("data", (chunk) => {
       body += chunk;
-      if (body.length > 8192) {
-        reject(new Error("Request body is too large."));
+      if (body.length > maxChars) {
+        reject(new HttpError(413, "Request body is too large."));
         request.destroy();
       }
     });
@@ -212,10 +227,72 @@ function readBody(request) {
       try {
         resolve(JSON.parse(body));
       } catch {
-        reject(new Error("Request body must be JSON."));
+        reject(new HttpError(400, "Request body must be JSON."));
       }
     });
     request.on("error", reject);
+  });
+}
+
+function isRecord(value) {
+  return typeof value === "object" && value !== null && !Array.isArray(value);
+}
+
+function validateInspirationFile(file) {
+  if (!isRecord(file)) {
+    throw new HttpError(400, "Each inspiration file must be a JSON object.");
+  }
+  if (typeof file.name !== "string" || !file.name.trim()) {
+    throw new HttpError(400, "Inspiration file name is required.");
+  }
+  if (typeof file.contentBase64 !== "string" || !file.contentBase64.trim()) {
+    throw new HttpError(400, "Inspiration file contentBase64 is required.");
+  }
+  return {
+    name: file.name,
+    mimeType: typeof file.mimeType === "string" ? file.mimeType : "application/octet-stream",
+    contentBase64: file.contentBase64,
+  };
+}
+
+function runInspirationExtractor(file) {
+  return new Promise((resolveResult, reject) => {
+    const child = spawn(process.env.PYTHON || "python3", [inspirationExtractorPath], {
+      stdio: ["pipe", "pipe", "pipe"],
+    });
+    let stdout = "";
+    let stderr = "";
+    const timeout = setTimeout(() => {
+      child.kill("SIGTERM");
+      reject(new HttpError(504, "Inspiration extraction timed out."));
+    }, 45000);
+
+    child.stdout.setEncoding("utf8");
+    child.stderr.setEncoding("utf8");
+    child.stdout.on("data", (chunk) => {
+      stdout += chunk;
+    });
+    child.stderr.on("data", (chunk) => {
+      stderr += chunk;
+    });
+    child.on("error", (error) => {
+      clearTimeout(timeout);
+      reject(error);
+    });
+    child.on("close", (code) => {
+      clearTimeout(timeout);
+      if (code !== 0) {
+        reject(new HttpError(500, stderr.trim() || "Inspiration extractor failed."));
+        return;
+      }
+      try {
+        resolveResult(JSON.parse(stdout));
+      } catch {
+        reject(new HttpError(500, "Inspiration extractor returned invalid JSON."));
+      }
+    });
+
+    child.stdin.end(JSON.stringify(file));
   });
 }
 
@@ -247,6 +324,8 @@ function readNonce(request) {
 
 function createBridgeServer(options, codex) {
   return createServer(async (request, response) => {
+    const requestUrl = new URL(request.url ?? "/", `http://${request.headers.host ?? "localhost"}`);
+    const pathname = requestUrl.pathname;
     const cors = buildCors(request.headers.origin, options.allowedOrigins);
     if (!cors.allowed) {
       sendJson(response, 403, { error: "Origin is not allowed by this Codex OAuth bridge." }, cors.origin);
@@ -259,29 +338,29 @@ function createBridgeServer(options, codex) {
     }
 
     try {
-      if (request.method === "GET" && request.url === "/health") {
+      if (request.method === "GET" && pathname === "/health") {
         sendJson(response, 200, { ok: true, nonceRequired: options.requireNonce }, cors.origin);
         return;
       }
 
-      if (request.url?.startsWith("/codex/") && options.requireNonce && readNonce(request) !== options.nonce) {
+      if ((pathname.startsWith("/codex/") || pathname.startsWith("/writing/")) && options.requireNonce && readNonce(request) !== options.nonce) {
         sendJson(response, 401, { error: "Missing or invalid Codex bridge nonce." }, cors.origin);
         return;
       }
 
-      if (request.method === "GET" && request.url === "/codex/status") {
+      if (request.method === "GET" && pathname === "/codex/status") {
         const result = await codex.request("account/read", { refreshToken: false });
         sendJson(response, 200, normalizeAccount(result), cors.origin);
         return;
       }
 
-      if (request.method === "POST" && request.url === "/codex/refresh") {
+      if (request.method === "POST" && pathname === "/codex/refresh") {
         const result = await codex.request("account/read", { refreshToken: true });
         sendJson(response, 200, normalizeAccount(result), cors.origin);
         return;
       }
 
-      if (request.method === "POST" && request.url === "/codex/start-oauth") {
+      if (request.method === "POST" && pathname === "/codex/start-oauth") {
         const body = await readBody(request);
         const flow = body.flow === "device" ? "chatgptDeviceCode" : "chatgpt";
         const result = await codex.request("account/login/start", { type: flow });
@@ -289,15 +368,35 @@ function createBridgeServer(options, codex) {
         return;
       }
 
-      if (request.method === "POST" && request.url === "/codex/logout") {
+      if (request.method === "POST" && pathname === "/codex/logout") {
         const result = await codex.request("account/logout");
         sendJson(response, 200, { ok: true, result }, cors.origin);
         return;
       }
 
+      if (request.method === "POST" && pathname === "/writing/inspiration/extract") {
+        const body = await readBody(request, maxInspirationBodyChars);
+        const rawFiles = Array.isArray(body.files) ? body.files : [body.file ?? body];
+        if (!rawFiles.length || rawFiles.length > maxInspirationFiles) {
+          throw new HttpError(400, `Upload one to ${maxInspirationFiles} files per inspiration extraction request.`);
+        }
+        const files = rawFiles.map(validateInspirationFile);
+        const results = [];
+        for (const file of files) {
+          results.push(await runInspirationExtractor(file));
+        }
+        if (Array.isArray(body.files)) {
+          sendJson(response, 200, { ok: results.every((item) => item?.ok), files: results }, cors.origin);
+        } else {
+          sendJson(response, 200, results[0], cors.origin);
+        }
+        return;
+      }
+
       sendJson(response, 404, { error: "Unknown Codex OAuth bridge endpoint." }, cors.origin);
     } catch (error) {
-      sendJson(response, 500, { error: error instanceof Error ? error.message : "Codex OAuth bridge failed." }, cors.origin);
+      const statusCode = Number.isInteger(error?.statusCode) ? error.statusCode : 500;
+      sendJson(response, statusCode, { error: error instanceof Error ? error.message : "Codex OAuth bridge failed." }, cors.origin);
     }
   });
 }
@@ -309,6 +408,7 @@ const server = createBridgeServer(options, codex);
 server.listen(options.port, options.host, () => {
   console.log(`Codex OAuth bridge listening on http://${options.host}:${options.port}`);
   console.log(`Allowed origins: ${Array.from(options.allowedOrigins).join(", ")}`);
+  console.log("Writing inspiration endpoint: POST /writing/inspiration/extract");
   if (options.requireNonce) {
     console.log(`Bridge nonce: ${options.nonce}`);
     console.log(`Website URL parameter: ?codex_bridge=http://${options.host}:${options.port}&codex_bridge_nonce=${options.nonce}`);

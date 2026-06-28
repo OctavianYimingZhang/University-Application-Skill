@@ -17,6 +17,23 @@ Collect:
 
 Reject unsupported claims such as "passionate", "excellent leadership", or "strong research ability" unless the student provides evidence.
 
+## Source Inspiration Intake
+
+Runtime uploads can include writing assignments, lecture slides, coursework, reading notes, spreadsheets, HTML pages, JSON notes, or images with manual annotations. Use them to extract:
+
+- interest signals: questions, problems, concepts, modules, or readings the user may genuinely care about;
+- knowledge evidence: course content, papers, theories, cases, methods, tools, datasets, or terminology;
+- possible essay angles: specific bridges between the file content, the target prompt, and the target programme;
+- unsupported claims: broad statements that need proof or should be removed.
+
+Keep these categories separate:
+
+- `Confirmed personal evidence`: the user says they did the project, wrote the assignment, used the method, earned the result, or had the experience.
+- `Learning or interest evidence`: the user read, studied, watched, or is curious about the material.
+- `Style evidence`: the file shows how the user writes, but not what personal facts are true.
+
+Only confirmed insights may enter the evidence map. Never turn a lecture slide, reading, or assignment topic into a personal achievement unless the user confirms ownership. Write `passion` as a precise, source-backed curiosity or question, not as a generic feeling.
+
 ## Tutor Mode for Academic Interests
 
 When the student names an interest, help them understand it deeply enough to write with precision:
@@ -51,6 +68,7 @@ Build:
 Depending on the user's request, produce:
 
 - Evidence inventory.
+- Source inspiration map.
 - Essay outline.
 - Core SOP draft.
 - School-specific adaptation map.
