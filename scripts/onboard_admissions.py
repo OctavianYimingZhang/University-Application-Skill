@@ -9,7 +9,8 @@ from pathlib import Path
 WORKFLOW_ALIASES = {
     "shortlist": "full_shortlist",
     "requirement_check": "requirement_audit",
-    "visa_readiness": "visa_route",
+    "visa_readiness": "visa_readiness",
+    "visa_route": "visa_readiness",
     "essay_plan": "essay_sop",
 }
 
@@ -83,6 +84,7 @@ def build_template(workflow_mode: str, output_mode: str) -> dict:
             "constraints": [],
         },
         "memory": build_blank_memory(),
+        "evidence_records": [],
     }
     if workflow_mode == "programme_table_cleaning":
         data["source_workbook_dir_or_files"] = []

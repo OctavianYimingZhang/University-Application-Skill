@@ -1,6 +1,6 @@
 onboarding_flow:
   entry:
-    title: Study Abroad Advisor Setup
+    title: University Application Setup
     prompt: Choose what you want to do now.
     field: workflow_mode
     control: single_choice
@@ -14,7 +14,7 @@ onboarding_flow:
       - programme_table_cleaning
       - submission_readiness
       - source_refresh
-      - visa_route
+      - visa_readiness
 
   output_mode:
     title: Output reliability
@@ -139,8 +139,8 @@ onboarding_flow:
       required_cards:
         - workflow_goal
       gate: source_refresh
-    visa_route:
+    visa_readiness:
       required_cards:
         - workflow_goal
         - identity_route
-      gate: visa_route
+      gate: visa_readiness

@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:soleil:university-application:application-case:v1",
+  "title": "ApplicationCase v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract",
+    "version",
+    "case_id",
+    "institution",
+    "programme_name",
+    "degree_level",
+    "official_programme_url",
+    "application_cycle",
+    "source_availability",
+    "fact_verification",
+    "completeness",
+    "accessed_at",
+    "staleness",
+    "custom_case",
+    "created_at",
+    "updated_at"
+  ],
+  "properties": {
+    "contract": {"const": "ApplicationCase"},
+    "version": {"const": 1},
+    "case_id": {"type": "string", "minLength": 8},
+    "institution": {"type": "string", "minLength": 1},
+    "programme_name": {"type": "string", "minLength": 1},
+    "degree_level": {"type": "string", "minLength": 1},
+    "official_programme_url": {"type": "string", "format": "uri", "pattern": "^https://"},
+    "application_cycle": {"type": "string", "minLength": 1},
+    "source_availability": {"enum": ["available", "unavailable", "unknown"]},
+    "fact_verification": {"enum": ["unverified", "verified", "conflicted"]},
+    "completeness": {"enum": ["placeholder", "partial", "complete"]},
+    "accessed_at": {"type": "string", "format": "date-time"},
+    "staleness": {"enum": ["fresh", "stale", "unknown"]},
+    "custom_case": {"type": "boolean"},
+    "created_at": {"type": "string", "format": "date-time"},
+    "updated_at": {"type": "string", "format": "date-time"}
+  }
+}

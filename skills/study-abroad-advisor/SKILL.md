@@ -1,10 +1,10 @@
 ---
 name: study-abroad-advisor
-description: Plugin root router for the University Application multiple-skill system. Load and follow the package root SKILL.md for source-backed admissions planning, programme research, requirement checks, materials readiness, writing-studio planning, submission readiness, visa-readiness notes, workbooks, and programme-table cleaning.
+description: Compatibility alias for the canonical university-application-index Skill. Use only when an existing prompt or installation explicitly invokes study-abroad-advisor; delegate all admissions routing and workflow decisions to university-application-index.
 ---
 
-# Study Abroad Advisor Plugin Router
+# Study Abroad Advisor Compatibility Alias
 
-This is the plugin-discoverable router entrypoint. It preserves the full workflow contract by delegating to the package root [`../../SKILL.md`](../../SKILL.md).
+Immediately load and follow [`university-application-index`](../university-application-index/SKILL.md). Do not define, extend, or override routing here.
 
-Before doing admissions work, read and follow [`../../SKILL.md`](../../SKILL.md), then route to the focused Skill that matches the confirmed application task.
+Default to English unless the user explicitly requests another output language.

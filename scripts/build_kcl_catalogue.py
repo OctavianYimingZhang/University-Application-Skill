@@ -7,7 +7,7 @@ import datetime as dt
 import html
 import json
 import re
-import ssl
+import urllib.error
 import urllib.parse
 import urllib.request
 from pathlib import Path
@@ -27,10 +27,8 @@ def fetch(url: str) -> str:
     try:
         with urllib.request.urlopen(request, timeout=30) as response:
             return response.read().decode("utf-8", "replace")
-    except Exception:
-        context = ssl._create_unverified_context()
-        with urllib.request.urlopen(request, timeout=30, context=context) as response:
-            return response.read().decode("utf-8", "replace")
+    except (urllib.error.URLError, TimeoutError) as exc:
+        raise RuntimeError(f"Request failed (TLS verification remains enabled) for {url}: {exc}") from exc
 
 
 def clean_text(value: str) -> str:
@@ -78,9 +76,11 @@ def post_json(payload: dict[str, Any], access_token: str) -> dict[str, Any]:
         },
         method="POST",
     )
-    context = ssl._create_unverified_context()
-    with urllib.request.urlopen(request, timeout=40, context=context) as response:
-        return json.loads(response.read().decode("utf-8", "replace"))
+    try:
+        with urllib.request.urlopen(request, timeout=40) as response:
+            return json.loads(response.read().decode("utf-8", "replace"))
+    except (urllib.error.URLError, TimeoutError) as exc:
+        raise RuntimeError(f"Request failed (TLS verification remains enabled) for {API_URL}: {exc}") from exc
 
 
 def title_of(value: Any) -> str:

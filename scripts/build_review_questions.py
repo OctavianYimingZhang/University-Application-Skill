@@ -31,11 +31,25 @@ def route_options(route: str) -> list[dict[str, str]]:
         "application_writing_studio": "Lock the writing brief, build evidence, choose narrative options, and plan before drafting.",
         "submission_readiness": "Run the final pre-submission blocker checklist.",
         "programme_table_cleaning": "Clean and verify official programme workbooks or tables.",
-        "visa_route": "Review visa-sensitive readiness from official government and university sources.",
+        "visa_readiness": "Review student visa readiness from current official government sources without legal advice.",
     }
     return [
         option(f"{ROUTE_LABELS[item]}{' (Recommended)' if item == route else ''}", descriptions[item])
         for item in ordered[:3]
+    ]
+
+
+def source_options(route: str) -> list[dict[str, str]]:
+    if route == "visa_readiness":
+        return [
+            option("Official government (Recommended)", "Use current government or immigration-authority sources for every legal or procedural claim."),
+            option("Government + university", "Use government sources for rules and official university sources for sponsor-specific steps."),
+            option("User links as leads", "Inspect supplied links, but verify every visa rule against the current official government source."),
+        ]
+    return [
+        option("Official only (Recommended)", "Use university, government, testing-agency, and scholarship sources for hard facts."),
+        option("Official + academic context", "Use official sources for requirements and peer-reviewed sources for writing context."),
+        option("User-provided sources only", "Use only sources supplied by the user and mark missing official facts as gaps."),
     ]
 
 
@@ -52,12 +66,8 @@ def build_payload(prompt: str, setup: dict[str, Any] | None = None) -> dict[str,
         question(
             "Sources",
             "source_policy",
-            "What source policy should control hard requirements, fees, and deadlines?",
-            [
-                option("Official only (Recommended)", "Use university, government, testing-agency, and scholarship sources for hard facts."),
-                option("Official + academic context", "Use official sources for requirements and peer-reviewed sources for writing context."),
-                option("User-provided sources only", "Use only sources supplied by the user and mark missing official facts as gaps."),
-            ],
+            "What source policy should control hard requirements, fees, deadlines, and visa rules?",
+            source_options(route),
         ),
     ]
     if route == "application_writing_studio":
@@ -115,6 +125,10 @@ def self_test() -> None:
     assert payload["questions"][2]["id"] == "writing_brief_and_evidence"
     req = build_payload("check IELTS requirements", {"profile": {"target_degree_level": "undergraduate"}})
     assert req["questions"][0]["options"][0]["label"].startswith("Requirement Audit")
+    visa = build_payload("检查学生签证准备情况")
+    assert visa["questions"][0]["options"][0]["label"].startswith("Visa Readiness")
+    assert visa["questions"][1]["options"][0]["label"].startswith("Official government")
+    assert all(question["question"].isascii() for question in visa["questions"])
 
 
 def main() -> None:

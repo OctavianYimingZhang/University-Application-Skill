@@ -9,10 +9,10 @@ Use this focused Skill for official-source programme discovery and shortlist bui
 
 ## Workflow
 
-1. Read `references/intake.md` and `references/research.md`.
+1. Read [`../../references/intake.md`](../../references/intake.md) and [`../../references/research.md`](../../references/research.md).
 2. Confirm target degree level, country/region, subject area, intake, budget, and source policy when missing fields change the research scope.
 3. Collect official programme pages and related admissions, fee, scholarship, and visa pages.
-4. Extract programme name, award, level, duration, mode, location, codes, hard requirements, English requirements, fees, deadlines, documents, and source date.
+4. Extract programme name, award, level, duration, mode, location, codes, hard requirements, English requirements, fees, deadlines, and documents. Record source availability, fact verification, completeness, application cycle, access date, and staleness separately.
 5. Mark missing or unpublished fields as gaps.
 6. Compare eligibility, cost, timing, and fit without probability scores.
 7. Route named programmes to `requirement-audit` when the user needs a hard-requirement check.
@@ -20,3 +20,5 @@ Use this focused Skill for official-source programme discovery and shortlist bui
 ## Output
 
 Produce a table, shortlist, workbook case JSON, or source-backed programme list with a source log.
+
+Default to English. Use another output language only when the user explicitly requests it.

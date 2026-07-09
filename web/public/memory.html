@@ -308,7 +308,9 @@
         source_label: source,
         confidence,
         created_at: new Date().toISOString(),
-        user_confirmed: confidence === "user_supplied" || confidence === "source_backed"
+        confirmation_status: "unconfirmed",
+        confirmed_at: null,
+        user_confirmed: false
       };
       state[category].push(entry);
       render();

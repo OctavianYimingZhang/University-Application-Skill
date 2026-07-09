@@ -11,12 +11,16 @@ SKILL.md
 skills/
 references/
 scripts/
+contracts/
+schemas/
 tests/
 web/
 .codex-plugin/
 memory/README.md
 memory/blank-memory.json
 COPY_PACKAGE.md
+plugin-capability-manifest.v2.json
+skill_manifest.json
 README.md
 LICENSE
 ```
@@ -32,6 +36,7 @@ The GitHub version should contain only:
 - `references/setup/blank-memory.schema.json`
 - generic memory documentation
 - UI code that creates private exports in the user's browser
+- blank applicant-evidence scaffolds
 
 Do not commit populated memory files. Private local memory paths are ignored by `.gitignore`, including:
 
@@ -81,4 +86,6 @@ Before publishing or sharing a copy:
 - Search for real names, emails, phone numbers, transcripts, visa identifiers, grades, private lecture notes, writing samples, and account tokens.
 - Confirm `memory/local-*` and `memory/private-*` files are not tracked.
 - Confirm `memory/blank-memory.json` contains empty arrays and empty strings only.
+- Confirm test fixtures and web narrative options contain no seeded applicant evidence.
+- Confirm the shared `contracts/` files and `plugin-capability-manifest.v2.json` are included.
 - Run local checks from `README.md` if the runtime is available.

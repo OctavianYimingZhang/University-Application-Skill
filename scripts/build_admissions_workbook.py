@@ -9,6 +9,8 @@ import zipfile
 from pathlib import Path
 from typing import Any
 
+from validate_evidence import evidence_passes, validate_evidence_record
+
 
 def rows_from(value: Any) -> list[dict[str, Any]]:
     if value is None:
@@ -52,6 +54,25 @@ def table_rows(items: list[dict[str, Any]]) -> list[list[Any]]:
     return rows
 
 
+def applicant_evidence_rows(data: dict[str, Any]) -> list[dict[str, Any]]:
+    raw = data.get("applicant_evidence", data.get("evidence_records", []))
+    items = rows_from(raw)
+    rows: list[dict[str, Any]] = []
+    for index, item in enumerate(items):
+        errors = validate_evidence_record(item)
+        if errors:
+            raise ValueError(f"invalid applicant evidence row {index}: " + "; ".join(errors))
+        source = item.get("source") if isinstance(item.get("source"), dict) else {}
+        rows.append({
+            **{key: value for key, value in item.items() if key != "source"},
+            "source_url": source.get("url", ""),
+            "source_title": source.get("title", ""),
+            "source_publisher": source.get("publisher", ""),
+            "evidence_passes": evidence_passes(item),
+        })
+    return rows
+
+
 def build_sheets(data: dict[str, Any]) -> dict[str, list[list[Any]]]:
     applicant = data.get('applicant', {})
     summary = [
@@ -64,7 +85,8 @@ def build_sheets(data: dict[str, Any]) -> dict[str, list[list[Any]]]:
     ]
     return {
         'Summary': summary,
-        'Applicant': table_rows(rows_from(applicant)),
+        'Applicant_Intake': table_rows(rows_from(applicant)),
+        'Applicant_Evidence': table_rows(applicant_evidence_rows(data)),
         'Programs': table_rows(rows_from(data.get('programs'))),
         'Requirements': table_rows(rows_from(data.get('requirements'))),
         'Documents': table_rows(rows_from(data.get('documents'))),

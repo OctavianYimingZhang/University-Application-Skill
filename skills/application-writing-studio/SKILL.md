@@ -9,14 +9,14 @@ Use this focused Skill for admissions writing. The core job is to help the user 
 
 ## Workflow
 
-1. Read `references/essay-sop.md` and `references/memory-system.md`.
+1. Read [`../../references/essay-sop.md`](../../references/essay-sop.md), [`../../references/memory-system.md`](../../references/memory-system.md), and [`../../references/evidence-contract.md`](../../references/evidence-contract.md).
 2. Lock the writing brief: programme, prompt, word limit, audience, output use, source policy, applicant background, and submission deadline if relevant.
 3. Check whether the user has supplied writing-voice memory or uploaded writing samples. If not, use blank defaults and do not invent voice rules.
 4. Run source inspiration intake when the user uploads writing assignments, lecture slides, coursework, readings, notes, spreadsheets, or images:
    - extract or summarize only what is present in the supplied file or manual annotation;
    - classify `Interest Signals`, `Knowledge Evidence`, `Methods / Concepts`, `Possible Essay Angles`, and `Unsupported Claims`;
    - ask the user to confirm any insight before it enters the evidence map or resolves a writing gap.
-5. Build an evidence inventory from the user:
+5. Build a normalized evidence inventory from the user. An item enters the evidence map only after `value`, source provenance, evidence date, explicit confirmation, verification, completeness, cycle, access date, and staleness are recorded:
    - academic projects, modules, grades, methods, readings, labs, clinical/professional exposure, internships, leadership, awards, failures, and goals.
 6. Generate narrative options only from supplied and confirmed evidence.
 7. Build an evidence map for the selected option.
@@ -54,3 +54,5 @@ Use this focused Skill for admissions writing. The core job is to help the user 
 - Preserve the student's voice and evidence.
 - Keep school-specific customization substantive enough that swapping the school name would break the paragraph.
 - Treat programme facts as verified only when backed by official source URLs.
+- Empty, placeholder, link-only, partial, unverified, or unconfirmed applicant evidence cannot resolve a writing gap.
+- Default to English. Use another output language only when the user explicitly requests it.

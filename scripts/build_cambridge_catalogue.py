@@ -7,7 +7,6 @@ import datetime as dt
 import html
 import json
 import re
-import ssl
 import sys
 import urllib.error
 import urllib.parse
@@ -28,10 +27,8 @@ def fetch(url: str) -> str:
     try:
         with urllib.request.urlopen(request, timeout=30) as response:
             return response.read().decode("utf-8", "replace")
-    except urllib.error.URLError:
-        context = ssl._create_unverified_context()
-        with urllib.request.urlopen(request, timeout=30, context=context) as response:
-            return response.read().decode("utf-8", "replace")
+    except (urllib.error.URLError, TimeoutError) as exc:
+        raise RuntimeError(f"Request failed (TLS verification remains enabled) for {url}: {exc}") from exc
 
 
 def slug_from_url(url: str, prefix: str) -> str:

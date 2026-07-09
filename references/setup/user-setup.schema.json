@@ -6,6 +6,49 @@
     {"required": ["workflow_mode", "output_mode"]},
     {"required": ["task_type", "output_format"]}
   ],
+  "$defs": {
+    "evidenceRecord": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "evidence_id", "value", "source", "evidence_date", "confirmation_status", "confirmed_at",
+        "source_availability", "fact_verification", "completeness", "application_cycle", "accessed_at", "staleness"
+      ],
+      "properties": {
+        "evidence_id": {"type": "string", "minLength": 1},
+        "value": {"type": "string", "minLength": 1},
+        "source": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["url", "title", "publisher"],
+          "properties": {
+            "url": {"type": "string", "format": "uri"},
+            "title": {"type": "string", "minLength": 1},
+            "publisher": {"type": "string", "minLength": 1}
+          }
+        },
+        "evidence_date": {
+          "oneOf": [
+            {"type": "string", "format": "date"},
+            {"type": "string", "format": "date-time"}
+          ]
+        },
+        "confirmation_status": {"enum": ["unconfirmed", "explicitly_confirmed"]},
+        "confirmed_at": {"type": ["string", "null"], "format": "date-time"},
+        "source_availability": {"enum": ["available", "unavailable", "unknown"]},
+        "fact_verification": {"enum": ["unverified", "verified", "conflicted"]},
+        "completeness": {"enum": ["placeholder", "partial", "complete"]},
+        "application_cycle": {"type": "string", "minLength": 1},
+        "accessed_at": {
+          "oneOf": [
+            {"type": "string", "format": "date"},
+            {"type": "string", "format": "date-time"}
+          ]
+        },
+        "staleness": {"enum": ["fresh", "stale", "unknown"]}
+      }
+    }
+  },
   "properties": {
     "user_setup_id": {"type": "string"},
     "applicant_id": {"type": "string"},
@@ -21,6 +64,7 @@
         "programme_table_cleaning",
         "submission_readiness",
         "source_refresh",
+        "visa_readiness",
         "visa_route"
       ]
     },
@@ -40,6 +84,8 @@
       "enum": ["compact_batches", "step_by_step", "form_like"]
     },
     "source_policy": {"type": "string"},
+    "requested_output_language": {"type": "string"},
+    "evidence_records": {"type": "array", "items": {"$ref": "#/$defs/evidenceRecord"}},
     "privacy_mode": {"type": "string"},
     "export_format": {"type": "string"},
     "ranking_weight": {"type": ["number", "string"]},

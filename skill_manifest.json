@@ -1,16 +1,27 @@
 {
-  "schema_version": 2,
-  "skill_id": "study-abroad-advisor",
+  "schema_version": 3,
+  "skill_id": "university-application-index",
   "repo": "OctavianYimingZhang/University-Application-Skill",
   "branch": "main",
   "entrypoint": "SKILL.md",
   "multi_skill_system": true,
   "plugin_router_skill": {
-    "name": "study-abroad-advisor",
-    "path": "skills/study-abroad-advisor/SKILL.md",
-    "route": "plugin_router"
+    "name": "university-application-index",
+    "path": "skills/university-application-index/SKILL.md",
+    "route": "index"
   },
   "index_skill": "skills/university-application-index/SKILL.md",
+  "compatibility_aliases": [
+    {
+      "name": "study-abroad-advisor",
+      "path": "skills/study-abroad-advisor/SKILL.md",
+      "canonical": "university-application-index"
+    }
+  ],
+  "capability_manifest": "plugin-capability-manifest.v2.json",
+  "application_case_schema": "schemas/application-case-v1.schema.json",
+  "supported_context_versions": [1],
+  "default_output_language": "en",
   "default_output": "source_backed_programme_list",
   "human_review_required": true,
   "probability_prediction_policy": "prohibited",
@@ -28,7 +39,7 @@
     "application_writing_studio",
     "submission_readiness",
     "programme_table_cleaning",
-    "visa_route"
+    "visa_readiness"
   ],
   "focused_skills": [
     {
@@ -62,6 +73,11 @@
       "route": "submission_readiness"
     },
     {
+      "name": "visa-readiness",
+      "path": "skills/visa-readiness/SKILL.md",
+      "route": "visa_readiness"
+    },
+    {
       "name": "programme-table-cleaning",
       "path": "skills/programme-table-cleaning/SKILL.md",
       "route": "programme_table_cleaning"
@@ -70,7 +86,7 @@
   "web": {
     "path": "web",
     "framework": "React + Vite + TypeScript",
-    "coverage": "UK Core, U.S. News Top 30 cutoff, NUS, NTU, and Manchester Biosciences detail seed",
+    "coverage": "UK Core, U.S. News Top 30 cutoff, NUS, NTU, and Manchester Biosciences detail pages",
     "codex_oauth": "static-safe bridge panel; no browser-side token exchange or token storage",
     "writing_inspiration_uploads": "runtime-only browser uploads with optional local Codex bridge extraction; no user files committed",
     "deploy": "GitHub Pages workflow",
@@ -87,8 +103,8 @@
     "python3 scripts/validate_skill_contracts.py",
     "python3 scripts/plan_workflow.py --self-test",
     "python3 scripts/build_review_questions.py --self-test",
+    "python3 scripts/validate_evidence.py --self-test",
     "python3 scripts/publish_skill.py --dry-run --sync-local-skill",
-    "python3 scripts/validate_setup.py tests/fixtures/user_setup_full_shortlist.json",
     "python3 scripts/build_admissions_workbook.py tests/fixtures/admissions_case_mvp.json /tmp/application_plan.xlsx",
     "cd web && npm ci --cache .npm-cache && npm run build"
   ],

@@ -1,0 +1,122 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:soleil:contracts:plugin-capability-manifest:v2",
+  "title": "PluginCapabilityManifest v2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract",
+    "version",
+    "plugin_id",
+    "plugin_version",
+    "default_output_language",
+    "supported_context_versions",
+    "routes"
+  ],
+  "properties": {
+    "contract": {"const": "PluginCapabilityManifest"},
+    "version": {"const": 2},
+    "plugin_id": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+    "plugin_version": {"type": "string", "minLength": 1},
+    "default_output_language": {"const": "en"},
+    "supported_context_versions": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "contains": {"const": 1},
+      "items": {"type": "integer", "minimum": 1}
+    },
+    "routes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/route"}
+    }
+  },
+  "$defs": {
+    "route": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "route_id",
+        "owning_skill",
+        "triggers",
+        "required_inputs",
+        "gates",
+        "outputs",
+        "adapter_entrypoint",
+        "supported_context_versions"
+      ],
+      "properties": {
+        "route_id": {"type": "string", "pattern": "^[a-z0-9]+(?:_[a-z0-9]+)*$"},
+        "owning_skill": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+        "triggers": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["semantic_intents", "examples", "direct_invocation"],
+          "properties": {
+            "semantic_intents": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+            "examples": {"type": "array", "items": {"type": "string", "minLength": 1}},
+            "direct_invocation": {"type": "boolean"}
+          }
+        },
+        "required_inputs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["input_id", "required"],
+            "properties": {
+              "input_id": {"type": "string", "pattern": "^[a-z0-9]+(?:_[a-z0-9]+)*$"},
+              "required": {"type": "boolean"},
+              "schema_ref": {"type": "string", "minLength": 1},
+              "description": {"type": "string"}
+            }
+          }
+        },
+        "gates": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["gate_id", "required"],
+            "properties": {
+              "gate_id": {"type": "string", "pattern": "^[a-z0-9]+(?:_[a-z0-9]+)*$"},
+              "required": {"type": "boolean"},
+              "satisfied_by": {"type": "string"}
+            }
+          }
+        },
+        "outputs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["output_id"],
+            "properties": {
+              "output_id": {"type": "string", "pattern": "^[a-z0-9]+(?:_[a-z0-9]+)*$"},
+              "media_type": {"type": "string"},
+              "schema_ref": {"type": "string", "minLength": 1}
+            }
+          }
+        },
+        "adapter_entrypoint": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "value"],
+          "properties": {
+            "type": {"enum": ["python", "command", "skill", "http"]},
+            "value": {"type": "string", "minLength": 1}
+          }
+        },
+        "supported_context_versions": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "contains": {"const": 1},
+          "items": {"type": "integer", "minimum": 1}
+        }
+      }
+    }
+  }
+}

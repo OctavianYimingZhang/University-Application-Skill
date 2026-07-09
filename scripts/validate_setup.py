@@ -7,6 +7,8 @@ import json
 import sys
 from pathlib import Path
 
+from validate_evidence import evidence_passes, validate_evidence_record
+
 ALLOWED_WORKFLOW_MODES = {
     "quick_triage",
     "full_shortlist",
@@ -17,7 +19,7 @@ ALLOWED_WORKFLOW_MODES = {
     "programme_table_cleaning",
     "submission_readiness",
     "source_refresh",
-    "visa_route",
+    "visa_readiness",
 }
 
 ALLOWED_OUTPUT_MODES = {"brainstorm", "draft", "source_backed", "verified"}
@@ -25,7 +27,8 @@ ALLOWED_OUTPUT_MODES = {"brainstorm", "draft", "source_backed", "verified"}
 WORKFLOW_ALIASES = {
     "shortlist": "full_shortlist",
     "requirement_check": "requirement_audit",
-    "visa_readiness": "visa_route",
+    "visa_readiness": "visa_readiness",
+    "visa_route": "visa_readiness",
     "essay_plan": "essay_sop",
 }
 
@@ -85,7 +88,7 @@ REQUIRED_BY_WORKFLOW = {
     "source_refresh": [
         ("source_urls", "source_url", "program_name_or_url", "program_names_or_urls"),
     ],
-    "visa_route": [
+    "visa_readiness": [
         ("citizenship_countries", "citizenship"),
         ("target_countries", "destination_country", "target_country_or_region"),
         ("target_intake", "intake_term", "intended_intake"),
@@ -103,9 +106,15 @@ def is_present(value: object) -> bool:
     if value is None:
         return False
     if isinstance(value, str):
-        return bool(value.strip())
-    if isinstance(value, (list, tuple, set, dict)):
-        return bool(value)
+        normalized = value.strip().lower()
+        return bool(normalized) and normalized not in {
+            "-", "n/a", "none", "not confirmed", "not provided", "placeholder",
+            "source required", "tbc", "tbd", "todo", "unknown",
+        }
+    if isinstance(value, (list, tuple, set)):
+        return any(is_present(item) for item in value)
+    if isinstance(value, dict):
+        return any(is_present(item) for item in value.values())
     return True
 
 
@@ -166,6 +175,16 @@ def main() -> None:
     ]
     if missing:
         fail('missing required fields for task: ' + ', '.join(missing))
+
+    evidence_records = data.get("evidence_records", [])
+    if not isinstance(evidence_records, list):
+        fail("evidence_records must be an array")
+    for index, record in enumerate(evidence_records):
+        errors = validate_evidence_record(record)
+        if errors:
+            fail(f"invalid evidence_records[{index}]: " + "; ".join(errors))
+        if output_mode == "verified" and not evidence_passes(record):
+            fail(f"evidence_records[{index}] does not satisfy the evidence passing invariant")
     print('OK: setup validation passed')
 
 

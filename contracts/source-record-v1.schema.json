@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:soleil:contracts:source-record:v1",
+  "title": "SourceRecord v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract",
+    "version",
+    "source_id",
+    "checksum_sha256",
+    "course_id",
+    "source_type",
+    "opaque_local_ref",
+    "provenance",
+    "locators",
+    "parser_version",
+    "processing_status",
+    "trust_status"
+  ],
+  "properties": {
+    "contract": {"const": "SourceRecord"},
+    "version": {"const": 1},
+    "source_id": {"type": "string", "minLength": 8},
+    "checksum_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "course_id": {"type": ["string", "null"]},
+    "source_type": {"enum": ["pdf", "pptx", "docx", "txt", "vtt", "srt", "image", "mp3", "m4a", "wav", "url", "lms_export", "email_export", "calendar_export", "other"]},
+    "opaque_local_ref": {"type": "string", "minLength": 1, "description": "Opaque reference resolved only by the authenticated local runtime."},
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_name", "captured_at", "access_method", "official_source"],
+      "properties": {
+        "source_name": {"type": "string", "minLength": 1},
+        "source_uri": {"type": ["string", "null"]},
+        "captured_at": {"type": "string", "format": "date-time"},
+        "access_method": {"type": "string", "minLength": 1},
+        "official_source": {"type": "boolean"}
+      }
+    },
+    "locators": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["locator_id", "kind", "start"],
+        "properties": {
+          "locator_id": {"type": "string", "minLength": 1},
+          "kind": {"enum": ["page", "slide", "timestamp", "line", "section", "record"]},
+          "start": {"type": ["integer", "number", "string"]},
+          "end": {"type": ["integer", "number", "string", "null"]},
+          "label": {"type": "string"}
+        }
+      }
+    },
+    "parser_version": {"type": "string", "minLength": 1},
+    "processing_status": {"enum": ["received", "parsing", "parsed", "review_required", "trusted", "failed"]},
+    "trust_status": {"enum": ["unreviewed", "trusted", "rejected"]},
+    "error": {"type": ["string", "null"]}
+  }
+}

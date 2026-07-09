@@ -254,24 +254,24 @@ function createProgramMaterials(program: Program): MaterialItem[] {
 const narrativeOptions: NarrativeOption[] = [
   {
     id: "research-curiosity",
-    title: "Research Curiosity in Genetics",
-    body: "A curiosity-driven story that connects gene-expression exposure, independent reading, and lab methods to a commitment to genetic mechanisms.",
-    evidence: ["Research project on gene expression", "Independent reading: Watson, Epigenetics; Pierce, Genetics", "Lab skills: PCR and gel electrophoresis"],
-    gaps: ["Quantitative analysis example", "Reflection on ethical or societal implications"],
+    title: "Research Curiosity",
+    body: "Use a curiosity-driven structure only after the applicant confirms a specific question, its source, and the work or reading that developed it.",
+    evidence: [],
+    gaps: ["Confirmed question or experience", "Verified source and evidence date", "Explicit confirmation record"],
   },
   {
     id: "problem-solving",
-    title: "Problem-Solving in Biology",
-    body: "A problem-led story about using biological reasoning, lab work, and interdisciplinary learning to answer real questions.",
-    evidence: ["Biology coursework project", "Wet-lab practical record", "Data interpretation exercise"],
-    gaps: ["Clear programme-specific module link"],
+    title: "Problem-Solving",
+    body: "Use a problem-led structure only after a concrete applicant action, method, result, and reflection are explicitly confirmed.",
+    evidence: [],
+    gaps: ["Confirmed problem and applicant action", "Confirmed method and outcome", "Verified programme-specific fit"],
   },
   {
     id: "impact",
-    title: "Impact Through Biosciences",
-    body: "A motivation-led story about using bioscience responsibly for human or environmental benefit.",
-    evidence: ["Volunteering or outreach example", "Coursework on genetics or molecular biology"],
-    gaps: ["Concrete research or lab evidence", "Specific Manchester programme fit"],
+    title: "Purpose and Impact",
+    body: "Use an impact-led structure only when the applicant has confirmed the relevant experience, contribution, limits, and future goal.",
+    evidence: [],
+    gaps: ["Confirmed experience and contribution", "Confirmed reflection and limits", "Verified programme-specific fit"],
   },
 ];
 
@@ -752,10 +752,10 @@ function MaterialsView({
     + programRows.reduce((sum, row) => sum + row.materials.filter((item) => item.check === "Pass").length, 0);
 
   const recordGlobal = (id: string) => {
-    setGlobalMaterials((items) => items.map((item) => item.id === id ? { ...item, status: "Complete", evidence: "Recorded in session", check: "Pass", note: "Evidence was recorded in this browser session. Keep source verification separate from file upload." } : item));
+    setGlobalMaterials((items) => items.map((item) => item.id === id ? { ...item, status: "In Progress", evidence: "Structured evidence required", check: "Unresolved", note: "Add a substantive value, source URL/title/publisher, evidence date, explicit confirmation, verification, completeness, cycle, access date, and staleness before this item can pass." } : item));
   };
   const markGlobalNotRequired = (id: string) => {
-    setGlobalMaterials((items) => items.map((item) => item.id === id ? { ...item, status: "Not Required", evidence: "Not applicable", check: "N/A", note: "Marked not applicable in this browser session. Use only when the applicant route does not require it." } : item));
+    setGlobalMaterials((items) => items.map((item) => item.id === id ? { ...item, status: "In Progress", evidence: "N/A requires verification", check: "Unresolved", note: "Verify from the official route that this item is not required before marking it not applicable." } : item));
   };
   const clearGlobal = (id: string) => {
     const original = globalMaterialTemplates.find((item) => item.id === id);
@@ -765,13 +765,13 @@ function MaterialsView({
   const recordProgramMaterial = (programId: string, id: string) => {
     setCaseMaterials((lists) => ({
       ...lists,
-      [programId]: (lists[programId] ?? []).map((item) => item.id === id ? { ...item, status: "Complete", evidence: "Recorded in session", check: "Pass", note: "Evidence was recorded in this browser session. Verify the content against the official requirement before submission." } : item),
+      [programId]: (lists[programId] ?? []).map((item) => item.id === id ? { ...item, status: "In Progress", evidence: "Structured evidence required", check: "Unresolved", note: "Add the full normalized evidence record and verify it against the official programme requirement before this item can pass." } : item),
     }));
   };
   const markProgramNotRequired = (programId: string, id: string) => {
     setCaseMaterials((lists) => ({
       ...lists,
-      [programId]: (lists[programId] ?? []).map((item) => item.id === id ? { ...item, status: "Not Required", evidence: "Not applicable", check: "N/A", note: "Marked not applicable in this browser session. Keep this only if the official programme route does not request it." } : item),
+      [programId]: (lists[programId] ?? []).map((item) => item.id === id ? { ...item, status: "In Progress", evidence: "N/A requires verification", check: "Unresolved", note: "Verify from the official programme route that this item is not required before marking it not applicable." } : item),
     }));
   };
   const clearProgramMaterial = (targetProgram: Program, id: string) => {
@@ -823,8 +823,8 @@ function MaterialsView({
                 <span className="evidence">{item.evidence}</span>
                 <p>{item.note}</p>
                 <div className="material-actions">
-                  <button className="ghost-button" onClick={() => recordGlobal(item.id)}>Record evidence</button>
-                  <button className="ghost-button" onClick={() => markGlobalNotRequired(item.id)}>N/A</button>
+                  <button className="ghost-button" onClick={() => recordGlobal(item.id)}>Start evidence record</button>
+                  <button className="ghost-button" onClick={() => markGlobalNotRequired(item.id)}>Review N/A</button>
                   {item.check !== "Unresolved" && <button className="ghost-button" onClick={() => clearGlobal(item.id)}>Clear</button>}
                 </div>
               </div>
@@ -865,8 +865,8 @@ function MaterialsView({
                     <p>{item.note}</p>
                     <div className="material-actions">
                       {item.id.includes("-writing-") && <button className="primary-outline" onClick={openWriting}>Plan writing</button>}
-                      <button className="ghost-button" onClick={() => recordProgramMaterial(row.program.id, item.id)}>Record evidence</button>
-                      <button className="ghost-button" onClick={() => markProgramNotRequired(row.program.id, item.id)}>N/A</button>
+                      <button className="ghost-button" onClick={() => recordProgramMaterial(row.program.id, item.id)}>Start evidence record</button>
+                      <button className="ghost-button" onClick={() => markProgramNotRequired(row.program.id, item.id)}>Review N/A</button>
                       {item.check !== "Unresolved" && <button className="ghost-button" onClick={() => clearProgramMaterial(row.program, item.id)}>Clear</button>}
                     </div>
                   </div>
@@ -916,7 +916,6 @@ function WritingView({
 }) {
   const inspirationInputRef = useRef<HTMLInputElement>(null);
   const [selected, setSelected] = useState(narrativeOptions[0]);
-  const [resolved, setResolved] = useState<string[]>([]);
   const [approval, setApproval] = useState("");
   const [activeProgramId, setActiveProgramId] = useState("");
   const [activeRequirementId, setActiveRequirementId] = useState("");
@@ -953,7 +952,7 @@ function WritingView({
   }, [activeGroup, activeRequirementId, requirementKeys, requirementRows.length]);
 
   const activeRequirement = requirementRows.find((item) => item.key === activeRequirementId) ?? requirementRows[0];
-  const gaps = selected.gaps.filter((gap) => !resolved.includes(gap));
+  const gaps = selected.gaps;
   const approveEnabled = Boolean(activeRequirement) && gaps.length === 0;
   const activeWritingContext = activeRequirement ? `${activeRequirement.program.name} / ${activeRequirement.requirement.title}` : "selected writing item";
   const approvedInsightRows = inspirationInsights.filter((insight) => approvedInsights.includes(insight.id));
@@ -1295,7 +1294,7 @@ function WritingView({
                                 <p>{insight.evidenceExcerpt}</p>
                                 <small>{insight.pageOrSlide} / {insight.essayUse}</small>
                                 <button className={approved ? "ghost-button" : "primary-outline"} onClick={() => toggleInsightApproval(insight.id)}>
-                                  {approved ? "Remove from evidence map" : "Use in evidence map"}
+                                  {approved ? "Remove provisional insight" : "Keep as provisional insight"}
                                 </button>
                               </div>
                             );
@@ -1320,7 +1319,7 @@ function WritingView({
               <div className="option-stack">
                 <h3>Narrative Options</h3>
                 {narrativeOptions.map((optionItem) => (
-                  <button className={`narrative-option ${selected.id === optionItem.id ? "selected" : ""}`} key={optionItem.id} onClick={() => { setSelected(optionItem); setResolved([]); }}>
+                  <button className={`narrative-option ${selected.id === optionItem.id ? "selected" : ""}`} key={optionItem.id} onClick={() => setSelected(optionItem)}>
                     <strong>{optionItem.title}</strong>
                     <span>{optionItem.body}</span>
                   </button>
@@ -1332,7 +1331,7 @@ function WritingView({
                 {selected.evidence.map((item) => <p className="evidence-pass" key={item}>{item}</p>)}
                 {approvedInsightRows.length > 0 && (
                   <div className="approved-insight-list">
-                    <h4>Confirmed inspiration</h4>
+                    <h4>Provisional inspiration</h4>
                     {approvedInsightRows.map((insight) => (
                       <p className="evidence-pass uploaded" key={insight.id}>
                         {insight.category}: {insight.evidenceExcerpt}
@@ -1340,11 +1339,7 @@ function WritingView({
                     ))}
                   </div>
                 )}
-                {selected.gaps.map((gap) => (
-                  <button className={`gap-item ${resolved.includes(gap) ? "resolved" : ""}`} key={gap} onClick={() => setResolved((items) => items.includes(gap) ? items.filter((item) => item !== gap) : [...items, gap])}>
-                    {gap}
-                  </button>
-                ))}
+                {selected.gaps.map((gap) => <div className="gap-item" key={gap}>{gap}</div>)}
               </div>
             </div>
             <div className="composer">

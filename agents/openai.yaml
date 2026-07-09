@@ -1,9 +1,11 @@
 interface:
   display_name: "University Application Skill"
-  short_description: "Run source-backed admissions research, materials checks, and writing planning"
-  default_prompt: "Use $study-abroad-advisor to plan a university application cycle with official-source programme research, hard requirement audits, document readiness checks, interactive SOP or personal-statement planning, submission readiness, and workbook exports."
+  short_description: "Route source-backed university applications"
+  default_prompt: "Use $university-application-index to route and complete a source-backed university application task in English."
 multi_skill_system:
-  plugin_router_skill: "skills/study-abroad-advisor/SKILL.md"
+  plugin_router_skill: "skills/university-application-index/SKILL.md"
+  compatibility_aliases:
+    - "study-abroad-advisor"
   index_skill: "skills/university-application-index/SKILL.md"
   focused_skills:
     - "university-application-index"
@@ -12,7 +14,10 @@ multi_skill_system:
     - "materials-check"
     - "application-writing-studio"
     - "submission-readiness"
+    - "visa-readiness"
     - "programme-table-cleaning"
 source_policy:
   hard_requirements: "official_only"
   probability_prediction: "prohibited"
+  applicant_evidence_contract: "references/evidence-contract.md"
+  default_output_language: "en"

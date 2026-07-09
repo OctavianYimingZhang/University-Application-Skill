@@ -1,6 +1,6 @@
 # Intake
 
-Collect only fields needed for the requested output.
+Collect only fields needed for the requested output. Intake values are hints, not confirmed evidence; normalize any value used to pass a gate under [`evidence-contract.md`](evidence-contract.md).
 
 ## Core fields
 
@@ -14,4 +14,4 @@ Collect only fields needed for the requested output.
 - citizenship or visa route, if visa guidance is requested
 - constraints such as location, ranking preference, work placement, or delivery mode
 
-If a field affects eligibility, mark it as required before final recommendations.
+If a field affects eligibility, mark it as required before final recommendations. Keep it unresolved until its evidence record passes.

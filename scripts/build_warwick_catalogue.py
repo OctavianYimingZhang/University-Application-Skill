@@ -7,8 +7,6 @@ import datetime as dt
 import html
 import json
 import re
-import ssl
-import subprocess
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -67,19 +65,8 @@ def fetch(url: str, referer: str | None = None) -> str:
     try:
         with urllib.request.urlopen(request, timeout=30) as response:
             return response.read().decode("utf-8", "replace")
-    except urllib.error.URLError:
-        context = ssl._create_unverified_context()
-        try:
-            with urllib.request.urlopen(request, timeout=30, context=context) as response:
-                return response.read().decode("utf-8", "replace")
-        except Exception:
-            result = subprocess.run(
-                ["curl", "-L", "-A", headers["User-Agent"], url],
-                check=True,
-                capture_output=True,
-                text=True,
-            )
-            return result.stdout
+    except (urllib.error.URLError, TimeoutError) as exc:
+        raise RuntimeError(f"Request failed (TLS verification remains enabled) for {url}: {exc}") from exc
 
 
 def clean_text(value: str) -> str:

@@ -3,14 +3,15 @@
 Recommended sheets:
 
 1. Summary
-2. Applicant
-3. Program Shortlist
-4. Requirements
-5. Documents
-6. Deadlines
-7. Costs and Funding
-8. Risks and Gaps
-9. Tasks
-10. Source Log
+2. Applicant Intake
+3. Applicant Evidence
+4. Program Shortlist
+5. Requirements
+6. Documents
+7. Deadlines
+8. Costs and Funding
+9. Risks and Gaps
+10. Tasks
+11. Source Log
 
-Every hard requirement row should include a source URL and access date.
+Every hard-requirement and applicant-evidence row should keep source URL, title, publisher, source availability, fact verification, completeness, application cycle, access date, and staleness in separate columns. Applicant evidence also records evidence date, confirmation status, and confirmation time.

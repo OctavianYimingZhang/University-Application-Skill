@@ -6,6 +6,7 @@ import json
 import re
 import shutil
 import subprocess
+import tempfile
 from pathlib import Path
 from typing import Any
 
@@ -19,13 +20,14 @@ SKIP_DIRS = {
     ".mypy_cache",
     ".ruff_cache",
     ".skill_backups",
+    ".npm-cache",
     "node_modules",
     "dist",
 }
 SKIP_SUFFIXES = {".pyc", ".pyo", ".docx", ".pdf", ".pptx", ".xlsx", ".zip", ".jsonl"}
-SHARED_RESOURCE_DIRS = ("references", "scripts")
-SHARED_RESOURCE_FILES = ("LICENSE", "skill_manifest.json")
-PLUGIN_ROUTER_SKILLS = {"study-abroad-advisor"}
+SHARED_RESOURCE_DIRS = ("references", "scripts", "contracts", "schemas")
+SHARED_RESOURCE_FILES = ("LICENSE", "skill_manifest.json", "plugin-capability-manifest.v2.json")
+CANONICAL_SKILL_NAME = "university-application-index"
 
 
 def load_manifest() -> dict[str, Any]:
@@ -65,7 +67,7 @@ def discover_focused_skills() -> list[dict[str, Any]]:
     out = []
     for path in sorted(item for item in skills_dir.iterdir() if item.is_dir()):
         skill_md = path / "SKILL.md"
-        if skill_md.exists() and path.name not in PLUGIN_ROUTER_SKILLS:
+        if skill_md.exists() and path.name != CANONICAL_SKILL_NAME:
             out.append({"name": read_skill_name(skill_md), "source": path})
     return out
 
@@ -88,7 +90,11 @@ def sync_focused_skill(skill: dict[str, Any], local_skill_root: Path, dry_run: b
     if destination.exists():
         shutil.rmtree(destination)
     destination.mkdir(parents=True, exist_ok=True)
-    shutil.copy2(skill["source"] / "SKILL.md", destination / "SKILL.md")
+    skill_text = (skill["source"] / "SKILL.md").read_text(encoding="utf-8")
+    skill_text = skill_text.replace("../../references/", "references/")
+    skill_text = skill_text.replace("../../scripts/", "scripts/")
+    skill_text = skill_text.replace("../../contracts/", "contracts/")
+    (destination / "SKILL.md").write_text(skill_text, encoding="utf-8")
     copy_child_resources(skill["source"], destination)
     for dirname in SHARED_RESOURCE_DIRS:
         source = ROOT / dirname
@@ -102,21 +108,22 @@ def sync_focused_skill(skill: dict[str, Any], local_skill_root: Path, dry_run: b
 
 
 def sync_local_skill(destination: Path, dry_run: bool) -> dict[str, Any]:
+    canonical_destination = destination if destination.name == CANONICAL_SKILL_NAME else destination.parent / CANONICAL_SKILL_NAME
     if dry_run:
         return {
-            "legacy_destination": str(destination),
+            "canonical_destination": str(canonical_destination),
             "focused_skills": [
-                {"name": item["name"], "destination": str(destination.parent / item["name"]), "status": "planned"}
+                {"name": item["name"], "destination": str(canonical_destination.parent / item["name"]), "status": "planned"}
                 for item in discover_focused_skills()
             ],
             "status": "planned",
         }
-    if destination.exists():
-        shutil.rmtree(destination)
-    destination.parent.mkdir(parents=True, exist_ok=True)
-    shutil.copytree(ROOT, destination, ignore=ignore)
-    focused = [sync_focused_skill(item, destination.parent, dry_run=False) for item in discover_focused_skills()]
-    return {"legacy_destination": str(destination), "focused_skills": focused, "status": "ok"}
+    if canonical_destination.exists():
+        shutil.rmtree(canonical_destination)
+    canonical_destination.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copytree(ROOT, canonical_destination, ignore=ignore)
+    focused = [sync_focused_skill(item, canonical_destination.parent, dry_run=False) for item in discover_focused_skills()]
+    return {"canonical_destination": str(canonical_destination), "focused_skills": focused, "status": "ok"}
 
 
 def basic_status() -> dict[str, Any]:
@@ -154,15 +161,34 @@ def self_test() -> None:
     manifest = load_manifest()
     assert manifest.get("multi_skill_system") is True
     assert discover_focused_skills()
+    assert {item["name"] for item in discover_focused_skills()} >= {"study-abroad-advisor", "visa-readiness"}
+    assert manifest.get("skill_id") == CANONICAL_SKILL_NAME
     dry = sync_local_skill(DEFAULT_LOCAL_SKILL_ROOT / manifest["skill_id"], dry_run=True)
     assert dry["status"] == "planned"
+    legacy_dry = sync_local_skill(DEFAULT_LOCAL_SKILL_ROOT / "study-abroad-advisor", dry_run=True)
+    assert Path(legacy_dry["canonical_destination"]).name == CANONICAL_SKILL_NAME
+    with tempfile.TemporaryDirectory() as tmp:
+        local_root = Path(tmp)
+        canonical = local_root / CANONICAL_SKILL_NAME
+        result = sync_local_skill(canonical, dry_run=False)
+        assert result["status"] == "ok"
+        assert (canonical / "SKILL.md").exists()
+        for name in ("study-abroad-advisor", "program-research", "visa-readiness"):
+            installed = local_root / name
+            body = (installed / "SKILL.md").read_text(encoding="utf-8")
+            assert "../../references/" not in body
+            assert "../../scripts/" not in body
+            for target in re.findall(r"\[[^\]]+\]\(([^)]+)\)", body):
+                if target.startswith(("http://", "https://", "#")):
+                    continue
+                assert (installed / target.split("#", 1)[0]).resolve().exists(), (name, target)
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Publish or sync University Application Skill.")
     parser.add_argument("--push", action="store_true")
     parser.add_argument("--sync-local-skill", action="store_true")
-    parser.add_argument("--local-skill-dir", default=str(DEFAULT_LOCAL_SKILL_ROOT / "study-abroad-advisor"))
+    parser.add_argument("--local-skill-dir", default=str(DEFAULT_LOCAL_SKILL_ROOT / CANONICAL_SKILL_NAME))
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--self-test", action="store_true")
     args = parser.parse_args()

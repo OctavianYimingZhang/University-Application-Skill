@@ -22,6 +22,7 @@ SourceEvidence
 - Mark affected `ApplicationCase` objects for re-verification.
 - Create `RiskFlag` when a changed fact affects active requirements, deadlines, fees, visa rules, or essay claims.
 - Create `Task` when the source is unavailable, contradictory, or no longer official.
+- Update `source_availability`, `fact_verification`, `completeness`, `application_cycle`, `accessed_at`, and `staleness` independently; a successful fetch changes availability but does not by itself verify the extracted fact.
 
 ## Staleness Defaults
 

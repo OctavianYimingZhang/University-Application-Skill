@@ -46,7 +46,7 @@ gates:
   source_refresh:
     required_any:
       source: [source_urls, source_url, program_name_or_url, program_names_or_urls]
-  visa_route:
+  visa_readiness:
     required_any:
       citizenship: [profile.citizenship_countries, citizenship]
       destination: [profile.target_countries, destination_country, target_country_or_region]

@@ -7,7 +7,6 @@ import datetime as dt
 import html
 import json
 import re
-import ssl
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -23,6 +22,14 @@ CHECKED = dt.date.today().isoformat()
 UA = "Mozilla/5.0 University-Application-Skill/0.1"
 
 
+def read_request(request: urllib.request.Request, *, timeout: int) -> str:
+    try:
+        with urllib.request.urlopen(request, timeout=timeout) as response:
+            return response.read().decode("utf-8", "replace")
+    except (urllib.error.URLError, TimeoutError) as exc:
+        raise RuntimeError(f"Request failed (TLS verification remains enabled) for {request.full_url}: {exc}") from exc
+
+
 def fetch(url: str) -> str:
     request = urllib.request.Request(
         url,
@@ -32,13 +39,7 @@ def fetch(url: str) -> str:
             "Accept-Language": "en-US,en;q=0.9",
         },
     )
-    try:
-        with urllib.request.urlopen(request, timeout=35) as response:
-            return response.read().decode("utf-8", "replace")
-    except urllib.error.URLError:
-        context = ssl._create_unverified_context()
-        with urllib.request.urlopen(request, timeout=35, context=context) as response:
-            return response.read().decode("utf-8", "replace")
+    return read_request(request, timeout=35)
 
 
 def fetch_json(url: str) -> dict:
@@ -517,9 +518,7 @@ def parse_coursedog_programs(prefix: str, source_url: str, note: str, *, forced_
             "X-Requested-With": "catalog",
         },
     )
-    context = ssl._create_unverified_context()
-    with urllib.request.urlopen(request, timeout=60, context=context) as response:
-        payload = json.loads(response.read().decode("utf-8", "replace"))
+    payload = json.loads(read_request(request, timeout=60))
     records = payload.get("data") or []
     expected = int(payload.get("listLength") or 0)
     if expected and len(records) != expected:
@@ -973,9 +972,7 @@ def parse_georgetown_pg() -> list[dict[str, str]]:
                 "X-Requested-With": "XMLHttpRequest",
             },
         )
-        context = ssl._create_unverified_context()
-        with urllib.request.urlopen(request, timeout=35, context=context) as response:
-            payload = json.loads(response.read().decode("utf-8", "replace"))
+        payload = json.loads(read_request(request, timeout=35))
         cards = BeautifulSoup(payload.get("display", ""), "lxml").select(".aos-list-program")
         for card in cards:
             title = card.select_one("h2.aos-list-title, h2")
@@ -1294,9 +1291,7 @@ def parse_nus_pg() -> list[dict[str, str]]:
             "x-sfdc-page-scope-id": "default",
         },
     )
-    context = ssl._create_unverified_context()
-    with urllib.request.urlopen(request, timeout=35, context=context) as response:
-        payload = json.loads(response.read().decode("utf-8", "replace"))
+    payload = json.loads(read_request(request, timeout=35))
     rows: list[dict[str, str]] = []
     for wrapper in payload:
         programme = wrapper.get("programme") or {}

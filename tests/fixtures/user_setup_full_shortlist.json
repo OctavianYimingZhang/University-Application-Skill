@@ -1,6 +1,6 @@
 {
-  "user_setup_id": "setup_full_001",
-  "applicant_id": "app_001",
+  "user_setup_id": "",
+  "applicant_id": "",
   "workflow_mode": "full_shortlist",
   "output_mode": "draft",
   "recommendation_count": 10,
@@ -10,18 +10,18 @@
   "privacy_mode": "public_redacted",
   "export_format": "table",
   "profile": {
-    "target_degree_level": "taught_master",
-    "target_intake": "2027 Fall",
-    "target_countries": ["United Kingdom", "Netherlands"],
-    "citizenship_countries": ["China"],
-    "residence_country": "United Kingdom",
-    "education_country": "United Kingdom",
-    "passport_country": "China",
-    "target_field": "Bioinformatics",
-    "gpa_value": "First-class predicted",
-    "gpa_scale": "UK honours",
-    "budget_annual": "35000 GBP",
-    "language_status": "English-medium instruction; test status unresolved",
-    "risk_tolerance": "balanced"
-  }
+    "target_degree_level": "",
+    "target_intake": "",
+    "target_countries": [],
+    "citizenship_countries": [],
+    "residence_country": "",
+    "education_country": "",
+    "passport_country": "",
+    "target_field": "",
+    "gpa_value": "",
+    "gpa_scale": "",
+    "budget_annual": "",
+    "language_status": ""
+  },
+  "evidence_records": []
 }
