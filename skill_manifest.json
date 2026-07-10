@@ -88,14 +88,12 @@
       "route": "programme_table_cleaning"
     }
   ],
-  "web": {
-    "path": "web",
-    "framework": "React + Vite + TypeScript",
-    "coverage": "UK Core, U.S. News Top 30 cutoff, NUS, NTU, and Manchester Biosciences detail pages",
-    "codex_oauth": "static-safe bridge panel; no browser-side token exchange or token storage",
-    "writing_inspiration_uploads": "runtime-only browser uploads with optional local Codex bridge extraction; no user files committed",
-    "deploy": "GitHub Pages workflow",
-    "pages_url": "https://octavianyimingzhang.github.io/University-Application-Skill/"
+  "companion_site": {
+    "name": "Soleil Admissions",
+    "url": "https://soleil-admissions.ready-loach-3659.chatgpt.site",
+    "access": "owner_only",
+    "source_in_repository": false,
+    "state_boundary": "confirmed structured application state only; sensitive originals and extraction remain local"
   },
   "publish": {
     "github_push": "python3 scripts/publish_skill.py --push",
@@ -111,9 +109,9 @@
     "python3 scripts/plan_workflow.py --self-test",
     "python3 scripts/build_review_questions.py --self-test",
     "python3 scripts/validate_evidence.py --self-test",
+    "python3 scripts/publish_skill.py --self-test",
     "python3 scripts/publish_skill.py --dry-run --sync-local-skill",
-    "python3 scripts/build_admissions_workbook.py tests/fixtures/admissions_case_mvp.json /tmp/application_plan.xlsx",
-    "cd web && npm ci --cache .npm-cache && npm run build"
+    "python3 scripts/build_admissions_workbook.py tests/fixtures/admissions_case_mvp.json /tmp/application_plan.xlsx"
   ],
   "post_update_commands": [
     "python3 scripts/publish_skill.py --sync-local-skill"

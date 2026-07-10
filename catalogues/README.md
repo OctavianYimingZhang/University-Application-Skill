@@ -1,6 +1,6 @@
 # Programme Identity Catalogues
 
-This directory is the Plugin-owned, non-UI source for curated programme identity coverage. It is independent of the legacy React website.
+This directory is the Plugin-owned source for curated programme identity coverage. The public repository ships no Site source; the separate owner-only Soleil Admissions Site consumes the same catalogue and application contracts through its own deployment boundary.
 
 `index.json` is the lazy-load index. Each `institutions/<id>.json` file contains one institution's official-source programme identities and catalogue provenance. The JSON Schemas in `schemas/` define the index and institution file contracts.
 

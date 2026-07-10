@@ -32,6 +32,12 @@ EVIDENCE_FIELDS = {
     "accessed_at",
     "staleness",
 }
+COMPANION_SITE_URL = "https://soleil-admissions.ready-loach-3659.chatgpt.site"
+RETIRED_PATHS = (
+    Path("web"),
+    Path(".github/workflows/pages.yml"),
+    Path("scripts/codex_oauth_bridge.mjs"),
+)
 
 
 def fail(message: str) -> None:
@@ -94,7 +100,64 @@ def check_manifest() -> dict[str, Any]:
     for schema_path in catalogue_schemas:
         if not (ROOT / schema_path).exists():
             fail(f"programme catalogue schema missing: {schema_path}")
+    if "web" in manifest:
+        fail("skill_manifest.json must not declare a retired web package")
+    companion = manifest.get("companion_site")
+    if not isinstance(companion, dict):
+        fail("companion_site metadata missing")
+    if companion.get("url") != COMPANION_SITE_URL:
+        fail("companion_site URL must point to the owner-only Soleil Admissions Site")
+    if companion.get("access") != "owner_only" or companion.get("source_in_repository") is not False:
+        fail("companion_site must remain owner-only and external to this repository")
+    for command in manifest.get("health_commands", []):
+        if re.search(r"(?:^|[ /])(web|npm|vite)(?:$|[ /])", command, flags=re.IGNORECASE):
+            fail(f"health command still depends on the retired web package: {command}")
     return manifest
+
+
+def check_plugin_only_package() -> None:
+    for relative_path in RETIRED_PATHS:
+        if (ROOT / relative_path).exists():
+            fail(f"retired public web surface returned: {relative_path.as_posix()}")
+
+    plugin = read_json(ROOT / ".codex-plugin" / "plugin.json")
+    if plugin.get("interface", {}).get("websiteURL") != COMPANION_SITE_URL:
+        fail("Plugin websiteURL must point to the owner-only Soleil Admissions Site")
+
+    workflow_dir = ROOT / ".github" / "workflows"
+    for path in [*workflow_dir.glob("*.yml"), *workflow_dir.glob("*.yaml")]:
+        body = text(path).lower()
+        for token in ("actions/deploy-pages", "actions/upload-pages-artifact", "pages: write", "github-pages"):
+            if token in body:
+                fail(f"GitHub Pages functionality returned in {path.relative_to(ROOT)}: {token}")
+
+    for path in (ROOT / "scripts").glob("*"):
+        if path.resolve() == Path(__file__).resolve():
+            continue
+        if path.is_file() and any(token in text(path) for token in ("/codex/start-oauth", "codex_bridge_nonce")):
+            fail(f"browser OAuth bridge functionality returned in {path.relative_to(ROOT)}")
+
+    forbidden_doc_phrases = (
+        "octavianyimingzhang.github.io/University-Application-Skill",
+        "Browser Memory Studio",
+        "Website Memory Studio",
+        "web/public/memory.html",
+        "scripts/codex_oauth_bridge.mjs",
+    )
+    documentation = [
+        ROOT / "README.md",
+        ROOT / "COPY_PACKAGE.md",
+        ROOT / "SKILL.md",
+        ROOT / "references" / "memory-system.md",
+        ROOT / "references" / "setup" / "setup-workflow.md",
+        ROOT / "catalogues" / "README.md",
+        ROOT / "memory" / "README.md",
+    ]
+    for path in documentation:
+        body = text(path)
+        for phrase in forbidden_doc_phrases:
+            if phrase in body:
+                fail(f"retired web documentation returned in {path.relative_to(ROOT)}: {phrase}")
 
 
 def check_focused_skills(manifest: dict[str, Any]) -> None:
@@ -291,8 +354,6 @@ def check_tls_policy() -> None:
     scanned = [
         *scripts,
         *(ROOT / "scripts").glob("*.mjs"),
-        *(ROOT / "web" / "src").glob("*.ts"),
-        *(ROOT / "web" / "src").glob("*.tsx"),
     ]
     combined = "\n".join(text(path) for path in scanned)
     for token in (
@@ -382,32 +443,6 @@ def check_shipped_data() -> None:
             if fixture.get("evidence_records") not in (None, []):
                 fail(f"fixture contains seeded evidence records: {path.relative_to(ROOT)}")
 
-    app_path = ROOT / "web" / "src" / "App.tsx"
-    if app_path.exists():
-        app = text(app_path)
-        narrative = app.split("const narrativeOptions", 1)[-1].split("function fileExtension", 1)[0]
-        if re.search(r"evidence:\s*\[(?!\s*\])", narrative):
-            fail("narrative options must not ship with seeded applicant evidence")
-        checklist_actions = app.split("const recordGlobal", 1)[-1].split("return (", 1)[0]
-        if re.search(r'status:\s*"Complete".*check:\s*"Pass"', checklist_actions, flags=re.DOTALL):
-            fail("checklist action can pass placeholder evidence")
-
-        combined_web = "\n".join(
-            path.read_text(encoding="utf-8", errors="ignore")
-            for path in (ROOT / "web" / "src").rglob("*")
-            if path.is_file()
-        )
-        for phrase in ("acceptance probability", "chance score", "safe/match/reach"):
-            if phrase in combined_web.lower():
-                fail(f"banned probability wording found in web source: {phrase}")
-
-    memory_page = ROOT / "web" / "public" / "memory.html"
-    if memory_page.exists():
-        memory_html = text(memory_page)
-        if "user_confirmed: true" in memory_html or 'confirmation_status: "explicitly_confirmed"' in memory_html:
-            fail("Memory Studio must not auto-confirm exported memory as applicant evidence")
-
-
 def check_plugin_and_agents(manifest: dict[str, Any]) -> None:
     plugin_path = ROOT / ".codex-plugin" / "plugin.json"
     if not plugin_path.exists():
@@ -440,6 +475,7 @@ def run_self_tests() -> None:
 
 
 def main() -> None:
+    check_plugin_only_package()
     manifest = check_manifest()
     check_focused_skills(manifest)
     check_relative_resource_links()

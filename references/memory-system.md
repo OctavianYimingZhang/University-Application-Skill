@@ -1,6 +1,6 @@
 # Memory System Contract
 
-This package ships with memory schemas, blank templates, and UI helpers only. Repository files must not contain populated user memory, private applicant facts, private writing samples, transcript details, lecture notes from a named user, or account credentials.
+This Plugin ships memory schemas, blank templates, and local processing helpers only. Repository files must not contain populated user memory, private applicant facts, private writing samples, transcript details, lecture notes from a named user, or account credentials. The owner-only Soleil Admissions Site is maintained separately from this public repository.
 
 ## Purpose
 
@@ -42,12 +42,12 @@ Use these layers together rather than relying on one context window.
 | Runtime context | Current chat/Codex session | Active task reasoning | Ephemeral |
 | Skill package | `SKILL.md`, `skills/`, `references/` | Generic workflow rules | Public, blank |
 | Local canonical memory | `memory/local-user-memory.json` or user-chosen private path | Full structured memory | Private, large |
-| Browser memory draft | Memory Studio export/localStorage | User-edited import/export buffer | Private to browser |
+| Soleil Admissions Site | Confirmed structured D1 records | Cases, tasks, facts, approvals, and freshness | Owner-only; no raw sources |
 | ChatGPT memory | User-controlled ChatGPT memory | Stable compact preferences only | Small summary |
 | Codex memory | Local repo files, AGENTS/Skill notes, or user setup JSON | Project-specific operating memory | Chunked |
 | External notes vault | Obsidian/Drive/local markdown, if connected by user | Long source archive | Indexed by source |
 
-The local canonical memory is the preferred source of truth. ChatGPT memory and Codex memory should store compact summaries or pointers, not the whole archive.
+Local private memory is the preferred source for sensitive or high-volume content. The Site holds confirmed structured application state only. ChatGPT memory and Codex memory should store compact summaries or pointers, not the whole archive.
 
 ## Memory categories
 
@@ -158,14 +158,21 @@ Each memory update should record:
 - whether it is user-confirmed;
 - whether it can be exported to ChatGPT/Codex compact memory.
 
-## Website Memory Studio
+## Local blank-memory workflow
 
-The static Memory Studio page lives at `web/public/memory.html`. It runs in the browser and can:
+1. Copy `memory/blank-memory.json` to an ignored private path such as `memory/local-user-memory.json`.
+2. Add only user-supplied or user-reviewed information.
+3. Preserve the source, date, confidence, confirmation status, and freshness of every durable entry.
+4. Keep sensitive originals, raw uploads, and full extracted text local.
+5. Distil only the smallest task-relevant pack into a runtime context.
+6. Write confirmed structured application state to the owner-only Site only when the user has reviewed it.
 
-- accept uploaded writing samples;
-- infer a provisional writing-voice profile;
-- allow manual lecture/slide-delta memory entries;
-- export a blank-compatible JSON memory file;
-- export a compact Markdown memory pack for ChatGPT/Codex.
+## Local extraction workflow
 
-The page does not authenticate to Codex or GitHub and does not write to the repository. The user must explicitly download or copy the result.
+`scripts/extract_inspiration_file.py` accepts runtime file bytes through a JSON request on standard input and emits structured text blocks with page, slide, sheet, or document labels when available. It supports common text formats and optional PDF, DOCX, PPTX, and XLSX parsers. Images can be registered for local manual review; OCR is not silently inferred.
+
+Extraction is a staging operation. It does not authenticate to an external service, upload raw source bytes, modify local memory, or mark any statement as applicant evidence. The user must review the provisional blocks and explicitly confirm each durable fact before it can be used by an evidence gate or written to confirmed Site state.
+
+## Site boundary
+
+[Soleil Admissions](https://soleil-admissions.ready-loach-3659.chatgpt.site) is an owner-only companion for confirmed structured application state. It shares `ApplicationCase v1` and the Soleil contracts with this Plugin, but its source and deployment are not part of this repository. Raw documents, audio, full extracts, private writing samples, and local execution remain on the owner's machine.

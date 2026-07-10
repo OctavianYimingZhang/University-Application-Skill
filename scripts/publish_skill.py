@@ -20,7 +20,6 @@ SKIP_DIRS = {
     ".mypy_cache",
     ".ruff_cache",
     ".skill_backups",
-    ".npm-cache",
     "node_modules",
     "dist",
 }
@@ -136,7 +135,8 @@ def basic_status() -> dict[str, Any]:
         "repo": manifest.get("repo"),
         "entrypoint_exists": (ROOT / manifest.get("entrypoint", "")).exists(),
         "focused_skill_count": len(discover_focused_skills()),
-        "web_exists": (ROOT / "web" / "package.json").exists(),
+        "catalogue_index_exists": (ROOT / manifest.get("catalogue_index", "")).exists(),
+        "plugin_only_package": not (ROOT / "web").exists(),
     }
 
 
@@ -167,6 +167,8 @@ def self_test() -> None:
     assert discover_focused_skills()
     assert {item["name"] for item in discover_focused_skills()} >= {"study-abroad-advisor", "visa-readiness"}
     assert manifest.get("skill_id") == CANONICAL_SKILL_NAME
+    assert manifest.get("companion_site", {}).get("source_in_repository") is False
+    assert not (ROOT / "web").exists()
     dry = sync_local_skill(DEFAULT_LOCAL_SKILL_ROOT / manifest["skill_id"], dry_run=True)
     assert dry["status"] == "planned"
     legacy_dry = sync_local_skill(DEFAULT_LOCAL_SKILL_ROOT / "study-abroad-advisor", dry_run=True)

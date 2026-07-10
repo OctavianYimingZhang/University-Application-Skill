@@ -44,9 +44,10 @@ This Skill coordinates several memory systems without assuming that any one cont
 
 - The public repository contains only blank memory templates, schemas, and generic instructions.
 - The local canonical memory file should be private, for example `memory/local-user-memory.json` or another user-chosen path ignored by git.
+- The owner-only Soleil Admissions Site stores confirmed structured case state; it is separate from this Plugin repository and never replaces local sensitive source storage.
 - ChatGPT memory should store compact durable preferences only.
 - Codex/local project memory should store task-specific working state and paths to larger local files.
-- Browser Memory Studio exports are staging files until the user copies or downloads them.
+- `scripts/extract_inspiration_file.py` creates provisional local text blocks from runtime files; extracted text remains unconfirmed until the user reviews it.
 - Conflicts must be resolved by the latest explicit user correction, then uploaded source files, then official sources for requirements, then canonical local memory, then compact summaries.
 
 Memory categories:
@@ -74,7 +75,7 @@ Before using memory, identify the category needed, retrieve only the smallest re
 7. Hard-requirement audit: separate academic, language, subject, document, fee, deadline, and route-specific requirements from interpretation; compare applicant facts only after the evidence invariant passes.
 8. Materials check: simulate submission readiness by checking each required item against the programme source and normalized applicant evidence. Empty, placeholder, link-only, partial, unverified, or unconfirmed evidence cannot pass.
 9. Writing Studio: lock the writing brief, load writing-voice memory if supplied, run source inspiration intake for uploaded files, build evidence inventory, generate narrative options, map programme fit, review unsupported claims, then request planning approval before drafting.
-10. Output: chat summary, table, workbook, essay plan, document checklist, timeline, source-backed action plan, memory pack, or website case view.
+10. Output: chat summary, table, workbook, essay plan, document checklist, timeline, source-backed action plan, memory pack, or structured `ApplicationCase` update.
 11. Quality check: verify every hard requirement against a source before presenting it as final; verify memory claims against their recorded source before treating them as durable.
 
 ## Writing Studio Contract
@@ -116,14 +117,13 @@ Admissions writing is a planning and evidence task before it is a drafting task.
 
 - `scripts/plan_workflow.py`: detect and describe a route from a prompt or setup JSON.
 - `scripts/build_review_questions.py`: build route/source/profile/writing review payloads.
-- `scripts/validate_skill_contracts.py`: check manifest, focused Skills, route scripts, and website source contracts.
+- `scripts/validate_skill_contracts.py`: check the Plugin-only package, manifests, focused Skills, route scripts, schemas, and retired-surface guards.
 - `scripts/validate_evidence.py`: validate applicant-evidence records and confirmation invariants.
 - `scripts/publish_skill.py`: push and/or sync this multi-skill package into local Codex Skills.
 - `scripts/validate_setup.py <setup.json>`: check setup completeness for `workflow_mode` and `output_mode`.
 - `scripts/build_admissions_workbook.py <case.json> <output.xlsx>`: render a source-backed workbook.
 - `scripts/onboard_admissions.py`: create a blank setup JSON template with an empty memory scaffold.
 - `scripts/check_setup_contract.py`: check setup schema, gates, fixtures, and template drift.
-- `scripts/codex_oauth_bridge.mjs`: local HTTP bridge for Codex OAuth status/actions and Writing Studio inspiration extraction.
 - `scripts/extract_inspiration_file.py`: parse runtime-uploaded inspiration files for text blocks with page, slide, or sheet references.
 - `scripts/clean_programme_workbooks.py`: clean official programme tables.
 - `scripts/verify_programme_workbooks.py`: verify cleaned programme workbooks.

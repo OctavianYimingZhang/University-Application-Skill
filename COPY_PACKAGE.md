@@ -1,45 +1,48 @@
-# Copy-Safe Package Guide
+# Copy-Safe Plugin Package Guide
 
-This repository is intended to be copied as a complete Skill + website package without carrying any populated user memory.
+This repository is designed to be copied as a complete, independently installable Plugin without carrying populated user memory or the source of its separate companion Site.
 
-## Copy all functional parts
+## Copy the complete Plugin boundary
 
-Copy these paths together:
+Keep these paths together:
 
 ```text
-SKILL.md
-skills/
-references/
-scripts/
-contracts/
-schemas/
-catalogues/
-tests/
-web/
 .codex-plugin/
+.github/workflows/skill-health.yml
+.gitignore
+agents/
+catalogues/
+contracts/
 memory/README.md
 memory/blank-memory.json
+references/
+schemas/
+scripts/
+skills/
+tests/
 COPY_PACKAGE.md
+LICENSE
+README.md
+SKILL.md
 plugin-capability-manifest.v2.json
 skill_manifest.json
-README.md
-LICENSE
 ```
 
-The copied package should preserve relative paths because the root Skill links to focused Skills, reference files, setup schemas, Plugin-owned programme catalogues, scripts, and the web prototype.
+Preserve relative paths. The router and focused Skills reference shared contracts, schemas, catalogue files, setup resources, and validators by their package-relative locations.
 
-## Keep memory blank in public copies
+The copy must not add a public website directory, a Pages deployment workflow, or a browser authentication bridge. [Soleil Admissions](https://soleil-admissions.ready-loach-3659.chatgpt.site) is an owner-only companion Site maintained outside this public Plugin repository.
 
-The GitHub version should contain only:
+## Keep public memory blank
 
-- `memory/README.md`
-- `memory/blank-memory.json`
-- `references/setup/blank-memory.schema.json`
-- generic memory documentation
-- UI code that creates private exports in the user's browser
-- blank applicant-evidence scaffolds
+The distributable package may contain only:
 
-Do not commit populated memory files. Private local memory paths are ignored by `.gitignore`, including:
+- `memory/README.md`;
+- `memory/blank-memory.json`;
+- `references/setup/blank-memory.schema.json`;
+- generic memory instructions and schemas;
+- blank applicant-evidence scaffolds and synthetic test fixtures.
+
+Do not copy populated local memory, applicant records, writing samples, transcripts, credentials, visa identifiers, or raw source files into public history. The repository ignores these private patterns:
 
 ```text
 memory/local-*
@@ -50,45 +53,33 @@ memory/*.private.json
 *.memory.private.json
 ```
 
-## Recommended private setup after download
+## Private setup after copying
 
 1. Copy `memory/blank-memory.json` to `memory/local-user-memory.json`.
-2. Fill `memory/local-user-memory.json` locally or generate it from `web/public/memory.html`.
-3. Keep that file private.
-4. When using ChatGPT or Codex, paste only the relevant compact memory pack rather than the whole memory archive.
+2. Add only user-supplied information and retain its source, date, confirmation, and freshness states.
+3. Keep the populated file outside public Git history.
+4. Use `scripts/extract_inspiration_file.py` locally when a runtime writing task needs provisional text blocks from an uploaded source.
+5. Review every extracted fact before it can enter evidence memory or a Site case.
+6. Retrieve only the smallest relevant memory pack for each task.
 
-## Multi-memory operating model
+## Data boundaries
 
-Use the systems together:
-
-| System | What to store | What not to store |
+| System | Intended state | Excluded state |
 | --- | --- | --- |
-| Public Skill repo | Generic workflow rules, schemas, blank templates | Populated personal memory |
-| Local memory JSON | Full course, writing, notes, exam, and application memory | Credentials/tokens |
-| ChatGPT memory | Compact durable preferences | Full lecture archives |
-| Codex workspace | Current project memory and file paths | Unrelated long-term personal data |
-| Browser Memory Studio | Draft memory export and writing-style extraction | Unreviewed facts treated as final |
+| Public Plugin repository | Workflow code, contracts, schemas, catalogue identities, blank templates | Populated personal memory and Site source |
+| Local private memory | Full user-supplied structured memory and opaque source references | Credentials and public commits |
+| Soleil Admissions Site | Confirmed structured cases, tasks, facts, approvals, and freshness | Raw documents, audio, full extracts, and local execution |
+| ChatGPT memory | Compact durable preferences | Full source archives |
+| Codex workspace | Current task state, private paths, and local execution | Unrelated long-term personal data |
 
-## Memory packs to copy into small context windows
-
-Generate only the pack needed for the current task:
-
-- `course_pack`: lecture coverage, slide deltas, formulas, examples, exam hints;
-- `writing_pack`: writing voice, preserve/avoid rules, revision rules;
-- `notes_pack`: bilingual layout, density, formula formatting, diagram preferences;
-- `application_pack`: applicant profile, target programmes, source-backed requirements, document state.
-
-This avoids overloading ChatGPT/Codex context windows while preserving a larger local source of truth.
-
-## Safe copy checklist
+## Copy validation
 
 Before publishing or sharing a copy:
 
-- Search for real names, emails, phone numbers, transcripts, visa identifiers, grades, private lecture notes, writing samples, and account tokens.
-- Confirm `memory/local-*` and `memory/private-*` files are not tracked.
-- Confirm `memory/blank-memory.json` contains empty arrays and empty strings only.
-- Confirm test fixtures and web narrative options contain no seeded applicant evidence.
-- Confirm the shared `contracts/` files and `plugin-capability-manifest.v2.json` are included.
-- Confirm `catalogues/index.json`, all indexed institution files, and both catalogue schemas are included.
-- Run `python3 scripts/validate_catalogues.py` and confirm requirements remain `not_collected` for identity-only records.
-- Run local checks from `README.md` if the runtime is available.
+- confirm `memory/blank-memory.json` remains empty;
+- search for real names, emails, phone numbers, grades, transcripts, visa identifiers, private writing, and tokens;
+- confirm the shared contracts and Plugin capability manifest are present;
+- confirm every indexed institution catalogue and both catalogue schemas are present;
+- confirm catalogue requirements remain `not_collected`;
+- confirm no retired public web or authentication surface exists;
+- run the complete validation inventory in [`README.md`](README.md).
