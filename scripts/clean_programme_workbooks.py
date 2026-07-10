@@ -19,18 +19,20 @@ except ImportError as exc:  # pragma: no cover - dependency availability is envi
 
 
 FINAL_HEADERS = [
-    "学校",
-    "Program",
+    "Institution",
+    "Programme",
     "Award",
-    "项目类型/学习方式",
-    "课程/训练内容",
-    "学术背景/限制条件",
-    "申请材料/研究要求",
-    "申请时间/状态",
-    "费用/资金/特殊事项",
-    "官方来源",
-    "核对日期",
+    "Type / Delivery / Mode",
+    "Course and Training Content",
+    "Academic Requirements and Restrictions",
+    "Application and Research Materials",
+    "Application Timing and Status",
+    "Fees, Funding, and Special Notes",
+    "Official Source",
+    "Accessed Date",
 ]
+
+MISSING = "Not stated on the official source"
 
 BANNED_FRAGMENTS = [
     "开设院校为",
@@ -191,6 +193,7 @@ TYPE_VALUES = {
 }
 
 COURSE_CONTENT_KEYS = [
+    "Course and Training Content",
     "课程/训练内容",
     "课程/训练/毕业要求",
     "Program介绍 + 课程/训练",
@@ -341,22 +344,22 @@ def join_units(units: list[str], fallback: str, limit: int) -> str:
             continue
         seen.add(key)
         kept.append(unit)
-    text = "。".join(kept).strip("。")
+    text = ". ".join(kept).strip(".。 ")
     if not text:
         text = fallback
-    if not text.endswith("。"):
-        text += "。"
+    if not text.endswith((".", "。")):
+        text += "."
     if len(text) <= limit:
         return text
     cut = text[:limit]
-    pos = cut.rfind("。")
+    pos = max(cut.rfind("."), cut.rfind("。"))
     if pos > max(40, limit * 0.55):
         return cut[: pos + 1]
-    return cut.rstrip("，,；;。") + "。"
+    return cut.rstrip("，,；;。 ") + "."
 
 
 def official_missing() -> str:
-    return "官网未列明。"
+    return f"{MISSING}."
 
 
 def clean_award(value) -> str:
@@ -399,6 +402,16 @@ def contains_test_keyword(text: str) -> bool:
 
 def strip_known_label(unit: str) -> str:
     labels = [
+        "Knowledge topics",
+        "Methods and tools",
+        "Practical training",
+        "Programme outputs",
+        "Degree and grades",
+        "Subject background",
+        "Prerequisites and skills",
+        "Language",
+        "Standardised tests",
+        "Experience, qualifications, and restrictions",
         "知识主题",
         "方法/工具",
         "实践训练",
@@ -434,15 +447,16 @@ def dedupe_units(units: list[str], limit: int = 3) -> list[str]:
     return kept
 
 
-def label_value(units: list[str], fallback: str = "官网未列明", limit: int = 3) -> str:
+def label_value(units: list[str], fallback: str = MISSING, limit: int = 3) -> str:
     kept = dedupe_units(units, limit)
-    return "；".join(kept) if kept else fallback
+    return "; ".join(kept) if kept else fallback
 
 
 def programme_blob(row: dict) -> str:
     return combined_text(
         row,
         [
+            "Programme",
             "Program",
             "Award",
             "项目类型",
@@ -462,8 +476,8 @@ def explicit_field(text: str, field: str) -> str:
 def determine_type(row: dict) -> str:
     text = programme_blob(row)
     explicit = explicit_field(text, "Type")
-    if explicit in TYPE_VALUES or explicit == "官网未列明":
-        return explicit
+    if explicit in TYPE_VALUES or explicit in {MISSING, "官网未列明"}:
+        return MISSING if explicit == "官网未列明" else explicit
     if re.search(r"directory|listing|candidate list|候选清单|项目目录|列表", text, re.I):
         return "Directory/Listing"
     if re.search(r"executive|高级管理|在职高管", text, re.I):
@@ -484,7 +498,7 @@ def determine_type(row: dict) -> str:
         return "Professional"
     if taught:
         return "Taught"
-    return "官网未列明"
+    return MISSING
 
 
 def determine_delivery(row: dict) -> str:
@@ -498,10 +512,11 @@ def determine_delivery(row: dict) -> str:
         "Block/Residential",
         "Clinical/Placement-based",
         "Field-based",
+        MISSING,
         "官网未列明",
     }
     if explicit in allowed:
-        return explicit
+        return MISSING if explicit == "官网未列明" else explicit
     if re.search(r"\bonline\b|线上", text, re.I):
         return "Online"
     if re.search(r"\bdistance\b|remote|远程", text, re.I):
@@ -516,14 +531,14 @@ def determine_delivery(row: dict) -> str:
         return "Field-based"
     if re.search(r"on[- ]campus|campus-based|in person|face-to-face|线下授课|校内", text, re.I):
         return "On-campus"
-    return "官网未列明"
+    return MISSING
 
 
 def determine_mode(row: dict) -> str:
     text = programme_blob(row)
     explicit = explicit_field(text, "Mode")
-    if explicit in {"FT", "PT", "FT/PT", "Flexible", "官网未列明"}:
-        return explicit
+    if explicit in {"FT", "PT", "FT/PT", "Flexible", MISSING, "官网未列明"}:
+        return MISSING if explicit == "官网未列明" else explicit
     if re.search(r"flexible|self-paced|弹性", text, re.I):
         return "Flexible"
     ft = re.search(r"full[- ]time|\bFT\b|全日制", text, re.I)
@@ -534,14 +549,14 @@ def determine_mode(row: dict) -> str:
         return "FT"
     if pt:
         return "PT"
-    return "官网未列明"
+    return MISSING
 
 
 def normalize_duration(row: dict) -> str:
     text = programme_blob(row)
     explicit = explicit_field(text, "Duration")
     if explicit:
-        return explicit
+        return MISSING if explicit == "官网未列明" else explicit
 
     duration_re = r"((?:\d+(?:\.\d+)?|one|two|three|four|five)\s*(?:months?|years?|个月|年))"
     ft_patterns = [
@@ -572,13 +587,13 @@ def normalize_duration(row: dict) -> str:
     generic = re.search(duration_re, text, re.I)
     if generic:
         return clean(generic.group(1))
-    return "官网未列明"
+    return MISSING
 
 
 def credits_piece(row: dict) -> str:
     text = programme_blob(row)
     explicit = explicit_field(text, "Credits")
-    if explicit and explicit != "官网未列明":
+    if explicit and explicit not in {MISSING, "官网未列明"}:
         return explicit
     match = re.search(r"\b\d{1,3}\s*(?:credits?|ECTS|CATS|units?)\b|学分[:：]?\s*\d{1,3}|\d{1,3}\s*学分", text, re.I)
     return clean(match.group(0)) if match else ""
@@ -594,18 +609,18 @@ def project_type(row: dict) -> str:
     credits = credits_piece(row)
     if credits:
         parts.append(f"Credits={credits}")
-    return "；".join(parts) + "。"
+    return "; ".join(parts) + "."
 
 
 def course_training(row: dict) -> str:
-    program = clean(row.get("Program"))
-    school = clean(row.get("学校"))
+    program = first_present(row, ["Programme", "Program"])
+    school = first_present(row, ["Institution", "学校"])
     award = clean_award(row.get("Award"))
     categories = {
-        "知识主题": [],
-        "方法/工具": [],
-        "实践训练": [],
-        "项目输出": [],
+        "Knowledge topics": [],
+        "Methods and tools": [],
+        "Practical training": [],
+        "Programme outputs": [],
     }
     combined = combined_text(row, COURSE_CONTENT_KEYS)
     for unit in split_units(combined):
@@ -637,22 +652,22 @@ def course_training(row: dict) -> str:
         ):
             continue
         if re.search(r"dissertation|thesis|capstone|portfolio|viva|presentation|report|project output|论文|毕业设计|作品集|答辩|报告", unit, re.I):
-            categories["项目输出"].append(unit)
+            categories["Programme outputs"].append(unit)
         elif re.search(r"method|technique|tool|software|programming|statistics|laboratory method|analysis|实验技术|方法|工具|软件|编程|统计|分析", unit, re.I):
-            categories["方法/工具"].append(unit)
+            categories["Methods and tools"].append(unit)
         elif re.search(r"lab|laboratory|fieldwork|placement|internship|workshop|seminar|practical|training|clinic|实践|实验|实习|训练|研讨", unit, re.I):
-            categories["实践训练"].append(unit)
+            categories["Practical training"].append(unit)
         else:
-            categories["知识主题"].append(unit)
+            categories["Knowledge topics"].append(unit)
 
-    knowledge = label_value(categories["知识主题"], fallback="官网未列明 detailed syllabus")
-    methods = label_value(categories["方法/工具"])
-    practice = label_value(categories["实践训练"])
-    outputs = label_value(categories["项目输出"])
-    result = f"知识主题：{knowledge}。方法/工具：{methods}。实践训练：{practice}。项目输出：{outputs}。"
+    knowledge = label_value(categories["Knowledge topics"], fallback=f"{MISSING}; detailed syllabus unavailable")
+    methods = label_value(categories["Methods and tools"])
+    practice = label_value(categories["Practical training"])
+    outputs = label_value(categories["Programme outputs"])
+    result = f"Knowledge topics: {knowledge}. Methods and tools: {methods}. Practical training: {practice}. Programme outputs: {outputs}."
     if len(result) < 60 and "detailed syllabus" not in result:
-        knowledge = f"{knowledge}；detailed syllabus 官网未列明"
-        result = f"知识主题：{knowledge}。方法/工具：{methods}。实践训练：{practice}。项目输出：{outputs}。"
+        knowledge = f"{knowledge}; detailed syllabus unavailable"
+        result = f"Knowledge topics: {knowledge}. Methods and tools: {methods}. Practical training: {practice}. Programme outputs: {outputs}."
     return result
 
 
@@ -666,14 +681,14 @@ def select_units_by_keywords(text: str, keywords: list[str]) -> list[str]:
 
 def academic_requirements(row: dict) -> str:
     categories = {
-        "学位/成绩": [],
-        "专业背景": [],
-        "先修/技能": [],
-        "语言": [],
-        "标化": [],
-        "工作/资格/限制": [],
+        "Degree and grades": [],
+        "Subject background": [],
+        "Prerequisites and skills": [],
+        "Language": [],
+        "Standardised tests": [],
+        "Experience, qualifications, and restrictions": [],
     }
-    combined = combined_text(row, ["学术背景/限制条件", "申请要求"])
+    combined = combined_text(row, ["Academic Requirements and Restrictions", "学术背景/限制条件", "Application Requirements", "申请要求"])
     for unit in split_units(combined):
         unit = strip_known_label(unit)
         academic_signal = (
@@ -687,58 +702,58 @@ def academic_requirements(row: dict) -> str:
         if contains_any(unit, MATERIAL_KEYWORDS) and not academic_signal:
             continue
         if contains_any(unit, DEGREE_KEYWORDS):
-            categories["学位/成绩"].append(unit)
+            categories["Degree and grades"].append(unit)
         if contains_any(unit, SUBJECT_KEYWORDS):
-            categories["专业背景"].append(unit)
+            categories["Subject background"].append(unit)
         if contains_any(unit, SKILL_KEYWORDS):
-            categories["先修/技能"].append(unit)
+            categories["Prerequisites and skills"].append(unit)
         if contains_any(unit, LANGUAGE_KEYWORDS):
-            categories["语言"].append(unit)
+            categories["Language"].append(unit)
         if contains_test_keyword(unit):
-            categories["标化"].append(unit)
+            categories["Standardised tests"].append(unit)
         if contains_any(unit, RESTRICTION_KEYWORDS):
-            categories["工作/资格/限制"].append(unit)
+            categories["Experience, qualifications, and restrictions"].append(unit)
 
-    standard_tests = label_value(categories["标化"], fallback="GRE/GMAT 官网未列明", limit=2)
+    standard_tests = label_value(categories["Standardised tests"], fallback=f"GRE/GMAT {MISSING.lower()}", limit=2)
     return (
-        f"学位/成绩：{label_value(categories['学位/成绩'], limit=2)}。"
-        f"专业背景：{label_value(categories['专业背景'], limit=2)}。"
-        f"先修/技能：{label_value(categories['先修/技能'], limit=2)}。"
-        f"语言：{label_value(categories['语言'], limit=2)}。"
-        f"标化：{standard_tests}。"
-        f"工作/资格/限制：{label_value(categories['工作/资格/限制'], limit=2)}。"
+        f"Degree and grades: {label_value(categories['Degree and grades'], limit=2)}. "
+        f"Subject background: {label_value(categories['Subject background'], limit=2)}. "
+        f"Prerequisites and skills: {label_value(categories['Prerequisites and skills'], limit=2)}. "
+        f"Language: {label_value(categories['Language'], limit=2)}. "
+        f"Standardised tests: {standard_tests}. "
+        f"Experience, qualifications, and restrictions: {label_value(categories['Experience, qualifications, and restrictions'], limit=2)}."
     )
 
 
 def material_requirements(row: dict) -> str:
-    units = select_units_by_keywords(combined_text(row, ["申请材料/研究要求", "申请要求"]), MATERIAL_KEYWORDS)
+    units = select_units_by_keywords(combined_text(row, ["Application and Research Materials", "申请材料/研究要求", "Application Requirements", "申请要求"]), MATERIAL_KEYWORDS)
     return join_units(units, official_missing(), 200)
 
 
 def timing_status(row: dict) -> str:
-    units = split_units(row.get("申请时间/状态", ""))
+    units = split_units(first_present(row, ["Application Timing and Status", "申请时间/状态"]))
     if not units:
-        units = [unit for unit in split_units(row.get("申请要求", "")) if re.search(r"deadline|round|open|closed|start|cycle|application|截止|开放|关闭|轮次|入学|开学", unit, re.I)]
+        units = [unit for unit in split_units(first_present(row, ["Application Requirements", "申请要求"])) if re.search(r"deadline|round|open|closed|start|cycle|application|截止|开放|关闭|轮次|入学|开学", unit, re.I)]
     return join_units(units, official_missing(), 300)
 
 
 def fee_special(row: dict) -> str:
-    units = split_units(combined_text(row, ["费用/资金/特殊事项", "费用/资金/重要信息"]))
+    units = split_units(combined_text(row, ["Fees, Funding, and Special Notes", "费用/资金/特殊事项", "费用/资金/重要信息"]))
     if not units:
-        units = [unit for unit in split_units(row.get("申请要求", "")) if re.search(r"tuition|fee|funding|scholarship|deposit|ATAS|visa|insurance|学费|费用|资金|奖学金|押金|签证", unit, re.I)]
+        units = [unit for unit in split_units(first_present(row, ["Application Requirements", "申请要求"])) if re.search(r"tuition|fee|funding|scholarship|deposit|ATAS|visa|insurance|学费|费用|资金|奖学金|押金|签证", unit, re.I)]
     return join_units(units, official_missing(), 220)
 
 
 def source_urls(row: dict) -> str:
-    raw = clean(row.get("官方来源"))
+    raw = first_present(row, ["Official Source", "官方来源"])
     urls = re.findall(r"https?://[^\s;；,，]+", raw)
     if not urls and raw.startswith("http"):
         urls = [raw]
-    return "；".join(dict.fromkeys(urls)) if urls else raw
+    return "; ".join(dict.fromkeys(urls)) if urls else raw
 
 
 def checked_date(row: dict) -> str:
-    raw = clean(row.get("核对日期"))
+    raw = first_present(row, ["Accessed Date", "核对日期"])
     if re.fullmatch(r"\d{4}-\d{2}-\d{2}", raw):
         return raw
     return date.today().isoformat()
@@ -746,8 +761,8 @@ def checked_date(row: dict) -> str:
 
 def build_row(row: dict) -> list[str]:
     return [
-        clean(row.get("学校")),
-        clean(row.get("Program")),
+        first_present(row, ["Institution", "学校"]),
+        first_present(row, ["Programme", "Program"]),
         clean_award(row.get("Award")),
         project_type(row),
         course_training(row),
@@ -786,7 +801,7 @@ def write_and_style(ws, title: str, rows: list[list[str]]) -> None:
     clear_sheet(ws)
     max_col = len(FINAL_HEADERS)
     ws.append([title] + [""] * (max_col - 1))
-    ws.append(["处理说明：11列客观官网信息结构；项目类型按 Type/Delivery/Mode/Duration/Credits 标准化；课程内容和背景限制分栏结构化；缺失信息显式标明。"] + [""] * (max_col - 1))
+    ws.append(["Processing note: 11-column official-source structure; type, delivery, mode, duration, and credits are normalised; missing information remains explicit."] + [""] * (max_col - 1))
     ws.append(FINAL_HEADERS)
     for row in rows:
         ws.append(row)
@@ -817,17 +832,17 @@ def write_and_style(ws, title: str, rows: list[list[str]]) -> None:
     ws["A2"].alignment = Alignment(horizontal="left", vertical="center", wrap_text=True)
 
     widths = {
-        "学校": 26,
-        "Program": 42,
+        "Institution": 26,
+        "Programme": 42,
         "Award": 13,
-        "项目类型/学习方式": 30,
-        "课程/训练内容": 52,
-        "学术背景/限制条件": 58,
-        "申请材料/研究要求": 46,
-        "申请时间/状态": 48,
-        "费用/资金/特殊事项": 42,
-        "官方来源": 48,
-        "核对日期": 14,
+        "Type / Delivery / Mode": 30,
+        "Course and Training Content": 52,
+        "Academic Requirements and Restrictions": 58,
+        "Application and Research Materials": 46,
+        "Application Timing and Status": 48,
+        "Fees, Funding, and Special Notes": 42,
+        "Official Source": 48,
+        "Accessed Date": 14,
     }
     for c, header in enumerate(FINAL_HEADERS, 1):
         letter = get_column_letter(c)

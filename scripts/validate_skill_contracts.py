@@ -298,6 +298,37 @@ def check_tls_policy() -> None:
             fail(f"network builder does not fail explicitly on verified TLS errors: {path.name}")
 
 
+def check_programme_table_english_defaults() -> None:
+    cleaner = text(ROOT / "scripts" / "clean_programme_workbooks.py")
+    verifier = text(ROOT / "scripts" / "verify_programme_workbooks.py")
+    reference = text(ROOT / "references" / "programme-table-cleaning.md")
+    required = (
+        '"Institution"',
+        '"Programme"',
+        '"Type / Delivery / Mode"',
+        '"Course and Training Content"',
+        '"Academic Requirements and Restrictions"',
+        '"Official Source"',
+        '"Accessed Date"',
+        'MISSING = "Not stated on the official source"',
+        "Processing note: 11-column official-source structure",
+        "Knowledge topics:",
+        "Degree and grades:",
+    )
+    for token in required:
+        if token not in cleaner:
+            fail(f"programme workbook cleaner missing English output contract: {token}")
+    for token in required[:7]:
+        if token not in verifier:
+            fail(f"programme workbook verifier missing English output header: {token}")
+    for token in ("`Institution`", "`Programme`", "`Official Source`", "`Accessed Date`"):
+        if token not in reference:
+            fail(f"programme table reference missing English canonical field: {token}")
+    for generated_chinese in ('result = f"知识主题', 'ws.append(["处理说明', 'return "官网未列明。"'):
+        if generated_chinese in cleaner:
+            fail(f"programme workbook cleaner still emits Chinese default content: {generated_chinese}")
+
+
 def check_shipped_data() -> None:
     for path in (ROOT / "tests" / "fixtures").glob("*.json"):
         fixture = read_json(path)
@@ -378,6 +409,7 @@ def main() -> None:
     check_application_case_schema(manifest)
     check_route_scripts(manifest)
     check_tls_policy()
+    check_programme_table_english_defaults()
     check_shipped_data()
     check_plugin_and_agents(manifest)
     run_self_tests()

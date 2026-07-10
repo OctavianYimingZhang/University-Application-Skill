@@ -14,17 +14,17 @@ except ImportError as exc:  # pragma: no cover - dependency availability is envi
 
 
 FINAL_HEADERS = [
-    "学校",
-    "Program",
+    "Institution",
+    "Programme",
     "Award",
-    "项目类型/学习方式",
-    "课程/训练内容",
-    "学术背景/限制条件",
-    "申请材料/研究要求",
-    "申请时间/状态",
-    "费用/资金/特殊事项",
-    "官方来源",
-    "核对日期",
+    "Type / Delivery / Mode",
+    "Course and Training Content",
+    "Academic Requirements and Restrictions",
+    "Application and Research Materials",
+    "Application Timing and Status",
+    "Fees, Funding, and Special Notes",
+    "Official Source",
+    "Accessed Date",
 ]
 
 DELETED = {
@@ -109,6 +109,7 @@ TYPE_VALUES = {
     "Executive/Professional",
     "Conversion",
     "Directory/Listing",
+    "Not stated on the official source",
     "官网未列明",
 }
 
@@ -120,12 +121,13 @@ DELIVERY_VALUES = {
     "Block/Residential",
     "Clinical/Placement-based",
     "Field-based",
+    "Not stated on the official source",
     "官网未列明",
 }
 
-MODE_VALUES = {"FT", "PT", "FT/PT", "Flexible", "官网未列明"}
-COURSE_LABELS = ["知识主题：", "方法/工具：", "实践训练：", "项目输出："]
-ACADEMIC_LABELS = ["学位/成绩：", "专业背景：", "先修/技能：", "语言：", "标化：", "工作/资格/限制："]
+MODE_VALUES = {"FT", "PT", "FT/PT", "Flexible", "Not stated on the official source", "官网未列明"}
+COURSE_LABELS = ["Knowledge topics:", "Methods and tools:", "Practical training:", "Programme outputs:"]
+ACADEMIC_LABELS = ["Degree and grades:", "Subject background:", "Prerequisites and skills:", "Language:", "Standardised tests:", "Experience, qualifications, and restrictions:"]
 
 
 def field_value(text: str, name: str) -> str:
@@ -174,13 +176,13 @@ def main() -> None:
                         fail(f"{filename} {ws.title} R{r} {h}: banned {bad} :: {text[:180]}", failures)
                     if re.search(r"(^|[。；;]\s*)\d+[\.、)]\s*", text):
                         fail(f"{filename} {ws.title} R{r} {h}: numbered list :: {text[:180]}", failures)
-                    if "\n" in text and h != "官方来源":
+                    if "\n" in text and h != "Official Source":
                         fail(f"{filename} {ws.title} R{r} {h}: newline", failures)
-                if not row["官方来源"].startswith("http"):
+                if not row["Official Source"].startswith("http"):
                     fail(f"{filename} {ws.title} R{r}: missing official URL", failures)
-                if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", row["核对日期"]):
-                    fail(f"{filename} {ws.title} R{r}: bad check date {row['核对日期']}", failures)
-                project = row["项目类型/学习方式"]
+                if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", row["Accessed Date"]):
+                    fail(f"{filename} {ws.title} R{r}: bad access date {row['Accessed Date']}", failures)
+                project = row["Type / Delivery / Mode"]
                 if not all(part in project for part in ["Type=", "Delivery=", "Mode=", "Duration="]):
                     fail(f"{filename} {ws.title} R{r}: incomplete project type structure :: {project[:180]}", failures)
                 if field_value(project, "Type") not in TYPE_VALUES:
@@ -198,20 +200,20 @@ def main() -> None:
                 ):
                     fail(f"{filename} {ws.title} R{r}: mixed project type field :: {project[:180]}", failures)
 
-                course = row["课程/训练内容"]
-                if course.strip("。") == "官网未列明":
+                course = row["Course and Training Content"]
+                if course.strip(".。 ") == "Not stated on the official source":
                     fail(f"{filename} {ws.title} R{r}: course field only says missing", failures)
                 if len(course) < 60 and "detailed syllabus" not in course:
                     fail(f"{filename} {ws.title} R{r}: course field too thin :: {course[:180]}", failures)
                 if sum(1 for label in COURSE_LABELS if label in course) < 2:
                     fail(f"{filename} {ws.title} R{r}: course field missing structured labels :: {course[:180]}", failures)
-                if any(token and token in course for token in [row["学校"], row["Program"], row["Award"] if row["Award"] else "__"]):
+                if any(token and token in course for token in [row["Institution"], row["Programme"], row["Award"] if row["Award"] else "__"]):
                     fail(f"{filename} {ws.title} R{r}: duplicate identifier in course field", failures)
                 if re.search(r"tuition|学费|deadline|截止|学制|时长|学习方式|开始时间|申请状态|IELTS|TOEFL|PTE|GPA|语言要求", course, re.I):
                     fail(f"{filename} {ws.title} R{r}: mixed course field", failures)
 
-                academic = row["学术背景/限制条件"]
-                if academic.strip("。") == "官网未列明":
+                academic = row["Academic Requirements and Restrictions"]
+                if academic.strip(".。 ") == "Not stated on the official source":
                     fail(f"{filename} {ws.title} R{r}: academic field only says missing", failures)
                 missing_labels = [label for label in ACADEMIC_LABELS if label not in academic]
                 if missing_labels:
