@@ -1,106 +1,166 @@
 # University Application Skill
 
-A multiple-skill Codex package for source-backed university application planning. `university-application-index` is the canonical controller; `study-abroad-advisor` is a compatibility alias.
+[University Application Skill](https://github.com/OctavianYimingZhang/University-Application-Skill) is an evidence-first, multiple-Skill Plugin for planning international university applications. It turns an applicant request into a source-backed application case without inventing applicant facts, promoting catalogue placeholders into verified requirements, or estimating admission probability.
 
-It supports official programme research, hard requirement audits, confirmed-evidence application-material checks, interactive SOP/personal-statement planning, submission readiness, student visa readiness, explicit programme-table maintenance, workbook exports, and blank-by-default long-memory orchestration. It recognizes non-English intent, defaults outputs to English unless the user explicitly requests otherwise, and does not produce admission-probability predictions.
+`university-application-index` is the canonical router. `study-abroad-advisor` remains a thin compatibility alias; all substantive routing is owned by the canonical index and the focused Skills below.
 
-## Programme Identity Catalogue
+## Why this Plugin exists
 
-The canonical curated catalogue is Plugin-owned data under [`catalogues/`](catalogues/), independent of the website. [`catalogues/index.json`](catalogues/index.json) provides a lazy-load index across 43 institutions; institution files preserve official-source programme identity coverage, stable IDs, HTTPS URLs, access dates, and source notes.
+An application is ready only when four things are separately true:
 
-Catalogue coverage is identity-only. Every row is `official_source_listed` with `requirements_status: not_collected`; it does not verify entry requirements, deadlines, fees, availability, or applicant fit. Illustrative examples remain `illustrative_only`, and placeholders or link-only records cannot be treated as verified.
+1. The exact programme and application cycle are identified.
+2. Current requirements are verified from official sources.
+3. Applicant evidence is substantive, dated, sourced, complete, and explicitly confirmed.
+4. Every writing, document, deadline, cost, visa, and submission decision is traceable to that verified state.
 
-## Web App
-
-The interactive prototype lives in [`web/`](web/). It is a React + Vite + TypeScript app designed as a dark, data-product style admissions workspace.
-
-Main surfaces:
-
-- Program Explorer: filter UK Core, U.S. News Top 30 cutoff, NUS, and NTU catalogue coverage; click official UG/PG programme options and inspect available source-backed detail pages.
-- Application Checklist: identify material-readiness gaps without treating clicks, placeholders, or links as passing evidence.
-- Writing Studio: lock the writing brief, upload runtime inspiration files, choose unseeded narrative structures, and block unsupported claims before drafting.
-- Codex OAuth Runtime: a Hermes-style panel that calls Codex account/OAuth actions through Codex app-server or the included local HTTP bridge without storing bearer tokens in the browser.
-- Memory Studio: a static browser page at [`web/public/memory.html`](web/public/memory.html) for uploading writing samples, adding lecture/slide-delta notes, and exporting private memory JSON or compact ChatGPT/Codex memory packs.
-
-GitHub Pages deployment is configured through `.github/workflows/pages.yml`.
-
-Expected Pages URL:
+The Plugin therefore follows this first-principles workflow:
 
 ```text
-https://octavianyimingzhang.github.io/University-Application-Skill/
+request -> route review -> programme identity -> official-source verification
+        -> confirmed applicant evidence -> requirements and materials gaps
+        -> deadlines/costs -> writing brief and plan approval
+        -> visa readiness -> submission QA
 ```
 
-Expected Memory Studio URL after Pages deployment:
+Missing information remains a gap. A link, placeholder, inferred profile detail, or unconfirmed extraction never becomes verified evidence merely because it is present.
+
+## Router and focused Skills
+
+| Skill | Responsibility |
+| --- | --- |
+| `university-application-index` | Canonical router, intake, route review, memory selection, and cross-route coordination. |
+| `study-abroad-advisor` | Compatibility alias that delegates to the canonical router. |
+| `program-research` | Discover and compare programmes using curated identities and current official pages. |
+| `requirement-audit` | Verify academic, language, subject, document, fee, and deadline requirements. |
+| `materials-check` | Compare source-backed requirements with explicitly confirmed applicant evidence. |
+| `application-writing-studio` | Lock the writing brief, build the evidence inventory, plan narrative structure, and draft only after approval. |
+| `submission-readiness` | Run final cycle, document, evidence, deadline, and submission-blocker checks. |
+| `visa-readiness` | Review administrative student-visa preparation from official government sources, without legal advice. |
+| `programme-table-cleaning` | Maintain official programme tables and workbooks with preserved lineage. |
+
+Use [`SKILL.md`](SKILL.md) when the route is not already confirmed. Direct invocation of a focused Skill is supported, but its declared inputs and gates still apply.
+
+## Versioned Plugin boundary
+
+[`plugin-capability-manifest.v2.json`](plugin-capability-manifest.v2.json) is the executable route registry. It declares each route ID, owning Skill, semantic triggers, required inputs, gates, outputs, adapter entrypoint, and supported context versions.
+
+The shared schemas under [`contracts/`](contracts/) are byte-identical across the independently installable Soleil Plugins:
+
+| Contract | Purpose |
+| --- | --- |
+| `PluginCapabilityManifest v2` | Route ownership and executable capability metadata. |
+| `AcademicTaskContext v1` | Original request, application case, source references, relevant memory, permissions, and decisions. |
+| `TaskRunState v1` | One `run_id` across source readiness, route/brief lock, permissions, plan approval, execution, and QA/failure. |
+| `SourceRecord v1` | Stable source identity, checksum, provenance, locators, parser version, and opaque local reference. |
+| `LocalBridgeProtocol v1` | Versioned loopback handshake, session token, origin controls, consent, and request envelope. |
+
+A recommendation remains `suggested` until the user selects it. Only `explicitly_confirmed` decisions can satisfy a user gate.
+
+Admissions-specific structured state uses [`ApplicationCase v1`](schemas/application-case-v1.schema.json), which keeps source availability, fact verification, completeness, application cycle, access date, and staleness separate.
+
+## Routes and gates
+
+| Route | Required control points | Primary outputs |
+| --- | --- | --- |
+| `program_research` | Route confirmation; official-source verification | Programme list, application case, source log |
+| `requirement_audit` | Route confirmation; official sources; confirmed applicant evidence | Requirement table, gaps, source log |
+| `materials_check` | Route confirmation; confirmed applicant evidence | Materials checklist and blockers |
+| `application_writing_studio` | Locked brief; confirmed evidence; planning approval | Writing plan and approved draft |
+| `submission_readiness` | Route confirmation; confirmed evidence; current-cycle verification | Readiness checklist and blockers |
+| `visa_readiness` | Route confirmation; official government provenance; confirmed evidence; non-legal-advice boundary | Visa-readiness notes, document gaps, source log |
+| `programme_table_cleaning` | Explicit maintenance authorisation; lineage preservation | Cleaned workbook, identity catalogue, verification report |
+
+The main agent owns Ask User, route or brief locking, applicant-evidence confirmation, permissions, and planning approval. It asks only questions that can change the plan, displays the relevant brief or route before the question batch, and does not treat a recommended answer as selected. Bounded non-interactive work may be delegated only after its dependencies are locked.
+
+Writing Studio begins with an empty evidence inventory. Before drafting it must confirm the programme, prompt, audience, word limit, intended use, source policy, exact evidence IDs, and visible structure. A plan-breaking change returns to the writing gate instead of silently changing the approved plan.
+
+## Programme catalogue and provenance
+
+The Plugin-owned [`catalogues/index.json`](catalogues/index.json) lazy-loads institution files under [`catalogues/institutions/`](catalogues/institutions/). The current index contains 43 institutions and 13,986 stable programme identities.
+
+Catalogue scope is deliberately narrow:
+
+- `identity_status` is `official_source_listed`;
+- `requirements_status` is `not_collected`;
+- official HTTPS identity URLs, stable IDs, source notes, and update metadata are retained;
+- requirements, deadlines, fees, availability, applicant fit, and visa rules must still be verified live;
+- placeholders, illustrative rows, and link-only records cannot pass as verified facts.
+
+For custom cases, start from an official programme URL and build a new `ApplicationCase`; do not infer the programme identity from marketing summaries or aggregators.
+
+Hard requirements should come from official university, government, testing-agency, or scholarship sources. Record the source URL and access date, preserve uncertainty, and fail explicitly when TLS certificate verification or source retrieval fails.
+
+## Private Soleil Admissions Site
+
+The owner-only [Soleil Admissions Site](https://soleil-admissions.ready-loach-3659.chatgpt.site) is the private structured workspace for:
 
 ```text
-https://octavianyimingzhang.github.io/University-Application-Skill/memory.html
+Profile -> Programme Discovery -> Compare -> Cases -> Evidence
+        -> Deadlines/Costs -> Writing Studio -> Visa Readiness -> Submission QA
 ```
 
-## Skill Entrypoints
+The Site and Plugin share `ApplicationCase v1` and the Soleil contracts. The Site stores confirmed structured cases, tasks, facts, approvals, revisions, and freshness metadata in D1. Sensitive originals, raw uploads, full extracted text, and local execution stay on the owner's machine. The Site is an access-controlled companion, not a public replacement for the independently installable Plugin.
 
-Use [`SKILL.md`](SKILL.md) as the canonical `university-application-index` package root.
+## Privacy and data boundary
 
-Focused Skills live under [`skills/`](skills/):
+The public repository contains blank schemas, blank memory templates, generic examples, programme identities, and executable workflow code. It must not contain populated applicant memory, real writing samples, transcripts, credentials, visa identifiers, or invented applicant evidence.
 
-| Skill | Purpose |
-| --- | --- |
-| `university-application-index` | Canonical controller for all admissions routes. |
-| `study-abroad-advisor` | Thin compatibility alias for the canonical index. |
-| `program-research` | Collect and compare official programme pages. |
-| `requirement-audit` | Check hard academic, language, fee, deadline, and document requirements. |
-| `materials-check` | Simulate application-material readiness. |
-| `application-writing-studio` | Plan SOPs, personal statements, and programme-fit writing from evidence, confirmed file-derived inspiration, and optional writing-voice memory. |
-| `submission-readiness` | Run final pre-submission blocker checks. |
-| `visa-readiness` | Review student visa preparation from current official government sources without legal advice. |
-| `programme-table-cleaning` | Explicit maintenance route for official programme tables/workbooks. |
-
-## Repository Layout
-
-| Path | Purpose |
-| --- | --- |
-| `SKILL.md` | Root workflow and memory contract. |
-| `skills/` | Plugin router and focused Skill entrypoints. |
-| `references/` | Intake, research, essay/SOP, memory, submission, workbook, and quality guidance. |
-| `contracts/` | Shared Soleil interoperability schemas; byte-identical across Plugins. |
-| `schemas/application-case-v1.schema.json` | Admissions-specific Site contract for a source-state-aware application case. |
-| `catalogues/` | Plugin-owned lazy-load programme identity index, institution JSON files, and catalogue schemas. |
-| `memory/` | Blank memory templates only; private populated files are ignored by git. |
-| `scripts/` | Route planning, review-question payloads, validation, publishing, workbook rendering, and programme-table utilities. |
-| `plugin-capability-manifest.v2.json` | Route ownership, gates, outputs, adapters, and supported context versions. |
-| `web/` | Interactive admissions website prototype plus static Memory Studio page. |
-| `.codex-plugin/` | Plugin metadata. |
-| `.github/workflows/` | Skill health and GitHub Pages workflows. |
-| `COPY_PACKAGE.md` | Copy-safe installation and distribution notes for the website, Skill, scripts, and blank memory templates. |
-
-## Blank Memory Policy
-
-The public GitHub version must not contain populated user memory.
-
-Allowed in the repository:
-
-- blank schemas;
-- empty JSON templates;
-- generic memory category names;
-- UI code that lets a user create a private export.
-
-Not allowed in the repository:
-
-- real writing samples;
-- real lecture notes or slide annotations;
-- private applicant facts;
-- populated applicant-evidence records or invented test applicants;
-- credentials, tokens, emails, visa data, or local account details;
-- filled `memory/local-*` files.
-
-The recommended local path for a private copy is:
+Recommended private memory path:
 
 ```text
 memory/local-user-memory.json
 ```
 
-That path is ignored by git.
+That path is ignored by Git. Retrieve only the smallest relevant memory pack for a task, and use confirmed course or writing evidence across systems only when the user requests it. `SourceRecord v1` carries an opaque local reference and locators; it does not carry raw document bytes or full extracted text.
 
-## Local Checks
+## Output language
+
+All shipped UI copy, prompts, plans, questions, errors, metadata, tests, documentation, and generated output default to English. The router may understand a request written in another language, but the output remains English unless the user explicitly requests a task-level language override.
+
+## Installation
+
+Clone the repository, then synchronise the canonical router and focused sibling Skills into `~/.codex/skills`:
+
+```bash
+git clone https://github.com/OctavianYimingZhang/University-Application-Skill.git
+cd University-Application-Skill
+python3 scripts/publish_skill.py --sync-local-skill
+```
+
+After an update:
+
+```bash
+git pull --ff-only
+python3 scripts/publish_skill.py --sync-local-skill
+```
+
+The synchroniser installs `university-application-index` plus the focused Skills while preserving their required shared references, contracts, schemas, scripts, and catalogue resources.
+
+## Example invocations
+
+```text
+$university-application-index
+Build a source-backed shortlist for postgraduate neuroscience programmes and show every unresolved profile decision before planning.
+```
+
+```text
+$requirement-audit
+Audit this official programme URL against my explicitly confirmed academic and language evidence.
+```
+
+```text
+$application-writing-studio
+Lock the brief and evidence inventory for this personal statement, then show the structure for Planning Approval before drafting.
+```
+
+```text
+$visa-readiness
+Review my administrative student-visa readiness using current official government guidance. Do not provide legal advice.
+```
+
+## Validation
+
+Run the Plugin checks from the repository root:
 
 ```bash
 python3 -m compileall -q scripts
@@ -111,52 +171,45 @@ python3 scripts/validate_skill_contracts.py
 python3 scripts/plan_workflow.py --self-test
 python3 scripts/build_review_questions.py --self-test
 python3 scripts/validate_evidence.py --self-test
+python3 scripts/publish_skill.py --self-test
 python3 scripts/publish_skill.py --dry-run --sync-local-skill
-python3 scripts/build_admissions_workbook.py tests/fixtures/admissions_case_mvp.json /tmp/application_plan.xlsx
-cd web && npm ci && npm run build
+python3 "$HOME/.codex/skills/.system/plugin-creator/scripts/validate_plugin.py" .
 ```
 
-If the global npm cache has local permission issues, use the repository-local cache:
+Workbook smoke test:
 
 ```bash
-cd web && npm ci --cache .npm-cache && npm run build
+python3 scripts/build_admissions_workbook.py \
+  tests/fixtures/admissions_case_mvp.json \
+  /tmp/application_plan.xlsx
 ```
 
-## Web Development
+## Repository map
 
-```bash
-cd web
-npm install
-npm run dev
-npm run build
-```
+| Path | Responsibility |
+| --- | --- |
+| [`SKILL.md`](SKILL.md) | Canonical router and first-principles workflow. |
+| [`skills/`](skills/) | Router wrapper, compatibility alias, and focused Skills. |
+| [`plugin-capability-manifest.v2.json`](plugin-capability-manifest.v2.json) | Versioned route and gate registry. |
+| [`contracts/`](contracts/) | Shared Soleil interoperability schemas. |
+| [`schemas/`](schemas/) | Admissions-specific `ApplicationCase` schema. |
+| [`catalogues/`](catalogues/) | Curated, identity-only programme catalogue and schemas. |
+| [`references/`](references/) | Evidence, research, writing, memory, governance, refresh, and submission protocols. |
+| [`scripts/`](scripts/) | Planning, Ask User payloads, validation, catalogue maintenance, workbook rendering, and local installation. |
+| [`memory/`](memory/) | Blank public memory scaffold only. |
+| [`.codex-plugin/plugin.json`](.codex-plugin/plugin.json) | Plugin metadata and Codex interface declaration. |
 
-The GitHub Pages build is static. Browser pages cannot safely perform Codex token exchange or read local Codex auth files. Use the included local bridge when testing the OAuth tab:
+## Security principles
 
-```bash
-node scripts/codex_oauth_bridge.mjs --port 8787
-```
+- Never invent applicant facts, requirements, deadlines, fees, scholarships, visa rules, or outcomes.
+- Never produce chance scores or safe/match/reach admission labels.
+- Use official provenance for mutable hard requirements and government provenance for visa-readiness claims.
+- Keep retrieval certificate verification enabled and expose failures as failures.
+- Keep raw sources and sensitive applicant files local.
+- Require explicit consent before any local bridge data transfer.
+- Accept bridge traffic only through the versioned loopback protocol with a random session token, strict origin allowlist, and rate limiting.
+- Invalidate writing or submission approvals when the underlying case or evidence revision changes.
 
-Then open the site with:
+## Licence
 
-```text
-?codex_bridge=http://127.0.0.1:8787
-```
-
-The bridge exposes `GET /codex/status`, `POST /codex/start-oauth`, `POST /codex/refresh`, `POST /codex/logout`, and `POST /writing/inspiration/extract`. OAuth calls proxy to `codex app-server --stdio`; inspiration extraction stays local and uses `scripts/extract_inspiration_file.py`.
-
-## Source Policy
-
-- Use official university, government, testing-agency, and scholarship pages for hard requirements.
-- Store source URLs and access dates with extracted facts.
-- Keep source availability, fact verification, completeness, application cycle, access date, and staleness separate.
-- Require substantive value, real source provenance, evidence date, explicit confirmation, verified fact status, and complete content before applicant evidence passes.
-- Mark missing source evidence as a gap.
-- Do not invent deadlines, fees, requirements, scholarships, visa rules, or programme facts.
-- Do not use acceptance-rate or probability-style prediction UI.
-- Catalogue builders use normal TLS certificate verification and fail explicitly when verified requests fail.
-- Curated catalogue identities use stable globally unique IDs, HTTPS official URLs, explicit source/access provenance, and `requirements_status: not_collected`.
-
-## License
-
-See [`LICENSE`](LICENSE).
+MIT. See [`LICENSE`](LICENSE).
