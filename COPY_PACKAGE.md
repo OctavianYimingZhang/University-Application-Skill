@@ -13,6 +13,7 @@ references/
 scripts/
 contracts/
 schemas/
+catalogues/
 tests/
 web/
 .codex-plugin/
@@ -25,7 +26,7 @@ README.md
 LICENSE
 ```
 
-The copied package should preserve relative paths because the root Skill links to focused Skills, reference files, setup schemas, scripts, and the web prototype.
+The copied package should preserve relative paths because the root Skill links to focused Skills, reference files, setup schemas, Plugin-owned programme catalogues, scripts, and the web prototype.
 
 ## Keep memory blank in public copies
 
@@ -88,4 +89,6 @@ Before publishing or sharing a copy:
 - Confirm `memory/blank-memory.json` contains empty arrays and empty strings only.
 - Confirm test fixtures and web narrative options contain no seeded applicant evidence.
 - Confirm the shared `contracts/` files and `plugin-capability-manifest.v2.json` are included.
+- Confirm `catalogues/index.json`, all indexed institution files, and both catalogue schemas are included.
+- Run `python3 scripts/validate_catalogues.py` and confirm requirements remain `not_collected` for identity-only records.
 - Run local checks from `README.md` if the runtime is available.

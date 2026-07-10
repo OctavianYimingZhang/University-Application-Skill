@@ -1,0 +1,2602 @@
+{
+  "$schema": "../schemas/institution-catalogue-v1.schema.json",
+  "contract": "InstitutionProgrammeCatalogue",
+  "version": 1,
+  "language": "en",
+  "institution": {
+    "id": "ucla",
+    "name": "University of California, Los Angeles",
+    "short_name": "UCLA",
+    "group": "US News Top 30",
+    "region": "United States",
+    "rank_note": "US News 2026 top-30 cutoff source list"
+  },
+  "catalogue_scope": {
+    "record_type": "programme_identity",
+    "identity_status": "official_source_listed",
+    "requirements_status": "not_collected",
+    "placeholder_records_verified": false,
+    "link_only_records_verified": false
+  },
+  "catalogue_provenance": {
+    "accessed_at": "2026-06-26",
+    "official_sources": [
+      {
+        "degree_level": "Undergraduate",
+        "title": "Departments, Programs, and Freestanding Minors",
+        "official_url": "https://registrar.ucla.edu/academics/departments-programs-and-freestanding-minors",
+        "coverage": "Official index",
+        "note": "Official undergraduate programme catalogue or admissions major index."
+      },
+      {
+        "degree_level": "Postgraduate",
+        "title": "Graduate Programs A-Z",
+        "official_url": "https://grad.ucla.edu/programs/",
+        "coverage": "Official index",
+        "note": "Official graduate/professional programme catalogue or graduate school programme index."
+      }
+    ],
+    "allowed_official_hosts": [
+      "grad.ucla.edu",
+      "registrar.ucla.edu"
+    ],
+    "extraction_note": "Official catalogue rows loaded: 169 programme rows. Individual hard requirements must still be read from the relevant programme page.",
+    "caveat": "U.S. institutions distribute requirements across schools, departments, and admissions offices; unsupported details remain source gaps.",
+    "migration_source": "usPrograms.ts"
+  },
+  "illustrative_examples": [
+    {
+      "id": "ucla-ug-catalogue",
+      "name": "UCLA undergraduate programme catalogue",
+      "degree_level": "Undergraduate",
+      "award": "UG",
+      "official_url": "https://registrar.ucla.edu/academics/departments-programs-and-freestanding-minors",
+      "selection_status": "illustrative_only"
+    },
+    {
+      "id": "ucla-pg-catalogue",
+      "name": "UCLA postgraduate programme catalogue",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/",
+      "selection_status": "illustrative_only"
+    }
+  ],
+  "programmes": [
+    {
+      "id": "ucla-po-aerospace-engineering-graduate",
+      "institution_id": "ucla",
+      "name": "Aerospace Engineering",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/school-of-engineering-and-applied-science/mechanical-aerospace-engineering-department/aerospace-engineering/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-engineering-and-applied-science/mechanical-aerospace-engineering-department/aerospace-engineering/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-african-american-studies-graduate",
+      "institution_id": "ucla",
+      "name": "African American Studies",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/social-sciences/african-american-studies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/social-sciences/african-american-studies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-african-studies-graduate",
+      "institution_id": "ucla",
+      "name": "African Studies",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/international-institute/african-studies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/international-institute/african-studies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-american-indian-studies-graduate",
+      "institution_id": "ucla",
+      "name": "American Indian Studies",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/social-sciences/american-indian-studies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/social-sciences/american-indian-studies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-anderson-school-of-management-graduate",
+      "institution_id": "ucla",
+      "name": "Anderson School of Management",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/anderson-school-of-management/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/anderson-school-of-management/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-anthropology-graduate",
+      "institution_id": "ucla",
+      "name": "Anthropology",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/social-sciences/anthropology/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/social-sciences/anthropology/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-archaeology-graduate",
+      "institution_id": "ucla",
+      "name": "Archaeology",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/social-sciences/archaeology/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/social-sciences/archaeology/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-architecture-graduate",
+      "institution_id": "ucla",
+      "name": "Architecture",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/school-of-arts-and-architecture/architecture-and-urban-design-department/architecture/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-arts-and-architecture/architecture-and-urban-design-department/architecture/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-architecture-m-arch-graduate",
+      "institution_id": "ucla",
+      "name": "Architecture - M.Arch.",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/school-of-arts-and-architecture/architecture-and-urban-design-department/architecture-m-arch-i/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-arts-and-architecture/architecture-and-urban-design-department/architecture-m-arch-i/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-architecture-m-s-in-architecture-and-urban-design-graduate",
+      "institution_id": "ucla",
+      "name": "Architecture - M.S. in Architecture and Urban Design",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/school-of-arts-and-architecture/architecture-and-urban-design-department/architecture-m-s/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-arts-and-architecture/architecture-and-urban-design-department/architecture-m-s/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-art-graduate",
+      "institution_id": "ucla",
+      "name": "Art",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/school-of-arts-and-architecture/art/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-arts-and-architecture/art/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-art-history-graduate",
+      "institution_id": "ucla",
+      "name": "Art History",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/humanities/art-history/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/humanities/art-history/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-asian-american-studies-graduate",
+      "institution_id": "ucla",
+      "name": "Asian American Studies",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/social-sciences/asian-american-studies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/social-sciences/asian-american-studies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-asian-languages-and-cultures-graduate",
+      "institution_id": "ucla",
+      "name": "Asian Languages and Cultures",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/humanities/asian-languages-and-cultures-department/asian-languages-and-cultures/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/humanities/asian-languages-and-cultures-department/asian-languages-and-cultures/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-astronomy-and-astrophysics-graduate",
+      "institution_id": "ucla",
+      "name": "Astronomy and Astrophysics",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/physical-sciences/physics-and-astronomy-department/astronomy-and-astrophysics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/physical-sciences/physics-and-astronomy-department/astronomy-and-astrophysics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-astronomy-and-astrophysics-mat-graduate",
+      "institution_id": "ucla",
+      "name": "Astronomy and Astrophysics-MAT",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/physical-sciences/physics-and-astronomy-department/astronomy-and-astrophysics-mat/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/physical-sciences/physics-and-astronomy-department/astronomy-and-astrophysics-mat/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-atmospheric-and-oceanic-sciences-graduate",
+      "institution_id": "ucla",
+      "name": "Atmospheric and Oceanic Sciences",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/physical-sciences/atmospheric-and-oceanic-sciences/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/physical-sciences/atmospheric-and-oceanic-sciences/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-biochemistry-molecular-and-structural-biology-molecular-and-structural-biology",
+      "institution_id": "ucla",
+      "name": "Biochemistry, Molecular and Structural Biology",
+      "degree_level": "Postgraduate",
+      "award": "Molecular and Structural Biology",
+      "official_url": "https://grad.ucla.edu/programs/physical-sciences/chemistry-and-biochemistry-department/biochemistry-molecular-and-structural-biology/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/physical-sciences/chemistry-and-biochemistry-department/biochemistry-molecular-and-structural-biology/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-bioengineering-graduate",
+      "institution_id": "ucla",
+      "name": "Bioengineering",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/school-of-engineering-and-applied-science/bioengineering/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-engineering-and-applied-science/bioengineering/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-bioinformatics-graduate",
+      "institution_id": "ucla",
+      "name": "Bioinformatics",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/life-sciences/bioinformatics-department/bioinformatics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/life-sciences/bioinformatics-department/bioinformatics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-biology-graduate",
+      "institution_id": "ucla",
+      "name": "Biology",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/life-sciences/ecology-and-evolutionary-biology-department/biology/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/life-sciences/ecology-and-evolutionary-biology-department/biology/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-biomathematics-graduate",
+      "institution_id": "ucla",
+      "name": "Biomathematics",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/david-geffen-school-of-medicine/computational-medicine-department/biomathematics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/david-geffen-school-of-medicine/computational-medicine-department/biomathematics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-bioscience-programs-graduate",
+      "institution_id": "ucla",
+      "name": "Bioscience Programs",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/bioscience-programs/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/bioscience-programs/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-biostatistics-graduate",
+      "institution_id": "ucla",
+      "name": "Biostatistics",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/school-of-public-health/biostatistics-department/biostatistics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-public-health/biostatistics-department/biostatistics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-biostatistics-mph-graduate",
+      "institution_id": "ucla",
+      "name": "Biostatistics MPH",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/school-of-public-health/biostatistics-department/biostatistics-mph/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-public-health/biostatistics-department/biostatistics-mph/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-chemical-engineering-graduate",
+      "institution_id": "ucla",
+      "name": "Chemical Engineering",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/school-of-engineering-and-applied-science/chemical-biomolecular-engineering-department/chemical-engineering/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-engineering-and-applied-science/chemical-biomolecular-engineering-department/chemical-engineering/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-chemistry-graduate",
+      "institution_id": "ucla",
+      "name": "Chemistry",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/physical-sciences/chemistry-and-biochemistry-department/chemistry/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/physical-sciences/chemistry-and-biochemistry-department/chemistry/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-chemistry-master-of-applied-chemical-sciences-graduate",
+      "institution_id": "ucla",
+      "name": "Chemistry - Master of Applied Chemical Sciences",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/physical-sciences/chemistry-and-biochemistry-department/chemistry-master-of-applied-chemical-sciences/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/physical-sciences/chemistry-and-biochemistry-department/chemistry-master-of-applied-chemical-sciences/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-chicana-and-chicano-studies-graduate",
+      "institution_id": "ucla",
+      "name": "Chicana & Chicano Studies",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/social-sciences/chicana-o-and-central-american-studies-department/chicana-and-chicano-studies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/social-sciences/chicana-o-and-central-american-studies-department/chicana-and-chicano-studies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-choreographic-inquiry-graduate",
+      "institution_id": "ucla",
+      "name": "Choreographic Inquiry",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/school-of-arts-and-architecture/world-arts-and-culturesdance-department/choreographic-inquiry/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-arts-and-architecture/world-arts-and-culturesdance-department/choreographic-inquiry/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-civil-engineering-graduate",
+      "institution_id": "ucla",
+      "name": "Civil Engineering",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/school-of-engineering-and-applied-science/civil-environmental-engineering-department/civil-engineering/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-engineering-and-applied-science/civil-environmental-engineering-department/civil-engineering/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-classics-graduate",
+      "institution_id": "ucla",
+      "name": "Classics",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/humanities/classics-department/classics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/humanities/classics-department/classics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-clinical-research-graduate",
+      "institution_id": "ucla",
+      "name": "Clinical Research",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/david-geffen-school-of-medicine/computational-medicine-department/clinical-research/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/david-geffen-school-of-medicine/computational-medicine-department/clinical-research/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-communication-graduate",
+      "institution_id": "ucla",
+      "name": "Communication",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/social-sciences/communication/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/social-sciences/communication/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-community-health-sciences-graduate",
+      "institution_id": "ucla",
+      "name": "Community Health Sciences",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/school-of-public-health/community-health-sciences-department/community-health-sciences/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-public-health/community-health-sciences-department/community-health-sciences/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-community-health-sciences-mph-graduate",
+      "institution_id": "ucla",
+      "name": "Community Health Sciences MPH",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/school-of-public-health/community-health-sciences-department/community-health-sciences-mph/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-public-health/community-health-sciences-department/community-health-sciences-mph/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-comparative-literature-graduate",
+      "institution_id": "ucla",
+      "name": "Comparative Literature",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/humanities/comparative-literature/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/humanities/comparative-literature/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-computer-science-graduate",
+      "institution_id": "ucla",
+      "name": "Computer Science",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/school-of-engineering-and-applied-science/computer-science/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-engineering-and-applied-science/computer-science/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-conservation-of-cultural-heritage-graduate",
+      "institution_id": "ucla",
+      "name": "Conservation of Cultural Heritage",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/social-sciences/conservation-of-cultural-heritage-department/conservation-of-cultural-heritage/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/social-sciences/conservation-of-cultural-heritage-department/conservation-of-cultural-heritage/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-conservation-of-material-culture-graduate",
+      "institution_id": "ucla",
+      "name": "Conservation of Material Culture",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/social-sciences/conservation-of-cultural-heritage-department/conservation-of-material-culture/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/social-sciences/conservation-of-cultural-heritage-department/conservation-of-material-culture/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-culture-and-performance-graduate",
+      "institution_id": "ucla",
+      "name": "Culture and Performance",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/school-of-arts-and-architecture/world-arts-and-culturesdance-department/culture-and-performance/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-arts-and-architecture/world-arts-and-culturesdance-department/culture-and-performance/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-data-science-in-biomedicine-graduate",
+      "institution_id": "ucla",
+      "name": "Data Science in Biomedicine",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/david-geffen-school-of-medicine/computational-medicine-department/data-science-in-biomedicine/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/david-geffen-school-of-medicine/computational-medicine-department/data-science-in-biomedicine/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-data-science-in-health-graduate",
+      "institution_id": "ucla",
+      "name": "Data Science in Health",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/school-of-public-health/biostatistics-department/data-science-in-health/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-public-health/biostatistics-department/data-science-in-health/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-david-geffen-school-of-medicine-graduate",
+      "institution_id": "ucla",
+      "name": "David Geffen School of Medicine",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/david-geffen-school-of-medicine/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/david-geffen-school-of-medicine/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-design-media-arts-graduate",
+      "institution_id": "ucla",
+      "name": "Design | Media Arts",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/school-of-arts-and-architecture/design-media-arts/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-arts-and-architecture/design-media-arts/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-east-asian-studies-graduate",
+      "institution_id": "ucla",
+      "name": "East Asian Studies",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/international-institute/east-asian-studies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/international-institute/east-asian-studies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-economics-graduate",
+      "institution_id": "ucla",
+      "name": "Economics",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/social-sciences/economics-department/economics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/social-sciences/economics-department/economics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-economics-master-of-quantitative-economics-graduate",
+      "institution_id": "ucla",
+      "name": "Economics - Master of Quantitative Economics",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/social-sciences/economics-department/economics-master-of-quantitative-economics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/social-sciences/economics-department/economics-master-of-quantitative-economics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-education-graduate",
+      "institution_id": "ucla",
+      "name": "Education",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/school-of-education-and-information-studies/education/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-education-and-information-studies/education/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-educational-leadership-program-graduate",
+      "institution_id": "ucla",
+      "name": "Educational Leadership Program",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/school-of-education-and-information-studies/education-leadership-program/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-education-and-information-studies/education-leadership-program/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-electrical-and-computer-engineering-graduate",
+      "institution_id": "ucla",
+      "name": "Electrical & Computer Engineering",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/school-of-engineering-and-applied-science/electrical-computer-engineering/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-engineering-and-applied-science/electrical-computer-engineering/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-engineering-master-of-engineering-graduate",
+      "institution_id": "ucla",
+      "name": "Engineering - Master of Engineering",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/school-of-engineering-and-applied-science/engineering-master-of-engineering/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-engineering-and-applied-science/engineering-master-of-engineering/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-engineering-ms-in-engineering-online-online",
+      "institution_id": "ucla",
+      "name": "Engineering - MS in Engineering, Online",
+      "degree_level": "Postgraduate",
+      "award": "Online",
+      "official_url": "https://grad.ucla.edu/programs/school-of-engineering-and-applied-science/engineering-ms-in-engineering-online/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-engineering-and-applied-science/engineering-ms-in-engineering-online/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-engineering-ms-in-engineering-aerospace-online-online",
+      "institution_id": "ucla",
+      "name": "Engineering - MS in Engineering-Aerospace, Online",
+      "degree_level": "Postgraduate",
+      "award": "Online",
+      "official_url": "https://grad.ucla.edu/programs/school-of-engineering-and-applied-science/engineering-ms-in-engineering-aerospace-online/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-engineering-and-applied-science/engineering-ms-in-engineering-aerospace-online/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-engineering-ms-in-engineering-computer-networking-online-online",
+      "institution_id": "ucla",
+      "name": "Engineering - MS in Engineering-Computer Networking, Online",
+      "degree_level": "Postgraduate",
+      "award": "Online",
+      "official_url": "https://grad.ucla.edu/programs/school-of-engineering-and-applied-science/engineering-ms-in-engineering-computer-networking-online/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-engineering-and-applied-science/engineering-ms-in-engineering-computer-networking-online/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-engineering-ms-in-engineering-electrical-online-online",
+      "institution_id": "ucla",
+      "name": "Engineering - MS in Engineering-Electrical, Online",
+      "degree_level": "Postgraduate",
+      "award": "Online",
+      "official_url": "https://grad.ucla.edu/programs/school-of-engineering-and-applied-science/engineering-ms-in-engineering-electrical-online/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-engineering-and-applied-science/engineering-ms-in-engineering-electrical-online/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-engineering-ms-in-engineering-electronic-materials-online-online",
+      "institution_id": "ucla",
+      "name": "Engineering - MS in Engineering-Electronic Materials, Online",
+      "degree_level": "Postgraduate",
+      "award": "Online",
+      "official_url": "https://grad.ucla.edu/programs/school-of-engineering-and-applied-science/engineering-ms-in-engineering-electronic-materials-online/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-engineering-and-applied-science/engineering-ms-in-engineering-electronic-materials-online/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-engineering-ms-in-engineering-integrated-circuits-online-online",
+      "institution_id": "ucla",
+      "name": "Engineering - MS in Engineering-Integrated Circuits, Online",
+      "degree_level": "Postgraduate",
+      "award": "Online",
+      "official_url": "https://grad.ucla.edu/programs/school-of-engineering-and-applied-science/engineering-ms-in-engineering-integrated-circuits-online/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-engineering-and-applied-science/engineering-ms-in-engineering-integrated-circuits-online/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-engineering-ms-in-engineering-manufacturing-and-design-online-online",
+      "institution_id": "ucla",
+      "name": "Engineering - MS in Engineering-Manufacturing and Design, Online",
+      "degree_level": "Postgraduate",
+      "award": "Online",
+      "official_url": "https://grad.ucla.edu/programs/school-of-engineering-and-applied-science/engineering-ms-in-engineering-manufacturing-and-design-online/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-engineering-and-applied-science/engineering-ms-in-engineering-manufacturing-and-design-online/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-engineering-ms-in-engineering-materials-science-online-online",
+      "institution_id": "ucla",
+      "name": "Engineering - MS in Engineering-Materials Science, Online",
+      "degree_level": "Postgraduate",
+      "award": "Online",
+      "official_url": "https://grad.ucla.edu/programs/school-of-engineering-and-applied-science/engineering-ms-in-engineering-materials-science-online/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-engineering-and-applied-science/engineering-ms-in-engineering-materials-science-online/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-engineering-ms-in-engineering-mechanical-online-online",
+      "institution_id": "ucla",
+      "name": "Engineering - MS in Engineering-Mechanical, Online",
+      "degree_level": "Postgraduate",
+      "award": "Online",
+      "official_url": "https://grad.ucla.edu/programs/school-of-engineering-and-applied-science/engineering-ms-in-engineering-mechanical-online/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-engineering-and-applied-science/engineering-ms-in-engineering-mechanical-online/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-engineering-ms-in-engineering-signal-processing-and-communications-online-online",
+      "institution_id": "ucla",
+      "name": "Engineering - MS in Engineering-Signal Processing and Communications, Online",
+      "degree_level": "Postgraduate",
+      "award": "Online",
+      "official_url": "https://grad.ucla.edu/programs/school-of-engineering-and-applied-science/engineering-ms-in-engineering-signal-processing-and-communications-online/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-engineering-and-applied-science/engineering-ms-in-engineering-signal-processing-and-communications-online/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-engineering-ms-in-engineering-structural-materials-online-online",
+      "institution_id": "ucla",
+      "name": "Engineering - MS in Engineering-Structural Materials, Online",
+      "degree_level": "Postgraduate",
+      "award": "Online",
+      "official_url": "https://grad.ucla.edu/programs/school-of-engineering-and-applied-science/engineering-ms-in-engineering-structural-materials-online/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-engineering-and-applied-science/engineering-ms-in-engineering-structural-materials-online/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-english-graduate",
+      "institution_id": "ucla",
+      "name": "English",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/humanities/english/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/humanities/english/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-environment-and-sustainability-graduate",
+      "institution_id": "ucla",
+      "name": "Environment and Sustainability",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/institute-of-the-environment-sustainability/environment-and-sustainability/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/institute-of-the-environment-sustainability/environment-and-sustainability/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-environmental-and-molecular-toxicology-graduate",
+      "institution_id": "ucla",
+      "name": "Environmental and Molecular Toxicology",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/school-of-public-health/environmental-and-molecular-toxicology/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-public-health/environmental-and-molecular-toxicology/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-environmental-health-sciences-graduate",
+      "institution_id": "ucla",
+      "name": "Environmental Health Sciences",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/school-of-public-health/environmental-health-sciences-department/environmental-health-sciences/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-public-health/environmental-health-sciences-department/environmental-health-sciences/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-environmental-health-sciences-mph-graduate",
+      "institution_id": "ucla",
+      "name": "Environmental Health Sciences MPH",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/school-of-public-health/environmental-health-sciences-department/environmental-health-sciences-mph/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-public-health/environmental-health-sciences-department/environmental-health-sciences-mph/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-environmental-science-and-engineering-graduate",
+      "institution_id": "ucla",
+      "name": "Environmental Science & Engineering",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/institute-of-the-environment-sustainability/environmental-science-and-engineering/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/institute-of-the-environment-sustainability/environmental-science-and-engineering/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-epidemiology-graduate",
+      "institution_id": "ucla",
+      "name": "Epidemiology",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/school-of-public-health/epidemiology-department/epidemiology/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-public-health/epidemiology-department/epidemiology/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-epidemiology-mph-graduate",
+      "institution_id": "ucla",
+      "name": "Epidemiology MPH",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/school-of-public-health/epidemiology-department/epidemiology-mph/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-public-health/epidemiology-department/epidemiology-mph/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-ethnomusicology-graduate",
+      "institution_id": "ucla",
+      "name": "Ethnomusicology",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/herb-alpert-school-of-music/ethnomusicology/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/herb-alpert-school-of-music/ethnomusicology/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-executive-master-of-public-health-graduate",
+      "institution_id": "ucla",
+      "name": "Executive Master of Public Health",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/school-of-public-health/health-policy-and-management-department/executive-master-of-public-health/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-public-health/health-policy-and-management-department/executive-master-of-public-health/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-fielding-school-of-public-health-graduate",
+      "institution_id": "ucla",
+      "name": "Fielding School of Public Health",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/school-of-public-health/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-public-health/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-film-and-television-graduate",
+      "institution_id": "ucla",
+      "name": "Film & Television",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/school-of-theater-film-and-television/film-television-digital-media-department/film-and-television/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-theater-film-and-television/film-television-digital-media-department/film-and-television/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-french-and-francophone-studies-graduate",
+      "institution_id": "ucla",
+      "name": "French & Francophone Studies",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/humanities/european-languages-transcultural-studies-department/french-and-francophone-studies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/humanities/european-languages-transcultural-studies-department/french-and-francophone-studies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-gender-studies-graduate",
+      "institution_id": "ucla",
+      "name": "Gender Studies",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/social-sciences/gender-studies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/social-sciences/gender-studies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-genetic-counseling-graduate",
+      "institution_id": "ucla",
+      "name": "Genetic Counseling",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/david-geffen-school-of-medicine/human-genetics-department/genetic-counseling/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/david-geffen-school-of-medicine/human-genetics-department/genetic-counseling/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-geochemistry-graduate",
+      "institution_id": "ucla",
+      "name": "Geochemistry",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/physical-sciences/earth-planetary-and-space-sciences-department/geochemistry/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/physical-sciences/earth-planetary-and-space-sciences-department/geochemistry/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-geography-graduate",
+      "institution_id": "ucla",
+      "name": "Geography",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/social-sciences/geography-department/geography/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/social-sciences/geography-department/geography/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-geology-graduate",
+      "institution_id": "ucla",
+      "name": "Geology",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/physical-sciences/earth-planetary-and-space-sciences-department/geology/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/physical-sciences/earth-planetary-and-space-sciences-department/geology/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-geophysics-and-space-physics-graduate",
+      "institution_id": "ucla",
+      "name": "Geophysics & Space Physics",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/physical-sciences/earth-planetary-and-space-sciences-department/geophysics-space-physics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/physical-sciences/earth-planetary-and-space-sciences-department/geophysics-space-physics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-germanic-languages-graduate",
+      "institution_id": "ucla",
+      "name": "Germanic Languages",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/humanities/european-languages-transcultural-studies-department/germanic-languages/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/humanities/european-languages-transcultural-studies-department/germanic-languages/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-greek-graduate",
+      "institution_id": "ucla",
+      "name": "Greek",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/humanities/classics-department/greek/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/humanities/classics-department/greek/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-health-management-mph-graduate",
+      "institution_id": "ucla",
+      "name": "Health Management MPH",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/school-of-public-health/health-policy-and-management-department/health-management-mph/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-public-health/health-policy-and-management-department/health-management-mph/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-health-policy-and-management-graduate",
+      "institution_id": "ucla",
+      "name": "Health Policy & Management",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/school-of-public-health/health-policy-and-management-department/health-policy-and-management/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-public-health/health-policy-and-management-department/health-policy-and-management/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-health-policy-and-management-mph-graduate",
+      "institution_id": "ucla",
+      "name": "Health Policy & Management MPH",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/school-of-public-health/health-policy-and-management-department/health-policy-management-mph/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-public-health/health-policy-and-management-department/health-policy-management-mph/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-health-policy-mph-graduate",
+      "institution_id": "ucla",
+      "name": "Health Policy MPH",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/school-of-public-health/health-policy-and-management-department/health-policy-mph/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-public-health/health-policy-and-management-department/health-policy-mph/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-healthcare-administration-graduate",
+      "institution_id": "ucla",
+      "name": "Healthcare Administration",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/school-of-public-health/health-policy-and-management-department/healthcare-administration/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-public-health/health-policy-and-management-department/healthcare-administration/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-henry-samueli-school-of-engineering-and-applied-science-graduate",
+      "institution_id": "ucla",
+      "name": "Henry Samueli School of Engineering and Applied Science",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/school-of-engineering-and-applied-science/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-engineering-and-applied-science/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-herb-alpert-school-of-music-graduate",
+      "institution_id": "ucla",
+      "name": "Herb Alpert School of Music",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/herb-alpert-school-of-music/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/herb-alpert-school-of-music/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-hispanic-languages-and-literatures-graduate",
+      "institution_id": "ucla",
+      "name": "Hispanic Languages & Literatures",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/humanities/spanish-and-portuguese-department/hispanic-languages-literatures/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/humanities/spanish-and-portuguese-department/hispanic-languages-literatures/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-history-graduate",
+      "institution_id": "ucla",
+      "name": "History",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/social-sciences/history/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/social-sciences/history/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-human-genetics-graduate",
+      "institution_id": "ucla",
+      "name": "Human Genetics",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/david-geffen-school-of-medicine/human-genetics-department/human-genetics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/david-geffen-school-of-medicine/human-genetics-department/human-genetics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-humanities-graduate",
+      "institution_id": "ucla",
+      "name": "Humanities",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/humanities/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/humanities/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-indo-european-studies-graduate",
+      "institution_id": "ucla",
+      "name": "Indo-European Studies",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/humanities/indo-european-studies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/humanities/indo-european-studies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-information-studies-graduate",
+      "institution_id": "ucla",
+      "name": "Information Studies",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/school-of-education-and-information-studies/information-studies-department/information-studies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-education-and-information-studies/information-studies-department/information-studies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-institute-of-the-environment-and-sustainability-graduate",
+      "institution_id": "ucla",
+      "name": "Institute of the Environment & Sustainability",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/institute-of-the-environment-sustainability/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/institute-of-the-environment-sustainability/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-international-institute-graduate",
+      "institution_id": "ucla",
+      "name": "International Institute",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/international-institute/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/international-institute/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-islamic-studies-graduate",
+      "institution_id": "ucla",
+      "name": "Islamic Studies",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/humanities/near-eastern-languages-cultures-department/islamic-studies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/humanities/near-eastern-languages-cultures-department/islamic-studies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-italian-graduate",
+      "institution_id": "ucla",
+      "name": "Italian",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/humanities/european-languages-transcultural-studies-department/italian/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/humanities/european-languages-transcultural-studies-department/italian/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-latin-graduate",
+      "institution_id": "ucla",
+      "name": "Latin",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/humanities/classics-department/latin/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/humanities/classics-department/latin/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-latin-american-studies-graduate",
+      "institution_id": "ucla",
+      "name": "Latin American Studies",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/international-institute/latin-american-studies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/international-institute/latin-american-studies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-library-and-information-science-graduate",
+      "institution_id": "ucla",
+      "name": "Library & Information Science",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/school-of-education-and-information-studies/information-studies-department/library-and-information-science/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-education-and-information-studies/information-studies-department/library-and-information-science/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-library-and-information-science-certificate-graduate",
+      "institution_id": "ucla",
+      "name": "Library & Information Science Certificate",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/school-of-education-and-information-studies/information-studies-department/library-and-information-science-certificate/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-education-and-information-studies/information-studies-department/library-and-information-science-certificate/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-life-sciences-graduate",
+      "institution_id": "ucla",
+      "name": "Life Sciences",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/life-sciences/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/life-sciences/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-linguistics-graduate",
+      "institution_id": "ucla",
+      "name": "Linguistics",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/humanities/linguistics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/humanities/linguistics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-luskin-school-of-public-affairs-graduate",
+      "institution_id": "ucla",
+      "name": "Luskin School of Public Affairs",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/school-of-public-affairs/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-public-affairs/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-management-business-analytics-ms-graduate",
+      "institution_id": "ucla",
+      "name": "Management - Business Analytics MS",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/anderson-school-of-management/management-business-analytics-ms/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/anderson-school-of-management/management-business-analytics-ms/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-management-executive-mba-graduate",
+      "institution_id": "ucla",
+      "name": "Management - Executive MBA",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/anderson-school-of-management/management-executive-mba/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/anderson-school-of-management/management-executive-mba/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-management-fully-employed-mba-femba-femba",
+      "institution_id": "ucla",
+      "name": "Management - Fully Employed MBA (FEMBA)",
+      "degree_level": "Postgraduate",
+      "award": "FEMBA",
+      "official_url": "https://grad.ucla.edu/programs/anderson-school-of-management/management-fully-employed-mba-femba/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/anderson-school-of-management/management-fully-employed-mba-femba/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-management-global-executive-mba-for-asia-pacific-graduate",
+      "institution_id": "ucla",
+      "name": "Management - Global Executive MBA for Asia Pacific",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/anderson-school-of-management/management-global-executive-mba-for-asia-pacific/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/anderson-school-of-management/management-global-executive-mba-for-asia-pacific/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-management-master-of-financial-engineering-graduate",
+      "institution_id": "ucla",
+      "name": "Management - Master of Financial Engineering",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/anderson-school-of-management/management-master-of-financial-engineering/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/anderson-school-of-management/management-master-of-financial-engineering/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-management-mba-graduate",
+      "institution_id": "ucla",
+      "name": "Management - MBA",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/anderson-school-of-management/management-mba/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/anderson-school-of-management/management-mba/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-management-ms-phd-phd",
+      "institution_id": "ucla",
+      "name": "Management - MS, PHD",
+      "degree_level": "Postgraduate",
+      "award": "PHD",
+      "official_url": "https://grad.ucla.edu/programs/anderson-school-of-management/management-ms-phd/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/anderson-school-of-management/management-ms-phd/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-manufacturing-engineering-graduate",
+      "institution_id": "ucla",
+      "name": "Manufacturing Engineering",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/school-of-engineering-and-applied-science/mechanical-aerospace-engineering-department/manufacturing-engineering/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-engineering-and-applied-science/mechanical-aerospace-engineering-department/manufacturing-engineering/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-master-of-applied-geospatial-information-systems-and-technologies-graduate",
+      "institution_id": "ucla",
+      "name": "Master of Applied Geospatial Information Systems & Technologies",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/social-sciences/geography-department/master-of-applied-geospatial-information-systems-technologies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/social-sciences/geography-department/master-of-applied-geospatial-information-systems-technologies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-master-of-legal-studies-graduate",
+      "institution_id": "ucla",
+      "name": "Master of Legal Studies",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/school-of-law/master-of-legal-studies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-law/master-of-legal-studies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-master-of-public-health-in-community-health-health-promotion-and-education-health-promotion-and-education",
+      "institution_id": "ucla",
+      "name": "Master of Public Health in Community Health, Health Promotion and Education",
+      "degree_level": "Postgraduate",
+      "award": "Health Promotion and Education",
+      "official_url": "https://grad.ucla.edu/programs/school-of-public-health/community-health-sciences-department/master-of-public-health-in-community-health-health-promotion-and-education/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-public-health/community-health-sciences-department/master-of-public-health-in-community-health-health-promotion-and-education/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-master-of-quantum-science-and-technology-graduate",
+      "institution_id": "ucla",
+      "name": "Master of Quantum Science and Technology",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/physical-sciences/physics-and-astronomy-department/master-of-quantum-science-and-technology/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/physical-sciences/physics-and-astronomy-department/master-of-quantum-science-and-technology/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-master-of-real-estate-development-graduate",
+      "institution_id": "ucla",
+      "name": "Master of Real Estate Development",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/school-of-public-affairs/urban-planning-department/master-of-real-estate-development/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-public-affairs/urban-planning-department/master-of-real-estate-development/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-master-of-social-science-graduate",
+      "institution_id": "ucla",
+      "name": "Master of Social Science",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/social-sciences/master-of-social-science/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/social-sciences/master-of-social-science/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-materials-science-and-engineering-graduate",
+      "institution_id": "ucla",
+      "name": "Materials Science & Engineering",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/school-of-engineering-and-applied-science/materials-science-engineering/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-engineering-and-applied-science/materials-science-engineering/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-mathematics-graduate",
+      "institution_id": "ucla",
+      "name": "Mathematics",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/physical-sciences/mathematics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/physical-sciences/mathematics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-mechanical-engineering-graduate",
+      "institution_id": "ucla",
+      "name": "Mechanical Engineering",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/school-of-engineering-and-applied-science/mechanical-aerospace-engineering-department/mechanical-engineering/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-engineering-and-applied-science/mechanical-aerospace-engineering-department/mechanical-engineering/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-medical-informatics-graduate",
+      "institution_id": "ucla",
+      "name": "Medical Informatics",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/life-sciences/bioinformatics-department/medical-informatics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/life-sciences/bioinformatics-department/medical-informatics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-molecular-and-medical-pharmacology-graduate",
+      "institution_id": "ucla",
+      "name": "Molecular & Medical Pharmacology",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/david-geffen-school-of-medicine/molecular-and-medical-pharmacology/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/david-geffen-school-of-medicine/molecular-and-medical-pharmacology/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-molecular-biology-graduate",
+      "institution_id": "ucla",
+      "name": "Molecular Biology",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/life-sciences/molecular-biology/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/life-sciences/molecular-biology/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-molecular-cell-and-developmental-biology-graduate",
+      "institution_id": "ucla",
+      "name": "Molecular, Cell, & Developmental Biology",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/life-sciences/molecular-cell-developmental-biology/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/life-sciences/molecular-cell-developmental-biology/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-molecular-cellular-and-integrative-physiology-graduate",
+      "institution_id": "ucla",
+      "name": "Molecular, Cellular, & Integrative Physiology",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/life-sciences/molecular-cellular-integrative-physiology/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/life-sciences/molecular-cellular-integrative-physiology/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-music-graduate",
+      "institution_id": "ucla",
+      "name": "Music",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/herb-alpert-school-of-music/music/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/herb-alpert-school-of-music/music/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-musicology-graduate",
+      "institution_id": "ucla",
+      "name": "Musicology",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/herb-alpert-school-of-music/musicology/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/herb-alpert-school-of-music/musicology/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-near-eastern-languages-and-cultures-graduate",
+      "institution_id": "ucla",
+      "name": "Near Eastern Languages & Cultures",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/humanities/near-eastern-languages-cultures-department/near-eastern-languages-cultures/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/humanities/near-eastern-languages-cultures-department/near-eastern-languages-cultures/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-neuroscience-graduate",
+      "institution_id": "ucla",
+      "name": "Neuroscience",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/david-geffen-school-of-medicine/neuroscience/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/david-geffen-school-of-medicine/neuroscience/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-nursing-graduate",
+      "institution_id": "ucla",
+      "name": "Nursing",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/school-of-nursing/nursing/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-nursing/nursing/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-nursing-doctor-of-nursing-practice-graduate",
+      "institution_id": "ucla",
+      "name": "Nursing - Doctor of Nursing Practice",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/school-of-nursing/nursing-doctor-of-nursing-practice/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-nursing/nursing-doctor-of-nursing-practice/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-nursing-post-bs-to-dnp-graduate",
+      "institution_id": "ucla",
+      "name": "Nursing - Post-BS to DNP",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/school-of-nursing/nursing-post-bs-to-dnp/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-nursing/nursing-post-bs-to-dnp/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-oral-biology-graduate",
+      "institution_id": "ucla",
+      "name": "Oral Biology",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/school-of-dentistry/oral-biology/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-dentistry/oral-biology/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-philosophy-graduate",
+      "institution_id": "ucla",
+      "name": "Philosophy",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/humanities/philosophy/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/humanities/philosophy/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-physical-sciences-graduate",
+      "institution_id": "ucla",
+      "name": "Physical Sciences",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/physical-sciences/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/physical-sciences/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-physics-graduate",
+      "institution_id": "ucla",
+      "name": "Physics",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/physical-sciences/physics-and-astronomy-department/physics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/physical-sciences/physics-and-astronomy-department/physics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-physics-and-biology-in-medicine-graduate",
+      "institution_id": "ucla",
+      "name": "Physics & Biology in Medicine",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/david-geffen-school-of-medicine/physics-and-biology-in-medicine/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/david-geffen-school-of-medicine/physics-and-biology-in-medicine/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-physiological-science-graduate",
+      "institution_id": "ucla",
+      "name": "Physiological Science",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/life-sciences/integrative-biology-physiology-department/physiological-science/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/life-sciences/integrative-biology-physiology-department/physiological-science/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-planetary-science-graduate",
+      "institution_id": "ucla",
+      "name": "Planetary Science",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/physical-sciences/earth-planetary-and-space-sciences-department/planetary-science/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/physical-sciences/earth-planetary-and-space-sciences-department/planetary-science/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-political-science-graduate",
+      "institution_id": "ucla",
+      "name": "Political Science",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/social-sciences/political-science/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/social-sciences/political-science/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-portuguese-graduate",
+      "institution_id": "ucla",
+      "name": "Portuguese",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/humanities/spanish-and-portuguese-department/portuguese/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/humanities/spanish-and-portuguese-department/portuguese/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-psychology-graduate",
+      "institution_id": "ucla",
+      "name": "Psychology",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/life-sciences/psychology/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/life-sciences/psychology/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-public-policy-graduate",
+      "institution_id": "ucla",
+      "name": "Public Policy",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/school-of-public-affairs/public-policy/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-public-affairs/public-policy/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-scandinavian-graduate",
+      "institution_id": "ucla",
+      "name": "Scandinavian",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/humanities/european-languages-transcultural-studies-department/scandinavian/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/humanities/european-languages-transcultural-studies-department/scandinavian/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-school-of-dentistry-graduate",
+      "institution_id": "ucla",
+      "name": "School of Dentistry",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/school-of-dentistry/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-dentistry/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-school-of-education-and-information-studies-graduate",
+      "institution_id": "ucla",
+      "name": "School of Education and Information Studies",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/school-of-education-and-information-studies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-education-and-information-studies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-school-of-law-graduate",
+      "institution_id": "ucla",
+      "name": "School of Law",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/school-of-law/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-law/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-school-of-nursing-graduate",
+      "institution_id": "ucla",
+      "name": "School of Nursing",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/school-of-nursing/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-nursing/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-school-of-the-arts-and-architecture-graduate",
+      "institution_id": "ucla",
+      "name": "School of the Arts and Architecture",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/school-of-arts-and-architecture/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-arts-and-architecture/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-school-of-theater-film-and-television-film-and-television",
+      "institution_id": "ucla",
+      "name": "School of Theater, Film and Television",
+      "degree_level": "Postgraduate",
+      "award": "Film and Television",
+      "official_url": "https://grad.ucla.edu/programs/school-of-theater-film-and-television/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-theater-film-and-television/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-slavic-east-european-and-eurasian-languages-and-cultures-graduate",
+      "institution_id": "ucla",
+      "name": "Slavic, East European, and Eurasian Languages & Cultures",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/humanities/slavic-east-european-and-eurasian-languages-cultures/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/humanities/slavic-east-european-and-eurasian-languages-cultures/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-social-sciences-graduate",
+      "institution_id": "ucla",
+      "name": "Social Sciences",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/social-sciences/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/social-sciences/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-social-welfare-graduate",
+      "institution_id": "ucla",
+      "name": "Social Welfare",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/school-of-public-affairs/social-welfare/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-public-affairs/social-welfare/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-sociology-graduate",
+      "institution_id": "ucla",
+      "name": "Sociology",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/social-sciences/sociology/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/social-sciences/sociology/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-spanish-graduate",
+      "institution_id": "ucla",
+      "name": "Spanish",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/humanities/spanish-and-portuguese-department/spanish/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/humanities/spanish-and-portuguese-department/spanish/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-special-education-graduate",
+      "institution_id": "ucla",
+      "name": "Special Education",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/school-of-education-and-information-studies/special-education/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-education-and-information-studies/special-education/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-statistics-graduate",
+      "institution_id": "ucla",
+      "name": "Statistics",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/physical-sciences/statistics-and-data-science-department/statistics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/physical-sciences/statistics-and-data-science-department/statistics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-statistics-master-of-applied-statistics-and-data-science-graduate",
+      "institution_id": "ucla",
+      "name": "Statistics - Master of Applied Statistics and Data Science",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/physical-sciences/statistics-and-data-science-department/statistics-master-of-applied-statistics-and-data-science/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/physical-sciences/statistics-and-data-science-department/statistics-master-of-applied-statistics-and-data-science/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-teaching-asian-languages-graduate",
+      "institution_id": "ucla",
+      "name": "Teaching Asian Languages",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/humanities/asian-languages-and-cultures-department/teaching-asian-languages/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/humanities/asian-languages-and-cultures-department/teaching-asian-languages/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-theater-graduate",
+      "institution_id": "ucla",
+      "name": "Theater",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/school-of-theater-film-and-television/theater-department/theater/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-theater-film-and-television/theater-department/theater/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-theater-and-performance-studies-graduate",
+      "institution_id": "ucla",
+      "name": "Theater and Performance Studies",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/school-of-theater-film-and-television/theater-department/theater-and-performance-studies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-theater-film-and-television/theater-department/theater-and-performance-studies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-urban-and-regional-planning-graduate",
+      "institution_id": "ucla",
+      "name": "Urban and Regional Planning",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/school-of-public-affairs/urban-planning-department/urban-and-regional-planning/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-public-affairs/urban-planning-department/urban-and-regional-planning/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-urban-and-regional-planning-institut-d-etudes-de-paris-graduate",
+      "institution_id": "ucla",
+      "name": "Urban and Regional Planning - Institut d'Etudes de Paris",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/school-of-public-affairs/urban-planning-department/urban-and-regional-planning-institut-detudes-de-paris/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-public-affairs/urban-planning-department/urban-and-regional-planning-institut-detudes-de-paris/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    },
+    {
+      "id": "ucla-po-urban-planning-graduate",
+      "institution_id": "ucla",
+      "name": "Urban Planning",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucla.edu/programs/school-of-public-affairs/urban-planning-department/urban-planning/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.ucla.edu/programs/school-of-public-affairs/urban-planning-department/urban-planning/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UCLA graduate programs A-Z row"
+      }
+    }
+  ]
+}

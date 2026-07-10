@@ -1,0 +1,197 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/OctavianYimingZhang/University-Application-Skill/catalogues/schemas/institution-catalogue-v1.schema.json",
+  "title": "InstitutionProgrammeCatalogue v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "contract",
+    "version",
+    "language",
+    "institution",
+    "catalogue_scope",
+    "catalogue_provenance",
+    "illustrative_examples",
+    "programmes"
+  ],
+  "properties": {
+    "$schema": { "const": "../schemas/institution-catalogue-v1.schema.json" },
+    "contract": { "const": "InstitutionProgrammeCatalogue" },
+    "version": { "const": 1 },
+    "language": { "const": "en" },
+    "institution": { "$ref": "#/$defs/institution" },
+    "catalogue_scope": { "$ref": "#/$defs/catalogueScope" },
+    "catalogue_provenance": { "$ref": "#/$defs/catalogueProvenance" },
+    "illustrative_examples": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/illustrativeExample" }
+    },
+    "programmes": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/programmeIdentity" }
+    }
+  },
+  "$defs": {
+    "httpsUrl": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https://"
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    },
+    "degreeLevel": {
+      "enum": ["Undergraduate", "Postgraduate"]
+    },
+    "institution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "short_name", "group", "region"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+        "name": { "type": "string", "minLength": 1 },
+        "short_name": { "type": "string", "minLength": 1 },
+        "group": { "enum": ["UK Core", "US News Top 30", "Singapore"] },
+        "region": { "enum": ["United Kingdom", "United States", "Singapore"] },
+        "rank_note": { "type": "string", "minLength": 1 }
+      }
+    },
+    "catalogueScope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "record_type",
+        "identity_status",
+        "requirements_status",
+        "placeholder_records_verified",
+        "link_only_records_verified"
+      ],
+      "properties": {
+        "record_type": { "const": "programme_identity" },
+        "identity_status": { "const": "official_source_listed" },
+        "requirements_status": { "const": "not_collected" },
+        "placeholder_records_verified": { "const": false },
+        "link_only_records_verified": { "const": false }
+      }
+    },
+    "catalogueSource": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["degree_level", "title", "official_url", "coverage", "note"],
+      "properties": {
+        "degree_level": { "$ref": "#/$defs/degreeLevel" },
+        "title": { "type": "string", "minLength": 1 },
+        "official_url": { "$ref": "#/$defs/httpsUrl" },
+        "coverage": {
+          "enum": [
+            "Complete HTML",
+            "Paginated HTML",
+            "Search/API required",
+            "No degree catalogue",
+            "Official index"
+          ]
+        },
+        "note": { "type": "string", "minLength": 1 }
+      }
+    },
+    "catalogueProvenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "accessed_at",
+        "official_sources",
+        "allowed_official_hosts",
+        "extraction_note",
+        "caveat",
+        "migration_source"
+      ],
+      "properties": {
+        "accessed_at": { "$ref": "#/$defs/date" },
+        "official_sources": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/catalogueSource" }
+        },
+        "allowed_official_hosts": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "pattern": "^[a-z0-9.-]+$" }
+        },
+        "extraction_note": { "type": "string", "minLength": 1 },
+        "caveat": { "type": "string", "minLength": 1 },
+        "migration_source": {
+          "enum": [
+            "cambridgePrograms.ts",
+            "edinburghPrograms.ts",
+            "imperialPrograms.ts",
+            "kclPrograms.ts",
+            "lbsPrograms.ts",
+            "lsePrograms.ts",
+            "manchesterPrograms.ts",
+            "oxfordPrograms.ts",
+            "singaporePrograms.ts",
+            "uclPrograms.ts",
+            "usPrograms.ts",
+            "warwickPrograms.ts"
+          ]
+        }
+      }
+    },
+    "illustrativeExample": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "degree_level", "award", "official_url", "selection_status"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+        "name": { "type": "string", "minLength": 1 },
+        "degree_level": { "$ref": "#/$defs/degreeLevel" },
+        "award": { "type": "string", "minLength": 1 },
+        "official_url": { "$ref": "#/$defs/httpsUrl" },
+        "selection_status": { "const": "illustrative_only" }
+      }
+    },
+    "programmeProvenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_url", "accessed_at", "source_note"],
+      "properties": {
+        "source_url": { "$ref": "#/$defs/httpsUrl" },
+        "accessed_at": { "$ref": "#/$defs/date" },
+        "source_note": { "type": "string", "minLength": 1 }
+      }
+    },
+    "programmeIdentity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "institution_id",
+        "name",
+        "degree_level",
+        "award",
+        "official_url",
+        "identity_status",
+        "requirements_status",
+        "provenance"
+      ],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+        "institution_id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+        "name": { "type": "string", "minLength": 1 },
+        "degree_level": { "$ref": "#/$defs/degreeLevel" },
+        "award": { "type": "string", "minLength": 1 },
+        "official_url": { "$ref": "#/$defs/httpsUrl" },
+        "identity_status": { "const": "official_source_listed" },
+        "requirements_status": { "const": "not_collected" },
+        "provenance": { "$ref": "#/$defs/programmeProvenance" },
+        "duration": { "type": "string", "minLength": 1 },
+        "mode": { "type": "string", "minLength": 1 },
+        "catalogue_status": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}

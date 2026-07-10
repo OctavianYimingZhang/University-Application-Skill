@@ -1,0 +1,4259 @@
+{
+  "$schema": "../schemas/institution-catalogue-v1.schema.json",
+  "contract": "InstitutionProgrammeCatalogue",
+  "version": 1,
+  "language": "en",
+  "institution": {
+    "id": "nus",
+    "name": "National University of Singapore",
+    "short_name": "NUS",
+    "group": "Singapore",
+    "region": "Singapore",
+    "rank_note": "Singapore expansion requested by user"
+  },
+  "catalogue_scope": {
+    "record_type": "programme_identity",
+    "identity_status": "official_source_listed",
+    "requirements_status": "not_collected",
+    "placeholder_records_verified": false,
+    "link_only_records_verified": false
+  },
+  "catalogue_provenance": {
+    "accessed_at": "2026-06-26",
+    "official_sources": [
+      {
+        "degree_level": "Undergraduate",
+        "title": "Undergraduate programmes",
+        "official_url": "https://www.nus.edu.sg/oam/undergraduate-programmes",
+        "coverage": "Official index",
+        "note": "Official NUS undergraduate programme index; automated access returned Incapsula challenge, so UG row generation is skipped."
+      },
+      {
+        "degree_level": "Postgraduate",
+        "title": "Postgraduate programme portal",
+        "official_url": "https://study.nus.edu.sg/programme",
+        "coverage": "Search/API required",
+        "note": "Official NUS postgraduate programme portal backed by first-party LWR Apex search."
+      }
+    ],
+    "allowed_official_hosts": [
+      "blog.nus.edu.sg",
+      "bschool.nus.edu.sg",
+      "cde.nus.edu.sg",
+      "chemistry.nus.edu.sg",
+      "csi.nus.edu.sg",
+      "emba.nus.edu.sg",
+      "embac.nus.edu.sg",
+      "emim.nus.edu.sg",
+      "fass.nus.edu.sg",
+      "iora.nus.edu.sg",
+      "isep.nus.edu.sg",
+      "law1a.nus.edu.sg",
+      "lkyspp.nus.edu.sg",
+      "mba.nus.edu.sg",
+      "medicine.nus.edu.sg",
+      "mim.nus.edu.sg",
+      "msba.nus.edu.sg",
+      "mscacc.nus.edu.sg",
+      "mscfin.nus.edu.sg",
+      "mschcma.nus.edu.sg",
+      "mscmarketing.nus.edu.sg",
+      "mscre.nus.edu.sg",
+      "mscstrategy.nus.edu.sg",
+      "msgfin.nus.edu.sg",
+      "pharmacy.nus.edu.sg",
+      "rmi.nus.edu.sg",
+      "scale.nus.edu.sg",
+      "sph.nus.edu.sg",
+      "study.nus.edu.sg",
+      "tum-asia.edu.sg",
+      "ucla.nus.edu.sg",
+      "www.aidf.nus.edu.sg",
+      "www.comp.nus.edu.sg",
+      "www.cqt.sg",
+      "www.dbs.nus.edu.sg",
+      "www.dentistry.nus.edu.sg",
+      "www.duke-nus.edu.sg",
+      "www.fas.nus.edu.sg",
+      "www.fst.nus.edu.sg",
+      "www.iss.nus.edu.sg",
+      "www.math.nus.edu.sg",
+      "www.mbi.nus.edu.sg",
+      "www.nus.edu.sg",
+      "www.physics.nus.edu.sg",
+      "www.stat.nus.edu.sg",
+      "www.ystmusic.nus.edu.sg"
+    ],
+    "extraction_note": "Official NUS Study postgraduate rows loaded: 244 LWR Apex programme rows. Undergraduate OAM source remains linked but not generated because automated access returned a human-verification challenge.",
+    "caveat": "NUS undergraduate rows are source-blocked in this environment; do not infer them from qualification-specific PDFs. Faculty programme pages may carry separate eligibility, English, and fee details.",
+    "migration_source": "singaporePrograms.ts"
+  },
+  "illustrative_examples": [
+    {
+      "id": "nus-ug-programmes",
+      "name": "NUS undergraduate programme catalogue",
+      "degree_level": "Undergraduate",
+      "award": "UG",
+      "official_url": "https://www.nus.edu.sg/oam/undergraduate-programmes",
+      "selection_status": "illustrative_only"
+    },
+    {
+      "id": "nus-pg-programmes",
+      "name": "NUS postgraduate programme catalogue",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://study.nus.edu.sg/programme",
+      "selection_status": "illustrative_only"
+    }
+  ],
+  "programmes": [
+    {
+      "id": "nus-po-executive-master-in-ai-and-digital-transformation-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "Executive Master in AI and Digital Transformation",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://www.aidf.nus.edu.sg/executive-master-in-ai-and-digital-transformation/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.aidf.nus.edu.sg/executive-master-in-ai-and-digital-transformation/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Part-Time",
+      "catalogue_status": "Faculty: ASIAN INSTITUTE OF DIGITAL FINANCE; Intake: Jan"
+    },
+    {
+      "id": "nus-po-executive-msc-in-management-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "Executive MSc in Management",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://emim.nus.edu.sg/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://emim.nus.edu.sg/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Part-Time",
+      "catalogue_status": "Faculty: NUS Business School; Intake: Jan"
+    },
+    {
+      "id": "nus-po-msc-accounting-and-financial-analytics-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Accounting and Financial Analytics)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://mscacc.nus.edu.sg/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://mscacc.nus.edu.sg/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time",
+      "catalogue_status": "Faculty: NUS Business School; Intake: Aug"
+    },
+    {
+      "id": "nus-po-msc-finance-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Finance)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://mscfin.nus.edu.sg/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://mscfin.nus.edu.sg/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time",
+      "catalogue_status": "Faculty: NUS Business School; Intake: Aug"
+    },
+    {
+      "id": "nus-po-msc-human-capital-management-and-analytics-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Human Capital Management and Analytics)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://mschcma.nus.edu.sg/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://mschcma.nus.edu.sg/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: NUS Business School; Intake: Jan"
+    },
+    {
+      "id": "nus-po-msc-management-cems-mim-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Management + CEMS MIM)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://mim.nus.edu.sg/cems-mim/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://mim.nus.edu.sg/cems-mim/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time",
+      "catalogue_status": "Faculty: NUS Business School; Intake: Jan"
+    },
+    {
+      "id": "nus-po-msc-management-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Management)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://mim.nus.edu.sg/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://mim.nus.edu.sg/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time",
+      "catalogue_status": "Faculty: NUS Business School; Intake: Jan"
+    },
+    {
+      "id": "nus-po-msc-marketing-analytics-and-insights-cems-mim-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Marketing Analytics and Insights + CEMS MIM)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://mscmarketing.nus.edu.sg/cems-mim/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://mscmarketing.nus.edu.sg/cems-mim/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time",
+      "catalogue_status": "Faculty: NUS Business School; Intake: Aug"
+    },
+    {
+      "id": "nus-po-msc-marketing-analytics-and-insights-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Marketing Analytics and Insights)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://mscmarketing.nus.edu.sg/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://mscmarketing.nus.edu.sg/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time",
+      "catalogue_status": "Faculty: NUS Business School; Intake: Aug"
+    },
+    {
+      "id": "nus-po-msc-real-estate-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Real Estate)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://mscre.nus.edu.sg/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://mscre.nus.edu.sg/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: NUS Business School; Intake: Aug"
+    },
+    {
+      "id": "nus-po-msc-strategic-analysis-and-innovation-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Strategic Analysis and Innovation)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://mscstrategy.nus.edu.sg/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://mscstrategy.nus.edu.sg/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time",
+      "catalogue_status": "Faculty: NUS Business School; Intake: Aug"
+    },
+    {
+      "id": "nus-po-msc-sustainable-and-green-finance-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Sustainable and Green Finance)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://msgfin.nus.edu.sg/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://msgfin.nus.edu.sg/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: NUS Business School; Intake: Aug"
+    },
+    {
+      "id": "nus-po-nus-executive-mba-chinese-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "NUS Executive MBA (Chinese)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://embac.nus.edu.sg/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://embac.nus.edu.sg/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Part-Time",
+      "catalogue_status": "Faculty: NUS Business School; Intake: Sep"
+    },
+    {
+      "id": "nus-po-nus-executive-mba-english-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "NUS Executive MBA (English)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://emba.nus.edu.sg",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://emba.nus.edu.sg",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Part-Time",
+      "catalogue_status": "Faculty: NUS Business School; Intake: May"
+    },
+    {
+      "id": "nus-po-nus-mba-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "NUS MBA",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://mba.nus.edu.sg/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://mba.nus.edu.sg/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: NUS Business School; Intake: Aug"
+    },
+    {
+      "id": "nus-po-nus-hec-mba-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "NUS-HEC MBA",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://mba.nus.edu.sg/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://mba.nus.edu.sg/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time",
+      "catalogue_status": "Faculty: NUS Business School; Intake: Aug"
+    },
+    {
+      "id": "nus-po-nus-peking-university-mba-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "NUS-Peking University MBA",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://mba.nus.edu.sg/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://mba.nus.edu.sg/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time",
+      "catalogue_status": "Faculty: NUS Business School; Intake: Aug"
+    },
+    {
+      "id": "nus-po-phd-in-management-accounting-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "PhD in Management - Accounting",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://bschool.nus.edu.sg/phd/programme-details/phd-in-management/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bschool.nus.edu.sg/phd/programme-details/phd-in-management/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time",
+      "catalogue_status": "Faculty: NUS Business School; Intake: Aug"
+    },
+    {
+      "id": "nus-po-phd-in-management-analytics-and-operations-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "PhD in Management - Analytics and Operations",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://bschool.nus.edu.sg/phd/programme-details/phd-in-management/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bschool.nus.edu.sg/phd/programme-details/phd-in-management/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time",
+      "catalogue_status": "Faculty: NUS Business School; Intake: Aug"
+    },
+    {
+      "id": "nus-po-phd-in-management-finance-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "PhD in Management - Finance",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://bschool.nus.edu.sg/phd/programme-details/phd-in-management/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bschool.nus.edu.sg/phd/programme-details/phd-in-management/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time",
+      "catalogue_status": "Faculty: NUS Business School; Intake: Aug"
+    },
+    {
+      "id": "nus-po-phd-in-management-management-and-organisation-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "PhD in Management - Management and Organisation",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://bschool.nus.edu.sg/phd/programme-details/phd-in-management/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bschool.nus.edu.sg/phd/programme-details/phd-in-management/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time",
+      "catalogue_status": "Faculty: NUS Business School; Intake: Aug"
+    },
+    {
+      "id": "nus-po-phd-in-management-marketing-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "PhD in Management - Marketing",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://bschool.nus.edu.sg/phd/programme-details/phd-in-management/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bschool.nus.edu.sg/phd/programme-details/phd-in-management/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time",
+      "catalogue_status": "Faculty: NUS Business School; Intake: Aug"
+    },
+    {
+      "id": "nus-po-phd-in-management-real-estate-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "PhD in Management - Real Estate",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://bschool.nus.edu.sg/phd/programme-details/phd-in-management/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bschool.nus.edu.sg/phd/programme-details/phd-in-management/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time",
+      "catalogue_status": "Faculty: NUS Business School; Intake: Aug"
+    },
+    {
+      "id": "nus-po-phd-in-management-strategy-and-policy-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "PhD in Management - Strategy and Policy",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://bschool.nus.edu.sg/phd/programme-details/phd-in-management/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bschool.nus.edu.sg/phd/programme-details/phd-in-management/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time",
+      "catalogue_status": "Faculty: NUS Business School; Intake: Aug"
+    },
+    {
+      "id": "nus-po-phd-in-operations-research-and-analytics-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "PhD in Operations Research and Analytics",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://iora.nus.edu.sg/about-the-programme/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://iora.nus.edu.sg/about-the-programme/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: NUS Business School; Intake: Aug"
+    },
+    {
+      "id": "nus-po-ucla-nus-executive-mba-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "UCLA-NUS Executive MBA",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://ucla.nus.edu.sg",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://ucla.nus.edu.sg",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Part-Time",
+      "catalogue_status": "Faculty: NUS Business School; Intake: May"
+    },
+    {
+      "id": "nus-po-msc-business-analytics-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Business Analytics)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://msba.nus.edu.sg/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://msba.nus.edu.sg/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: NUS Business School; School of Computing; Intake: Aug"
+    },
+    {
+      "id": "nus-po-doctor-of-engineering-biomedical-engineering-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "Doctor of Engineering (Biomedical Engineering)",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://cde.nus.edu.sg/bme/graduate-research-programmes/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cde.nus.edu.sg/bme/graduate-research-programmes/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time",
+      "catalogue_status": "Faculty: College of Design and Eng; Intake: Aug"
+    },
+    {
+      "id": "nus-po-doctor-of-engineering-built-environment-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "Doctor of Engineering (Built Environment)",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://cde.nus.edu.sg/dbe/graduate/phd-msc-building/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cde.nus.edu.sg/dbe/graduate/phd-msc-building/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: College of Design and Eng; Intake: Jan;Aug"
+    },
+    {
+      "id": "nus-po-doctor-of-engineering-chemical-and-biomolecular-engineering-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "Doctor of Engineering (Chemical and Biomolecular Engineering)",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://cde.nus.edu.sg/chbe/research-degrees-meng-phd-engd/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cde.nus.edu.sg/chbe/research-degrees-meng-phd-engd/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: College of Design and Eng; Intake: Jan;Aug"
+    },
+    {
+      "id": "nus-po-doctor-of-engineering-civil-and-environmental-engineering-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "Doctor of Engineering (Civil and Environmental Engineering)",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://cde.nus.edu.sg/cee/graduate/research-based-programmes/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cde.nus.edu.sg/cee/graduate/research-based-programmes/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: College of Design and Eng; Intake: Jan;Aug"
+    },
+    {
+      "id": "nus-po-doctor-of-engineering-electrical-and-computer-engineering-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "Doctor of Engineering (Electrical and Computer Engineering)",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://cde.nus.edu.sg/ece/graduate/research-based-programmes/doctor-of-engineering-engd/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cde.nus.edu.sg/ece/graduate/research-based-programmes/doctor-of-engineering-engd/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: College of Design and Eng; Intake: Jan;Aug"
+    },
+    {
+      "id": "nus-po-doctor-of-engineering-industrial-systems-engineering-and-management-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "Doctor of Engineering (Industrial Systems Engineering and Management)",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://cde.nus.edu.sg/isem/graduate/research-degrees/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cde.nus.edu.sg/isem/graduate/research-degrees/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: College of Design and Eng; Intake: Jan;Aug"
+    },
+    {
+      "id": "nus-po-doctor-of-engineering-materials-science-and-engineering-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "Doctor of Engineering (Materials Science and Engineering)",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://cde.nus.edu.sg/mse/graduates/doctor-of-engineering-engd-programme/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cde.nus.edu.sg/mse/graduates/doctor-of-engineering-engd-programme/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: College of Design and Eng; Intake: Jan;Aug"
+    },
+    {
+      "id": "nus-po-doctor-of-engineering-mechanical-engineering-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "Doctor of Engineering (Mechanical Engineering)",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://cde.nus.edu.sg/me/graduate/research-degrees/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cde.nus.edu.sg/me/graduate/research-degrees/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: College of Design and Eng; Intake: Jan;Aug"
+    },
+    {
+      "id": "nus-po-ma-architectural-conservation-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MA (Architectural Conservation)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://cde.nus.edu.sg/arch/programmes/master-of-arts-in-architectural-conservation/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cde.nus.edu.sg/arch/programmes/master-of-arts-in-architectural-conservation/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: College of Design and Eng; Intake: Aug"
+    },
+    {
+      "id": "nus-po-ma-urban-design-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MA (Urban Design)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://cde.nus.edu.sg/arch/programmes/master-of-arts-in-urban-design/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cde.nus.edu.sg/arch/programmes/master-of-arts-in-urban-design/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: College of Design and Eng; Intake: Aug"
+    },
+    {
+      "id": "nus-po-ma-by-research-architecture-master-s-by-research",
+      "institution_id": "nus",
+      "name": "MA by Research (Architecture)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Research",
+      "official_url": "https://cde.nus.edu.sg/arch/programmes/maarchbyresearch-phdbyresearch/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cde.nus.edu.sg/arch/programmes/maarchbyresearch-phdbyresearch/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: College of Design and Eng; Intake: Aug"
+    },
+    {
+      "id": "nus-po-ma-by-research-industrial-design-master-s-by-research",
+      "institution_id": "nus",
+      "name": "MA by Research (Industrial Design)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Research",
+      "official_url": "https://cde.nus.edu.sg/did/postgraduate/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cde.nus.edu.sg/did/postgraduate/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: College of Design and Eng; Intake: Aug"
+    },
+    {
+      "id": "nus-po-master-of-architecture-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "Master of Architecture",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://cde.nus.edu.sg/arch/programmes/master-of-architecture/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cde.nus.edu.sg/arch/programmes/master-of-architecture/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time",
+      "catalogue_status": "Faculty: College of Design and Eng; Intake: Aug"
+    },
+    {
+      "id": "nus-po-master-of-design-in-integrated-design-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "Master of Design in Integrated Design",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://cde.nus.edu.sg/did/mdes/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cde.nus.edu.sg/did/mdes/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time",
+      "catalogue_status": "Faculty: College of Design and Eng; Intake: Aug"
+    },
+    {
+      "id": "nus-po-master-of-landscape-architecture-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "Master of Landscape Architecture",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://cde.nus.edu.sg/arch/programmes/master-of-landscape-architecture/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cde.nus.edu.sg/arch/programmes/master-of-landscape-architecture/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time",
+      "catalogue_status": "Faculty: College of Design and Eng; Intake: Aug"
+    },
+    {
+      "id": "nus-po-master-of-urban-planning-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "Master of Urban Planning",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://cde.nus.edu.sg/arch/programmes/master-of-urban-planning/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cde.nus.edu.sg/arch/programmes/master-of-urban-planning/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time",
+      "catalogue_status": "Faculty: College of Design and Eng; Intake: Aug"
+    },
+    {
+      "id": "nus-po-meng-by-research-biomedical-engineering-master-s-by-research",
+      "institution_id": "nus",
+      "name": "MEng by Research (Biomedical Engineering)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Research",
+      "official_url": "https://cde.nus.edu.sg/bme/graduate-research-programmes/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cde.nus.edu.sg/bme/graduate-research-programmes/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: College of Design and Eng; Intake: Aug"
+    },
+    {
+      "id": "nus-po-meng-by-research-chemical-and-biomolecular-engineering-master-s-by-research",
+      "institution_id": "nus",
+      "name": "MEng by Research (Chemical and Biomolecular Engineering)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Research",
+      "official_url": "https://cde.nus.edu.sg/chbe/research-degrees-meng-phd-engd/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cde.nus.edu.sg/chbe/research-degrees-meng-phd-engd/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: College of Design and Eng; Intake: Jan;Aug"
+    },
+    {
+      "id": "nus-po-meng-by-research-civil-and-environmental-engineering-master-s-by-research",
+      "institution_id": "nus",
+      "name": "MEng by Research (Civil and Environmental Engineering)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Research",
+      "official_url": "https://cde.nus.edu.sg/cee/graduate/research-based-programmes/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cde.nus.edu.sg/cee/graduate/research-based-programmes/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: College of Design and Eng; Intake: Aug"
+    },
+    {
+      "id": "nus-po-meng-by-research-electrical-and-computer-engineering-master-s-by-research",
+      "institution_id": "nus",
+      "name": "MEng by Research (Electrical and Computer Engineering)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Research",
+      "official_url": "https://cde.nus.edu.sg/ece/graduate/research-based-programmes/phd-m-eng/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cde.nus.edu.sg/ece/graduate/research-based-programmes/phd-m-eng/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: College of Design and Eng; Intake: Jan;Aug"
+    },
+    {
+      "id": "nus-po-meng-by-research-industrial-systems-engineering-and-management-master-s-by-research",
+      "institution_id": "nus",
+      "name": "MEng by Research (Industrial Systems Engineering and Management)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Research",
+      "official_url": "https://cde.nus.edu.sg/isem/graduate/research-degrees/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cde.nus.edu.sg/isem/graduate/research-degrees/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: College of Design and Eng; Intake: Jan;Aug"
+    },
+    {
+      "id": "nus-po-meng-by-research-materials-science-and-engineering-master-s-by-research",
+      "institution_id": "nus",
+      "name": "MEng by Research (Materials Science and Engineering)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Research",
+      "official_url": "https://cde.nus.edu.sg/mse/graduates/master-of-engineering-meng-doctor-of-philosophy-phd/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cde.nus.edu.sg/mse/graduates/master-of-engineering-meng-doctor-of-philosophy-phd/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: College of Design and Eng; Intake: Aug"
+    },
+    {
+      "id": "nus-po-meng-by-research-mechanical-engineering-master-s-by-research",
+      "institution_id": "nus",
+      "name": "MEng by Research (Mechanical Engineering)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Research",
+      "official_url": "https://cde.nus.edu.sg/me/graduate/research-degrees/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cde.nus.edu.sg/me/graduate/research-degrees/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: College of Design and Eng; Intake: Jan;Aug"
+    },
+    {
+      "id": "nus-po-msc-biomedical-engineering-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Biomedical Engineering)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://cde.nus.edu.sg/bme/master-of-science-msc-in-biomedical-engineering/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cde.nus.edu.sg/bme/master-of-science-msc-in-biomedical-engineering/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: College of Design and Eng; Intake: Aug"
+    },
+    {
+      "id": "nus-po-msc-building-performance-and-sustainability-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Building Performance and Sustainability)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://cde.nus.edu.sg/dbe/graduate/msc-building-performance-and-sustainability/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cde.nus.edu.sg/dbe/graduate/msc-building-performance-and-sustainability/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: College of Design and Eng; Intake: Aug"
+    },
+    {
+      "id": "nus-po-msc-chemical-engineering-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Chemical Engineering)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://cde.nus.edu.sg/chbe/masters-of-science-chemical-engineering/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cde.nus.edu.sg/chbe/masters-of-science-chemical-engineering/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: College of Design and Eng; Intake: Jan;Aug"
+    },
+    {
+      "id": "nus-po-msc-civil-engineering-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Civil Engineering)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://cde.nus.edu.sg/cee/graduate/coursework-based-programmes/msc-ce/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cde.nus.edu.sg/cee/graduate/coursework-based-programmes/msc-ce/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: College of Design and Eng; Intake: Jan;Aug"
+    },
+    {
+      "id": "nus-po-msc-computer-engineering-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Computer Engineering)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://cde.nus.edu.sg/ece/graduate/msc-computer-engineering/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cde.nus.edu.sg/ece/graduate/msc-computer-engineering/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: College of Design and Eng; Intake: Jan;Aug"
+    },
+    {
+      "id": "nus-po-msc-electrical-engineering-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Electrical Engineering)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://cde.nus.edu.sg/ece/graduate/msc-electrical-engineering/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cde.nus.edu.sg/ece/graduate/msc-electrical-engineering/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: College of Design and Eng; Intake: Jan;Aug"
+    },
+    {
+      "id": "nus-po-msc-energy-systems-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Energy Systems)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://cde.nus.edu.sg/chbe/masters-of-science-energy-systems/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cde.nus.edu.sg/chbe/masters-of-science-energy-systems/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: College of Design and Eng; Intake: Aug"
+    },
+    {
+      "id": "nus-po-msc-engineering-design-and-innovation-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Engineering Design and Innovation)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://cde.nus.edu.sg/edic/msc/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cde.nus.edu.sg/edic/msc/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time",
+      "catalogue_status": "Faculty: College of Design and Eng; Intake: Aug"
+    },
+    {
+      "id": "nus-po-msc-environmental-engineering-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Environmental Engineering)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://cde.nus.edu.sg/cee/graduate/coursework-based-programmes/msc-eve/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cde.nus.edu.sg/cee/graduate/coursework-based-programmes/msc-eve/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: College of Design and Eng; Intake: Jan;Aug"
+    },
+    {
+      "id": "nus-po-msc-industrial-and-systems-engineering-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Industrial and Systems Engineering)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://cde.nus.edu.sg/isem/graduate/coursework/masters-of-science-industrial-and-systems-engineering-programme/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cde.nus.edu.sg/isem/graduate/coursework/masters-of-science-industrial-and-systems-engineering-programme/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: College of Design and Eng; Intake: Aug"
+    },
+    {
+      "id": "nus-po-msc-integrated-sustainable-design-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Integrated Sustainable Design)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://cde.nus.edu.sg/arch/programmes/master-of-science-integrated-sustainable-design/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cde.nus.edu.sg/arch/programmes/master-of-science-integrated-sustainable-design/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: College of Design and Eng; Intake: Aug"
+    },
+    {
+      "id": "nus-po-msc-management-of-technology-and-innovation-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Management of Technology and Innovation)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://cde.nus.edu.sg/isem/masters-of-science-management-of-technology-and-innovation-programme/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cde.nus.edu.sg/isem/masters-of-science-management-of-technology-and-innovation-programme/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: College of Design and Eng; Intake: Aug"
+    },
+    {
+      "id": "nus-po-msc-maritime-technology-and-management-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Maritime Technology and Management)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://cde.nus.edu.sg/isem/graduate/coursework/masters-of-science-maritime-technology-management-programme/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cde.nus.edu.sg/isem/graduate/coursework/masters-of-science-maritime-technology-management-programme/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: College of Design and Eng; Intake: Aug"
+    },
+    {
+      "id": "nus-po-msc-materials-science-and-engineering-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Materials Science and Engineering)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://cde.nus.edu.sg/mse/graduates/master-of-science-msc/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cde.nus.edu.sg/mse/graduates/master-of-science-msc/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: College of Design and Eng; Intake: Aug"
+    },
+    {
+      "id": "nus-po-msc-mechanical-engineering-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Mechanical Engineering)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://cde.nus.edu.sg/me/graduate/msc-me/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cde.nus.edu.sg/me/graduate/msc-me/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: College of Design and Eng; Intake: Jan;Aug"
+    },
+    {
+      "id": "nus-po-msc-project-management-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Project Management)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://cde.nus.edu.sg/dbe/graduate/msc-project-management/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cde.nus.edu.sg/dbe/graduate/msc-project-management/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: College of Design and Eng; Intake: Jan;Aug"
+    },
+    {
+      "id": "nus-po-msc-robotics-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Robotics)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://cde.nus.edu.sg/me/graduate/msc-robotics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cde.nus.edu.sg/me/graduate/msc-robotics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: College of Design and Eng; Intake: Jan;Aug"
+    },
+    {
+      "id": "nus-po-msc-safety-health-and-environmental-technology-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Safety, Health and Environmental Technology)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://cde.nus.edu.sg/chbe/masters-of-science-safety-health-environmental-technology/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cde.nus.edu.sg/chbe/masters-of-science-safety-health-environmental-technology/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: College of Design and Eng; Intake: Jan;Aug"
+    },
+    {
+      "id": "nus-po-msc-semiconductor-technology-and-operations-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Semiconductor Technology and Operations)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://cde.nus.edu.sg/ece/graduate/msc_sto/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cde.nus.edu.sg/ece/graduate/msc_sto/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: College of Design and Eng; Intake: Aug"
+    },
+    {
+      "id": "nus-po-msc-supply-chain-management-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Supply Chain Management)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://cde.nus.edu.sg/isem/graduate/coursework/masters-of-science-supply-chain-management-programme/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cde.nus.edu.sg/isem/graduate/coursework/masters-of-science-supply-chain-management-programme/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: College of Design and Eng; Intake: Jan;Aug"
+    },
+    {
+      "id": "nus-po-msc-by-research-built-environment-master-s-by-research",
+      "institution_id": "nus",
+      "name": "MSc by Research (Built Environment)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Research",
+      "official_url": "https://cde.nus.edu.sg/dbe/graduate/phd-msc-building/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cde.nus.edu.sg/dbe/graduate/phd-msc-building/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: College of Design and Eng; Intake: Aug"
+    },
+    {
+      "id": "nus-po-phd-in-architecture-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "PhD in Architecture",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://cde.nus.edu.sg/arch/programmes/maarchbyresearch-phdbyresearch/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cde.nus.edu.sg/arch/programmes/maarchbyresearch-phdbyresearch/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: College of Design and Eng; Intake: Aug"
+    },
+    {
+      "id": "nus-po-phd-in-biomedical-engineering-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "PhD in Biomedical Engineering",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://cde.nus.edu.sg/bme/graduate/admission-requirements/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cde.nus.edu.sg/bme/graduate/admission-requirements/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: College of Design and Eng; Intake: Aug"
+    },
+    {
+      "id": "nus-po-phd-in-built-environment-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "PhD in Built Environment",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://cde.nus.edu.sg/dbe/graduate/phd-msc-building/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cde.nus.edu.sg/dbe/graduate/phd-msc-building/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: College of Design and Eng; Intake: Aug"
+    },
+    {
+      "id": "nus-po-phd-in-chemical-and-biomolecular-engineering-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "PhD in Chemical and Biomolecular Engineering",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://cde.nus.edu.sg/chbe/research-degrees-meng-phd-engd/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cde.nus.edu.sg/chbe/research-degrees-meng-phd-engd/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: College of Design and Eng; Intake: Aug"
+    },
+    {
+      "id": "nus-po-phd-in-civil-and-environmental-engineering-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "PhD in Civil and Environmental Engineering",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://cde.nus.edu.sg/cee/graduate/research-based-programmes/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cde.nus.edu.sg/cee/graduate/research-based-programmes/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: College of Design and Eng; Intake: Aug"
+    },
+    {
+      "id": "nus-po-phd-in-electrical-and-computer-engineering-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "PhD in Electrical and Computer Engineering",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://cde.nus.edu.sg/ece/graduate/research-based-programmes/phd-m-eng/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cde.nus.edu.sg/ece/graduate/research-based-programmes/phd-m-eng/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: College of Design and Eng; Intake: Jan;Aug"
+    },
+    {
+      "id": "nus-po-phd-in-industrial-design-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "PhD in Industrial Design",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://cde.nus.edu.sg/did/postgraduate/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cde.nus.edu.sg/did/postgraduate/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: College of Design and Eng; Intake: Aug"
+    },
+    {
+      "id": "nus-po-phd-in-industrial-systems-engineering-and-management-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "PhD in Industrial Systems Engineering and Management",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://cde.nus.edu.sg/isem/graduate/research-degrees/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cde.nus.edu.sg/isem/graduate/research-degrees/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: College of Design and Eng; Intake: Jan;Aug"
+    },
+    {
+      "id": "nus-po-phd-in-materials-science-and-engineering-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "PhD in Materials Science and Engineering",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://cde.nus.edu.sg/mse/graduates/master-of-engineering-meng-doctor-of-philosophy-phd/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cde.nus.edu.sg/mse/graduates/master-of-engineering-meng-doctor-of-philosophy-phd/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: College of Design and Eng; Intake: Aug"
+    },
+    {
+      "id": "nus-po-phd-in-mechanical-engineering-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "PhD in Mechanical Engineering",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://cde.nus.edu.sg/me/graduate/research-degrees/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cde.nus.edu.sg/me/graduate/research-degrees/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: College of Design and Eng; Intake: Jan;Aug"
+    },
+    {
+      "id": "nus-po-doctor-of-medicine-md-doctorate-by-coursework",
+      "institution_id": "nus",
+      "name": "Doctor of Medicine (MD)",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Coursework",
+      "official_url": "https://www.duke-nus.edu.sg/education/our-programmes/md-programme",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.duke-nus.edu.sg/education/our-programmes/md-programme",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Duke-NUS Medical School; Intake: Jan;Aug"
+    },
+    {
+      "id": "nus-po-executive-master-in-healthcare-leadership-and-management-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "Executive Master in Healthcare Leadership and Management",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://www.duke-nus.edu.sg/sdghi/asianheal/executive-master",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.duke-nus.edu.sg/sdghi/asianheal/executive-master",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Duke-NUS Medical School; Intake: Aug"
+    },
+    {
+      "id": "nus-po-master-in-patient-safety-and-healthcare-quality-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "Master in Patient Safety and Healthcare Quality",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://www.duke-nus.edu.sg/cll/allcourses/master-s-in-patient-safety-and-healthcare-quality",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.duke-nus.edu.sg/cll/allcourses/master-s-in-patient-safety-and-healthcare-quality",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Duke-NUS Medical School; Intake: Aug"
+    },
+    {
+      "id": "nus-po-phd-in-clinical-and-translational-sciences-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "PhD in Clinical and Translational Sciences",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://www.duke-nus.edu.sg/education/our-programmes/phd/cts-phd",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.duke-nus.edu.sg/education/our-programmes/phd/cts-phd",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Duke-NUS Medical School; Intake: Aug"
+    },
+    {
+      "id": "nus-po-phd-in-integrated-biology-and-medicine-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "PhD in Integrated Biology and Medicine",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://www.duke-nus.edu.sg/education/our-programmes/phd/ibm-phd",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.duke-nus.edu.sg/education/our-programmes/phd/ibm-phd",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time",
+      "catalogue_status": "Faculty: Duke-NUS Medical School; Intake: Aug"
+    },
+    {
+      "id": "nus-po-phd-in-quantitative-biology-and-medicine-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "PhD in Quantitative Biology and Medicine",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://www.duke-nus.edu.sg/education/our-programmes/phd/qbm-phd",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.duke-nus.edu.sg/education/our-programmes/phd/qbm-phd",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time",
+      "catalogue_status": "Faculty: Duke-NUS Medical School; Intake: Aug"
+    },
+    {
+      "id": "nus-po-ma-applied-and-public-history-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MA (Applied and Public History)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://fass.nus.edu.sg/hist/maph/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://fass.nus.edu.sg/hist/maph/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Arts & Social Sci; Intake: Aug"
+    },
+    {
+      "id": "nus-po-ma-arts-and-cultural-entrepreneurship-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MA (Arts and Cultural Entrepreneurship)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://fass.nus.edu.sg/cnm/ace-master",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://fass.nus.edu.sg/cnm/ace-master",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Arts & Social Sci; Intake: Aug"
+    },
+    {
+      "id": "nus-po-ma-asian-and-global-history-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MA (Asian and Global History)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://fass.nus.edu.sg/hist/magh/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://fass.nus.edu.sg/hist/magh/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Arts & Social Sci; Intake: Aug"
+    },
+    {
+      "id": "nus-po-ma-chinese-culture-and-language-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MA (Chinese Culture and Language)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://fass.nus.edu.sg/cs/masters-coursework/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://fass.nus.edu.sg/cs/masters-coursework/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Arts & Social Sci; Intake: Aug"
+    },
+    {
+      "id": "nus-po-ma-contemporary-southeast-asia-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MA (Contemporary Southeast Asia)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://fass.nus.edu.sg/sea/masters-by-coursework/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://fass.nus.edu.sg/sea/masters-by-coursework/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Arts & Social Sci; Intake: Aug"
+    },
+    {
+      "id": "nus-po-ma-english-language-and-linguistics-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MA (English Language and Linguistics)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://fass.nus.edu.sg/elts/ma-by-coursework-el/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://fass.nus.edu.sg/elts/ma-by-coursework-el/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Arts & Social Sci; Intake: Aug"
+    },
+    {
+      "id": "nus-po-ma-history-nus-lse-double-degree-programme-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MA (History) NUS-LSE Double Degree Programme",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://fass.nus.edu.sg/hist/ma-ddp-lse/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://fass.nus.edu.sg/hist/ma-ddp-lse/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Arts & Social Sci; Intake: Aug"
+    },
+    {
+      "id": "nus-po-ma-japanese-visual-cultures-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MA (Japanese Visual Cultures)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://fass.nus.edu.sg/jps/majvc/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://fass.nus.edu.sg/jps/majvc/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Arts & Social Sci; Intake: Aug"
+    },
+    {
+      "id": "nus-po-ma-literary-studies-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MA (Literary Studies)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://fass.nus.edu.sg/elts/ma-by-coursework-en/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://fass.nus.edu.sg/elts/ma-by-coursework-en/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Arts & Social Sci; Intake: Aug"
+    },
+    {
+      "id": "nus-po-ma-theatre-and-performance-studies-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MA (Theatre and Performance Studies)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://fass.nus.edu.sg/elts/ma-by-coursework-tps/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://fass.nus.edu.sg/elts/ma-by-coursework-tps/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Arts & Social Sci; Intake: Aug"
+    },
+    {
+      "id": "nus-po-ma-by-research-chinese-studies-master-s-by-research",
+      "institution_id": "nus",
+      "name": "MA by Research (Chinese Studies)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Research",
+      "official_url": "https://fass.nus.edu.sg/cs/masters-research",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://fass.nus.edu.sg/cs/masters-research",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Arts & Social Sci; Intake: Jan;Aug"
+    },
+    {
+      "id": "nus-po-ma-by-research-communications-and-new-media-master-s-by-research",
+      "institution_id": "nus",
+      "name": "MA by Research (Communications and New Media)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Research",
+      "official_url": "https://fass.nus.edu.sg/cnm/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://fass.nus.edu.sg/cnm/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Arts & Social Sci; Intake: Aug"
+    },
+    {
+      "id": "nus-po-ma-by-research-english-language-and-linguistics-master-s-by-research",
+      "institution_id": "nus",
+      "name": "MA by Research (English Language and Linguistics)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Research",
+      "official_url": "https://fass.nus.edu.sg/elts/ma-by-research-el/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://fass.nus.edu.sg/elts/ma-by-research-el/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Arts & Social Sci; Intake: Aug"
+    },
+    {
+      "id": "nus-po-ma-by-research-english-literature-master-s-by-research",
+      "institution_id": "nus",
+      "name": "MA by Research (English Literature)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Research",
+      "official_url": "https://fass.nus.edu.sg/elts/ma-by-research-en/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://fass.nus.edu.sg/elts/ma-by-research-en/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Arts & Social Sci; Intake: Aug"
+    },
+    {
+      "id": "nus-po-ma-by-research-history-master-s-by-research",
+      "institution_id": "nus",
+      "name": "MA by Research (History)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Research",
+      "official_url": "https://fass.nus.edu.sg/hist/masters-by-research/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://fass.nus.edu.sg/hist/masters-by-research/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Arts & Social Sci; Intake: Aug"
+    },
+    {
+      "id": "nus-po-ma-by-research-japanese-studies-master-s-by-research",
+      "institution_id": "nus",
+      "name": "MA by Research (Japanese Studies)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Research",
+      "official_url": "https://fass.nus.edu.sg/jps/masters-phd",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://fass.nus.edu.sg/jps/masters-phd",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Arts & Social Sci; Intake: Jan;Aug"
+    },
+    {
+      "id": "nus-po-ma-by-research-malay-studies-master-s-by-research",
+      "institution_id": "nus",
+      "name": "MA by Research (Malay Studies)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Research",
+      "official_url": "https://fass.nus.edu.sg/mls/masters/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://fass.nus.edu.sg/mls/masters/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Arts & Social Sci; Intake: Aug"
+    },
+    {
+      "id": "nus-po-ma-by-research-philosophy-master-s-by-research",
+      "institution_id": "nus",
+      "name": "MA by Research (Philosophy)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Research",
+      "official_url": "https://fass.nus.edu.sg/philo/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://fass.nus.edu.sg/philo/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Arts & Social Sci; Intake: Aug"
+    },
+    {
+      "id": "nus-po-ma-by-research-south-asian-studies-master-s-by-research",
+      "institution_id": "nus",
+      "name": "MA by Research (South Asian Studies)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Research",
+      "official_url": "https://fass.nus.edu.sg/sas/masters-by-research/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://fass.nus.edu.sg/sas/masters-by-research/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Arts & Social Sci; Intake: Aug"
+    },
+    {
+      "id": "nus-po-ma-by-research-southeast-asian-studies-master-s-by-research",
+      "institution_id": "nus",
+      "name": "MA by Research (Southeast Asian Studies)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Research",
+      "official_url": "https://fass.nus.edu.sg/sea/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://fass.nus.edu.sg/sea/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Arts & Social Sci; Intake: Aug"
+    },
+    {
+      "id": "nus-po-ma-by-research-theatre-and-performance-studies-master-s-by-research",
+      "institution_id": "nus",
+      "name": "MA by Research (Theatre and Performance Studies)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Research",
+      "official_url": "https://fass.nus.edu.sg/elts/ma-by-research-ts/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://fass.nus.edu.sg/elts/ma-by-research-ts/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Arts & Social Sci; Intake: Aug"
+    },
+    {
+      "id": "nus-po-master-of-communication-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "Master of Communication",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://fass.nus.edu.sg/cnm/master-of-communication/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://fass.nus.edu.sg/cnm/master-of-communication/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Arts & Social Sci; Intake: Aug"
+    },
+    {
+      "id": "nus-po-master-of-economics-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "Master of Economics",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://fass.nus.edu.sg/ecs/master-of-economics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://fass.nus.edu.sg/ecs/master-of-economics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Arts & Social Sci; Intake: Jan;Aug"
+    },
+    {
+      "id": "nus-po-master-of-psychology-clinical-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "Master of Psychology (Clinical)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://fass.nus.edu.sg/psy/master-of-psychology-clinical/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://fass.nus.edu.sg/psy/master-of-psychology-clinical/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Arts & Social Sci; Intake: Jan;Aug"
+    },
+    {
+      "id": "nus-po-master-of-social-work-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "Master of Social Work",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://fass.nus.edu.sg/swk/master-of-social-work-coursework/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://fass.nus.edu.sg/swk/master-of-social-work-coursework/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Arts & Social Sci; Intake: Aug"
+    },
+    {
+      "id": "nus-po-msc-applied-geographic-information-systems-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Applied Geographic Information Systems)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://fass.nus.edu.sg/geog/msc-in-applied-gis/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://fass.nus.edu.sg/geog/msc-in-applied-gis/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Arts & Social Sci; Intake: Aug"
+    },
+    {
+      "id": "nus-po-msc-climate-change-and-sustainability-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Climate Change and Sustainability)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://fass.nus.edu.sg/geog/graduate-programme-in-climate-change-and-sustainability/msc-in-climate-change-and-sustainability/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://fass.nus.edu.sg/geog/graduate-programme-in-climate-change-and-sustainability/msc-in-climate-change-and-sustainability/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Arts & Social Sci; Intake: Aug"
+    },
+    {
+      "id": "nus-po-msc-by-research-geography-master-s-by-research",
+      "institution_id": "nus",
+      "name": "MSc by Research (Geography)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Research",
+      "official_url": "https://fass.nus.edu.sg/geog/application/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://fass.nus.edu.sg/geog/application/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Arts & Social Sci; Intake: Jan;Aug"
+    },
+    {
+      "id": "nus-po-msocsc-geopolitics-of-south-asia-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSocSc (Geopolitics of South Asia)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://fass.nus.edu.sg/sas/masters-by-coursework/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://fass.nus.edu.sg/sas/masters-by-coursework/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Arts & Social Sci; Intake: Aug"
+    },
+    {
+      "id": "nus-po-msocsc-by-research-economics-master-s-by-research",
+      "institution_id": "nus",
+      "name": "MSocSc by Research (Economics)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Research",
+      "official_url": "https://fass.nus.edu.sg/ecs/master-of-social-sciences-research/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://fass.nus.edu.sg/ecs/master-of-social-sciences-research/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Arts & Social Sci; Intake: Aug"
+    },
+    {
+      "id": "nus-po-msocsc-by-research-geography-master-s-by-research",
+      "institution_id": "nus",
+      "name": "MSocSc by Research (Geography)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Research",
+      "official_url": "https://fass.nus.edu.sg/geog/graduate-introduction/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://fass.nus.edu.sg/geog/graduate-introduction/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Arts & Social Sci; Intake: Jan;Aug"
+    },
+    {
+      "id": "nus-po-msocsc-by-research-political-science-master-s-by-research",
+      "institution_id": "nus",
+      "name": "MSocSc by Research (Political Science)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Research",
+      "official_url": "https://fass.nus.edu.sg/pol/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://fass.nus.edu.sg/pol/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Arts & Social Sci; Intake: Aug"
+    },
+    {
+      "id": "nus-po-msocsc-by-research-psychology-master-s-by-research",
+      "institution_id": "nus",
+      "name": "MSocSc by Research (Psychology)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Research",
+      "official_url": "https://www.fas.nus.edu.sg/psy/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.fas.nus.edu.sg/psy/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Arts & Social Sci; Intake: Aug"
+    },
+    {
+      "id": "nus-po-msocsc-by-research-social-work-master-s-by-research",
+      "institution_id": "nus",
+      "name": "MSocSc by Research (Social Work)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Research",
+      "official_url": "https://fass.nus.edu.sg/swk/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://fass.nus.edu.sg/swk/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Arts & Social Sci; Intake: Aug"
+    },
+    {
+      "id": "nus-po-msocsc-by-research-sociology-master-s-by-research",
+      "institution_id": "nus",
+      "name": "MSocSc by Research (Sociology)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Research",
+      "official_url": "https://fass.nus.edu.sg/socanth/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://fass.nus.edu.sg/socanth/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Arts & Social Sci; Intake: Aug"
+    },
+    {
+      "id": "nus-po-phd-in-chinese-studies-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "PhD in Chinese Studies",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://fass.nus.edu.sg/cs/phd",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://fass.nus.edu.sg/cs/phd",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Arts & Social Sci; Intake: Jan;Aug"
+    },
+    {
+      "id": "nus-po-phd-in-communications-and-new-media-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "PhD in Communications and New Media",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://fass.nus.edu.sg/cnm/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://fass.nus.edu.sg/cnm/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Arts & Social Sci; Intake: Aug"
+    },
+    {
+      "id": "nus-po-phd-in-comparative-asian-studies-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "PhD in Comparative Asian Studies",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://fass.nus.edu.sg/cas/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://fass.nus.edu.sg/cas/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Arts & Social Sci; Intake: Aug"
+    },
+    {
+      "id": "nus-po-phd-in-cultural-studies-in-asia-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "PhD in Cultural Studies in Asia",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://fass.nus.edu.sg/cnm/phd-cultural-studies-in-asia/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://fass.nus.edu.sg/cnm/phd-cultural-studies-in-asia/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Arts & Social Sci; Intake: Aug"
+    },
+    {
+      "id": "nus-po-phd-in-economics-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "PhD in Economics",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://fass.nus.edu.sg/ecs/doctor-of-philosophy-economics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://fass.nus.edu.sg/ecs/doctor-of-philosophy-economics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Arts & Social Sci; Intake: Aug"
+    },
+    {
+      "id": "nus-po-phd-in-english-language-and-linguistics-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "PhD in English Language and Linguistics",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://fass.nus.edu.sg/elts/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://fass.nus.edu.sg/elts/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Arts & Social Sci; Intake: Aug"
+    },
+    {
+      "id": "nus-po-phd-in-english-literature-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "PhD in English Literature",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://fass.nus.edu.sg/elts/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://fass.nus.edu.sg/elts/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Arts & Social Sci; Intake: Aug"
+    },
+    {
+      "id": "nus-po-phd-in-geography-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "PhD in Geography",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://fass.nus.edu.sg/geog/graduate-introduction/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://fass.nus.edu.sg/geog/graduate-introduction/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Arts & Social Sci; Intake: Jan;Aug"
+    },
+    {
+      "id": "nus-po-phd-in-history-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "PhD in History",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://fass.nus.edu.sg/hist/phd/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://fass.nus.edu.sg/hist/phd/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Arts & Social Sci; Intake: Aug"
+    },
+    {
+      "id": "nus-po-phd-in-japanese-studies-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "PhD in Japanese Studies",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://fass.nus.edu.sg/jps/masters-phd",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://fass.nus.edu.sg/jps/masters-phd",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Arts & Social Sci; Intake: Jan;Aug"
+    },
+    {
+      "id": "nus-po-phd-in-malay-studies-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "PhD in Malay Studies",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://fass.nus.edu.sg/mls/phd/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://fass.nus.edu.sg/mls/phd/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Arts & Social Sci; Intake: Aug"
+    },
+    {
+      "id": "nus-po-phd-in-philosophy-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "PhD in Philosophy",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://fass.nus.edu.sg/philo/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://fass.nus.edu.sg/philo/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Arts & Social Sci; Intake: Aug"
+    },
+    {
+      "id": "nus-po-phd-in-political-science-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "PhD in Political Science",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://fass.nus.edu.sg/pol/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://fass.nus.edu.sg/pol/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Arts & Social Sci; Intake: Aug"
+    },
+    {
+      "id": "nus-po-phd-in-psychology-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "PhD in Psychology",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://www.fas.nus.edu.sg/psy/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.fas.nus.edu.sg/psy/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Arts & Social Sci; Intake: Aug"
+    },
+    {
+      "id": "nus-po-phd-in-social-work-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "PhD in Social Work",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://fass.nus.edu.sg/swk/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://fass.nus.edu.sg/swk/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Arts & Social Sci; Intake: Jan;Aug"
+    },
+    {
+      "id": "nus-po-phd-in-sociology-anthropology-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "PhD in Sociology/Anthropology",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://fass.nus.edu.sg/socanth/ph-d-sociology-or-anthropology/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://fass.nus.edu.sg/socanth/ph-d-sociology-or-anthropology/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Arts & Social Sci; Intake: Jan;Aug"
+    },
+    {
+      "id": "nus-po-phd-in-south-asian-studies-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "PhD in South Asian Studies",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://fass.nus.edu.sg/sas/phd/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://fass.nus.edu.sg/sas/phd/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Arts & Social Sci; Intake: Aug"
+    },
+    {
+      "id": "nus-po-phd-in-southeast-asian-studies-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "PhD in Southeast Asian Studies",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://fass.nus.edu.sg/sea/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://fass.nus.edu.sg/sea/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Arts & Social Sci; Intake: Aug"
+    },
+    {
+      "id": "nus-po-phd-in-theatre-and-performance-studies-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "PhD in Theatre and Performance Studies",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://fass.nus.edu.sg/elts/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://fass.nus.edu.sg/elts/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Arts & Social Sci; Intake: Jan;Aug"
+    },
+    {
+      "id": "nus-po-master-of-dental-surgery-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "Master of Dental Surgery",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://www.dentistry.nus.edu.sg/gs/prospective-graduate-students/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.dentistry.nus.edu.sg/gs/prospective-graduate-students/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Dentistry; Intake: Aug"
+    },
+    {
+      "id": "nus-po-msc-by-research-dentistry-master-s-by-research",
+      "institution_id": "nus",
+      "name": "MSc by Research (Dentistry)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Research",
+      "official_url": "https://www.dentistry.nus.edu.sg/research/gdr/#msc",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.dentistry.nus.edu.sg/research/gdr/#msc",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Dentistry; Intake: Jan;Aug"
+    },
+    {
+      "id": "nus-po-phd-in-dentistry-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "PhD in Dentistry",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://www.dentistry.nus.edu.sg/research/gdr/#phd",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.dentistry.nus.edu.sg/research/gdr/#phd",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Dentistry; Intake: Jan;Aug"
+    },
+    {
+      "id": "nus-po-juris-doctor-3-year-doctorate-by-coursework",
+      "institution_id": "nus",
+      "name": "Juris Doctor (3-Year)",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Coursework",
+      "official_url": "https://law1a.nus.edu.sg/admissions/jd.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://law1a.nus.edu.sg/admissions/jd.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Law; Intake: Aug"
+    },
+    {
+      "id": "nus-po-llm-asian-legal-studies-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "LLM (Asian Legal Studies)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://law1a.nus.edu.sg/admissions/llm.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://law1a.nus.edu.sg/admissions/llm.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Law; Intake: Aug"
+    },
+    {
+      "id": "nus-po-llm-corporate-and-financial-services-law-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "LLM (Corporate and Financial Services Law)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://law1a.nus.edu.sg/admissions/llm.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://law1a.nus.edu.sg/admissions/llm.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Law; Intake: Aug"
+    },
+    {
+      "id": "nus-po-llm-international-and-comparative-law-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "LLM (International and Comparative Law)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://law1a.nus.edu.sg/admissions/llm.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://law1a.nus.edu.sg/admissions/llm.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Law; Intake: Aug"
+    },
+    {
+      "id": "nus-po-doctor-of-pharmacy-doctorate-by-coursework",
+      "institution_id": "nus",
+      "name": "Doctor of Pharmacy",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Coursework",
+      "official_url": "https://pharmacy.nus.edu.sg/study/postgraduate-programmes/doctor-of-pharmacy-pharm-d/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://pharmacy.nus.edu.sg/study/postgraduate-programmes/doctor-of-pharmacy-pharm-d/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Science; Intake: Aug"
+    },
+    {
+      "id": "nus-po-master-of-pharmacy-clinical-pharmacy-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "Master of Pharmacy (Clinical Pharmacy)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://pharmacy.nus.edu.sg/study/postgraduate-programmes/master-of-pharmacy-clinical-pharmacy-programme/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://pharmacy.nus.edu.sg/study/postgraduate-programmes/master-of-pharmacy-clinical-pharmacy-programme/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Science; Intake: Aug"
+    },
+    {
+      "id": "nus-po-msc-ai-for-science-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (AI for Science)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://www.physics.nus.edu.sg/student/msc-ai-for-science/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.physics.nus.edu.sg/student/msc-ai-for-science/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Science; Intake: Aug"
+    },
+    {
+      "id": "nus-po-msc-biodiversity-conservation-and-sustainability-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Biodiversity Conservation and Sustainability)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://www.dbs.nus.edu.sg/education/graduates/masters-by-coursework/biodiversity-conservation-sustainability/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.dbs.nus.edu.sg/education/graduates/masters-by-coursework/biodiversity-conservation-sustainability/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Science; Intake: Aug"
+    },
+    {
+      "id": "nus-po-msc-data-science-and-machine-learning-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Data Science and Machine Learning)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://www.math.nus.edu.sg/cdsml/ms-dsml/dsml-prospective-students/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.math.nus.edu.sg/cdsml/ms-dsml/dsml-prospective-students/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Science; Intake: Aug"
+    },
+    {
+      "id": "nus-po-msc-data-science-for-sustainability-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Data Science for Sustainability)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://www.stat.nus.edu.sg/prospective-students/graduate-programme/msc-in-data-science-for-sustainability/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.stat.nus.edu.sg/prospective-students/graduate-programme/msc-in-data-science-for-sustainability/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Science; Intake: Aug"
+    },
+    {
+      "id": "nus-po-msc-pharmaceutical-science-and-technology-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Pharmaceutical Science and Technology)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://pharmacy.nus.edu.sg/study/postgraduate-programmes/msc-pharmaceutical-science-technology-programme/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://pharmacy.nus.edu.sg/study/postgraduate-programmes/msc-pharmaceutical-science-technology-programme/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Science; Intake: Aug"
+    },
+    {
+      "id": "nus-po-msc-statistics-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Statistics)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://www.stat.nus.edu.sg/prospective-students/graduate-programme/msc_in_statistics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.stat.nus.edu.sg/prospective-students/graduate-programme/msc_in_statistics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Science; Intake: Aug"
+    },
+    {
+      "id": "nus-po-msc-by-research-chemistry-master-s-by-research",
+      "institution_id": "nus",
+      "name": "MSc by Research (Chemistry)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Research",
+      "official_url": "https://chemistry.nus.edu.sg/education/graduate/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://chemistry.nus.edu.sg/education/graduate/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Science; Intake: Jan;Aug"
+    },
+    {
+      "id": "nus-po-msc-by-research-pharmacy-and-pharmaceutical-sciences-master-s-by-research",
+      "institution_id": "nus",
+      "name": "MSc by Research (Pharmacy and Pharmaceutical Sciences)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Research",
+      "official_url": "https://pharmacy.nus.edu.sg/study/postgraduate-programmes/phd-and-msc-programmes/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://pharmacy.nus.edu.sg/study/postgraduate-programmes/phd-and-msc-programmes/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Science; Intake: Jan;Aug"
+    },
+    {
+      "id": "nus-po-tum-nus-msc-industrial-chemistry-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "TUM-NUS MSc (Industrial Chemistry)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://tum-asia.edu.sg/graduate-studies/master-industrial-chemistry/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://tum-asia.edu.sg/graduate-studies/master-industrial-chemistry/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time",
+      "catalogue_status": "Faculty: Faculty of Science; Intake: Aug"
+    },
+    {
+      "id": "nus-po-phd-in-chemistry-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "PhD in Chemistry",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://chemistry.nus.edu.sg/education/graduate/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://chemistry.nus.edu.sg/education/graduate/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Science; Intake: Jan;Aug"
+    },
+    {
+      "id": "nus-po-phd-in-pharmacy-and-pharmaceutical-sciences-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "PhD in Pharmacy and Pharmaceutical Sciences",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://pharmacy.nus.edu.sg/study/postgraduate-programmes/phd-and-msc-programmes/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://pharmacy.nus.edu.sg/study/postgraduate-programmes/phd-and-msc-programmes/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Science; Intake: Jan;Aug"
+    },
+    {
+      "id": "nus-po-phd-in-physics-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "PhD in Physics",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://www.physics.nus.edu.sg/student/prospective-doctor-of-philosophy-research/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.physics.nus.edu.sg/student/prospective-doctor-of-philosophy-research/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Science; Intake: Jan;Aug"
+    },
+    {
+      "id": "nus-po-phd-in-mechanobiology-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "PhD in Mechanobiology",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://www.mbi.nus.edu.sg/education/graduate-program/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.mbi.nus.edu.sg/education/graduate-program/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: NUS Graduate School; Faculty of Science; Intake: Aug"
+    },
+    {
+      "id": "nus-po-master-in-international-affairs-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "Master in International Affairs",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://lkyspp.nus.edu.sg/graduate-programmes/master-in-international-affairs-mia",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://lkyspp.nus.edu.sg/graduate-programmes/master-in-international-affairs-mia",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time",
+      "catalogue_status": "Faculty: LKY School of Public Policy; Intake: Aug"
+    },
+    {
+      "id": "nus-po-master-in-public-administration-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "Master in Public Administration",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://lkyspp.nus.edu.sg/graduate-programmes/master-in-public-administration-mpa",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://lkyspp.nus.edu.sg/graduate-programmes/master-in-public-administration-mpa",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time",
+      "catalogue_status": "Faculty: LKY School of Public Policy; Intake: Aug"
+    },
+    {
+      "id": "nus-po-master-in-public-policy-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "Master in Public Policy",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://lkyspp.nus.edu.sg/graduate-programmes/master-in-public-policy-mpp",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://lkyspp.nus.edu.sg/graduate-programmes/master-in-public-policy-mpp",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time",
+      "catalogue_status": "Faculty: LKY School of Public Policy; Intake: Aug"
+    },
+    {
+      "id": "nus-po-master-in-public-administration-and-management-chinese-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "Master in Public Administration and Management (Chinese)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://lkyspp.nus.edu.sg/graduate-programmes/mpam",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://lkyspp.nus.edu.sg/graduate-programmes/mpam",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: LKY School of Public Policy; Intake: Aug"
+    },
+    {
+      "id": "nus-po-phd-in-public-policy-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "PhD in Public Policy",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://lkyspp.nus.edu.sg/graduate-programmes/phd-in-public-policy",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://lkyspp.nus.edu.sg/graduate-programmes/phd-in-public-policy",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time",
+      "catalogue_status": "Faculty: LKY School of Public Policy; Intake: Aug"
+    },
+    {
+      "id": "nus-po-nus-phd-data-science-programme-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "NUS PhD (Data Science) programme",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://isep.nus.edu.sg/nus-phd-data-science/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://isep.nus.edu.sg/nus-phd-data-science/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time",
+      "catalogue_status": "Faculty: NUS Graduate School; Intake: Jan;Aug"
+    },
+    {
+      "id": "nus-po-phd-in-digital-financial-technology-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "PhD in Digital Financial Technology",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://www.aidf.nus.edu.sg/education/phd-in-digital-finance-technology/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.aidf.nus.edu.sg/education/phd-in-digital-finance-technology/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: NUS Graduate School; Intake: Aug"
+    },
+    {
+      "id": "nus-po-phd-in-integrative-sciences-and-engineering-programme-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "PhD in Integrative Sciences and Engineering Programme",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://isep.nus.edu.sg",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://isep.nus.edu.sg",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: NUS Graduate School; Intake: Aug"
+    },
+    {
+      "id": "nus-po-mtech-artificial-intelligence-systems-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MTech (Artificial Intelligence Systems)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://www.iss.nus.edu.sg/graduate-programmes/programme/detail/master-of-technology-in-artificial-intelligence-systems",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.iss.nus.edu.sg/graduate-programmes/programme/detail/master-of-technology-in-artificial-intelligence-systems",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: NUS-ISS; Intake: Jan;Aug"
+    },
+    {
+      "id": "nus-po-mtech-digital-leadership-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MTech (Digital Leadership)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://www.iss.nus.edu.sg/graduate-programmes/programme/detail/master-of-technology-in-digital-leadership",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.iss.nus.edu.sg/graduate-programmes/programme/detail/master-of-technology-in-digital-leadership",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Part-Time",
+      "catalogue_status": "Faculty: NUS-ISS; Intake: Jan"
+    },
+    {
+      "id": "nus-po-mtech-enterprise-business-analytics-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MTech (Enterprise Business Analytics)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://www.iss.nus.edu.sg/graduate-programmes/programme/detail/master-of-technology-in-enterprise-business-analytics",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.iss.nus.edu.sg/graduate-programmes/programme/detail/master-of-technology-in-enterprise-business-analytics",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: NUS-ISS; Intake: Jan;Aug"
+    },
+    {
+      "id": "nus-po-mtech-software-engineering-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MTech (Software Engineering)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://www.iss.nus.edu.sg/graduate-programmes/programme/detail/master-of-technology-in-software-engineering",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.iss.nus.edu.sg/graduate-programmes/programme/detail/master-of-technology-in-software-engineering",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: NUS-ISS; Intake: Jan;Aug"
+    },
+    {
+      "id": "nus-po-msc-financial-engineering-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Financial Engineering)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://rmi.nus.edu.sg/mfe-program/introduction/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://rmi.nus.edu.sg/mfe-program/introduction/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Risk Management Institute; Intake: Aug"
+    },
+    {
+      "id": "nus-po-doctor-of-public-health-doctorate-by-coursework",
+      "institution_id": "nus",
+      "name": "Doctor of Public Health",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Coursework",
+      "official_url": "https://sph.nus.edu.sg/education/drph/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://sph.nus.edu.sg/education/drph/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: SSH School of Public Health; Intake: Aug"
+    },
+    {
+      "id": "nus-po-master-of-public-health-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "Master of Public Health",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://sph.nus.edu.sg/education/mph/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://sph.nus.edu.sg/education/mph/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: SSH School of Public Health; Intake: Aug"
+    },
+    {
+      "id": "nus-po-msc-by-research-public-health-master-s-by-research",
+      "institution_id": "nus",
+      "name": "MSc by Research (Public Health)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Research",
+      "official_url": "https://sph.nus.edu.sg/education/grp/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://sph.nus.edu.sg/education/grp/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: SSH School of Public Health; Intake: Aug"
+    },
+    {
+      "id": "nus-po-phd-in-public-health-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "PhD in Public Health",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://sph.nus.edu.sg/education/grp/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://sph.nus.edu.sg/education/grp/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: SSH School of Public Health; Intake: Aug"
+    },
+    {
+      "id": "nus-po-master-of-computing-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "Master of Computing",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://www.comp.nus.edu.sg/programmes/#graduate",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.comp.nus.edu.sg/programmes/#graduate",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: School of Computing; Intake: Aug"
+    },
+    {
+      "id": "nus-po-master-of-computing-artificial-intelligence-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "Master of Computing (Artificial Intelligence)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://www.comp.nus.edu.sg/programmes/#graduate",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.comp.nus.edu.sg/programmes/#graduate",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: School of Computing; Intake: Aug"
+    },
+    {
+      "id": "nus-po-msc-digital-financial-technology-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Digital Financial Technology)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://www.comp.nus.edu.sg/programmes/pg/mdft/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.comp.nus.edu.sg/programmes/pg/mdft/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: School of Computing; Intake: Aug"
+    },
+    {
+      "id": "nus-po-phd-in-computer-science-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "PhD in Computer Science",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://www.comp.nus.edu.sg/programmes/pg/phdcs/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.comp.nus.edu.sg/programmes/pg/phdcs/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: School of Computing; Intake: Aug"
+    },
+    {
+      "id": "nus-po-phd-in-information-systems-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "PhD in Information Systems",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://www.comp.nus.edu.sg/programmes/pg/phdis/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.comp.nus.edu.sg/programmes/pg/phdis/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: School of Computing; Intake: Aug"
+    },
+    {
+      "id": "nus-po-msc-environmental-management-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Environmental Management)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://scale.nus.edu.sg/programmes/graduate/msc-(environmental-management)",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://scale.nus.edu.sg/programmes/graduate/msc-(environmental-management)",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: School of Cont & Lifelong Edun; NUS Business School; College of Design and Eng; Faculty of Science; LKY School of Public Policy; Faculty of Law; Intake: Aug"
+    },
+    {
+      "id": "nus-po-msc-smart-industries-and-digital-transformation-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Smart Industries and Digital Transformation)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://scale.nus.edu.sg/programmes/graduate/msc-(smart-industries-and-digital-transformation)",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://scale.nus.edu.sg/programmes/graduate/msc-(smart-industries-and-digital-transformation)",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: School of Computing; College of Design and Eng; School of Cont & Lifelong Edun; NUS Business School; Faculty of Science; NUS-ISS; Intake: Aug"
+    },
+    {
+      "id": "nus-po-msc-venture-creation-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Venture Creation)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://scale.nus.edu.sg/programmes/graduate/msc-in-venture-creation",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://scale.nus.edu.sg/programmes/graduate/msc-in-venture-creation",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time",
+      "catalogue_status": "Faculty: School of Cont & Lifelong Edun; NUS Business School; College of Design and Eng; School of Computing; Faculty of Science; Yong Loo Lin Sch of Medicine; Intake: Aug"
+    },
+    {
+      "id": "nus-po-msc-artificial-intelligence-and-innovation-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Artificial Intelligence and Innovation)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://scale.nus.edu.sg/programmes/graduate/msc-(artificial-intelligence-innovation)",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://scale.nus.edu.sg/programmes/graduate/msc-(artificial-intelligence-innovation)",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: School of Cont & Lifelong Edun; College of Design and Eng; School of Computing; Faculty of Arts & Social Sci; Faculty of Science; Faculty of Law; Intake: Aug"
+    },
+    {
+      "id": "nus-po-doctor-of-nursing-practice-doctorate-by-coursework",
+      "institution_id": "nus",
+      "name": "Doctor of Nursing Practice",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Coursework",
+      "official_url": "https://medicine.nus.edu.sg/nursing/education-programmes/postgraduate/doctorate/doctor-of-nursing-practice-dnp/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://medicine.nus.edu.sg/nursing/education-programmes/postgraduate/doctorate/doctor-of-nursing-practice-dnp/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Part-Time",
+      "catalogue_status": "Faculty: Yong Loo Lin Sch of Medicine; Intake: Aug"
+    },
+    {
+      "id": "nus-po-master-of-clinical-investigation-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "Master of Clinical Investigation",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://medicine.nus.edu.sg/graduatestudies/education/master-of-clinical-investigation/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://medicine.nus.edu.sg/graduatestudies/education/master-of-clinical-investigation/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Yong Loo Lin Sch of Medicine; Intake: Aug"
+    },
+    {
+      "id": "nus-po-master-of-clinical-mental-health-and-psychotherapy-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "Master of Clinical Mental Health and Psychotherapy",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://medicine.nus.edu.sg/nmsc/mcmhp/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://medicine.nus.edu.sg/nmsc/mcmhp/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time",
+      "catalogue_status": "Faculty: Yong Loo Lin Sch of Medicine; Intake: Jan"
+    },
+    {
+      "id": "nus-po-master-of-community-health-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "Master of Community Health",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://medicine.nus.edu.sg/nursing/education-admissions/postgraduate/masters/master-of-community-health/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://medicine.nus.edu.sg/nursing/education-admissions/postgraduate/masters/master-of-community-health/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Part-Time",
+      "catalogue_status": "Faculty: Yong Loo Lin Sch of Medicine; Intake: Aug"
+    },
+    {
+      "id": "nus-po-master-of-nursing-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "Master of Nursing",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://medicine.nus.edu.sg/nursing/education-admissions/postgraduate/masters/master-of-nursing/how-to-apply/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://medicine.nus.edu.sg/nursing/education-admissions/postgraduate/masters/master-of-nursing/how-to-apply/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time",
+      "catalogue_status": "Faculty: Yong Loo Lin Sch of Medicine; Intake: Jan"
+    },
+    {
+      "id": "nus-po-msc-applied-biomedicine-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Applied Biomedicine)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://medicine.nus.edu.sg/graduatestudies/education/msc-in-applied-biomedicine/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://medicine.nus.edu.sg/graduatestudies/education/msc-in-applied-biomedicine/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Yong Loo Lin Sch of Medicine; Intake: Aug"
+    },
+    {
+      "id": "nus-po-msc-audiology-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Audiology)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://blog.nus.edu.sg/audiology/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://blog.nus.edu.sg/audiology/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Yong Loo Lin Sch of Medicine; Intake: Aug"
+    },
+    {
+      "id": "nus-po-msc-behavioural-and-implementation-sciences-in-health-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Behavioural and Implementation Sciences in Health)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://medicine.nus.edu.sg/bisi/master-of-science-in-behavioural-and-implementation-sciences-in-health/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://medicine.nus.edu.sg/bisi/master-of-science-in-behavioural-and-implementation-sciences-in-health/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Yong Loo Lin Sch of Medicine; Intake: Aug"
+    },
+    {
+      "id": "nus-po-msc-biomedical-informatics-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Biomedical Informatics)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://medicine.nus.edu.sg/dbmi/msc-in-biomedical-informatics-coursework/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://medicine.nus.edu.sg/dbmi/msc-in-biomedical-informatics-coursework/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Yong Loo Lin Sch of Medicine; Intake: Aug"
+    },
+    {
+      "id": "nus-po-msc-critical-care-nursing-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Critical Care Nursing)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://medicine.nus.edu.sg/nursing/education-programmes/postgraduate/masters/master-of-science-critical-care-nursing/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://medicine.nus.edu.sg/nursing/education-programmes/postgraduate/masters/master-of-science-critical-care-nursing/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Part-Time",
+      "catalogue_status": "Faculty: Yong Loo Lin Sch of Medicine; Intake: Aug"
+    },
+    {
+      "id": "nus-po-msc-infection-prevention-and-control-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Infection Prevention and Control)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://medicine.nus.edu.sg/nursing/education-programmes/postgraduate/masters/master-of-science-infection-prevention-and-control/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://medicine.nus.edu.sg/nursing/education-programmes/postgraduate/masters/master-of-science-infection-prevention-and-control/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Part-Time",
+      "catalogue_status": "Faculty: Yong Loo Lin Sch of Medicine; Intake: Aug"
+    },
+    {
+      "id": "nus-po-msc-infectious-disease-emergencies-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Infectious Disease Emergencies)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://medicine.nus.edu.sg/cider/education/msc-infectious-disease-emergencies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://medicine.nus.edu.sg/cider/education/msc-infectious-disease-emergencies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Yong Loo Lin Sch of Medicine; Intake: Jun"
+    },
+    {
+      "id": "nus-po-msc-medical-pharmacology-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Medical Pharmacology)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://medicine.nus.edu.sg/graduatestudies/education/msc-in-medical-pharmacology/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://medicine.nus.edu.sg/graduatestudies/education/msc-in-medical-pharmacology/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Yong Loo Lin Sch of Medicine; Intake: Aug"
+    },
+    {
+      "id": "nus-po-msc-nutrition-and-lifestyle-medicine-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Nutrition and Lifestyle Medicine)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://medicine.nus.edu.sg/graduatestudies/education/msc-in-nutrition-and-lifestyle-medicine/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://medicine.nus.edu.sg/graduatestudies/education/msc-in-nutrition-and-lifestyle-medicine/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Yong Loo Lin Sch of Medicine; Intake: Jan"
+    },
+    {
+      "id": "nus-po-msc-precision-health-and-medicine-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Precision Health and Medicine)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://medicine.nus.edu.sg/bch/msc-phm/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://medicine.nus.edu.sg/bch/msc-phm/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Yong Loo Lin Sch of Medicine; Intake: Aug"
+    },
+    {
+      "id": "nus-po-msc-speech-and-language-pathology-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Speech and Language Pathology)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://medicine.nus.edu.sg/dgms/SLP/home.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://medicine.nus.edu.sg/dgms/SLP/home.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time",
+      "catalogue_status": "Faculty: Yong Loo Lin Sch of Medicine; Intake: Jan"
+    },
+    {
+      "id": "nus-po-msc-sustainable-healthcare-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Sustainable Healthcare)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://medicine.nus.edu.sg/cosm/education/msc/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://medicine.nus.edu.sg/cosm/education/msc/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Yong Loo Lin Sch of Medicine; Intake: Aug"
+    },
+    {
+      "id": "nus-po-msc-by-research-medicine-master-s-by-research",
+      "institution_id": "nus",
+      "name": "MSc by Research (Medicine)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Research",
+      "official_url": "https://medicine.nus.edu.sg/graduatestudies/education/master-of-science/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://medicine.nus.edu.sg/graduatestudies/education/master-of-science/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Yong Loo Lin Sch of Medicine; Intake: Jan;Aug"
+    },
+    {
+      "id": "nus-po-msc-by-research-nursing-master-s-by-research",
+      "institution_id": "nus",
+      "name": "MSc by Research (Nursing)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Research",
+      "official_url": "https://medicine.nus.edu.sg/nursing/education-programmes/postgraduate/masters/master-of-science-nursing/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://medicine.nus.edu.sg/nursing/education-programmes/postgraduate/masters/master-of-science-nursing/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Yong Loo Lin Sch of Medicine; Intake: Aug"
+    },
+    {
+      "id": "nus-po-phd-in-medicine-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "PhD in Medicine",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://medicine.nus.edu.sg/graduatestudies/education/doctor-of-philosophy/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://medicine.nus.edu.sg/graduatestudies/education/doctor-of-philosophy/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Yong Loo Lin Sch of Medicine; Intake: Jan;Aug"
+    },
+    {
+      "id": "nus-po-phd-in-nursing-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "PhD in Nursing",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://medicine.nus.edu.sg/nursing/education-programmes/postgraduate/doctorate/doctor-of-philosophy/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://medicine.nus.edu.sg/nursing/education-programmes/postgraduate/doctorate/doctor-of-philosophy/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Yong Loo Lin Sch of Medicine; Intake: Aug"
+    },
+    {
+      "id": "nus-po-master-of-audio-arts-and-sciences-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "Master of Audio Arts and Sciences",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://www.ystmusic.nus.edu.sg/programmes-master-of-audio-arts-and-sciences/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.ystmusic.nus.edu.sg/programmes-master-of-audio-arts-and-sciences/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time",
+      "catalogue_status": "Faculty: YST Conservatory of Music; Intake: Aug"
+    },
+    {
+      "id": "nus-po-master-of-music-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "Master of Music",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://www.ystmusic.nus.edu.sg/programmes-master-of-music/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.ystmusic.nus.edu.sg/programmes-master-of-music/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time",
+      "catalogue_status": "Faculty: YST Conservatory of Music; Intake: Aug"
+    },
+    {
+      "id": "nus-po-master-of-music-leadership-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "Master of Music Leadership",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://www.ystmusic.nus.edu.sg/musicleaders/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.ystmusic.nus.edu.sg/musicleaders/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: YST Conservatory of Music; Intake: Jan;Aug"
+    },
+    {
+      "id": "nus-po-phd-in-music-practices-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "PhD in Music Practices",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://www.ystmusic.nus.edu.sg/programmes-phd-music-practices/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.ystmusic.nus.edu.sg/programmes-phd-music-practices/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time",
+      "catalogue_status": "Faculty: YST Conservatory of Music; Intake: Jan;Aug"
+    },
+    {
+      "id": "nus-po-juris-doctor-2-year-doctorate-by-coursework",
+      "institution_id": "nus",
+      "name": "Juris Doctor (2-Year)",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Coursework",
+      "official_url": "https://law1a.nus.edu.sg/admissions/jd.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://law1a.nus.edu.sg/admissions/jd.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Law; Intake: Aug"
+    },
+    {
+      "id": "nus-po-llm-intellectual-property-and-technology-law-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "LLM (Intellectual Property and Technology Law)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://law1a.nus.edu.sg/admissions/llm.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://law1a.nus.edu.sg/admissions/llm.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Law; Intake: Aug"
+    },
+    {
+      "id": "nus-po-llm-international-arbitration-and-dispute-resolution-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "LLM (International Arbitration and Dispute Resolution)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://law1a.nus.edu.sg/admissions/llm.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://law1a.nus.edu.sg/admissions/llm.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Law; Intake: Aug"
+    },
+    {
+      "id": "nus-po-llm-international-business-law-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "LLM (International Business Law)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://law1a.nus.edu.sg/admissions/llm.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://law1a.nus.edu.sg/admissions/llm.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Law; Intake: Aug"
+    },
+    {
+      "id": "nus-po-llm-maritime-law-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "LLM (Maritime Law)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://law1a.nus.edu.sg/admissions/llm.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://law1a.nus.edu.sg/admissions/llm.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Law; Intake: Aug"
+    },
+    {
+      "id": "nus-po-master-of-laws-llm-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "Master of Laws (LLM)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://law1a.nus.edu.sg/admissions/llm.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://law1a.nus.edu.sg/admissions/llm.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Law; Intake: Aug"
+    },
+    {
+      "id": "nus-po-phd-in-law-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "PhD in Law",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://law1a.nus.edu.sg/admissions/research_prog.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://law1a.nus.edu.sg/admissions/research_prog.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time",
+      "catalogue_status": "Faculty: Faculty of Law; Intake: Aug"
+    },
+    {
+      "id": "nus-po-msc-biotechnology-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Biotechnology)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://www.dbs.nus.edu.sg/education/graduates/masters-by-coursework/biotechnology/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.dbs.nus.edu.sg/education/graduates/masters-by-coursework/biotechnology/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Science; Intake: Aug"
+    },
+    {
+      "id": "nus-po-msc-chemical-sciences-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Chemical Sciences)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://chemistry.nus.edu.sg/education/graduate/msc-in-chemical-sciences/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://chemistry.nus.edu.sg/education/graduate/msc-in-chemical-sciences/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Science; Intake: Aug"
+    },
+    {
+      "id": "nus-po-msc-food-science-and-human-nutrition-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Food Science and Human Nutrition)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://www.fst.nus.edu.sg/education/postgraduate-programme/admission-information/msc-in-food-science-human-nutrition/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.fst.nus.edu.sg/education/postgraduate-programme/admission-information/msc-in-food-science-human-nutrition/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Science; Intake: Aug"
+    },
+    {
+      "id": "nus-po-msc-forensic-science-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Forensic Science)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://www.dbs.nus.edu.sg/education/master-of-science-in-forensic-science/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.dbs.nus.edu.sg/education/master-of-science-in-forensic-science/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Science; Intake: Aug"
+    },
+    {
+      "id": "nus-po-msc-mathematics-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Mathematics)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://www.math.nus.edu.sg/pg/msc-cwk/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.math.nus.edu.sg/pg/msc-cwk/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Science; Intake: Aug"
+    },
+    {
+      "id": "nus-po-msc-physics-for-technology-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Physics for Technology)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://www.physics.nus.edu.sg/student/master-in-physics-technology/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.physics.nus.edu.sg/student/master-in-physics-technology/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Science; Intake: Aug"
+    },
+    {
+      "id": "nus-po-msc-physics-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Physics)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://www.physics.nus.edu.sg/student/master-of-science-by-coursework/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.physics.nus.edu.sg/student/master-of-science-by-coursework/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Science; Intake: Aug"
+    },
+    {
+      "id": "nus-po-msc-quantitative-finance-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Quantitative Finance)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://www.math.nus.edu.sg/graduates/mqf/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.math.nus.edu.sg/graduates/mqf/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Science; Intake: Aug"
+    },
+    {
+      "id": "nus-po-msc-by-research-physics-master-s-by-research",
+      "institution_id": "nus",
+      "name": "MSc by Research (Physics)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Research",
+      "official_url": "https://www.physics.nus.edu.sg/student/prospective-master-of-science-by-research/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.physics.nus.edu.sg/student/prospective-master-of-science-by-research/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Science; Intake: Jan;Aug"
+    },
+    {
+      "id": "nus-po-nus-sjtu-msc-quantitative-finance-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "NUS-SJTU MSc (Quantitative Finance)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://www.math.nus.edu.sg/pg/nus-sjtu-mqf/prospective-students/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.math.nus.edu.sg/pg/nus-sjtu-mqf/prospective-students/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Science; Intake: Aug"
+    },
+    {
+      "id": "nus-po-phd-in-biological-sciences-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "PhD in Biological Sciences",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://www.dbs.nus.edu.sg/education/graduates/doctor-of-philosophy/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.dbs.nus.edu.sg/education/graduates/doctor-of-philosophy/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Science; Intake: Jan;Aug"
+    },
+    {
+      "id": "nus-po-phd-in-food-science-and-technology-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "PhD in Food Science and Technology",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://www.fst.nus.edu.sg/education/postgraduate-programme/admission-information/admission-information/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.fst.nus.edu.sg/education/postgraduate-programme/admission-information/admission-information/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Science; Intake: Jan;Aug"
+    },
+    {
+      "id": "nus-po-phd-in-mathematics-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "PhD in Mathematics",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://www.math.nus.edu.sg/pg/phd/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.math.nus.edu.sg/pg/phd/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Science; Intake: Jan;Aug"
+    },
+    {
+      "id": "nus-po-phd-in-statistics-and-data-science-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "PhD in Statistics and Data Science",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://www.stat.nus.edu.sg/prospective-students/graduate-programme/phd_in_statistics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.stat.nus.edu.sg/prospective-students/graduate-programme/phd_in_statistics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Science; Intake: Jan;Aug"
+    },
+    {
+      "id": "nus-po-phd-in-quantum-technologies-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "PhD in Quantum Technologies",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://www.cqt.sg/students/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.cqt.sg/students/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: NUS Graduate School; Intake: Jan;Aug"
+    },
+    {
+      "id": "nus-po-phd-in-cancer-biology-doctorate-by-research-phd",
+      "institution_id": "nus",
+      "name": "PhD in Cancer Biology",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate by Research/ PhD",
+      "official_url": "https://csi.nus.edu.sg/training-program/graduate-program/for-prospective-graduates/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://csi.nus.edu.sg/training-program/graduate-program/for-prospective-graduates/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time",
+      "catalogue_status": "Faculty: Yong Loo Lin Sch of Medicine; Intake: Aug"
+    },
+    {
+      "id": "nus-po-msc-health-economics-and-outcomes-research-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Health Economics and Outcomes Research)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://sph.nus.edu.sg/education/mscheor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://sph.nus.edu.sg/education/mscheor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: SSH School of Public Health; Intake: Aug"
+    },
+    {
+      "id": "nus-po-master-of-cities-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "Master of Cities",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://cde.nus.edu.sg/nuscities/master-of-cities/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cde.nus.edu.sg/nuscities/master-of-cities/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time",
+      "catalogue_status": "Faculty: College of Design and Eng; Intake: Jan;Aug"
+    },
+    {
+      "id": "nus-po-msc-human-potential-and-performance-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Human Potential and Performance)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://medicine.nus.edu.sg/graduatestudies/education/msc-in-human-potential-and-performance/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://medicine.nus.edu.sg/graduatestudies/education/msc-in-human-potential-and-performance/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Yong Loo Lin Sch of Medicine; Intake: Aug"
+    },
+    {
+      "id": "nus-po-msc-sustainable-chemistry-for-energy-and-environment-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Sustainable Chemistry for Energy and Environment)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://chemistry.nus.edu.sg/education/graduate/msc-sce/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://chemistry.nus.edu.sg/education/graduate/msc-sce/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Science; Intake: Aug"
+    },
+    {
+      "id": "nus-po-ma-global-sociology-and-anthropology-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MA (Global Sociology and Anthropology)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://fass.nus.edu.sg/socanth/graduate-coursework-programme-master-of-arts-global-sociology-and-anthropology/#:~:text=The%20Master%20of%20Arts%20(Global,and%20Anthropological%20theories%20and%20methods.",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://fass.nus.edu.sg/socanth/graduate-coursework-programme-master-of-arts-global-sociology-and-anthropology/#:~:text=The%20Master%20of%20Arts%20(Global,and%20Anthropological%20theories%20and%20methods.",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: Faculty of Arts & Social Sci; Intake: Aug"
+    },
+    {
+      "id": "nus-po-msc-materials-for-energy-innovation-and-sustainability-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "MSc (Materials for Energy Innovation and Sustainability)",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://cde.nus.edu.sg/mse/graduates/master-of-science-msc-energy-and-sustainability/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cde.nus.edu.sg/mse/graduates/master-of-science-msc-energy-and-sustainability/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Full-Time;Part-Time",
+      "catalogue_status": "Faculty: College of Design and Eng; Intake: Jan;Aug"
+    },
+    {
+      "id": "nus-po-duke-nus-master-of-international-translational-medicine-master-s-by-coursework",
+      "institution_id": "nus",
+      "name": "Duke-NUS Master of International Translational Medicine",
+      "degree_level": "Postgraduate",
+      "award": "Master's by Coursework",
+      "official_url": "https://www.duke-nus.edu.sg/admissions/masters/mitm",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.duke-nus.edu.sg/admissions/masters/mitm",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official NUS Study programme LWR Apex row"
+      },
+      "mode": "Part-Time",
+      "catalogue_status": "Faculty: Duke-NUS Medical School; Intake: Aug"
+    }
+  ]
+}

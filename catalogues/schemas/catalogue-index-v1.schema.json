@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/OctavianYimingZhang/University-Application-Skill/catalogues/schemas/catalogue-index-v1.schema.json",
+  "title": "ProgrammeCatalogueIndex v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "contract",
+    "version",
+    "language",
+    "verification_scope",
+    "identity_status",
+    "requirements_status",
+    "updated_at",
+    "programme_count",
+    "programme_id_sha256",
+    "institutions"
+  ],
+  "properties": {
+    "$schema": { "const": "schemas/catalogue-index-v1.schema.json" },
+    "contract": { "const": "ProgrammeCatalogueIndex" },
+    "version": { "const": 1 },
+    "language": { "const": "en" },
+    "verification_scope": { "const": "programme_identity_only" },
+    "identity_status": { "const": "official_source_listed" },
+    "requirements_status": { "const": "not_collected" },
+    "updated_at": {
+      "type": "string",
+      "format": "date",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    },
+    "programme_count": { "type": "integer", "minimum": 0 },
+    "programme_id_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "institutions": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/institutionIndexEntry" }
+    }
+  },
+  "$defs": {
+    "institutionIndexEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name",
+        "short_name",
+        "group",
+        "region",
+        "accessed_at",
+        "identity_status",
+        "requirements_status",
+        "programme_count",
+        "undergraduate_count",
+        "postgraduate_count",
+        "programme_id_sha256",
+        "source_file",
+        "migration_source"
+      ],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+        "name": { "type": "string", "minLength": 1 },
+        "short_name": { "type": "string", "minLength": 1 },
+        "group": { "enum": ["UK Core", "US News Top 30", "Singapore"] },
+        "region": { "enum": ["United Kingdom", "United States", "Singapore"] },
+        "accessed_at": {
+          "type": "string",
+          "format": "date",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+        },
+        "identity_status": { "const": "official_source_listed" },
+        "requirements_status": { "const": "not_collected" },
+        "programme_count": { "type": "integer", "minimum": 0 },
+        "undergraduate_count": { "type": "integer", "minimum": 0 },
+        "postgraduate_count": { "type": "integer", "minimum": 0 },
+        "programme_id_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "source_file": { "type": "string", "pattern": "^institutions/[a-z0-9-]+\\.json$" },
+        "migration_source": { "type": "string", "pattern": "^[A-Za-z]+Programs\\.ts$" }
+      }
+    }
+  }
+}

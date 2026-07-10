@@ -4,6 +4,12 @@ A multiple-skill Codex package for source-backed university application planning
 
 It supports official programme research, hard requirement audits, confirmed-evidence application-material checks, interactive SOP/personal-statement planning, submission readiness, student visa readiness, explicit programme-table maintenance, workbook exports, and blank-by-default long-memory orchestration. It recognizes non-English intent, defaults outputs to English unless the user explicitly requests otherwise, and does not produce admission-probability predictions.
 
+## Programme Identity Catalogue
+
+The canonical curated catalogue is Plugin-owned data under [`catalogues/`](catalogues/), independent of the website. [`catalogues/index.json`](catalogues/index.json) provides a lazy-load index across 43 institutions; institution files preserve official-source programme identity coverage, stable IDs, HTTPS URLs, access dates, and source notes.
+
+Catalogue coverage is identity-only. Every row is `official_source_listed` with `requirements_status: not_collected`; it does not verify entry requirements, deadlines, fees, availability, or applicant fit. Illustrative examples remain `illustrative_only`, and placeholders or link-only records cannot be treated as verified.
+
 ## Web App
 
 The interactive prototype lives in [`web/`](web/). It is a React + Vite + TypeScript app designed as a dark, data-product style admissions workspace.
@@ -57,6 +63,7 @@ Focused Skills live under [`skills/`](skills/):
 | `references/` | Intake, research, essay/SOP, memory, submission, workbook, and quality guidance. |
 | `contracts/` | Shared Soleil interoperability schemas; byte-identical across Plugins. |
 | `schemas/application-case-v1.schema.json` | Admissions-specific Site contract for a source-state-aware application case. |
+| `catalogues/` | Plugin-owned lazy-load programme identity index, institution JSON files, and catalogue schemas. |
 | `memory/` | Blank memory templates only; private populated files are ignored by git. |
 | `scripts/` | Route planning, review-question payloads, validation, publishing, workbook rendering, and programme-table utilities. |
 | `plugin-capability-manifest.v2.json` | Route ownership, gates, outputs, adapters, and supported context versions. |
@@ -97,6 +104,8 @@ That path is ignored by git.
 
 ```bash
 python3 -m compileall -q scripts
+python3 scripts/validate_catalogues.py
+python3 -m unittest tests.test_catalogues -v
 python3 scripts/check_setup_contract.py
 python3 scripts/validate_skill_contracts.py
 python3 scripts/plan_workflow.py --self-test
@@ -146,6 +155,7 @@ The bridge exposes `GET /codex/status`, `POST /codex/start-oauth`, `POST /codex/
 - Do not invent deadlines, fees, requirements, scholarships, visa rules, or programme facts.
 - Do not use acceptance-rate or probability-style prediction UI.
 - Catalogue builders use normal TLS certificate verification and fail explicitly when verified requests fail.
+- Curated catalogue identities use stable globally unique IDs, HTTPS official URLs, explicit source/access provenance, and `requirements_status: not_collected`.
 
 ## License
 

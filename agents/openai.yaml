@@ -20,4 +20,5 @@ source_policy:
   hard_requirements: "official_only"
   probability_prediction: "prohibited"
   applicant_evidence_contract: "references/evidence-contract.md"
+  programme_identity_catalogue: "catalogues/index.json; official-source-listed identity only; requirements not collected"
   default_output_language: "en"

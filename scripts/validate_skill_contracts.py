@@ -55,6 +55,7 @@ def check_manifest() -> dict[str, Any]:
     required = {
         "schema_version", "skill_id", "repo", "branch", "entrypoint", "multi_skill_system", "routes",
         "focused_skills", "plugin_router_skill", "index_skill", "compatibility_aliases", "capability_manifest", "application_case_schema",
+        "catalogue_index", "catalogue_schemas",
         "supported_context_versions", "default_output_language",
     }
     missing = sorted(required - set(manifest))
@@ -85,6 +86,14 @@ def check_manifest() -> dict[str, Any]:
         fail("plugin capability manifest missing")
     if not (ROOT / manifest["application_case_schema"]).exists():
         fail("ApplicationCase schema missing")
+    if not (ROOT / manifest["catalogue_index"]).exists():
+        fail("Plugin-owned programme catalogue index missing")
+    catalogue_schemas = manifest.get("catalogue_schemas")
+    if not isinstance(catalogue_schemas, list) or len(catalogue_schemas) != 2:
+        fail("catalogue_schemas must list the index and institution schemas")
+    for schema_path in catalogue_schemas:
+        if not (ROOT / schema_path).exists():
+            fail(f"programme catalogue schema missing: {schema_path}")
     return manifest
 
 
@@ -130,7 +139,7 @@ def check_relative_resource_links() -> None:
             resolved = (skill_path.parent / target).resolve()
             if not resolved.exists():
                 fail(f"broken local link in {skill_path.relative_to(ROOT)}: {target}")
-            if skill_path.parent.parent == ROOT / "skills" and target.startswith(("references/", "scripts/", "contracts/")):
+            if skill_path.parent.parent == ROOT / "skills" and target.startswith(("references/", "scripts/", "contracts/", "catalogues/")):
                 fail(f"focused Skill resource link is relative to the wrong directory: {skill_path.relative_to(ROOT)} -> {target}")
 
 
@@ -329,6 +338,37 @@ def check_programme_table_english_defaults() -> None:
             fail(f"programme workbook cleaner still emits Chinese default content: {generated_chinese}")
 
 
+def check_catalogue_contract(manifest: dict[str, Any]) -> None:
+    proc = subprocess.run(
+        [sys.executable, str(ROOT / "scripts" / "validate_catalogues.py"), "--json"],
+        cwd=ROOT,
+        text=True,
+        capture_output=True,
+    )
+    if proc.returncode != 0:
+        fail(f"programme catalogue validation failed\n{proc.stdout}\n{proc.stderr}")
+    report = json.loads(proc.stdout)
+    if report.get("status") != "ok" or report.get("programme_count", 0) <= 0:
+        fail("programme catalogue validator returned an invalid coverage report")
+    if Path(manifest["catalogue_index"]) != Path("catalogues/index.json"):
+        fail("catalogue_index must point to the Plugin-owned lazy-load index")
+
+    builders = [
+        *sorted((ROOT / "scripts").glob("build_*_catalogue.py")),
+        ROOT / "scripts" / "build_us_singapore_catalogues.py",
+        ROOT / "scripts" / "build_oxford_catalogue.mjs",
+    ]
+    builders = list(dict.fromkeys(path for path in builders if path.exists()))
+    if len(builders) != 10:
+        fail(f"expected 10 official-source catalogue builders, found {len(builders)}")
+    for path in builders:
+        body = text(path)
+        if "web/src/data" in body or re.search(r'"web"\s*/\s*"src"\s*/\s*"data"', body):
+            fail(f"catalogue builder still targets the legacy website: {path.name}")
+        if "catalogue" not in body.lower():
+            fail(f"catalogue builder does not target Plugin-owned catalogue data: {path.name}")
+
+
 def check_shipped_data() -> None:
     for path in (ROOT / "tests" / "fixtures").glob("*.json"):
         fixture = read_json(path)
@@ -381,7 +421,7 @@ def check_plugin_and_agents(manifest: dict[str, Any]) -> None:
     agents = text(ROOT / "agents" / "openai.yaml")
     for token in (
         "$university-application-index", 'plugin_router_skill: "skills/university-application-index/SKILL.md"',
-        '"visa-readiness"', 'default_output_language: "en"',
+        '"visa-readiness"', 'default_output_language: "en"', 'programme_identity_catalogue: "catalogues/index.json',
     ):
         if token not in agents:
             fail(f"agents/openai.yaml metadata missing: {token}")
@@ -410,6 +450,7 @@ def main() -> None:
     check_route_scripts(manifest)
     check_tls_policy()
     check_programme_table_english_defaults()
+    check_catalogue_contract(manifest)
     check_shipped_data()
     check_plugin_and_agents(manifest)
     run_self_tests()

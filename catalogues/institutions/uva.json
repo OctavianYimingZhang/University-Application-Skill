@@ -1,0 +1,1708 @@
+{
+  "$schema": "../schemas/institution-catalogue-v1.schema.json",
+  "contract": "InstitutionProgrammeCatalogue",
+  "version": 1,
+  "language": "en",
+  "institution": {
+    "id": "uva",
+    "name": "University of Virginia",
+    "short_name": "UVA",
+    "group": "US News Top 30",
+    "region": "United States",
+    "rank_note": "US News 2026 top-30 cutoff source list"
+  },
+  "catalogue_scope": {
+    "record_type": "programme_identity",
+    "identity_status": "official_source_listed",
+    "requirements_status": "not_collected",
+    "placeholder_records_verified": false,
+    "link_only_records_verified": false
+  },
+  "catalogue_provenance": {
+    "accessed_at": "2026-06-26",
+    "official_sources": [
+      {
+        "degree_level": "Undergraduate",
+        "title": "Undergraduate majors and minors",
+        "official_url": "https://www.virginia.edu/majors-minors/",
+        "coverage": "Official index",
+        "note": "Official undergraduate programme catalogue or admissions major index."
+      },
+      {
+        "degree_level": "Postgraduate",
+        "title": "Graduate studies",
+        "official_url": "https://www.virginia.edu/graduate-studies/",
+        "coverage": "Official index",
+        "note": "Official graduate/professional programme catalogue or graduate school programme index."
+      }
+    ],
+    "allowed_official_hosts": [
+      "americanstudies.as.virginia.edu",
+      "anthropology.as.virginia.edu",
+      "archaeology.virginia.edu",
+      "art.as.virginia.edu",
+      "asl.virginia.edu",
+      "astronomy.as.virginia.edu",
+      "batten.virginia.edu",
+      "bio.as.virginia.edu",
+      "bioethics.as.virginia.edu",
+      "chemistry.as.virginia.edu",
+      "classics.as.virginia.edu",
+      "cogsci.as.virginia.edu",
+      "datascience.virginia.edu",
+      "drama.virginia.edu",
+      "eastasian.as.virginia.edu",
+      "economics.virginia.edu",
+      "education.virginia.edu",
+      "engineering.virginia.edu",
+      "english.as.virginia.edu",
+      "etp.virginia.edu",
+      "evsc.as.virginia.edu",
+      "french.as.virginia.edu",
+      "german.as.virginia.edu",
+      "globalstudies.as.virginia.edu",
+      "history.virginia.edu",
+      "jewishstudies.as.virginia.edu",
+      "latinamerican.virginia.edu",
+      "linguistics.virginia.edu",
+      "math.virginia.edu",
+      "mediastudies.as.virginia.edu",
+      "medievalstudies.as.virginia.edu",
+      "mesalc.as.virginia.edu",
+      "music.virginia.edu",
+      "neuroscience.as.virginia.edu",
+      "nursing.virginia.edu",
+      "philosophy.virginia.edu",
+      "politics.virginia.edu",
+      "ppl.virginia.edu",
+      "pst.as.virginia.edu",
+      "psychology.as.virginia.edu",
+      "religiousstudies.as.virginia.edu",
+      "slavic.as.virginia.edu",
+      "sociology.as.virginia.edu",
+      "spanitalport.as.virginia.edu",
+      "statistics.as.virginia.edu",
+      "uva.theopenscholar.com",
+      "wgs.as.virginia.edu",
+      "woodson.as.virginia.edu",
+      "www.arch.virginia.edu",
+      "www.commerce.virginia.edu",
+      "www.phys.virginia.edu",
+      "www.scps.virginia.edu",
+      "www.virginia.edu"
+    ],
+    "extraction_note": "Official catalogue rows loaded: 106 programme rows. Individual hard requirements must still be read from the relevant programme page.",
+    "caveat": "U.S. institutions distribute requirements across schools, departments, and admissions offices; unsupported details remain source gaps.",
+    "migration_source": "usPrograms.ts"
+  },
+  "illustrative_examples": [
+    {
+      "id": "uva-ug-catalogue",
+      "name": "UVA undergraduate programme catalogue",
+      "degree_level": "Undergraduate",
+      "award": "UG",
+      "official_url": "https://www.virginia.edu/majors-minors/",
+      "selection_status": "illustrative_only"
+    },
+    {
+      "id": "uva-pg-catalogue",
+      "name": "UVA postgraduate programme catalogue",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://www.virginia.edu/graduate-studies/",
+      "selection_status": "illustrative_only"
+    }
+  ],
+  "programmes": [
+    {
+      "id": "uva-un-aerospace-engineering-major-minor",
+      "institution_id": "uva",
+      "name": "Aerospace Engineering",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://engineering.virginia.edu/department/mechanical-and-aerospace-engineering/academics/ae-undergraduate-program",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://engineering.virginia.edu/department/mechanical-and-aerospace-engineering/academics/ae-undergraduate-program",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-african-american-and-african-studies-major-minor",
+      "institution_id": "uva",
+      "name": "African American and African Studies",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://woodson.as.virginia.edu/undergraduate-program",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://woodson.as.virginia.edu/undergraduate-program",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-american-sign-language-major-minor",
+      "institution_id": "uva",
+      "name": "American Sign Language",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://asl.virginia.edu/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://asl.virginia.edu/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-american-studies-major-minor",
+      "institution_id": "uva",
+      "name": "American Studies",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://americanstudies.as.virginia.edu/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://americanstudies.as.virginia.edu/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-anthropology-major-minor",
+      "institution_id": "uva",
+      "name": "Anthropology",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://anthropology.as.virginia.edu/undergraduate-degree-programs",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://anthropology.as.virginia.edu/undergraduate-degree-programs",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-applied-mathematics-major-minor",
+      "institution_id": "uva",
+      "name": "Applied Mathematics",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://engineering.virginia.edu/offices-programs/applied-mathematics",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://engineering.virginia.edu/offices-programs/applied-mathematics",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-archaeology-major-minor",
+      "institution_id": "uva",
+      "name": "Archaeology",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://archaeology.virginia.edu/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://archaeology.virginia.edu/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-architectural-history-major-minor",
+      "institution_id": "uva",
+      "name": "Architectural History",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://www.arch.virginia.edu/programs/architectural-history",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.arch.virginia.edu/programs/architectural-history",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-architecture-major-minor",
+      "institution_id": "uva",
+      "name": "Architecture",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://www.arch.virginia.edu/programs/architecture",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.arch.virginia.edu/programs/architecture",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-art-history-major-minor",
+      "institution_id": "uva",
+      "name": "Art History",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://art.as.virginia.edu/art-history",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://art.as.virginia.edu/art-history",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-asian-pacific-american-studies-major-minor",
+      "institution_id": "uva",
+      "name": "Asian Pacific American Studies",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://americanstudies.as.virginia.edu/minor-asian-pacific-american-studies",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://americanstudies.as.virginia.edu/minor-asian-pacific-american-studies",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-astronomy-major-minor",
+      "institution_id": "uva",
+      "name": "Astronomy",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://astronomy.as.virginia.edu/why-study-astronomy",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://astronomy.as.virginia.edu/why-study-astronomy",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-behavioral-neuroscience-b-s-major-minor",
+      "institution_id": "uva",
+      "name": "Behavioral Neuroscience, B.S.",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://psychology.as.virginia.edu/bs-behavioral-neuroscience",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://psychology.as.virginia.edu/bs-behavioral-neuroscience",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-biology-major-minor",
+      "institution_id": "uva",
+      "name": "Biology",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://bio.as.virginia.edu/undergraduate",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bio.as.virginia.edu/undergraduate",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-biomedical-engineering-major-minor",
+      "institution_id": "uva",
+      "name": "Biomedical Engineering",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://engineering.virginia.edu/bme",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://engineering.virginia.edu/bme",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-business-spanish-minor-major-minor",
+      "institution_id": "uva",
+      "name": "Business Spanish Minor",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://spanitalport.as.virginia.edu/minoring-spanish",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://spanitalport.as.virginia.edu/minoring-spanish",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-chemical-engineering-major-minor",
+      "institution_id": "uva",
+      "name": "Chemical Engineering",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://engineering.virginia.edu/department/chemical-engineering/academics/che-undergraduate-programs",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://engineering.virginia.edu/department/chemical-engineering/academics/che-undergraduate-programs",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-chemistry-major-minor",
+      "institution_id": "uva",
+      "name": "Chemistry",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://chemistry.as.virginia.edu/undergraduate",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://chemistry.as.virginia.edu/undergraduate",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-chinese-language-and-literature-major-minor",
+      "institution_id": "uva",
+      "name": "Chinese Language & Literature",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://eastasian.as.virginia.edu/chinese",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://eastasian.as.virginia.edu/chinese",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-civil-engineering-major-minor",
+      "institution_id": "uva",
+      "name": "Civil Engineering",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://engineering.virginia.edu/department/civil-and-environmental-engineering/academics/cee-undergraduate-programs",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://engineering.virginia.edu/department/civil-and-environmental-engineering/academics/cee-undergraduate-programs",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-classics-major-minor",
+      "institution_id": "uva",
+      "name": "Classics",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://classics.as.virginia.edu/undergraduate-program",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://classics.as.virginia.edu/undergraduate-program",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-cognitive-science-major-minor",
+      "institution_id": "uva",
+      "name": "Cognitive Science",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://cogsci.as.virginia.edu/admission-and-requirements",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cogsci.as.virginia.edu/admission-and-requirements",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-commerce-major-minor",
+      "institution_id": "uva",
+      "name": "Commerce",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://www.commerce.virginia.edu/bs-commerce",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.commerce.virginia.edu/bs-commerce",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-computer-engineering-major-minor",
+      "institution_id": "uva",
+      "name": "Computer Engineering",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://engineering.virginia.edu/offices-programs/computer-engineering-program",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://engineering.virginia.edu/offices-programs/computer-engineering-program",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-computer-science-b-a-and-b-s-major-minor",
+      "institution_id": "uva",
+      "name": "Computer Science, B.A. and B.S.",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://engineering.virginia.edu/department/computer-science/academics/cs-undergraduate-programs",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://engineering.virginia.edu/department/computer-science/academics/cs-undergraduate-programs",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-dance-major-minor",
+      "institution_id": "uva",
+      "name": "Dance",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://drama.virginia.edu/minor-dance",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://drama.virginia.edu/minor-dance",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-data-analytics-major-minor",
+      "institution_id": "uva",
+      "name": "Data Analytics",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://statistics.as.virginia.edu/minor-data-analytics",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://statistics.as.virginia.edu/minor-data-analytics",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-data-science-b-s-major-minor",
+      "institution_id": "uva",
+      "name": "Data Science, B.S.",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://datascience.virginia.edu/degrees/bsds",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://datascience.virginia.edu/degrees/bsds",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-data-science-minor-major-minor",
+      "institution_id": "uva",
+      "name": "Data Science Minor",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://datascience.virginia.edu/degrees/minor-data-science",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://datascience.virginia.edu/degrees/minor-data-science",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-design-minor-major-minor",
+      "institution_id": "uva",
+      "name": "Design Minor",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://www.arch.virginia.edu/programs/undergraduate-minors",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.arch.virginia.edu/programs/undergraduate-minors",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-drama-major-minor",
+      "institution_id": "uva",
+      "name": "Drama",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://drama.virginia.edu/undergraduate-programs",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://drama.virginia.edu/undergraduate-programs",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-early-childhood-education-b-s-ed-major-minor",
+      "institution_id": "uva",
+      "name": "Early Childhood Education, B.S.Ed.",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://education.virginia.edu/academics/programs/early-childhood-education-bsed-bachelor-science-education",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://education.virginia.edu/academics/programs/early-childhood-education-bsed-bachelor-science-education",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-east-asian-languages-literatures-and-culture-major-minor",
+      "institution_id": "uva",
+      "name": "East Asian Languages, Literatures and Culture",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://eastasian.as.virginia.edu/east-asian-studies",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://eastasian.as.virginia.edu/east-asian-studies",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-economics-major-minor",
+      "institution_id": "uva",
+      "name": "Economics",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://economics.virginia.edu/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://economics.virginia.edu/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-electrical-engineering-major-minor",
+      "institution_id": "uva",
+      "name": "Electrical Engineering",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://engineering.virginia.edu/department/electrical-and-computer-engineering/academics/ece-undergraduate-programs",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://engineering.virginia.edu/department/electrical-and-computer-engineering/academics/ece-undergraduate-programs",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-elementary-education-b-s-ed-major-minor",
+      "institution_id": "uva",
+      "name": "Elementary Education, B.S.Ed.",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://education.virginia.edu/academics/programs/elementary-education-bsed-bachelor-science-education",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://education.virginia.edu/academics/programs/elementary-education-bsed-bachelor-science-education",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-engineering-science-major-minor",
+      "institution_id": "uva",
+      "name": "Engineering Science",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://engineering.virginia.edu/undergraduate-study/future-undergrads/special-academic-programs/engineering-science",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://engineering.virginia.edu/undergraduate-study/future-undergrads/special-academic-programs/engineering-science",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-english-major-minor",
+      "institution_id": "uva",
+      "name": "English",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://english.as.virginia.edu/english-major",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://english.as.virginia.edu/english-major",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-entrepreneurship-major-minor",
+      "institution_id": "uva",
+      "name": "Entrepreneurship",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://www.commerce.virginia.edu/minors/entrepreneurship",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.commerce.virginia.edu/minors/entrepreneurship",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-environmental-sciences-major-minor",
+      "institution_id": "uva",
+      "name": "Environmental Sciences",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://evsc.as.virginia.edu/undergraduate",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://evsc.as.virginia.edu/undergraduate",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-environmental-thought-and-practice-major-minor",
+      "institution_id": "uva",
+      "name": "Environmental Thought and Practice",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://etp.virginia.edu/prospective-students",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://etp.virginia.edu/prospective-students",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-foreign-affairs-minor-major-minor",
+      "institution_id": "uva",
+      "name": "Foreign Affairs Minor",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://politics.virginia.edu/undergraduate-major-and-minor",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://politics.virginia.edu/undergraduate-major-and-minor",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-french-major-minor",
+      "institution_id": "uva",
+      "name": "French",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://french.as.virginia.edu/undergraduate",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://french.as.virginia.edu/undergraduate",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-general-business-minor-major-minor",
+      "institution_id": "uva",
+      "name": "General Business Minor",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://www.commerce.virginia.edu/minors/general-business",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.commerce.virginia.edu/minors/general-business",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-german-major-minor",
+      "institution_id": "uva",
+      "name": "German",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://german.as.virginia.edu/index.php/undergraduate-program",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://german.as.virginia.edu/index.php/undergraduate-program",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-global-culture-and-commerce-major-minor",
+      "institution_id": "uva",
+      "name": "Global Culture and Commerce",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://anthropology.as.virginia.edu/global-culture-and-commerce-minor",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://anthropology.as.virginia.edu/global-culture-and-commerce-minor",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-global-studies-major-minor",
+      "institution_id": "uva",
+      "name": "Global Studies",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://globalstudies.as.virginia.edu/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://globalstudies.as.virginia.edu/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-global-studies-in-education-minor-major-minor",
+      "institution_id": "uva",
+      "name": "Global Studies in Education Minor",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://education.virginia.edu/academics/programs/global-studies-education-undergraduate-minor",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://education.virginia.edu/academics/programs/global-studies-education-undergraduate-minor",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-global-environments-and-sustainability-major-minor",
+      "institution_id": "uva",
+      "name": "Global Environments and Sustainability",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://globalstudies.as.virginia.edu/global-environments-sustainability",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://globalstudies.as.virginia.edu/global-environments-sustainability",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-government-minor-major-minor",
+      "institution_id": "uva",
+      "name": "Government Minor",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://politics.virginia.edu/undergraduate-major-and-minor",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://politics.virginia.edu/undergraduate-major-and-minor",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-health-and-wellbeing-minor-major-minor",
+      "institution_id": "uva",
+      "name": "Health and Wellbeing Minor",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://education.virginia.edu/academics/programs/health-wellbeing-undergraduate-minor",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://education.virginia.edu/academics/programs/health-wellbeing-undergraduate-minor",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-health-ethics-and-society-major-minor",
+      "institution_id": "uva",
+      "name": "Health, Ethics, and Society",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://bioethics.as.virginia.edu/health-ethics-and-society-program",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bioethics.as.virginia.edu/health-ethics-and-society-program",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-health-sciences-management-b-p-s-major-minor",
+      "institution_id": "uva",
+      "name": "Health Sciences Management, B.P.S.",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://www.scps.virginia.edu/programs/bachelor-professional-studies-health-sciences-management",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.scps.virginia.edu/programs/bachelor-professional-studies-health-sciences-management",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-history-major-minor",
+      "institution_id": "uva",
+      "name": "History",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://history.virginia.edu/undergradprogram",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://history.virginia.edu/undergradprogram",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-history-of-art-major-minor",
+      "institution_id": "uva",
+      "name": "History of Art",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://art.as.virginia.edu/art-history",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://art.as.virginia.edu/art-history",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-history-of-science-and-technology-major-minor",
+      "institution_id": "uva",
+      "name": "History of Science and Technology",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://engineering.virginia.edu/department/engineering-and-society/academics/history-science-and-technology-minor",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://engineering.virginia.edu/department/engineering-and-society/academics/history-science-and-technology-minor",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-historic-preservation-minor-major-minor",
+      "institution_id": "uva",
+      "name": "Historic Preservation Minor",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://www.arch.virginia.edu/programs/undergraduate-minors",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.arch.virginia.edu/programs/undergraduate-minors",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-human-biology-major-minor",
+      "institution_id": "uva",
+      "name": "Human Biology",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://uva.theopenscholar.com/human-biology",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://uva.theopenscholar.com/human-biology",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-interdisciplinary-studies-major-minor",
+      "institution_id": "uva",
+      "name": "Interdisciplinary Studies",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://www.scps.virginia.edu/programs/bachelor-interdisciplinary-studies-degree",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.scps.virginia.edu/programs/bachelor-interdisciplinary-studies-degree",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-italian-major-minor",
+      "institution_id": "uva",
+      "name": "Italian",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://spanitalport.as.virginia.edu/italian-major",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://spanitalport.as.virginia.edu/italian-major",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-japanese-language-and-literature-major-minor",
+      "institution_id": "uva",
+      "name": "Japanese Language & Literature",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://eastasian.as.virginia.edu/japanese",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://eastasian.as.virginia.edu/japanese",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-jewish-studies-major-minor",
+      "institution_id": "uva",
+      "name": "Jewish Studies",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://jewishstudies.as.virginia.edu/major",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://jewishstudies.as.virginia.edu/major",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-kinesiology-b-s-ed-major-minor",
+      "institution_id": "uva",
+      "name": "Kinesiology, B.S.Ed.",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://education.virginia.edu/offices-departments/kinesiology",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://education.virginia.edu/offices-departments/kinesiology",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-korean-major-minor",
+      "institution_id": "uva",
+      "name": "Korean",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://eastasian.as.virginia.edu/korean",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://eastasian.as.virginia.edu/korean",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-landscape-architecture-minor-major-minor",
+      "institution_id": "uva",
+      "name": "Landscape Architecture Minor",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://www.arch.virginia.edu/programs/undergraduate-minors",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.arch.virginia.edu/programs/undergraduate-minors",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-latin-american-studies-major-minor",
+      "institution_id": "uva",
+      "name": "Latin American Studies",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://latinamerican.virginia.edu/majors",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://latinamerican.virginia.edu/majors",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-latinx-studies-minor-major-minor",
+      "institution_id": "uva",
+      "name": "Latinx Studies Minor",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://americanstudies.as.virginia.edu/minor-latinx-studies",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://americanstudies.as.virginia.edu/minor-latinx-studies",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-leadership-major-minor",
+      "institution_id": "uva",
+      "name": "Leadership",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://www.commerce.virginia.edu/minors/leadership",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.commerce.virginia.edu/minors/leadership",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-linguistics-major-minor",
+      "institution_id": "uva",
+      "name": "Linguistics",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://linguistics.virginia.edu/ba-program",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://linguistics.virginia.edu/ba-program",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-materials-science-and-engineering-major-minor",
+      "institution_id": "uva",
+      "name": "Materials Science and Engineering",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://engineering.virginia.edu/department/materials-science-and-engineering/academics/mse-undergraduate-programs",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://engineering.virginia.edu/department/materials-science-and-engineering/academics/mse-undergraduate-programs",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-mathematics-major-minor",
+      "institution_id": "uva",
+      "name": "Mathematics",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://math.virginia.edu/undergraduate/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://math.virginia.edu/undergraduate/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-mechanical-engineering-major-minor",
+      "institution_id": "uva",
+      "name": "Mechanical Engineering",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://engineering.virginia.edu/department/mechanical-and-aerospace-engineering/academics/me-undergraduate-program",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://engineering.virginia.edu/department/mechanical-and-aerospace-engineering/academics/me-undergraduate-program",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-media-studies-major-minor",
+      "institution_id": "uva",
+      "name": "Media Studies",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://mediastudies.as.virginia.edu/media-studies-major",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://mediastudies.as.virginia.edu/media-studies-major",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-medieval-studies-major-minor",
+      "institution_id": "uva",
+      "name": "Medieval Studies",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://medievalstudies.as.virginia.edu/major",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://medievalstudies.as.virginia.edu/major",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-middle-eastern-and-south-asian-languages-and-cultures-major-minor",
+      "institution_id": "uva",
+      "name": "Middle Eastern and South Asian Languages and Cultures",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://mesalc.as.virginia.edu/undergraduate-program",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://mesalc.as.virginia.edu/undergraduate-program",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-music-major-minor",
+      "institution_id": "uva",
+      "name": "Music",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://music.virginia.edu/undergraduate",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://music.virginia.edu/undergraduate",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-native-american-indigenous-studies-minor-major-minor",
+      "institution_id": "uva",
+      "name": "Native American Indigenous Studies Minor",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://americanstudies.as.virginia.edu/minor-native-american-indigenous-studies",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://americanstudies.as.virginia.edu/minor-native-american-indigenous-studies",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-neuroscience-major-minor",
+      "institution_id": "uva",
+      "name": "Neuroscience",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://neuroscience.as.virginia.edu/undergraduate-major",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://neuroscience.as.virginia.edu/undergraduate-major",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-nursing-major-minor",
+      "institution_id": "uva",
+      "name": "Nursing",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://nursing.virginia.edu/academics/bsn/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://nursing.virginia.edu/academics/bsn/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-philosophy-major-minor",
+      "institution_id": "uva",
+      "name": "Philosophy",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://philosophy.virginia.edu/major",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://philosophy.virginia.edu/major",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-physics-major-minor",
+      "institution_id": "uva",
+      "name": "Physics",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://www.phys.virginia.edu/Education/undergrad.asp",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.phys.virginia.edu/Education/undergrad.asp",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-political-and-social-thought-major-minor",
+      "institution_id": "uva",
+      "name": "Political and Social Thought",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://pst.as.virginia.edu/major",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://pst.as.virginia.edu/major",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-political-philosophy-policy-and-law-major-minor",
+      "institution_id": "uva",
+      "name": "Political Philosophy, Policy, and Law",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://ppl.virginia.edu/about",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://ppl.virginia.edu/about",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-politics-major-minor",
+      "institution_id": "uva",
+      "name": "Politics",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://politics.virginia.edu/undergraduate-program",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://politics.virginia.edu/undergraduate-program",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-portuguese-major-minor",
+      "institution_id": "uva",
+      "name": "Portuguese",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://spanitalport.as.virginia.edu/portuguese-program",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://spanitalport.as.virginia.edu/portuguese-program",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-psychology-major-minor",
+      "institution_id": "uva",
+      "name": "Psychology",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://psychology.as.virginia.edu/undergraduate-program",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://psychology.as.virginia.edu/undergraduate-program",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-public-policy-and-leadership-major-minor",
+      "institution_id": "uva",
+      "name": "Public Policy and Leadership",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://batten.virginia.edu/academics/undergraduate-programs",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://batten.virginia.edu/academics/undergraduate-programs",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-public-writing-and-rhetoric-minor-major-minor",
+      "institution_id": "uva",
+      "name": "Public Writing and Rhetoric Minor",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://english.as.virginia.edu/english-minor-public-writing-and-rhetoric",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://english.as.virginia.edu/english-minor-public-writing-and-rhetoric",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-real-estate-minor-major-minor",
+      "institution_id": "uva",
+      "name": "Real Estate Minor",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://www.commerce.virginia.edu/minors/real-estate",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.commerce.virginia.edu/minors/real-estate",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-religious-studies-major-minor",
+      "institution_id": "uva",
+      "name": "Religious Studies",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://religiousstudies.as.virginia.edu/major",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://religiousstudies.as.virginia.edu/major",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-science-and-technology-policy-minor-major-minor",
+      "institution_id": "uva",
+      "name": "Science and Technology Policy Minor",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://engineering.virginia.edu/department/engineering-and-society/academics/science-and-technology-policy-minor",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://engineering.virginia.edu/department/engineering-and-society/academics/science-and-technology-policy-minor",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-science-technology-and-society-minor-major-minor",
+      "institution_id": "uva",
+      "name": "Science, Technology, and Society Minor",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://engineering.virginia.edu/department/engineering-and-society/academics/sts-minor",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://engineering.virginia.edu/department/engineering-and-society/academics/sts-minor",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-slavic-languages-and-literatures-major-minor",
+      "institution_id": "uva",
+      "name": "Slavic Languages and Literatures",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://slavic.as.virginia.edu/undergraduate-majors",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://slavic.as.virginia.edu/undergraduate-majors",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-sociology-major-minor",
+      "institution_id": "uva",
+      "name": "Sociology",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://sociology.as.virginia.edu/welcome-sociology",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://sociology.as.virginia.edu/welcome-sociology",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-south-asian-languages-and-literatures-major-minor",
+      "institution_id": "uva",
+      "name": "South Asian Languages and Literatures",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://mesalc.as.virginia.edu/language-literature-major",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://mesalc.as.virginia.edu/language-literature-major",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-spanish-major-minor",
+      "institution_id": "uva",
+      "name": "Spanish",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://spanitalport.as.virginia.edu/majoring-spanish",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://spanitalport.as.virginia.edu/majoring-spanish",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-special-education-b-s-ed-major-minor",
+      "institution_id": "uva",
+      "name": "Special Education, B.S.Ed.",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://education.virginia.edu/academics/programs/special-education-bsed-bachelor-science-education",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://education.virginia.edu/academics/programs/special-education-bsed-bachelor-science-education",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-speech-communication-disorders-b-s-ed-major-minor",
+      "institution_id": "uva",
+      "name": "Speech Communication Disorders, B.S.Ed.",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://education.virginia.edu/academics/programs/speech-communication-disorders-bsed-bachelor-science-education",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://education.virginia.edu/academics/programs/speech-communication-disorders-bsed-bachelor-science-education",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-statistics-major-minor",
+      "institution_id": "uva",
+      "name": "Statistics",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://statistics.as.virginia.edu/selecting-majorminor",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://statistics.as.virginia.edu/selecting-majorminor",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-studio-art-major-minor",
+      "institution_id": "uva",
+      "name": "Studio Art",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://art.as.virginia.edu/studio-art",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://art.as.virginia.edu/studio-art",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-systems-engineering-major-minor",
+      "institution_id": "uva",
+      "name": "Systems Engineering",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://engineering.virginia.edu/department/systems-and-information-engineering/academics/sie-undergraduate-programs",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://engineering.virginia.edu/department/systems-and-information-engineering/academics/sie-undergraduate-programs",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-technology-and-the-environment-minor-major-minor",
+      "institution_id": "uva",
+      "name": "Technology and the Environment Minor",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://engineering.virginia.edu/department/civil-and-environmental-engineering/academics/undergraduate-programs/technology-and-environment-minor",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://engineering.virginia.edu/department/civil-and-environmental-engineering/academics/undergraduate-programs/technology-and-environment-minor",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-technology-ethics-minor-major-minor",
+      "institution_id": "uva",
+      "name": "Technology Ethics Minor",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://engineering.virginia.edu/department/engineering-and-society/academics/technology-ethics-minor",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://engineering.virginia.edu/department/engineering-and-society/academics/technology-ethics-minor",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-urban-and-environmental-planning-major-minor",
+      "institution_id": "uva",
+      "name": "Urban and Environmental Planning",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://www.arch.virginia.edu/programs/urban-environmental-planning",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.arch.virginia.edu/programs/urban-environmental-planning",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-women-gender-and-sexuality-major-minor",
+      "institution_id": "uva",
+      "name": "Women, Gender & Sexuality",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://wgs.as.virginia.edu/overview",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://wgs.as.virginia.edu/overview",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    },
+    {
+      "id": "uva-un-youth-and-social-innovation-b-s-ed-major-minor",
+      "institution_id": "uva",
+      "name": "Youth & Social Innovation, B.S.Ed.",
+      "degree_level": "Undergraduate",
+      "award": "Major/Minor",
+      "official_url": "https://education.virginia.edu/academics/programs/youth-social-innovation-bsed-bachelor-science-education",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://education.virginia.edu/academics/programs/youth-social-innovation-bsed-bachelor-science-education",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UVA undergraduate majors and minors row"
+      }
+    }
+  ]
+}

@@ -1,0 +1,377 @@
+{
+  "$schema": "../schemas/institution-catalogue-v1.schema.json",
+  "contract": "InstitutionProgrammeCatalogue",
+  "version": 1,
+  "language": "en",
+  "institution": {
+    "id": "lbs",
+    "name": "London Business School",
+    "short_name": "LBS",
+    "group": "UK Core",
+    "region": "United Kingdom"
+  },
+  "catalogue_scope": {
+    "record_type": "programme_identity",
+    "identity_status": "official_source_listed",
+    "requirements_status": "not_collected",
+    "placeholder_records_verified": false,
+    "link_only_records_verified": false
+  },
+  "catalogue_provenance": {
+    "accessed_at": "2026-06-26",
+    "official_sources": [
+      {
+        "degree_level": "Undergraduate",
+        "title": "No undergraduate degree catalogue",
+        "official_url": "https://www.london.edu/about/london-business-school/programmes",
+        "coverage": "No degree catalogue",
+        "note": "LBS does not publish an undergraduate degree catalogue."
+      },
+      {
+        "degree_level": "Postgraduate",
+        "title": "Masters degrees",
+        "official_url": "https://www.london.edu/masters-degrees",
+        "coverage": "Complete HTML",
+        "note": "Masters portfolio links are exposed in official HTML."
+      },
+      {
+        "degree_level": "Postgraduate",
+        "title": "PhD programme",
+        "official_url": "https://www.london.edu/phd",
+        "coverage": "Official index",
+        "note": "PhD and subject-area doctoral pages are official."
+      }
+    ],
+    "allowed_official_hosts": [
+      "www.london.edu"
+    ],
+    "extraction_note": "Official LBS rows loaded: no undergraduate degree catalogue, 10 masters degree roots, and 7 PhD subject-area pages. Executive education and short courses are excluded.",
+    "caveat": "No undergraduate degree options are listed for LBS.",
+    "migration_source": "lbsPrograms.ts"
+  },
+  "illustrative_examples": [
+    {
+      "id": "lbs-pg-mim",
+      "name": "Masters in Management",
+      "degree_level": "Postgraduate",
+      "award": "MSc",
+      "official_url": "https://www.london.edu/masters-degrees/masters-in-management",
+      "selection_status": "illustrative_only"
+    },
+    {
+      "id": "lbs-pg-mfa",
+      "name": "Masters in Financial Analysis",
+      "degree_level": "Postgraduate",
+      "award": "MSc",
+      "official_url": "https://www.london.edu/masters-degrees/masters-in-financial-analysis",
+      "selection_status": "illustrative_only"
+    },
+    {
+      "id": "lbs-pg-mba",
+      "name": "MBA",
+      "degree_level": "Postgraduate",
+      "award": "MBA",
+      "official_url": "https://www.london.edu/masters-degrees/mba",
+      "selection_status": "illustrative_only"
+    },
+    {
+      "id": "lbs-pg-finance-phd",
+      "name": "Finance",
+      "degree_level": "Postgraduate",
+      "award": "PhD",
+      "official_url": "https://www.london.edu/faculty-and-research/finance/phd-programme",
+      "selection_status": "illustrative_only"
+    }
+  ],
+  "programmes": [
+    {
+      "id": "lbs-pg-masters-in-management",
+      "institution_id": "lbs",
+      "name": "Masters in Management",
+      "degree_level": "Postgraduate",
+      "award": "Master's degree",
+      "official_url": "https://www.london.edu/masters-degrees/masters-in-management",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.london.edu/masters-degrees/masters-in-management",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official London Business School masters degree page"
+      },
+      "duration": "See official programme page",
+      "mode": "Taught"
+    },
+    {
+      "id": "lbs-pg-global-masters-in-management",
+      "institution_id": "lbs",
+      "name": "Global Masters in Management",
+      "degree_level": "Postgraduate",
+      "award": "Master's degree",
+      "official_url": "https://www.london.edu/masters-degrees/global-masters-in-management",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.london.edu/masters-degrees/global-masters-in-management",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official London Business School masters degree page"
+      },
+      "duration": "See official programme page",
+      "mode": "Taught"
+    },
+    {
+      "id": "lbs-pg-masters-in-financial-analysis",
+      "institution_id": "lbs",
+      "name": "Masters in Financial Analysis",
+      "degree_level": "Postgraduate",
+      "award": "Master's degree",
+      "official_url": "https://www.london.edu/masters-degrees/masters-in-financial-analysis",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.london.edu/masters-degrees/masters-in-financial-analysis",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official London Business School masters degree page"
+      },
+      "duration": "See official programme page",
+      "mode": "Taught"
+    },
+    {
+      "id": "lbs-pg-masters-in-analytics-and-management",
+      "institution_id": "lbs",
+      "name": "Masters in Analytics and Management",
+      "degree_level": "Postgraduate",
+      "award": "Master's degree",
+      "official_url": "https://www.london.edu/masters-degrees/masters-in-analytics-and-management",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.london.edu/masters-degrees/masters-in-analytics-and-management",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official London Business School masters degree page"
+      },
+      "duration": "See official programme page",
+      "mode": "Taught"
+    },
+    {
+      "id": "lbs-pg-mba",
+      "institution_id": "lbs",
+      "name": "MBA",
+      "degree_level": "Postgraduate",
+      "award": "MBA",
+      "official_url": "https://www.london.edu/masters-degrees/mba",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.london.edu/masters-degrees/mba",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official London Business School MBA degree page"
+      },
+      "duration": "See official programme page",
+      "mode": "Taught"
+    },
+    {
+      "id": "lbs-pg-one-year-mba",
+      "institution_id": "lbs",
+      "name": "One-year MBA",
+      "degree_level": "Postgraduate",
+      "award": "MBA",
+      "official_url": "https://www.london.edu/masters-degrees/one-year-mba",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.london.edu/masters-degrees/one-year-mba",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official London Business School MBA degree page"
+      },
+      "duration": "See official programme page",
+      "mode": "Taught"
+    },
+    {
+      "id": "lbs-pg-masters-in-finance-full-time",
+      "institution_id": "lbs",
+      "name": "Masters in Finance Full-time",
+      "degree_level": "Postgraduate",
+      "award": "Master's degree",
+      "official_url": "https://www.london.edu/masters-degrees/masters-in-finance-full-time",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.london.edu/masters-degrees/masters-in-finance-full-time",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official London Business School masters degree page"
+      },
+      "duration": "See official programme page",
+      "mode": "Taught"
+    },
+    {
+      "id": "lbs-pg-masters-in-finance-part-time",
+      "institution_id": "lbs",
+      "name": "Masters in Finance Part-time",
+      "degree_level": "Postgraduate",
+      "award": "Master's degree",
+      "official_url": "https://www.london.edu/masters-degrees/masters-in-finance-part-time",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.london.edu/masters-degrees/masters-in-finance-part-time",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official London Business School masters degree page"
+      },
+      "duration": "See official programme page",
+      "mode": "Taught"
+    },
+    {
+      "id": "lbs-pg-executive-mba",
+      "institution_id": "lbs",
+      "name": "Executive MBA",
+      "degree_level": "Postgraduate",
+      "award": "MBA",
+      "official_url": "https://www.london.edu/masters-degrees/executive-mba",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.london.edu/masters-degrees/executive-mba",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official London Business School Executive MBA degree page"
+      },
+      "duration": "See official programme page",
+      "mode": "Taught"
+    },
+    {
+      "id": "lbs-pg-sloan-masters-in-leadership-and-strategy",
+      "institution_id": "lbs",
+      "name": "Sloan Masters in Leadership and Strategy",
+      "degree_level": "Postgraduate",
+      "award": "Master's degree",
+      "official_url": "https://www.london.edu/masters-degrees/sloan-masters-in-leadership-and-strategy",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.london.edu/masters-degrees/sloan-masters-in-leadership-and-strategy",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official London Business School masters degree page"
+      },
+      "duration": "See official programme page",
+      "mode": "Taught"
+    },
+    {
+      "id": "lbs-pgr-accounting",
+      "institution_id": "lbs",
+      "name": "Accounting",
+      "degree_level": "Postgraduate",
+      "award": "PhD",
+      "official_url": "https://www.london.edu/faculty-and-research/accounting/phd-programme",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.london.edu/faculty-and-research/accounting/phd-programme",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official London Business School PhD subject-area page"
+      },
+      "duration": "See official programme page",
+      "mode": "Research"
+    },
+    {
+      "id": "lbs-pgr-economics",
+      "institution_id": "lbs",
+      "name": "Economics",
+      "degree_level": "Postgraduate",
+      "award": "PhD",
+      "official_url": "https://www.london.edu/faculty-and-research/economics/phd-programme",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.london.edu/faculty-and-research/economics/phd-programme",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official London Business School PhD subject-area page"
+      },
+      "duration": "See official programme page",
+      "mode": "Research"
+    },
+    {
+      "id": "lbs-pgr-finance",
+      "institution_id": "lbs",
+      "name": "Finance",
+      "degree_level": "Postgraduate",
+      "award": "PhD",
+      "official_url": "https://www.london.edu/faculty-and-research/finance/phd-programme",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.london.edu/faculty-and-research/finance/phd-programme",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official London Business School PhD subject-area page"
+      },
+      "duration": "See official programme page",
+      "mode": "Research"
+    },
+    {
+      "id": "lbs-pgr-management-science-and-operations",
+      "institution_id": "lbs",
+      "name": "Management Science and Operations",
+      "degree_level": "Postgraduate",
+      "award": "PhD",
+      "official_url": "https://www.london.edu/faculty-and-research/management-science-and-operations/phd-programme",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.london.edu/faculty-and-research/management-science-and-operations/phd-programme",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official London Business School PhD subject-area page"
+      },
+      "duration": "See official programme page",
+      "mode": "Research"
+    },
+    {
+      "id": "lbs-pgr-marketing",
+      "institution_id": "lbs",
+      "name": "Marketing",
+      "degree_level": "Postgraduate",
+      "award": "PhD",
+      "official_url": "https://www.london.edu/faculty-and-research/marketing/phd-programme",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.london.edu/faculty-and-research/marketing/phd-programme",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official London Business School PhD subject-area page"
+      },
+      "duration": "See official programme page",
+      "mode": "Research"
+    },
+    {
+      "id": "lbs-pgr-organisational-behaviour",
+      "institution_id": "lbs",
+      "name": "Organisational Behaviour",
+      "degree_level": "Postgraduate",
+      "award": "PhD",
+      "official_url": "https://www.london.edu/faculty-and-research/organisational-behaviour/phd-programme",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.london.edu/faculty-and-research/organisational-behaviour/phd-programme",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official London Business School PhD subject-area page"
+      },
+      "duration": "See official programme page",
+      "mode": "Research"
+    },
+    {
+      "id": "lbs-pgr-strategy-and-entrepreneurship",
+      "institution_id": "lbs",
+      "name": "Strategy and Entrepreneurship",
+      "degree_level": "Postgraduate",
+      "award": "PhD",
+      "official_url": "https://www.london.edu/faculty-and-research/strategy-and-entrepreneurship/phd-programme",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.london.edu/faculty-and-research/strategy-and-entrepreneurship/phd-programme",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official London Business School PhD subject-area page"
+      },
+      "duration": "See official programme page",
+      "mode": "Research"
+    }
+  ]
+}

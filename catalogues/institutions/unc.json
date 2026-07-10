@@ -1,0 +1,3126 @@
+{
+  "$schema": "../schemas/institution-catalogue-v1.schema.json",
+  "contract": "InstitutionProgrammeCatalogue",
+  "version": 1,
+  "language": "en",
+  "institution": {
+    "id": "unc",
+    "name": "University of North Carolina at Chapel Hill",
+    "short_name": "UNC",
+    "group": "US News Top 30",
+    "region": "United States",
+    "rank_note": "US News 2026 top-30 cutoff source list"
+  },
+  "catalogue_scope": {
+    "record_type": "programme_identity",
+    "identity_status": "official_source_listed",
+    "requirements_status": "not_collected",
+    "placeholder_records_verified": false,
+    "link_only_records_verified": false
+  },
+  "catalogue_provenance": {
+    "accessed_at": "2026-06-26",
+    "official_sources": [
+      {
+        "degree_level": "Undergraduate",
+        "title": "Undergraduate programs of study",
+        "official_url": "https://catalog.unc.edu/undergraduate/programs-study/",
+        "coverage": "Official index",
+        "note": "Official undergraduate programme catalogue or admissions major index."
+      },
+      {
+        "degree_level": "Postgraduate",
+        "title": "Graduate catalog",
+        "official_url": "https://catalog.unc.edu/graduate/",
+        "coverage": "Official index",
+        "note": "Official graduate/professional programme catalogue or graduate school programme index."
+      }
+    ],
+    "allowed_official_hosts": [
+      "catalog.unc.edu"
+    ],
+    "extraction_note": "Official catalogue rows loaded: 204 programme rows. Individual hard requirements must still be read from the relevant programme page.",
+    "caveat": "U.S. institutions distribute requirements across schools, departments, and admissions offices; unsupported details remain source gaps.",
+    "migration_source": "usPrograms.ts"
+  },
+  "illustrative_examples": [
+    {
+      "id": "unc-ug-catalogue",
+      "name": "UNC undergraduate programme catalogue",
+      "degree_level": "Undergraduate",
+      "award": "UG",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/",
+      "selection_status": "illustrative_only"
+    },
+    {
+      "id": "unc-pg-catalogue",
+      "name": "UNC postgraduate programme catalogue",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.unc.edu/graduate/",
+      "selection_status": "illustrative_only"
+    }
+  ],
+  "programmes": [
+    {
+      "id": "unc-un-aerospace-studies-minor-minor",
+      "institution_id": "unc",
+      "name": "Aerospace Studies Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/aerospace-studies-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/aerospace-studies-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-african-american-and-diaspora-studies-minor-minor",
+      "institution_id": "unc",
+      "name": "African American and Diaspora Studies Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/african-american-diaspora-studies-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/african-american-diaspora-studies-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-african-studies-minor-minor",
+      "institution_id": "unc",
+      "name": "African Studies Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/african-studies-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/african-studies-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-african-african-american-and-diaspora-studies-major-b-a-b-a",
+      "institution_id": "unc",
+      "name": "African, African American, and Diaspora Studies Major, B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/african-african-american-diaspora-studies-major-ba/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/african-african-american-diaspora-studies-major-ba/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-american-indian-and-indigenous-studies-minor-minor",
+      "institution_id": "unc",
+      "name": "American Indian and Indigenous Studies Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/american-indian-indigenous-studies-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/american-indian-indigenous-studies-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-american-studies-major-b-a-b-a",
+      "institution_id": "unc",
+      "name": "American Studies Major, B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/american-studies-major-ba/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/american-studies-major-ba/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-american-studies-major-b-a-american-indian-and-indigenous-studies-concentration-major",
+      "institution_id": "unc",
+      "name": "American Studies Major, B.A.–American Indian and Indigenous Studies Concentration",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/american-studies-major-baamerican-indian-indigenous-studies-concentration/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/american-studies-major-baamerican-indian-indigenous-studies-concentration/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-american-studies-minor-minor",
+      "institution_id": "unc",
+      "name": "American Studies Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/american-studies-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/american-studies-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-anthropology-general-minor-minor",
+      "institution_id": "unc",
+      "name": "Anthropology (General) Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/general-anthropology-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/general-anthropology-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-anthropology-major-b-a-b-a",
+      "institution_id": "unc",
+      "name": "Anthropology Major, B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/anthropology-major-ba/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/anthropology-major-ba/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-applied-sciences-and-engineering-minor-minor",
+      "institution_id": "unc",
+      "name": "Applied Sciences and Engineering Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/applied-sciences-engineering-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/applied-sciences-engineering-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-applied-sciences-b-s-b-s",
+      "institution_id": "unc",
+      "name": "Applied Sciences, B.S.",
+      "degree_level": "Undergraduate",
+      "award": "B.S.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/applied-sciences-major-bs/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/applied-sciences-major-bs/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-arabic-minor-minor",
+      "institution_id": "unc",
+      "name": "Arabic Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/arabic-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/arabic-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-archaeology-major-b-a-b-a",
+      "institution_id": "unc",
+      "name": "Archaeology Major, B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/archaeology-major-ba/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/archaeology-major-ba/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-archaeology-minor-minor",
+      "institution_id": "unc",
+      "name": "Archaeology Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/archaeology-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/archaeology-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-art-history-major-b-a-b-a",
+      "institution_id": "unc",
+      "name": "Art History Major, B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/art-history-major-ba/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/art-history-major-ba/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-art-history-minor-minor",
+      "institution_id": "unc",
+      "name": "Art History Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/art-history-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/art-history-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-artificial-intelligence-minor-minor",
+      "institution_id": "unc",
+      "name": "Artificial Intelligence Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/artificial-intelligence-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/artificial-intelligence-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-asian-studies-major-b-a-arab-cultures-concentration-major",
+      "institution_id": "unc",
+      "name": "Asian Studies Major, B.A.–Arab Cultures Concentration",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/asian-studies-major-ba-arab-cultures-concentration/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/asian-studies-major-ba-arab-cultures-concentration/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-asian-studies-major-b-a-chinese-concentration-major",
+      "institution_id": "unc",
+      "name": "Asian Studies Major, B.A.–Chinese Concentration",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/asian-studies-major-ba-chinese-concentration/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/asian-studies-major-ba-chinese-concentration/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-asian-studies-major-b-a-interdisciplinary-concentration-major",
+      "institution_id": "unc",
+      "name": "Asian Studies Major, B.A.–Interdisciplinary Concentration",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/asian-studies-major-ba-general-concentration/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/asian-studies-major-ba-general-concentration/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-asian-studies-major-b-a-japanese-concentration-major",
+      "institution_id": "unc",
+      "name": "Asian Studies Major, B.A.–Japanese Concentration",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/asian-studies-major-ba-japanese-concentration/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/asian-studies-major-ba-japanese-concentration/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-asian-studies-major-b-a-korean-studies-concentration-major",
+      "institution_id": "unc",
+      "name": "Asian Studies Major, B.A.–Korean Studies Concentration",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/asian-studies-major-ba-korean-concentration/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/asian-studies-major-ba-korean-concentration/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-asian-studies-major-b-a-persian-studies-concentration-major",
+      "institution_id": "unc",
+      "name": "Asian Studies Major, B.A.–Persian Studies Concentration",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/asian-studies-major-ba-persian-concentration/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/asian-studies-major-ba-persian-concentration/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-asian-studies-major-b-a-south-asian-studies-concentration-major",
+      "institution_id": "unc",
+      "name": "Asian Studies Major, B.A.–South Asian Studies Concentration",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/asian-studies-major-ba-south-asian-studies-concentration/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/asian-studies-major-ba-south-asian-studies-concentration/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-asian-studies-minor-minor",
+      "institution_id": "unc",
+      "name": "Asian Studies Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/asian-studies-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/asian-studies-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-astronomy-minor-minor",
+      "institution_id": "unc",
+      "name": "Astronomy Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/astronomy-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/astronomy-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-baccalaureate-education-in-science-and-teaching-best-minor-minor",
+      "institution_id": "unc",
+      "name": "Baccalaureate Education in Science and Teaching (BEST) Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/best-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/best-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-biology-major-b-a-b-a",
+      "institution_id": "unc",
+      "name": "Biology Major, B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/biology-major-ba/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/biology-major-ba/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-biology-major-b-s-b-s",
+      "institution_id": "unc",
+      "name": "Biology Major, B.S.",
+      "degree_level": "Undergraduate",
+      "award": "B.S.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/biology-major-bs/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/biology-major-bs/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-biology-major-b-s-quantitative-biology-track-major",
+      "institution_id": "unc",
+      "name": "Biology Major, B.S.–Quantitative Biology Track",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/biology-major-bs-quantitative-biology-track/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/biology-major-bs-quantitative-biology-track/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-biology-minor-minor",
+      "institution_id": "unc",
+      "name": "Biology Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/biology-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/biology-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-biomedical-engineering-major-b-s-b-s",
+      "institution_id": "unc",
+      "name": "Biomedical Engineering Major, B.S.",
+      "degree_level": "Undergraduate",
+      "award": "B.S.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/biomedical-engineering-major-bs/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/biomedical-engineering-major-bs/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-biostatistics-major-b-s-p-h-b-s-p-h",
+      "institution_id": "unc",
+      "name": "Biostatistics Major, B.S.P.H.",
+      "degree_level": "Undergraduate",
+      "award": "B.S.P.H.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/biostatistics-major-bsph/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/biostatistics-major-bsph/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-business-administration-major-b-s-b-a-b-s-b-a",
+      "institution_id": "unc",
+      "name": "Business Administration Major, B.S.B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.S.B.A.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/business-administration-major-bsba/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/business-administration-major-bsba/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-business-administration-minor-minor",
+      "institution_id": "unc",
+      "name": "Business Administration Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/business-administration-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/business-administration-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-business-of-health-minor-minor",
+      "institution_id": "unc",
+      "name": "Business of Health Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/business-health-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/business-health-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-chemistry-major-b-a-b-a",
+      "institution_id": "unc",
+      "name": "Chemistry Major, B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/chemistry-major-ba/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/chemistry-major-ba/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-chemistry-major-b-s-b-s",
+      "institution_id": "unc",
+      "name": "Chemistry Major, B.S.",
+      "degree_level": "Undergraduate",
+      "award": "B.S.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/chemistry-major-bs/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/chemistry-major-bs/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-chemistry-major-b-s-biochemistry-track-major",
+      "institution_id": "unc",
+      "name": "Chemistry Major, B.S.–Biochemistry Track",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/chemistry-major-bs-biochemistry-track/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/chemistry-major-bs-biochemistry-track/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-chemistry-major-b-s-polymer-track-major",
+      "institution_id": "unc",
+      "name": "Chemistry Major, B.S.–Polymer Track",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/chemistry-major-bs-polymer-track/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/chemistry-major-bs-polymer-track/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-chemistry-minor-minor",
+      "institution_id": "unc",
+      "name": "Chemistry Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/chemistry-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/chemistry-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-chinese-minor-minor",
+      "institution_id": "unc",
+      "name": "Chinese Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/chinese-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/chinese-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-civic-life-and-leadership-minor-minor",
+      "institution_id": "unc",
+      "name": "Civic Life and Leadership Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/civic-life-leadership-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/civic-life-leadership-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-classical-humanities-minor-minor",
+      "institution_id": "unc",
+      "name": "Classical Humanities Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/classical-humanities-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/classical-humanities-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-classics-major-b-a-classical-archaeology-major",
+      "institution_id": "unc",
+      "name": "Classics Major, B.A.–Classical Archaeology",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/classics-major-ba-classical-archaeology/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/classics-major-ba-classical-archaeology/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-classics-major-b-a-classical-civilization-major",
+      "institution_id": "unc",
+      "name": "Classics Major, B.A.–Classical Civilization",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/classics-major-ba-classical-civilization/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/classics-major-ba-classical-civilization/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-classics-major-b-a-greek-latin-and-combined-greek-and-latin-major",
+      "institution_id": "unc",
+      "name": "Classics Major, B.A.–Greek, Latin, and Combined Greek and Latin",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/classics-major-ba-greek-latin/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/classics-major-ba-greek-latin/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-climate-change-minor-minor",
+      "institution_id": "unc",
+      "name": "Climate Change Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/climate-change-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/climate-change-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-clinical-laboratory-science-major-b-s-b-s",
+      "institution_id": "unc",
+      "name": "Clinical Laboratory Science Major, B.S.",
+      "degree_level": "Undergraduate",
+      "award": "B.S.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/clinical-laboratory-science-major-bs/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/clinical-laboratory-science-major-bs/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-coaching-education-minor-minor",
+      "institution_id": "unc",
+      "name": "Coaching Education Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/coaching-education-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/coaching-education-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-communication-studies-major-b-a-b-a",
+      "institution_id": "unc",
+      "name": "Communication Studies Major, B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/communication-studies-major-ba/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/communication-studies-major-ba/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-community-and-global-public-health-major-b-s-p-h-b-s-p-h",
+      "institution_id": "unc",
+      "name": "Community and Global Public Health Major, B.S.P.H.",
+      "degree_level": "Undergraduate",
+      "award": "B.S.P.H.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/community-global-public-health-major-bsph/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/community-global-public-health-major-bsph/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-comparative-literature-minor-minor",
+      "institution_id": "unc",
+      "name": "Comparative Literature Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/comparative-literature-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/comparative-literature-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-computer-science-major-b-a-b-a",
+      "institution_id": "unc",
+      "name": "Computer Science Major, B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/computer-science-major-ba/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/computer-science-major-ba/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-computer-science-major-b-s-b-s",
+      "institution_id": "unc",
+      "name": "Computer Science Major, B.S.",
+      "degree_level": "Undergraduate",
+      "award": "B.S.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/computer-science-major-bs/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/computer-science-major-bs/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-computer-science-minor-minor",
+      "institution_id": "unc",
+      "name": "Computer Science Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/computer-science-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/computer-science-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-conflict-management-minor-minor",
+      "institution_id": "unc",
+      "name": "Conflict Management Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/conflict-management-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/conflict-management-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-contemporary-european-studies-major-b-a-b-a",
+      "institution_id": "unc",
+      "name": "Contemporary European Studies Major, B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/contemporary-european-studies-major-ba/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/contemporary-european-studies-major-ba/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-creative-writing-minor-minor",
+      "institution_id": "unc",
+      "name": "Creative Writing Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/creative-writing-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/creative-writing-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-data-science-major-b-a-b-a",
+      "institution_id": "unc",
+      "name": "Data Science Major, B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/data-science-major-ba/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/data-science-major-ba/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-data-science-major-b-s-b-s",
+      "institution_id": "unc",
+      "name": "Data Science Major, B.S.",
+      "degree_level": "Undergraduate",
+      "award": "B.S.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/data-science-major-bs/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/data-science-major-bs/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-data-science-minor-minor",
+      "institution_id": "unc",
+      "name": "Data Science Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/data-science-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/data-science-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-dental-hygiene-major-b-s-b-s",
+      "institution_id": "unc",
+      "name": "Dental Hygiene Major, B.S.",
+      "degree_level": "Undergraduate",
+      "award": "B.S.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/dental-hygiene-major-bs/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/dental-hygiene-major-bs/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-doctor-of-dental-surgery-d-d-s-d-d-s",
+      "institution_id": "unc",
+      "name": "Doctor of Dental Surgery, D.D.S.",
+      "degree_level": "Undergraduate",
+      "award": "D.D.S.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/doctor-of-dental-surgery-dds/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/doctor-of-dental-surgery-dds/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-doctor-of-pharmacy-pharm-d-pharm-d",
+      "institution_id": "unc",
+      "name": "Doctor of Pharmacy (Pharm.D.)",
+      "degree_level": "Undergraduate",
+      "award": "Pharm.D.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/pharmd/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/pharmd/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-dramatic-art-major-b-a-b-a",
+      "institution_id": "unc",
+      "name": "Dramatic Art Major, B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/dramatic-art-major-ba/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/dramatic-art-major-ba/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-dramatic-art-minor-minor",
+      "institution_id": "unc",
+      "name": "Dramatic Art Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/dramatic-art-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/dramatic-art-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-earth-and-marine-sciences-major-b-s-b-s",
+      "institution_id": "unc",
+      "name": "Earth and Marine Sciences Major, B.S.",
+      "degree_level": "Undergraduate",
+      "award": "B.S.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/earth-marine-sciences-major-bs/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/earth-marine-sciences-major-bs/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-economics-major-b-a-b-a",
+      "institution_id": "unc",
+      "name": "Economics Major, B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/economics-major-ba/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/economics-major-ba/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-economics-major-b-s-b-s",
+      "institution_id": "unc",
+      "name": "Economics Major, B.S.",
+      "degree_level": "Undergraduate",
+      "award": "B.S.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/economics-major-bs/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/economics-major-bs/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-economics-minor-minor",
+      "institution_id": "unc",
+      "name": "Economics Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/economics-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/economics-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-education-minor-minor",
+      "institution_id": "unc",
+      "name": "Education Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/education-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/education-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-elementary-education-major-b-a-ed-b-a-ed",
+      "institution_id": "unc",
+      "name": "Elementary Education Major, B.A.Ed.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.Ed.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/elementary-education-major-baed/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/elementary-education-major-baed/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-engineering-for-environmental-change-climate-and-health-minor-minor",
+      "institution_id": "unc",
+      "name": "Engineering for Environmental Change, Climate, and Health Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/engineering-environmental-change-climate-health-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/engineering-environmental-change-climate-health-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-english-and-comparative-literature-major-b-a-b-a",
+      "institution_id": "unc",
+      "name": "English and Comparative Literature Major, B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/english-comparative-major-ba/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/english-comparative-major-ba/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-english-minor-minor",
+      "institution_id": "unc",
+      "name": "English Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/english-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/english-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-entrepreneurship-minor-minor",
+      "institution_id": "unc",
+      "name": "Entrepreneurship Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/entrepreneurship-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/entrepreneurship-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-environmental-health-sciences-major-b-s-p-h-b-s-p-h",
+      "institution_id": "unc",
+      "name": "Environmental Health Sciences Major, B.S.P.H.",
+      "degree_level": "Undergraduate",
+      "award": "B.S.P.H.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/environmental-health-sciences-major-bsph/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/environmental-health-sciences-major-bsph/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-environmental-humanities-minor-minor",
+      "institution_id": "unc",
+      "name": "Environmental Humanities Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/environmental-humanities-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/environmental-humanities-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-environmental-justice-minor-minor",
+      "institution_id": "unc",
+      "name": "Environmental Justice Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/environmental-justice-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/environmental-justice-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-environmental-microbiology-minor-minor",
+      "institution_id": "unc",
+      "name": "Environmental Microbiology Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/environmental-microbiology-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/environmental-microbiology-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-environmental-science-and-studies-minor-minor",
+      "institution_id": "unc",
+      "name": "Environmental Science and Studies Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/environmental-science-studies-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/environmental-science-studies-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-environmental-science-major-b-s-b-s",
+      "institution_id": "unc",
+      "name": "Environmental Science Major, B.S.",
+      "degree_level": "Undergraduate",
+      "award": "B.S.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/environmental-science-bs/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/environmental-science-bs/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-environmental-studies-major-b-a-b-a",
+      "institution_id": "unc",
+      "name": "Environmental Studies Major, B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/environmental-studies-major-ba/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/environmental-studies-major-ba/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-exercise-and-sport-science-major-b-a-fitness-professional-major",
+      "institution_id": "unc",
+      "name": "Exercise and Sport Science Major, B.A.–Fitness Professional",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/exercise-sport-science-major-ba-fitness-professional/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/exercise-sport-science-major-ba-fitness-professional/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-exercise-and-sport-science-major-b-a-general-major",
+      "institution_id": "unc",
+      "name": "Exercise and Sport Science Major, B.A.–General",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/exercise-sport-science-major-ba-general/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/exercise-sport-science-major-ba-general/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-exercise-and-sport-science-major-b-a-sport-administration-major",
+      "institution_id": "unc",
+      "name": "Exercise and Sport Science Major, B.A.–Sport Administration",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/exercise-sport-science-major-ba-sport-administration/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/exercise-sport-science-major-ba-sport-administration/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-exercise-and-sport-science-major-b-s-b-s",
+      "institution_id": "unc",
+      "name": "Exercise and Sport Science Major, B.S.",
+      "degree_level": "Undergraduate",
+      "award": "B.S.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/exercise-sport-science-major-bs/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/exercise-sport-science-major-bs/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-exercise-and-sport-science-minor-minor",
+      "institution_id": "unc",
+      "name": "Exercise and Sport Science Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/exercise-sport-science-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/exercise-sport-science-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-food-studies-minor-minor",
+      "institution_id": "unc",
+      "name": "Food Studies Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/food-studies-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/food-studies-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-french-minor-minor",
+      "institution_id": "unc",
+      "name": "French Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/french-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/french-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-geographic-information-sciences-minor-minor",
+      "institution_id": "unc",
+      "name": "Geographic Information Sciences Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/gis-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/gis-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-geography-and-environment-major-b-a-b-a",
+      "institution_id": "unc",
+      "name": "Geography and Environment Major, B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/geography-major-ba/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/geography-major-ba/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-geography-minor-minor",
+      "institution_id": "unc",
+      "name": "Geography Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/geography-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/geography-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-geological-sciences-major-b-a-earth-science-concentration-major",
+      "institution_id": "unc",
+      "name": "Geological Sciences Major, B.A.–Earth Science Concentration",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/geological-sciences-major-ba-earth-science-concentration/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/geological-sciences-major-ba-earth-science-concentration/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-geological-sciences-minor-minor",
+      "institution_id": "unc",
+      "name": "Geological Sciences Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/geological-sciences-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/geological-sciences-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-geospatial-data-science-major-b-s-b-s",
+      "institution_id": "unc",
+      "name": "Geospatial Data Science Major, B.S.",
+      "degree_level": "Undergraduate",
+      "award": "B.S.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/geospatial-data-science-major-bs/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/geospatial-data-science-major-bs/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-german-studies-minor-minor",
+      "institution_id": "unc",
+      "name": "German Studies Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/german-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/german-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-germanic-and-slavic-languages-and-literatures-major-b-a-german-studies-concentration-major",
+      "institution_id": "unc",
+      "name": "Germanic and Slavic Languages and Literatures Major, B.A.–German Studies Concentration",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/germanic-slavic-languages-literatures-major-ba-german-literature-culture-concentration/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/germanic-slavic-languages-literatures-major-ba-german-literature-culture-concentration/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-germanic-and-slavic-languages-and-literatures-major-b-a-russian-language-and-culture-concentration-major",
+      "institution_id": "unc",
+      "name": "Germanic and Slavic Languages and Literatures Major, B.A.–Russian Language and Culture Concentration",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/germanic-slavic-languages-literatures-major-ba-russian-language-culture-concentration/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/germanic-slavic-languages-literatures-major-ba-russian-language-culture-concentration/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-germanic-and-slavic-languages-and-literatures-major-b-a-slavic-and-east-european-studies-concentration-major",
+      "institution_id": "unc",
+      "name": "Germanic and Slavic Languages and Literatures Major, B.A.–Slavic and East European Studies Concentration",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/germanic-slavic-languages-literatures-major-ba-central-european-studies-concentration/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/germanic-slavic-languages-literatures-major-ba-central-european-studies-concentration/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-global-cinema-minor-minor",
+      "institution_id": "unc",
+      "name": "Global Cinema Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/global-cinema-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/global-cinema-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-global-studies-major-b-a-b-a",
+      "institution_id": "unc",
+      "name": "Global Studies Major, B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/global-studies-major-ba/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/global-studies-major-ba/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-greek-minor-minor",
+      "institution_id": "unc",
+      "name": "Greek Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/greek-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/greek-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-health-and-society-minor-minor",
+      "institution_id": "unc",
+      "name": "Health and Society Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/health-society-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/health-society-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-health-policy-and-management-major-b-s-p-h-b-s-p-h",
+      "institution_id": "unc",
+      "name": "Health Policy and Management Major, B.S.P.H.",
+      "degree_level": "Undergraduate",
+      "award": "B.S.P.H.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/health-policy-management-major-bsph/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/health-policy-management-major-bsph/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-heritage-and-global-engagement-minor-minor",
+      "institution_id": "unc",
+      "name": "Heritage and Global Engagement Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/heritage-global-engagement-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/heritage-global-engagement-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-hindi-urdu-minor-minor",
+      "institution_id": "unc",
+      "name": "Hindi-Urdu Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/hindi-urdu-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/hindi-urdu-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-hispanic-studies-minor-minor",
+      "institution_id": "unc",
+      "name": "Hispanic Studies Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/hispanic-studies-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/hispanic-studies-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-history-major-b-a-b-a",
+      "institution_id": "unc",
+      "name": "History Major, B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/history-major-ba/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/history-major-ba/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-history-minor-minor",
+      "institution_id": "unc",
+      "name": "History Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/history-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/history-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-human-and-organizational-leadership-development-major-b-a-b-a",
+      "institution_id": "unc",
+      "name": "Human and Organizational Leadership Development Major, B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/human-org-leadership-ba/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/human-org-leadership-ba/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-human-development-and-family-science-major-b-a-ed-b-a-ed",
+      "institution_id": "unc",
+      "name": "Human Development and Family Science Major, B.A.Ed.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.Ed.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/human-development-family-studies-baed/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/human-development-family-studies-baed/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-human-development-sustainability-and-rights-in-africa-and-the-african-diaspora-minor-minor",
+      "institution_id": "unc",
+      "name": "Human Development, Sustainability, and Rights in Africa and the African Diaspora Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/human-development-sustainability-rights-africa-african-diaspora-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/human-development-sustainability-rights-africa-african-diaspora-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-hydrology-minor-minor",
+      "institution_id": "unc",
+      "name": "Hydrology Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/hydrology-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/hydrology-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-information-science-major-b-s-b-s",
+      "institution_id": "unc",
+      "name": "Information Science Major, B.S.",
+      "degree_level": "Undergraduate",
+      "award": "B.S.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/information-science-major-bs/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/information-science-major-bs/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-information-systems-minor-minor",
+      "institution_id": "unc",
+      "name": "Information Systems Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/information-systems-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/information-systems-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-interdisciplinary-studies-major-b-a-b-a",
+      "institution_id": "unc",
+      "name": "Interdisciplinary Studies Major, B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/interdisciplinary-studies-major-ba/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/interdisciplinary-studies-major-ba/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-islamic-and-middle-eastern-studies-minor-minor",
+      "institution_id": "unc",
+      "name": "Islamic and Middle Eastern Studies Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/islamic-middle-eastern-studies-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/islamic-middle-eastern-studies-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-italian-minor-minor",
+      "institution_id": "unc",
+      "name": "Italian Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/italian-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/italian-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-japanese-minor-minor",
+      "institution_id": "unc",
+      "name": "Japanese Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/japanese-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/japanese-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-jewish-studies-minor-minor",
+      "institution_id": "unc",
+      "name": "Jewish Studies Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/jewish-studies-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/jewish-studies-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-korean-minor-minor",
+      "institution_id": "unc",
+      "name": "Korean Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/korean-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/korean-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-latin-american-studies-major-b-a-b-a",
+      "institution_id": "unc",
+      "name": "Latin American Studies Major, B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/latin-american-studies-major-ba/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/latin-american-studies-major-ba/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-latin-minor-minor",
+      "institution_id": "unc",
+      "name": "Latin Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/latin-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/latin-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-latina-o-studies-minor-minor",
+      "institution_id": "unc",
+      "name": "Latina/o Studies Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/latina-latino-studies-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/latina-latino-studies-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-law-government-and-public-service-minor-minor",
+      "institution_id": "unc",
+      "name": "Law, Government, and Public Service Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/law-government-public-service-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/law-government-public-service-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-linguistics-major-b-a-b-a",
+      "institution_id": "unc",
+      "name": "Linguistics Major, B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/linguistics-major-ba/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/linguistics-major-ba/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-linguistics-minor-minor",
+      "institution_id": "unc",
+      "name": "Linguistics Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/linguistics-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/linguistics-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-management-and-society-major-b-a-b-a",
+      "institution_id": "unc",
+      "name": "Management and Society Major, B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/management-society-major-ba/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/management-society-major-ba/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-marine-sciences-minor-minor",
+      "institution_id": "unc",
+      "name": "Marine Sciences Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/marine-sciences-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/marine-sciences-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-mathematics-major-b-a-b-a",
+      "institution_id": "unc",
+      "name": "Mathematics Major, B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/mathematics-major-ba/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/mathematics-major-ba/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-mathematics-major-b-s-b-s",
+      "institution_id": "unc",
+      "name": "Mathematics Major, B.S.",
+      "degree_level": "Undergraduate",
+      "award": "B.S.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/mathematics-major-bs/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/mathematics-major-bs/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-mathematics-minor-minor",
+      "institution_id": "unc",
+      "name": "Mathematics Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/mathematics-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/mathematics-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-media-and-journalism-major-b-a-b-a",
+      "institution_id": "unc",
+      "name": "Media and Journalism Major, B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/media-journalism-major-ba/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/media-journalism-major-ba/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-media-and-journalism-minor-minor",
+      "institution_id": "unc",
+      "name": "Media and Journalism Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/media-journalism-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/media-journalism-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-medical-anthropology-major-b-a-b-a",
+      "institution_id": "unc",
+      "name": "Medical Anthropology Major, B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/medical-anthropology-major-ba/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/medical-anthropology-major-ba/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-medical-anthropology-minor-minor",
+      "institution_id": "unc",
+      "name": "Medical Anthropology Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/medical-anthropology-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/medical-anthropology-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-medicine-literature-and-culture-minor-minor",
+      "institution_id": "unc",
+      "name": "Medicine, Literature, and Culture Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/medicine-literature-culture-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/medicine-literature-culture-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-medieval-and-early-modern-studies-mems-minor-minor",
+      "institution_id": "unc",
+      "name": "Medieval and Early Modern Studies (MEMS) Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/medieval-early-modern-studies-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/medieval-early-modern-studies-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-middle-eastern-languages-minor-minor",
+      "institution_id": "unc",
+      "name": "Middle Eastern Languages Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/middle-eastern-languages-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/middle-eastern-languages-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-military-science-and-leadership-minor-minor",
+      "institution_id": "unc",
+      "name": "Military Science and Leadership Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/military-science-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/military-science-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-modern-hebrew-minor-minor",
+      "institution_id": "unc",
+      "name": "Modern Hebrew Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/modern-hebrew-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/modern-hebrew-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-music-major-b-a-b-a",
+      "institution_id": "unc",
+      "name": "Music Major, B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/music-major-ba/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/music-major-ba/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-music-major-bachelor-of-music-b-mus-b-mus",
+      "institution_id": "unc",
+      "name": "Music Major, Bachelor of Music (B.Mus.)",
+      "degree_level": "Undergraduate",
+      "award": "B.Mus.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/music-major-bmus/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/music-major-bmus/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-music-minor-minor",
+      "institution_id": "unc",
+      "name": "Music Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/music-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/music-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-musical-theatre-performance-minor-minor",
+      "institution_id": "unc",
+      "name": "Musical Theatre Performance Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/musical-theatre-performance-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/musical-theatre-performance-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-naval-science-minor-minor",
+      "institution_id": "unc",
+      "name": "Naval Science Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/naval-science-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/naval-science-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-neurodiagnostics-and-sleep-science-major-b-s-b-s",
+      "institution_id": "unc",
+      "name": "Neurodiagnostics and Sleep Science Major, B.S.",
+      "degree_level": "Undergraduate",
+      "award": "B.S.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/neurodiagnostics-sleep-sciences-major-bs/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/neurodiagnostics-sleep-sciences-major-bs/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-neurodiagnostics-and-sleep-science-minor-minor",
+      "institution_id": "unc",
+      "name": "Neurodiagnostics and Sleep Science Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/neurodiagnostics-sleep-sciences-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/neurodiagnostics-sleep-sciences-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-neuroscience-major-b-s-b-s",
+      "institution_id": "unc",
+      "name": "Neuroscience Major, B.S.",
+      "degree_level": "Undergraduate",
+      "award": "B.S.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/neuroscience-major-bs/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/neuroscience-major-bs/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-neuroscience-minor-minor",
+      "institution_id": "unc",
+      "name": "Neuroscience Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/neuroscience-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/neuroscience-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-nursing-major-b-s-n-b-s-n",
+      "institution_id": "unc",
+      "name": "Nursing Major, B.S.N.",
+      "degree_level": "Undergraduate",
+      "award": "B.S.N.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/nursing-major-bsn/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/nursing-major-bsn/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-nutrition-major-b-s-p-h-b-s-p-h",
+      "institution_id": "unc",
+      "name": "Nutrition Major, B.S.P.H.",
+      "degree_level": "Undergraduate",
+      "award": "B.S.P.H.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/nutrition-major-bsph/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/nutrition-major-bsph/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-peace-war-and-defense-major-b-a-b-a",
+      "institution_id": "unc",
+      "name": "Peace, War, and Defense Major, B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/peace-war-defense-major-ba/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/peace-war-defense-major-ba/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-peace-war-and-defense-minor-minor",
+      "institution_id": "unc",
+      "name": "Peace, War, and Defense Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/peace-war-defense-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/peace-war-defense-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-persian-minor-minor",
+      "institution_id": "unc",
+      "name": "Persian Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/persian-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/persian-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-pharmaceutical-sciences-minor-minor",
+      "institution_id": "unc",
+      "name": "Pharmaceutical Sciences Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/pharmaceutical-sciences-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/pharmaceutical-sciences-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-philosophy-major-b-a-b-a",
+      "institution_id": "unc",
+      "name": "Philosophy Major, B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/philosophy-major-ba/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/philosophy-major-ba/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-philosophy-minor-minor",
+      "institution_id": "unc",
+      "name": "Philosophy Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/philosophy-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/philosophy-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-philosophy-politics-and-economics-ppe-minor-minor",
+      "institution_id": "unc",
+      "name": "Philosophy, Politics, and Economics (PPE) Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/philosophy-politics-economics-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/philosophy-politics-economics-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-physics-major-b-a-b-a",
+      "institution_id": "unc",
+      "name": "Physics Major, B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/physics-major-ba/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/physics-major-ba/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-physics-major-b-s-b-s",
+      "institution_id": "unc",
+      "name": "Physics Major, B.S.",
+      "degree_level": "Undergraduate",
+      "award": "B.S.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/physics-major-bs/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/physics-major-bs/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-physics-minor-minor",
+      "institution_id": "unc",
+      "name": "Physics Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/physics-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/physics-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-political-science-major-b-a-b-a",
+      "institution_id": "unc",
+      "name": "Political Science Major, B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/political-science-major-ba/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/political-science-major-ba/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-portuguese-minor-minor",
+      "institution_id": "unc",
+      "name": "Portuguese Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/portuguese-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/portuguese-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-psychology-major-b-a-b-a",
+      "institution_id": "unc",
+      "name": "Psychology Major, B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/psychology-major-ba/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/psychology-major-ba/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-psychology-major-b-s-b-s",
+      "institution_id": "unc",
+      "name": "Psychology Major, B.S.",
+      "degree_level": "Undergraduate",
+      "award": "B.S.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/psychology-major-bs/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/psychology-major-bs/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-public-policy-major-b-a-b-a",
+      "institution_id": "unc",
+      "name": "Public Policy Major, B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/public-policy-major-ba/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/public-policy-major-ba/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-public-policy-minor-minor",
+      "institution_id": "unc",
+      "name": "Public Policy Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/public-policy-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/public-policy-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-radiologic-science-major-b-s-b-s",
+      "institution_id": "unc",
+      "name": "Radiologic Science Major, B.S.",
+      "degree_level": "Undergraduate",
+      "award": "B.S.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/radiologic-science-major-bs/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/radiologic-science-major-bs/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-real-estate-minor-minor",
+      "institution_id": "unc",
+      "name": "Real Estate Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/real-estate-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/real-estate-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-religious-studies-major-b-a-b-a",
+      "institution_id": "unc",
+      "name": "Religious Studies Major, B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/religious-studies-major-ba/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/religious-studies-major-ba/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-religious-studies-major-b-a-jewish-studies-concentration-major",
+      "institution_id": "unc",
+      "name": "Religious Studies Major, B.A.–Jewish Studies Concentration",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/religious-studies-major-ba-jewish-studies-concentration/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/religious-studies-major-ba-jewish-studies-concentration/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-religious-studies-minor-minor",
+      "institution_id": "unc",
+      "name": "Religious Studies Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/religious-studies-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/religious-studies-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-risk-management-minor-minor",
+      "institution_id": "unc",
+      "name": "Risk Management Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/risk-management-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/risk-management-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-romance-languages-major-b-a-french-and-francophone-studies-major",
+      "institution_id": "unc",
+      "name": "Romance Languages Major, B.A.–French and Francophone Studies",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/romance-languages-major-ba-french-francophone-studies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/romance-languages-major-ba-french-francophone-studies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-romance-languages-major-b-a-hispanic-linguistics-major",
+      "institution_id": "unc",
+      "name": "Romance Languages Major, B.A.–Hispanic Linguistics",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/romance-languages-major-ba-hispanic-linguistics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/romance-languages-major-ba-hispanic-linguistics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-romance-languages-major-b-a-hispanic-studies-major",
+      "institution_id": "unc",
+      "name": "Romance Languages Major, B.A.–Hispanic Studies",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/romance-languages-major-ba-hispanic-literatures-cultures/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/romance-languages-major-ba-hispanic-literatures-cultures/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-romance-languages-major-b-a-italian-major",
+      "institution_id": "unc",
+      "name": "Romance Languages Major, B.A.–Italian",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/romance-languages-major-ba-italian/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/romance-languages-major-ba-italian/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-romance-languages-major-b-a-portuguese-major",
+      "institution_id": "unc",
+      "name": "Romance Languages Major, B.A.–Portuguese",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/romance-languages-major-ba-portuguese/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/romance-languages-major-ba-portuguese/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-russian-culture-minor-minor",
+      "institution_id": "unc",
+      "name": "Russian Culture Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/russian-culture-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/russian-culture-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-screenwriting-minor-minor",
+      "institution_id": "unc",
+      "name": "Screenwriting Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/screenwriting-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/screenwriting-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-sexuality-studies-minor-minor",
+      "institution_id": "unc",
+      "name": "Sexuality Studies Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/sexuality-studies-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/sexuality-studies-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-slavic-and-east-european-studies-minor-minor",
+      "institution_id": "unc",
+      "name": "Slavic and East European Studies Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/slavic-east-european-languages-cultures-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/slavic-east-european-languages-cultures-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-social-and-economic-justice-minor-minor",
+      "institution_id": "unc",
+      "name": "Social and Economic Justice Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/social-economic-justice-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/social-economic-justice-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-sociology-major-b-a-b-a",
+      "institution_id": "unc",
+      "name": "Sociology Major, B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/sociology-major-ba/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/sociology-major-ba/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-southeast-asian-studies-minor-minor",
+      "institution_id": "unc",
+      "name": "Southeast Asian Studies Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/southeast-asian-studies-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/southeast-asian-studies-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-spanish-minor-for-the-professions-minor",
+      "institution_id": "unc",
+      "name": "Spanish Minor for the Professions",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/spanish-professions-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/spanish-professions-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-speech-and-hearing-sciences-minor-minor",
+      "institution_id": "unc",
+      "name": "Speech and Hearing Sciences Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/speech-hearing-sciences-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/speech-hearing-sciences-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-sports-medicine-minor-minor",
+      "institution_id": "unc",
+      "name": "Sports Medicine Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/sports-medicine-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/sports-medicine-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-statistics-and-analytics-major-b-s-b-s",
+      "institution_id": "unc",
+      "name": "Statistics and Analytics Major, B.S.",
+      "degree_level": "Undergraduate",
+      "award": "B.S.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/statistics-analytics-majors-bs/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/statistics-analytics-majors-bs/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-statistics-and-analytics-minor-minor",
+      "institution_id": "unc",
+      "name": "Statistics and Analytics Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/statistics-and-analytics-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/statistics-and-analytics-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-studio-art-major-b-a-b-a",
+      "institution_id": "unc",
+      "name": "Studio Art Major, B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/studio-art-major-ba/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/studio-art-major-ba/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-studio-art-major-bachelor-of-fine-arts-b-f-a-b-f-a",
+      "institution_id": "unc",
+      "name": "Studio Art Major, Bachelor of Fine Arts (B.F.A)",
+      "degree_level": "Undergraduate",
+      "award": "B.F.A",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/studio-art-major-bfa/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/studio-art-major-bfa/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-studio-art-minor-minor",
+      "institution_id": "unc",
+      "name": "Studio Art Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/studio-art-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/studio-art-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-study-of-christianity-and-culture-minor-minor",
+      "institution_id": "unc",
+      "name": "Study of Christianity and Culture Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/study-christianity-culture-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/study-christianity-culture-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-sustainability-studies-minor-minor",
+      "institution_id": "unc",
+      "name": "Sustainability Studies Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/sustainability-studies-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/sustainability-studies-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-translation-and-interpreting-minor-minor",
+      "institution_id": "unc",
+      "name": "Translation and Interpreting Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/translation-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/translation-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-urban-studies-and-planning-minor-minor",
+      "institution_id": "unc",
+      "name": "Urban Studies and Planning Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/urban-studies-planning-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/urban-studies-planning-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-women-s-and-gender-studies-major-b-a-b-a",
+      "institution_id": "unc",
+      "name": "Women’s and Gender Studies Major, B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/womens-gender-studies-major-ba/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/womens-gender-studies-major-ba/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-women-s-and-gender-studies-minor-minor",
+      "institution_id": "unc",
+      "name": "Women’s and Gender Studies Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/womens-gender-studies-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/womens-gender-studies-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    },
+    {
+      "id": "unc-un-writing-editing-and-digital-publishing-minor-minor",
+      "institution_id": "unc",
+      "name": "Writing, Editing, and Digital Publishing Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.unc.edu/undergraduate/programs-study/writing-editing-digital-publishing-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.unc.edu/undergraduate/programs-study/writing-editing-digital-publishing-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UNC undergraduate programs of study row"
+      }
+    }
+  ]
+}

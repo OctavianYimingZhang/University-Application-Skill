@@ -1,0 +1,1042 @@
+{
+  "$schema": "../schemas/institution-catalogue-v1.schema.json",
+  "contract": "InstitutionProgrammeCatalogue",
+  "version": 1,
+  "language": "en",
+  "institution": {
+    "id": "uchicago",
+    "name": "University of Chicago",
+    "short_name": "UChicago",
+    "group": "US News Top 30",
+    "region": "United States",
+    "rank_note": "US News 2026 top-30 cutoff source list"
+  },
+  "catalogue_scope": {
+    "record_type": "programme_identity",
+    "identity_status": "official_source_listed",
+    "requirements_status": "not_collected",
+    "placeholder_records_verified": false,
+    "link_only_records_verified": false
+  },
+  "catalogue_provenance": {
+    "accessed_at": "2026-06-26",
+    "official_sources": [
+      {
+        "degree_level": "Undergraduate",
+        "title": "College programs of study",
+        "official_url": "https://collegecatalog.uchicago.edu/thecollege/programsofstudy/",
+        "coverage": "Official index",
+        "note": "Official undergraduate programme catalogue or admissions major index."
+      },
+      {
+        "degree_level": "Postgraduate",
+        "title": "Graduate Announcements",
+        "official_url": "https://graduateannouncements.uchicago.edu/",
+        "coverage": "Official index",
+        "note": "Official graduate/professional programme catalogue or graduate school programme index."
+      }
+    ],
+    "allowed_official_hosts": [
+      "collegecatalog.uchicago.edu",
+      "graduateannouncements.uchicago.edu"
+    ],
+    "extraction_note": "Official catalogue rows loaded: 65 programme rows. Individual hard requirements must still be read from the relevant programme page.",
+    "caveat": "U.S. institutions distribute requirements across schools, departments, and admissions offices; unsupported details remain source gaps.",
+    "migration_source": "usPrograms.ts"
+  },
+  "illustrative_examples": [
+    {
+      "id": "uchicago-ug-catalogue",
+      "name": "UChicago undergraduate programme catalogue",
+      "degree_level": "Undergraduate",
+      "award": "UG",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/programsofstudy/",
+      "selection_status": "illustrative_only"
+    },
+    {
+      "id": "uchicago-pg-catalogue",
+      "name": "UChicago postgraduate programme catalogue",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://graduateannouncements.uchicago.edu/",
+      "selection_status": "illustrative_only"
+    }
+  ],
+  "programmes": [
+    {
+      "id": "uchicago-un-core-requirements-major",
+      "institution_id": "uchicago",
+      "name": "Core requirements",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/thecore/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/thecore/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-transfer-students-major",
+      "institution_id": "uchicago",
+      "name": "Transfer students",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/transfercredit/transferstudents/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/transfercredit/transferstudents/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-application-to-graduate-major",
+      "institution_id": "uchicago",
+      "name": "application to graduate",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/graduation/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/graduation/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-click-here-to-review-the-process-for-declaring-a-minor-major",
+      "institution_id": "uchicago",
+      "name": "Click here to review the process for declaring a minor.",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/minors/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/minors/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-core-requirements-major-thecore",
+      "institution_id": "uchicago",
+      "name": "Core requirements",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/thecore/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/thecore/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-minor-requirements-major",
+      "institution_id": "uchicago",
+      "name": "minor requirements",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/minors/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/minors/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-degree-requirements-major",
+      "institution_id": "uchicago",
+      "name": "degree requirements",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/degreerequirements/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/degreerequirements/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-examination-credit-major",
+      "institution_id": "uchicago",
+      "name": "examination credit",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/examinationcreditandtransfercredit/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/examinationcreditandtransfercredit/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-transfer-credit-major",
+      "institution_id": "uchicago",
+      "name": "transfer credit",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/transfercredit/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/transfercredit/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-archaeology-major",
+      "institution_id": "uchicago",
+      "name": "Archaeology",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/archaeology/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/archaeology/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-anthropology-major",
+      "institution_id": "uchicago",
+      "name": "Anthropology",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/anthropology/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/anthropology/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-art-history-major",
+      "institution_id": "uchicago",
+      "name": "Art History",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/arthistory/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/arthistory/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-astrophysics-major",
+      "institution_id": "uchicago",
+      "name": "Astrophysics",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/astronomyastrophysics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/astronomyastrophysics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-biological-chemistry-major",
+      "institution_id": "uchicago",
+      "name": "Biological Chemistry",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/biologicalchemistry/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/biologicalchemistry/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-biological-sciences-major",
+      "institution_id": "uchicago",
+      "name": "Biological Sciences",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/biologicalsciences/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/biologicalsciences/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-chemistry-major",
+      "institution_id": "uchicago",
+      "name": "Chemistry",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/chemistry/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/chemistry/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-cinema-and-media-studies-major",
+      "institution_id": "uchicago",
+      "name": "Cinema and Media Studies",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/cinemamediastudies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/cinemamediastudies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-classical-studies-major",
+      "institution_id": "uchicago",
+      "name": "Classical Studies",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/classicalstudies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/classicalstudies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-climate-and-sustainable-growth-major",
+      "institution_id": "uchicago",
+      "name": "Climate and Sustainable Growth",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/climate/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/climate/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-cognitive-science-major",
+      "institution_id": "uchicago",
+      "name": "Cognitive Science",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/cognitivescience/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/cognitivescience/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-comparative-human-development-major",
+      "institution_id": "uchicago",
+      "name": "Comparative Human Development",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/comparativehumandevelopment/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/comparativehumandevelopment/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-comparative-literature-major",
+      "institution_id": "uchicago",
+      "name": "Comparative Literature",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/comparativeliterature/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/comparativeliterature/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-computational-and-applied-mathematics-major",
+      "institution_id": "uchicago",
+      "name": "Computational and Applied Mathematics",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/caam/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/caam/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-computer-science-major",
+      "institution_id": "uchicago",
+      "name": "Computer Science",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/computerscience/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/computerscience/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-creative-writing-major",
+      "institution_id": "uchicago",
+      "name": "Creative Writing",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/creativewriting/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/creativewriting/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-data-science-major",
+      "institution_id": "uchicago",
+      "name": "Data Science",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/datascience/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/datascience/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-east-asian-languages-and-civilizations-major",
+      "institution_id": "uchicago",
+      "name": "East Asian Languages and Civilizations",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/eastasianlanguagescivilizations/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/eastasianlanguagescivilizations/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-economics-major",
+      "institution_id": "uchicago",
+      "name": "Economics",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/economics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/economics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-english-language-and-literature-major",
+      "institution_id": "uchicago",
+      "name": "English Language and Literature",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/englishlanguageliterature/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/englishlanguageliterature/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-environmental-science-major",
+      "institution_id": "uchicago",
+      "name": "Environmental Science",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/environmentalscience/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/environmentalscience/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-environment-geography-and-urbanization-major",
+      "institution_id": "uchicago",
+      "name": "Environment, Geography, and Urbanization",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/cegu/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/cegu/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-fundamentals-issues-and-texts-major",
+      "institution_id": "uchicago",
+      "name": "Fundamentals: Issues and Texts",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/fundamentalsissuesandtexts/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/fundamentalsissuesandtexts/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-gender-and-sexuality-studies-major",
+      "institution_id": "uchicago",
+      "name": "Gender and Sexuality Studies",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/genderstudies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/genderstudies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-geophysical-sciences-major",
+      "institution_id": "uchicago",
+      "name": "Geophysical Sciences",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/geophysicalsciences/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/geophysicalsciences/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-germanic-studies-major",
+      "institution_id": "uchicago",
+      "name": "Germanic Studies",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/germanicstudies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/germanicstudies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-global-studies-major",
+      "institution_id": "uchicago",
+      "name": "Global Studies",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/globalstudies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/globalstudies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-history-major",
+      "institution_id": "uchicago",
+      "name": "History",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/history/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/history/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-history-philosophy-and-social-studies-of-science-and-medicine-major",
+      "institution_id": "uchicago",
+      "name": "History, Philosophy, and Social Studies of Science and Medicine",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/scienceandmedicinehips/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/scienceandmedicinehips/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-human-rights-major",
+      "institution_id": "uchicago",
+      "name": "Human Rights",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/humanrights/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/humanrights/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-inquiry-and-research-in-the-humanities-major",
+      "institution_id": "uchicago",
+      "name": "Inquiry and Research in the Humanities",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/Inquiryresearchhumanities/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/Inquiryresearchhumanities/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-jewish-studies-major",
+      "institution_id": "uchicago",
+      "name": "Jewish Studies",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/jewishstudies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/jewishstudies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-latin-american-and-caribbean-studies-major",
+      "institution_id": "uchicago",
+      "name": "Latin American and Caribbean Studies",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/latinamericanstudies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/latinamericanstudies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-law-letters-and-society-major",
+      "institution_id": "uchicago",
+      "name": "Law, Letters, and Society",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/lawlettersandsociety/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/lawlettersandsociety/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-linguistics-major",
+      "institution_id": "uchicago",
+      "name": "Linguistics",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/linguistics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/linguistics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-mathematics-major",
+      "institution_id": "uchicago",
+      "name": "Mathematics",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/mathematics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/mathematics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-media-arts-and-design-major",
+      "institution_id": "uchicago",
+      "name": "Media Arts and Design",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/MediaArtsandDesign/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/MediaArtsandDesign/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-medieval-studies-major",
+      "institution_id": "uchicago",
+      "name": "Medieval Studies",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/medievalstudies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/medievalstudies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-middle-eastern-studies-major",
+      "institution_id": "uchicago",
+      "name": "Middle Eastern Studies",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/neareasternlanguagescivilizations/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/neareasternlanguagescivilizations/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-molecular-engineering-major",
+      "institution_id": "uchicago",
+      "name": "Molecular Engineering",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/molecularengineering/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/molecularengineering/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-music-major",
+      "institution_id": "uchicago",
+      "name": "Music",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/music/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/music/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-neuroscience-major",
+      "institution_id": "uchicago",
+      "name": "Neuroscience",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/neuroscience/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/neuroscience/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-philosophy-major",
+      "institution_id": "uchicago",
+      "name": "Philosophy",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/philosophy/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/philosophy/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-physics-major",
+      "institution_id": "uchicago",
+      "name": "Physics",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/physics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/physics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-political-science-major",
+      "institution_id": "uchicago",
+      "name": "Political Science",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/politicalscience/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/politicalscience/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-psychology-major",
+      "institution_id": "uchicago",
+      "name": "Psychology",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/psychology/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/psychology/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-public-policy-studies-major",
+      "institution_id": "uchicago",
+      "name": "Public Policy Studies",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/publicpolicystudies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/publicpolicystudies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-race-diaspora-and-indigeneity-major",
+      "institution_id": "uchicago",
+      "name": "Race, Diaspora, and Indigeneity",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/rdin/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/rdin/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-religious-studies-major",
+      "institution_id": "uchicago",
+      "name": "Religious Studies",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/religiousstudies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/religiousstudies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-romance-languages-and-literatures-major",
+      "institution_id": "uchicago",
+      "name": "Romance Languages and Literatures",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/romancelanguagesliteratures/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/romancelanguagesliteratures/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-russian-and-east-european-studies-major",
+      "institution_id": "uchicago",
+      "name": "Russian and East European Studies",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/slaviclanguagesliteratures/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/slaviclanguagesliteratures/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-sociology-major",
+      "institution_id": "uchicago",
+      "name": "Sociology",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/sociology/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/sociology/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-south-asian-languages-and-civilizations-major",
+      "institution_id": "uchicago",
+      "name": "South Asian Languages and Civilizations",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/southasianlanguagescivilizations/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/southasianlanguagescivilizations/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-statistics-major",
+      "institution_id": "uchicago",
+      "name": "Statistics",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/statistics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/statistics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-theater-and-performance-studies-major",
+      "institution_id": "uchicago",
+      "name": "Theater and Performance Studies",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/theaterperformancestudies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/theaterperformancestudies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    },
+    {
+      "id": "uchicago-un-visual-arts-major",
+      "institution_id": "uchicago",
+      "name": "Visual Arts",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://collegecatalog.uchicago.edu/thecollege/visualarts/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://collegecatalog.uchicago.edu/thecollege/visualarts/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UChicago College programme of study row"
+      }
+    }
+  ]
+}

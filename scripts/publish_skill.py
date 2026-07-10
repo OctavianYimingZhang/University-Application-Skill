@@ -28,6 +28,7 @@ SKIP_SUFFIXES = {".pyc", ".pyo", ".docx", ".pdf", ".pptx", ".xlsx", ".zip", ".js
 SHARED_RESOURCE_DIRS = ("references", "scripts", "contracts", "schemas")
 SHARED_RESOURCE_FILES = ("LICENSE", "skill_manifest.json", "plugin-capability-manifest.v2.json")
 CANONICAL_SKILL_NAME = "university-application-index"
+CATALOGUE_SKILLS = {"program-research", "programme-table-cleaning"}
 
 
 def load_manifest() -> dict[str, Any]:
@@ -94,12 +95,15 @@ def sync_focused_skill(skill: dict[str, Any], local_skill_root: Path, dry_run: b
     skill_text = skill_text.replace("../../references/", "references/")
     skill_text = skill_text.replace("../../scripts/", "scripts/")
     skill_text = skill_text.replace("../../contracts/", "contracts/")
+    skill_text = skill_text.replace("../../catalogues/", "catalogues/")
     (destination / "SKILL.md").write_text(skill_text, encoding="utf-8")
     copy_child_resources(skill["source"], destination)
     for dirname in SHARED_RESOURCE_DIRS:
         source = ROOT / dirname
         if source.exists():
             shutil.copytree(source, destination / dirname, ignore=ignore)
+    if skill["name"] in CATALOGUE_SKILLS:
+        shutil.copytree(ROOT / "catalogues", destination / "catalogues", ignore=ignore)
     for filename in SHARED_RESOURCE_FILES:
         source = ROOT / filename
         if source.exists():
@@ -182,6 +186,8 @@ def self_test() -> None:
                 if target.startswith(("http://", "https://", "#")):
                     continue
                 assert (installed / target.split("#", 1)[0]).resolve().exists(), (name, target)
+        assert (local_root / "program-research" / "catalogues" / "index.json").exists()
+        assert not (local_root / "visa-readiness" / "catalogues").exists()
 
 
 def main() -> None:

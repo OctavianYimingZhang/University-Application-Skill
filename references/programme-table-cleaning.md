@@ -178,3 +178,16 @@ python scripts/verify_programme_workbooks.py --dir "/path/to/cleaned/workbooks"
 ```
 
 Use `--copy-back` only when the user explicitly wants same-name source files overwritten.
+
+## Plugin Identity-Catalogue Maintenance
+
+The canonical curated identity catalogue is under `catalogues/`, not a website source directory. The ten official-source builders write institution JSON through `scripts/catalogue_io.py`; the Oxford builder applies the same JSON contract directly. London Business School remains an explicit reviewed static conversion because no builder existed for that legacy source.
+
+After a catalogue refresh, run:
+
+```bash
+python3 scripts/validate_catalogues.py
+python3 -m unittest tests.test_catalogues -v
+```
+
+The validator requires globally unique stable IDs, HTTPS URLs on reviewed official-host allowlists, record-level source/access provenance, English metadata, `identity_status: official_source_listed`, and `requirements_status: not_collected`. Programme requirements must be collected through a separate official-source research or requirement-audit task.

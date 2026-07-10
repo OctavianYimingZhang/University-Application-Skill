@@ -23,3 +23,14 @@ Keep these statuses independent:
 | `staleness` | Whether the fact is `fresh`, `stale`, or `unknown` for the intended use. |
 
 Never collapse these fields into a single `verified` or `source status` label. A reachable page can contain an unverified, incomplete, stale, or wrong-cycle fact.
+
+## Curated Identity Catalogue
+
+Use [`../catalogues/index.json`](../catalogues/index.json) as the Plugin-owned discovery index when the target institution is covered. Load only the selected institution file and degree level. A catalogue row confirms only that an identity appeared in an official source at the recorded access date:
+
+- `identity_status` stays `official_source_listed`;
+- `requirements_status` stays `not_collected`;
+- illustrative examples stay `illustrative_only`;
+- placeholders and link-only records never become verified facts.
+
+Retrieve the current official programme and admissions pages before verifying availability, entry requirements, fees, deadlines, documents, or application-cycle facts.

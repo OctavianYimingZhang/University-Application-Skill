@@ -1,7 +1,7 @@
 {
   "name": "university-application-skill",
-  "version": "0.3.0",
-  "description": "Multiple-skill university application system with a canonical index, confirmed applicant evidence, source-backed research, writing, submission, and visa-readiness routes.",
+  "version": "0.4.0",
+  "description": "Multiple-skill university application system with a canonical router, Plugin-owned programme identity catalogues, confirmed applicant evidence, source-backed research, writing, submission, and visa-readiness routes.",
   "author": {
     "name": "Octavian Yiming Zhang"
   },
@@ -23,7 +23,7 @@
   "interface": {
     "displayName": "University Application Skill",
     "shortDescription": "Plan source-backed university applications and admissions writing workflows.",
-    "longDescription": "University Application Skill routes multilingual admissions intent through a canonical index into focused workflows for official programme research, hard requirement audits, confirmed-evidence materials checks, interactive SOP and personal-statement planning, submission readiness, student visa readiness, and explicit programme-data maintenance. Outputs default to English, admission-probability prediction is prohibited, and hard requirements remain tied to official provenance.",
+    "longDescription": "University Application Skill routes multilingual admissions intent through a canonical index into focused workflows for official programme research, hard requirement audits, confirmed-evidence materials checks, interactive SOP and personal-statement planning, submission readiness, student visa readiness, and explicit programme-data maintenance. Its curated programme catalogue stores official-source identity records only, with requirements explicitly uncollected. Outputs default to English, admission-probability prediction is prohibited, and hard requirements remain tied to official provenance.",
     "developerName": "Octavian Yiming Zhang",
     "category": "Education",
     "capabilities": [

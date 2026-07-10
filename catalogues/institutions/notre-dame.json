@@ -1,0 +1,3930 @@
+{
+  "$schema": "../schemas/institution-catalogue-v1.schema.json",
+  "contract": "InstitutionProgrammeCatalogue",
+  "version": 1,
+  "language": "en",
+  "institution": {
+    "id": "notre-dame",
+    "name": "University of Notre Dame",
+    "short_name": "Notre Dame",
+    "group": "US News Top 30",
+    "region": "United States",
+    "rank_note": "US News 2026 top-30 cutoff source list"
+  },
+  "catalogue_scope": {
+    "record_type": "programme_identity",
+    "identity_status": "official_source_listed",
+    "requirements_status": "not_collected",
+    "placeholder_records_verified": false,
+    "link_only_records_verified": false
+  },
+  "catalogue_provenance": {
+    "accessed_at": "2026-06-26",
+    "official_sources": [
+      {
+        "degree_level": "Undergraduate",
+        "title": "Academic Programs",
+        "official_url": "https://catalog.nd.edu/programs/",
+        "coverage": "Official index",
+        "note": "Official undergraduate programme catalogue or admissions major index."
+      },
+      {
+        "degree_level": "Postgraduate",
+        "title": "Graduate School degree programs",
+        "official_url": "https://graduateschool.nd.edu/degree-programs/",
+        "coverage": "Official index",
+        "note": "Official graduate/professional programme catalogue or graduate school programme index."
+      }
+    ],
+    "allowed_official_hosts": [
+      "catalog.nd.edu",
+      "graduateschool.nd.edu"
+    ],
+    "extraction_note": "Official catalogue rows loaded: 252 programme rows. Individual hard requirements must still be read from the relevant programme page.",
+    "caveat": "U.S. institutions distribute requirements across schools, departments, and admissions offices; unsupported details remain source gaps.",
+    "migration_source": "usPrograms.ts"
+  },
+  "illustrative_examples": [
+    {
+      "id": "notre-dame-ug-catalogue",
+      "name": "Notre Dame undergraduate programme catalogue",
+      "degree_level": "Undergraduate",
+      "award": "UG",
+      "official_url": "https://catalog.nd.edu/programs/",
+      "selection_status": "illustrative_only"
+    },
+    {
+      "id": "notre-dame-pg-catalogue",
+      "name": "Notre Dame postgraduate programme catalogue",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/",
+      "selection_status": "illustrative_only"
+    }
+  ],
+  "programmes": [
+    {
+      "id": "notre-dame-un-al-sc-honors-program-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "AL/SC Honors Program (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/alsc-honors-program/alsc-honors-program-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/alsc-honors-program/alsc-honors-program-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-accountancy-bba-bba",
+      "institution_id": "notre-dame",
+      "name": "Accountancy (BBA)",
+      "degree_level": "Undergraduate",
+      "award": "BBA",
+      "official_url": "https://catalog.nd.edu/undergraduate/business/accountancy/accountancy-bba/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/business/accountancy/accountancy-bba/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-accounting-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Accounting (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/business/accountancy/accounting-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/business/accountancy/accounting-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-aerospace-engineering-bsae-bsae",
+      "institution_id": "notre-dame",
+      "name": "Aerospace Engineering (BSAE)",
+      "degree_level": "Undergraduate",
+      "award": "BSAE",
+      "official_url": "https://catalog.nd.edu/undergraduate/engineering/aerospace-mechanical-engr/aerospace-engineering-bsae/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/engineering/aerospace-mechanical-engr/aerospace-engineering-bsae/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-africana-studies-ba-ba",
+      "institution_id": "notre-dame",
+      "name": "Africana Studies (BA)",
+      "degree_level": "Undergraduate",
+      "award": "BA",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/africana-studies/africana-studies-ba/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/africana-studies/africana-studies-ba/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-africana-studies-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Africana Studies (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/africana-studies/africana-studies-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/africana-studies/africana-studies-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-africana-studies-supp-supp",
+      "institution_id": "notre-dame",
+      "name": "Africana Studies (Supp.)",
+      "degree_level": "Undergraduate",
+      "award": "Supp.",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/africana-studies/africana-studies-supp/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/africana-studies/africana-studies-supp/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-american-studies-ba-ba",
+      "institution_id": "notre-dame",
+      "name": "American Studies (BA)",
+      "degree_level": "Undergraduate",
+      "award": "BA",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/american-studies/american-studies-ba/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/american-studies/american-studies-ba/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-anthropology-ba-ba",
+      "institution_id": "notre-dame",
+      "name": "Anthropology (BA)",
+      "degree_level": "Undergraduate",
+      "award": "BA",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/anthropology/anthropology-ba/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/anthropology/anthropology-ba/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-anthropology-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Anthropology (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/anthropology/anthropology-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/anthropology/anthropology-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-applied-and-computational-mathematics-and-statistics-bs-bs",
+      "institution_id": "notre-dame",
+      "name": "Applied & Computational Mathematics & Statistics (BS)",
+      "degree_level": "Undergraduate",
+      "award": "BS",
+      "official_url": "https://catalog.nd.edu/undergraduate/science/applied-comp-math-stats/applied-computational-mathematics-statistics-bs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/science/applied-comp-math-stats/applied-computational-mathematics-statistics-bs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-applied-and-computational-mathematics-and-statistics-supplementary-major-supplementary-major",
+      "institution_id": "notre-dame",
+      "name": "Applied & Computational Mathematics & Statistics (Supplementary Major)",
+      "degree_level": "Undergraduate",
+      "award": "Supplementary Major",
+      "official_url": "https://catalog.nd.edu/undergraduate/science/applied-comp-math-stats/applied-computational-mathematics-statistics-supp/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/science/applied-comp-math-stats/applied-computational-mathematics-statistics-supp/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-arabic-ba-ba",
+      "institution_id": "notre-dame",
+      "name": "Arabic (BA)",
+      "degree_level": "Undergraduate",
+      "award": "BA",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/classics/arabic-ba/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/classics/arabic-ba/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-architecture-bar-bar",
+      "institution_id": "notre-dame",
+      "name": "Architecture (BAR)",
+      "degree_level": "Undergraduate",
+      "award": "BAR",
+      "official_url": "https://catalog.nd.edu/undergraduate/architecture/architecture/architecture-bar/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/architecture/architecture/architecture-bar/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-architecture-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Architecture (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/architecture/architecture/architecture-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/architecture/architecture/architecture-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-art-history-ba-ba",
+      "institution_id": "notre-dame",
+      "name": "Art History (BA)",
+      "degree_level": "Undergraduate",
+      "award": "BA",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/art-art-history-design/art-history-ba/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/art-art-history-design/art-history-ba/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-art-history-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Art History (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/art-art-history-design/art-history-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/art-art-history-design/art-history-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-art-history-supp-supp",
+      "institution_id": "notre-dame",
+      "name": "Art History (Supp.)",
+      "degree_level": "Undergraduate",
+      "award": "Supp.",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/art-art-history-design/art-history-supp/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/art-art-history-design/art-history-supp/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-art-studio-ba-ba",
+      "institution_id": "notre-dame",
+      "name": "Art Studio (BA)",
+      "degree_level": "Undergraduate",
+      "award": "BA",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/art-art-history-design/art-studio-ba/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/art-art-history-design/art-studio-ba/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-art-studio-bfa-bfa",
+      "institution_id": "notre-dame",
+      "name": "Art Studio (BFA)",
+      "degree_level": "Undergraduate",
+      "award": "BFA",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/art-art-history-design/art-studio-bfa/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/art-art-history-design/art-studio-bfa/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-asian-studies-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Asian Studies (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/keough-school-global-affairs/center-asian-studies/asian-studies-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/keough-school-global-affairs/center-asian-studies/asian-studies-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-asian-studies-supplementary-major-supplementary-major",
+      "institution_id": "notre-dame",
+      "name": "Asian Studies (Supplementary Major)",
+      "degree_level": "Undergraduate",
+      "award": "Supplementary Major",
+      "official_url": "https://catalog.nd.edu/undergraduate/keough-school-global-affairs/center-asian-studies/asian-studies-supp/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/keough-school-global-affairs/center-asian-studies/asian-studies-supp/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-biochemistry-bs-bs",
+      "institution_id": "notre-dame",
+      "name": "Biochemistry (BS)",
+      "degree_level": "Undergraduate",
+      "award": "BS",
+      "official_url": "https://catalog.nd.edu/undergraduate/science/chemistry-biochemistry/biochemistry-bs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/science/chemistry-biochemistry/biochemistry-bs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-bioengineering-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Bioengineering (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/engineering/aerospace-mechanical-engr/bioengineering-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/engineering/aerospace-mechanical-engr/bioengineering-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-biological-sciences-bs-bs",
+      "institution_id": "notre-dame",
+      "name": "Biological Sciences (BS)",
+      "degree_level": "Undergraduate",
+      "award": "BS",
+      "official_url": "https://catalog.nd.edu/undergraduate/science/biological-sciences/biological-sciences-bs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/science/biological-sciences/biological-sciences-bs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-biological-sciences-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Biological Sciences (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/science/biological-sciences/biological-sciences-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/science/biological-sciences/biological-sciences-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-business-analytics-bba-bba",
+      "institution_id": "notre-dame",
+      "name": "Business Analytics (BBA)",
+      "degree_level": "Undergraduate",
+      "award": "BBA",
+      "official_url": "https://catalog.nd.edu/undergraduate/business/-analytics-operations/business-analytics/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/business/-analytics-operations/business-analytics/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-business-economics-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Business Economics (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/economics/business-economics-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/economics/business-economics-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-business-honors-program-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Business Honors Program (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/business/business-ethics-society/business-honors-program-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/business/business-ethics-society/business-honors-program-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-business-technology-and-analytics-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Business Technology & Analytics (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/business/-analytics-operations/businss-technology-analytics-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/business/-analytics-operations/businss-technology-analytics-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-business-and-the-common-good-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Business and the Common Good (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/business/business-ethics-society/business-common-good-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/business/business-ethics-society/business-common-good-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-catholic-social-tradition-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Catholic Social Tradition (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/theology/catholic-social-tradition-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/theology/catholic-social-tradition-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-chemical-engineering-bsch-bsch",
+      "institution_id": "notre-dame",
+      "name": "Chemical Engineering (BSCH)",
+      "degree_level": "Undergraduate",
+      "award": "BSCH",
+      "official_url": "https://catalog.nd.edu/undergraduate/engineering/chemical-biomolecular-engr/chemical-engineering-bsch/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/engineering/chemical-biomolecular-engr/chemical-engineering-bsch/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-chemistry-bs-bs",
+      "institution_id": "notre-dame",
+      "name": "Chemistry (BS)",
+      "degree_level": "Undergraduate",
+      "award": "BS",
+      "official_url": "https://catalog.nd.edu/undergraduate/science/chemistry-biochemistry/chemistry-bs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/science/chemistry-biochemistry/chemistry-bs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-chemistry-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Chemistry (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/science/chemistry-biochemistry/chemistry-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/science/chemistry-biochemistry/chemistry-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-chemistry-computing-bs-bs",
+      "institution_id": "notre-dame",
+      "name": "Chemistry/Computing (BS)",
+      "degree_level": "Undergraduate",
+      "award": "BS",
+      "official_url": "https://catalog.nd.edu/undergraduate/science/chemistry-biochemistry/chemistrycomputing-bs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/science/chemistry-biochemistry/chemistrycomputing-bs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-chinese-ba-ba",
+      "institution_id": "notre-dame",
+      "name": "Chinese (BA)",
+      "degree_level": "Undergraduate",
+      "award": "BA",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/east-asian-language-cultures/chinese-ba/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/east-asian-language-cultures/chinese-ba/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-chinese-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Chinese (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/east-asian-language-cultures/chinese-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/east-asian-language-cultures/chinese-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-chinese-supplementary-major-supplementary-major",
+      "institution_id": "notre-dame",
+      "name": "Chinese (Supplementary Major)",
+      "degree_level": "Undergraduate",
+      "award": "Supplementary Major",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/east-asian-language-cultures/chinese-supp/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/east-asian-language-cultures/chinese-supp/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-civil-engineering-bsce-bsce",
+      "institution_id": "notre-dame",
+      "name": "Civil Engineering (BSCE)",
+      "degree_level": "Undergraduate",
+      "award": "BSCE",
+      "official_url": "https://catalog.nd.edu/undergraduate/engineering/cvl-envmntl-engr-earth-sci/civil-engineering-bsce/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/engineering/cvl-envmntl-engr-earth-sci/civil-engineering-bsce/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-civil-and-human-rights-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Civil and Human Rights (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/keough-school-global-affairs/klau-inst-cvl-hum-rights/civil-human-rights-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/keough-school-global-affairs/klau-inst-cvl-hum-rights/civil-human-rights-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-classical-studies-civilization-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Classical Studies Civilization (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/classics/classical-studies-civilization-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/classics/classical-studies-civilization-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-classical-studies-heritage-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Classical Studies Heritage (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/classics/classical-studies-heritage-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/classics/classical-studies-heritage-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-classics-ba-ba",
+      "institution_id": "notre-dame",
+      "name": "Classics (BA)",
+      "degree_level": "Undergraduate",
+      "award": "BA",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/classics/classics-ba/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/classics/classics-ba/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-classics-supplementary-major-supplementary-major",
+      "institution_id": "notre-dame",
+      "name": "Classics (Supplementary Major)",
+      "degree_level": "Undergraduate",
+      "award": "Supplementary Major",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/classics/classics-supp/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/classics/classics-supp/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-collaborative-innovation-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Collaborative Innovation (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/art-art-history-design/collaborative-innovation-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/art-art-history-design/collaborative-innovation-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-compassionate-care-in-medicine-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Compassionate Care in Medicine (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/science/preprofessional-studies/compassionate-care-medicine-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/science/preprofessional-studies/compassionate-care-medicine-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-computational-engineering-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Computational Engineering (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/engineering/aerospace-mechanical-engr/computational-engineering-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/engineering/aerospace-mechanical-engr/computational-engineering-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-computer-engineering-bscp-bscp",
+      "institution_id": "notre-dame",
+      "name": "Computer Engineering (BSCP)",
+      "degree_level": "Undergraduate",
+      "award": "BSCP",
+      "official_url": "https://catalog.nd.edu/undergraduate/engineering/computer-science-engr/computer-engineering-bscp/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/engineering/computer-science-engr/computer-engineering-bscp/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-computer-science-ba-ba",
+      "institution_id": "notre-dame",
+      "name": "Computer Science (BA)",
+      "degree_level": "Undergraduate",
+      "award": "BA",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/tech-digital-studies-pgrm/computer-science-ba/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/tech-digital-studies-pgrm/computer-science-ba/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-computer-science-bba-bba",
+      "institution_id": "notre-dame",
+      "name": "Computer Science (BBA)",
+      "degree_level": "Undergraduate",
+      "award": "BBA",
+      "official_url": "https://catalog.nd.edu/undergraduate/business/business-deans-office/computer-science-bba/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/business/business-deans-office/computer-science-bba/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-computer-science-bscs-bscs",
+      "institution_id": "notre-dame",
+      "name": "Computer Science (BSCS)",
+      "degree_level": "Undergraduate",
+      "award": "BSCS",
+      "official_url": "https://catalog.nd.edu/undergraduate/engineering/computer-science-engr/computer-science-bscs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/engineering/computer-science-engr/computer-science-bscs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-computing-and-digital-technologies-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Computing & Digital Technologies (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/tech-digital-studies-pgrm/computing-digital-technologies-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/tech-digital-studies-pgrm/computing-digital-technologies-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-constitutional-studies-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Constitutional Studies (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/political-science/constitutional-studies-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/political-science/constitutional-studies-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-construction-management-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Construction Management (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/engineering/cvl-envmntl-engr-earth-sci/construction-management-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/engineering/cvl-envmntl-engr-earth-sci/construction-management-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-data-science-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Data Science (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/tech-digital-studies-pgrm/data-science-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/tech-digital-studies-pgrm/data-science-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-design-ba-ba",
+      "institution_id": "notre-dame",
+      "name": "Design (BA)",
+      "degree_level": "Undergraduate",
+      "award": "BA",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/art-art-history-design/design-ba/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/art-art-history-design/design-ba/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-design-bfa-bfa",
+      "institution_id": "notre-dame",
+      "name": "Design (BFA)",
+      "degree_level": "Undergraduate",
+      "award": "BFA",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/art-art-history-design/design-bfa/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/art-art-history-design/design-bfa/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-economic-and-business-history-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Economic and Business History (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/history/economic-business-history-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/history/economic-business-history-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-economics-ba-ba",
+      "institution_id": "notre-dame",
+      "name": "Economics (BA)",
+      "degree_level": "Undergraduate",
+      "award": "BA",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/economics/economics-ba/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/economics/economics-ba/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-education-schooling-and-society-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Education, Schooling, & Society (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/inst-educational-initiatives/education-schooling-society-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/inst-educational-initiatives/education-schooling-society-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-education-schooling-and-society-supp-supp",
+      "institution_id": "notre-dame",
+      "name": "Education, Schooling, & Society (Supp.)",
+      "degree_level": "Undergraduate",
+      "award": "Supp.",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/inst-educational-initiatives/education-schooling-society-supp/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/inst-educational-initiatives/education-schooling-society-supp/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-electrical-engineering-bsee-bsee",
+      "institution_id": "notre-dame",
+      "name": "Electrical Engineering (BSEE)",
+      "degree_level": "Undergraduate",
+      "award": "BSEE",
+      "official_url": "https://catalog.nd.edu/undergraduate/engineering/electrical-engineering/electrical-engineering-bsee/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/engineering/electrical-engineering/electrical-engineering-bsee/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-energy-engineering-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Energy Engineering (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/engineering/aerospace-mechanical-engr/energy-engineering-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/engineering/aerospace-mechanical-engr/energy-engineering-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-energy-studies-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Energy Studies (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/engineering/cvl-envmntl-engr-earth-sci/energy-studies-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/engineering/cvl-envmntl-engr-earth-sci/energy-studies-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-engineering-corporate-practice-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Engineering Corporate Practice (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/engineering/engineering-deans-office/engineering-corporate-practice-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/engineering/engineering-deans-office/engineering-corporate-practice-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-english-ba-ba",
+      "institution_id": "notre-dame",
+      "name": "English (BA)",
+      "degree_level": "Undergraduate",
+      "award": "BA",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/english/english-ba/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/english/english-ba/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-environmental-earth-sciences-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Environmental Earth Sciences (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/engineering/cvl-envmntl-engr-earth-sci/environmental-earth-sciences-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/engineering/cvl-envmntl-engr-earth-sci/environmental-earth-sciences-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-environmental-engineering-bs-bs",
+      "institution_id": "notre-dame",
+      "name": "Environmental Engineering (BS)",
+      "degree_level": "Undergraduate",
+      "award": "BS",
+      "official_url": "https://catalog.nd.edu/undergraduate/engineering/cvl-envmntl-engr-earth-sci/environmental-engineering-bs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/engineering/cvl-envmntl-engr-earth-sci/environmental-engineering-bs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-environmental-sciences-bs-bs",
+      "institution_id": "notre-dame",
+      "name": "Environmental Sciences (BS)",
+      "degree_level": "Undergraduate",
+      "award": "BS",
+      "official_url": "https://catalog.nd.edu/undergraduate/science/biological-sciences/environmental-sciences/environmental-sciences-bs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/science/biological-sciences/environmental-sciences/environmental-sciences-bs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-environmental-sciences-second-major-second-major",
+      "institution_id": "notre-dame",
+      "name": "Environmental Sciences (Second Major)",
+      "degree_level": "Undergraduate",
+      "award": "Second Major",
+      "official_url": "https://catalog.nd.edu/undergraduate/science/biological-sciences/environmental-sciencs-supp/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/science/biological-sciences/environmental-sciencs-supp/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-european-studies-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "European Studies (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/keough-school-global-affairs/nanovic-institute/european-studies-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/keough-school-global-affairs/nanovic-institute/european-studies-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-film-television-and-theatre-ba-ba",
+      "institution_id": "notre-dame",
+      "name": "Film, Television and Theatre (BA)",
+      "degree_level": "Undergraduate",
+      "award": "BA",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/film-television-theatre/film-television-theatre-ba/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/film-television-theatre/film-television-theatre-ba/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-finance-bba-bba",
+      "institution_id": "notre-dame",
+      "name": "Finance (BBA)",
+      "degree_level": "Undergraduate",
+      "award": "BBA",
+      "official_url": "https://catalog.nd.edu/undergraduate/business/finance/finance-bba/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/business/finance/finance-bba/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-foundations-of-business-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Foundations of Business (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/business/business-deans-office/foundations-business-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/business/business-deans-office/foundations-business-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-french-and-francophone-studies-ba-ba",
+      "institution_id": "notre-dame",
+      "name": "French and Francophone Studies (BA)",
+      "degree_level": "Undergraduate",
+      "award": "BA",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/romance-languages-lit/french-francophone-studies-ba/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/romance-languages-lit/french-francophone-studies-ba/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-french-and-francophone-studies-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "French and Francophone Studies (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/romance-languages-lit/french-francophone-studies-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/romance-languages-lit/french-francophone-studies-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-french-and-francophone-studies-supplementary-major-supplementary-major",
+      "institution_id": "notre-dame",
+      "name": "French and Francophone Studies (Supplementary Major)",
+      "degree_level": "Undergraduate",
+      "award": "Supplementary Major",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/romance-languages-lit/french-supp/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/romance-languages-lit/french-supp/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-gender-studies-ba-ba",
+      "institution_id": "notre-dame",
+      "name": "Gender Studies (BA)",
+      "degree_level": "Undergraduate",
+      "award": "BA",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/gender-studies/gender-studies-ba/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/gender-studies/gender-studies-ba/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-gender-studies-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Gender Studies (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/gender-studies/gender-studies-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/gender-studies/gender-studies-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-gender-studies-supplementary-major-supplementary-major",
+      "institution_id": "notre-dame",
+      "name": "Gender Studies (Supplementary Major)",
+      "degree_level": "Undergraduate",
+      "award": "Supplementary Major",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/gender-studies/gender-studies-supp/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/gender-studies/gender-studies-supp/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-german-ba-ba",
+      "institution_id": "notre-dame",
+      "name": "German (BA)",
+      "degree_level": "Undergraduate",
+      "award": "BA",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/german-slavic-eurasian-stud/german-ba/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/german-slavic-eurasian-stud/german-ba/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-german-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "German (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/german-slavic-eurasian-stud/german-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/german-slavic-eurasian-stud/german-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-german-supplementary-major-supplementary-major",
+      "institution_id": "notre-dame",
+      "name": "German (Supplementary Major)",
+      "degree_level": "Undergraduate",
+      "award": "Supplementary Major",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/german-slavic-eurasian-stud/german-supp/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/german-slavic-eurasian-stud/german-supp/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-german-studies-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "German Studies (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/german-slavic-eurasian-stud/german-studies-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/german-slavic-eurasian-stud/german-studies-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-german-slavic-and-eurasian-studies-slavic-and-eurasian-studies",
+      "institution_id": "notre-dame",
+      "name": "German, Slavic & Eurasian Studies",
+      "degree_level": "Undergraduate",
+      "award": "Slavic & Eurasian Studies",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/german-slavic-eurasian-stud/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/german-slavic-eurasian-stud/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-global-affairs-bga-bga",
+      "institution_id": "notre-dame",
+      "name": "Global Affairs (BGA)",
+      "degree_level": "Undergraduate",
+      "award": "BGA",
+      "official_url": "https://catalog.nd.edu/undergraduate/keough-school-global-affairs/keough-school-global-affairs/global-affairs-bga/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/keough-school-global-affairs/keough-school-global-affairs/global-affairs-bga/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-global-health-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Global Health (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/science/eck-institute-global-health/global-health-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/science/eck-institute-global-health/global-health-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-greek-and-roman-civilization-supplementary-major-supplementary-major",
+      "institution_id": "notre-dame",
+      "name": "Greek & Roman Civilization (Supplementary Major)",
+      "degree_level": "Undergraduate",
+      "award": "Supplementary Major",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/classics/greek-roman-civ-supp/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/classics/greek-roman-civ-supp/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-greek-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Greek (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/classics/greek-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/classics/greek-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-greek-and-roman-civilization-ba-ba",
+      "institution_id": "notre-dame",
+      "name": "Greek and Roman Civilization (BA)",
+      "degree_level": "Undergraduate",
+      "award": "BA",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/classics/greek-roman-civilization-ba/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/classics/greek-roman-civilization-ba/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-health-humanities-and-society-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Health, Humanities, & Society (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/science-technology-values/health-humanities-society-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/science-technology-values/health-humanities-society-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-hesburgh-program-public-service-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Hesburgh Program Public Service (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/hesburgh-program-public-srv/hesburgh-program-public-service-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/hesburgh-program-public-srv/hesburgh-program-public-service-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-history-ba-ba",
+      "institution_id": "notre-dame",
+      "name": "History (BA)",
+      "degree_level": "Undergraduate",
+      "award": "BA",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/history/history-ba/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/history/history-ba/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-history-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "History (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/history/history-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/history/history-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-impact-consulting-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Impact Consulting (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/business/management-organization/impact-consulting-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/business/management-organization/impact-consulting-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-innovation-and-entrepreneurship-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Innovation & Entrepreneurship (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/business/management-organization/innovation-entrepreneurship-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/business/management-organization/innovation-entrepreneurship-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-international-economics-arabic-ba-ba",
+      "institution_id": "notre-dame",
+      "name": "International Economics - Arabic (BA)",
+      "degree_level": "Undergraduate",
+      "award": "BA",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/classics/international-economics-arabic-ba/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/classics/international-economics-arabic-ba/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-international-economics-chinese-ba-ba",
+      "institution_id": "notre-dame",
+      "name": "International Economics - Chinese (BA)",
+      "degree_level": "Undergraduate",
+      "award": "BA",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/east-asian-language-cultures/international-economics-chinese-ba/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/east-asian-language-cultures/international-economics-chinese-ba/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-international-economics-german-ba-ba",
+      "institution_id": "notre-dame",
+      "name": "International Economics - German (BA)",
+      "degree_level": "Undergraduate",
+      "award": "BA",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/german-slavic-eurasian-stud/international-economics-german-ba/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/german-slavic-eurasian-stud/international-economics-german-ba/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-international-economics-japanese-ba-ba",
+      "institution_id": "notre-dame",
+      "name": "International Economics - Japanese (BA)",
+      "degree_level": "Undergraduate",
+      "award": "BA",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/east-asian-language-cultures/international-economics-japanese-ba/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/east-asian-language-cultures/international-economics-japanese-ba/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-international-economics-llr-ba-ba",
+      "institution_id": "notre-dame",
+      "name": "International Economics - LLR (BA)",
+      "degree_level": "Undergraduate",
+      "award": "BA",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/romance-languages-lit/international-economics-llr-ba/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/romance-languages-lit/international-economics-llr-ba/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-international-economics-russian-ba-ba",
+      "institution_id": "notre-dame",
+      "name": "International Economics - Russian (BA)",
+      "degree_level": "Undergraduate",
+      "award": "BA",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/german-slavic-eurasian-stud/international-economics-russian-ba/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/german-slavic-eurasian-stud/international-economics-russian-ba/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-international-security-studies-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "International Security Studies (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/political-science/international-security-studies-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/political-science/international-security-studies-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-italian-ba-ba",
+      "institution_id": "notre-dame",
+      "name": "Italian (BA)",
+      "degree_level": "Undergraduate",
+      "award": "BA",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/romance-languages-lit/italian-ba/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/romance-languages-lit/italian-ba/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-italian-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Italian (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/romance-languages-lit/italian-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/romance-languages-lit/italian-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-italian-supplementary-major-supplementary-major",
+      "institution_id": "notre-dame",
+      "name": "Italian (Supplementary Major)",
+      "degree_level": "Undergraduate",
+      "award": "Supplementary Major",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/romance-languages-lit/italian-supp/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/romance-languages-lit/italian-supp/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-japanese-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Japanese (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/east-asian-language-cultures/japanese-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/east-asian-language-cultures/japanese-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-japanese-supplementary-major-supplementary-major",
+      "institution_id": "notre-dame",
+      "name": "Japanese (Supplementary Major)",
+      "degree_level": "Undergraduate",
+      "award": "Supplementary Major",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/east-asian-language-cultures/japanese-supp/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/east-asian-language-cultures/japanese-supp/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-journalism-ethics-and-democracy-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Journalism, Ethics & Democracy (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/american-studies/journalism-ethics-democracy-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/american-studies/journalism-ethics-democracy-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-korean-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Korean (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/east-asian-language-cultures/korean-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/east-asian-language-cultures/korean-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-latin-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Latin (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/classics/latin-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/classics/latin-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-liturgical-music-ministry-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Liturgical Music Ministry (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/theology/liturgical-music-ministry-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/theology/liturgical-music-ministry-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-marketing-bba-bba",
+      "institution_id": "notre-dame",
+      "name": "Marketing (BBA)",
+      "degree_level": "Undergraduate",
+      "award": "BBA",
+      "official_url": "https://catalog.nd.edu/undergraduate/business/marketing/marketing-bba/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/business/marketing/marketing-bba/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-marketing-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Marketing (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/business/marketing/marketing-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/business/marketing/marketing-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-mathematics-ba-ba",
+      "institution_id": "notre-dame",
+      "name": "Mathematics (BA)",
+      "degree_level": "Undergraduate",
+      "award": "BA",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/arts-letters-deans-office/mathematics-ba/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/arts-letters-deans-office/mathematics-ba/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-mathematics-bs-bs",
+      "institution_id": "notre-dame",
+      "name": "Mathematics (BS)",
+      "degree_level": "Undergraduate",
+      "award": "BS",
+      "official_url": "https://catalog.nd.edu/undergraduate/science/mathematics/mathematics-bs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/science/mathematics/mathematics-bs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-mathematics-second-major-second-major",
+      "institution_id": "notre-dame",
+      "name": "Mathematics (Second Major)",
+      "degree_level": "Undergraduate",
+      "award": "Second Major",
+      "official_url": "https://catalog.nd.edu/undergraduate/science/mathematics/mathematics-supp/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/science/mathematics/mathematics-supp/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-mathematics-for-engineers-supplemental-major-supplemental-major",
+      "institution_id": "notre-dame",
+      "name": "Mathematics for Engineers (Supplemental Major)",
+      "degree_level": "Undergraduate",
+      "award": "Supplemental Major",
+      "official_url": "https://catalog.nd.edu/undergraduate/science/mathematics/mathematics-engineers-supp/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/science/mathematics/mathematics-engineers-supp/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-mechanical-engineering-bsme-bsme",
+      "institution_id": "notre-dame",
+      "name": "Mechanical Engineering (BSME)",
+      "degree_level": "Undergraduate",
+      "award": "BSME",
+      "official_url": "https://catalog.nd.edu/undergraduate/engineering/aerospace-mechanical-engr/mechanical-engineering-bsme/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/engineering/aerospace-mechanical-engr/mechanical-engineering-bsme/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-medieval-studies-ba-ba",
+      "institution_id": "notre-dame",
+      "name": "Medieval Studies (BA)",
+      "degree_level": "Undergraduate",
+      "award": "BA",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/medieval-studies/medieval-studies-ba/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/medieval-studies/medieval-studies-ba/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-medieval-studies-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Medieval Studies (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/medieval-studies/medieval-studies-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/medieval-studies/medieval-studies-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-medieval-studies-supplementary-major-supplementary-major",
+      "institution_id": "notre-dame",
+      "name": "Medieval Studies (Supplementary Major)",
+      "degree_level": "Undergraduate",
+      "award": "Supplementary Major",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/medieval-studies/medieval-studies-supp/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/medieval-studies/medieval-studies-supp/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-middle-east-and-north-africa-studies-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Middle East & North Africa Studies (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/classics/middle-east-north-africa-studies-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/classics/middle-east-north-africa-studies-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-music-ba-ba",
+      "institution_id": "notre-dame",
+      "name": "Music (BA)",
+      "degree_level": "Undergraduate",
+      "award": "BA",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/music/music-ba/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/music/music-ba/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-music-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Music (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/music/music-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/music/music-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-musical-theatre-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Musical Theatre (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/film-television-theatre/musical-theatre-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/film-television-theatre/musical-theatre-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-neuroscience-and-behavior-ba-ba",
+      "institution_id": "notre-dame",
+      "name": "Neuroscience & Behavior (BA)",
+      "degree_level": "Undergraduate",
+      "award": "BA",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/psychology/neuroscience-behavior-ba/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/psychology/neuroscience-behavior-ba/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-neuroscience-and-behavior-bs-bs",
+      "institution_id": "notre-dame",
+      "name": "Neuroscience and Behavior (BS)",
+      "degree_level": "Undergraduate",
+      "award": "BS",
+      "official_url": "https://catalog.nd.edu/undergraduate/science/science-deans-office/neuroscience-behavior-bs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/science/science-deans-office/neuroscience-behavior-bs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-peace-studies-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Peace Studies (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/keough-school-global-affairs/inst-intl-peace-studies/peace-studies-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/keough-school-global-affairs/inst-intl-peace-studies/peace-studies-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-peace-studies-supplementary-major-supplementary-major",
+      "institution_id": "notre-dame",
+      "name": "Peace Studies (Supplementary Major)",
+      "degree_level": "Undergraduate",
+      "award": "Supplementary Major",
+      "official_url": "https://catalog.nd.edu/undergraduate/keough-school-global-affairs/inst-intl-peace-studies/peace-studies-supp/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/keough-school-global-affairs/inst-intl-peace-studies/peace-studies-supp/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-philosophy-ba-ba",
+      "institution_id": "notre-dame",
+      "name": "Philosophy (BA)",
+      "degree_level": "Undergraduate",
+      "award": "BA",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/philosophy/philosophy-ba/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/philosophy/philosophy-ba/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-philosophy-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Philosophy (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/philosophy/philosophy-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/philosophy/philosophy-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-physics-bs-bs",
+      "institution_id": "notre-dame",
+      "name": "Physics (BS)",
+      "degree_level": "Undergraduate",
+      "award": "BS",
+      "official_url": "https://catalog.nd.edu/undergraduate/science/physics-astronomy/physics-bs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/science/physics-astronomy/physics-bs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-physics-second-major-second-major",
+      "institution_id": "notre-dame",
+      "name": "Physics (Second Major)",
+      "degree_level": "Undergraduate",
+      "award": "Second Major",
+      "official_url": "https://catalog.nd.edu/undergraduate/science/physics-astronomy/physics-supp/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/science/physics-astronomy/physics-supp/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-physics-in-medicine-bs-bs",
+      "institution_id": "notre-dame",
+      "name": "Physics in Medicine (BS)",
+      "degree_level": "Undergraduate",
+      "award": "BS",
+      "official_url": "https://catalog.nd.edu/undergraduate/science/physics-astronomy/physics-medicine-bs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/science/physics-astronomy/physics-medicine-bs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-political-science-ba-ba",
+      "institution_id": "notre-dame",
+      "name": "Political Science (BA)",
+      "degree_level": "Undergraduate",
+      "award": "BA",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/political-science/political-science-ba/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/political-science/political-science-ba/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-portuguese-and-brazilian-studies-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Portuguese & Brazilian Studies (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/romance-languages-lit/portuguese-brazilian-studies-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/romance-languages-lit/portuguese-brazilian-studies-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-poverty-studies-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Poverty Studies (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/institute-social-concerns/poverty-studies-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/institute-social-concerns/poverty-studies-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-pre-health-studies-supplementary-major-supplementary-major",
+      "institution_id": "notre-dame",
+      "name": "Pre-Health Studies (Supplementary Major)",
+      "degree_level": "Undergraduate",
+      "award": "Supplementary Major",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/arts-letters-deans-office/prehealth-studies-supp/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/arts-letters-deans-office/prehealth-studies-supp/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-preprofessional-bs-bs",
+      "institution_id": "notre-dame",
+      "name": "PreProfessional (BS)",
+      "degree_level": "Undergraduate",
+      "award": "BS",
+      "official_url": "https://catalog.nd.edu/undergraduate/science/preprofessional-studies/preprofessional-bs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/science/preprofessional-studies/preprofessional-bs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-program-of-liberal-studies-ba-ba",
+      "institution_id": "notre-dame",
+      "name": "Program of Liberal Studies (BA)",
+      "degree_level": "Undergraduate",
+      "award": "BA",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/program-liberal-studies/program-liberal-studies-ba/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/program-liberal-studies/program-liberal-studies-ba/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-psychology-ba-ba",
+      "institution_id": "notre-dame",
+      "name": "Psychology (BA)",
+      "degree_level": "Undergraduate",
+      "award": "BA",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/psychology/psychology-ba/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/psychology/psychology-ba/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-real-estate-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Real Estate (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/business/fitzgerld-inst-real-estate/real-estate-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/business/fitzgerld-inst-real-estate/real-estate-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-resiliency-and-sustainability-of-eg-systems-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Resiliency & Sustainability of EG Systems (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/engineering/cvl-envmntl-engr-earth-sci/resiliency-sustainability-eg-systems-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/engineering/cvl-envmntl-engr-earth-sci/resiliency-sustainability-eg-systems-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-romance-languages-and-literature-ba-ba",
+      "institution_id": "notre-dame",
+      "name": "Romance Languages and Literature (BA)",
+      "degree_level": "Undergraduate",
+      "award": "BA",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/romance-languages-lit/romance-languages-literature-ba/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/romance-languages-lit/romance-languages-literature-ba/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-russian-ba-ba",
+      "institution_id": "notre-dame",
+      "name": "Russian (BA)",
+      "degree_level": "Undergraduate",
+      "award": "BA",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/german-slavic-eurasian-stud/russian-ba/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/german-slavic-eurasian-stud/russian-ba/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-russian-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Russian (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/german-slavic-eurasian-stud/russian-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/german-slavic-eurasian-stud/russian-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-russian-supplementary-major-supplementary-major",
+      "institution_id": "notre-dame",
+      "name": "Russian (Supplementary Major)",
+      "degree_level": "Undergraduate",
+      "award": "Supplementary Major",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/german-slavic-eurasian-stud/russian-supp/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/german-slavic-eurasian-stud/russian-supp/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-science-and-patient-advocacy-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Science & Patient Advocacy (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/science/biological-sciences/scientific-patient-advocacy-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/science/biological-sciences/scientific-patient-advocacy-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-science-computing-bs-bs",
+      "institution_id": "notre-dame",
+      "name": "Science - Computing (BS)",
+      "degree_level": "Undergraduate",
+      "award": "BS",
+      "official_url": "https://catalog.nd.edu/undergraduate/science/science-deans-office/science-computing-bs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/science/science-deans-office/science-computing-bs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-science-education-bs-bs",
+      "institution_id": "notre-dame",
+      "name": "Science - Education (BS)",
+      "degree_level": "Undergraduate",
+      "award": "BS",
+      "official_url": "https://catalog.nd.edu/undergraduate/science/science-deans-office/science-education-bs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/science/science-deans-office/science-education-bs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-science-technology-and-values-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Science, Technology and Values (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/science-technology-values/science-technology-values-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/science-technology-values/science-technology-values-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-scientific-computing-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Scientific Computing (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/science/applied-comp-math-stats/scientific-computing-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/science/applied-comp-math-stats/scientific-computing-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-slavic-and-eurasian-studies-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Slavic and Eurasian Studies (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/german-slavic-eurasian-stud/slavic-eurasian-studies-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/german-slavic-eurasian-stud/slavic-eurasian-studies-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-social-entrepreneurship-and-innovation-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Social Entrepreneurship & Innovation (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/keough-school-global-affairs/mckenna-cntr-human-dvlpmntbus/social-entrepreneurship-innovation-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/keough-school-global-affairs/mckenna-cntr-human-dvlpmntbus/social-entrepreneurship-innovation-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-sociology-ba-ba",
+      "institution_id": "notre-dame",
+      "name": "Sociology (BA)",
+      "degree_level": "Undergraduate",
+      "award": "BA",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/sociology/sociology-ba/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/sociology/sociology-ba/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-sociology-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Sociology (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/sociology/sociology-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/sociology/sociology-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-spanish-ba-ba",
+      "institution_id": "notre-dame",
+      "name": "Spanish (BA)",
+      "degree_level": "Undergraduate",
+      "award": "BA",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/romance-languages-lit/spanish-ba/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/romance-languages-lit/spanish-ba/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-spanish-supplementary-major-supplementary-major",
+      "institution_id": "notre-dame",
+      "name": "Spanish (Supplementary Major)",
+      "degree_level": "Undergraduate",
+      "award": "Supplementary Major",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/romance-languages-lit/spanish-supp/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/romance-languages-lit/spanish-supp/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-sport-media-and-culture-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Sport, Media, and Culture (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/american-studies/sport-media-culture-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/american-studies/sport-media-culture-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-statistics-bs-bs",
+      "institution_id": "notre-dame",
+      "name": "Statistics (BS)",
+      "degree_level": "Undergraduate",
+      "award": "BS",
+      "official_url": "https://catalog.nd.edu/undergraduate/science/applied-comp-math-stats/statistics-bs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/science/applied-comp-math-stats/statistics-bs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-statistics-supplementary-major-supplementary-major",
+      "institution_id": "notre-dame",
+      "name": "Statistics (Supplementary Major)",
+      "degree_level": "Undergraduate",
+      "award": "Supplementary Major",
+      "official_url": "https://catalog.nd.edu/undergraduate/science/applied-comp-math-stats/statistics-supp/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/science/applied-comp-math-stats/statistics-supp/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-strategic-management-bba-bba",
+      "institution_id": "notre-dame",
+      "name": "Strategic Management (BBA)",
+      "degree_level": "Undergraduate",
+      "award": "BBA",
+      "official_url": "https://catalog.nd.edu/undergraduate/business/management-organization/strategic-management-bba/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/business/management-organization/strategic-management-bba/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-studio-art-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Studio Art (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/art-art-history-design/studio-art-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/art-art-history-design/studio-art-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-sustainability-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Sustainability (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/science/biological-sciences/sustainability-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/science/biological-sciences/sustainability-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-theatre-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Theatre (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/film-television-theatre/theatre-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/film-television-theatre/theatre-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-theology-ba-ba",
+      "institution_id": "notre-dame",
+      "name": "Theology (BA)",
+      "degree_level": "Undergraduate",
+      "award": "BA",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/theology/theology-ba/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/theology/theology-ba/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-un-theology-minor-minor",
+      "institution_id": "notre-dame",
+      "name": "Theology (Minor)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.nd.edu/undergraduate/arts-letters/theology/theology-minor/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.nd.edu/undergraduate/arts-letters/theology/theology-minor/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame academic programs table row"
+      }
+    },
+    {
+      "id": "notre-dame-po-ace-mary-ann-remick-leadership-program-mael-master-s-professional",
+      "institution_id": "notre-dame",
+      "name": "ACE: Mary Ann Remick Leadership Program: MAEL",
+      "degree_level": "Postgraduate",
+      "award": "Master's (Professional)",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/ace-mary-ann-remick-leadership-program-mael---masters-professional/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/ace-mary-ann-remick-leadership-program-mael---masters-professional/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-ace-teaching-fellows-med-master-s-professional",
+      "institution_id": "notre-dame",
+      "name": "ACE: Teaching Fellows: MEd",
+      "degree_level": "Postgraduate",
+      "award": "Master's (Professional)",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/ace-teaching-fellows-med---masters-professional/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/ace-teaching-fellows-med---masters-professional/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-advanced-quantitative-social-science-minor-current-students-only",
+      "institution_id": "notre-dame",
+      "name": "Advanced Quantitative Social Science: Minor",
+      "degree_level": "Postgraduate",
+      "award": "Current Students Only",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/advanced-quantitative-social-science-minor---current-students-only/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/advanced-quantitative-social-science-minor---current-students-only/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-aerospace-and-mechanical-engineering-phd-doctoral",
+      "institution_id": "notre-dame",
+      "name": "Aerospace and Mechanical Engineering: PhD",
+      "degree_level": "Postgraduate",
+      "award": "Doctoral",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/aerospace-and-mechanical-engineering-phd---doctoral/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/aerospace-and-mechanical-engineering-phd---doctoral/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-aerospace-engineering-msae-master-s-traditional",
+      "institution_id": "notre-dame",
+      "name": "Aerospace Engineering: MSAE",
+      "degree_level": "Postgraduate",
+      "award": "Master's (Traditional)",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/aerospace-engineering-msae---masters-traditional/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/aerospace-engineering-msae---masters-traditional/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-analytics-phd-doctoral",
+      "institution_id": "notre-dame",
+      "name": "Analytics: PhD",
+      "degree_level": "Postgraduate",
+      "award": "Doctoral",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/analytics-phd---doctoral/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/analytics-phd---doctoral/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-anthropology-phd-doctoral",
+      "institution_id": "notre-dame",
+      "name": "Anthropology: PhD",
+      "degree_level": "Postgraduate",
+      "award": "Doctoral",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/anthropology-phd---doctoral/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/anthropology-phd---doctoral/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-applied-and-computational-mathematics-and-statistics-ms-master-s-professional",
+      "institution_id": "notre-dame",
+      "name": "Applied and Computational Mathematics and Statistics: MS",
+      "degree_level": "Postgraduate",
+      "award": "Master's (Professional)",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/applied-and-computational-mathematics-and-statistics-ms---masters-professional/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/applied-and-computational-mathematics-and-statistics-ms---masters-professional/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-applied-and-computational-mathematics-and-statistics-phd-doctoral",
+      "institution_id": "notre-dame",
+      "name": "Applied and Computational Mathematics and Statistics: PhD",
+      "degree_level": "Postgraduate",
+      "award": "Doctoral",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/applied-and-computational-mathematics-and-statistics-phd---doctoral/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/applied-and-computational-mathematics-and-statistics-phd---doctoral/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-aspire-nd-prep-grad-school-prep",
+      "institution_id": "notre-dame",
+      "name": "ASPiRE-ND: Prep",
+      "degree_level": "Postgraduate",
+      "award": "Grad School Prep",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/aspire-nd-prep---grad-school-prep/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/aspire-nd-prep---grad-school-prep/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-biochemistry-phd-doctoral",
+      "institution_id": "notre-dame",
+      "name": "Biochemistry: PhD",
+      "degree_level": "Postgraduate",
+      "award": "Doctoral",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/biochemistry-phd---doctoral/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/biochemistry-phd---doctoral/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-bioengineering-phd-doctoral",
+      "institution_id": "notre-dame",
+      "name": "Bioengineering: PhD",
+      "degree_level": "Postgraduate",
+      "award": "Doctoral",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/bioengineering-phd---doctoral/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/bioengineering-phd---doctoral/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-biological-sciences-phd-doctoral",
+      "institution_id": "notre-dame",
+      "name": "Biological Sciences: PhD",
+      "degree_level": "Postgraduate",
+      "award": "Doctoral",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/biological-sciences-phd---doctoral/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/biological-sciences-phd---doctoral/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-biology-reu-prep-grad-school-prep",
+      "institution_id": "notre-dame",
+      "name": "Biology REU: Prep",
+      "degree_level": "Postgraduate",
+      "award": "Grad School Prep",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/biology-reu-prep---grad-school-prep/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/biology-reu-prep---grad-school-prep/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-biophysics-phd-doctoral",
+      "institution_id": "notre-dame",
+      "name": "Biophysics: PhD",
+      "degree_level": "Postgraduate",
+      "award": "Doctoral",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/biophysics-phd---doctoral/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/biophysics-phd---doctoral/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-byzantine-studies-minor-current-students-only",
+      "institution_id": "notre-dame",
+      "name": "Byzantine Studies: Minor",
+      "degree_level": "Postgraduate",
+      "award": "Current Students Only",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/byzantine-studies-minor---current-students-only/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/byzantine-studies-minor---current-students-only/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-chemical-engineering-phd-doctoral",
+      "institution_id": "notre-dame",
+      "name": "Chemical Engineering: PhD",
+      "degree_level": "Postgraduate",
+      "award": "Doctoral",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/chemical-engineering-phd---doctoral/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/chemical-engineering-phd---doctoral/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-chemistry-phd-doctoral",
+      "institution_id": "notre-dame",
+      "name": "Chemistry: PhD",
+      "degree_level": "Postgraduate",
+      "award": "Doctoral",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/chemistry-phd---doctoral/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/chemistry-phd---doctoral/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-civil-and-environmental-engineering-and-earth-sciences-phd-doctoral",
+      "institution_id": "notre-dame",
+      "name": "Civil and Environmental Engineering and Earth Sciences: PhD",
+      "degree_level": "Postgraduate",
+      "award": "Doctoral",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/civil-and-environmental-engineering-and-earth-sciences-phd---doctoral/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/civil-and-environmental-engineering-and-earth-sciences-phd---doctoral/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-civil-and-environmental-engineering-meng-master-s-professional",
+      "institution_id": "notre-dame",
+      "name": "Civil and Environmental Engineering: MEng",
+      "degree_level": "Postgraduate",
+      "award": "Master's (Professional)",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/civil-and-environmental-engineering-meng---masters-professional/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/civil-and-environmental-engineering-meng---masters-professional/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-civil-engineering-msce-master-s-traditional",
+      "institution_id": "notre-dame",
+      "name": "Civil Engineering: MSCE",
+      "degree_level": "Postgraduate",
+      "award": "Master's (Traditional)",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/civil-engineering-msce---masters-traditional/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/civil-engineering-msce---masters-traditional/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-civil-engineering-msenve-master-s-traditional",
+      "institution_id": "notre-dame",
+      "name": "Civil Engineering: MSEnvE",
+      "degree_level": "Postgraduate",
+      "award": "Master's (Traditional)",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/civil-engineering-msenve---masters-traditional/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/civil-engineering-msenve---masters-traditional/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-classics-ma-master-s-traditional",
+      "institution_id": "notre-dame",
+      "name": "Classics: MA",
+      "degree_level": "Postgraduate",
+      "award": "Master's (Traditional)",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/classics-ma---masters-traditional/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/classics-ma---masters-traditional/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-computational-science-and-engineering-minor-current-students-only",
+      "institution_id": "notre-dame",
+      "name": "Computational Science and Engineering: Minor",
+      "degree_level": "Postgraduate",
+      "award": "Current Students Only",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/computational-science-and-engineering-minor---current-students-only/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/computational-science-and-engineering-minor---current-students-only/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-computer-science-and-engineering-mscse-master-s-professional",
+      "institution_id": "notre-dame",
+      "name": "Computer Science and Engineering: MSCSE",
+      "degree_level": "Postgraduate",
+      "award": "Master's (Professional)",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/computer-science-and-engineering-mscse---masters-professional/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/computer-science-and-engineering-mscse---masters-professional/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-computer-science-and-engineering-phd-doctoral",
+      "institution_id": "notre-dame",
+      "name": "Computer Science and Engineering: PhD",
+      "degree_level": "Postgraduate",
+      "award": "Doctoral",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/computer-science-and-engineering-phd---doctoral/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/computer-science-and-engineering-phd---doctoral/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-conducting-sacred-music-dma-doctoral",
+      "institution_id": "notre-dame",
+      "name": "Conducting (Sacred Music): DMA",
+      "degree_level": "Postgraduate",
+      "award": "Doctoral",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/conducting-sacred-music-dma---doctoral/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/conducting-sacred-music-dma---doctoral/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-data-science-ms-master-s-professional",
+      "institution_id": "notre-dame",
+      "name": "Data Science: MS",
+      "degree_level": "Postgraduate",
+      "award": "Master's (Professional)",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/data-science-ms---masters-professional/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/data-science-ms---masters-professional/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-design-mfa-master-s-traditional",
+      "institution_id": "notre-dame",
+      "name": "Design: MFA",
+      "degree_level": "Postgraduate",
+      "award": "Master's (Traditional)",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/design-mfa---masters-traditional/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/design-mfa---masters-traditional/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-early-christian-studies-ma-master-s-traditional",
+      "institution_id": "notre-dame",
+      "name": "Early Christian Studies: MA",
+      "degree_level": "Postgraduate",
+      "award": "Master's (Traditional)",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/early-christian-studies-ma---masters-traditional/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/early-christian-studies-ma---masters-traditional/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-earth-sciences-msersc-master-s-traditional",
+      "institution_id": "notre-dame",
+      "name": "Earth Sciences: MSErSc",
+      "degree_level": "Postgraduate",
+      "award": "Master's (Traditional)",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/earth-sciences-msersc---masters-traditional/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/earth-sciences-msersc---masters-traditional/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-echo-theology-ma-master-s-traditional",
+      "institution_id": "notre-dame",
+      "name": "Echo/Theology: MA",
+      "degree_level": "Postgraduate",
+      "award": "Master's (Traditional)",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/echo-theology-ma---masters-traditional/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/echo-theology-ma---masters-traditional/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-economics-phd-doctoral",
+      "institution_id": "notre-dame",
+      "name": "Economics: PhD",
+      "degree_level": "Postgraduate",
+      "award": "Doctoral",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/economics-phd---doctoral/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/economics-phd---doctoral/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-electrical-engineering-msee-master-s-traditional",
+      "institution_id": "notre-dame",
+      "name": "Electrical Engineering: MSEE",
+      "degree_level": "Postgraduate",
+      "award": "Master's (Traditional)",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/electrical-engineering-msee---masters-traditional/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/electrical-engineering-msee---masters-traditional/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-electrical-engineering-phd-doctoral",
+      "institution_id": "notre-dame",
+      "name": "Electrical Engineering: PhD",
+      "degree_level": "Postgraduate",
+      "award": "Doctoral",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/electrical-engineering-phd---doctoral/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/electrical-engineering-phd---doctoral/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-engineering-science-and-technology-entrepreneurship-esteem-ms-master-s-professional",
+      "institution_id": "notre-dame",
+      "name": "Engineering, Science and Technology Entrepreneurship (ESTEEM): MS",
+      "degree_level": "Postgraduate",
+      "award": "Master's (Professional)",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/engineering-science-and-technology-entrepreneurship-esteem-ms---masters-professional/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/engineering-science-and-technology-entrepreneurship-esteem-ms---masters-professional/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-english-creative-writing-mfa-master-s-traditional",
+      "institution_id": "notre-dame",
+      "name": "English (Creative Writing): MFA",
+      "degree_level": "Postgraduate",
+      "award": "Master's (Traditional)",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/english-creative-writing-mfa---masters-traditional/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/english-creative-writing-mfa---masters-traditional/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-english-ma-master-s-traditional",
+      "institution_id": "notre-dame",
+      "name": "English : MA",
+      "degree_level": "Postgraduate",
+      "award": "Master's (Traditional)",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/english-ma---masters-traditional/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/english-ma---masters-traditional/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-english-phd-doctoral",
+      "institution_id": "notre-dame",
+      "name": "English: PhD",
+      "degree_level": "Postgraduate",
+      "award": "Doctoral",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/english-phd---doctoral/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/english-phd---doctoral/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-french-and-francophone-studies-ma-master-s-traditional",
+      "institution_id": "notre-dame",
+      "name": "French and Francophone Studies: MA",
+      "degree_level": "Postgraduate",
+      "award": "Master's (Traditional)",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/french-and-francophone-studies-ma---masters-traditional/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/french-and-francophone-studies-ma---masters-traditional/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-gender-studies-minor-current-students-only",
+      "institution_id": "notre-dame",
+      "name": "Gender Studies: Minor",
+      "degree_level": "Postgraduate",
+      "award": "Current Students Only",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/gender-studies-minor---current-students-only/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/gender-studies-minor---current-students-only/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-global-affairs-mga-master-s-professional",
+      "institution_id": "notre-dame",
+      "name": "Global Affairs: MGA",
+      "degree_level": "Postgraduate",
+      "award": "Master's (Professional)",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/global-affairs-mga---masters-professional/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/global-affairs-mga---masters-professional/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-history-and-philosophy-of-science-phd-doctoral",
+      "institution_id": "notre-dame",
+      "name": "History and Philosophy of Science: PhD",
+      "degree_level": "Postgraduate",
+      "award": "Doctoral",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/history-and-philosophy-of-science-phd---doctoral/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/history-and-philosophy-of-science-phd---doctoral/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-history-and-philosophy-of-science-technology-and-medicine-minor-current-students-only",
+      "institution_id": "notre-dame",
+      "name": "History and Philosophy of Science, Technology, and Medicine: Minor",
+      "degree_level": "Postgraduate",
+      "award": "Current Students Only",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/history-and-philosophy-of-science-technology-and-medicine-minor---current-students-only/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/history-and-philosophy-of-science-technology-and-medicine-minor---current-students-only/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-history-phd-doctoral",
+      "institution_id": "notre-dame",
+      "name": "History: PhD",
+      "degree_level": "Postgraduate",
+      "award": "Doctoral",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/history-phd---doctoral/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/history-phd---doctoral/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-integrated-biomedical-sciences-phd-doctoral",
+      "institution_id": "notre-dame",
+      "name": "Integrated Biomedical Sciences: PhD",
+      "degree_level": "Postgraduate",
+      "award": "Doctoral",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/integrated-biomedical-sciences-phd---doctoral/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/integrated-biomedical-sciences-phd---doctoral/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-interdisciplinary-mathematics-msim-master-s-traditional",
+      "institution_id": "notre-dame",
+      "name": "Interdisciplinary Mathematics: MSIM",
+      "degree_level": "Postgraduate",
+      "award": "Master's (Traditional)",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/interdisciplinary-mathematics-msim---masters-traditional/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/interdisciplinary-mathematics-msim---masters-traditional/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-international-peace-studies-phd-doctoral",
+      "institution_id": "notre-dame",
+      "name": "International Peace Studies: PhD",
+      "degree_level": "Postgraduate",
+      "award": "Doctoral",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/international-peace-studies-phd---doctoral/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/international-peace-studies-phd---doctoral/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-irish-studies-minor-current-students-only",
+      "institution_id": "notre-dame",
+      "name": "Irish Studies: Minor",
+      "degree_level": "Postgraduate",
+      "award": "Current Students Only",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/irish-studies-minor---current-students-only/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/irish-studies-minor---current-students-only/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-italian-phd-doctoral",
+      "institution_id": "notre-dame",
+      "name": "Italian: PhD",
+      "degree_level": "Postgraduate",
+      "award": "Doctoral",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/italian-phd---doctoral/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/italian-phd---doctoral/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-italian-studies-ma-master-s-traditional",
+      "institution_id": "notre-dame",
+      "name": "Italian Studies: MA",
+      "degree_level": "Postgraduate",
+      "award": "Master's (Traditional)",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/italian-studies-ma---masters-traditional/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/italian-studies-ma---masters-traditional/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-management-phd-doctoral",
+      "institution_id": "notre-dame",
+      "name": "Management: PhD",
+      "degree_level": "Postgraduate",
+      "award": "Doctoral",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/management-phd---doctoral/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/management-phd---doctoral/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-materials-science-and-engineering-phd-doctoral",
+      "institution_id": "notre-dame",
+      "name": "Materials Science and Engineering: PhD",
+      "degree_level": "Postgraduate",
+      "award": "Doctoral",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/materials-science-and-engineering-phd---doctoral/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/materials-science-and-engineering-phd---doctoral/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-mathematics-phd-doctoral",
+      "institution_id": "notre-dame",
+      "name": "Mathematics: PhD",
+      "degree_level": "Postgraduate",
+      "award": "Doctoral",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/mathematics-phd---doctoral/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/mathematics-phd---doctoral/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-md-phd-dual-degree-md-phd-dual",
+      "institution_id": "notre-dame",
+      "name": "MD/PhD Dual Degree: MD/PhD",
+      "degree_level": "Postgraduate",
+      "award": "Dual",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/md-phd-dual-degree-md-phd---joint/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/md-phd-dual-degree-md-phd---joint/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-mechanical-engineering-msme-master-s-traditional",
+      "institution_id": "notre-dame",
+      "name": "Mechanical Engineering: MSME",
+      "degree_level": "Postgraduate",
+      "award": "Master's (Traditional)",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/mechanical-engineering-msme---masters-traditional/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/mechanical-engineering-msme---masters-traditional/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-medieval-studies-minor-current-students-only",
+      "institution_id": "notre-dame",
+      "name": "Medieval Studies: Minor",
+      "degree_level": "Postgraduate",
+      "award": "Current Students Only",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/medieval-studies-minor---current-students-only/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/medieval-studies-minor---current-students-only/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-medieval-studies-phd-doctoral",
+      "institution_id": "notre-dame",
+      "name": "Medieval Studies: PhD",
+      "degree_level": "Postgraduate",
+      "award": "Doctoral",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/medieval-studies-phd---doctoral/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/medieval-studies-phd---doctoral/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-organ-sacred-music-dma-doctoral",
+      "institution_id": "notre-dame",
+      "name": "Organ (Sacred Music): DMA",
+      "degree_level": "Postgraduate",
+      "award": "Doctoral",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/organ-sacred-music-dma---doctoral/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/organ-sacred-music-dma---doctoral/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-peace-studies-and-anthropology-phd-doctoral",
+      "institution_id": "notre-dame",
+      "name": "Peace Studies and Anthropology: PhD",
+      "degree_level": "Postgraduate",
+      "award": "Doctoral",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/peace-studies-and-anthropology-phd---doctoral/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/peace-studies-and-anthropology-phd---doctoral/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-peace-studies-and-history-phd-doctoral",
+      "institution_id": "notre-dame",
+      "name": "Peace Studies and History: PhD",
+      "degree_level": "Postgraduate",
+      "award": "Doctoral",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/peace-studies-and-history-phd---doctoral/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/peace-studies-and-history-phd---doctoral/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-peace-studies-and-political-science-phd-doctoral",
+      "institution_id": "notre-dame",
+      "name": "Peace Studies and Political Science: PhD",
+      "degree_level": "Postgraduate",
+      "award": "Doctoral",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/peace-studies-and-political-science-phd---doctoral/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/peace-studies-and-political-science-phd---doctoral/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-peace-studies-and-psychology-phd-doctoral",
+      "institution_id": "notre-dame",
+      "name": "Peace Studies and Psychology: PhD",
+      "degree_level": "Postgraduate",
+      "award": "Doctoral",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/peace-studies-and-psychology-phd---doctoral/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/peace-studies-and-psychology-phd---doctoral/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-peace-studies-and-sociology-phd-doctoral",
+      "institution_id": "notre-dame",
+      "name": "Peace Studies and Sociology: PhD",
+      "degree_level": "Postgraduate",
+      "award": "Doctoral",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/peace-studies-and-sociology-phd---doctoral/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/peace-studies-and-sociology-phd---doctoral/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-peace-studies-and-theology-phd-doctoral",
+      "institution_id": "notre-dame",
+      "name": "Peace Studies and Theology: PhD",
+      "degree_level": "Postgraduate",
+      "award": "Doctoral",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/peace-studies-and-theology-phd---doctoral/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/peace-studies-and-theology-phd---doctoral/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-peace-studies-minor-current-students-only",
+      "institution_id": "notre-dame",
+      "name": "Peace Studies: Minor",
+      "degree_level": "Postgraduate",
+      "award": "Current Students Only",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/peace-studies-minor---current-students-only/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/peace-studies-minor---current-students-only/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-philosophy-phd-doctoral",
+      "institution_id": "notre-dame",
+      "name": "Philosophy: PhD",
+      "degree_level": "Postgraduate",
+      "award": "Doctoral",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/philosophy-phd---doctoral/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/philosophy-phd---doctoral/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-physics-phd-doctoral",
+      "institution_id": "notre-dame",
+      "name": "Physics: PhD",
+      "degree_level": "Postgraduate",
+      "award": "Doctoral",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/physics-phd---doctoral/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/physics-phd---doctoral/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-physics-reu-prep-grad-school-prep",
+      "institution_id": "notre-dame",
+      "name": "Physics REU: Prep",
+      "degree_level": "Postgraduate",
+      "award": "Grad School Prep",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/physics-reu-prep---grad-school-prep/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/physics-reu-prep---grad-school-prep/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-political-science-phd-doctoral",
+      "institution_id": "notre-dame",
+      "name": "Political Science: PhD",
+      "degree_level": "Postgraduate",
+      "award": "Doctoral",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/political-science-phd---doctoral/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/political-science-phd---doctoral/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-psychology-research-and-experimental-phd-doctoral",
+      "institution_id": "notre-dame",
+      "name": "Psychology, Research and Experimental: PhD",
+      "degree_level": "Postgraduate",
+      "award": "Doctoral",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/psychology-research-and-experimental-phd---doctoral/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/psychology-research-and-experimental-phd---doctoral/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-sacred-music-msm-master-s-traditional",
+      "institution_id": "notre-dame",
+      "name": "Sacred Music: MSM",
+      "degree_level": "Postgraduate",
+      "award": "Master's (Traditional)",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/sacred-music-msm---masters-traditional/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/sacred-music-msm---masters-traditional/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-screen-cultures-minor-current-students-only",
+      "institution_id": "notre-dame",
+      "name": "Screen Cultures: Minor",
+      "degree_level": "Postgraduate",
+      "award": "Current Students Only",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/screen-cultures-minor---current-students-only/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/screen-cultures-minor---current-students-only/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-sociology-phd-doctoral",
+      "institution_id": "notre-dame",
+      "name": "Sociology: PhD",
+      "degree_level": "Postgraduate",
+      "award": "Doctoral",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/sociology-phd---doctoral/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/sociology-phd---doctoral/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-spanish-ma-master-s-traditional",
+      "institution_id": "notre-dame",
+      "name": "Spanish: MA",
+      "degree_level": "Postgraduate",
+      "award": "Master's (Traditional)",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/spanish-ma---masters-traditional/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/spanish-ma---masters-traditional/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-spanish-phd-doctoral",
+      "institution_id": "notre-dame",
+      "name": "Spanish: PhD",
+      "degree_level": "Postgraduate",
+      "award": "Doctoral",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/spanish-phd---doctoral/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/spanish-phd---doctoral/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-studio-art-mfa-master-s-traditional",
+      "institution_id": "notre-dame",
+      "name": "Studio Art: MFA",
+      "degree_level": "Postgraduate",
+      "award": "Master's (Traditional)",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/studio-art-mfa---masters-traditional/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/studio-art-mfa---masters-traditional/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-summer-research-opportunities-program-prep-grad-school-prep",
+      "institution_id": "notre-dame",
+      "name": "Summer Research Opportunities Program: Prep",
+      "degree_level": "Postgraduate",
+      "award": "Grad School Prep",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/summer-research-opportunities-program-prep---grad-school-prep/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/summer-research-opportunities-program-prep---grad-school-prep/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-sustainable-development-phd-doctoral",
+      "institution_id": "notre-dame",
+      "name": "Sustainable Development: PhD",
+      "degree_level": "Postgraduate",
+      "award": "Doctoral",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/sustainable-development-phd---doctoral/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/sustainable-development-phd---doctoral/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-theology-ma-master-s-traditional",
+      "institution_id": "notre-dame",
+      "name": "Theology: MA",
+      "degree_level": "Postgraduate",
+      "award": "Master's (Traditional)",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/theology-ma---masters-traditional/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/theology-ma---masters-traditional/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-theology-mdiv-master-s-traditional",
+      "institution_id": "notre-dame",
+      "name": "Theology: MDiv",
+      "degree_level": "Postgraduate",
+      "award": "Master's (Traditional)",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/theology-mdiv---masters-traditional/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/theology-mdiv---masters-traditional/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-theology-mts-master-s-traditional",
+      "institution_id": "notre-dame",
+      "name": "Theology: MTS",
+      "degree_level": "Postgraduate",
+      "award": "Master's (Traditional)",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/theology-mts---masters-traditional/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/theology-mts---masters-traditional/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    },
+    {
+      "id": "notre-dame-po-theology-phd-doctoral",
+      "institution_id": "notre-dame",
+      "name": "Theology: PhD",
+      "degree_level": "Postgraduate",
+      "award": "Doctoral",
+      "official_url": "https://graduateschool.nd.edu/degree-programs/theology-phd---doctoral/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateschool.nd.edu/degree-programs/theology-phd---doctoral/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Notre Dame Graduate School degree programme card"
+      },
+      "mode": "Graduate School"
+    }
+  ]
+}

@@ -1,0 +1,2316 @@
+{
+  "$schema": "../schemas/institution-catalogue-v1.schema.json",
+  "contract": "InstitutionProgrammeCatalogue",
+  "version": 1,
+  "language": "en",
+  "institution": {
+    "id": "yale",
+    "name": "Yale University",
+    "short_name": "Yale",
+    "group": "US News Top 30",
+    "region": "United States",
+    "rank_note": "US News 2026 top-30 cutoff source list"
+  },
+  "catalogue_scope": {
+    "record_type": "programme_identity",
+    "identity_status": "official_source_listed",
+    "requirements_status": "not_collected",
+    "placeholder_records_verified": false,
+    "link_only_records_verified": false
+  },
+  "catalogue_provenance": {
+    "accessed_at": "2026-06-26",
+    "official_sources": [
+      {
+        "degree_level": "Undergraduate",
+        "title": "Yale College majors",
+        "official_url": "https://catalog.yale.edu/ycps/majors-in-yale-college/",
+        "coverage": "Official index",
+        "note": "Official undergraduate programme catalogue or admissions major index."
+      },
+      {
+        "degree_level": "Postgraduate",
+        "title": "GSAS degree-granting departments and programs",
+        "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/",
+        "coverage": "Official index",
+        "note": "Official graduate/professional programme catalogue or graduate school programme index."
+      }
+    ],
+    "allowed_official_hosts": [
+      "catalog.yale.edu"
+    ],
+    "extraction_note": "Official catalogue rows loaded: 150 programme rows. Individual hard requirements must still be read from the relevant programme page.",
+    "caveat": "U.S. institutions distribute requirements across schools, departments, and admissions offices; unsupported details remain source gaps.",
+    "migration_source": "usPrograms.ts"
+  },
+  "illustrative_examples": [
+    {
+      "id": "yale-ug-catalogue",
+      "name": "Yale undergraduate programme catalogue",
+      "degree_level": "Undergraduate",
+      "award": "UG",
+      "official_url": "https://catalog.yale.edu/ycps/majors-in-yale-college/",
+      "selection_status": "illustrative_only"
+    },
+    {
+      "id": "yale-pg-catalogue",
+      "name": "Yale postgraduate programme catalogue",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/",
+      "selection_status": "illustrative_only"
+    }
+  ],
+  "programmes": [
+    {
+      "id": "yale-un-african-studies-b-a-b-a",
+      "institution_id": "yale",
+      "name": "African Studies (B.A.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/african-studies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/african-studies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-american-studies-b-a-b-a",
+      "institution_id": "yale",
+      "name": "American Studies (B.A.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/american-studies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/american-studies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-anthropology-b-a-b-a",
+      "institution_id": "yale",
+      "name": "Anthropology (B.A.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/anthropology/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/anthropology/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-applied-mathematics-b-a-or-b-s-b-a-or-b-s",
+      "institution_id": "yale",
+      "name": "Applied Mathematics (B.A. or B.S.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A. or B.S.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/applied-mathematics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/applied-mathematics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-applied-physics-b-s-b-s",
+      "institution_id": "yale",
+      "name": "Applied Physics (B.S.)",
+      "degree_level": "Undergraduate",
+      "award": "B.S.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/applied-physics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/applied-physics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-archaeological-studies-b-a-b-a",
+      "institution_id": "yale",
+      "name": "Archaeological Studies (B.A.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/archaeological-studies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/archaeological-studies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-architecture-b-a-b-a",
+      "institution_id": "yale",
+      "name": "Architecture (B.A.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/architecture/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/architecture/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-art-b-a-b-a",
+      "institution_id": "yale",
+      "name": "Art (B.A.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/art/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/art/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-astronomy-b-a-b-a",
+      "institution_id": "yale",
+      "name": "Astronomy (B.A.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/astronomy/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/astronomy/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-astrophysics-b-s-b-s",
+      "institution_id": "yale",
+      "name": "Astrophysics (B.S.)",
+      "degree_level": "Undergraduate",
+      "award": "B.S.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/astronomy/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/astronomy/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-biomedical-engineering-b-s-b-s",
+      "institution_id": "yale",
+      "name": "Biomedical Engineering (B.S.)",
+      "degree_level": "Undergraduate",
+      "award": "B.S.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/biomedical-engineering",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/biomedical-engineering",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-black-studies-b-a-b-a",
+      "institution_id": "yale",
+      "name": "Black Studies (B.A.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/african-american-studies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/african-american-studies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-chemical-engineering-b-s-b-s",
+      "institution_id": "yale",
+      "name": "Chemical Engineering (B.S.)",
+      "degree_level": "Undergraduate",
+      "award": "B.S.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/chemical-engineering",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/chemical-engineering",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-chemistry-b-a-or-b-s-b-a-or-b-s",
+      "institution_id": "yale",
+      "name": "Chemistry (B.A. or B.S.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A. or B.S.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/chemistry/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/chemistry/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-classical-civilization-b-a-b-a",
+      "institution_id": "yale",
+      "name": "Classical Civilization (B.A.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/classics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/classics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-classics-b-a-b-a",
+      "institution_id": "yale",
+      "name": "Classics (B.A.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/classics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/classics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-cognitive-science-b-a-or-b-s-b-a-or-b-s",
+      "institution_id": "yale",
+      "name": "Cognitive Science (B.A. or B.S.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A. or B.S.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/cognitive-science/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/cognitive-science/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-comparative-literature-b-a-b-a",
+      "institution_id": "yale",
+      "name": "Comparative Literature (B.A.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/literature/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/literature/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-computer-science-b-a-or-b-s-b-a-or-b-s",
+      "institution_id": "yale",
+      "name": "Computer Science (B.A. or B.S.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A. or B.S.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/computer-science/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/computer-science/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-computer-science-and-economics-b-s-b-s",
+      "institution_id": "yale",
+      "name": "Computer Science and Economics (B.S.)",
+      "degree_level": "Undergraduate",
+      "award": "B.S.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/computerscienceandeconomics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/computerscienceandeconomics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-computer-science-and-mathematics-b-s-b-s",
+      "institution_id": "yale",
+      "name": "Computer Science and Mathematics (B.S.)",
+      "degree_level": "Undergraduate",
+      "award": "B.S.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/computer-science-mathematics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/computer-science-mathematics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-computer-science-and-psychology-b-a-b-a",
+      "institution_id": "yale",
+      "name": "Computer Science and Psychology (B.A.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/computer-science-psychology/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/computer-science-psychology/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-computing-and-linguistics-b-a-or-b-s-b-a-or-b-s",
+      "institution_id": "yale",
+      "name": "Computing and Linguistics (B.A. or B.S.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A. or B.S.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/computing20and20linguistics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/computing20and20linguistics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-computing-and-the-arts-b-a-b-a",
+      "institution_id": "yale",
+      "name": "Computing and the Arts (B.A.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/computing-arts/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/computing-arts/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-earth-and-planetary-sciences-b-a-or-b-s-b-a-or-b-s",
+      "institution_id": "yale",
+      "name": "Earth and Planetary Sciences (B.A. or B.S.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A. or B.S.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/geology-geophysics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/geology-geophysics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-east-asian-languages-and-literatures-b-a-b-a",
+      "institution_id": "yale",
+      "name": "East Asian Languages and Literatures (B.A.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/east-asian-languages-literatures/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/east-asian-languages-literatures/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-east-asian-studies-b-a-b-a",
+      "institution_id": "yale",
+      "name": "East Asian Studies (B.A.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/east-asian-studies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/east-asian-studies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-ecology-and-evolutionary-biology-b-a-or-b-s-b-a-or-b-s",
+      "institution_id": "yale",
+      "name": "Ecology and Evolutionary Biology (B.A. or B.S.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A. or B.S.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/ecology-evolutionary-biology",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/ecology-evolutionary-biology",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-economics-b-a-b-a",
+      "institution_id": "yale",
+      "name": "Economics (B.A.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/economics",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/economics",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-economics-and-mathematics-b-a-b-a",
+      "institution_id": "yale",
+      "name": "Economics and Mathematics (B.A.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/economics-mathematics",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/economics-mathematics",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-electrical-engineering-b-s-b-s",
+      "institution_id": "yale",
+      "name": "Electrical Engineering (B.S.)",
+      "degree_level": "Undergraduate",
+      "award": "B.S.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/electrical-engineering",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/electrical-engineering",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-electrical-engineering-and-computer-science-b-s-b-s",
+      "institution_id": "yale",
+      "name": "Electrical Engineering and Computer Science (B.S.)",
+      "degree_level": "Undergraduate",
+      "award": "B.S.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/electrical-engineering-computer-science/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/electrical-engineering-computer-science/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-engineering-sciences-chemical-b-s-b-s",
+      "institution_id": "yale",
+      "name": "Engineering Sciences (Chemical) (B.S.)",
+      "degree_level": "Undergraduate",
+      "award": "B.S.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/chemical-engineering/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/chemical-engineering/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-engineering-sciences-electrical-b-a-or-b-s-b-a-or-b-s",
+      "institution_id": "yale",
+      "name": "Engineering Sciences (Electrical) (B.A. or B.S.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A. or B.S.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/electrical-engineering/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/electrical-engineering/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-engineering-sciences-environmental-b-a-b-a",
+      "institution_id": "yale",
+      "name": "Engineering Sciences (Environmental) (B.A.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/environmental-engineering/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/environmental-engineering/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-engineering-sciences-mechanical-b-a-or-b-s-b-a-or-b-s",
+      "institution_id": "yale",
+      "name": "Engineering Sciences (Mechanical) (B.A. or B.S.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A. or B.S.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/mechanical-engineering/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/mechanical-engineering/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-english-b-a-b-a",
+      "institution_id": "yale",
+      "name": "English (B.A.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/english-language-literature/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/english-language-literature/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-environmental-engineering-b-s-b-s",
+      "institution_id": "yale",
+      "name": "Environmental Engineering (B.S.)",
+      "degree_level": "Undergraduate",
+      "award": "B.S.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/environmental-engineering",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/environmental-engineering",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-environmental-studies-b-a-or-b-s-b-a-or-b-s",
+      "institution_id": "yale",
+      "name": "Environmental Studies (B.A. or B.S.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A. or B.S.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/environmental-studies",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/environmental-studies",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-ethics-politics-and-economics-b-a-b-a",
+      "institution_id": "yale",
+      "name": "Ethics, Politics, and Economics (B.A.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/ethics-politics-economics",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/ethics-politics-economics",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-ethnicity-race-and-migration-b-a-b-a",
+      "institution_id": "yale",
+      "name": "Ethnicity, Race, and Migration (B.A.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/ethnicity-race-migration",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/ethnicity-race-migration",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-film-and-media-studies-b-a-b-a",
+      "institution_id": "yale",
+      "name": "Film and Media Studies (B.A.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/film-studies",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/film-studies",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-french-b-a-b-a",
+      "institution_id": "yale",
+      "name": "French (B.A.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/french",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/french",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-german-studies-b-a-b-a",
+      "institution_id": "yale",
+      "name": "German Studies (B.A.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/german-studies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/german-studies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-global-affairs-b-a-b-a",
+      "institution_id": "yale",
+      "name": "Global Affairs (B.A.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/global-affairs",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/global-affairs",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-greek-ancient-and-modern-b-a-b-a",
+      "institution_id": "yale",
+      "name": "Greek, Ancient and Modern (B.A.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/classics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/classics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-history-b-a-b-a",
+      "institution_id": "yale",
+      "name": "History (B.A.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/history",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/history",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-history-of-art-b-a-b-a",
+      "institution_id": "yale",
+      "name": "History of Art (B.A.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/history-of-art",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/history-of-art",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-history-of-science-medicine-and-public-health-b-a-b-a",
+      "institution_id": "yale",
+      "name": "History of Science, Medicine, and Public Health (B.A.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/history-of-science-medicine-public-health",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/history-of-science-medicine-public-health",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-humanities-b-a-b-a",
+      "institution_id": "yale",
+      "name": "Humanities (B.A.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/humanities",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/humanities",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-italian-studies-b-a-b-a",
+      "institution_id": "yale",
+      "name": "Italian Studies (B.A.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/italian",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/italian",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-jewish-studies-b-a-b-a",
+      "institution_id": "yale",
+      "name": "Jewish Studies (B.A.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/judaic-studies",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/judaic-studies",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-latin-american-studies-b-a-b-a",
+      "institution_id": "yale",
+      "name": "Latin American Studies (B.A.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/latin-american-studies",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/latin-american-studies",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-linguistics-b-a-b-a",
+      "institution_id": "yale",
+      "name": "Linguistics (B.A.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/linguistics",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/linguistics",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-mathematics-b-a-or-b-s-b-a-or-b-s",
+      "institution_id": "yale",
+      "name": "Mathematics (B.A. or B.S.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A. or B.S.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/mathematics",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/mathematics",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-mathematics-and-philosophy-b-a-b-a",
+      "institution_id": "yale",
+      "name": "Mathematics and Philosophy (B.A.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/mathematics-philosophy",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/mathematics-philosophy",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-mathematics-and-physics-b-s-b-s",
+      "institution_id": "yale",
+      "name": "Mathematics and Physics (B.S.)",
+      "degree_level": "Undergraduate",
+      "award": "B.S.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/mathematics-physics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/mathematics-physics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-mechanical-engineering-b-s-b-s",
+      "institution_id": "yale",
+      "name": "Mechanical Engineering (B.S.)",
+      "degree_level": "Undergraduate",
+      "award": "B.S.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/mechanical-engineering",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/mechanical-engineering",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-modern-middle-east-studies-b-a-b-a",
+      "institution_id": "yale",
+      "name": "Modern Middle East Studies (B.A.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/modern-middle-east-studies",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/modern-middle-east-studies",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-molecular-biophysics-and-biochemistry-b-a-or-b-s-b-a-or-b-s",
+      "institution_id": "yale",
+      "name": "Molecular Biophysics and Biochemistry (B.A. or B.S.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A. or B.S.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/molecular-biophysics-biochemistry",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/molecular-biophysics-biochemistry",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-molecular-cellular-and-developmental-biology-b-a-or-b-s-b-a-or-b-s",
+      "institution_id": "yale",
+      "name": "Molecular, Cellular, and Developmental Biology (B.A. or B.S.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A. or B.S.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/molecular-cellular-developmental-biology",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/molecular-cellular-developmental-biology",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-music-b-a-b-a",
+      "institution_id": "yale",
+      "name": "Music (B.A.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/music",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/music",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-near-eastern-languages-and-civilizations-b-a-b-a",
+      "institution_id": "yale",
+      "name": "Near Eastern Languages and Civilizations (B.A.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/near-eastern-languages-civilizations",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/near-eastern-languages-civilizations",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-neuroscience-b-a-or-b-s-b-a-or-b-s",
+      "institution_id": "yale",
+      "name": "Neuroscience (B.A. or B.S.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A. or B.S.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/neuroscience/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/neuroscience/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-philosophy-b-a-b-a",
+      "institution_id": "yale",
+      "name": "Philosophy (B.A.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/philosophy",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/philosophy",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-physics-b-s-b-s",
+      "institution_id": "yale",
+      "name": "Physics (B.S.)",
+      "degree_level": "Undergraduate",
+      "award": "B.S.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/physics",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/physics",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-physics-and-geosciences-b-s-b-s",
+      "institution_id": "yale",
+      "name": "Physics and Geosciences (B.S.)",
+      "degree_level": "Undergraduate",
+      "award": "B.S.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/physics-geosciences/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/physics-geosciences/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-physics-and-philosophy-b-a-or-b-s-b-a-or-b-s",
+      "institution_id": "yale",
+      "name": "Physics and Philosophy (B.A. or B.S.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A. or B.S.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/physics-philosophy/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/physics-philosophy/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-political-science-b-a-b-a",
+      "institution_id": "yale",
+      "name": "Political Science (B.A.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/political-science/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/political-science/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-portuguese-b-a-b-a",
+      "institution_id": "yale",
+      "name": "Portuguese (B.A.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/portuguese",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/portuguese",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-psychology-b-a-or-b-s-b-a-or-b-s",
+      "institution_id": "yale",
+      "name": "Psychology (B.A. or B.S.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A. or B.S.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/psychology",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/psychology",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-religious-studies-b-a-b-a",
+      "institution_id": "yale",
+      "name": "Religious Studies (B.A.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/religious-studies",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/religious-studies",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-russian-b-a-b-a",
+      "institution_id": "yale",
+      "name": "Russian (B.A.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/slavic-languages-literatures/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/slavic-languages-literatures/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-russian-east-european-and-eurasian-studies-b-a-b-a",
+      "institution_id": "yale",
+      "name": "Russian, East European, and Eurasian Studies (B.A.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/russian-east-european-studies",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/russian-east-european-studies",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-sociology-b-a-b-a",
+      "institution_id": "yale",
+      "name": "Sociology (B.A.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/sociology",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/sociology",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-south-asian-studies-second-major-only-second-major-only",
+      "institution_id": "yale",
+      "name": "South Asian Studies (second major only)",
+      "degree_level": "Undergraduate",
+      "award": "second major only",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/south-asian-studies",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/south-asian-studies",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-spanish-b-a-b-a",
+      "institution_id": "yale",
+      "name": "Spanish (B.A.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/spanish",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/spanish",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-special-divisional-major-b-a-or-b-s-b-a-or-b-s",
+      "institution_id": "yale",
+      "name": "Special Divisional Major (B.A. or B.S.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A. or B.S.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/special-divisional-majors/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/special-divisional-majors/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-statistics-and-data-science-b-a-or-b-s-b-a-or-b-s",
+      "institution_id": "yale",
+      "name": "Statistics and Data Science (B.A. or B.S.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A. or B.S.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/statistics",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/statistics",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-theater-dance-and-performance-studies-b-a-b-a",
+      "institution_id": "yale",
+      "name": "Theater, Dance, and Performance Studies (B.A.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/theater-studies",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/theater-studies",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-urban-studies-b-a-b-a",
+      "institution_id": "yale",
+      "name": "Urban Studies (B.A.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/urban-studies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/urban-studies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-un-women-s-gender-and-sexuality-studies-b-a-b-a",
+      "institution_id": "yale",
+      "name": "Women’s, Gender, and Sexuality Studies (B.A.)",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/womens-gender-sexuality-studies",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/ycps/subjects-of-instruction/womens-gender-sexuality-studies",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale College majors row"
+      }
+    },
+    {
+      "id": "yale-po-african-studies-graduate",
+      "institution_id": "yale",
+      "name": "African Studies",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/african-studies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/african-studies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-american-studies-graduate",
+      "institution_id": "yale",
+      "name": "American Studies",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/american-studies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/american-studies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-anthropology-graduate",
+      "institution_id": "yale",
+      "name": "Anthropology",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/anthropology/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/anthropology/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-applied-and-computational-mathematics-graduate",
+      "institution_id": "yale",
+      "name": "Applied and Computational Mathematics",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/applied-mathematics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/applied-mathematics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-applied-physics-graduate",
+      "institution_id": "yale",
+      "name": "Applied Physics",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/applied-physics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/applied-physics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-archaeological-studies-graduate",
+      "institution_id": "yale",
+      "name": "Archaeological Studies",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/archaeological-studies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/archaeological-studies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-architecture-graduate",
+      "institution_id": "yale",
+      "name": "Architecture",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/architecture/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/architecture/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-astronomy-graduate",
+      "institution_id": "yale",
+      "name": "Astronomy",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/astronomy/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/astronomy/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-biomedical-engineering-graduate",
+      "institution_id": "yale",
+      "name": "Biomedical Engineering",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/biomedical-engineering/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/biomedical-engineering/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-black-studies-graduate",
+      "institution_id": "yale",
+      "name": "Black Studies",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/black-studies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/black-studies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-cell-biology-graduate",
+      "institution_id": "yale",
+      "name": "Cell Biology",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/cell-biology/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/cell-biology/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-cellular-and-molecular-physiology-graduate",
+      "institution_id": "yale",
+      "name": "Cellular and Molecular Physiology",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/cellular-molecular-physiology/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/cellular-molecular-physiology/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-chemical-and-environmental-engineering-graduate",
+      "institution_id": "yale",
+      "name": "Chemical and Environmental Engineering",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/chemical-environmental-engineering/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/chemical-environmental-engineering/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-chemistry-graduate",
+      "institution_id": "yale",
+      "name": "Chemistry",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/chemistry/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/chemistry/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-classics-graduate",
+      "institution_id": "yale",
+      "name": "Classics",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/classics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/classics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-comparative-literature-graduate",
+      "institution_id": "yale",
+      "name": "Comparative Literature",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/comparative-literature/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/comparative-literature/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-computational-biology-and-biomedical-informatics-graduate",
+      "institution_id": "yale",
+      "name": "Computational Biology and Biomedical Informatics",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/computational-biology-biomedical-informatics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/computational-biology-biomedical-informatics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-computer-science-graduate",
+      "institution_id": "yale",
+      "name": "Computer Science",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/computer-science/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/computer-science/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-early-modern-studies-graduate",
+      "institution_id": "yale",
+      "name": "Early Modern Studies",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/early-modern-studies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/early-modern-studies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-earth-and-planetary-sciences-graduate",
+      "institution_id": "yale",
+      "name": "Earth and Planetary Sciences",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/earth-planetary-sciences/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/earth-planetary-sciences/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-east-asian-languages-and-literatures-graduate",
+      "institution_id": "yale",
+      "name": "East Asian Languages and Literatures",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/east-asian-languages-literatures/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/east-asian-languages-literatures/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-east-asian-studies-graduate",
+      "institution_id": "yale",
+      "name": "East Asian Studies",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/east-asian-studies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/east-asian-studies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-ecology-and-evolutionary-biology-graduate",
+      "institution_id": "yale",
+      "name": "Ecology and Evolutionary Biology",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/ecology-evolutionary-biology/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/ecology-evolutionary-biology/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-economics-graduate",
+      "institution_id": "yale",
+      "name": "Economics",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/economics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/economics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-electrical-and-computer-engineering-graduate",
+      "institution_id": "yale",
+      "name": "Electrical and Computer Engineering",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/electrical-computer-engineering/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/electrical-computer-engineering/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-engineering-and-applied-science-graduate",
+      "institution_id": "yale",
+      "name": "Engineering & Applied Science",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/engineering-applied-science/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/engineering-applied-science/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-english-language-and-literature-graduate",
+      "institution_id": "yale",
+      "name": "English Language and Literature",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/english-language-literature/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/english-language-literature/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-environment-graduate",
+      "institution_id": "yale",
+      "name": "Environment",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/environment/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/environment/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-european-and-russian-studies-graduate",
+      "institution_id": "yale",
+      "name": "European and Russian Studies",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/european-russian-studies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/european-russian-studies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-film-and-media-studies-graduate",
+      "institution_id": "yale",
+      "name": "Film and Media Studies",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/film-media-studies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/film-media-studies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-french-graduate",
+      "institution_id": "yale",
+      "name": "French",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/french/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/french/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-genetics-graduate",
+      "institution_id": "yale",
+      "name": "Genetics",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/genetics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/genetics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-germanic-languages-and-literatures-graduate",
+      "institution_id": "yale",
+      "name": "Germanic Languages and Literatures",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/germanic-languages-literatures/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/germanic-languages-literatures/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-history-graduate",
+      "institution_id": "yale",
+      "name": "History",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/history/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/history/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-history-of-art-graduate",
+      "institution_id": "yale",
+      "name": "History of Art",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/history-art/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/history-art/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-history-of-science-and-medicine-graduate",
+      "institution_id": "yale",
+      "name": "History of Science and Medicine",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/history-science-medicine/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/history-science-medicine/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-immunobiology-graduate",
+      "institution_id": "yale",
+      "name": "Immunobiology",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/immunobiology/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/immunobiology/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-interdepartmental-neuroscience-program-graduate",
+      "institution_id": "yale",
+      "name": "Interdepartmental Neuroscience Program",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/interdepartmental-neuroscience-program/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/interdepartmental-neuroscience-program/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-international-and-development-economics-graduate",
+      "institution_id": "yale",
+      "name": "International and Development Economics",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/international-development-economics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/international-development-economics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-investigative-medicine-graduate",
+      "institution_id": "yale",
+      "name": "Investigative Medicine",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/investigative-medicine/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/investigative-medicine/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-italian-studies-graduate",
+      "institution_id": "yale",
+      "name": "Italian Studies",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/italian-studies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/italian-studies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-law-graduate",
+      "institution_id": "yale",
+      "name": "Law",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/law/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/law/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-linguistics-graduate",
+      "institution_id": "yale",
+      "name": "Linguistics",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/linguistics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/linguistics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-management-graduate",
+      "institution_id": "yale",
+      "name": "Management",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/management/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/management/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-materials-science-graduate",
+      "institution_id": "yale",
+      "name": "Materials Science",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/materials-science/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/materials-science/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-mathematics-graduate",
+      "institution_id": "yale",
+      "name": "Mathematics",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/mathematics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/mathematics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-mechanical-engineering-graduate",
+      "institution_id": "yale",
+      "name": "Mechanical Engineering",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/mechanical-engineering/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/mechanical-engineering/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-medieval-studies-graduate",
+      "institution_id": "yale",
+      "name": "Medieval Studies",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/medieval-studies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/medieval-studies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-microbiology-graduate",
+      "institution_id": "yale",
+      "name": "Microbiology",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/microbiology/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/microbiology/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-molecular-biophysics-and-biochemistry-graduate",
+      "institution_id": "yale",
+      "name": "Molecular Biophysics and Biochemistry",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/molecular-biophysics-biochemistry/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/molecular-biophysics-biochemistry/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-molecular-cellular-and-developmental-biology-graduate",
+      "institution_id": "yale",
+      "name": "Molecular, Cellular, and Developmental Biology",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/molecular-cellular-developmental-biology/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/molecular-cellular-developmental-biology/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-music-graduate",
+      "institution_id": "yale",
+      "name": "Music",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/music/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/music/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-near-eastern-languages-and-civilizations-graduate",
+      "institution_id": "yale",
+      "name": "Near Eastern Languages and Civilizations",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/near-eastern-languages-civilizations/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/near-eastern-languages-civilizations/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-nursing-graduate",
+      "institution_id": "yale",
+      "name": "Nursing",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/nursing/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/nursing/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-pathology-and-molecular-medicine-graduate",
+      "institution_id": "yale",
+      "name": "Pathology and Molecular Medicine",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/pathology-molecular-medicine/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/pathology-molecular-medicine/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-pharmacology-graduate",
+      "institution_id": "yale",
+      "name": "Pharmacology",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/pharmacology/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/pharmacology/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-philosophy-graduate",
+      "institution_id": "yale",
+      "name": "Philosophy",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/philosophy/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/philosophy/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-physics-graduate",
+      "institution_id": "yale",
+      "name": "Physics",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/physics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/physics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-political-science-graduate",
+      "institution_id": "yale",
+      "name": "Political Science",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/political-science/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/political-science/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-psychology-graduate",
+      "institution_id": "yale",
+      "name": "Psychology",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/psychology/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/psychology/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-public-health-graduate",
+      "institution_id": "yale",
+      "name": "Public Health",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/public-health/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/public-health/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-religious-studies-graduate",
+      "institution_id": "yale",
+      "name": "Religious Studies",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/religious-studies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/religious-studies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-slavic-languages-and-literatures-graduate",
+      "institution_id": "yale",
+      "name": "Slavic Languages and Literatures",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/slavic-languages-literatures/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/slavic-languages-literatures/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-sociology-graduate",
+      "institution_id": "yale",
+      "name": "Sociology",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/sociology/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/sociology/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-spanish-and-portuguese-graduate",
+      "institution_id": "yale",
+      "name": "Spanish and Portuguese",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/spanish-portuguese/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/spanish-portuguese/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-statistics-and-data-science-graduate",
+      "institution_id": "yale",
+      "name": "Statistics and Data Science",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/statistics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/statistics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-translational-biomedicine-graduate",
+      "institution_id": "yale",
+      "name": "Translational Biomedicine",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/translational-biomedicine/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/translational-biomedicine/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    },
+    {
+      "id": "yale-po-women-s-gender-and-sexuality-studies-graduate",
+      "institution_id": "yale",
+      "name": "Women’s, Gender, and Sexuality Studies",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/womens-gender-sexuality-studies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.yale.edu/gsas/degree-granting-departments-programs/womens-gender-sexuality-studies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Yale GSAS degree-granting departments/programs row"
+      }
+    }
+  ]
+}

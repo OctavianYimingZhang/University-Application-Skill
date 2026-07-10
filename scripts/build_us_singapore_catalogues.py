@@ -15,9 +15,10 @@ from typing import Iterable
 
 from bs4 import BeautifulSoup
 
+from catalogue_io import rebuild_index, write_programmes
+
 ROOT = Path(__file__).resolve().parents[1]
-US_OUT = ROOT / "web" / "src" / "data" / "usPrograms.ts"
-SG_OUT = ROOT / "web" / "src" / "data" / "singaporePrograms.ts"
+CATALOGUE_DIR = ROOT / "catalogues" / "institutions"
 CHECKED = dt.date.today().isoformat()
 UA = "Mozilla/5.0 University-Application-Skill/0.1"
 
@@ -121,10 +122,6 @@ def absolute(base: str, href: str) -> str:
     return urllib.parse.urljoin(base, href)
 
 
-def ts_string(value: str) -> str:
-    return json.dumps(value, ensure_ascii=False)
-
-
 def award_from_text(text: str, default: str) -> str:
     text = clean_text(text)
     paren = re.search(r"\(([^()]{1,80})\)\s*$", text)
@@ -221,8 +218,6 @@ def row(
         fields["duration"] = clean_text(duration)
     if status:
         fields["status"] = clean_text(status)
-    if institution:
-        fields["sourceStatus"] = "Verified"
     return fields
 
 
@@ -1389,68 +1384,16 @@ def simple_sources() -> dict[str, list[dict[str, str]]]:
     }
 
 
-def render_rows(name: str, rows: list[dict[str, str]]) -> str:
-    lines = [f"export const {name}: CatalogueProgramOption[] = ["]
-    for item in rows:
-        fields = [
-            f"id: {ts_string(item['id'])}",
-            f"name: {ts_string(item['name'])}",
-            f"level: {ts_string(item['level'])}",
-            f"award: {ts_string(item['award'])}",
-            f"url: {ts_string(item['url'])}",
-            f"note: {ts_string(item['note'])}",
-        ]
-        for optional in ["duration", "mode", "status", "sourceStatus"]:
-            if item.get(optional):
-                fields.append(f"{optional}: {ts_string(item[optional])}")
-        lines.append(f"  {{ {', '.join(fields)} }},")
-    lines.append("];")
-    return "\n".join(lines)
-
-
-def render_map(name: str, mapping: dict[str, str]) -> str:
-    lines = [f"export const {name}: Record<string, CatalogueProgramOption[]> = {{"]
-    for key, value in mapping.items():
-        lines.append(f"  {ts_string(key)}: {value},")
-    lines.append("};")
-    return "\n".join(lines)
-
-
 def write_us(programs: dict[str, list[dict[str, str]]]) -> None:
-    parts = ['import type { CatalogueProgramOption } from "../types";', "", f"export const usCatalogueChecked = {ts_string(CHECKED)};", ""]
-    mapping: dict[str, str] = {}
     for institution, rows in sorted(programs.items()):
-        const_name = f"{institution.replace('-', '')}Programs"
-        parts.append(f"export const {institution.replace('-', '')}ProgramCount = {len(rows)};")
-        parts.append(render_rows(const_name, rows))
-        parts.append("")
-        mapping[institution] = const_name
-    parts.append(render_map("usProgramsByInstitution", mapping))
-    parts.append("")
-    US_OUT.write_text("\n".join(parts), encoding="utf-8")
+        write_programmes(ROOT, institution, rows, CHECKED, refresh_index=False)
 
 
-def write_singapore() -> None:
+def write_singapore() -> int:
     nus_pg_rows = parse_nus_pg()
     ntu_rows = [*parse_ntu_ug(), *parse_ntu_pg()]
-    parts = [
-        'import type { CatalogueProgramOption } from "../types";',
-        "",
-        f"export const singaporeCatalogueChecked = {ts_string(CHECKED)};",
-        f"export const nusPostgraduateCount = {len(nus_pg_rows)};",
-        f"export const ntuProgramCount = {len(ntu_rows)};",
-        "",
-        render_rows("nusPrograms", nus_pg_rows),
-        "",
-        render_rows("ntuPrograms", ntu_rows),
-        "",
-        "export const singaporeProgramsByInstitution: Record<string, CatalogueProgramOption[]> = {",
-        "  nus: nusPrograms,",
-        "  ntu: ntuPrograms,",
-        "};",
-        "",
-    ]
-    SG_OUT.write_text("\n".join(parts), encoding="utf-8")
+    write_programmes(ROOT, "nus", nus_pg_rows, CHECKED, refresh_index=False)
+    write_programmes(ROOT, "ntu", ntu_rows, CHECKED, refresh_index=False)
     return len(nus_pg_rows) + len(ntu_rows)
 
 
@@ -1458,9 +1401,10 @@ def main() -> int:
     programs = simple_sources()
     write_us(programs)
     total_singapore = write_singapore()
+    rebuild_index(ROOT)
     total_us = sum(len(rows) for rows in programs.values())
-    print(f"Wrote {US_OUT.relative_to(ROOT)} with {total_us} US rows across {len(programs)} institutions")
-    print(f"Wrote {SG_OUT.relative_to(ROOT)} with {total_singapore} Singapore rows")
+    print(f"Wrote {CATALOGUE_DIR.relative_to(ROOT)} with {total_us} US rows across {len(programs)} institutions")
+    print(f"Wrote {CATALOGUE_DIR.relative_to(ROOT)} with {total_singapore} Singapore rows")
     return 0
 
 

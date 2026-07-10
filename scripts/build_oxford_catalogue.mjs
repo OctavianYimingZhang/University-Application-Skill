@@ -1,11 +1,14 @@
 #!/usr/bin/env node
 import fs from "node:fs";
+import crypto from "node:crypto";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
-const OUT = path.join(ROOT, "web", "src", "data", "oxfordPrograms.ts");
+const CATALOGUE_ID = "oxford";
+const OUT = path.join(ROOT, "catalogues", "institutions", `${CATALOGUE_ID}.json`);
+const INDEX = path.join(ROOT, "catalogues", "index.json");
 const CHECKED = new Date().toISOString().slice(0, 10);
 
 const OXFORD_ORIGIN = "https://www.ox.ac.uk";
@@ -33,10 +36,6 @@ const LISTINGS = [
 ];
 
 const USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36";
-
-function tsString(value) {
-  return JSON.stringify(value ?? "", null, 0);
-}
 
 function slugify(value) {
   return String(value)
@@ -240,45 +239,78 @@ async function parseItems(page, config, items) {
   return unique;
 }
 
-function renderRows(name, rows) {
-  const lines = [`export const ${name}: CatalogueProgramOption[] = [`];
-  for (const row of rows) {
-    const fields = [
-      `id: ${tsString(row.id)}`,
-      `name: ${tsString(row.name)}`,
-      `level: ${tsString(row.level)}`,
-      `award: ${tsString(row.award)}`,
-      `url: ${tsString(row.url)}`,
-      `note: ${tsString(row.note)}`,
-      `duration: ${tsString(row.duration)}`,
-      `mode: ${tsString(row.mode)}`,
-    ];
-    if (row.status) fields.push(`status: ${tsString(row.status)}`);
-    lines.push(`  { ${fields.join(", ")} },`);
+function sha256Ids(ids) {
+  return crypto.createHash("sha256").update([...ids].sort().join("\n"), "utf8").digest("hex");
+}
+
+function normaliseUrl(value) {
+  const url = new URL(String(value).replace(/^http:\/\//i, "https://"));
+  if (url.protocol !== "https:") throw new Error(`Official catalogue URL must use HTTPS: ${value}`);
+  return url.toString();
+}
+
+function normaliseRow(row, allowedHosts) {
+  if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(row.id)) throw new Error(`Invalid stable programme ID: ${row.id}`);
+  const officialUrl = normaliseUrl(row.url);
+  if (!allowedHosts.has(new URL(officialUrl).hostname.toLowerCase())) {
+    throw new Error(`Official URL host is not allowlisted for Oxford: ${officialUrl}`);
   }
-  lines.push("];");
-  return lines.join("\n");
+  const programme = {
+    id: row.id,
+    institution_id: CATALOGUE_ID,
+    name: row.name,
+    degree_level: row.level,
+    award: row.award,
+    official_url: officialUrl,
+    identity_status: "official_source_listed",
+    requirements_status: "not_collected",
+    provenance: {
+      source_url: officialUrl,
+      accessed_at: CHECKED,
+      source_note: row.note,
+    },
+  };
+  if (row.duration) programme.duration = row.duration;
+  if (row.mode) programme.mode = row.mode;
+  if (row.status) programme.catalogue_status = row.status;
+  return programme;
+}
+
+function rebuildIndex() {
+  const index = JSON.parse(fs.readFileSync(INDEX, "utf8"));
+  const allIds = [];
+  const accessDates = [];
+  for (const entry of index.institutions) {
+    const cataloguePath = path.join(ROOT, "catalogues", entry.source_file);
+    const catalogue = JSON.parse(fs.readFileSync(cataloguePath, "utf8"));
+    const ids = catalogue.programmes.map((programme) => programme.id);
+    const accessedAt = catalogue.catalogue_provenance.accessed_at;
+    entry.accessed_at = accessedAt;
+    entry.identity_status = "official_source_listed";
+    entry.requirements_status = "not_collected";
+    entry.programme_count = catalogue.programmes.length;
+    entry.undergraduate_count = catalogue.programmes.filter((programme) => programme.degree_level === "Undergraduate").length;
+    entry.postgraduate_count = catalogue.programmes.filter((programme) => programme.degree_level === "Postgraduate").length;
+    entry.programme_id_sha256 = sha256Ids(ids);
+    allIds.push(...ids);
+    accessDates.push(accessedAt);
+  }
+  if (new Set(allIds).size !== allIds.length) throw new Error("Programme IDs must be globally unique");
+  index.updated_at = accessDates.sort().at(-1);
+  index.programme_count = allIds.length;
+  index.programme_id_sha256 = sha256Ids(allIds);
+  fs.writeFileSync(INDEX, `${JSON.stringify(index, null, 2)}\n`, "utf8");
 }
 
 function writeOutput(ugRows, pgRows) {
-  const output = [
-    'import type { CatalogueProgramOption } from "../types";',
-    "",
-    `export const oxfordCatalogueChecked = ${tsString(CHECKED)};`,
-    `export const oxfordUndergraduateCount = ${ugRows.length};`,
-    `export const oxfordPostgraduateCount = ${pgRows.length};`,
-    "",
-    renderRows("oxfordUndergraduatePrograms", ugRows),
-    "",
-    renderRows("oxfordPostgraduatePrograms", pgRows),
-    "",
-    "export const oxfordPrograms: CatalogueProgramOption[] = [",
-    "  ...oxfordUndergraduatePrograms,",
-    "  ...oxfordPostgraduatePrograms,",
-    "];",
-    "",
-  ].join("\n");
-  fs.writeFileSync(OUT, output, "utf8");
+  const catalogue = JSON.parse(fs.readFileSync(OUT, "utf8"));
+  const allowedHosts = new Set(catalogue.catalogue_provenance.allowed_official_hosts);
+  const rows = [...ugRows, ...pgRows].map((row) => normaliseRow(row, allowedHosts));
+  if (new Set(rows.map((row) => row.id)).size !== rows.length) throw new Error("Duplicate Oxford programme IDs");
+  catalogue.catalogue_provenance.accessed_at = CHECKED;
+  catalogue.programmes = rows;
+  fs.writeFileSync(OUT, `${JSON.stringify(catalogue, null, 2)}\n`, "utf8");
+  rebuildIndex();
 }
 
 async function main() {

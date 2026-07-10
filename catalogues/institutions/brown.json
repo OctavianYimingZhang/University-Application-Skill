@@ -1,0 +1,2752 @@
+{
+  "$schema": "../schemas/institution-catalogue-v1.schema.json",
+  "contract": "InstitutionProgrammeCatalogue",
+  "version": 1,
+  "language": "en",
+  "institution": {
+    "id": "brown",
+    "name": "Brown University",
+    "short_name": "Brown",
+    "group": "US News Top 30",
+    "region": "United States",
+    "rank_note": "US News 2026 top-30 cutoff source list"
+  },
+  "catalogue_scope": {
+    "record_type": "programme_identity",
+    "identity_status": "official_source_listed",
+    "requirements_status": "not_collected",
+    "placeholder_records_verified": false,
+    "link_only_records_verified": false
+  },
+  "catalogue_provenance": {
+    "accessed_at": "2026-06-26",
+    "official_sources": [
+      {
+        "degree_level": "Undergraduate",
+        "title": "Undergraduate concentrations",
+        "official_url": "https://bulletin.brown.edu/the-college/concentrations/",
+        "coverage": "Official index",
+        "note": "Official undergraduate programme catalogue or admissions major index."
+      },
+      {
+        "degree_level": "Postgraduate",
+        "title": "Graduate Program Finder",
+        "official_url": "https://graduateprograms.brown.edu/",
+        "coverage": "Official index",
+        "note": "Official graduate/professional programme catalogue or graduate school programme index."
+      }
+    ],
+    "allowed_official_hosts": [
+      "bulletin.brown.edu",
+      "graduateprograms.brown.edu"
+    ],
+    "extraction_note": "Official catalogue rows loaded: 179 programme rows. Individual hard requirements must still be read from the relevant programme page.",
+    "caveat": "U.S. institutions distribute requirements across schools, departments, and admissions offices; unsupported details remain source gaps.",
+    "migration_source": "usPrograms.ts"
+  },
+  "illustrative_examples": [
+    {
+      "id": "brown-ug-catalogue",
+      "name": "Brown undergraduate programme catalogue",
+      "degree_level": "Undergraduate",
+      "award": "UG",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/",
+      "selection_status": "illustrative_only"
+    },
+    {
+      "id": "brown-pg-catalogue",
+      "name": "Brown postgraduate programme catalogue",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://graduateprograms.brown.edu/",
+      "selection_status": "illustrative_only"
+    }
+  ],
+  "programmes": [
+    {
+      "id": "brown-un-africana-studies-concentration",
+      "institution_id": "brown",
+      "name": "Africana Studies",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/afri/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/afri/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-american-studies-concentration",
+      "institution_id": "brown",
+      "name": "American Studies",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/amst/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/amst/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-anthropology-concentration",
+      "institution_id": "brown",
+      "name": "Anthropology",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/anth/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/anth/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-applied-mathematics-concentration",
+      "institution_id": "brown",
+      "name": "Applied Mathematics",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/apma/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/apma/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-applied-mathematics-biology-concentration",
+      "institution_id": "brown",
+      "name": "Applied Mathematics-Biology",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/apmb/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/apmb/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-applied-mathematics-computer-science-concentration",
+      "institution_id": "brown",
+      "name": "Applied Mathematics-Computer Science",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/apmc/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/apmc/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-applied-mathematics-economics-concentration",
+      "institution_id": "brown",
+      "name": "Applied Mathematics-Economics",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/apme/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/apme/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-archaeology-and-the-ancient-world-concentration",
+      "institution_id": "brown",
+      "name": "Archaeology and the Ancient World",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/aran/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/aran/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-architecture-concentration",
+      "institution_id": "brown",
+      "name": "Architecture",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/arct/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/arct/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-astronomy-concentration",
+      "institution_id": "brown",
+      "name": "Astronomy",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/astr/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/astr/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-behavioral-decision-sciences-concentration",
+      "institution_id": "brown",
+      "name": "Behavioral Decision Sciences",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/bds/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/bds/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-biochemistry-and-molecular-biology-concentration",
+      "institution_id": "brown",
+      "name": "Biochemistry & Molecular Biology",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/bchm/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/bchm/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-biology-concentration",
+      "institution_id": "brown",
+      "name": "Biology",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/biol/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/biol/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-biomedical-engineering-concentration",
+      "institution_id": "brown",
+      "name": "Biomedical Engineering",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/enbi/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/enbi/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-biophysics-concentration",
+      "institution_id": "brown",
+      "name": "Biophysics",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/biop/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/biop/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-chemical-engineering-concentration",
+      "institution_id": "brown",
+      "name": "Chemical Engineering",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/cheg/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/cheg/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-chemical-physics-concentration",
+      "institution_id": "brown",
+      "name": "Chemical Physics",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/chph/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/chph/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-chemistry-concentration",
+      "institution_id": "brown",
+      "name": "Chemistry",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/chem/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/chem/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-classics-concentration",
+      "institution_id": "brown",
+      "name": "Classics",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/clas/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/clas/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-cognitive-neuroscience-concentration",
+      "institution_id": "brown",
+      "name": "Cognitive Neuroscience",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/cogn/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/cogn/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-cognitive-science-concentration",
+      "institution_id": "brown",
+      "name": "Cognitive Science",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/cogs/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/cogs/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-comparative-literature-concentration",
+      "institution_id": "brown",
+      "name": "Comparative Literature",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/colt/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/colt/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-computational-biology-concentration",
+      "institution_id": "brown",
+      "name": "Computational Biology",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/csbi/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/csbi/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-computational-chemistry-and-chemical-physics-concentration",
+      "institution_id": "brown",
+      "name": "Computational Chemistry and Chemical Physics",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/cccp/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/cccp/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-computational-neuroscience-concentration",
+      "institution_id": "brown",
+      "name": "Computational Neuroscience",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/cneu/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/cneu/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-computer-engineering-concentration",
+      "institution_id": "brown",
+      "name": "Computer Engineering",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/coeg/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/coeg/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-computer-science-concentration",
+      "institution_id": "brown",
+      "name": "Computer Science",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/comp/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/comp/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-computer-science-economics-concentration",
+      "institution_id": "brown",
+      "name": "Computer Science-Economics",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/csec/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/csec/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-contemplative-studies-concentration",
+      "institution_id": "brown",
+      "name": "Contemplative Studies",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/ctmp/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/ctmp/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-critical-native-american-and-indigenous-studies-concentration",
+      "institution_id": "brown",
+      "name": "Critical Native American and Indigenous Studies",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/nais/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/nais/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-design-engineering-concentration",
+      "institution_id": "brown",
+      "name": "Design Engineering",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/dese/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/dese/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-early-modern-world-concentration",
+      "institution_id": "brown",
+      "name": "Early Modern World",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/emow/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/emow/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-earth-and-planetary-science-concentration",
+      "institution_id": "brown",
+      "name": "Earth and Planetary Science",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/eps/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/eps/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-earth-climate-and-biology-concentration",
+      "institution_id": "brown",
+      "name": "Earth, Climate, and Biology",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/ecb/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/ecb/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-east-asian-studies-concentration",
+      "institution_id": "brown",
+      "name": "East Asian Studies",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/east/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/east/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-economics-concentration",
+      "institution_id": "brown",
+      "name": "Economics",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/econ/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/econ/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-education-studies-concentration",
+      "institution_id": "brown",
+      "name": "Education Studies",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/educ/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/educ/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-egyptology-and-assyriology-concentration",
+      "institution_id": "brown",
+      "name": "Egyptology and Assyriology",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/egya/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/egya/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-electrical-engineering-concentration",
+      "institution_id": "brown",
+      "name": "Electrical Engineering",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/eleg/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/eleg/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-engineering-concentration",
+      "institution_id": "brown",
+      "name": "Engineering",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/engn/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/engn/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-engineering-and-physics-concentration",
+      "institution_id": "brown",
+      "name": "Engineering and Physics",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/enph/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/enph/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-english-concentration",
+      "institution_id": "brown",
+      "name": "English",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/engl/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/engl/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-environmental-engineering-concentration",
+      "institution_id": "brown",
+      "name": "Environmental Engineering",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/eveg/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/eveg/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-environmental-sciences-and-studies-concentration",
+      "institution_id": "brown",
+      "name": "Environmental Sciences and Studies",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/envs/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/envs/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-ethnic-studies-concentration",
+      "institution_id": "brown",
+      "name": "Ethnic Studies",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/eths/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/eths/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-french-and-francophone-studies-concentration",
+      "institution_id": "brown",
+      "name": "French and Francophone Studies",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/ffs/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/ffs/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-gender-and-sexuality-studies-concentration",
+      "institution_id": "brown",
+      "name": "Gender and Sexuality Studies",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/gnss/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/gnss/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-geochemistry-and-environmental-chemistry-concentration",
+      "institution_id": "brown",
+      "name": "Geochemistry and Environmental Chemistry",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/gcec/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/gcec/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-geophysics-and-climate-physics-concentration",
+      "institution_id": "brown",
+      "name": "Geophysics and Climate Physics",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/gpcp/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/gpcp/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-german-studies-concentration",
+      "institution_id": "brown",
+      "name": "German Studies",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/gmst/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/gmst/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-health-and-human-biology-concentration",
+      "institution_id": "brown",
+      "name": "Health & Human Biology",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/hhbi/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/hhbi/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-hispanic-literatures-and-cultures-concentration",
+      "institution_id": "brown",
+      "name": "Hispanic Literatures and Cultures",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/hslc/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/hslc/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-history-concentration",
+      "institution_id": "brown",
+      "name": "History",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/hist/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/hist/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-history-of-art-and-architecture-concentration",
+      "institution_id": "brown",
+      "name": "History of Art and Architecture",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/hiaa/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/hiaa/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-independent-concentration-concentration",
+      "institution_id": "brown",
+      "name": "Independent Concentration",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/indp/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/indp/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-international-and-public-affairs-concentration",
+      "institution_id": "brown",
+      "name": "International and Public Affairs",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/iapa/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/iapa/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-italian-studies-concentration",
+      "institution_id": "brown",
+      "name": "Italian Studies",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/ital/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/ital/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-judaic-studies-concentration",
+      "institution_id": "brown",
+      "name": "Judaic Studies",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/juds/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/juds/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-latin-american-and-caribbean-studies-concentration",
+      "institution_id": "brown",
+      "name": "Latin American and Caribbean Studies",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/lacs/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/lacs/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-linguistics-concentration",
+      "institution_id": "brown",
+      "name": "Linguistics",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/ling/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/ling/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-literary-arts-concentration",
+      "institution_id": "brown",
+      "name": "Literary Arts",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/lita/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/lita/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-materials-engineering-concentration",
+      "institution_id": "brown",
+      "name": "Materials Engineering",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/maeg/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/maeg/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-mathematics-concentration",
+      "institution_id": "brown",
+      "name": "Mathematics",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/math/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/math/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-mathematics-computer-science-concentration",
+      "institution_id": "brown",
+      "name": "Mathematics-Computer Science",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/macs/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/macs/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-mathematics-economics-concentration",
+      "institution_id": "brown",
+      "name": "Mathematics-Economics",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/mtec/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/mtec/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-mechanical-engineering-concentration",
+      "institution_id": "brown",
+      "name": "Mechanical Engineering",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/mceg/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/mceg/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-medieval-cultures-concentration",
+      "institution_id": "brown",
+      "name": "Medieval Cultures",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/mdvc/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/mdvc/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-middle-east-studies-concentration",
+      "institution_id": "brown",
+      "name": "Middle East Studies",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/mide/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/mide/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-modern-culture-and-media-concentration",
+      "institution_id": "brown",
+      "name": "Modern Culture and Media",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/mcmd/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/mcmd/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-music-concentration",
+      "institution_id": "brown",
+      "name": "Music",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/musc/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/musc/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-neuroscience-concentration",
+      "institution_id": "brown",
+      "name": "Neuroscience",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/neur/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/neur/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-philosophy-concentration",
+      "institution_id": "brown",
+      "name": "Philosophy",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/phil/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/phil/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-physics-concentration",
+      "institution_id": "brown",
+      "name": "Physics",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/phys/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/phys/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-physics-and-philosophy-concentration",
+      "institution_id": "brown",
+      "name": "Physics and Philosophy",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/phph/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/phph/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-political-science-concentration",
+      "institution_id": "brown",
+      "name": "Political Science",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/pols/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/pols/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-portuguese-and-brazilian-studies-concentration",
+      "institution_id": "brown",
+      "name": "Portuguese and Brazilian Studies",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/pobr/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/pobr/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-psychology-concentration",
+      "institution_id": "brown",
+      "name": "Psychology",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/psyc/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/psyc/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-public-health-concentration",
+      "institution_id": "brown",
+      "name": "Public Health",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/pubh/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/pubh/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-religious-studies-concentration",
+      "institution_id": "brown",
+      "name": "Religious Studies",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/rels/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/rels/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-science-technology-and-society-concentration",
+      "institution_id": "brown",
+      "name": "Science, Technology, and Society",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/sts/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/sts/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-slavic-studies-concentration",
+      "institution_id": "brown",
+      "name": "Slavic Studies",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/slav/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/slav/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-social-analysis-and-research-concentration",
+      "institution_id": "brown",
+      "name": "Social Analysis and Research",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/sar/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/sar/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-sociology-concentration",
+      "institution_id": "brown",
+      "name": "Sociology",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/soc/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/soc/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-south-asian-studies-concentration",
+      "institution_id": "brown",
+      "name": "South Asian Studies",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/sast/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/sast/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-statistics-concentration",
+      "institution_id": "brown",
+      "name": "Statistics",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/stat/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/stat/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-theatre-arts-and-performance-studies-concentration",
+      "institution_id": "brown",
+      "name": "Theatre Arts and Performance Studies",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/taps/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/taps/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-urban-studies-concentration",
+      "institution_id": "brown",
+      "name": "Urban Studies",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/urbn/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/urbn/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-un-visual-art-concentration",
+      "institution_id": "brown",
+      "name": "Visual Art",
+      "degree_level": "Undergraduate",
+      "award": "Concentration",
+      "official_url": "https://bulletin.brown.edu/the-college/concentrations/visa/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.brown.edu/the-college/concentrations/visa/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown undergraduate concentrations row"
+      }
+    },
+    {
+      "id": "brown-po-africana-studies-ph-d",
+      "institution_id": "brown",
+      "name": "Africana Studies",
+      "degree_level": "Postgraduate",
+      "award": "Ph.D.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/africana-studies-phd",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/africana-studies-phd",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-american-studies-ph-d",
+      "institution_id": "brown",
+      "name": "American Studies",
+      "degree_level": "Postgraduate",
+      "award": "Ph.D.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/american-studies-phd",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/american-studies-phd",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-anthropology-ph-d",
+      "institution_id": "brown",
+      "name": "Anthropology",
+      "degree_level": "Postgraduate",
+      "award": "Ph.D.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/anthropology-phd",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/anthropology-phd",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-applied-mathematics-ph-d",
+      "institution_id": "brown",
+      "name": "Applied Mathematics",
+      "degree_level": "Postgraduate",
+      "award": "Ph.D.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/applied-mathematics-phd",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/applied-mathematics-phd",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-archaeology-and-the-ancient-world-ph-d",
+      "institution_id": "brown",
+      "name": "Archaeology and the Ancient World",
+      "degree_level": "Postgraduate",
+      "award": "Ph.D.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/archaeology-and-ancient-world-phd",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/archaeology-and-ancient-world-phd",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-behavioral-and-social-health-sciences-ph-d",
+      "institution_id": "brown",
+      "name": "Behavioral and Social Health Sciences",
+      "degree_level": "Postgraduate",
+      "award": "Ph.D.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/behavioral-and-social-health-sciences-phd",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/behavioral-and-social-health-sciences-phd",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-biomed-ecology-evolution-and-organismal-biology-ph-d",
+      "institution_id": "brown",
+      "name": "BioMed: Ecology, Evolution, and Organismal Biology",
+      "degree_level": "Postgraduate",
+      "award": "Ph.D.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/biomed-ecology-evolution-and-organismal-biology-phd",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/biomed-ecology-evolution-and-organismal-biology-phd",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-biomed-molecular-biology-cell-biology-and-biochemistry-ph-d",
+      "institution_id": "brown",
+      "name": "BioMed: Molecular Biology, Cell Biology, and Biochemistry",
+      "degree_level": "Postgraduate",
+      "award": "Ph.D.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/biomed-molecular-biology-cell-biology-and-biochemistry-phd",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/biomed-molecular-biology-cell-biology-and-biochemistry-phd",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-biomed-neuroscience-ph-d",
+      "institution_id": "brown",
+      "name": "BioMed: Neuroscience",
+      "degree_level": "Postgraduate",
+      "award": "Ph.D.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/biomed-neuroscience-phd",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/biomed-neuroscience-phd",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-biomed-pathobiology-ph-d",
+      "institution_id": "brown",
+      "name": "BioMed: Pathobiology",
+      "degree_level": "Postgraduate",
+      "award": "Ph.D.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/biomed-pathobiology-phd",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/biomed-pathobiology-phd",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-biomed-therapeutic-sciences-ph-d",
+      "institution_id": "brown",
+      "name": "BioMed: Therapeutic Sciences",
+      "degree_level": "Postgraduate",
+      "award": "Ph.D.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/biomed-therapeutic-sciences-phd",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/biomed-therapeutic-sciences-phd",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-biomedical-engineering-m-eng-sc-m",
+      "institution_id": "brown",
+      "name": "Biomedical Engineering",
+      "degree_level": "Postgraduate",
+      "award": "M.Eng., Sc.M.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/biomedical-engineering-meng-scm",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/biomedical-engineering-meng-scm",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-biomedical-engineering-ph-d",
+      "institution_id": "brown",
+      "name": "Biomedical Engineering",
+      "degree_level": "Postgraduate",
+      "award": "Ph.D.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/biomedical-engineering-phd",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/biomedical-engineering-phd",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-biostatistics-ph-d",
+      "institution_id": "brown",
+      "name": "Biostatistics",
+      "degree_level": "Postgraduate",
+      "award": "Ph.D.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/biostatistics-phd",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/biostatistics-phd",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-biostatistics-a-m-sc-m",
+      "institution_id": "brown",
+      "name": "Biostatistics",
+      "degree_level": "Postgraduate",
+      "award": "A.M., Sc.M.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/biostatistics-am-scm",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/biostatistics-am-scm",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-biostatistics-online-sc-m",
+      "institution_id": "brown",
+      "name": "Biostatistics (Online)",
+      "degree_level": "Postgraduate",
+      "award": "Sc.M.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/biostatistics-online-scm",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/biostatistics-online-scm",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-biotechnology-a-m-sc-m",
+      "institution_id": "brown",
+      "name": "Biotechnology",
+      "degree_level": "Postgraduate",
+      "award": "A.M., Sc.M.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/biotechnology-am-scm",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/biotechnology-am-scm",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-business-analytics-online-sc-m",
+      "institution_id": "brown",
+      "name": "Business Analytics (Online)",
+      "degree_level": "Postgraduate",
+      "award": "Sc.M.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/business-analytics-online-scm",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/business-analytics-online-scm",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-chemical-engineering-sc-m",
+      "institution_id": "brown",
+      "name": "Chemical Engineering",
+      "degree_level": "Postgraduate",
+      "award": "Sc.M.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/chemical-engineering-scm",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/chemical-engineering-scm",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-chemistry-ph-d",
+      "institution_id": "brown",
+      "name": "Chemistry",
+      "degree_level": "Postgraduate",
+      "award": "Ph.D.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/chemistry-phd",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/chemistry-phd",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-classics-ph-d",
+      "institution_id": "brown",
+      "name": "Classics",
+      "degree_level": "Postgraduate",
+      "award": "Ph.D.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/classics-phd",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/classics-phd",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-cognitive-science-ph-d",
+      "institution_id": "brown",
+      "name": "Cognitive Science",
+      "degree_level": "Postgraduate",
+      "award": "Ph.D.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/cognitive-science-phd",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/cognitive-science-phd",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-comparative-literature-ph-d",
+      "institution_id": "brown",
+      "name": "Comparative Literature",
+      "degree_level": "Postgraduate",
+      "award": "Ph.D.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/comparative-literature-phd",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/comparative-literature-phd",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-computational-biology-ph-d",
+      "institution_id": "brown",
+      "name": "Computational Biology",
+      "degree_level": "Postgraduate",
+      "award": "Ph.D.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/computational-biology-phd",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/computational-biology-phd",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-computer-science-ph-d",
+      "institution_id": "brown",
+      "name": "Computer Science",
+      "degree_level": "Postgraduate",
+      "award": "Ph.D.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/computer-science-phd",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/computer-science-phd",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-computer-science-sc-m",
+      "institution_id": "brown",
+      "name": "Computer Science",
+      "degree_level": "Postgraduate",
+      "award": "Sc.M.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/computer-science-scm",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/computer-science-scm",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-cybersecurity-sc-m",
+      "institution_id": "brown",
+      "name": "Cybersecurity",
+      "degree_level": "Postgraduate",
+      "award": "Sc.M.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/cybersecurity-scm",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/cybersecurity-scm",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-data-science-sc-m",
+      "institution_id": "brown",
+      "name": "Data Science",
+      "degree_level": "Postgraduate",
+      "award": "Sc.M.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/data-science-scm",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/data-science-scm",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-data-science-policy-governance-and-society-online-sc-m",
+      "institution_id": "brown",
+      "name": "Data Science: Policy, Governance & Society (Online)",
+      "degree_level": "Postgraduate",
+      "award": "Sc.M.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/data-science-policy-governance-society-online-scm",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/data-science-policy-governance-society-online-scm",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-data-enabled-computational-engineering-and-science-sc-m",
+      "institution_id": "brown",
+      "name": "Data-Enabled Computational Engineering and Science",
+      "degree_level": "Postgraduate",
+      "award": "Sc.M.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/data-enabled-computational-engineering-and-science-scm",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/data-enabled-computational-engineering-and-science-scm",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-design-engineering-a-m",
+      "institution_id": "brown",
+      "name": "Design Engineering",
+      "degree_level": "Postgraduate",
+      "award": "A.M.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/design-engineering-am",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/design-engineering-am",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-doctor-of-medicine-m-d",
+      "institution_id": "brown",
+      "name": "Doctor of Medicine",
+      "degree_level": "Postgraduate",
+      "award": "M.D.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/doctor-medicine-md",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/doctor-medicine-md",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-earth-environmental-and-planetary-sciences-ph-d",
+      "institution_id": "brown",
+      "name": "Earth, Environmental and Planetary Sciences",
+      "degree_level": "Postgraduate",
+      "award": "Ph.D.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/earth-environmental-and-planetary-sciences-phd",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/earth-environmental-and-planetary-sciences-phd",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-economics-ph-d",
+      "institution_id": "brown",
+      "name": "Economics",
+      "degree_level": "Postgraduate",
+      "award": "Ph.D.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/economics-phd",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/economics-phd",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-education-master-of-arts-in-teaching-mat",
+      "institution_id": "brown",
+      "name": "Education: Master of Arts in Teaching",
+      "degree_level": "Postgraduate",
+      "award": "MAT",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/education-master-arts-teaching-mat",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/education-master-arts-teaching-mat",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-education-urban-education-policy-a-m",
+      "institution_id": "brown",
+      "name": "Education: Urban Education Policy",
+      "degree_level": "Postgraduate",
+      "award": "A.M.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/education-urban-education-policy-am",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/education-urban-education-policy-am",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-egyptology-and-assyriology-ph-d",
+      "institution_id": "brown",
+      "name": "Egyptology and Assyriology",
+      "degree_level": "Postgraduate",
+      "award": "Ph.D.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/egyptology-and-assyriology-phd",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/egyptology-and-assyriology-phd",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-electrical-and-computer-engineering-sc-m",
+      "institution_id": "brown",
+      "name": "Electrical and Computer Engineering",
+      "degree_level": "Postgraduate",
+      "award": "Sc.M.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/electrical-and-computer-engineering-scm",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/electrical-and-computer-engineering-scm",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-engineering-ph-d",
+      "institution_id": "brown",
+      "name": "Engineering",
+      "degree_level": "Postgraduate",
+      "award": "Ph.D.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/engineering-phd",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/engineering-phd",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-engineering-a-m-m-eng-sc-m",
+      "institution_id": "brown",
+      "name": "Engineering",
+      "degree_level": "Postgraduate",
+      "award": "A.M., M.Eng., Sc.M.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/engineering-am-meng-scm",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/engineering-am-meng-scm",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-english-ph-d",
+      "institution_id": "brown",
+      "name": "English",
+      "degree_level": "Postgraduate",
+      "award": "Ph.D.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/english-phd",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/english-phd",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-environmental-engineering-sc-m",
+      "institution_id": "brown",
+      "name": "Environmental Engineering",
+      "degree_level": "Postgraduate",
+      "award": "Sc.M.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/environmental-engineering-scm",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/environmental-engineering-scm",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-epidemiology-ph-d",
+      "institution_id": "brown",
+      "name": "Epidemiology",
+      "degree_level": "Postgraduate",
+      "award": "Ph.D.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/epidemiology-phd",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/epidemiology-phd",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-french-and-francophone-studies-ph-d",
+      "institution_id": "brown",
+      "name": "French and Francophone Studies",
+      "degree_level": "Postgraduate",
+      "award": "Ph.D.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/french-and-francophone-studies-phd",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/french-and-francophone-studies-phd",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-german-studies-ph-d",
+      "institution_id": "brown",
+      "name": "German Studies",
+      "degree_level": "Postgraduate",
+      "award": "Ph.D.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/german-studies-phd",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/german-studies-phd",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-health-informatics-sc-m",
+      "institution_id": "brown",
+      "name": "Health Informatics",
+      "degree_level": "Postgraduate",
+      "award": "Sc.M.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/health-informatics-scm",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/health-informatics-scm",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-health-services-research-ph-d",
+      "institution_id": "brown",
+      "name": "Health Services Research",
+      "degree_level": "Postgraduate",
+      "award": "Ph.D.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/health-services-research-phd",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/health-services-research-phd",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-healthcare-leadership-sc-m",
+      "institution_id": "brown",
+      "name": "Healthcare Leadership",
+      "degree_level": "Postgraduate",
+      "award": "Sc.M.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/healthcare-leadership-scm",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/healthcare-leadership-scm",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-hispanic-studies-ph-d",
+      "institution_id": "brown",
+      "name": "Hispanic Studies",
+      "degree_level": "Postgraduate",
+      "award": "Ph.D.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/hispanic-studies-phd",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/hispanic-studies-phd",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-history-ph-d",
+      "institution_id": "brown",
+      "name": "History",
+      "degree_level": "Postgraduate",
+      "award": "Ph.D.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/history-phd",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/history-phd",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-history-of-art-and-architecture-ph-d",
+      "institution_id": "brown",
+      "name": "History of Art and Architecture",
+      "degree_level": "Postgraduate",
+      "award": "Ph.D.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/history-art-and-architecture-phd",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/history-art-and-architecture-phd",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-ie-brown-executive-mba-executive-master",
+      "institution_id": "brown",
+      "name": "IE Brown Executive MBA",
+      "degree_level": "Postgraduate",
+      "award": "Executive Master",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/ie-brown-executive-mba-executive-master",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/ie-brown-executive-mba-executive-master",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-innovation-management-and-entrepreneurship-sc-m",
+      "institution_id": "brown",
+      "name": "Innovation Management and Entrepreneurship",
+      "degree_level": "Postgraduate",
+      "award": "Sc.M.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/innovation-management-and-entrepreneurship-scm",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/innovation-management-and-entrepreneurship-scm",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-innovation-management-and-entrepreneurship-online-sc-m",
+      "institution_id": "brown",
+      "name": "Innovation Management and Entrepreneurship (Online)",
+      "degree_level": "Postgraduate",
+      "award": "Sc.M.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/innovation-management-and-entrepreneurship-online-scm",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/innovation-management-and-entrepreneurship-online-scm",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-integrative-studies-a-m-sc-m",
+      "institution_id": "brown",
+      "name": "Integrative Studies",
+      "degree_level": "Postgraduate",
+      "award": "A.M., Sc.M.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/integrative-studies-am-scm",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/integrative-studies-am-scm",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-italian-studies-ph-d",
+      "institution_id": "brown",
+      "name": "Italian Studies",
+      "degree_level": "Postgraduate",
+      "award": "Ph.D.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/italian-studies-phd",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/italian-studies-phd",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-literary-arts-mfa",
+      "institution_id": "brown",
+      "name": "Literary Arts",
+      "degree_level": "Postgraduate",
+      "award": "MFA",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/literary-arts-mfa",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/literary-arts-mfa",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-m-d-ph-d-m-d-ph-d",
+      "institution_id": "brown",
+      "name": "M.D./Ph.D.",
+      "degree_level": "Postgraduate",
+      "award": "M.D., Ph.D.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/mdphd",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/mdphd",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-management-online-mim",
+      "institution_id": "brown",
+      "name": "Management (Online)",
+      "degree_level": "Postgraduate",
+      "award": "MiM",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/management-online-mim",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/management-online-mim",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-materials-science-and-engineering-sc-m",
+      "institution_id": "brown",
+      "name": "Materials Science and Engineering",
+      "degree_level": "Postgraduate",
+      "award": "Sc.M.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/materials-science-and-engineering-scm",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/materials-science-and-engineering-scm",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-mathematics-ph-d",
+      "institution_id": "brown",
+      "name": "Mathematics",
+      "degree_level": "Postgraduate",
+      "award": "Ph.D.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/mathematics-phd",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/mathematics-phd",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-mechanical-engineering-and-applied-mechanics-sc-m",
+      "institution_id": "brown",
+      "name": "Mechanical Engineering and Applied Mechanics",
+      "degree_level": "Postgraduate",
+      "award": "Sc.M.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/mechanical-engineering-and-applied-mechanics-scm",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/mechanical-engineering-and-applied-mechanics-scm",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-medical-physics-sc-m",
+      "institution_id": "brown",
+      "name": "Medical Physics",
+      "degree_level": "Postgraduate",
+      "award": "Sc.M.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/medical-physics-scm",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/medical-physics-scm",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-medical-sciences-sc-m",
+      "institution_id": "brown",
+      "name": "Medical Sciences",
+      "degree_level": "Postgraduate",
+      "award": "Sc.M.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/medical-sciences-scm",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/medical-sciences-scm",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-modern-culture-and-media-ph-d",
+      "institution_id": "brown",
+      "name": "Modern Culture and Media",
+      "degree_level": "Postgraduate",
+      "award": "Ph.D.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/modern-culture-and-media-phd",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/modern-culture-and-media-phd",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-music-and-multimedia-composition-ph-d",
+      "institution_id": "brown",
+      "name": "Music and Multimedia Composition",
+      "degree_level": "Postgraduate",
+      "award": "Ph.D.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/music-and-multimedia-composition-phd",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/music-and-multimedia-composition-phd",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-musicology-and-ethnomusicology-ph-d",
+      "institution_id": "brown",
+      "name": "Musicology and Ethnomusicology",
+      "degree_level": "Postgraduate",
+      "award": "Ph.D.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/musicology-and-ethnomusicology-phd",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/musicology-and-ethnomusicology-phd",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-organizational-leadership-online-sc-m",
+      "institution_id": "brown",
+      "name": "Organizational Leadership (Online)",
+      "degree_level": "Postgraduate",
+      "award": "Sc.M.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/organizational-leadership-online-scm",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/organizational-leadership-online-scm",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-philosophy-ph-d",
+      "institution_id": "brown",
+      "name": "Philosophy",
+      "degree_level": "Postgraduate",
+      "award": "Ph.D.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/philosophy-phd",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/philosophy-phd",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-physics-sc-m",
+      "institution_id": "brown",
+      "name": "Physics",
+      "degree_level": "Postgraduate",
+      "award": "Sc.M.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/physics-scm",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/physics-scm",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-physics-ph-d",
+      "institution_id": "brown",
+      "name": "Physics",
+      "degree_level": "Postgraduate",
+      "award": "Ph.D.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/physics-phd",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/physics-phd",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-political-science-ph-d",
+      "institution_id": "brown",
+      "name": "Political Science",
+      "degree_level": "Postgraduate",
+      "award": "Ph.D.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/political-science-phd",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/political-science-phd",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-portuguese-and-brazilian-studies-ph-d",
+      "institution_id": "brown",
+      "name": "Portuguese and Brazilian Studies",
+      "degree_level": "Postgraduate",
+      "award": "Ph.D.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/portuguese-and-brazilian-studies-phd",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/portuguese-and-brazilian-studies-phd",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-primary-care-population-medicine-program-m-d-sc-m",
+      "institution_id": "brown",
+      "name": "Primary Care-Population Medicine Program",
+      "degree_level": "Postgraduate",
+      "award": "M.D., Sc.M.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/primary-care-population-medicine-program-md-scm",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/primary-care-population-medicine-program-md-scm",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-psychology-ph-d",
+      "institution_id": "brown",
+      "name": "Psychology",
+      "degree_level": "Postgraduate",
+      "award": "Ph.D.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/psychology-phd",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/psychology-phd",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-public-affairs-mpa",
+      "institution_id": "brown",
+      "name": "Public Affairs",
+      "degree_level": "Postgraduate",
+      "award": "MPA",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/public-affairs-mpa",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/public-affairs-mpa",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-public-health-mph",
+      "institution_id": "brown",
+      "name": "Public Health",
+      "degree_level": "Postgraduate",
+      "award": "MPH",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/public-health-mph",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/public-health-mph",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-public-health-accelerated-mph",
+      "institution_id": "brown",
+      "name": "Public Health (Accelerated)",
+      "degree_level": "Postgraduate",
+      "award": "MPH",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/public-health-accelerated-mph",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/public-health-accelerated-mph",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-public-health-online-mph",
+      "institution_id": "brown",
+      "name": "Public Health (Online)",
+      "degree_level": "Postgraduate",
+      "award": "MPH",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/public-health-online-mph",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/public-health-online-mph",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-public-health-and-public-affairs-dual-degree-mpa-mph",
+      "institution_id": "brown",
+      "name": "Public Health and Public Affairs Dual Degree",
+      "degree_level": "Postgraduate",
+      "award": "MPA, MPH",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/public-health-and-public-affairs-dual-degree-mpa-mph",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/public-health-and-public-affairs-dual-degree-mpa-mph",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-public-humanities-integrative-studies-a-m",
+      "institution_id": "brown",
+      "name": "Public Humanities (Integrative Studies)",
+      "degree_level": "Postgraduate",
+      "award": "A.M.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/public-humanities-integrative-studies-am",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/public-humanities-integrative-studies-am",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-public-policy-online-mpp",
+      "institution_id": "brown",
+      "name": "Public Policy (Online)",
+      "degree_level": "Postgraduate",
+      "award": "MPP",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/public-policy-online-mpp",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/public-policy-online-mpp",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-religious-studies-ph-d",
+      "institution_id": "brown",
+      "name": "Religious Studies",
+      "degree_level": "Postgraduate",
+      "award": "Ph.D.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/religious-studies-phd",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/religious-studies-phd",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-slavic-studies-ph-d",
+      "institution_id": "brown",
+      "name": "Slavic Studies",
+      "degree_level": "Postgraduate",
+      "award": "Ph.D.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/slavic-studies-phd",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/slavic-studies-phd",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-social-data-analytics-sc-m",
+      "institution_id": "brown",
+      "name": "Social Data Analytics",
+      "degree_level": "Postgraduate",
+      "award": "Sc.M.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/social-data-analytics-scm",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/social-data-analytics-scm",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-sociology-ph-d",
+      "institution_id": "brown",
+      "name": "Sociology",
+      "degree_level": "Postgraduate",
+      "award": "Ph.D.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/sociology-phd",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/sociology-phd",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-sustainable-energy-sc-m",
+      "institution_id": "brown",
+      "name": "Sustainable Energy",
+      "degree_level": "Postgraduate",
+      "award": "Sc.M.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/sustainable-energy-scm",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/sustainable-energy-scm",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-technology-leadership-sc-m",
+      "institution_id": "brown",
+      "name": "Technology Leadership",
+      "degree_level": "Postgraduate",
+      "award": "Sc.M.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/technology-leadership-scm",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/technology-leadership-scm",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-theatre-arts-and-performance-studies-ph-d",
+      "institution_id": "brown",
+      "name": "Theatre Arts and Performance Studies",
+      "degree_level": "Postgraduate",
+      "award": "Ph.D.",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/theatre-arts-and-performance-studies-phd",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/theatre-arts-and-performance-studies-phd",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-theatre-arts-and-performance-studies-playwriting-mfa",
+      "institution_id": "brown",
+      "name": "Theatre Arts and Performance Studies: Playwriting",
+      "degree_level": "Postgraduate",
+      "award": "MFA",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/theatre-arts-and-performance-studies-playwriting-mfa",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/theatre-arts-and-performance-studies-playwriting-mfa",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    },
+    {
+      "id": "brown-po-theatre-brown-trinity-rep-acting-and-directing-mfa",
+      "institution_id": "brown",
+      "name": "Theatre: Brown/Trinity Rep Acting and Directing",
+      "degree_level": "Postgraduate",
+      "award": "MFA",
+      "official_url": "https://graduateprograms.brown.edu/graduate-program/theatre-browntrinity-rep-acting-and-directing-mfa",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://graduateprograms.brown.edu/graduate-program/theatre-browntrinity-rep-acting-and-directing-mfa",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Brown Graduate Program Finder row"
+      }
+    }
+  ]
+}

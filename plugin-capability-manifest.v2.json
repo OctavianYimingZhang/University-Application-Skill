@@ -2,7 +2,7 @@
   "contract": "PluginCapabilityManifest",
   "version": 2,
   "plugin_id": "university-application-skill",
-  "plugin_version": "0.3.0",
+  "plugin_version": "0.4.0",
   "default_output_language": "en",
   "supported_context_versions": [1],
   "routes": [
@@ -16,6 +16,7 @@
       },
       "required_inputs": [
         {"input_id": "academic_task_context", "required": false, "schema_ref": "contracts/academic-task-context-v1.schema.json"},
+        {"input_id": "curated_catalogue_index", "required": false, "schema_ref": "catalogues/schemas/catalogue-index-v1.schema.json", "description": "Plugin-owned programme identity index; identity listing does not verify programme requirements."},
         {"input_id": "target_scope", "required": true, "description": "Degree level, field, destination, and intake, with gaps kept explicit."}
       ],
       "gates": [
@@ -23,6 +24,7 @@
         {"gate_id": "official_source_verification", "required": true, "satisfied_by": "Programme facts carry official provenance and separate verification states"}
       ],
       "outputs": [
+        {"output_id": "curated_catalogue_index", "media_type": "application/json", "schema_ref": "catalogues/schemas/catalogue-index-v1.schema.json"},
         {"output_id": "source_backed_programme_list", "media_type": "application/json"},
         {"output_id": "application_case", "media_type": "application/json", "schema_ref": "schemas/application-case-v1.schema.json"},
         {"output_id": "source_log", "media_type": "application/json"}
@@ -170,6 +172,7 @@
       ],
       "outputs": [
         {"output_id": "cleaned_programme_workbook", "media_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"},
+        {"output_id": "programme_identity_catalogue", "media_type": "application/json", "schema_ref": "catalogues/schemas/institution-catalogue-v1.schema.json"},
         {"output_id": "verification_report", "media_type": "application/json"}
       ],
       "adapter_entrypoint": {"type": "skill", "value": "skills/programme-table-cleaning/SKILL.md"},

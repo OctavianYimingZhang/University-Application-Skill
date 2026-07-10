@@ -1,0 +1,3318 @@
+{
+  "$schema": "../schemas/institution-catalogue-v1.schema.json",
+  "contract": "InstitutionProgrammeCatalogue",
+  "version": 1,
+  "language": "en",
+  "institution": {
+    "id": "emory",
+    "name": "Emory University",
+    "short_name": "Emory",
+    "group": "US News Top 30",
+    "region": "United States",
+    "rank_note": "US News 2026 top-30 cutoff source list"
+  },
+  "catalogue_scope": {
+    "record_type": "programme_identity",
+    "identity_status": "official_source_listed",
+    "requirements_status": "not_collected",
+    "placeholder_records_verified": false,
+    "link_only_records_verified": false
+  },
+  "catalogue_provenance": {
+    "accessed_at": "2026-06-26",
+    "official_sources": [
+      {
+        "degree_level": "Undergraduate",
+        "title": "Emory College majors and minors",
+        "official_url": "https://catalog.college.emory.edu/academics/concentrations/index.html",
+        "coverage": "Official index",
+        "note": "Official undergraduate programme catalogue or admissions major index."
+      },
+      {
+        "degree_level": "Postgraduate",
+        "title": "Laney degree programs",
+        "official_url": "https://gs.emory.edu/degree-programs/index.html",
+        "coverage": "Official index",
+        "note": "Official graduate/professional programme catalogue or graduate school programme index."
+      }
+    ],
+    "allowed_official_hosts": [
+      "catalog.college.emory.edu",
+      "gs.emory.edu"
+    ],
+    "extraction_note": "Official catalogue rows loaded: 213 programme rows. Individual hard requirements must still be read from the relevant programme page.",
+    "caveat": "U.S. institutions distribute requirements across schools, departments, and admissions offices; unsupported details remain source gaps.",
+    "migration_source": "usPrograms.ts"
+  },
+  "illustrative_examples": [
+    {
+      "id": "emory-ug-catalogue",
+      "name": "Emory undergraduate programme catalogue",
+      "degree_level": "Undergraduate",
+      "award": "UG",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/index.html",
+      "selection_status": "illustrative_only"
+    },
+    {
+      "id": "emory-pg-catalogue",
+      "name": "Emory postgraduate programme catalogue",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://gs.emory.edu/degree-programs/index.html",
+      "selection_status": "illustrative_only"
+    }
+  ],
+  "programmes": [
+    {
+      "id": "emory-un-african-american-studies-ba-major",
+      "institution_id": "emory",
+      "name": "African American Studies",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/AASBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/AASBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-african-american-studies-minor",
+      "institution_id": "emory",
+      "name": "African American Studies",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/AASMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/AASMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-african-studies-ba-major",
+      "institution_id": "emory",
+      "name": "African Studies",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/AFSBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/AFSBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-african-studies-minor",
+      "institution_id": "emory",
+      "name": "African Studies",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/AFSMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/AFSMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-american-studies-ba-major",
+      "institution_id": "emory",
+      "name": "American Studies",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/AMERSTBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/AMERSTBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-american-studies-minor",
+      "institution_id": "emory",
+      "name": "American Studies",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/AMERSTMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/AMERSTMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-ancient-mediterranean-studies-ba-major",
+      "institution_id": "emory",
+      "name": "Ancient Mediterranean Studies",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/ANCMEDBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/ANCMEDBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-ancient-mediterranean-studies-minor",
+      "institution_id": "emory",
+      "name": "Ancient Mediterranean Studies",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/ANCMEDMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/ANCMEDMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-anthropology-ba-major",
+      "institution_id": "emory",
+      "name": "Anthropology",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/ANTHBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/ANTHBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-anthropology-minor",
+      "institution_id": "emory",
+      "name": "Anthropology",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/ANTHMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/ANTHMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-anthropology-and-human-biology-bs-major",
+      "institution_id": "emory",
+      "name": "Anthropology and Human Biology",
+      "degree_level": "Undergraduate",
+      "award": "BS Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/ANTHBS.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/ANTHBS.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-applied-mathematics-bs-major",
+      "institution_id": "emory",
+      "name": "Applied Mathematics",
+      "degree_level": "Undergraduate",
+      "award": "BS Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/MATHAPPBS.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/MATHAPPBS.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-applied-mathematics-minor",
+      "institution_id": "emory",
+      "name": "Applied Mathematics",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/MATHAPPMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/MATHAPPMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-applied-mathematics-and-statistics-bs-major",
+      "institution_id": "emory",
+      "name": "Applied Mathematics and Statistics",
+      "degree_level": "Undergraduate",
+      "award": "BS Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/MTAPSTBS.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/MTAPSTBS.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-arabic-ba-major",
+      "institution_id": "emory",
+      "name": "Arabic",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/ARABICBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/ARABICBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-arabic-minor",
+      "institution_id": "emory",
+      "name": "Arabic",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/ARABICMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/ARABICMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-architectural-studies-minor",
+      "institution_id": "emory",
+      "name": "Architectural Studies",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/ARCHSTMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/ARCHSTMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-art-history-ba-major",
+      "institution_id": "emory",
+      "name": "Art History",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/ARTHISTBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/ARTHISTBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-art-history-minor",
+      "institution_id": "emory",
+      "name": "Art History",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/ARTHISTMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/ARTHISTMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-artificial-intelligence-minor",
+      "institution_id": "emory",
+      "name": "Artificial Intelligence",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/AIMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/AIMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-astronomy-minor",
+      "institution_id": "emory",
+      "name": "Astronomy",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/ASTRONMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/ASTRONMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-bba-quantitative-science-second-major-bba-major",
+      "institution_id": "emory",
+      "name": "BBA + Quantitative Science (Second Major)",
+      "degree_level": "Undergraduate",
+      "award": "BBA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/TBABBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/TBABBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-biology-ba-major",
+      "institution_id": "emory",
+      "name": "Biology",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/BIOLOGYBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/BIOLOGYBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-biology-bs-major",
+      "institution_id": "emory",
+      "name": "Biology",
+      "degree_level": "Undergraduate",
+      "award": "BS Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/BIOLOGYBS.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/BIOLOGYBS.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-biophysics-bs-major",
+      "institution_id": "emory",
+      "name": "Biophysics",
+      "degree_level": "Undergraduate",
+      "award": "BS Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/BIOPHYSBS.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/BIOPHYSBS.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-business-minor",
+      "institution_id": "emory",
+      "name": "Business",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/BUSMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/BUSMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-catholic-studies-minor",
+      "institution_id": "emory",
+      "name": "Catholic Studies",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/CATHSTMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/CATHSTMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-chemistry-ba-major",
+      "institution_id": "emory",
+      "name": "Chemistry",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/CHEMBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/CHEMBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-chemistry-bs-major",
+      "institution_id": "emory",
+      "name": "Chemistry",
+      "degree_level": "Undergraduate",
+      "award": "BS Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/CHEMBS.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/CHEMBS.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-chinese-studies-ba-major",
+      "institution_id": "emory",
+      "name": "Chinese Studies",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/CHINLLBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/CHINLLBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-chinese-studies-minor",
+      "institution_id": "emory",
+      "name": "Chinese Studies",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/CHINSTMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/CHINSTMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-classical-civilization-ba-major",
+      "institution_id": "emory",
+      "name": "Classical Civilization",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/CLCIVBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/CLCIVBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-classical-civilization-minor",
+      "institution_id": "emory",
+      "name": "Classical Civilization",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/CLCIVMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/CLCIVMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-classics-ba-major",
+      "institution_id": "emory",
+      "name": "Classics",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/CLASSICSBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/CLASSICSBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-classics-and-english-ba-major",
+      "institution_id": "emory",
+      "name": "Classics and English",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/CLASENGBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/CLASENGBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-classics-and-history-ba-major",
+      "institution_id": "emory",
+      "name": "Classics and History",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/CLASHISTBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/CLASHISTBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-classics-and-philosophy-ba-major",
+      "institution_id": "emory",
+      "name": "Classics and Philosophy",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/CLASPHILBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/CLASPHILBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-comparative-literature-ba-major",
+      "institution_id": "emory",
+      "name": "Comparative Literature",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/LITBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/LITBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-comparative-literature-minor",
+      "institution_id": "emory",
+      "name": "Comparative Literature",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/LITMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/LITMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-computer-informatics-minor",
+      "institution_id": "emory",
+      "name": "Computer Informatics",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/COMPINFMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/COMPINFMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-computer-science-ba-major",
+      "institution_id": "emory",
+      "name": "Computer Science",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/COMPSCIBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/COMPSCIBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-computer-science-bs-major",
+      "institution_id": "emory",
+      "name": "Computer Science",
+      "degree_level": "Undergraduate",
+      "award": "BS Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/COMPSCIBS.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/COMPSCIBS.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-computer-science-minor",
+      "institution_id": "emory",
+      "name": "Computer Science",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/COMPSCIMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/COMPSCIMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-dance-and-movement-studies-ba-major",
+      "institution_id": "emory",
+      "name": "Dance and Movement Studies",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/DNCMVSTBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/DNCMVSTBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-dance-and-movement-studies-minor",
+      "institution_id": "emory",
+      "name": "Dance and Movement Studies",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/DANCEMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/DANCEMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-data-science-bs-major",
+      "institution_id": "emory",
+      "name": "Data Science",
+      "degree_level": "Undergraduate",
+      "award": "BS Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/QSSBS.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/QSSBS.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-data-science-minor",
+      "institution_id": "emory",
+      "name": "Data Science",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/QSSMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/QSSMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-earth-and-atmospheric-sciences-minor",
+      "institution_id": "emory",
+      "name": "Earth and Atmospheric Sciences",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/AESMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/AESMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-east-asian-languages-and-cultures-ba-major",
+      "institution_id": "emory",
+      "name": "East Asian Languages and Cultures",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/EALCBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/EALCBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-east-asian-studies-ba-major",
+      "institution_id": "emory",
+      "name": "East Asian Studies",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/EASBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/EASBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-east-asian-studies-minor",
+      "institution_id": "emory",
+      "name": "East Asian Studies",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/EASMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/EASMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-economics-ba-major",
+      "institution_id": "emory",
+      "name": "Economics",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/ECONBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/ECONBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-economics-minor",
+      "institution_id": "emory",
+      "name": "Economics",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/ECONMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/ECONMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-economics-and-computer-science-ba-major",
+      "institution_id": "emory",
+      "name": "Economics and Computer Science",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/ECONCSBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/ECONCSBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-economics-and-human-health-ba-major",
+      "institution_id": "emory",
+      "name": "Economics and Human Health",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/ECONHHBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/ECONHHBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-economics-and-mathematics-ba-major",
+      "institution_id": "emory",
+      "name": "Economics and Mathematics",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/ECONMATHBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/ECONMATHBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-engineering-sciences-bs-major",
+      "institution_id": "emory",
+      "name": "Engineering Sciences",
+      "degree_level": "Undergraduate",
+      "award": "BS Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/ENGSCIBS.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/ENGSCIBS.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-english-ba-major",
+      "institution_id": "emory",
+      "name": "English",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/ENGLISHBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/ENGLISHBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-english-minor",
+      "institution_id": "emory",
+      "name": "English",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/ENGLISHMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/ENGLISHMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-english-and-creative-writing-ba-major",
+      "institution_id": "emory",
+      "name": "English and Creative Writing",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/ENGCWBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/ENGCWBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-english-and-history-ba-major",
+      "institution_id": "emory",
+      "name": "English and History",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/ENGHISTBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/ENGHISTBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-environmental-sciences-ba-major",
+      "institution_id": "emory",
+      "name": "Environmental Sciences",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/ENVSBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/ENVSBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-environmental-sciences-bs-major",
+      "institution_id": "emory",
+      "name": "Environmental Sciences",
+      "degree_level": "Undergraduate",
+      "award": "BS Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/ENVSBS.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/ENVSBS.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-environmental-sciences-minor",
+      "institution_id": "emory",
+      "name": "Environmental Sciences",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/ENVSMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/ENVSMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-ethics-minor",
+      "institution_id": "emory",
+      "name": "Ethics",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/ETHICSMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/ETHICSMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-film-and-media-ba-major",
+      "institution_id": "emory",
+      "name": "Film and Media",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/FILMSTBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/FILMSTBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-film-and-media-minor",
+      "institution_id": "emory",
+      "name": "Film and Media",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/FILMSTMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/FILMSTMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-film-and-media-production-minor",
+      "institution_id": "emory",
+      "name": "Film and Media Production",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/PRODUCMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/PRODUCMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-french-studies-ba-major",
+      "institution_id": "emory",
+      "name": "French Studies",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/FRENSTUDBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/FRENSTUDBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-french-studies-minor",
+      "institution_id": "emory",
+      "name": "French Studies",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/FRENSTMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/FRENSTMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-german-studies-ba-major",
+      "institution_id": "emory",
+      "name": "German Studies",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/GERMANSTBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/GERMANSTBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-german-studies-minor",
+      "institution_id": "emory",
+      "name": "German Studies",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/GERMNSTMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/GERMNSTMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-global-development-studies-minor",
+      "institution_id": "emory",
+      "name": "Global Development Studies",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/DEVELSTMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/DEVELSTMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-global-health-culture-and-society-minor",
+      "institution_id": "emory",
+      "name": "Global Health, Culture, and Society",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/GHCSMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/GHCSMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-global-portuguese-studies-ba-major",
+      "institution_id": "emory",
+      "name": "Global Portuguese Studies",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/GPSBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/GPSBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-greek-ba-major",
+      "institution_id": "emory",
+      "name": "Greek",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/GREEKBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/GREEKBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-greek-minor",
+      "institution_id": "emory",
+      "name": "Greek",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/GREEKMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/GREEKMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-hebrew-minor",
+      "institution_id": "emory",
+      "name": "Hebrew",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/HEWBREWMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/HEWBREWMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-hindi-minor",
+      "institution_id": "emory",
+      "name": "Hindi",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/HINDIMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/HINDIMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-history-ba-major",
+      "institution_id": "emory",
+      "name": "History",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/HISTORYBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/HISTORYBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-history-minor",
+      "institution_id": "emory",
+      "name": "History",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/HISTORYMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/HISTORYMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-history-and-art-history-ba-major",
+      "institution_id": "emory",
+      "name": "History and Art History",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/HSTARHSTBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/HSTARHSTBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-human-health-ba-major",
+      "institution_id": "emory",
+      "name": "Human Health",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/HHBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/HHBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-integrated-visual-arts-co-major-ba-major",
+      "institution_id": "emory",
+      "name": "Integrated Visual Arts (Co-Major)",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/IVACBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/IVACBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-interdisciplinary-studies-in-society-and-culture-ba-major",
+      "institution_id": "emory",
+      "name": "Interdisciplinary Studies in Society And Culture",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/IDSSCBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/IDSSCBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-international-studies-ba-major",
+      "institution_id": "emory",
+      "name": "International Studies",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/INTLSTUBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/INTLSTUBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-italian-studies-ba-major",
+      "institution_id": "emory",
+      "name": "Italian Studies",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/ITALSTBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/ITALSTBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-italian-studies-minor",
+      "institution_id": "emory",
+      "name": "Italian Studies",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/ITALMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/ITALMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-japanese-ba-major",
+      "institution_id": "emory",
+      "name": "Japanese",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/JAPANBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/JAPANBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-japanese-minor",
+      "institution_id": "emory",
+      "name": "Japanese",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/JAPANMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/JAPANMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-jewish-studies-ba-major",
+      "institution_id": "emory",
+      "name": "Jewish Studies",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/JEWISHBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/JEWISHBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-jewish-studies-minor",
+      "institution_id": "emory",
+      "name": "Jewish Studies",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/JEWISHMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/JEWISHMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-korean-minor",
+      "institution_id": "emory",
+      "name": "Korean",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/KOREANMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/KOREANMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-latin-ba-major",
+      "institution_id": "emory",
+      "name": "Latin",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/LATINBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/LATINBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-latin-minor",
+      "institution_id": "emory",
+      "name": "Latin",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/LATINMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/LATINMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-latin-american-and-caribbean-studies-ba-major",
+      "institution_id": "emory",
+      "name": "Latin American and Caribbean Studies",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/LACSBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/LACSBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-latin-american-and-caribbean-studies-minor",
+      "institution_id": "emory",
+      "name": "Latin American and Caribbean Studies",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/LACSMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/LACSMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-linguistics-ba-major",
+      "institution_id": "emory",
+      "name": "Linguistics",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/LINGBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/LINGBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-linguistics-minor",
+      "institution_id": "emory",
+      "name": "Linguistics",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/LINGMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/LINGMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-lusophone-studies-minor",
+      "institution_id": "emory",
+      "name": "Lusophone Studies",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/PORTMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/PORTMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-mathematics-ba-major",
+      "institution_id": "emory",
+      "name": "Mathematics",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/MATHBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/MATHBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-mathematics-bs-major",
+      "institution_id": "emory",
+      "name": "Mathematics",
+      "degree_level": "Undergraduate",
+      "award": "BS Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/MATHBS.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/MATHBS.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-mathematics-minor",
+      "institution_id": "emory",
+      "name": "Mathematics",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/MATHMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/MATHMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-mathematics-and-computer-science-bs-major",
+      "institution_id": "emory",
+      "name": "Mathematics and Computer Science",
+      "degree_level": "Undergraduate",
+      "award": "BS Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/MATHCSBS.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/MATHCSBS.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-mathematics-and-political-science-ba-major",
+      "institution_id": "emory",
+      "name": "Mathematics and Political Science",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/MATHPOLSBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/MATHPOLSBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-media-studies-ba-major",
+      "institution_id": "emory",
+      "name": "Media Studies",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/MEDIASTBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/MEDIASTBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-media-studies-minor",
+      "institution_id": "emory",
+      "name": "Media Studies",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/MEDIASTMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/MEDIASTMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-mediterranean-archaeology-minor",
+      "institution_id": "emory",
+      "name": "Mediterranean Archaeology",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/MEDARCHMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/MEDARCHMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-middle-eastern-and-south-asian-studies-ba-major",
+      "institution_id": "emory",
+      "name": "Middle Eastern and South Asian Studies",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/MESASBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/MESASBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-middle-eastern-and-south-asian-studies-minor",
+      "institution_id": "emory",
+      "name": "Middle Eastern and South Asian Studies",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/MESASMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/MESASMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-music-ba-major",
+      "institution_id": "emory",
+      "name": "Music",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/MUSICBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/MUSICBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-music-minor",
+      "institution_id": "emory",
+      "name": "Music",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/MUSICMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/MUSICMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-neuroethics-minor",
+      "institution_id": "emory",
+      "name": "Neuroethics",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/NEUROETHICS.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/NEUROETHICS.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-neuroscience-and-behavioral-biology-bs-major",
+      "institution_id": "emory",
+      "name": "Neuroscience and Behavioral Biology",
+      "degree_level": "Undergraduate",
+      "award": "BS Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/NEUROBBBS.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/NEUROBBBS.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-nutrition-science-minor",
+      "institution_id": "emory",
+      "name": "Nutrition Science",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/NUTRSCIMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/NUTRSCIMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-persian-language-and-literature-minor",
+      "institution_id": "emory",
+      "name": "Persian Language and Literature",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/PERSIANMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/PERSIANMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-philosophy-ba-major",
+      "institution_id": "emory",
+      "name": "Philosophy",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/PHILBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/PHILBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-philosophy-minor",
+      "institution_id": "emory",
+      "name": "Philosophy",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/PHILMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/PHILMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-philosophy-and-religion-ba-major",
+      "institution_id": "emory",
+      "name": "Philosophy and Religion",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/PHILRELBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/PHILRELBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-philosophy-politics-law-ba-major",
+      "institution_id": "emory",
+      "name": "Philosophy, Politics, Law",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/PPLBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/PPLBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-physics-ba-major",
+      "institution_id": "emory",
+      "name": "Physics",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/PHYSICSBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/PHYSICSBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-physics-bs-major",
+      "institution_id": "emory",
+      "name": "Physics",
+      "degree_level": "Undergraduate",
+      "award": "BS Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/PHYSICSBS.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/PHYSICSBS.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-physics-minor",
+      "institution_id": "emory",
+      "name": "Physics",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/PHYSICSMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/PHYSICSMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-physics-and-astronomy-ba-major",
+      "institution_id": "emory",
+      "name": "Physics and Astronomy",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/PHYSASTBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/PHYSASTBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-physics-and-astronomy-bs-major",
+      "institution_id": "emory",
+      "name": "Physics and Astronomy",
+      "degree_level": "Undergraduate",
+      "award": "BS Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/PHYSASTBS.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/PHYSASTBS.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-physics-for-life-sciences-ba-major",
+      "institution_id": "emory",
+      "name": "Physics for Life Sciences",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/PHLFSCIBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/PHLFSCIBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-playwriting-ba-major",
+      "institution_id": "emory",
+      "name": "Playwriting",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/PLAYWRTBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/PLAYWRTBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-political-science-ba-major",
+      "institution_id": "emory",
+      "name": "Political Science",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/POLISCIBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/POLISCIBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-political-science-minor",
+      "institution_id": "emory",
+      "name": "Political Science",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/POLISCIMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/POLISCIMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-predictive-health-minor",
+      "institution_id": "emory",
+      "name": "Predictive Health",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/PRDHLTHMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/PRDHLTHMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-psychology-bs-major",
+      "institution_id": "emory",
+      "name": "Psychology",
+      "degree_level": "Undergraduate",
+      "award": "BS Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/PSYCHBS.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/PSYCHBS.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-psychology-ba-major",
+      "institution_id": "emory",
+      "name": "Psychology",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/PSYCHBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/PSYCHBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-psychology-and-linguistics-ba-major",
+      "institution_id": "emory",
+      "name": "Psychology and Linguistics",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/PSYCLINGBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/PSYCLINGBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-public-policy-analysis-bs-major",
+      "institution_id": "emory",
+      "name": "Public Policy Analysis",
+      "degree_level": "Undergraduate",
+      "award": "BS Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/PPABS.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/PPABS.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-public-policy-analysis-minor",
+      "institution_id": "emory",
+      "name": "Public Policy Analysis",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/PPAMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/PPAMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-religion-ba-major",
+      "institution_id": "emory",
+      "name": "Religion",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/RELBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/RELBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-religion-minor",
+      "institution_id": "emory",
+      "name": "Religion",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/RELMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/RELMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-religion-and-anthropology-ba-major",
+      "institution_id": "emory",
+      "name": "Religion and Anthropology",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/RELANTHBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/RELANTHBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-religion-and-classical-civilization-ba-major",
+      "institution_id": "emory",
+      "name": "Religion and Classical Civilization",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/RELCLCIVBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/RELCLCIVBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-religion-and-history-ba-major",
+      "institution_id": "emory",
+      "name": "Religion and History",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/RELHISTBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/RELHISTBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-religion-and-sociology-ba-major",
+      "institution_id": "emory",
+      "name": "Religion and Sociology",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/RELSOCBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/RELSOCBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-russian-and-east-european-studies-ba-major",
+      "institution_id": "emory",
+      "name": "Russian and East European Studies",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/REESBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/REESBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-russian-and-east-european-studies-minor",
+      "institution_id": "emory",
+      "name": "Russian and East European Studies",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/REESMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/REESMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-science-culture-and-society-minor",
+      "institution_id": "emory",
+      "name": "Science, Culture and Society",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/SCSMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/SCSMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-sociology-ba-major",
+      "institution_id": "emory",
+      "name": "Sociology",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/SOCBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/SOCBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-sociology-minor",
+      "institution_id": "emory",
+      "name": "Sociology",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/SOCMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/SOCMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-spanish-ba-major",
+      "institution_id": "emory",
+      "name": "Spanish",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/SPANISHBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/SPANISHBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-spanish-minor",
+      "institution_id": "emory",
+      "name": "Spanish",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/SPANISHMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/SPANISHMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-spanish-and-linguistics-ba-major",
+      "institution_id": "emory",
+      "name": "Spanish and Linguistics",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/SPANLINGBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/SPANLINGBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-spanish-and-portuguese-ba-major",
+      "institution_id": "emory",
+      "name": "Spanish and Portuguese",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/SPANPRTBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/SPANPRTBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-sustainability-minor",
+      "institution_id": "emory",
+      "name": "Sustainability",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/SUSTAINMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/SUSTAINMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-sustainability-sciences-minor",
+      "institution_id": "emory",
+      "name": "Sustainability Sciences",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/SUSTSCIMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/SUSTSCIMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-theater-studies-ba-major",
+      "institution_id": "emory",
+      "name": "Theater Studies",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/THEASTBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/THEASTBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-theater-studies-minor",
+      "institution_id": "emory",
+      "name": "Theater Studies",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/THEASTMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/THEASTMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-women-s-gender-and-sexuality-studies-ba-major",
+      "institution_id": "emory",
+      "name": "Women's, Gender and Sexuality Studies",
+      "degree_level": "Undergraduate",
+      "award": "BA Major",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/majors/WOMENSTBA.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/majors/WOMENSTBA.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-women-s-gender-and-sexuality-studies-minor",
+      "institution_id": "emory",
+      "name": "Women's, Gender and Sexuality Studies",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/WOMENSTMIN.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/WOMENSTMIN.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-un-writing-rhetoric-and-information-design-rwid-minor",
+      "institution_id": "emory",
+      "name": "Writing, Rhetoric, and Information Design (RWID)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.college.emory.edu/academics/concentrations/minors/RWID.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.college.emory.edu/academics/concentrations/minors/RWID.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory College majors and minors row"
+      }
+    },
+    {
+      "id": "emory-po-african-american-studies-phd",
+      "institution_id": "emory",
+      "name": "African American Studies",
+      "degree_level": "Postgraduate",
+      "award": "PhD",
+      "official_url": "https://gs.emory.edu/degree-programs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://gs.emory.edu/degree-programs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory Laney Graduate School degree program modal"
+      },
+      "mode": "Laney Graduate School"
+    },
+    {
+      "id": "emory-po-anthropology-phd",
+      "institution_id": "emory",
+      "name": "Anthropology",
+      "degree_level": "Postgraduate",
+      "award": "PhD",
+      "official_url": "https://gs.emory.edu/degree-programs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://gs.emory.edu/degree-programs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory Laney Graduate School degree program modal"
+      },
+      "mode": "Laney Graduate School"
+    },
+    {
+      "id": "emory-po-art-history-phd",
+      "institution_id": "emory",
+      "name": "Art History",
+      "degree_level": "Postgraduate",
+      "award": "PhD",
+      "official_url": "https://gs.emory.edu/degree-programs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://gs.emory.edu/degree-programs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory Laney Graduate School degree program modal"
+      },
+      "mode": "Laney Graduate School"
+    },
+    {
+      "id": "emory-po-behavioral-social-and-health-education-sciences-phd",
+      "institution_id": "emory",
+      "name": "Behavioral, Social, and Health Education Sciences",
+      "degree_level": "Postgraduate",
+      "award": "PhD",
+      "official_url": "https://gs.emory.edu/degree-programs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://gs.emory.edu/degree-programs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory Laney Graduate School degree program modal"
+      },
+      "mode": "Laney Graduate School"
+    },
+    {
+      "id": "emory-po-biochemistry-cell-and-developmental-biology-gdbbs-phd",
+      "institution_id": "emory",
+      "name": "Biochemistry, Cell and Developmental Biology (GDBBS)",
+      "degree_level": "Postgraduate",
+      "award": "PhD",
+      "official_url": "https://gs.emory.edu/degree-programs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://gs.emory.edu/degree-programs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory Laney Graduate School degree program modal"
+      },
+      "mode": "Laney Graduate School"
+    },
+    {
+      "id": "emory-po-bioethics-master-certificate",
+      "institution_id": "emory",
+      "name": "Bioethics",
+      "degree_level": "Postgraduate",
+      "award": "Master, Certificate",
+      "official_url": "https://gs.emory.edu/degree-programs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://gs.emory.edu/degree-programs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory Laney Graduate School degree program modal"
+      },
+      "mode": "Laney Graduate School"
+    },
+    {
+      "id": "emory-po-biomedical-engineering-phd",
+      "institution_id": "emory",
+      "name": "Biomedical Engineering",
+      "degree_level": "Postgraduate",
+      "award": "PhD",
+      "official_url": "https://gs.emory.edu/degree-programs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://gs.emory.edu/degree-programs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory Laney Graduate School degree program modal"
+      },
+      "mode": "Laney Graduate School"
+    },
+    {
+      "id": "emory-po-biomedical-innovation-and-development-advanced-therapeutics-master",
+      "institution_id": "emory",
+      "name": "Biomedical Innovation and Development – Advanced Therapeutics",
+      "degree_level": "Postgraduate",
+      "award": "Master",
+      "official_url": "https://gs.emory.edu/degree-programs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://gs.emory.edu/degree-programs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory Laney Graduate School degree program modal"
+      },
+      "mode": "Laney Graduate School"
+    },
+    {
+      "id": "emory-po-biostatistics-phd",
+      "institution_id": "emory",
+      "name": "Biostatistics",
+      "degree_level": "Postgraduate",
+      "award": "PhD",
+      "official_url": "https://gs.emory.edu/degree-programs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://gs.emory.edu/degree-programs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory Laney Graduate School degree program modal"
+      },
+      "mode": "Laney Graduate School"
+    },
+    {
+      "id": "emory-po-business-phd",
+      "institution_id": "emory",
+      "name": "Business",
+      "degree_level": "Postgraduate",
+      "award": "PhD",
+      "official_url": "https://gs.emory.edu/degree-programs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://gs.emory.edu/degree-programs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory Laney Graduate School degree program modal"
+      },
+      "mode": "Laney Graduate School"
+    },
+    {
+      "id": "emory-po-cancer-biology-gdbbs-phd",
+      "institution_id": "emory",
+      "name": "Cancer Biology (GDBBS)",
+      "degree_level": "Postgraduate",
+      "award": "PhD",
+      "official_url": "https://gs.emory.edu/degree-programs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://gs.emory.edu/degree-programs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory Laney Graduate School degree program modal"
+      },
+      "mode": "Laney Graduate School"
+    },
+    {
+      "id": "emory-po-chemistry-phd",
+      "institution_id": "emory",
+      "name": "Chemistry",
+      "degree_level": "Postgraduate",
+      "award": "PhD",
+      "official_url": "https://gs.emory.edu/degree-programs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://gs.emory.edu/degree-programs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory Laney Graduate School degree program modal"
+      },
+      "mode": "Laney Graduate School"
+    },
+    {
+      "id": "emory-po-clinical-research-master",
+      "institution_id": "emory",
+      "name": "Clinical Research",
+      "degree_level": "Postgraduate",
+      "award": "Master",
+      "official_url": "https://gs.emory.edu/degree-programs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://gs.emory.edu/degree-programs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory Laney Graduate School degree program modal"
+      },
+      "mode": "Laney Graduate School"
+    },
+    {
+      "id": "emory-po-comparative-literature-phd-certificate",
+      "institution_id": "emory",
+      "name": "Comparative Literature",
+      "degree_level": "Postgraduate",
+      "award": "PhD, Certificate",
+      "official_url": "https://gs.emory.edu/degree-programs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://gs.emory.edu/degree-programs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory Laney Graduate School degree program modal"
+      },
+      "mode": "Laney Graduate School"
+    },
+    {
+      "id": "emory-po-computer-science-and-informatics-phd",
+      "institution_id": "emory",
+      "name": "Computer Science and Informatics",
+      "degree_level": "Postgraduate",
+      "award": "PhD",
+      "official_url": "https://gs.emory.edu/degree-programs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://gs.emory.edu/degree-programs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory Laney Graduate School degree program modal"
+      },
+      "mode": "Laney Graduate School"
+    },
+    {
+      "id": "emory-po-computer-science-master",
+      "institution_id": "emory",
+      "name": "Computer Science",
+      "degree_level": "Postgraduate",
+      "award": "Master",
+      "official_url": "https://gs.emory.edu/degree-programs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://gs.emory.edu/degree-programs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory Laney Graduate School degree program modal"
+      },
+      "mode": "Laney Graduate School"
+    },
+    {
+      "id": "emory-po-data-science-datascims-master",
+      "institution_id": "emory",
+      "name": "Data Science (DATASCIMS)",
+      "degree_level": "Postgraduate",
+      "award": "Master",
+      "official_url": "https://gs.emory.edu/degree-programs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://gs.emory.edu/degree-programs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory Laney Graduate School degree program modal"
+      },
+      "mode": "Laney Graduate School"
+    },
+    {
+      "id": "emory-po-development-practice-master",
+      "institution_id": "emory",
+      "name": "Development Practice",
+      "degree_level": "Postgraduate",
+      "award": "Master",
+      "official_url": "https://gs.emory.edu/degree-programs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://gs.emory.edu/degree-programs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory Laney Graduate School degree program modal"
+      },
+      "mode": "Laney Graduate School"
+    },
+    {
+      "id": "emory-po-digital-scholarship-and-media-studies-certificate",
+      "institution_id": "emory",
+      "name": "Digital Scholarship and Media Studies",
+      "degree_level": "Postgraduate",
+      "award": "Certificate",
+      "official_url": "https://gs.emory.edu/degree-programs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://gs.emory.edu/degree-programs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory Laney Graduate School degree program modal"
+      },
+      "mode": "Laney Graduate School"
+    },
+    {
+      "id": "emory-po-economics-phd",
+      "institution_id": "emory",
+      "name": "Economics",
+      "degree_level": "Postgraduate",
+      "award": "PhD",
+      "official_url": "https://gs.emory.edu/degree-programs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://gs.emory.edu/degree-programs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory Laney Graduate School degree program modal"
+      },
+      "mode": "Laney Graduate School"
+    },
+    {
+      "id": "emory-po-economics-master",
+      "institution_id": "emory",
+      "name": "Economics",
+      "degree_level": "Postgraduate",
+      "award": "Master",
+      "official_url": "https://gs.emory.edu/degree-programs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://gs.emory.edu/degree-programs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory Laney Graduate School degree program modal"
+      },
+      "mode": "Laney Graduate School"
+    },
+    {
+      "id": "emory-po-english-phd-certificate",
+      "institution_id": "emory",
+      "name": "English",
+      "degree_level": "Postgraduate",
+      "award": "PhD, Certificate",
+      "official_url": "https://gs.emory.edu/degree-programs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://gs.emory.edu/degree-programs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory Laney Graduate School degree program modal"
+      },
+      "mode": "Laney Graduate School"
+    },
+    {
+      "id": "emory-po-environmental-health-sciences-phd",
+      "institution_id": "emory",
+      "name": "Environmental Health Sciences",
+      "degree_level": "Postgraduate",
+      "award": "PhD",
+      "official_url": "https://gs.emory.edu/degree-programs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://gs.emory.edu/degree-programs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory Laney Graduate School degree program modal"
+      },
+      "mode": "Laney Graduate School"
+    },
+    {
+      "id": "emory-po-environmental-sciences-and-society-phd",
+      "institution_id": "emory",
+      "name": "Environmental Sciences and Society",
+      "degree_level": "Postgraduate",
+      "award": "PhD",
+      "official_url": "https://gs.emory.edu/degree-programs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://gs.emory.edu/degree-programs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory Laney Graduate School degree program modal"
+      },
+      "mode": "Laney Graduate School"
+    },
+    {
+      "id": "emory-po-epidemiology-phd",
+      "institution_id": "emory",
+      "name": "Epidemiology",
+      "degree_level": "Postgraduate",
+      "award": "PhD",
+      "official_url": "https://gs.emory.edu/degree-programs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://gs.emory.edu/degree-programs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory Laney Graduate School degree program modal"
+      },
+      "mode": "Laney Graduate School"
+    },
+    {
+      "id": "emory-po-french-phd-certificate",
+      "institution_id": "emory",
+      "name": "French",
+      "degree_level": "Postgraduate",
+      "award": "PhD, Certificate",
+      "official_url": "https://gs.emory.edu/degree-programs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://gs.emory.edu/degree-programs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory Laney Graduate School degree program modal"
+      },
+      "mode": "Laney Graduate School"
+    },
+    {
+      "id": "emory-po-genetics-and-molecular-biology-gdbbs-phd",
+      "institution_id": "emory",
+      "name": "Genetics and Molecular Biology (GDBBS)",
+      "degree_level": "Postgraduate",
+      "award": "PhD",
+      "official_url": "https://gs.emory.edu/degree-programs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://gs.emory.edu/degree-programs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory Laney Graduate School degree program modal"
+      },
+      "mode": "Laney Graduate School"
+    },
+    {
+      "id": "emory-po-global-health-and-development-phd",
+      "institution_id": "emory",
+      "name": "Global Health and Development",
+      "degree_level": "Postgraduate",
+      "award": "PhD",
+      "official_url": "https://gs.emory.edu/degree-programs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://gs.emory.edu/degree-programs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory Laney Graduate School degree program modal"
+      },
+      "mode": "Laney Graduate School"
+    },
+    {
+      "id": "emory-po-health-services-research-and-health-policy-phd",
+      "institution_id": "emory",
+      "name": "Health Services Research and Health Policy",
+      "degree_level": "Postgraduate",
+      "award": "PhD",
+      "official_url": "https://gs.emory.edu/degree-programs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://gs.emory.edu/degree-programs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory Laney Graduate School degree program modal"
+      },
+      "mode": "Laney Graduate School"
+    },
+    {
+      "id": "emory-po-hispanic-studies-phd-certificate",
+      "institution_id": "emory",
+      "name": "Hispanic Studies",
+      "degree_level": "Postgraduate",
+      "award": "PhD, Certificate",
+      "official_url": "https://gs.emory.edu/degree-programs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://gs.emory.edu/degree-programs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory Laney Graduate School degree program modal"
+      },
+      "mode": "Laney Graduate School"
+    },
+    {
+      "id": "emory-po-history-phd",
+      "institution_id": "emory",
+      "name": "History",
+      "degree_level": "Postgraduate",
+      "award": "PhD",
+      "official_url": "https://gs.emory.edu/degree-programs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://gs.emory.edu/degree-programs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory Laney Graduate School degree program modal"
+      },
+      "mode": "Laney Graduate School"
+    },
+    {
+      "id": "emory-po-human-rights-certificate",
+      "institution_id": "emory",
+      "name": "Human Rights",
+      "degree_level": "Postgraduate",
+      "award": "Certificate",
+      "official_url": "https://gs.emory.edu/degree-programs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://gs.emory.edu/degree-programs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory Laney Graduate School degree program modal"
+      },
+      "mode": "Laney Graduate School"
+    },
+    {
+      "id": "emory-po-immunology-and-molecular-pathogenesis-gdbbs-phd",
+      "institution_id": "emory",
+      "name": "Immunology and Molecular Pathogenesis (GDBBS)",
+      "degree_level": "Postgraduate",
+      "award": "PhD",
+      "official_url": "https://gs.emory.edu/degree-programs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://gs.emory.edu/degree-programs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory Laney Graduate School degree program modal"
+      },
+      "mode": "Laney Graduate School"
+    },
+    {
+      "id": "emory-po-injury-and-violence-prevention-certificate",
+      "institution_id": "emory",
+      "name": "Injury and Violence Prevention",
+      "degree_level": "Postgraduate",
+      "award": "Certificate",
+      "official_url": "https://gs.emory.edu/degree-programs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://gs.emory.edu/degree-programs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory Laney Graduate School degree program modal"
+      },
+      "mode": "Laney Graduate School"
+    },
+    {
+      "id": "emory-po-islamic-civilizations-studies-phd",
+      "institution_id": "emory",
+      "name": "Islamic Civilizations Studies",
+      "degree_level": "Postgraduate",
+      "award": "PhD",
+      "official_url": "https://gs.emory.edu/degree-programs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://gs.emory.edu/degree-programs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory Laney Graduate School degree program modal"
+      },
+      "mode": "Laney Graduate School"
+    },
+    {
+      "id": "emory-po-jewish-studies-certificate",
+      "institution_id": "emory",
+      "name": "Jewish Studies",
+      "degree_level": "Postgraduate",
+      "award": "Certificate",
+      "official_url": "https://gs.emory.edu/degree-programs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://gs.emory.edu/degree-programs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory Laney Graduate School degree program modal"
+      },
+      "mode": "Laney Graduate School"
+    },
+    {
+      "id": "emory-po-mathematics-phd-master",
+      "institution_id": "emory",
+      "name": "Mathematics",
+      "degree_level": "Postgraduate",
+      "award": "PhD, Master",
+      "official_url": "https://gs.emory.edu/degree-programs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://gs.emory.edu/degree-programs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory Laney Graduate School degree program modal"
+      },
+      "mode": "Laney Graduate School"
+    },
+    {
+      "id": "emory-po-md-phd-phd",
+      "institution_id": "emory",
+      "name": "MD/PhD",
+      "degree_level": "Postgraduate",
+      "award": "PhD",
+      "official_url": "https://gs.emory.edu/degree-programs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://gs.emory.edu/degree-programs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory Laney Graduate School degree program modal"
+      },
+      "mode": "Laney Graduate School"
+    },
+    {
+      "id": "emory-po-medieval-studies-certificate",
+      "institution_id": "emory",
+      "name": "Medieval Studies",
+      "degree_level": "Postgraduate",
+      "award": "Certificate",
+      "official_url": "https://gs.emory.edu/degree-programs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://gs.emory.edu/degree-programs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory Laney Graduate School degree program modal"
+      },
+      "mode": "Laney Graduate School"
+    },
+    {
+      "id": "emory-po-microbiology-and-molecular-genetics-gdbbs-phd",
+      "institution_id": "emory",
+      "name": "Microbiology and Molecular Genetics (GDBBS)",
+      "degree_level": "Postgraduate",
+      "award": "PhD",
+      "official_url": "https://gs.emory.edu/degree-programs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://gs.emory.edu/degree-programs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory Laney Graduate School degree program modal"
+      },
+      "mode": "Laney Graduate School"
+    },
+    {
+      "id": "emory-po-mind-brain-and-culture-certificate",
+      "institution_id": "emory",
+      "name": "Mind, Brain, and Culture",
+      "degree_level": "Postgraduate",
+      "award": "Certificate",
+      "official_url": "https://gs.emory.edu/degree-programs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://gs.emory.edu/degree-programs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory Laney Graduate School degree program modal"
+      },
+      "mode": "Laney Graduate School"
+    },
+    {
+      "id": "emory-po-molecular-and-systems-pharmacology-gdbbs-phd",
+      "institution_id": "emory",
+      "name": "Molecular and Systems Pharmacology (GDBBS)",
+      "degree_level": "Postgraduate",
+      "award": "PhD",
+      "official_url": "https://gs.emory.edu/degree-programs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://gs.emory.edu/degree-programs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory Laney Graduate School degree program modal"
+      },
+      "mode": "Laney Graduate School"
+    },
+    {
+      "id": "emory-po-neuroscience-gdbbs-phd",
+      "institution_id": "emory",
+      "name": "Neuroscience (GDBBS)",
+      "degree_level": "Postgraduate",
+      "award": "PhD",
+      "official_url": "https://gs.emory.edu/degree-programs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://gs.emory.edu/degree-programs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory Laney Graduate School degree program modal"
+      },
+      "mode": "Laney Graduate School"
+    },
+    {
+      "id": "emory-po-nursing-phd",
+      "institution_id": "emory",
+      "name": "Nursing",
+      "degree_level": "Postgraduate",
+      "award": "PhD",
+      "official_url": "https://gs.emory.edu/degree-programs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://gs.emory.edu/degree-programs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory Laney Graduate School degree program modal"
+      },
+      "mode": "Laney Graduate School"
+    },
+    {
+      "id": "emory-po-nutrition-and-health-sciences-phd",
+      "institution_id": "emory",
+      "name": "Nutrition and Health Sciences",
+      "degree_level": "Postgraduate",
+      "award": "PhD",
+      "official_url": "https://gs.emory.edu/degree-programs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://gs.emory.edu/degree-programs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory Laney Graduate School degree program modal"
+      },
+      "mode": "Laney Graduate School"
+    },
+    {
+      "id": "emory-po-philosophy-phd",
+      "institution_id": "emory",
+      "name": "Philosophy",
+      "degree_level": "Postgraduate",
+      "award": "PhD",
+      "official_url": "https://gs.emory.edu/degree-programs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://gs.emory.edu/degree-programs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory Laney Graduate School degree program modal"
+      },
+      "mode": "Laney Graduate School"
+    },
+    {
+      "id": "emory-po-physics-phd",
+      "institution_id": "emory",
+      "name": "Physics",
+      "degree_level": "Postgraduate",
+      "award": "PhD",
+      "official_url": "https://gs.emory.edu/degree-programs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://gs.emory.edu/degree-programs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory Laney Graduate School degree program modal"
+      },
+      "mode": "Laney Graduate School"
+    },
+    {
+      "id": "emory-po-political-science-phd",
+      "institution_id": "emory",
+      "name": "Political Science",
+      "degree_level": "Postgraduate",
+      "award": "PhD",
+      "official_url": "https://gs.emory.edu/degree-programs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://gs.emory.edu/degree-programs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory Laney Graduate School degree program modal"
+      },
+      "mode": "Laney Graduate School"
+    },
+    {
+      "id": "emory-po-population-biology-ecology-and-evolution-gdbbs-phd",
+      "institution_id": "emory",
+      "name": "Population Biology, Ecology, and Evolution (GDBBS)",
+      "degree_level": "Postgraduate",
+      "award": "PhD",
+      "official_url": "https://gs.emory.edu/degree-programs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://gs.emory.edu/degree-programs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory Laney Graduate School degree program modal"
+      },
+      "mode": "Laney Graduate School"
+    },
+    {
+      "id": "emory-po-psychoanalytic-studies-certificate",
+      "institution_id": "emory",
+      "name": "Psychoanalytic Studies",
+      "degree_level": "Postgraduate",
+      "award": "Certificate",
+      "official_url": "https://gs.emory.edu/degree-programs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://gs.emory.edu/degree-programs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory Laney Graduate School degree program modal"
+      },
+      "mode": "Laney Graduate School"
+    },
+    {
+      "id": "emory-po-psychology-phd",
+      "institution_id": "emory",
+      "name": "Psychology",
+      "degree_level": "Postgraduate",
+      "award": "PhD",
+      "official_url": "https://gs.emory.edu/degree-programs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://gs.emory.edu/degree-programs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory Laney Graduate School degree program modal"
+      },
+      "mode": "Laney Graduate School"
+    },
+    {
+      "id": "emory-po-religion-phd",
+      "institution_id": "emory",
+      "name": "Religion",
+      "degree_level": "Postgraduate",
+      "award": "PhD",
+      "official_url": "https://gs.emory.edu/degree-programs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://gs.emory.edu/degree-programs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory Laney Graduate School degree program modal"
+      },
+      "mode": "Laney Graduate School"
+    },
+    {
+      "id": "emory-po-sociology-phd",
+      "institution_id": "emory",
+      "name": "Sociology",
+      "degree_level": "Postgraduate",
+      "award": "PhD",
+      "official_url": "https://gs.emory.edu/degree-programs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://gs.emory.edu/degree-programs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory Laney Graduate School degree program modal"
+      },
+      "mode": "Laney Graduate School"
+    },
+    {
+      "id": "emory-po-training-in-advanced-analytics-to-end-drug-related-harms-tada-certificate",
+      "institution_id": "emory",
+      "name": "Training in Advanced Analytics to End Drug-Related Harms (TADA)",
+      "degree_level": "Postgraduate",
+      "award": "Certificate",
+      "official_url": "https://gs.emory.edu/degree-programs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://gs.emory.edu/degree-programs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory Laney Graduate School degree program modal"
+      },
+      "mode": "Laney Graduate School"
+    },
+    {
+      "id": "emory-po-certificate-program-in-translational-science-certificate",
+      "institution_id": "emory",
+      "name": "Certificate Program in Translational Science",
+      "degree_level": "Postgraduate",
+      "award": "Certificate",
+      "official_url": "https://gs.emory.edu/degree-programs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://gs.emory.edu/degree-programs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory Laney Graduate School degree program modal"
+      },
+      "mode": "Laney Graduate School"
+    },
+    {
+      "id": "emory-po-women-s-gender-and-sexuality-studies-phd-certificate",
+      "institution_id": "emory",
+      "name": "Women's, Gender, and Sexuality Studies",
+      "degree_level": "Postgraduate",
+      "award": "PhD, Certificate",
+      "official_url": "https://gs.emory.edu/degree-programs/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://gs.emory.edu/degree-programs/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Emory Laney Graduate School degree program modal"
+      },
+      "mode": "Laney Graduate School"
+    }
+  ]
+}

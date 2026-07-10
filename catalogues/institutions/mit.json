@@ -1,0 +1,1521 @@
+{
+  "$schema": "../schemas/institution-catalogue-v1.schema.json",
+  "contract": "InstitutionProgrammeCatalogue",
+  "version": 1,
+  "language": "en",
+  "institution": {
+    "id": "mit",
+    "name": "Massachusetts Institute of Technology",
+    "short_name": "MIT",
+    "group": "US News Top 30",
+    "region": "United States",
+    "rank_note": "US News 2026 top-30 cutoff source list"
+  },
+  "catalogue_scope": {
+    "record_type": "programme_identity",
+    "identity_status": "official_source_listed",
+    "requirements_status": "not_collected",
+    "placeholder_records_verified": false,
+    "link_only_records_verified": false
+  },
+  "catalogue_provenance": {
+    "accessed_at": "2026-06-26",
+    "official_sources": [
+      {
+        "degree_level": "Undergraduate",
+        "title": "MIT degree charts",
+        "official_url": "https://catalog.mit.edu/degree-charts/#undergraduatedegreestextcontainer",
+        "coverage": "Official index",
+        "note": "Official undergraduate programme catalogue or admissions major index."
+      },
+      {
+        "degree_level": "Postgraduate",
+        "title": "MIT degree charts",
+        "official_url": "https://catalog.mit.edu/degree-charts/#graduatedegreestextcontainer",
+        "coverage": "Official index",
+        "note": "Official graduate/professional programme catalogue or graduate school programme index."
+      }
+    ],
+    "allowed_official_hosts": [
+      "catalog.mit.edu"
+    ],
+    "extraction_note": "Official catalogue rows loaded: 97 programme rows. Individual hard requirements must still be read from the relevant programme page.",
+    "caveat": "U.S. institutions distribute requirements across schools, departments, and admissions offices; unsupported details remain source gaps.",
+    "migration_source": "usPrograms.ts"
+  },
+  "illustrative_examples": [
+    {
+      "id": "mit-ug-catalogue",
+      "name": "MIT undergraduate programme catalogue",
+      "degree_level": "Undergraduate",
+      "award": "UG",
+      "official_url": "https://catalog.mit.edu/degree-charts/#undergraduatedegreestextcontainer",
+      "selection_status": "illustrative_only"
+    },
+    {
+      "id": "mit-pg-catalogue",
+      "name": "MIT postgraduate programme catalogue",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.mit.edu/degree-charts/#graduatedegreestextcontainer",
+      "selection_status": "illustrative_only"
+    }
+  ],
+  "programmes": [
+    {
+      "id": "mit-un-architecture-course-4-undergraduate-degree-chart",
+      "institution_id": "mit",
+      "name": "Architecture (Course 4)",
+      "degree_level": "Undergraduate",
+      "award": "Undergraduate degree chart",
+      "official_url": "https://catalog.mit.edu/degree-charts/architecture-course-4/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/architecture-course-4/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-un-art-and-design-course-4-b-undergraduate-degree-chart",
+      "institution_id": "mit",
+      "name": "Art and Design (Course 4-B)",
+      "degree_level": "Undergraduate",
+      "award": "Undergraduate degree chart",
+      "official_url": "https://catalog.mit.edu/degree-charts/architecture-course-4-b/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/architecture-course-4-b/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-un-planning-course-11-undergraduate-degree-chart",
+      "institution_id": "mit",
+      "name": "Planning (Course 11)",
+      "degree_level": "Undergraduate",
+      "award": "Undergraduate degree chart",
+      "official_url": "https://catalog.mit.edu/degree-charts/planning-course-11/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/planning-course-11/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-un-aerospace-engineering-course-16-undergraduate-degree-chart",
+      "institution_id": "mit",
+      "name": "Aerospace Engineering (Course 16)",
+      "degree_level": "Undergraduate",
+      "award": "Undergraduate degree chart",
+      "official_url": "https://catalog.mit.edu/degree-charts/aerospace-engineering-course-16/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/aerospace-engineering-course-16/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-un-archaeology-and-materials-as-recommended-by-the-department-of-materials-science-and-engineering-course-3-c-undergraduate-degree-chart",
+      "institution_id": "mit",
+      "name": "Archaeology and Materials as Recommended by the Department of Materials Science and Engineering (Course 3-C)",
+      "degree_level": "Undergraduate",
+      "award": "Undergraduate degree chart",
+      "official_url": "https://catalog.mit.edu/degree-charts/archaeology-materials-course-3-c/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/archaeology-materials-course-3-c/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-un-artificial-intelligence-and-decision-making-6-4-6-4",
+      "institution_id": "mit",
+      "name": "Artificial Intelligence and Decision Making (6-4)",
+      "degree_level": "Undergraduate",
+      "award": "6-4",
+      "official_url": "https://catalog.mit.edu/degree-charts/artifical-intelligence-decision-making-course-6-4/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/artifical-intelligence-decision-making-course-6-4/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-un-biological-engineering-course-20-undergraduate-degree-chart",
+      "institution_id": "mit",
+      "name": "Biological Engineering (Course 20)",
+      "degree_level": "Undergraduate",
+      "award": "Undergraduate degree chart",
+      "official_url": "https://catalog.mit.edu/degree-charts/biological-engineering-course-20/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/biological-engineering-course-20/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-un-chemical-biological-engineering-course-10-b-undergraduate-degree-chart",
+      "institution_id": "mit",
+      "name": "Chemical-Biological Engineering (Course 10-B)",
+      "degree_level": "Undergraduate",
+      "award": "Undergraduate degree chart",
+      "official_url": "https://catalog.mit.edu/degree-charts/chemical-biological-engineering-course-10-b/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/chemical-biological-engineering-course-10-b/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-un-chemical-engineering-course-10-undergraduate-degree-chart",
+      "institution_id": "mit",
+      "name": "Chemical Engineering (Course 10)",
+      "degree_level": "Undergraduate",
+      "award": "Undergraduate degree chart",
+      "official_url": "https://catalog.mit.edu/degree-charts/chemical-engineering-course-10/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/chemical-engineering-course-10/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-un-chemical-engineering-as-recommended-by-the-department-of-chemical-engineering-course-10-c-undergraduate-degree-chart",
+      "institution_id": "mit",
+      "name": "Chemical Engineering as Recommended by the Department of Chemical Engineering (Course 10-C)",
+      "degree_level": "Undergraduate",
+      "award": "Undergraduate degree chart",
+      "official_url": "https://catalog.mit.edu/degree-charts/chemical-engineering-course-10-c/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/chemical-engineering-course-10-c/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-un-computer-science-and-engineering-course-6-3-undergraduate-degree-chart",
+      "institution_id": "mit",
+      "name": "Computer Science and Engineering (Course 6-3)",
+      "degree_level": "Undergraduate",
+      "award": "Undergraduate degree chart",
+      "official_url": "https://catalog.mit.edu/degree-charts/computer-science-engineering-course-6-3/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/computer-science-engineering-course-6-3/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-un-electrical-engineering-with-computing-course-6-5-undergraduate-degree-chart",
+      "institution_id": "mit",
+      "name": "Electrical Engineering with Computing (Course 6-5)",
+      "degree_level": "Undergraduate",
+      "award": "Undergraduate degree chart",
+      "official_url": "https://catalog.mit.edu/degree-charts/electrical-engineering-computing-6-5/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/electrical-engineering-computing-6-5/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-un-engineering-course-1-eng-undergraduate-degree-chart",
+      "institution_id": "mit",
+      "name": "Engineering (Course 1-ENG)",
+      "degree_level": "Undergraduate",
+      "award": "Undergraduate degree chart",
+      "official_url": "https://catalog.mit.edu/degree-charts/engineering-civil-environmental-engineering-course-1-eng/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/engineering-civil-environmental-engineering-course-1-eng/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-un-engineering-course-2-a-undergraduate-degree-chart",
+      "institution_id": "mit",
+      "name": "Engineering (Course 2-A)",
+      "degree_level": "Undergraduate",
+      "award": "Undergraduate degree chart",
+      "official_url": "https://catalog.mit.edu/degree-charts/mechanical-engineering-course-2-a/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/mechanical-engineering-course-2-a/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-un-engineering-course-10-eng-undergraduate-degree-chart",
+      "institution_id": "mit",
+      "name": "Engineering (Course 10-ENG)",
+      "degree_level": "Undergraduate",
+      "award": "Undergraduate degree chart",
+      "official_url": "https://catalog.mit.edu/degree-charts/engineering-chemical-engineering-course-10-eng/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/engineering-chemical-engineering-course-10-eng/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-un-engineering-course-16-eng-undergraduate-degree-chart",
+      "institution_id": "mit",
+      "name": "Engineering (Course 16-ENG)",
+      "degree_level": "Undergraduate",
+      "award": "Undergraduate degree chart",
+      "official_url": "https://catalog.mit.edu/degree-charts/engineering-aeronautics-astronautics-course-16-eng/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/engineering-aeronautics-astronautics-course-16-eng/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-un-engineering-course-22-eng-undergraduate-degree-chart",
+      "institution_id": "mit",
+      "name": "Engineering (Course 22-ENG)",
+      "degree_level": "Undergraduate",
+      "award": "Undergraduate degree chart",
+      "official_url": "https://catalog.mit.edu/degree-charts/engineering-nuclear-science-engineering-course-22-eng/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/engineering-nuclear-science-engineering-course-22-eng/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-un-materials-science-and-engineering-course-3-undergraduate-degree-chart",
+      "institution_id": "mit",
+      "name": "Materials Science and Engineering (Course 3)",
+      "degree_level": "Undergraduate",
+      "award": "Undergraduate degree chart",
+      "official_url": "https://catalog.mit.edu/degree-charts/materials-science-engineering-course-3/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/materials-science-engineering-course-3/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-un-materials-science-and-engineering-course-3-a-undergraduate-degree-chart",
+      "institution_id": "mit",
+      "name": "Materials Science and Engineering (Course 3-A)",
+      "degree_level": "Undergraduate",
+      "award": "Undergraduate degree chart",
+      "official_url": "https://catalog.mit.edu/degree-charts/materials-science-engineering-course-3-a/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/materials-science-engineering-course-3-a/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-un-mechanical-and-ocean-engineering-course-2-oe-undergraduate-degree-chart",
+      "institution_id": "mit",
+      "name": "Mechanical and Ocean Engineering (Course 2-OE)",
+      "degree_level": "Undergraduate",
+      "award": "Undergraduate degree chart",
+      "official_url": "https://catalog.mit.edu/degree-charts/mechanical-ocean-engineering-course-2-oe/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/mechanical-ocean-engineering-course-2-oe/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-un-mechanical-engineering-course-2-undergraduate-degree-chart",
+      "institution_id": "mit",
+      "name": "Mechanical Engineering (Course 2)",
+      "degree_level": "Undergraduate",
+      "award": "Undergraduate degree chart",
+      "official_url": "https://catalog.mit.edu/degree-charts/mechanical-engineering-course-2/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/mechanical-engineering-course-2/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-un-nuclear-science-and-engineering-course-22-undergraduate-degree-chart",
+      "institution_id": "mit",
+      "name": "Nuclear Science and Engineering (Course 22)",
+      "degree_level": "Undergraduate",
+      "award": "Undergraduate degree chart",
+      "official_url": "https://catalog.mit.edu/degree-charts/nuclear-science-engineering-course-22/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/nuclear-science-engineering-course-22/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-un-anthropology-course-21a-undergraduate-degree-chart",
+      "institution_id": "mit",
+      "name": "Anthropology (Course 21A)",
+      "degree_level": "Undergraduate",
+      "award": "Undergraduate degree chart",
+      "official_url": "https://catalog.mit.edu/degree-charts/anthropology-course-21a/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/anthropology-course-21a/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-un-comparative-media-studies-cms-cms",
+      "institution_id": "mit",
+      "name": "Comparative Media Studies (CMS)",
+      "degree_level": "Undergraduate",
+      "award": "CMS",
+      "official_url": "https://catalog.mit.edu/degree-charts/comparative-media-studies-cms/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/comparative-media-studies-cms/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-un-economics-course-14-1-undergraduate-degree-chart",
+      "institution_id": "mit",
+      "name": "Economics (Course 14-1)",
+      "degree_level": "Undergraduate",
+      "award": "Undergraduate degree chart",
+      "official_url": "https://catalog.mit.edu/degree-charts/economics-course-14/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/economics-course-14/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-un-global-studies-and-languages-course-21g-undergraduate-degree-chart",
+      "institution_id": "mit",
+      "name": "Global Studies and Languages (Course 21G)",
+      "degree_level": "Undergraduate",
+      "award": "Undergraduate degree chart",
+      "official_url": "https://catalog.mit.edu/degree-charts/global-studies-languages-course-21g/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/global-studies-languages-course-21g/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-un-history-course-21h-undergraduate-degree-chart",
+      "institution_id": "mit",
+      "name": "History (Course 21H)",
+      "degree_level": "Undergraduate",
+      "award": "Undergraduate degree chart",
+      "official_url": "https://catalog.mit.edu/degree-charts/history-course-21h/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/history-course-21h/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-un-humanities-course-21-undergraduate-degree-chart",
+      "institution_id": "mit",
+      "name": "Humanities (Course 21)",
+      "degree_level": "Undergraduate",
+      "award": "Undergraduate degree chart",
+      "official_url": "https://catalog.mit.edu/degree-charts/humanities-course-21/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/humanities-course-21/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-un-humanities-and-engineering-course-21e-undergraduate-degree-chart",
+      "institution_id": "mit",
+      "name": "Humanities and Engineering (Course 21E)",
+      "degree_level": "Undergraduate",
+      "award": "Undergraduate degree chart",
+      "official_url": "https://catalog.mit.edu/degree-charts/humanities-engineering-course-21e/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/humanities-engineering-course-21e/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-un-humanities-and-science-course-21s-undergraduate-degree-chart",
+      "institution_id": "mit",
+      "name": "Humanities and Science (Course 21S)",
+      "degree_level": "Undergraduate",
+      "award": "Undergraduate degree chart",
+      "official_url": "https://catalog.mit.edu/degree-charts/humanities-science-course-21s/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/humanities-science-course-21s/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-un-linguistics-and-philosophy-course-24-2-undergraduate-degree-chart",
+      "institution_id": "mit",
+      "name": "Linguistics and Philosophy (Course 24-2)",
+      "degree_level": "Undergraduate",
+      "award": "Undergraduate degree chart",
+      "official_url": "https://catalog.mit.edu/degree-charts/linguistics-philosophy-course-24-2/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/linguistics-philosophy-course-24-2/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-un-literature-course-21l-undergraduate-degree-chart",
+      "institution_id": "mit",
+      "name": "Literature (Course 21L)",
+      "degree_level": "Undergraduate",
+      "award": "Undergraduate degree chart",
+      "official_url": "https://catalog.mit.edu/degree-charts/literature-course-21l/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/literature-course-21l/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-un-mathematical-economics-course-14-2-undergraduate-degree-chart",
+      "institution_id": "mit",
+      "name": "Mathematical Economics (Course 14-2)",
+      "degree_level": "Undergraduate",
+      "award": "Undergraduate degree chart",
+      "official_url": "https://catalog.mit.edu/degree-charts/mathematical-economics-course-14-2/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/mathematical-economics-course-14-2/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-un-music-course-21m-undergraduate-degree-chart",
+      "institution_id": "mit",
+      "name": "Music (Course 21M)",
+      "degree_level": "Undergraduate",
+      "award": "Undergraduate degree chart",
+      "official_url": "https://catalog.mit.edu/degree-charts/music-course-21m/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/music-course-21m/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-un-philosophy-course-24-1-undergraduate-degree-chart",
+      "institution_id": "mit",
+      "name": "Philosophy (Course 24-1)",
+      "degree_level": "Undergraduate",
+      "award": "Undergraduate degree chart",
+      "official_url": "https://catalog.mit.edu/degree-charts/philosophy-course-24-1/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/philosophy-course-24-1/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-un-political-science-course-17-undergraduate-degree-chart",
+      "institution_id": "mit",
+      "name": "Political Science (Course 17)",
+      "degree_level": "Undergraduate",
+      "award": "Undergraduate degree chart",
+      "official_url": "https://catalog.mit.edu/degree-charts/political-science-course-17/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/political-science-course-17/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-un-science-technology-and-society-second-major-sts-sts",
+      "institution_id": "mit",
+      "name": "Science, Technology, and Society/Second Major (STS)",
+      "degree_level": "Undergraduate",
+      "award": "STS",
+      "official_url": "https://catalog.mit.edu/degree-charts/science-technology-society-sts/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/science-technology-society-sts/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-un-theater-arts-course-21t-undergraduate-degree-chart",
+      "institution_id": "mit",
+      "name": "Theater Arts (Course 21T)",
+      "degree_level": "Undergraduate",
+      "award": "Undergraduate degree chart",
+      "official_url": "https://catalog.mit.edu/degree-charts/theater-arts-course-21t/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/theater-arts-course-21t/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-un-writing-course-21w-undergraduate-degree-chart",
+      "institution_id": "mit",
+      "name": "Writing (Course 21W)",
+      "degree_level": "Undergraduate",
+      "award": "Undergraduate degree chart",
+      "official_url": "https://catalog.mit.edu/degree-charts/writing-course-21w/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/writing-course-21w/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-un-business-analytics-course-15-2-undergraduate-degree-chart",
+      "institution_id": "mit",
+      "name": "Business Analytics (Course 15-2)",
+      "degree_level": "Undergraduate",
+      "award": "Undergraduate degree chart",
+      "official_url": "https://catalog.mit.edu/degree-charts/business-analytics-course-15-2/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/business-analytics-course-15-2/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-un-finance-course-15-3-undergraduate-degree-chart",
+      "institution_id": "mit",
+      "name": "Finance (Course 15-3)",
+      "degree_level": "Undergraduate",
+      "award": "Undergraduate degree chart",
+      "official_url": "https://catalog.mit.edu/degree-charts/finance-course-15-3/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/finance-course-15-3/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-un-management-course-15-1-undergraduate-degree-chart",
+      "institution_id": "mit",
+      "name": "Management (Course 15-1)",
+      "degree_level": "Undergraduate",
+      "award": "Undergraduate degree chart",
+      "official_url": "https://catalog.mit.edu/degree-charts/management-course-15-1/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/management-course-15-1/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-un-biology-course-7-undergraduate-degree-chart",
+      "institution_id": "mit",
+      "name": "Biology (Course 7)",
+      "degree_level": "Undergraduate",
+      "award": "Undergraduate degree chart",
+      "official_url": "https://catalog.mit.edu/degree-charts/biology-course-7/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/biology-course-7/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-un-brain-and-cognitive-sciences-course-9-undergraduate-degree-chart",
+      "institution_id": "mit",
+      "name": "Brain and Cognitive Sciences (Course 9)",
+      "degree_level": "Undergraduate",
+      "award": "Undergraduate degree chart",
+      "official_url": "https://catalog.mit.edu/degree-charts/brain-cognitive-sciences-course-9/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/brain-cognitive-sciences-course-9/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-un-chemistry-course-5-undergraduate-degree-chart",
+      "institution_id": "mit",
+      "name": "Chemistry (Course 5)",
+      "degree_level": "Undergraduate",
+      "award": "Undergraduate degree chart",
+      "official_url": "https://catalog.mit.edu/degree-charts/chemistry-course-5/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/chemistry-course-5/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-un-earth-atmospheric-and-planetary-sciences-course-12-undergraduate-degree-chart",
+      "institution_id": "mit",
+      "name": "Earth, Atmospheric, and Planetary Sciences (Course 12)",
+      "degree_level": "Undergraduate",
+      "award": "Undergraduate degree chart",
+      "official_url": "https://catalog.mit.edu/degree-charts/earth-atmospheric-planetary-sciences-course-12/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/earth-atmospheric-planetary-sciences-course-12/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-un-mathematics-course-18-undergraduate-degree-chart",
+      "institution_id": "mit",
+      "name": "Mathematics (Course 18)",
+      "degree_level": "Undergraduate",
+      "award": "Undergraduate degree chart",
+      "official_url": "https://catalog.mit.edu/degree-charts/mathematics-course-18/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/mathematics-course-18/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-un-mathematics-with-computer-science-course-18-c-undergraduate-degree-chart",
+      "institution_id": "mit",
+      "name": "Mathematics with Computer Science (Course 18-C)",
+      "degree_level": "Undergraduate",
+      "award": "Undergraduate degree chart",
+      "official_url": "https://catalog.mit.edu/degree-charts/mathematics-computer-science-course-18-c/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/mathematics-computer-science-course-18-c/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-un-physics-course-8-undergraduate-degree-chart",
+      "institution_id": "mit",
+      "name": "Physics (Course 8)",
+      "degree_level": "Undergraduate",
+      "award": "Undergraduate degree chart",
+      "official_url": "https://catalog.mit.edu/degree-charts/physics-course-8/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/physics-course-8/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-un-computer-science-and-engineering-course-6-3-undergraduate-degree-chart-computer-science-engineering-course-6-3",
+      "institution_id": "mit",
+      "name": "Computer Science and Engineering (Course 6-3)",
+      "degree_level": "Undergraduate",
+      "award": "Undergraduate degree chart",
+      "official_url": "https://catalog.mit.edu/degree-charts/computer-science-engineering-course-6-3/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/computer-science-engineering-course-6-3/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-un-artificial-intelligence-and-decision-making-course-6-4-undergraduate-degree-chart",
+      "institution_id": "mit",
+      "name": "Artificial Intelligence and Decision Making (Course 6-4)",
+      "degree_level": "Undergraduate",
+      "award": "Undergraduate degree chart",
+      "official_url": "https://catalog.mit.edu/degree-charts/artifical-intelligence-decision-making-course-6-4/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/artifical-intelligence-decision-making-course-6-4/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-un-electrical-engineering-with-computing-course-6-5-undergraduate-degree-chart-electrical-engineering-computing-6-5",
+      "institution_id": "mit",
+      "name": "Electrical Engineering with Computing (Course 6-5)",
+      "degree_level": "Undergraduate",
+      "award": "Undergraduate degree chart",
+      "official_url": "https://catalog.mit.edu/degree-charts/electrical-engineering-computing-6-5/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/electrical-engineering-computing-6-5/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-un-chemistry-and-biology-course-5-7-undergraduate-degree-chart",
+      "institution_id": "mit",
+      "name": "Chemistry and Biology (Course 5-7)",
+      "degree_level": "Undergraduate",
+      "award": "Undergraduate degree chart",
+      "official_url": "https://catalog.mit.edu/degree-charts/chemistry-biology-course-5-7/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/chemistry-biology-course-5-7/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-un-climate-system-science-and-engineering-course-1-12-undergraduate-degree-chart",
+      "institution_id": "mit",
+      "name": "Climate System Science and Engineering (Course 1-12)",
+      "degree_level": "Undergraduate",
+      "award": "Undergraduate degree chart",
+      "official_url": "https://catalog.mit.edu/degree-charts/climate-system-science-engineering-course-1-12/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/climate-system-science-engineering-course-1-12/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-un-computation-and-cognition-course-6-9-undergraduate-degree-chart",
+      "institution_id": "mit",
+      "name": "Computation and Cognition (Course 6-9)",
+      "degree_level": "Undergraduate",
+      "award": "Undergraduate degree chart",
+      "official_url": "https://catalog.mit.edu/degree-charts/computation-cognition-6-9/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/computation-cognition-6-9/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-un-computer-science-and-molecular-biology-course-6-7-undergraduate-degree-chart",
+      "institution_id": "mit",
+      "name": "Computer Science and Molecular Biology (Course 6-7)",
+      "degree_level": "Undergraduate",
+      "award": "Undergraduate degree chart",
+      "official_url": "https://catalog.mit.edu/degree-charts/computer-science-molecular-biology-course-6-7/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/computer-science-molecular-biology-course-6-7/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-un-computer-science-economics-and-data-science-course-6-14-undergraduate-degree-chart",
+      "institution_id": "mit",
+      "name": "Computer Science, Economics, and Data Science (Course 6-14)",
+      "degree_level": "Undergraduate",
+      "award": "Undergraduate degree chart",
+      "official_url": "https://catalog.mit.edu/degree-charts/computer-science-economics-data-science-course-6-14/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/computer-science-economics-data-science-course-6-14/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-un-urban-science-and-planning-with-computer-science-course-11-6-undergraduate-degree-chart",
+      "institution_id": "mit",
+      "name": "Urban Science and Planning with Computer Science (Course 11-6)",
+      "degree_level": "Undergraduate",
+      "award": "Undergraduate degree chart",
+      "official_url": "https://catalog.mit.edu/degree-charts/urban-science-planning-computer-science-11-6",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/urban-science-planning-computer-science-11-6",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-po-architecture-march-march",
+      "institution_id": "mit",
+      "name": "Architecture (MArch)",
+      "degree_level": "Postgraduate",
+      "award": "MArch",
+      "official_url": "https://catalog.mit.edu/degree-charts/master-architecture/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/master-architecture/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-po-architecture-studies-smarchs-smarchs",
+      "institution_id": "mit",
+      "name": "Architecture Studies (SMArchS)",
+      "degree_level": "Postgraduate",
+      "award": "SMArchS",
+      "official_url": "https://catalog.mit.edu/degree-charts/master-architecture-studies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/master-architecture-studies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-po-art-culture-and-technology-sm-sm",
+      "institution_id": "mit",
+      "name": "Art, Culture, and Technology (SM)",
+      "degree_level": "Postgraduate",
+      "award": "SM",
+      "official_url": "https://catalog.mit.edu/degree-charts/master-art-culture-technology/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/master-art-culture-technology/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-po-city-planning-sm-sm",
+      "institution_id": "mit",
+      "name": "City Planning (SM)",
+      "degree_level": "Postgraduate",
+      "award": "SM",
+      "official_url": "https://catalog.mit.edu/degree-charts/master-city-planning/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/master-city-planning/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-po-aeronautics-and-astronautics-fields-phd-scd-phd-scd",
+      "institution_id": "mit",
+      "name": "Aeronautics and Astronautics Fields (PhD/ScD)",
+      "degree_level": "Postgraduate",
+      "award": "PhD/ScD",
+      "official_url": "https://catalog.mit.edu/degree-charts/phd-aeronautics-astronautics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/phd-aeronautics-astronautics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-po-biological-engineering-phd-scd-phd-scd",
+      "institution_id": "mit",
+      "name": "Biological Engineering (PhD/ScD)",
+      "degree_level": "Postgraduate",
+      "award": "PhD/ScD",
+      "official_url": "https://catalog.mit.edu/degree-charts/phd-biological-engineering/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/phd-biological-engineering/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-po-civil-and-environmental-engineering-sm-sm",
+      "institution_id": "mit",
+      "name": "Civil and Environmental Engineering (SM)",
+      "degree_level": "Postgraduate",
+      "award": "SM",
+      "official_url": "https://catalog.mit.edu/degree-charts/master-civil-environmental-engineering/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/master-civil-environmental-engineering/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-po-civil-and-environmental-engineering-phd-scd-phd-scd",
+      "institution_id": "mit",
+      "name": "Civil and Environmental Engineering (PhD/ScD)",
+      "degree_level": "Postgraduate",
+      "award": "PhD/ScD",
+      "official_url": "https://catalog.mit.edu/degree-charts/phd-civil-environmental-engineering/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/phd-civil-environmental-engineering/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-po-electrical-engineering-and-computer-science-meng-course-6-p-meng-course-6-p",
+      "institution_id": "mit",
+      "name": "Electrical Engineering and Computer Science (MEng, Course 6-P)",
+      "degree_level": "Postgraduate",
+      "award": "MEng, Course 6-P",
+      "official_url": "https://catalog.mit.edu/degree-charts/master-electrical-engineering-computer-science-course-6-p/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/master-electrical-engineering-computer-science-course-6-p/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-po-materials-science-and-engineering-phd-scd-phd-scd",
+      "institution_id": "mit",
+      "name": "Materials Science and Engineering (PhD/ScD)",
+      "degree_level": "Postgraduate",
+      "award": "PhD/ScD",
+      "official_url": "https://catalog.mit.edu/degree-charts/phd-materials-science-engineering/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/phd-materials-science-engineering/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-po-nuclear-science-and-engineering-phd-scd-phd-scd",
+      "institution_id": "mit",
+      "name": "Nuclear Science and Engineering (PhD/ScD)",
+      "degree_level": "Postgraduate",
+      "award": "PhD/ScD",
+      "official_url": "https://catalog.mit.edu/degree-charts/phd-nuclear-science-engineering/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/phd-nuclear-science-engineering/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-po-social-and-engineering-systems-phd-scd-phd-scd",
+      "institution_id": "mit",
+      "name": "Social and Engineering Systems (PhD/ScD)",
+      "degree_level": "Postgraduate",
+      "award": "PhD/ScD",
+      "official_url": "https://catalog.mit.edu/degree-charts/phd-social-engineering-systems/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/phd-social-engineering-systems/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-po-data-economics-and-design-of-policy-masc-masc",
+      "institution_id": "mit",
+      "name": "Data, Economics, and Design of Policy (MASc)",
+      "degree_level": "Postgraduate",
+      "award": "MASc",
+      "official_url": "https://catalog.mit.edu/degree-charts/master-applied-science-data-economics-design-policy/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/master-applied-science-data-economics-design-policy/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-po-economics-phd-phd",
+      "institution_id": "mit",
+      "name": "Economics (PhD)",
+      "degree_level": "Postgraduate",
+      "award": "PhD",
+      "official_url": "https://catalog.mit.edu/degree-charts/phd-economics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/phd-economics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-po-linguistics-sm-sm",
+      "institution_id": "mit",
+      "name": "Linguistics (SM)",
+      "degree_level": "Postgraduate",
+      "award": "SM",
+      "official_url": "https://catalog.mit.edu/degree-charts/sm-linguistics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/sm-linguistics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-po-science-writing-sm-sm",
+      "institution_id": "mit",
+      "name": "Science Writing (SM)",
+      "degree_level": "Postgraduate",
+      "award": "SM",
+      "official_url": "https://catalog.mit.edu/degree-charts/master-science-writing",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/master-science-writing",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-po-brain-and-cognitive-sciences-fields-phd-phd",
+      "institution_id": "mit",
+      "name": "Brain and Cognitive Sciences Fields (PhD)",
+      "degree_level": "Postgraduate",
+      "award": "PhD",
+      "official_url": "https://catalog.mit.edu/degree-charts/phd-brain-cognitive-sciences/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/phd-brain-cognitive-sciences/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-po-chemistry-phd-phd",
+      "institution_id": "mit",
+      "name": "Chemistry (PhD)",
+      "degree_level": "Postgraduate",
+      "award": "PhD",
+      "official_url": "https://catalog.mit.edu/degree-charts/phd-chemistry/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/phd-chemistry/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-po-earth-atmospheric-and-planetary-sciences-fields-phd-scd-phd-scd",
+      "institution_id": "mit",
+      "name": "Earth, Atmospheric, and Planetary Sciences Fields (PhD/ScD)",
+      "degree_level": "Postgraduate",
+      "award": "PhD/ScD",
+      "official_url": "https://catalog.mit.edu/degree-charts/phd-earth-atmospheric-planetary-sciences/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/phd-earth-atmospheric-planetary-sciences/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-po-mathematics-phd-scd-phd-scd",
+      "institution_id": "mit",
+      "name": "Mathematics (PhD/ScD)",
+      "degree_level": "Postgraduate",
+      "award": "PhD/ScD",
+      "official_url": "https://catalog.mit.edu/degree-charts/phd-mathematics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/phd-mathematics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-po-electrical-engineering-and-computer-science-meng-course-6-p-meng-course-6-p-master-electrical-engineering-computer-science-course-6-p",
+      "institution_id": "mit",
+      "name": "Electrical Engineering and Computer Science (MEng, Course 6-P)",
+      "degree_level": "Postgraduate",
+      "award": "MEng, Course 6-P",
+      "official_url": "https://catalog.mit.edu/degree-charts/master-electrical-engineering-computer-science-course-6-p/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/master-electrical-engineering-computer-science-course-6-p/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-po-social-and-engineering-systems-phd-scd-phd-scd-phd-social-engineering-systems",
+      "institution_id": "mit",
+      "name": "Social and Engineering Systems (PhD/ScD)",
+      "degree_level": "Postgraduate",
+      "award": "PhD/ScD",
+      "official_url": "https://catalog.mit.edu/degree-charts/phd-social-engineering-systems/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/phd-social-engineering-systems/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-po-biological-oceanography-phd-phd",
+      "institution_id": "mit",
+      "name": "Biological Oceanography (PhD)",
+      "degree_level": "Postgraduate",
+      "award": "PhD",
+      "official_url": "https://catalog.mit.edu/degree-charts/phd-biological-oceanography/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/phd-biological-oceanography/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-po-computation-and-cognition-meng-course-6-9p-meng-course-6-9p",
+      "institution_id": "mit",
+      "name": "Computation and Cognition (MEng, Course 6-9P)",
+      "degree_level": "Postgraduate",
+      "award": "MEng, Course 6-9P",
+      "official_url": "https://catalog.mit.edu/degree-charts/master-computation-cognition-course-6-9p/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/master-computation-cognition-course-6-9p/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-po-computational-and-systems-biology-phd-phd",
+      "institution_id": "mit",
+      "name": "Computational and Systems Biology (PhD)",
+      "degree_level": "Postgraduate",
+      "award": "PhD",
+      "official_url": "https://catalog.mit.edu/degree-charts/phd-computational-systems-biology/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/phd-computational-systems-biology/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-po-computational-science-and-engineering-sm-sm",
+      "institution_id": "mit",
+      "name": "Computational Science and Engineering (SM)",
+      "degree_level": "Postgraduate",
+      "award": "SM",
+      "official_url": "https://catalog.mit.edu/degree-charts/master-computational-science-engineering/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/master-computational-science-engineering/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-po-computational-science-and-engineering-phd-phd",
+      "institution_id": "mit",
+      "name": "Computational Science and Engineering (PhD)",
+      "degree_level": "Postgraduate",
+      "award": "PhD",
+      "official_url": "https://catalog.mit.edu/degree-charts/phd-computational-science-engineering/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/phd-computational-science-engineering/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-po-computer-science-and-molecular-biology-meng-course-6-7p-meng-course-6-7p",
+      "institution_id": "mit",
+      "name": "Computer Science and Molecular Biology (MEng, Course 6-7P)",
+      "degree_level": "Postgraduate",
+      "award": "MEng, Course 6-7P",
+      "official_url": "https://catalog.mit.edu/degree-charts/master-computer-science-molecular-biology-course-6-7p/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/master-computer-science-molecular-biology-course-6-7p/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-po-computer-science-economics-and-data-science-meng-course-6-14p-meng-course-6-14p",
+      "institution_id": "mit",
+      "name": "Computer Science, Economics, and Data Science (MEng, Course 6-14P)",
+      "degree_level": "Postgraduate",
+      "award": "MEng, Course 6-14P",
+      "official_url": "https://catalog.mit.edu/degree-charts/master-computer-science-economics-data-science-course-6-14-p/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/master-computer-science-economics-data-science-course-6-14-p/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-po-engineering-and-management-system-design-and-management-sm-system-design-and-management-sm",
+      "institution_id": "mit",
+      "name": "Engineering and Management (System Design and Management, SM)",
+      "degree_level": "Postgraduate",
+      "award": "System Design and Management, SM",
+      "official_url": "https://catalog.mit.edu/degree-charts/sm-system-design-management/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/sm-system-design-management/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-po-microbiology-phd-phd",
+      "institution_id": "mit",
+      "name": "Microbiology (PhD)",
+      "degree_level": "Postgraduate",
+      "award": "PhD",
+      "official_url": "https://catalog.mit.edu/degree-charts/phd-microbiology/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/phd-microbiology/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-po-music-technology-and-computation-masc-and-sm-masc-and-sm",
+      "institution_id": "mit",
+      "name": "Music Technology and Computation (MASc & SM)",
+      "degree_level": "Postgraduate",
+      "award": "MASc & SM",
+      "official_url": "https://catalog.mit.edu/degree-charts/master-music-technology-computation/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/master-music-technology-computation/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-po-physical-oceanography-phd-phd",
+      "institution_id": "mit",
+      "name": "Physical Oceanography (PhD)",
+      "degree_level": "Postgraduate",
+      "award": "PhD",
+      "official_url": "https://catalog.mit.edu/degree-charts/phd-physical-oceanography/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/phd-physical-oceanography/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-po-real-estate-development-sm-sm",
+      "institution_id": "mit",
+      "name": "Real Estate Development (SM)",
+      "degree_level": "Postgraduate",
+      "award": "SM",
+      "official_url": "https://catalog.mit.edu/degree-charts/master-real-estate-development/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/master-real-estate-development/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-po-statistics-phd-phd",
+      "institution_id": "mit",
+      "name": "Statistics (PhD)",
+      "degree_level": "Postgraduate",
+      "award": "PhD",
+      "official_url": "https://catalog.mit.edu/degree-charts/interdisciplinary-doctoral-statistics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/interdisciplinary-doctoral-statistics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-po-supply-chain-management-masc-and-meng-masc-and-meng",
+      "institution_id": "mit",
+      "name": "Supply Chain Management (MASc & MEng)",
+      "degree_level": "Postgraduate",
+      "award": "MASc & MEng",
+      "official_url": "https://catalog.mit.edu/degree-charts/master-supply-chain-management/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/master-supply-chain-management/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-po-technology-and-policy-sm-sm",
+      "institution_id": "mit",
+      "name": "Technology and Policy (SM)",
+      "degree_level": "Postgraduate",
+      "award": "SM",
+      "official_url": "https://catalog.mit.edu/degree-charts/master-technology-policy/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/master-technology-policy/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-po-transportation-sm-sm",
+      "institution_id": "mit",
+      "name": "Transportation (SM)",
+      "degree_level": "Postgraduate",
+      "award": "SM",
+      "official_url": "https://catalog.mit.edu/degree-charts/master-transportation/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/master-transportation/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    },
+    {
+      "id": "mit-po-transportation-phd-phd",
+      "institution_id": "mit",
+      "name": "Transportation (PhD)",
+      "degree_level": "Postgraduate",
+      "award": "PhD",
+      "official_url": "https://catalog.mit.edu/degree-charts/phd-transportation/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.mit.edu/degree-charts/phd-transportation/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official MIT degree chart row"
+      }
+    }
+  ]
+}

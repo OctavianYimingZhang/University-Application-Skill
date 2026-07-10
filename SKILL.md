@@ -69,7 +69,7 @@ Before using memory, identify the category needed, retrieve only the smallest re
 2. Memory resolution: check whether the task needs course memory, slide-delta memory, writing voice, notes preferences, application preferences, or no memory. Use blank defaults if no user memory has been supplied.
 3. Intake: applicant profile, target country, degree level, subject, budget, intake, language scores, academic records, constraints, and output format.
 4. Route review: use `scripts/plan_workflow.py` and `scripts/build_review_questions.py` or equivalent `request_user_input` payloads when the route, source policy, memory gaps, applicant gaps, or output language materially affect the result. Keep an `AcademicTaskContext` route or decision at `suggested` until the user explicitly confirms it.
-5. Source collection: official programme pages, admissions pages, fee pages, scholarship pages, visa pages, and test-provider pages.
+5. Source collection: use the lazy-load [`catalogues/index.json`](catalogues/index.json) for curated programme identity discovery, then retrieve official programme, admissions, fee, scholarship, visa, and test-provider pages for current facts. Catalogue identity coverage never verifies requirements.
 6. Structured case file: applicant, target routes, programmes, requirements, documents, deadlines, writing tasks, risks, tasks, memory references, and source log.
 7. Hard-requirement audit: separate academic, language, subject, document, fee, deadline, and route-specific requirements from interpretation; compare applicant facts only after the evidence invariant passes.
 8. Materials check: simulate submission readiness by checking each required item against the programme source and normalized applicant evidence. Empty, placeholder, link-only, partial, unverified, or unconfirmed evidence cannot pass.
@@ -109,6 +109,8 @@ Admissions writing is a planning and evidence task before it is a drafting task.
 - `references/setup/user-setup.schema.json`: setup JSON shape.
 - `references/setup/blank-memory.schema.json`: blank local memory schema.
 - `schemas/application-case-v1.schema.json`: admissions-specific Site contract for an `ApplicationCase`.
+- `catalogues/index.json`: Plugin-owned lazy-load index for official-source-listed programme identities; requirements remain uncollected.
+- `catalogues/schemas/`: JSON Schemas for the catalogue index and institution files.
 
 ## Local Scripts
 
@@ -125,3 +127,4 @@ Admissions writing is a planning and evidence task before it is a drafting task.
 - `scripts/extract_inspiration_file.py`: parse runtime-uploaded inspiration files for text blocks with page, slide, or sheet references.
 - `scripts/clean_programme_workbooks.py`: clean official programme tables.
 - `scripts/verify_programme_workbooks.py`: verify cleaned programme workbooks.
+- `scripts/validate_catalogues.py`: validate catalogue schemas, stable IDs, HTTPS official URLs, provenance, counts, and identity-only status.

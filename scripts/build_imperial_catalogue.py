@@ -5,7 +5,6 @@ from __future__ import annotations
 
 import datetime as dt
 import html
-import json
 import re
 import urllib.error
 import urllib.parse
@@ -13,8 +12,11 @@ import urllib.request
 from html.parser import HTMLParser
 from pathlib import Path
 
+from catalogue_io import write_programmes
+
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / "web" / "src" / "data" / "imperialPrograms.ts"
+CATALOGUE_ID = "imperial"
+OUT = ROOT / "catalogues" / "institutions" / f"{CATALOGUE_ID}.json"
 CHECKED = dt.date.today().isoformat()
 COURSE_SEARCH_URL = "https://www.imperial.ac.uk/study/courses/"
 
@@ -163,52 +165,10 @@ def parse_catalogue(key: str) -> list[dict[str, str]]:
     return rows
 
 
-def ts_string(value: str) -> str:
-    return json.dumps(value, ensure_ascii=False)
-
-
-def render_rows(name: str, rows: list[dict[str, str]]) -> str:
-    lines = [f"export const {name}: CatalogueProgramOption[] = ["]
-    for row in rows:
-        fields = [
-            f"id: {ts_string(row['id'])}",
-            f"name: {ts_string(row['name'])}",
-            f"level: {ts_string(row['level'])}",
-            f"award: {ts_string(row['award'])}",
-            f"url: {ts_string(row['url'])}",
-            f"note: {ts_string(row['note'])}",
-        ]
-        for optional in ["duration", "mode", "status"]:
-            if row.get(optional):
-                fields.append(f"{optional}: {ts_string(row[optional])}")
-        lines.append(f"  {{ {', '.join(fields)} }},")
-    lines.append("];")
-    return "\n".join(lines)
-
-
 def main() -> int:
     ug_rows = parse_catalogue("undergraduate")
     taught_rows = parse_catalogue("taught")
-    output = "\n".join(
-        [
-            'import type { CatalogueProgramOption } from "../types";',
-            "",
-            f"export const imperialCatalogueChecked = {ts_string(CHECKED)};",
-            f"export const imperialUndergraduateCount = {len(ug_rows)};",
-            f"export const imperialTaughtCount = {len(taught_rows)};",
-            "",
-            render_rows("imperialUndergraduatePrograms", ug_rows),
-            "",
-            render_rows("imperialTaughtPrograms", taught_rows),
-            "",
-            "export const imperialPrograms: CatalogueProgramOption[] = [",
-            "  ...imperialUndergraduatePrograms,",
-            "  ...imperialTaughtPrograms,",
-            "];",
-            "",
-        ]
-    )
-    OUT.write_text(output, encoding="utf-8")
+    write_programmes(ROOT, CATALOGUE_ID, [*ug_rows, *taught_rows], CHECKED)
     print(f"Wrote {OUT.relative_to(ROOT)}: {len(ug_rows)} UG rows, {len(taught_rows)} taught rows")
     return 0
 

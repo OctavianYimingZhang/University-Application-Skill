@@ -1,0 +1,1011 @@
+{
+  "$schema": "../schemas/institution-catalogue-v1.schema.json",
+  "contract": "InstitutionProgrammeCatalogue",
+  "version": 1,
+  "language": "en",
+  "institution": {
+    "id": "caltech",
+    "name": "California Institute of Technology",
+    "short_name": "Caltech",
+    "group": "US News Top 30",
+    "region": "United States",
+    "rank_note": "US News 2026 top-30 cutoff source list"
+  },
+  "catalogue_scope": {
+    "record_type": "programme_identity",
+    "identity_status": "official_source_listed",
+    "requirements_status": "not_collected",
+    "placeholder_records_verified": false,
+    "link_only_records_verified": false
+  },
+  "catalogue_provenance": {
+    "accessed_at": "2026-06-26",
+    "official_sources": [
+      {
+        "degree_level": "Undergraduate",
+        "title": "Areas of Study and Research",
+        "official_url": "https://catalog.caltech.edu/current/areas-of-study-and-research/",
+        "coverage": "Official index",
+        "note": "Official undergraduate programme catalogue or admissions major index."
+      },
+      {
+        "degree_level": "Postgraduate",
+        "title": "Areas of Study and Research",
+        "official_url": "https://catalog.caltech.edu/current/areas-of-study-and-research/",
+        "coverage": "Official index",
+        "note": "Official graduate/professional programme catalogue or graduate school programme index."
+      }
+    ],
+    "allowed_official_hosts": [
+      "catalog.caltech.edu"
+    ],
+    "extraction_note": "Official catalogue rows loaded: 63 programme rows. Individual hard requirements must still be read from the relevant programme page.",
+    "caveat": "U.S. institutions distribute requirements across schools, departments, and admissions offices; unsupported details remain source gaps.",
+    "migration_source": "usPrograms.ts"
+  },
+  "illustrative_examples": [
+    {
+      "id": "caltech-ug-catalogue",
+      "name": "Caltech undergraduate programme catalogue",
+      "degree_level": "Undergraduate",
+      "award": "UG",
+      "official_url": "https://catalog.caltech.edu/current/areas-of-study-and-research/",
+      "selection_status": "illustrative_only"
+    },
+    {
+      "id": "caltech-pg-catalogue",
+      "name": "Caltech postgraduate programme catalogue",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://catalog.caltech.edu/current/areas-of-study-and-research/",
+      "selection_status": "illustrative_only"
+    }
+  ],
+  "programmes": [
+    {
+      "id": "caltech-un-aerospace-minor-ae-minor",
+      "institution_id": "caltech",
+      "name": "Aerospace Minor (Ae)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/aerospace-minor-ae/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/aerospace-minor-ae/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Caltech undergraduate option/minor catalog row"
+      }
+    },
+    {
+      "id": "caltech-un-applied-and-computational-mathematics-option-acm-option",
+      "institution_id": "caltech",
+      "name": "Applied and Computational Mathematics Option (ACM)",
+      "degree_level": "Undergraduate",
+      "award": "Option",
+      "official_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/applied-and-computational-mathematics-acm/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/applied-and-computational-mathematics-acm/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Caltech undergraduate option/minor catalog row"
+      }
+    },
+    {
+      "id": "caltech-un-applied-physics-option-aph-option",
+      "institution_id": "caltech",
+      "name": "Applied Physics Option (APh)",
+      "degree_level": "Undergraduate",
+      "award": "Option",
+      "official_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/applied-physics-aph/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/applied-physics-aph/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Caltech undergraduate option/minor catalog row"
+      }
+    },
+    {
+      "id": "caltech-un-astrophysics-option-and-minor-ay-option-and-minor",
+      "institution_id": "caltech",
+      "name": "Astrophysics Option and Minor (Ay)",
+      "degree_level": "Undergraduate",
+      "award": "Option and Minor",
+      "official_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/astrophysics-option-and-minor-ay/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/astrophysics-option-and-minor-ay/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Caltech undergraduate option/minor catalog row"
+      }
+    },
+    {
+      "id": "caltech-un-bioengineering-option-be-option",
+      "institution_id": "caltech",
+      "name": "Bioengineering Option (BE)",
+      "degree_level": "Undergraduate",
+      "award": "Option",
+      "official_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/bioengineering-option-be/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/bioengineering-option-be/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Caltech undergraduate option/minor catalog row"
+      }
+    },
+    {
+      "id": "caltech-un-biology-option-and-minor-bi-option-and-minor",
+      "institution_id": "caltech",
+      "name": "Biology Option and Minor (Bi)",
+      "degree_level": "Undergraduate",
+      "award": "Option and Minor",
+      "official_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/biology-option-bi/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/biology-option-bi/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Caltech undergraduate option/minor catalog row"
+      }
+    },
+    {
+      "id": "caltech-un-business-economics-and-management-option-bem-option",
+      "institution_id": "caltech",
+      "name": "Business, Economics, and Management Option (BEM)",
+      "degree_level": "Undergraduate",
+      "award": "Option",
+      "official_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/business-economics-and-management-option-bem/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/business-economics-and-management-option-bem/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Caltech undergraduate option/minor catalog row"
+      }
+    },
+    {
+      "id": "caltech-un-chemical-engineering-option-and-minor-che-option-and-minor",
+      "institution_id": "caltech",
+      "name": "Chemical Engineering Option and Minor (ChE)",
+      "degree_level": "Undergraduate",
+      "award": "Option and Minor",
+      "official_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/chemical-engineering-option-che/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/chemical-engineering-option-che/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Caltech undergraduate option/minor catalog row"
+      }
+    },
+    {
+      "id": "caltech-un-chemistry-option-and-minor-ch-option-and-minor",
+      "institution_id": "caltech",
+      "name": "Chemistry Option and Minor (Ch)",
+      "degree_level": "Undergraduate",
+      "award": "Option and Minor",
+      "official_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/chemistry-option-and-minor-ch/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/chemistry-option-and-minor-ch/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Caltech undergraduate option/minor catalog row"
+      }
+    },
+    {
+      "id": "caltech-un-computation-and-neural-systems-option-cns-option",
+      "institution_id": "caltech",
+      "name": "Computation and Neural Systems Option (CNS)",
+      "degree_level": "Undergraduate",
+      "award": "Option",
+      "official_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/computation-and-neural-systems-option-cns/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/computation-and-neural-systems-option-cns/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Caltech undergraduate option/minor catalog row"
+      }
+    },
+    {
+      "id": "caltech-un-computer-science-option-and-minor-cs-option-and-minor",
+      "institution_id": "caltech",
+      "name": "Computer Science Option and Minor (CS)",
+      "degree_level": "Undergraduate",
+      "award": "Option and Minor",
+      "official_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/computer-science-option-and-minor-cs/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/computer-science-option-and-minor-cs/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Caltech undergraduate option/minor catalog row"
+      }
+    },
+    {
+      "id": "caltech-un-control-and-dynamical-systems-minor-cds-minor",
+      "institution_id": "caltech",
+      "name": "Control and Dynamical Systems Minor (CDS)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/control-and-dynamical-systems-minor/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/control-and-dynamical-systems-minor/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Caltech undergraduate option/minor catalog row"
+      }
+    },
+    {
+      "id": "caltech-un-economics-option-ec-option",
+      "institution_id": "caltech",
+      "name": "Economics Option (Ec)",
+      "degree_level": "Undergraduate",
+      "award": "Option",
+      "official_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/economics-option-ec/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/economics-option-ec/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Caltech undergraduate option/minor catalog row"
+      }
+    },
+    {
+      "id": "caltech-un-electrical-engineering-option-ee-option",
+      "institution_id": "caltech",
+      "name": "Electrical Engineering Option (EE)",
+      "degree_level": "Undergraduate",
+      "award": "Option",
+      "official_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/electrical-engineering-option-ee/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/electrical-engineering-option-ee/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Caltech undergraduate option/minor catalog row"
+      }
+    },
+    {
+      "id": "caltech-un-engineering-and-applied-science-option-eas-option",
+      "institution_id": "caltech",
+      "name": "Engineering and Applied Science Option (EAS)",
+      "degree_level": "Undergraduate",
+      "award": "Option",
+      "official_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/engineering-and-applied-science-option-eas/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/engineering-and-applied-science-option-eas/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Caltech undergraduate option/minor catalog row"
+      }
+    },
+    {
+      "id": "caltech-un-english-option-and-minor-en-option-and-minor",
+      "institution_id": "caltech",
+      "name": "English Option and Minor (En)",
+      "degree_level": "Undergraduate",
+      "award": "Option and Minor",
+      "official_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/english-option-and-minor-en/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/english-option-and-minor-en/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Caltech undergraduate option/minor catalog row"
+      }
+    },
+    {
+      "id": "caltech-un-environmental-science-and-engineering-option-and-minor-ese-option-and-minor",
+      "institution_id": "caltech",
+      "name": "Environmental Science and Engineering Option and Minor (ESE)",
+      "degree_level": "Undergraduate",
+      "award": "Option and Minor",
+      "official_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/environmental-science-and-engineering-option-and-minor-ese/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/environmental-science-and-engineering-option-and-minor-ese/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Caltech undergraduate option/minor catalog row"
+      }
+    },
+    {
+      "id": "caltech-un-geological-and-planetary-sciences-option-gps-geology-geobiology-geochemistry-geophysics-planetary-science-and-minor-minor",
+      "institution_id": "caltech",
+      "name": "Geological and Planetary Sciences Option (GPS) (Geology, Geobiology, Geochemistry, Geophysics, Planetary Science) and Minor",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/geological-and-planetary-sciences-gps-geology-geobiology-geochemistry-geophysics-planetary-science/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/geological-and-planetary-sciences-gps-geology-geobiology-geochemistry-geophysics-planetary-science/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Caltech undergraduate option/minor catalog row"
+      }
+    },
+    {
+      "id": "caltech-un-history-option-and-minor-h-option-and-minor",
+      "institution_id": "caltech",
+      "name": "History Option and Minor (H)",
+      "degree_level": "Undergraduate",
+      "award": "Option and Minor",
+      "official_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/history-option-and-minor-h/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/history-option-and-minor-h/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Caltech undergraduate option/minor catalog row"
+      }
+    },
+    {
+      "id": "caltech-un-history-and-philosophy-of-science-option-and-minor-hps-minor",
+      "institution_id": "caltech",
+      "name": "History and Philosophy of Science Option And Minor (HPS)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/history-and-philosophy-of-science-option-and-minor-hps/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/history-and-philosophy-of-science-option-and-minor-hps/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Caltech undergraduate option/minor catalog row"
+      }
+    },
+    {
+      "id": "caltech-un-information-and-data-sciences-option-and-minor-ids-option-and-minor",
+      "institution_id": "caltech",
+      "name": "Information and Data Sciences Option and Minor (IDS)",
+      "degree_level": "Undergraduate",
+      "award": "Option and Minor",
+      "official_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/information-and-data-sciences-ids/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/information-and-data-sciences-ids/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Caltech undergraduate option/minor catalog row"
+      }
+    },
+    {
+      "id": "caltech-un-interdisciplinary-studies-program-option-isp-option",
+      "institution_id": "caltech",
+      "name": "Interdisciplinary Studies Program Option (ISP)",
+      "degree_level": "Undergraduate",
+      "award": "Option",
+      "official_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/interdisciplinary-studies-program-isp/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/interdisciplinary-studies-program-isp/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Caltech undergraduate option/minor catalog row"
+      }
+    },
+    {
+      "id": "caltech-un-materials-science-option-ms-option",
+      "institution_id": "caltech",
+      "name": "Materials Science Option (MS)",
+      "degree_level": "Undergraduate",
+      "award": "Option",
+      "official_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/materials-science-option-ms/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/materials-science-option-ms/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Caltech undergraduate option/minor catalog row"
+      }
+    },
+    {
+      "id": "caltech-un-mathematics-option-and-minor-ma-option-and-minor",
+      "institution_id": "caltech",
+      "name": "Mathematics Option and Minor (Ma)",
+      "degree_level": "Undergraduate",
+      "award": "Option and Minor",
+      "official_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/mathematics-option-ma/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/mathematics-option-ma/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Caltech undergraduate option/minor catalog row"
+      }
+    },
+    {
+      "id": "caltech-un-mechanical-engineering-option-me-option",
+      "institution_id": "caltech",
+      "name": "Mechanical Engineering Option (ME)",
+      "degree_level": "Undergraduate",
+      "award": "Option",
+      "official_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/mechanical-engineering-option-me/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/mechanical-engineering-option-me/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Caltech undergraduate option/minor catalog row"
+      }
+    },
+    {
+      "id": "caltech-un-neurobiology-minor-nb-minor",
+      "institution_id": "caltech",
+      "name": "Neurobiology Minor (NB)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/neurobiology-minor-nb/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/neurobiology-minor-nb/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Caltech undergraduate option/minor catalog row"
+      }
+    },
+    {
+      "id": "caltech-un-philosophy-option-and-minor-pl-option-and-minor",
+      "institution_id": "caltech",
+      "name": "Philosophy Option and Minor (Pl)",
+      "degree_level": "Undergraduate",
+      "award": "Option and Minor",
+      "official_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/philosophy-option-and-minor-pi/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/philosophy-option-and-minor-pi/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Caltech undergraduate option/minor catalog row"
+      }
+    },
+    {
+      "id": "caltech-un-physics-option-ph-option",
+      "institution_id": "caltech",
+      "name": "Physics Option (Ph)",
+      "degree_level": "Undergraduate",
+      "award": "Option",
+      "official_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/physics-option-ph/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/physics-option-ph/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Caltech undergraduate option/minor catalog row"
+      }
+    },
+    {
+      "id": "caltech-un-political-science-option-ps-option",
+      "institution_id": "caltech",
+      "name": "Political Science Option (PS)",
+      "degree_level": "Undergraduate",
+      "award": "Option",
+      "official_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/political-science-option-ps/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/political-science-option-ps/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Caltech undergraduate option/minor catalog row"
+      }
+    },
+    {
+      "id": "caltech-un-robotics-minor-ro-minor",
+      "institution_id": "caltech",
+      "name": "Robotics Minor (Ro)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/robotics-minor-ro/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/robotics-minor-ro/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Caltech undergraduate option/minor catalog row"
+      }
+    },
+    {
+      "id": "caltech-un-structural-mechanics-minor-sm-minor",
+      "institution_id": "caltech",
+      "name": "Structural Mechanics Minor (SM)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/structural-mechanics-minor-sm/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/structural-mechanics-minor-sm/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Caltech undergraduate option/minor catalog row"
+      }
+    },
+    {
+      "id": "caltech-un-visual-culture-minor-vc-minor",
+      "institution_id": "caltech",
+      "name": "Visual Culture Minor (VC)",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/visual-culture-minor-vc/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.caltech.edu/current/information-for-undergraduate-students/graduation-requirements-all-options/visual-culture-minor-vc/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Caltech undergraduate option/minor catalog row"
+      }
+    },
+    {
+      "id": "caltech-po-aerospace-ae-graduate-option",
+      "institution_id": "caltech",
+      "name": "Aerospace (AE)",
+      "degree_level": "Postgraduate",
+      "award": "Graduate option",
+      "official_url": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/aerospace-ae/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/aerospace-ae/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Caltech graduate option catalog row"
+      }
+    },
+    {
+      "id": "caltech-po-applied-and-computational-mathematics-acm-graduate-option",
+      "institution_id": "caltech",
+      "name": "Applied and Computational Mathematics (ACM)",
+      "degree_level": "Postgraduate",
+      "award": "Graduate option",
+      "official_url": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/applied-and-computational-mathematics-acm/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/applied-and-computational-mathematics-acm/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Caltech graduate option catalog row"
+      }
+    },
+    {
+      "id": "caltech-po-applied-mechanics-am-graduate-option",
+      "institution_id": "caltech",
+      "name": "Applied Mechanics (AM)",
+      "degree_level": "Postgraduate",
+      "award": "Graduate option",
+      "official_url": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/applied-mechanics-am/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/applied-mechanics-am/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Caltech graduate option catalog row"
+      }
+    },
+    {
+      "id": "caltech-po-applied-physics-aph-graduate-option",
+      "institution_id": "caltech",
+      "name": "Applied Physics (APh)",
+      "degree_level": "Postgraduate",
+      "award": "Graduate option",
+      "official_url": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/applied-physics-aph/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/applied-physics-aph/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Caltech graduate option catalog row"
+      }
+    },
+    {
+      "id": "caltech-po-astrophysics-ay-graduate-option",
+      "institution_id": "caltech",
+      "name": "Astrophysics (Ay)",
+      "degree_level": "Postgraduate",
+      "award": "Graduate option",
+      "official_url": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/astrophysics-ay/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/astrophysics-ay/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Caltech graduate option catalog row"
+      }
+    },
+    {
+      "id": "caltech-po-biochemistry-and-molecular-biophysics-bmb-graduate-option",
+      "institution_id": "caltech",
+      "name": "Biochemistry and Molecular Biophysics (BMB)",
+      "degree_level": "Postgraduate",
+      "award": "Graduate option",
+      "official_url": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/biochemistry-and-molecular-biophysics-bmb/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/biochemistry-and-molecular-biophysics-bmb/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Caltech graduate option catalog row"
+      }
+    },
+    {
+      "id": "caltech-po-bioengineering-be-graduate-option",
+      "institution_id": "caltech",
+      "name": "Bioengineering (BE)",
+      "degree_level": "Postgraduate",
+      "award": "Graduate option",
+      "official_url": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/bioengineering-be/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/bioengineering-be/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Caltech graduate option catalog row"
+      }
+    },
+    {
+      "id": "caltech-po-biology-bi-graduate-option",
+      "institution_id": "caltech",
+      "name": "Biology (Bi)",
+      "degree_level": "Postgraduate",
+      "award": "Graduate option",
+      "official_url": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/biology-bi/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/biology-bi/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Caltech graduate option catalog row"
+      }
+    },
+    {
+      "id": "caltech-po-chemical-engineering-che-graduate-option",
+      "institution_id": "caltech",
+      "name": "Chemical Engineering (ChE)",
+      "degree_level": "Postgraduate",
+      "award": "Graduate option",
+      "official_url": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/chemical-engineering-che/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/chemical-engineering-che/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Caltech graduate option catalog row"
+      }
+    },
+    {
+      "id": "caltech-po-chemistry-ch-graduate-option",
+      "institution_id": "caltech",
+      "name": "Chemistry (Ch)",
+      "degree_level": "Postgraduate",
+      "award": "Graduate option",
+      "official_url": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/chemistry-ch/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/chemistry-ch/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Caltech graduate option catalog row"
+      }
+    },
+    {
+      "id": "caltech-po-civil-engineering-ce-graduate-option",
+      "institution_id": "caltech",
+      "name": "Civil Engineering (CE)",
+      "degree_level": "Postgraduate",
+      "award": "Graduate option",
+      "official_url": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/civil-engineering-ce/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/civil-engineering-ce/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Caltech graduate option catalog row"
+      }
+    },
+    {
+      "id": "caltech-po-computation-and-neural-systems-cns-graduate-option",
+      "institution_id": "caltech",
+      "name": "Computation and Neural Systems (CNS)",
+      "degree_level": "Postgraduate",
+      "award": "Graduate option",
+      "official_url": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/computation-and-neural-systems-cns/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/computation-and-neural-systems-cns/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Caltech graduate option catalog row"
+      }
+    },
+    {
+      "id": "caltech-po-computational-science-and-engineering-cse-graduate-option",
+      "institution_id": "caltech",
+      "name": "Computational Science and Engineering (CSE)",
+      "degree_level": "Postgraduate",
+      "award": "Graduate option",
+      "official_url": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/computational-science-and-engineering-cse/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/computational-science-and-engineering-cse/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Caltech graduate option catalog row"
+      }
+    },
+    {
+      "id": "caltech-po-computer-science-cs-graduate-option",
+      "institution_id": "caltech",
+      "name": "Computer Science (CS)",
+      "degree_level": "Postgraduate",
+      "award": "Graduate option",
+      "official_url": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/computer-science-cs/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/computer-science-cs/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Caltech graduate option catalog row"
+      }
+    },
+    {
+      "id": "caltech-po-computing-and-mathematical-sciences-cms-graduate-option",
+      "institution_id": "caltech",
+      "name": "Computing and Mathematical Sciences (CMS)",
+      "degree_level": "Postgraduate",
+      "award": "Graduate option",
+      "official_url": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/computing-and-mathematical-science-cms/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/computing-and-mathematical-science-cms/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Caltech graduate option catalog row"
+      }
+    },
+    {
+      "id": "caltech-po-control-and-dynamical-systems-cds-graduate-option",
+      "institution_id": "caltech",
+      "name": "Control and Dynamical Systems (CDS)",
+      "degree_level": "Postgraduate",
+      "award": "Graduate option",
+      "official_url": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/control-and-dynamical-systems-cds/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/control-and-dynamical-systems-cds/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Caltech graduate option catalog row"
+      }
+    },
+    {
+      "id": "caltech-po-electrical-engineering-ee-graduate-option",
+      "institution_id": "caltech",
+      "name": "Electrical Engineering (EE)",
+      "degree_level": "Postgraduate",
+      "award": "Graduate option",
+      "official_url": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/electrical-engineering-ee/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/electrical-engineering-ee/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Caltech graduate option catalog row"
+      }
+    },
+    {
+      "id": "caltech-po-environmental-science-and-engineering-ese-graduate-option",
+      "institution_id": "caltech",
+      "name": "Environmental Science and Engineering (ESE)",
+      "degree_level": "Postgraduate",
+      "award": "Graduate option",
+      "official_url": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/environmental-science-and-engineering-ese/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/environmental-science-and-engineering-ese/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Caltech graduate option catalog row"
+      }
+    },
+    {
+      "id": "caltech-po-geological-and-planetary-sciences-gps-geology-geobiology-geochemistry-geophysics-planetary-science-graduate-option",
+      "institution_id": "caltech",
+      "name": "Geological and Planetary Sciences (GPS) (Geology, Geobiology, Geochemistry, Geophysics, Planetary Science)",
+      "degree_level": "Postgraduate",
+      "award": "Graduate option",
+      "official_url": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/geological-and-planetary-sciences-gps-geology-geobiology-geochemistry-geophysics-planetary-science/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/geological-and-planetary-sciences-gps-geology-geobiology-geochemistry-geophysics-planetary-science/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Caltech graduate option catalog row"
+      }
+    },
+    {
+      "id": "caltech-po-history-h-graduate-option",
+      "institution_id": "caltech",
+      "name": "History (H)",
+      "degree_level": "Postgraduate",
+      "award": "Graduate option",
+      "official_url": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/history-h/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/history-h/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Caltech graduate option catalog row"
+      }
+    },
+    {
+      "id": "caltech-po-history-and-philosophy-of-science-hps-graduate-option",
+      "institution_id": "caltech",
+      "name": "History and Philosophy of Science (HPS)",
+      "degree_level": "Postgraduate",
+      "award": "Graduate option",
+      "official_url": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/history-and-philosophy-of-science-hps/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/history-and-philosophy-of-science-hps/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Caltech graduate option catalog row"
+      }
+    },
+    {
+      "id": "caltech-po-information-and-data-science-ids-graduate-option",
+      "institution_id": "caltech",
+      "name": "Information and Data Science (IDS)",
+      "degree_level": "Postgraduate",
+      "award": "Graduate option",
+      "official_url": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/information-and-data-science-ids/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/information-and-data-science-ids/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Caltech graduate option catalog row"
+      }
+    },
+    {
+      "id": "caltech-po-materials-science-ms-graduate-option",
+      "institution_id": "caltech",
+      "name": "Materials Science (MS)",
+      "degree_level": "Postgraduate",
+      "award": "Graduate option",
+      "official_url": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/materials-science-ms/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/materials-science-ms/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Caltech graduate option catalog row"
+      }
+    },
+    {
+      "id": "caltech-po-mathematics-and-minor-ma-graduate-option",
+      "institution_id": "caltech",
+      "name": "Mathematics and Minor (Ma)",
+      "degree_level": "Postgraduate",
+      "award": "Graduate option",
+      "official_url": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/mathematics-ma/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/mathematics-ma/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Caltech graduate option catalog row"
+      }
+    },
+    {
+      "id": "caltech-po-mechanical-engineering-me-graduate-option",
+      "institution_id": "caltech",
+      "name": "Mechanical Engineering (ME)",
+      "degree_level": "Postgraduate",
+      "award": "Graduate option",
+      "official_url": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/mechanical-engineering-me/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/mechanical-engineering-me/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Caltech graduate option catalog row"
+      }
+    },
+    {
+      "id": "caltech-po-medical-engineering-mede-graduate-option",
+      "institution_id": "caltech",
+      "name": "Medical Engineering (MedE)",
+      "degree_level": "Postgraduate",
+      "award": "Graduate option",
+      "official_url": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/medical-engineering-mede/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/medical-engineering-mede/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Caltech graduate option catalog row"
+      }
+    },
+    {
+      "id": "caltech-po-neurobiology-nb-graduate-option",
+      "institution_id": "caltech",
+      "name": "Neurobiology (NB)",
+      "degree_level": "Postgraduate",
+      "award": "Graduate option",
+      "official_url": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/neurobiology-nb/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/neurobiology-nb/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Caltech graduate option catalog row"
+      }
+    },
+    {
+      "id": "caltech-po-physics-ph-graduate-option",
+      "institution_id": "caltech",
+      "name": "Physics (Ph)",
+      "degree_level": "Postgraduate",
+      "award": "Graduate option",
+      "official_url": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/physics-ph/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/physics-ph/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Caltech graduate option catalog row"
+      }
+    },
+    {
+      "id": "caltech-po-quantum-science-and-engineering-qse-graduate-option",
+      "institution_id": "caltech",
+      "name": "Quantum Science and Engineering (QSE)",
+      "degree_level": "Postgraduate",
+      "award": "Graduate option",
+      "official_url": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/quantum-science-and-engineering-qse/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/quantum-science-and-engineering-qse/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Caltech graduate option catalog row"
+      }
+    },
+    {
+      "id": "caltech-po-social-and-decision-neuroscience-sdn-graduate-option",
+      "institution_id": "caltech",
+      "name": "Social and Decision Neuroscience (SDN)",
+      "degree_level": "Postgraduate",
+      "award": "Graduate option",
+      "official_url": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/social-and-decision-neuroscience-sdn/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/social-and-decision-neuroscience-sdn/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Caltech graduate option catalog row"
+      }
+    },
+    {
+      "id": "caltech-po-social-science-ss-graduate-option",
+      "institution_id": "caltech",
+      "name": "Social Science (SS)",
+      "degree_level": "Postgraduate",
+      "award": "Graduate option",
+      "official_url": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/social-science-ss/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/social-science-ss/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Caltech graduate option catalog row"
+      }
+    }
+  ]
+}

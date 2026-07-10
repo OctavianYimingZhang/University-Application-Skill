@@ -1,0 +1,2616 @@
+{
+  "$schema": "../schemas/institution-catalogue-v1.schema.json",
+  "contract": "InstitutionProgrammeCatalogue",
+  "version": 1,
+  "language": "en",
+  "institution": {
+    "id": "dartmouth",
+    "name": "Dartmouth College",
+    "short_name": "Dartmouth",
+    "group": "US News Top 30",
+    "region": "United States",
+    "rank_note": "US News 2026 top-30 cutoff source list"
+  },
+  "catalogue_scope": {
+    "record_type": "programme_identity",
+    "identity_status": "official_source_listed",
+    "requirements_status": "not_collected",
+    "placeholder_records_verified": false,
+    "link_only_records_verified": false
+  },
+  "catalogue_provenance": {
+    "accessed_at": "2026-06-26",
+    "official_sources": [
+      {
+        "degree_level": "Undergraduate",
+        "title": "ORC undergraduate departments/programs",
+        "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate",
+        "coverage": "Official index",
+        "note": "Official undergraduate programme catalogue or admissions major index."
+      },
+      {
+        "degree_level": "Postgraduate",
+        "title": "ORC graduate departments/programs",
+        "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate",
+        "coverage": "Official index",
+        "note": "Official graduate/professional programme catalogue or graduate school programme index."
+      }
+    ],
+    "allowed_official_hosts": [
+      "dartmouth.smartcatalogiq.com"
+    ],
+    "extraction_note": "Official catalogue rows loaded: 170 programme rows. Individual hard requirements must still be read from the relevant programme page.",
+    "caveat": "U.S. institutions distribute requirements across schools, departments, and admissions offices; unsupported details remain source gaps.",
+    "migration_source": "usPrograms.ts"
+  },
+  "illustrative_examples": [
+    {
+      "id": "dartmouth-ug-catalogue",
+      "name": "Dartmouth undergraduate programme catalogue",
+      "degree_level": "Undergraduate",
+      "award": "UG",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate",
+      "selection_status": "illustrative_only"
+    },
+    {
+      "id": "dartmouth-pg-catalogue",
+      "name": "Dartmouth postgraduate programme catalogue",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate",
+      "selection_status": "illustrative_only"
+    }
+  ],
+  "programmes": [
+    {
+      "id": "dartmouth-un-african-and-african-american-studies-department-program",
+      "institution_id": "dartmouth",
+      "name": "African and African American Studies",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/african-and-african-american-studies",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/african-and-african-american-studies",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-anthropology-department-program",
+      "institution_id": "dartmouth",
+      "name": "Anthropology",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/anthropology",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/anthropology",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-art-history-department-program",
+      "institution_id": "dartmouth",
+      "name": "Art History",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/art-history",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/art-history",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-asian-societies-cultures-and-languages-department-program",
+      "institution_id": "dartmouth",
+      "name": "Asian Societies, Cultures, and Languages",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/asian-societies-cultures-and-languages",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/asian-societies-cultures-and-languages",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-biological-sciences-undergraduate-department-program",
+      "institution_id": "dartmouth",
+      "name": "Biological Sciences - Undergraduate",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/biological-sciences",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/biological-sciences",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-chemistry-undergraduate-department-program",
+      "institution_id": "dartmouth",
+      "name": "Chemistry - Undergraduate",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/chemistry",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/chemistry",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-classics-classical-studies-greek-latin-department-program",
+      "institution_id": "dartmouth",
+      "name": "Classics - Classical Studies; Greek; Latin",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/classics-classical-studies-greek-latin",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/classics-classical-studies-greek-latin",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-cognitive-science-program-department-program",
+      "institution_id": "dartmouth",
+      "name": "Cognitive Science Program",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/cognitive-science",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/cognitive-science",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-college-courses-department-program",
+      "institution_id": "dartmouth",
+      "name": "College Courses",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/college-courses",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/college-courses",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-computer-science-undergraduate-department-program",
+      "institution_id": "dartmouth",
+      "name": "Computer Science - Undergraduate",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/computer-science",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/computer-science",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-comparative-literature-undergraduate-department-program",
+      "institution_id": "dartmouth",
+      "name": "Comparative Literature - Undergraduate",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/comparative-literature",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/comparative-literature",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-divisional-courses-department-program",
+      "institution_id": "dartmouth",
+      "name": "Divisional Courses",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/divisional-courses",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/divisional-courses",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-the-john-sloan-dickey-center-for-international-understanding-department-program",
+      "institution_id": "dartmouth",
+      "name": "The John Sloan Dickey Center For International Understanding",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/the-john-sloan-dickey-center-for-international-understanding",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/the-john-sloan-dickey-center-for-international-understanding",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-earth-sciences-undergraduate-department-program",
+      "institution_id": "dartmouth",
+      "name": "Earth Sciences - Undergraduate",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/earth-sciences",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/earth-sciences",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-east-european-eurasian-and-russian-studies-department-program",
+      "institution_id": "dartmouth",
+      "name": "East European, Eurasian, and Russian Studies",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/east-european-eurasian-and-russian-studies",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/east-european-eurasian-and-russian-studies",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-economics-department-program",
+      "institution_id": "dartmouth",
+      "name": "Economics",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/economics",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/economics",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-minor-in-education-minor",
+      "institution_id": "dartmouth",
+      "name": "Minor in Education",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/education",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/education",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-engineering-sciences-undergraduate-department-program",
+      "institution_id": "dartmouth",
+      "name": "Engineering Sciences - Undergraduate",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/engineering-sciences",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/engineering-sciences",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-english-and-creative-writing-department-program",
+      "institution_id": "dartmouth",
+      "name": "English and Creative Writing",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/english-and-creative-writing",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/english-and-creative-writing",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-environmental-studies-department-program",
+      "institution_id": "dartmouth",
+      "name": "Environmental Studies",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/environmental-studies-program",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/environmental-studies-program",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-ethics-institute-department-program",
+      "institution_id": "dartmouth",
+      "name": "Ethics Institute",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/ethics-institute",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/ethics-institute",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-film-and-media-studies-department-program",
+      "institution_id": "dartmouth",
+      "name": "Film and Media Studies",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/film-and-media-studies",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/film-and-media-studies",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-french-and-italian-languages-and-literatures-department-program",
+      "institution_id": "dartmouth",
+      "name": "French and Italian Languages and Literatures",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/french-and-italian-languages-and-literatures",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/french-and-italian-languages-and-literatures",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-geography-department-program",
+      "institution_id": "dartmouth",
+      "name": "Geography",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/geography",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/geography",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-german-studies-department-program",
+      "institution_id": "dartmouth",
+      "name": "German Studies",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/german-studies",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/german-studies",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-government-department-program",
+      "institution_id": "dartmouth",
+      "name": "Government",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/government",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/government",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-history-department-program",
+      "institution_id": "dartmouth",
+      "name": "History",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/history",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/history",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-humanities-department-program",
+      "institution_id": "dartmouth",
+      "name": "Humanities",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/humanities",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/humanities",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-jewish-studies-department-program",
+      "institution_id": "dartmouth",
+      "name": "Jewish Studies",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/jewish-studies",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/jewish-studies",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-language-and-advanced-language-study-abroad-program-department-program",
+      "institution_id": "dartmouth",
+      "name": "Language and Advanced Language Study Abroad Program",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/language-and-advanced-language-study-abroad-program",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/language-and-advanced-language-study-abroad-program",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-latin-american-latino-and-caribbean-studies-latino-and-caribbean-studies",
+      "institution_id": "dartmouth",
+      "name": "Latin American, Latino and Caribbean Studies",
+      "degree_level": "Undergraduate",
+      "award": "Latino and Caribbean Studies",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/latin-american-latino-and-caribbean-studies",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/latin-american-latino-and-caribbean-studies",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-lesbian-gay-bisexual-and-transgender-studies-department-program",
+      "institution_id": "dartmouth",
+      "name": "Lesbian, Gay, Bisexual, and Transgender Studies",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/lesbian-gay-bisexual-and-transgender-studies",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/lesbian-gay-bisexual-and-transgender-studies",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-linguistics-department-program",
+      "institution_id": "dartmouth",
+      "name": "Linguistics",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/linguistics",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/linguistics",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-literature-in-translation-department-program",
+      "institution_id": "dartmouth",
+      "name": "Literature in Translation",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/literature-in-translation",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/literature-in-translation",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-minor-in-materials-science-minor",
+      "institution_id": "dartmouth",
+      "name": "Minor in Materials Science",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/minor-in-materials-science",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/minor-in-materials-science",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-mathematics-undergraduate-department-program",
+      "institution_id": "dartmouth",
+      "name": "Mathematics - Undergraduate",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/mathematics",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/mathematics",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-medieval-and-renaissance-studies-department-program",
+      "institution_id": "dartmouth",
+      "name": "Medieval and Renaissance Studies",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/medieval-and-renaissance-studies",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/medieval-and-renaissance-studies",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-middle-eastern-studies-department-program",
+      "institution_id": "dartmouth",
+      "name": "Middle Eastern Studies",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/middle-eastern-studies",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/middle-eastern-studies",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-music-undergraduate-department-program",
+      "institution_id": "dartmouth",
+      "name": "Music - Undergraduate",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/music",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/music",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-neuroscience-department-program",
+      "institution_id": "dartmouth",
+      "name": "Neuroscience",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/neuroscience",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/neuroscience",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-philosophy-department-program",
+      "institution_id": "dartmouth",
+      "name": "Philosophy",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/philosophy",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/philosophy",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-physical-education-department-program",
+      "institution_id": "dartmouth",
+      "name": "Physical Education",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/physical-education",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/physical-education",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-native-american-and-indigenous-studies-department-program",
+      "institution_id": "dartmouth",
+      "name": "Native American and Indigenous Studies",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/native-american-and-indigenous-studies",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/native-american-and-indigenous-studies",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-physics-and-astronomy-undergraduate-department-program",
+      "institution_id": "dartmouth",
+      "name": "Physics and Astronomy - Undergraduate",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/physics-and-astronomy",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/physics-and-astronomy",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-psychological-and-brain-sciences-undergraduate-department-program",
+      "institution_id": "dartmouth",
+      "name": "Psychological and Brain Sciences - Undergraduate",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/psychological-and-brain-sciences",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/psychological-and-brain-sciences",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-quantitative-social-science-department-program",
+      "institution_id": "dartmouth",
+      "name": "Quantitative Social Science",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/quantitative-social-science",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/quantitative-social-science",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-the-nelson-a-rockefeller-center-for-public-policy-department-program",
+      "institution_id": "dartmouth",
+      "name": "The Nelson A. Rockefeller Center for Public Policy",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/the-nelson-a-rockefeller-center-for-public-policy",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/the-nelson-a-rockefeller-center-for-public-policy",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-religion-department-program",
+      "institution_id": "dartmouth",
+      "name": "Religion",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/religion",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/religion",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-science-and-technology-studies-department-program",
+      "institution_id": "dartmouth",
+      "name": "Science and Technology Studies",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/science-and-technology-studies",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/science-and-technology-studies",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-social-science-department-program",
+      "institution_id": "dartmouth",
+      "name": "Social Science",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/social-science",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/social-science",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-sociology-department-program",
+      "institution_id": "dartmouth",
+      "name": "Sociology",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/sociology",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/sociology",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-spanish-and-portuguese-languages-and-literatures-department-program",
+      "institution_id": "dartmouth",
+      "name": "Spanish and Portuguese Languages and Literatures",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/spanish-and-portuguese-languages-and-literatures",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/spanish-and-portuguese-languages-and-literatures",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-speech-department-program",
+      "institution_id": "dartmouth",
+      "name": "Speech",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/speech",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/speech",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-student-initiated-seminars-department-program",
+      "institution_id": "dartmouth",
+      "name": "Student-Initiated Seminars",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/student-initiated-seminars",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/student-initiated-seminars",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-studio-art-department-program",
+      "institution_id": "dartmouth",
+      "name": "Studio Art",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/studio-art",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/studio-art",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-theater-department-program",
+      "institution_id": "dartmouth",
+      "name": "Theater",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/theater",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/theater",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-tuck-undergraduate-department-program",
+      "institution_id": "dartmouth",
+      "name": "Tuck - Undergraduate",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/tuck-undergraduate",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/tuck-undergraduate",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-wellness-education-department-program",
+      "institution_id": "dartmouth",
+      "name": "Wellness Education",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/wellness-education",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/wellness-education",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-women-s-gender-and-sexuality-studies-program-department-program",
+      "institution_id": "dartmouth",
+      "name": "Women’s, Gender, and Sexuality Studies Program",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/womens-gender-and-sexualities-studies-program",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/womens-gender-and-sexualities-studies-program",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-writing-program-department-program",
+      "institution_id": "dartmouth",
+      "name": "Writing Program",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/writing-program",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/writing-program",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-african-and-african-american-studies-department-program-african-and-african-american-studies",
+      "institution_id": "dartmouth",
+      "name": "African and African American Studies",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/african-and-african-american-studies",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/african-and-african-american-studies",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-anthropology-department-program-anthropology",
+      "institution_id": "dartmouth",
+      "name": "Anthropology",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/anthropology",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/anthropology",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-art-history-department-program-art-history",
+      "institution_id": "dartmouth",
+      "name": "Art History",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/art-history",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/art-history",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-asian-societies-cultures-and-languages-department-program-asian-societies-cultures-and-languages",
+      "institution_id": "dartmouth",
+      "name": "Asian Societies, Cultures, and Languages",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/asian-societies-cultures-and-languages",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/asian-societies-cultures-and-languages",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-biological-sciences-undergraduate-department-program-biological-sciences",
+      "institution_id": "dartmouth",
+      "name": "Biological Sciences - Undergraduate",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/biological-sciences",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/biological-sciences",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-chemistry-undergraduate-department-program-chemistry",
+      "institution_id": "dartmouth",
+      "name": "Chemistry - Undergraduate",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/chemistry",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/chemistry",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-classics-classical-studies-greek-latin-department-program-classics-classical-studies-greek-latin",
+      "institution_id": "dartmouth",
+      "name": "Classics - Classical Studies; Greek; Latin",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/classics-classical-studies-greek-latin",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/classics-classical-studies-greek-latin",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-cognitive-science-program-department-program-cognitive-science",
+      "institution_id": "dartmouth",
+      "name": "Cognitive Science Program",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/cognitive-science",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/cognitive-science",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-college-courses-department-program-college-courses",
+      "institution_id": "dartmouth",
+      "name": "College Courses",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/college-courses",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/college-courses",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-computer-science-undergraduate-department-program-computer-science",
+      "institution_id": "dartmouth",
+      "name": "Computer Science - Undergraduate",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/computer-science",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/computer-science",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-comparative-literature-undergraduate-department-program-comparative-literature",
+      "institution_id": "dartmouth",
+      "name": "Comparative Literature - Undergraduate",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/comparative-literature",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/comparative-literature",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-divisional-courses-department-program-divisional-courses",
+      "institution_id": "dartmouth",
+      "name": "Divisional Courses",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/divisional-courses",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/divisional-courses",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-the-john-sloan-dickey-center-for-international-understanding-department-program-the-john-sloan-dickey-center-for-international-understanding",
+      "institution_id": "dartmouth",
+      "name": "The John Sloan Dickey Center For International Understanding",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/the-john-sloan-dickey-center-for-international-understanding",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/the-john-sloan-dickey-center-for-international-understanding",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-earth-sciences-undergraduate-department-program-earth-sciences",
+      "institution_id": "dartmouth",
+      "name": "Earth Sciences - Undergraduate",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/earth-sciences",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/earth-sciences",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-east-european-eurasian-and-russian-studies-department-program-east-european-eurasian-and-russian-studies",
+      "institution_id": "dartmouth",
+      "name": "East European, Eurasian, and Russian Studies",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/east-european-eurasian-and-russian-studies",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/east-european-eurasian-and-russian-studies",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-economics-department-program-economics",
+      "institution_id": "dartmouth",
+      "name": "Economics",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/economics",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/economics",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-minor-in-education-minor-education",
+      "institution_id": "dartmouth",
+      "name": "Minor in Education",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/education",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/education",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-engineering-sciences-undergraduate-department-program-engineering-sciences",
+      "institution_id": "dartmouth",
+      "name": "Engineering Sciences - Undergraduate",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/engineering-sciences",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/engineering-sciences",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-english-and-creative-writing-department-program-english-and-creative-writing",
+      "institution_id": "dartmouth",
+      "name": "English and Creative Writing",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/english-and-creative-writing",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/english-and-creative-writing",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-environmental-studies-department-program-environmental-studies-program",
+      "institution_id": "dartmouth",
+      "name": "Environmental Studies",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/environmental-studies-program",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/environmental-studies-program",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-ethics-institute-department-program-ethics-institute",
+      "institution_id": "dartmouth",
+      "name": "Ethics Institute",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/ethics-institute",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/ethics-institute",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-film-and-media-studies-department-program-film-and-media-studies",
+      "institution_id": "dartmouth",
+      "name": "Film and Media Studies",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/film-and-media-studies",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/film-and-media-studies",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-french-and-italian-languages-and-literatures-department-program-french-and-italian-languages-and-literatures",
+      "institution_id": "dartmouth",
+      "name": "French and Italian Languages and Literatures",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/french-and-italian-languages-and-literatures",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/french-and-italian-languages-and-literatures",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-geography-department-program-geography",
+      "institution_id": "dartmouth",
+      "name": "Geography",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/geography",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/geography",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-german-studies-department-program-german-studies",
+      "institution_id": "dartmouth",
+      "name": "German Studies",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/german-studies",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/german-studies",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-government-department-program-government",
+      "institution_id": "dartmouth",
+      "name": "Government",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/government",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/government",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-history-department-program-history",
+      "institution_id": "dartmouth",
+      "name": "History",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/history",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/history",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-humanities-department-program-humanities",
+      "institution_id": "dartmouth",
+      "name": "Humanities",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/humanities",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/humanities",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-jewish-studies-department-program-jewish-studies",
+      "institution_id": "dartmouth",
+      "name": "Jewish Studies",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/jewish-studies",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/jewish-studies",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-language-and-advanced-language-study-abroad-program-department-program-language-and-advanced-language-study-abroad-program",
+      "institution_id": "dartmouth",
+      "name": "Language and Advanced Language Study Abroad Program",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/language-and-advanced-language-study-abroad-program",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/language-and-advanced-language-study-abroad-program",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-latin-american-latino-and-caribbean-studies-latino-and-caribbean-studies-latin-american-latino-and-caribbean-studies",
+      "institution_id": "dartmouth",
+      "name": "Latin American, Latino and Caribbean Studies",
+      "degree_level": "Undergraduate",
+      "award": "Latino and Caribbean Studies",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/latin-american-latino-and-caribbean-studies",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/latin-american-latino-and-caribbean-studies",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-lesbian-gay-bisexual-and-transgender-studies-department-program-lesbian-gay-bisexual-and-transgender-studies",
+      "institution_id": "dartmouth",
+      "name": "Lesbian, Gay, Bisexual, and Transgender Studies",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/lesbian-gay-bisexual-and-transgender-studies",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/lesbian-gay-bisexual-and-transgender-studies",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-linguistics-department-program-linguistics",
+      "institution_id": "dartmouth",
+      "name": "Linguistics",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/linguistics",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/linguistics",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-literature-in-translation-department-program-literature-in-translation",
+      "institution_id": "dartmouth",
+      "name": "Literature in Translation",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/literature-in-translation",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/literature-in-translation",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-minor-in-materials-science-minor-minor-in-materials-science",
+      "institution_id": "dartmouth",
+      "name": "Minor in Materials Science",
+      "degree_level": "Undergraduate",
+      "award": "Minor",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/minor-in-materials-science",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/minor-in-materials-science",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-mathematics-undergraduate-department-program-mathematics",
+      "institution_id": "dartmouth",
+      "name": "Mathematics - Undergraduate",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/mathematics",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/mathematics",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-medieval-and-renaissance-studies-department-program-medieval-and-renaissance-studies",
+      "institution_id": "dartmouth",
+      "name": "Medieval and Renaissance Studies",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/medieval-and-renaissance-studies",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/medieval-and-renaissance-studies",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-middle-eastern-studies-department-program-middle-eastern-studies",
+      "institution_id": "dartmouth",
+      "name": "Middle Eastern Studies",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/middle-eastern-studies",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/middle-eastern-studies",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-music-undergraduate-department-program-music",
+      "institution_id": "dartmouth",
+      "name": "Music - Undergraduate",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/music",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/music",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-neuroscience-department-program-neuroscience",
+      "institution_id": "dartmouth",
+      "name": "Neuroscience",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/neuroscience",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/neuroscience",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-philosophy-department-program-philosophy",
+      "institution_id": "dartmouth",
+      "name": "Philosophy",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/philosophy",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/philosophy",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-physical-education-department-program-physical-education",
+      "institution_id": "dartmouth",
+      "name": "Physical Education",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/physical-education",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/physical-education",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-native-american-and-indigenous-studies-department-program-native-american-and-indigenous-studies",
+      "institution_id": "dartmouth",
+      "name": "Native American and Indigenous Studies",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/native-american-and-indigenous-studies",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/native-american-and-indigenous-studies",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-physics-and-astronomy-undergraduate-department-program-physics-and-astronomy",
+      "institution_id": "dartmouth",
+      "name": "Physics and Astronomy - Undergraduate",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/physics-and-astronomy",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/physics-and-astronomy",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-psychological-and-brain-sciences-undergraduate-department-program-psychological-and-brain-sciences",
+      "institution_id": "dartmouth",
+      "name": "Psychological and Brain Sciences - Undergraduate",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/psychological-and-brain-sciences",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/psychological-and-brain-sciences",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-quantitative-social-science-department-program-quantitative-social-science",
+      "institution_id": "dartmouth",
+      "name": "Quantitative Social Science",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/quantitative-social-science",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/quantitative-social-science",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-the-nelson-a-rockefeller-center-for-public-policy-department-program-the-nelson-a-rockefeller-center-for-public-policy",
+      "institution_id": "dartmouth",
+      "name": "The Nelson A. Rockefeller Center for Public Policy",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/the-nelson-a-rockefeller-center-for-public-policy",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/the-nelson-a-rockefeller-center-for-public-policy",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-religion-department-program-religion",
+      "institution_id": "dartmouth",
+      "name": "Religion",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/religion",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/religion",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-science-and-technology-studies-department-program-science-and-technology-studies",
+      "institution_id": "dartmouth",
+      "name": "Science and Technology Studies",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/science-and-technology-studies",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/science-and-technology-studies",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-social-science-department-program-social-science",
+      "institution_id": "dartmouth",
+      "name": "Social Science",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/social-science",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/social-science",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-sociology-department-program-sociology",
+      "institution_id": "dartmouth",
+      "name": "Sociology",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/sociology",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/sociology",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-spanish-and-portuguese-languages-and-literatures-department-program-spanish-and-portuguese-languages-and-literatures",
+      "institution_id": "dartmouth",
+      "name": "Spanish and Portuguese Languages and Literatures",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/spanish-and-portuguese-languages-and-literatures",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/spanish-and-portuguese-languages-and-literatures",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-speech-department-program-speech",
+      "institution_id": "dartmouth",
+      "name": "Speech",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/speech",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/speech",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-student-initiated-seminars-department-program-student-initiated-seminars",
+      "institution_id": "dartmouth",
+      "name": "Student-Initiated Seminars",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/student-initiated-seminars",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/student-initiated-seminars",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-studio-art-department-program-studio-art",
+      "institution_id": "dartmouth",
+      "name": "Studio Art",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/studio-art",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/studio-art",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-theater-department-program-theater",
+      "institution_id": "dartmouth",
+      "name": "Theater",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/theater",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/theater",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-tuck-undergraduate-department-program-tuck-undergraduate",
+      "institution_id": "dartmouth",
+      "name": "Tuck - Undergraduate",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/tuck-undergraduate",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/tuck-undergraduate",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-wellness-education-department-program-wellness-education",
+      "institution_id": "dartmouth",
+      "name": "Wellness Education",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/wellness-education",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/wellness-education",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-women-s-gender-and-sexuality-studies-program-department-program-womens-gender-and-sexualities-studies-program",
+      "institution_id": "dartmouth",
+      "name": "Women’s, Gender, and Sexuality Studies Program",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/womens-gender-and-sexualities-studies-program",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/womens-gender-and-sexualities-studies-program",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-un-writing-program-department-program-writing-program",
+      "institution_id": "dartmouth",
+      "name": "Writing Program",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/writing-program",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-undergraduate/writing-program",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-po-biochemistry-and-cell-biology-graduate-department-program",
+      "institution_id": "dartmouth",
+      "name": "Biochemistry & Cell Biology - Graduate",
+      "degree_level": "Postgraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/biochemistry-and-cell-biology",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/biochemistry-and-cell-biology",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-po-biological-sciences-graduate-department-program",
+      "institution_id": "dartmouth",
+      "name": "Biological Sciences - Graduate",
+      "degree_level": "Postgraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/biological-sciences",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/biological-sciences",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-po-chemistry-graduate-department-program",
+      "institution_id": "dartmouth",
+      "name": "Chemistry - Graduate",
+      "degree_level": "Postgraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/chemistry",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/chemistry",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-po-master-of-energy-transition-met-department-program",
+      "institution_id": "dartmouth",
+      "name": "Master of Energy Transition - MET",
+      "degree_level": "Postgraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/energy-transition-met",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/energy-transition-met",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-po-health-policy-and-clinical-practice-department-program",
+      "institution_id": "dartmouth",
+      "name": "Health Policy and Clinical Practice",
+      "degree_level": "Postgraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/health-policy-and-clinical-practice",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/health-policy-and-clinical-practice",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-po-health-sciences-education-graduate-ms-mph-ms-mph",
+      "institution_id": "dartmouth",
+      "name": "Health Sciences Education - Graduate (MS/MPH)",
+      "degree_level": "Postgraduate",
+      "award": "MS/MPH",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/masters-of-health-science-education",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/masters-of-health-science-education",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-po-cancer-biology-graduate-department-program",
+      "institution_id": "dartmouth",
+      "name": "Cancer Biology - Graduate",
+      "degree_level": "Postgraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/cancer-biology",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/cancer-biology",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-po-engineering-sciences-graduate-department-program",
+      "institution_id": "dartmouth",
+      "name": "Engineering Sciences - Graduate",
+      "degree_level": "Postgraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/engineering-sciences",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/engineering-sciences",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-po-comparative-literature-graduate-department-program",
+      "institution_id": "dartmouth",
+      "name": "Comparative Literature - Graduate",
+      "degree_level": "Postgraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/comparative-literature",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/comparative-literature",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-po-computer-science-graduate-department-program",
+      "institution_id": "dartmouth",
+      "name": "Computer Science - Graduate",
+      "degree_level": "Postgraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/computer-science",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/computer-science",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-po-earth-sciences-graduate-department-program",
+      "institution_id": "dartmouth",
+      "name": "Earth Sciences - Graduate",
+      "degree_level": "Postgraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/earth-sciences",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/earth-sciences",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-po-ecology-evolution-environment-and-society-graduate-environment-and-society-graduate",
+      "institution_id": "dartmouth",
+      "name": "Ecology, Evolution, Environment & Society - Graduate",
+      "degree_level": "Postgraduate",
+      "award": "Environment & Society - Graduate",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/ecology-evolution-environment-and-society-graduate",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/ecology-evolution-environment-and-society-graduate",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-po-graduate-studies-office-courses-department-program",
+      "institution_id": "dartmouth",
+      "name": "Graduate Studies Office Courses",
+      "degree_level": "Postgraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/graduate-studies-office",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/graduate-studies-office",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-po-health-administration-department-program",
+      "institution_id": "dartmouth",
+      "name": "Health Administration",
+      "degree_level": "Postgraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/health-administration",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/health-administration",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-po-health-care-delivery-science-department-program",
+      "institution_id": "dartmouth",
+      "name": "Health Care Delivery Science",
+      "degree_level": "Postgraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/health-care-delivery-science",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/health-care-delivery-science",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-po-integrative-neuroscience-at-dartmouth-department-program",
+      "institution_id": "dartmouth",
+      "name": "Integrative Neuroscience at Dartmouth",
+      "degree_level": "Postgraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/integrative-neuroscience-graduate",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/integrative-neuroscience-graduate",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-po-master-of-arts-in-liberal-studies-department-program",
+      "institution_id": "dartmouth",
+      "name": "Master of Arts in Liberal Studies",
+      "degree_level": "Postgraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/liberal-studies-mals",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/liberal-studies-mals",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-po-psychological-and-brain-sciences-graduate-department-program",
+      "institution_id": "dartmouth",
+      "name": "Psychological and Brain Sciences - Graduate",
+      "degree_level": "Postgraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/psychological-and-brain-sciences",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/psychological-and-brain-sciences",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-po-mathematics-graduate-department-program",
+      "institution_id": "dartmouth",
+      "name": "Mathematics - Graduate",
+      "degree_level": "Postgraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/mathematics",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/mathematics",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-po-microbiology-and-immunology-department-program",
+      "institution_id": "dartmouth",
+      "name": "Microbiology and Immunology",
+      "degree_level": "Postgraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/microbiology-and-immunology",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/microbiology-and-immunology",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-po-molecular-and-systems-biology-graduate-department-program",
+      "institution_id": "dartmouth",
+      "name": "Molecular and Systems Biology - Graduate",
+      "degree_level": "Postgraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/molecular-and-systems-biology",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/molecular-and-systems-biology",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-po-physics-and-astronomy-graduate-department-program",
+      "institution_id": "dartmouth",
+      "name": "Physics and Astronomy - Graduate",
+      "degree_level": "Postgraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/physics-and-astronomy",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/physics-and-astronomy",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-po-quantitative-biomedical-sciences-department-program",
+      "institution_id": "dartmouth",
+      "name": "Quantitative Biomedical Sciences",
+      "degree_level": "Postgraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/quantitative-biomedical-sciences",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/quantitative-biomedical-sciences",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-po-sonic-practice-department-program",
+      "institution_id": "dartmouth",
+      "name": "Sonic Practice",
+      "degree_level": "Postgraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/sonic-practice",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/sonic-practice",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-po-unspecified-graduate-courses-department-program",
+      "institution_id": "dartmouth",
+      "name": "Unspecified Graduate Courses",
+      "degree_level": "Postgraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/unspecified-graduate-courses",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/unspecified-graduate-courses",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-po-biochemistry-and-cell-biology-graduate-department-program-biochemistry-and-cell-biology",
+      "institution_id": "dartmouth",
+      "name": "Biochemistry & Cell Biology - Graduate",
+      "degree_level": "Postgraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/biochemistry-and-cell-biology",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/biochemistry-and-cell-biology",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-po-biological-sciences-graduate-department-program-biological-sciences",
+      "institution_id": "dartmouth",
+      "name": "Biological Sciences - Graduate",
+      "degree_level": "Postgraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/biological-sciences",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/biological-sciences",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-po-chemistry-graduate-department-program-chemistry",
+      "institution_id": "dartmouth",
+      "name": "Chemistry - Graduate",
+      "degree_level": "Postgraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/chemistry",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/chemistry",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-po-master-of-energy-transition-met-department-program-energy-transition-met",
+      "institution_id": "dartmouth",
+      "name": "Master of Energy Transition - MET",
+      "degree_level": "Postgraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/energy-transition-met",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/energy-transition-met",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-po-health-policy-and-clinical-practice-department-program-health-policy-and-clinical-practice",
+      "institution_id": "dartmouth",
+      "name": "Health Policy and Clinical Practice",
+      "degree_level": "Postgraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/health-policy-and-clinical-practice",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/health-policy-and-clinical-practice",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-po-health-sciences-education-graduate-ms-mph-ms-mph-masters-of-health-science-education",
+      "institution_id": "dartmouth",
+      "name": "Health Sciences Education - Graduate (MS/MPH)",
+      "degree_level": "Postgraduate",
+      "award": "MS/MPH",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/masters-of-health-science-education",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/masters-of-health-science-education",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-po-cancer-biology-graduate-department-program-cancer-biology",
+      "institution_id": "dartmouth",
+      "name": "Cancer Biology - Graduate",
+      "degree_level": "Postgraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/cancer-biology",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/cancer-biology",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-po-engineering-sciences-graduate-department-program-engineering-sciences",
+      "institution_id": "dartmouth",
+      "name": "Engineering Sciences - Graduate",
+      "degree_level": "Postgraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/engineering-sciences",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/engineering-sciences",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-po-comparative-literature-graduate-department-program-comparative-literature",
+      "institution_id": "dartmouth",
+      "name": "Comparative Literature - Graduate",
+      "degree_level": "Postgraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/comparative-literature",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/comparative-literature",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-po-computer-science-graduate-department-program-computer-science",
+      "institution_id": "dartmouth",
+      "name": "Computer Science - Graduate",
+      "degree_level": "Postgraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/computer-science",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/computer-science",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-po-earth-sciences-graduate-department-program-earth-sciences",
+      "institution_id": "dartmouth",
+      "name": "Earth Sciences - Graduate",
+      "degree_level": "Postgraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/earth-sciences",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/earth-sciences",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-po-ecology-evolution-environment-and-society-graduate-environment-and-society-graduate-ecology-evolution-environment-and-society-graduate",
+      "institution_id": "dartmouth",
+      "name": "Ecology, Evolution, Environment & Society - Graduate",
+      "degree_level": "Postgraduate",
+      "award": "Environment & Society - Graduate",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/ecology-evolution-environment-and-society-graduate",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/ecology-evolution-environment-and-society-graduate",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-po-graduate-studies-office-courses-department-program-graduate-studies-office",
+      "institution_id": "dartmouth",
+      "name": "Graduate Studies Office Courses",
+      "degree_level": "Postgraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/graduate-studies-office",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/graduate-studies-office",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-po-health-administration-department-program-health-administration",
+      "institution_id": "dartmouth",
+      "name": "Health Administration",
+      "degree_level": "Postgraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/health-administration",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/health-administration",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-po-health-care-delivery-science-department-program-health-care-delivery-science",
+      "institution_id": "dartmouth",
+      "name": "Health Care Delivery Science",
+      "degree_level": "Postgraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/health-care-delivery-science",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/health-care-delivery-science",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-po-integrative-neuroscience-at-dartmouth-department-program-integrative-neuroscience-graduate",
+      "institution_id": "dartmouth",
+      "name": "Integrative Neuroscience at Dartmouth",
+      "degree_level": "Postgraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/integrative-neuroscience-graduate",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/integrative-neuroscience-graduate",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-po-master-of-arts-in-liberal-studies-department-program-liberal-studies-mals",
+      "institution_id": "dartmouth",
+      "name": "Master of Arts in Liberal Studies",
+      "degree_level": "Postgraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/liberal-studies-mals",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/liberal-studies-mals",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-po-psychological-and-brain-sciences-graduate-department-program-psychological-and-brain-sciences",
+      "institution_id": "dartmouth",
+      "name": "Psychological and Brain Sciences - Graduate",
+      "degree_level": "Postgraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/psychological-and-brain-sciences",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/psychological-and-brain-sciences",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-po-mathematics-graduate-department-program-mathematics",
+      "institution_id": "dartmouth",
+      "name": "Mathematics - Graduate",
+      "degree_level": "Postgraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/mathematics",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/mathematics",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-po-microbiology-and-immunology-department-program-microbiology-and-immunology",
+      "institution_id": "dartmouth",
+      "name": "Microbiology and Immunology",
+      "degree_level": "Postgraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/microbiology-and-immunology",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/microbiology-and-immunology",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-po-molecular-and-systems-biology-graduate-department-program-molecular-and-systems-biology",
+      "institution_id": "dartmouth",
+      "name": "Molecular and Systems Biology - Graduate",
+      "degree_level": "Postgraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/molecular-and-systems-biology",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/molecular-and-systems-biology",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-po-physics-and-astronomy-graduate-department-program-physics-and-astronomy",
+      "institution_id": "dartmouth",
+      "name": "Physics and Astronomy - Graduate",
+      "degree_level": "Postgraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/physics-and-astronomy",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/physics-and-astronomy",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-po-quantitative-biomedical-sciences-department-program-quantitative-biomedical-sciences",
+      "institution_id": "dartmouth",
+      "name": "Quantitative Biomedical Sciences",
+      "degree_level": "Postgraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/quantitative-biomedical-sciences",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/quantitative-biomedical-sciences",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-po-sonic-practice-department-program-sonic-practice",
+      "institution_id": "dartmouth",
+      "name": "Sonic Practice",
+      "degree_level": "Postgraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/sonic-practice",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/sonic-practice",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    },
+    {
+      "id": "dartmouth-po-unspecified-graduate-courses-department-program-unspecified-graduate-courses",
+      "institution_id": "dartmouth",
+      "name": "Unspecified Graduate Courses",
+      "degree_level": "Postgraduate",
+      "award": "Department/Program",
+      "official_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/unspecified-graduate-courses",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://dartmouth.smartcatalogiq.com/en/current/orc/departments-programs-graduate/unspecified-graduate-courses",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Dartmouth ORC department/program row"
+      }
+    }
+  ]
+}

@@ -1,0 +1,3462 @@
+{
+  "$schema": "../schemas/institution-catalogue-v1.schema.json",
+  "contract": "InstitutionProgrammeCatalogue",
+  "version": 1,
+  "language": "en",
+  "institution": {
+    "id": "ucsd",
+    "name": "University of California, San Diego",
+    "short_name": "UC San Diego",
+    "group": "US News Top 30",
+    "region": "United States",
+    "rank_note": "US News 2026 top-30 cutoff source list"
+  },
+  "catalogue_scope": {
+    "record_type": "programme_identity",
+    "identity_status": "official_source_listed",
+    "requirements_status": "not_collected",
+    "placeholder_records_verified": false,
+    "link_only_records_verified": false
+  },
+  "catalogue_provenance": {
+    "accessed_at": "2026-06-26",
+    "official_sources": [
+      {
+        "degree_level": "Undergraduate",
+        "title": "Undergraduate majors",
+        "official_url": "https://admissions.ucsd.edu/why/majors/index.html",
+        "coverage": "Official index",
+        "note": "Official undergraduate programme catalogue or admissions major index."
+      },
+      {
+        "degree_level": "Postgraduate",
+        "title": "Graduate admissions programs",
+        "official_url": "https://grad.ucsd.edu/admissions/programs.html",
+        "coverage": "Official index",
+        "note": "Official graduate/professional programme catalogue or graduate school programme index."
+      }
+    ],
+    "allowed_official_hosts": [
+      "admissions.ucsd.edu",
+      "af-amstudies.ucsd.edu",
+      "anthropology.ucsd.edu",
+      "astro.ucsd.edu",
+      "astronomy.ucsd.edu",
+      "be.ucsd.edu",
+      "bioinformatics.ucsd.edu",
+      "biology.ucsd.edu",
+      "biomedsci.ucsd.edu",
+      "caesar.ucsd.edu",
+      "cgs.ucsd.edu",
+      "chemistry.ucsd.edu",
+      "chhs.sdsu.edu",
+      "chinesestudies.ucsd.edu",
+      "clre.ucsd.edu",
+      "cls.ucsd.edu",
+      "cogsci.ucsd.edu",
+      "communication.ucsd.edu",
+      "cse.ucsd.edu",
+      "csp.ucsd.edu",
+      "css.ucsd.edu",
+      "datascience.ucsd.edu",
+      "ece.ucsd.edu",
+      "economics.ucsd.edu",
+      "eds.ucsd.edu",
+      "ethnicstudies.ucsd.edu",
+      "globalhealthprogram.ucsd.edu",
+      "globalsouth.ucsd.edu",
+      "gps.ucsd.edu",
+      "grad.ucsd.edu",
+      "hdp.ucsd.edu",
+      "history.ucsd.edu",
+      "iah.ucsd.edu",
+      "isp.ucsd.edu",
+      "jacobsschool.ucsd.edu",
+      "japan.ucsd.edu",
+      "jewishstudies.ucsd.edu",
+      "las.ucsd.edu",
+      "linguistics.ucsd.edu",
+      "literature.ucsd.edu",
+      "mae.ucsd.edu",
+      "maeweb.ucsd.edu",
+      "math.ucsd.edu",
+      "mbc.ucsd.edu",
+      "music-cms.ucsd.edu",
+      "nanoengineering.ucsd.edu",
+      "ne.ucsd.edu",
+      "neurograd.ucsd.edu",
+      "ph.ucsd.edu",
+      "philosophy.ucsd.edu",
+      "physics.ucsd.edu",
+      "pmto.ucsd.edu",
+      "polisci.ucsd.edu",
+      "psychology.ucsd.edu",
+      "religion.ucsd.edu",
+      "sci.sdsu.edu",
+      "scripps.ucsd.edu",
+      "se.ucsd.edu",
+      "slhs.sdsu.edu",
+      "sociology.ucsd.edu",
+      "structures.ucsd.edu",
+      "theatre.ucsd.edu",
+      "usp.ucsd.edu",
+      "visarts.ucsd.edu",
+      "www-theatre.ucsd.edu",
+      "www.cogsci.ucsd.edu",
+      "www.ece.ucsd.edu"
+    ],
+    "extraction_note": "Official catalogue rows loaded: 222 programme rows. Individual hard requirements must still be read from the relevant programme page.",
+    "caveat": "U.S. institutions distribute requirements across schools, departments, and admissions offices; unsupported details remain source gaps.",
+    "migration_source": "usPrograms.ts"
+  },
+  "illustrative_examples": [
+    {
+      "id": "ucsd-ug-catalogue",
+      "name": "UC San Diego undergraduate programme catalogue",
+      "degree_level": "Undergraduate",
+      "award": "UG",
+      "official_url": "https://admissions.ucsd.edu/why/majors/index.html",
+      "selection_status": "illustrative_only"
+    },
+    {
+      "id": "ucsd-pg-catalogue",
+      "name": "UC San Diego postgraduate programme catalogue",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.ucsd.edu/admissions/programs.html",
+      "selection_status": "illustrative_only"
+    }
+  ],
+  "programmes": [
+    {
+      "id": "ucsd-un-black-diaspora-and-african-american-studies-b-a-b-a",
+      "institution_id": "ucsd",
+      "name": "Black Diaspora and African American Studies B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://af-amstudies.ucsd.edu/undergraduate/major/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://af-amstudies.ucsd.edu/undergraduate/major/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-chicanx-and-latinx-studies-major",
+      "institution_id": "ucsd",
+      "name": "Chicanx and Latinx Studies",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://cls.ucsd.edu/major/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cls.ucsd.edu/major/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-chinese-studies-major",
+      "institution_id": "ucsd",
+      "name": "Chinese Studies",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://chinesestudies.ucsd.edu/undergraduate/major.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://chinesestudies.ucsd.edu/undergraduate/major.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-cinematic-arts-major",
+      "institution_id": "ucsd",
+      "name": "Cinematic Arts",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://iah.ucsd.edu/academics/film-studies/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://iah.ucsd.edu/academics/film-studies/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-classical-studies-major",
+      "institution_id": "ucsd",
+      "name": "Classical Studies",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://iah.ucsd.edu/academics/classical-studies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://iah.ucsd.edu/academics/classical-studies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-german-studies-major",
+      "institution_id": "ucsd",
+      "name": "German Studies",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://caesar.ucsd.edu/german/major.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://caesar.ucsd.edu/german/major.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-history-major",
+      "institution_id": "ucsd",
+      "name": "History",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://history.ucsd.edu/undergrad/major.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://history.ucsd.edu/undergrad/major.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-italian-studies-major",
+      "institution_id": "ucsd",
+      "name": "Italian Studies",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://iah.ucsd.edu/academics/italian-studies/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://iah.ucsd.edu/academics/italian-studies/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-japanese-studies-major",
+      "institution_id": "ucsd",
+      "name": "Japanese Studies",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://japan.ucsd.edu/undergraduate/major/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://japan.ucsd.edu/undergraduate/major/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-jewish-studies-major",
+      "institution_id": "ucsd",
+      "name": "Jewish Studies",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://jewishstudies.ucsd.edu/undergraduate/judaic_major.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://jewishstudies.ucsd.edu/undergraduate/judaic_major.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-literary-arts-major",
+      "institution_id": "ucsd",
+      "name": "Literary Arts",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://literature.ucsd.edu/ugrad/majors/index.html#LT42---Literary-Arts-(FA24-&-Be",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://literature.ucsd.edu/ugrad/majors/index.html#LT42---Literary-Arts-(FA24-&-Be",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-literature-writing-major",
+      "institution_id": "ucsd",
+      "name": "Literature/Writing",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://literature.ucsd.edu/ugrad/majors/index.html#LT34---Literature/Writing-(FA24",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://literature.ucsd.edu/ugrad/majors/index.html#LT34---Literature/Writing-(FA24",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-literatures-in-english-major",
+      "institution_id": "ucsd",
+      "name": "Literatures in English",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://literature.ucsd.edu/ugrad/majors/index.html#LT36---Literatures-in-English",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://literature.ucsd.edu/ugrad/majors/index.html#LT36---Literatures-in-English",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-literatures-in-spanish-major",
+      "institution_id": "ucsd",
+      "name": "Literatures in Spanish",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://literature.ucsd.edu/ugrad/majors/index.html#LT33---Literatures-in-Spanish",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://literature.ucsd.edu/ugrad/majors/index.html#LT33---Literatures-in-Spanish",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-world-literature-and-culture-major",
+      "institution_id": "ucsd",
+      "name": "World Literature and Culture",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://literature.ucsd.edu/ugrad/majors/index.html#LT41---World-Literature-&-Cultu",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://literature.ucsd.edu/ugrad/majors/index.html#LT41---World-Literature-&-Cultu",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-music-major",
+      "institution_id": "ucsd",
+      "name": "Music",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://music-cms.ucsd.edu/ugrad/music-major.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://music-cms.ucsd.edu/ugrad/music-major.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-music-humanities-major",
+      "institution_id": "ucsd",
+      "name": "Music/Humanities",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://music-cms.ucsd.edu/ugrad/music-hum-major.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://music-cms.ucsd.edu/ugrad/music-hum-major.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-interdisciplinary-computing-and-the-arts-major",
+      "institution_id": "ucsd",
+      "name": "Interdisciplinary Computing and the Arts",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://music-cms.ucsd.edu/ugrad/icam-major.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://music-cms.ucsd.edu/ugrad/icam-major.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-philosophy-major",
+      "institution_id": "ucsd",
+      "name": "Philosophy",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://philosophy.ucsd.edu/undergraduate/philosophy-major.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://philosophy.ucsd.edu/undergraduate/philosophy-major.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-russian-east-european-and-eurasian-studies-major",
+      "institution_id": "ucsd",
+      "name": "Russian, East European, and Eurasian Studies",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://caesar.ucsd.edu/reees/major.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://caesar.ucsd.edu/reees/major.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-study-of-religion-major",
+      "institution_id": "ucsd",
+      "name": "Study of Religion",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://religion.ucsd.edu/undergraduate/major%20and%20double%20major/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://religion.ucsd.edu/undergraduate/major%20and%20double%20major/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-theatre-major",
+      "institution_id": "ucsd",
+      "name": "Theatre",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://theatre.ucsd.edu/admissions/undergraduate/theatre-major.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://theatre.ucsd.edu/admissions/undergraduate/theatre-major.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-dance-major",
+      "institution_id": "ucsd",
+      "name": "Dance",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://theatre.ucsd.edu/undergraduate/programs/DanceMajor/index.htm",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://theatre.ucsd.edu/undergraduate/programs/DanceMajor/index.htm",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-global-south-studies-major",
+      "institution_id": "ucsd",
+      "name": "Global South Studies",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://globalsouth.ucsd.edu/major/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://globalsouth.ucsd.edu/major/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-visual-arts-art-history-criticism-major",
+      "institution_id": "ucsd",
+      "name": "Visual Arts (Art History/Criticism)",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://visarts.ucsd.edu/undergrad/major-req/art-history.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://visarts.ucsd.edu/undergrad/major-req/art-history.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-visual-arts-media-major",
+      "institution_id": "ucsd",
+      "name": "Visual Arts (Media)",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://visarts.ucsd.edu/undergrad/major-req/media.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://visarts.ucsd.edu/undergrad/major-req/media.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-visual-arts-studio-major",
+      "institution_id": "ucsd",
+      "name": "Visual Arts (Studio)",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://visarts.ucsd.edu/undergrad/major-req/studio.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://visarts.ucsd.edu/undergrad/major-req/studio.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-interdisciplinary-computing-and-the-arts-major-icam-html",
+      "institution_id": "ucsd",
+      "name": "Interdisciplinary Computing and the Arts",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://visarts.ucsd.edu/undergrad/major-req/icam.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://visarts.ucsd.edu/undergrad/major-req/icam.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-speculative-design-major",
+      "institution_id": "ucsd",
+      "name": "Speculative Design",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://visarts.ucsd.edu/undergrad/major-req/spec-design.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://visarts.ucsd.edu/undergrad/major-req/spec-design.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-ecology-behavior-and-evolution-major",
+      "institution_id": "ucsd",
+      "name": "Ecology, Behavior & Evolution",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://biology.ucsd.edu/education/undergrad/maj-min/majors/fall20-later/ebe.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://biology.ucsd.edu/education/undergrad/maj-min/majors/fall20-later/ebe.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-general-biology-major",
+      "institution_id": "ucsd",
+      "name": "General Biology",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://biology.ucsd.edu/education/undergrad/maj-min/majors/fall20-later/general.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://biology.ucsd.edu/education/undergrad/maj-min/majors/fall20-later/general.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-microbiology-major",
+      "institution_id": "ucsd",
+      "name": "Microbiology",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://biology.ucsd.edu/education/undergrad/maj-min/majors/fall20-later/microbiology.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://biology.ucsd.edu/education/undergrad/maj-min/majors/fall20-later/microbiology.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-biology-with-a-specialization-in-bioinformatics-major",
+      "institution_id": "ucsd",
+      "name": "Biology with a Specialization in Bioinformatics",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://biology.ucsd.edu/education/undergrad/maj-min/majors/fall20-later/bioinformatics.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://biology.ucsd.edu/education/undergrad/maj-min/majors/fall20-later/bioinformatics.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-human-biology-major",
+      "institution_id": "ucsd",
+      "name": "Human Biology",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://biology.ucsd.edu/education/undergrad/maj-min/majors/fall20-later/human.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://biology.ucsd.edu/education/undergrad/maj-min/majors/fall20-later/human.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-molecular-and-cell-biology-major",
+      "institution_id": "ucsd",
+      "name": "Molecular and Cell Biology",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://biology.ucsd.edu/education/undergrad/maj-min/majors/fall20-later/molecular-cell.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://biology.ucsd.edu/education/undergrad/maj-min/majors/fall20-later/molecular-cell.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-neurobiology-major",
+      "institution_id": "ucsd",
+      "name": "Neurobiology",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://biology.ucsd.edu/education/undergrad/maj-min/majors/fall20-later/neuro.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://biology.ucsd.edu/education/undergrad/maj-min/majors/fall20-later/neuro.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-data-science-major",
+      "institution_id": "ucsd",
+      "name": "Data Science",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://datascience.ucsd.edu/academics/undergraduate/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://datascience.ucsd.edu/academics/undergraduate/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-bioengineering-major",
+      "institution_id": "ucsd",
+      "name": "Bioengineering",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://be.ucsd.edu/bioengineering",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://be.ucsd.edu/bioengineering",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-bioengineering-biotechnology-major",
+      "institution_id": "ucsd",
+      "name": "Bioengineering: Biotechnology",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://be.ucsd.edu/biotechnology",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://be.ucsd.edu/biotechnology",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-bioengineering-bioinformatics-major",
+      "institution_id": "ucsd",
+      "name": "Bioengineering: Bioinformatics",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://be.ucsd.edu/bioinformatics",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://be.ucsd.edu/bioinformatics",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-bioengineering-biosystems-major",
+      "institution_id": "ucsd",
+      "name": "Bioengineering: BioSystems",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://be.ucsd.edu/biosystems",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://be.ucsd.edu/biosystems",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-artificial-intelligence-b-s-b-s",
+      "institution_id": "ucsd",
+      "name": "Artificial Intelligence B.S.",
+      "degree_level": "Undergraduate",
+      "award": "B.S.",
+      "official_url": "https://cse.ucsd.edu/undergraduate/bs-artificial-intelligence-0",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cse.ucsd.edu/undergraduate/bs-artificial-intelligence-0",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-computer-engineering-major",
+      "institution_id": "ucsd",
+      "name": "Computer Engineering",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://cse.ucsd.edu/undergraduate/bs-computer-engineering-0",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cse.ucsd.edu/undergraduate/bs-computer-engineering-0",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-computer-science-b-s-b-s",
+      "institution_id": "ucsd",
+      "name": "Computer Science B.S.",
+      "degree_level": "Undergraduate",
+      "award": "B.S.",
+      "official_url": "https://cse.ucsd.edu/undergraduate/bs-computer-science",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cse.ucsd.edu/undergraduate/bs-computer-science",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-computer-science-with-specialization-in-bioinformatics-major",
+      "institution_id": "ucsd",
+      "name": "Computer Science with Specialization in Bioinformatics",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://cse.ucsd.edu/node/1703",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cse.ucsd.edu/node/1703",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-computer-science-b-a-b-a",
+      "institution_id": "ucsd",
+      "name": "Computer Science B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://cse.ucsd.edu/undergraduate",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cse.ucsd.edu/undergraduate",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-computer-engineering-major-computer-engineering-major",
+      "institution_id": "ucsd",
+      "name": "Computer Engineering",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://ece.ucsd.edu/undergraduate/computer-engineering-major",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://ece.ucsd.edu/undergraduate/computer-engineering-major",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-electrical-engineering-major",
+      "institution_id": "ucsd",
+      "name": "Electrical Engineering",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://ece.ucsd.edu/undergraduate/electrical-engineering-major",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://ece.ucsd.edu/undergraduate/electrical-engineering-major",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-engineering-physics-major",
+      "institution_id": "ucsd",
+      "name": "Engineering Physics",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://ece.ucsd.edu/undergraduate/engineering-physics-major",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://ece.ucsd.edu/undergraduate/engineering-physics-major",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-electrical-engineering-and-society-major",
+      "institution_id": "ucsd",
+      "name": "Electrical Engineering & Society",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://ece.ucsd.edu/undergraduate/electrical-engineering-and-society-major",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://ece.ucsd.edu/undergraduate/electrical-engineering-and-society-major",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-aerospace-engineering-major",
+      "institution_id": "ucsd",
+      "name": "Aerospace Engineering",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://mae.ucsd.edu/undergrad/aerospace-engineering",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://mae.ucsd.edu/undergrad/aerospace-engineering",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-aerospace-engineering-with-specialization-in-aerothermodynamics-b-s-b-s",
+      "institution_id": "ucsd",
+      "name": "Aerospace Engineering with Specialization in Aerothermodynamics B.S.",
+      "degree_level": "Undergraduate",
+      "award": "B.S.",
+      "official_url": "https://mae.ucsd.edu/undergrad/aero-eng-specializations",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://mae.ucsd.edu/undergrad/aero-eng-specializations",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-aerospace-engineering-with-specialization-in-astrodynamics-and-space-applications-b-s-b-s",
+      "institution_id": "ucsd",
+      "name": "Aerospace Engineering with Specialization in Astrodynamics and Space Applications B.S.",
+      "degree_level": "Undergraduate",
+      "award": "B.S.",
+      "official_url": "https://mae.ucsd.edu/undergrad/aero-eng-specializations",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://mae.ucsd.edu/undergrad/aero-eng-specializations",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-aerospace-engineering-with-specialization-in-flight-dynamics-and-controls-b-s-b-s",
+      "institution_id": "ucsd",
+      "name": "Aerospace Engineering with Specialization in Flight Dynamics and Controls B.S.",
+      "degree_level": "Undergraduate",
+      "award": "B.S.",
+      "official_url": "https://mae.ucsd.edu/undergrad/aero-eng-specializations",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://mae.ucsd.edu/undergrad/aero-eng-specializations",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-mechanical-engineering-major",
+      "institution_id": "ucsd",
+      "name": "Mechanical Engineering",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://mae.ucsd.edu/undergrad/mechanical-engineering",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://mae.ucsd.edu/undergrad/mechanical-engineering",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-mechanical-engineering-with-a-specialization-in-controls-and-robotics-major",
+      "institution_id": "ucsd",
+      "name": "Mechanical Engineering with a Specialization in Controls and Robotics",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://mae.ucsd.edu/undergrad/specializations",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://mae.ucsd.edu/undergrad/specializations",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-mechanical-engineering-with-a-specialization-in-fluid-mechanics-and-thermal-systems-major",
+      "institution_id": "ucsd",
+      "name": "Mechanical Engineering with a Specialization in Fluid Mechanics and Thermal Systems",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://mae.ucsd.edu/undergrad/specializations",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://mae.ucsd.edu/undergrad/specializations",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-mechanical-engineering-with-a-specialization-in-materials-science-and-engineering-major",
+      "institution_id": "ucsd",
+      "name": "Mechanical Engineering with a Specialization in Materials Science and Engineering",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://mae.ucsd.edu/undergrad/specializations",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://mae.ucsd.edu/undergrad/specializations",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-mechanical-engineering-with-a-specialization-in-mechanics-of-materials-major",
+      "institution_id": "ucsd",
+      "name": "Mechanical Engineering with a Specialization in Mechanics of Materials",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://mae.ucsd.edu/undergrad/specializations",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://mae.ucsd.edu/undergrad/specializations",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-mechanical-engineering-with-a-specialization-in-renewable-energy-and-environmental-flows-major",
+      "institution_id": "ucsd",
+      "name": "Mechanical Engineering with a Specialization in Renewable Energy and Environmental Flows",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://mae.ucsd.edu/undergrad/specializations",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://mae.ucsd.edu/undergrad/specializations",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-chemical-engineering-major",
+      "institution_id": "ucsd",
+      "name": "Chemical Engineering",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://nanoengineering.ucsd.edu/undergrad-programs/degree/bs-chemical-engineering",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://nanoengineering.ucsd.edu/undergrad-programs/degree/bs-chemical-engineering",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-nanoengineering-major",
+      "institution_id": "ucsd",
+      "name": "NanoEngineering",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://nanoengineering.ucsd.edu/undergrad-programs/degree/bs-nanoengineering",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://nanoengineering.ucsd.edu/undergrad-programs/degree/bs-nanoengineering",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-structural-engineering-major",
+      "institution_id": "ucsd",
+      "name": "Structural Engineering",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://structures.ucsd.edu/academics/undergraduate-program",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://structures.ucsd.edu/academics/undergraduate-program",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-astronomy-and-astrophysics-major",
+      "institution_id": "ucsd",
+      "name": "Astronomy & Astrophysics",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://astro.ucsd.edu/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://astro.ucsd.edu/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-chemistry-major",
+      "institution_id": "ucsd",
+      "name": "Chemistry",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://chemistry.ucsd.edu/undergraduate/majors-minor/chemistry.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://chemistry.ucsd.edu/undergraduate/majors-minor/chemistry.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-biochemistry-major",
+      "institution_id": "ucsd",
+      "name": "Biochemistry",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://chemistry.ucsd.edu/undergraduate/majors-minor/biochemistry.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://chemistry.ucsd.edu/undergraduate/majors-minor/biochemistry.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-environmental-chemistry-major",
+      "institution_id": "ucsd",
+      "name": "Environmental Chemistry",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://chemistry.ucsd.edu/undergraduate/majors-minor/environmental-chemistry.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://chemistry.ucsd.edu/undergraduate/majors-minor/environmental-chemistry.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-pharmacological-chemistry-major",
+      "institution_id": "ucsd",
+      "name": "Pharmacological Chemistry",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://chemistry.ucsd.edu/undergraduate/majors-minor/pharmacological-chemistry.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://chemistry.ucsd.edu/undergraduate/majors-minor/pharmacological-chemistry.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-molecular-synthesis-major",
+      "institution_id": "ucsd",
+      "name": "Molecular Synthesis",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://chemistry.ucsd.edu/undergraduate/majors-minor/molecular-synthesis.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://chemistry.ucsd.edu/undergraduate/majors-minor/molecular-synthesis.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-applied-mathematics-major",
+      "institution_id": "ucsd",
+      "name": "Applied Mathematics",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://math.ucsd.edu/students/undergraduate/ma27-applied-mathematics-b-s/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://math.ucsd.edu/students/undergraduate/ma27-applied-mathematics-b-s/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-mathematical-biology-major",
+      "institution_id": "ucsd",
+      "name": "Mathematical Biology",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://math.ucsd.edu/students/undergraduate/ma36-mathematical-biology-b-s",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://math.ucsd.edu/students/undergraduate/ma36-mathematical-biology-b-s",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-mathematics-major",
+      "institution_id": "ucsd",
+      "name": "Mathematics",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://math.ucsd.edu/students/undergraduate/ma29-mathematics-b-s/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://math.ucsd.edu/students/undergraduate/ma29-mathematics-b-s/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-mathematics-computer-science-major",
+      "institution_id": "ucsd",
+      "name": "Mathematics—Computer Science",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://math.ucsd.edu/students/undergraduate/ma30-math-computer-science-b-s/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://math.ucsd.edu/students/undergraduate/ma30-math-computer-science-b-s/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-mathematics-applied-science-major",
+      "institution_id": "ucsd",
+      "name": "Mathematics—Applied Science",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://math.ucsd.edu/students/undergraduate/ma31-math-applied-science-b-s/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://math.ucsd.edu/students/undergraduate/ma31-math-applied-science-b-s/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-mathematics-secondary-education-major",
+      "institution_id": "ucsd",
+      "name": "Mathematics—Secondary Education",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://math.ucsd.edu/students/undergraduate/ma32-math-secondary-education-b-a/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://math.ucsd.edu/students/undergraduate/ma32-math-secondary-education-b-a/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-joint-major-mathematics-and-economics-major",
+      "institution_id": "ucsd",
+      "name": "Joint Major Mathematics & Economics",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://math.ucsd.edu/students/undergraduate/ma33-joint-major-in-math-econ/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://math.ucsd.edu/students/undergraduate/ma33-joint-major-in-math-econ/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-probability-and-statistics-major",
+      "institution_id": "ucsd",
+      "name": "Probability and Statistics",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://math.ucsd.edu/students/undergraduate/ma35-probability-statistics-b-s/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://math.ucsd.edu/students/undergraduate/ma35-probability-statistics-b-s/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-physics-biophysics-major",
+      "institution_id": "ucsd",
+      "name": "Physics—Biophysics",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://physics.ucsd.edu/Student/Current/Undergraduate/MajorRequirements",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://physics.ucsd.edu/Student/Current/Undergraduate/MajorRequirements",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-physics-with-specialization-in-earth-sciences-major",
+      "institution_id": "ucsd",
+      "name": "Physics with Specialization in Earth Sciences",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://physics.ucsd.edu/Student/Current/Undergraduate/MajorRequirements",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://physics.ucsd.edu/Student/Current/Undergraduate/MajorRequirements",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-physics-major",
+      "institution_id": "ucsd",
+      "name": "Physics",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://physics.ucsd.edu/Student/Current/Undergraduate/MajorRequirements",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://physics.ucsd.edu/Student/Current/Undergraduate/MajorRequirements",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-general-physics-major",
+      "institution_id": "ucsd",
+      "name": "General Physics",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://physics.ucsd.edu/Student/Current/Undergraduate/MajorRequirements",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://physics.ucsd.edu/Student/Current/Undergraduate/MajorRequirements",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-general-physics-secondary-education-major",
+      "institution_id": "ucsd",
+      "name": "General Physics/Secondary Education",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://physics.ucsd.edu/Student/Current/Undergraduate/MajorRequirements",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://physics.ucsd.edu/Student/Current/Undergraduate/MajorRequirements",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-physics-with-specialization-in-materials-physics-major",
+      "institution_id": "ucsd",
+      "name": "Physics with Specialization in Materials Physics",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://physics.ucsd.edu/Student/Current/Undergraduate/MajorRequirements",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://physics.ucsd.edu/Student/Current/Undergraduate/MajorRequirements",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-physics-with-specialization-in-computational-physics-major",
+      "institution_id": "ucsd",
+      "name": "Physics with Specialization in Computational Physics",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://physics.ucsd.edu/Student/Current/Undergraduate/MajorRequirements",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://physics.ucsd.edu/Student/Current/Undergraduate/MajorRequirements",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-physics-with-specialization-in-astrophysics-major",
+      "institution_id": "ucsd",
+      "name": "Physics with Specialization in Astrophysics",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://physics.ucsd.edu/Student/Current/Undergraduate/MajorRequirements",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://physics.ucsd.edu/Student/Current/Undergraduate/MajorRequirements",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-public-health-major",
+      "institution_id": "ucsd",
+      "name": "Public Health",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://ph.ucsd.edu/undergrad/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://ph.ucsd.edu/undergrad/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-public-health-with-concentration-in-biostatistics-major",
+      "institution_id": "ucsd",
+      "name": "Public Health with Concentration in Biostatistics",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://ph.ucsd.edu/undergrad/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://ph.ucsd.edu/undergrad/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-public-health-with-concentration-in-climate-and-environmental-sciences-major",
+      "institution_id": "ucsd",
+      "name": "Public Health with Concentration in Climate and Environmental Sciences",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://ph.ucsd.edu/undergrad/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://ph.ucsd.edu/undergrad/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-public-health-with-concentration-in-community-health-sciences-major",
+      "institution_id": "ucsd",
+      "name": "Public Health with Concentration in Community Health Sciences",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://ph.ucsd.edu/undergrad/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://ph.ucsd.edu/undergrad/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-public-health-with-concentration-in-epidemiology-major",
+      "institution_id": "ucsd",
+      "name": "Public Health with Concentration in Epidemiology",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://ph.ucsd.edu/undergrad/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://ph.ucsd.edu/undergrad/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-public-health-with-concentration-in-health-policy-and-management-sciences-major",
+      "institution_id": "ucsd",
+      "name": "Public Health with Concentration in Health Policy and Management Sciences",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://ph.ucsd.edu/undergrad/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://ph.ucsd.edu/undergrad/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-public-health-with-concentration-in-medicine-sciences-major",
+      "institution_id": "ucsd",
+      "name": "Public Health with Concentration in Medicine Sciences",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://ph.ucsd.edu/undergrad/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://ph.ucsd.edu/undergrad/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-environmental-systems-earth-sciences-major",
+      "institution_id": "ucsd",
+      "name": "Environmental Systems—Earth Sciences",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://scripps.ucsd.edu/esys",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://scripps.ucsd.edu/esys",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-environmental-systems-ecology-behavior-and-evolution-major",
+      "institution_id": "ucsd",
+      "name": "Environmental Systems—Ecology, Behavior and Evolution",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://scripps.ucsd.edu/esys",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://scripps.ucsd.edu/esys",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-environmental-systems-environmental-chemistry-major",
+      "institution_id": "ucsd",
+      "name": "Environmental Systems—Environmental Chemistry",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://scripps.ucsd.edu/esys",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://scripps.ucsd.edu/esys",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-environmental-systems-environmental-policy-major",
+      "institution_id": "ucsd",
+      "name": "Environmental Systems—Environmental Policy",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://scripps.ucsd.edu/esys",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://scripps.ucsd.edu/esys",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-geosciences-major",
+      "institution_id": "ucsd",
+      "name": "Geosciences",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://scripps.ucsd.edu/undergrad/curriculum/geosciences",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://scripps.ucsd.edu/undergrad/curriculum/geosciences",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-marine-biology-major",
+      "institution_id": "ucsd",
+      "name": "Marine Biology",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://scripps.ucsd.edu/undergrad/curriculum/marine-biology",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://scripps.ucsd.edu/undergrad/curriculum/marine-biology",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-oceanic-and-atmospheric-sciences-major",
+      "institution_id": "ucsd",
+      "name": "Oceanic & Atmospheric Sciences",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://scripps.ucsd.edu/undergrad/curriculum/ocean-and-atmospheric-sciences",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://scripps.ucsd.edu/undergrad/curriculum/ocean-and-atmospheric-sciences",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-anthropology-b-a-with-a-concentration-in-biological-anthropology-major",
+      "institution_id": "ucsd",
+      "name": "Anthropology B.A. with a Concentration in Biological Anthropology",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://anthropology.ucsd.edu/undergraduate-studies/major-minor/B.A.%20Anthropology%20-%20Biological%20Concentration.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://anthropology.ucsd.edu/undergraduate-studies/major-minor/B.A.%20Anthropology%20-%20Biological%20Concentration.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-anthropology-b-a-with-a-concentration-in-climate-change-and-human-solutions-major",
+      "institution_id": "ucsd",
+      "name": "Anthropology B.A. with a Concentration in Climate Change and Human Solutions",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://anthropology.ucsd.edu/undergraduate-studies/major-minor/B.A.%20Anthropology%20-%20Climate%20Change%20and%20Human%20Solutions%20Concentration.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://anthropology.ucsd.edu/undergraduate-studies/major-minor/B.A.%20Anthropology%20-%20Climate%20Change%20and%20Human%20Solutions%20Concentration.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-anthropology-b-a-with-a-concentration-in-archaeology-major",
+      "institution_id": "ucsd",
+      "name": "Anthropology B.A. with a Concentration in Archaeology",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://anthropology.ucsd.edu/undergraduate-studies/major-minor/B.A.%20Anthropology%20-%20Archaeology%20Concentration.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://anthropology.ucsd.edu/undergraduate-studies/major-minor/B.A.%20Anthropology%20-%20Archaeology%20Concentration.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-anthropology-b-a-with-a-concentration-in-sociocultural-anthropology-major",
+      "institution_id": "ucsd",
+      "name": "Anthropology B.A. with a Concentration in Sociocultural Anthropology",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://anthropology.ucsd.edu/undergraduate-studies/major-minor/B.A.%20Anthropology%20-%20Sociocultural%20Concentration.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://anthropology.ucsd.edu/undergraduate-studies/major-minor/B.A.%20Anthropology%20-%20Sociocultural%20Concentration.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-biological-anthropology-b-s-b-s",
+      "institution_id": "ucsd",
+      "name": "Biological Anthropology B.S.",
+      "degree_level": "Undergraduate",
+      "award": "B.S.",
+      "official_url": "https://anthropology.ucsd.edu/undergraduate-studies/major-minor/B.S.%20Biological%20Anthropology.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://anthropology.ucsd.edu/undergraduate-studies/major-minor/B.S.%20Biological%20Anthropology.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-environmental-anthropology-b-s-b-s",
+      "institution_id": "ucsd",
+      "name": "Environmental Anthropology B.S.",
+      "degree_level": "Undergraduate",
+      "award": "B.S.",
+      "official_url": "https://anthropology.ucsd.edu/undergraduate-studies/major-minor/b.s.-environmental-anthropology.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://anthropology.ucsd.edu/undergraduate-studies/major-minor/b.s.-environmental-anthropology.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-cognitive-science-b-a-b-a",
+      "institution_id": "ucsd",
+      "name": "Cognitive Science B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://www.cogsci.ucsd.edu/undergraduates/major/ba-cogsci.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.cogsci.ucsd.edu/undergraduates/major/ba-cogsci.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-cognitive-science-b-s-b-s",
+      "institution_id": "ucsd",
+      "name": "Cognitive Science B.S.",
+      "degree_level": "Undergraduate",
+      "award": "B.S.",
+      "official_url": "https://cogsci.ucsd.edu/undergraduates/major/bs-cogsci.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cogsci.ucsd.edu/undergraduates/major/bs-cogsci.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-cognitive-science-b-s-with-specialization-in-neuroscience-major",
+      "institution_id": "ucsd",
+      "name": "Cognitive Science B.S. with Specialization in Neuroscience",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://cogsci.ucsd.edu/undergraduates/major/neuroscience.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cogsci.ucsd.edu/undergraduates/major/neuroscience.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-cognitive-science-b-s-with-specialization-in-clinical-aspects-of-cognition-major",
+      "institution_id": "ucsd",
+      "name": "Cognitive Science B.S. with Specialization in Clinical Aspects of Cognition",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://cogsci.ucsd.edu/undergraduates/major/clinical.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cogsci.ucsd.edu/undergraduates/major/clinical.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-cognitive-science-b-s-with-specialization-in-design-and-interaction-major",
+      "institution_id": "ucsd",
+      "name": "Cognitive Science B.S. with Specialization in Design and Interaction",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://cogsci.ucsd.edu/undergraduates/major/design-interaction.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cogsci.ucsd.edu/undergraduates/major/design-interaction.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-cognitive-science-b-s-with-specialization-in-language-and-culture-major",
+      "institution_id": "ucsd",
+      "name": "Cognitive Science B.S. with Specialization in Language and Culture",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://cogsci.ucsd.edu/undergraduates/major/language.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cogsci.ucsd.edu/undergraduates/major/language.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-cognitive-science-b-s-with-specialization-in-machine-learning-and-neural-computation-major",
+      "institution_id": "ucsd",
+      "name": "Cognitive Science B.S. with Specialization in Machine Learning and Neural Computation",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://cogsci.ucsd.edu/undergraduates/major/machine-learning.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cogsci.ucsd.edu/undergraduates/major/machine-learning.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-cognitive-and-behavioral-neuroscience-b-s-b-s",
+      "institution_id": "ucsd",
+      "name": "Cognitive and Behavioral Neuroscience B.S.",
+      "degree_level": "Undergraduate",
+      "award": "B.S.",
+      "official_url": "https://cogsci.ucsd.edu/undergraduates/major/cbn.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cogsci.ucsd.edu/undergraduates/major/cbn.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-communication-b-a-b-a",
+      "institution_id": "ucsd",
+      "name": "Communication B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://communication.ucsd.edu/undergrad/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://communication.ucsd.edu/undergrad/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-media-industries-and-communication-b-a-b-a",
+      "institution_id": "ucsd",
+      "name": "Media Industries and Communication B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://communication.ucsd.edu/undergrad/degree-programs/mic-major.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://communication.ucsd.edu/undergrad/degree-programs/mic-major.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-critical-gender-studies-b-a-b-a",
+      "institution_id": "ucsd",
+      "name": "Critical Gender Studies B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://cgs.ucsd.edu/ug-prog/major/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cgs.ucsd.edu/ug-prog/major/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-business-economics-b-s-b-s",
+      "institution_id": "ucsd",
+      "name": "Business Economics B.S.",
+      "degree_level": "Undergraduate",
+      "award": "B.S.",
+      "official_url": "https://economics.ucsd.edu/undergraduate-program/major-minor-requirements/BusEcon.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://economics.ucsd.edu/undergraduate-program/major-minor-requirements/BusEcon.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-economics-b-a-b-a",
+      "institution_id": "ucsd",
+      "name": "Economics B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://economics.ucsd.edu/undergraduate-program/major-minor-requirements/economics-major-ba.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://economics.ucsd.edu/undergraduate-program/major-minor-requirements/economics-major-ba.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-joint-major-mathematics-and-economics-b-s-b-s",
+      "institution_id": "ucsd",
+      "name": "Joint Major Mathematics & Economics B.S.",
+      "degree_level": "Undergraduate",
+      "award": "B.S.",
+      "official_url": "https://economics.ucsd.edu/undergraduate-program/major-minor-requirements/joint-econ-math-major-ba.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://economics.ucsd.edu/undergraduate-program/major-minor-requirements/joint-econ-math-major-ba.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-education-sciences-b-s-b-s",
+      "institution_id": "ucsd",
+      "name": "Education Sciences B.S.",
+      "degree_level": "Undergraduate",
+      "award": "B.S.",
+      "official_url": "https://eds.ucsd.edu/undergraduate/major.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://eds.ucsd.edu/undergraduate/major.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-ethnic-studies-b-a-b-a",
+      "institution_id": "ucsd",
+      "name": "Ethnic Studies B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://ethnicstudies.ucsd.edu/undergraduate-program/major.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://ethnicstudies.ucsd.edu/undergraduate-program/major.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-global-health-b-a-b-a",
+      "institution_id": "ucsd",
+      "name": "Global Health B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://globalhealthprogram.ucsd.edu/undergraduate-program/major.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://globalhealthprogram.ucsd.edu/undergraduate-program/major.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-global-health-b-s-b-s",
+      "institution_id": "ucsd",
+      "name": "Global Health B.S.",
+      "degree_level": "Undergraduate",
+      "award": "B.S.",
+      "official_url": "https://globalhealthprogram.ucsd.edu/undergraduate-program/major.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://globalhealthprogram.ucsd.edu/undergraduate-program/major.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-human-developmental-sciences-b-a-b-a",
+      "institution_id": "ucsd",
+      "name": "Human Developmental Sciences B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://hdp.ucsd.edu/undergraduate-program/ba-requirements/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://hdp.ucsd.edu/undergraduate-program/ba-requirements/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-human-developmental-sciences-b-s-b-s",
+      "institution_id": "ucsd",
+      "name": "Human Developmental Sciences B.S.",
+      "degree_level": "Undergraduate",
+      "award": "B.S.",
+      "official_url": "https://hdp.ucsd.edu/undergraduate-program/bs-requirements/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://hdp.ucsd.edu/undergraduate-program/bs-requirements/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-human-developmental-sciences-with-a-specialization-in-equity-and-diversity-b-s-b-s",
+      "institution_id": "ucsd",
+      "name": "Human Developmental Sciences with a Specialization in Equity and Diversity B.S.",
+      "degree_level": "Undergraduate",
+      "award": "B.S.",
+      "official_url": "https://hdp.ucsd.edu/undergraduate-program/bs-ed-requirements/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://hdp.ucsd.edu/undergraduate-program/bs-ed-requirements/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-human-developmental-sciences-with-a-specialization-in-healthy-aging-b-s-b-s",
+      "institution_id": "ucsd",
+      "name": "Human Developmental Sciences with a Specialization in Healthy Aging B.S.",
+      "degree_level": "Undergraduate",
+      "award": "B.S.",
+      "official_url": "https://hdp.ucsd.edu/undergraduate-program/bs-ha-requirements/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://hdp.ucsd.edu/undergraduate-program/bs-ha-requirements/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-international-studies-anthropology-major",
+      "institution_id": "ucsd",
+      "name": "International Studies—Anthropology",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://isp.ucsd.edu/undergraduate-programs/bachelor-arts/anthropology/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://isp.ucsd.edu/undergraduate-programs/bachelor-arts/anthropology/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-international-studies-economics-major",
+      "institution_id": "ucsd",
+      "name": "International Studies—Economics",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://isp.ucsd.edu/undergraduate-programs/bachelor-arts/economics/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://isp.ucsd.edu/undergraduate-programs/bachelor-arts/economics/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-international-studies-history-major",
+      "institution_id": "ucsd",
+      "name": "International Studies—History",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://isp.ucsd.edu/undergraduate-programs/bachelor-arts/history/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://isp.ucsd.edu/undergraduate-programs/bachelor-arts/history/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-international-studies-international-business-major",
+      "institution_id": "ucsd",
+      "name": "International Studies—International Business",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://isp.ucsd.edu/undergraduate-programs/bachelor-arts/international-business/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://isp.ucsd.edu/undergraduate-programs/bachelor-arts/international-business/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-international-studies-linguistics-major",
+      "institution_id": "ucsd",
+      "name": "International Studies—Linguistics",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://isp.ucsd.edu/undergraduate-programs/bachelor-arts/linguistics/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://isp.ucsd.edu/undergraduate-programs/bachelor-arts/linguistics/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-international-studies-literature-major",
+      "institution_id": "ucsd",
+      "name": "International Studies—Literature",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://isp.ucsd.edu/undergraduate-programs/bachelor-arts/literature/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://isp.ucsd.edu/undergraduate-programs/bachelor-arts/literature/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-international-studies-philosophy-major",
+      "institution_id": "ucsd",
+      "name": "International Studies—Philosophy",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://isp.ucsd.edu/undergraduate-programs/bachelor-arts/philosophy/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://isp.ucsd.edu/undergraduate-programs/bachelor-arts/philosophy/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-international-studies-political-science-major",
+      "institution_id": "ucsd",
+      "name": "International Studies—Political Science",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://isp.ucsd.edu/undergraduate-programs/bachelor-arts/political-science/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://isp.ucsd.edu/undergraduate-programs/bachelor-arts/political-science/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-international-studies-sociology-major",
+      "institution_id": "ucsd",
+      "name": "International Studies—Sociology",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://isp.ucsd.edu/undergraduate-programs/bachelor-arts/sociology/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://isp.ucsd.edu/undergraduate-programs/bachelor-arts/sociology/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-latin-american-studies-b-a-b-a",
+      "institution_id": "ucsd",
+      "name": "Latin American Studies B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://las.ucsd.edu/undergraduate/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://las.ucsd.edu/undergraduate/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-latin-american-studies-b-a-with-a-concentration-in-mexico-major",
+      "institution_id": "ucsd",
+      "name": "Latin American Studies B.A. with a Concentration in Mexico",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://las.ucsd.edu/undergraduate/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://las.ucsd.edu/undergraduate/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-latin-american-studies-b-a-with-a-concentration-in-migration-and-border-studies-major",
+      "institution_id": "ucsd",
+      "name": "Latin American Studies B.A. with a Concentration in Migration and Border Studies",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://las.ucsd.edu/undergraduate/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://las.ucsd.edu/undergraduate/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-linguistics-b-a-b-a",
+      "institution_id": "ucsd",
+      "name": "Linguistics B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://linguistics.ucsd.edu/undergrad/majors/general-linguistics.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://linguistics.ucsd.edu/undergrad/majors/general-linguistics.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-linguistics-b-a-language-and-society-major",
+      "institution_id": "ucsd",
+      "name": "Linguistics B.A. - Language and Society",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://linguistics.ucsd.edu/undergrad/majors/language-society.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://linguistics.ucsd.edu/undergrad/majors/language-society.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-linguistics-b-a-cognition-and-language-major",
+      "institution_id": "ucsd",
+      "name": "Linguistics B.A. - Cognition and Language",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://linguistics.ucsd.edu/undergrad/majors/cognition-language.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://linguistics.ucsd.edu/undergrad/majors/cognition-language.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-linguistics-b-a-language-studies-major",
+      "institution_id": "ucsd",
+      "name": "Linguistics B.A. - Language Studies",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://linguistics.ucsd.edu/undergrad/majors/language-studies.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://linguistics.ucsd.edu/undergrad/majors/language-studies.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-linguistics-b-a-speech-and-language-sciences-major",
+      "institution_id": "ucsd",
+      "name": "Linguistics B.A. - Speech and Language Sciences",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://linguistics.ucsd.edu/undergrad/majors/speech-language.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://linguistics.ucsd.edu/undergrad/majors/speech-language.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-political-science-general-political-science-b-a-b-a",
+      "institution_id": "ucsd",
+      "name": "Political Science - General Political Science B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://polisci.ucsd.edu/undergrad/major-and-minor-requirements/general.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://polisci.ucsd.edu/undergrad/major-and-minor-requirements/general.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-political-science-american-politics-b-a-b-a",
+      "institution_id": "ucsd",
+      "name": "Political Science - American Politics B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://polisci.ucsd.edu/undergrad/major-and-minor-requirements/american.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://polisci.ucsd.edu/undergrad/major-and-minor-requirements/american.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-political-science-comparative-politics-b-a-b-a",
+      "institution_id": "ucsd",
+      "name": "Political Science - Comparative Politics B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://polisci.ucsd.edu/undergrad/major-and-minor-requirements/comparative.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://polisci.ucsd.edu/undergrad/major-and-minor-requirements/comparative.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-political-science-data-analytics-b-s-b-s",
+      "institution_id": "ucsd",
+      "name": "Political Science - Data Analytics B.S.",
+      "degree_level": "Undergraduate",
+      "award": "B.S.",
+      "official_url": "https://polisci.ucsd.edu/undergrad/major-and-minor-requirements/data_analytics.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://polisci.ucsd.edu/undergrad/major-and-minor-requirements/data_analytics.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-political-science-international-relations-b-a-b-a",
+      "institution_id": "ucsd",
+      "name": "Political Science - International Relations B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://polisci.ucsd.edu/undergrad/major-and-minor-requirements/international_relations.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://polisci.ucsd.edu/undergrad/major-and-minor-requirements/international_relations.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-political-science-political-theory-b-a-b-a",
+      "institution_id": "ucsd",
+      "name": "Political Science - Political Theory B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://polisci.ucsd.edu/undergrad/major-and-minor-requirements/political_theory.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://polisci.ucsd.edu/undergrad/major-and-minor-requirements/political_theory.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-political-science-public-law-b-a-b-a",
+      "institution_id": "ucsd",
+      "name": "Political Science - Public Law B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://polisci.ucsd.edu/undergrad/major-and-minor-requirements/public_law.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://polisci.ucsd.edu/undergrad/major-and-minor-requirements/public_law.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-political-science-public-policy-b-a-b-a",
+      "institution_id": "ucsd",
+      "name": "Political Science - Public Policy B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://polisci.ucsd.edu/undergrad/major-and-minor-requirements/public_policy.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://polisci.ucsd.edu/undergrad/major-and-minor-requirements/public_policy.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-political-science-race-ethnicity-and-politics-b-a-b-a",
+      "institution_id": "ucsd",
+      "name": "Political Science - Race, Ethnicity, and Politics B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://polisci.ucsd.edu/undergrad/major-and-minor-requirements/race_ethnicity_politics.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://polisci.ucsd.edu/undergrad/major-and-minor-requirements/race_ethnicity_politics.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-psychology-b-a-b-a",
+      "institution_id": "ucsd",
+      "name": "Psychology B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://psychology.ucsd.edu/undergraduate-program/majors-effective-fall-2018/ba_degree_2018.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://psychology.ucsd.edu/undergraduate-program/majors-effective-fall-2018/ba_degree_2018.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-psychology-b-s-b-s",
+      "institution_id": "ucsd",
+      "name": "Psychology B.S.",
+      "degree_level": "Undergraduate",
+      "award": "B.S.",
+      "official_url": "https://psychology.ucsd.edu/undergraduate-program/majors-effective-fall-2018/bs_degree_2018.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://psychology.ucsd.edu/undergraduate-program/majors-effective-fall-2018/bs_degree_2018.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-psychology-b-s-with-a-specialization-in-clinical-psychology-major",
+      "institution_id": "ucsd",
+      "name": "Psychology B.S. with a Specialization in Clinical Psychology",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://psychology.ucsd.edu/undergraduate-program/majors-effective-fall-2018/clinical_2018.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://psychology.ucsd.edu/undergraduate-program/majors-effective-fall-2018/clinical_2018.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-psychology-b-s-with-a-specialization-in-cognitive-psychology-major",
+      "institution_id": "ucsd",
+      "name": "Psychology B.S. with a Specialization in Cognitive Psychology",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://psychology.ucsd.edu/undergraduate-program/majors-effective-fall-2018/cognitive_2018.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://psychology.ucsd.edu/undergraduate-program/majors-effective-fall-2018/cognitive_2018.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-psychology-b-s-with-a-specialization-in-developmental-psychology-major",
+      "institution_id": "ucsd",
+      "name": "Psychology B.S. with a Specialization in Developmental Psychology",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://psychology.ucsd.edu/undergraduate-program/majors-effective-fall-2018/developmental_2018.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://psychology.ucsd.edu/undergraduate-program/majors-effective-fall-2018/developmental_2018.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-psychology-b-s-with-a-specialization-in-human-health-major",
+      "institution_id": "ucsd",
+      "name": "Psychology B.S. with a Specialization in Human Health",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://psychology.ucsd.edu/undergraduate-program/majors-effective-fall-2018/human_health_2018.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://psychology.ucsd.edu/undergraduate-program/majors-effective-fall-2018/human_health_2018.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-psychology-b-s-with-a-specialization-in-sensation-and-perception-major",
+      "institution_id": "ucsd",
+      "name": "Psychology B.S. with a Specialization in Sensation and Perception",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://psychology.ucsd.edu/undergraduate-program/majors-effective-fall-2018/sensation_perception_2018.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://psychology.ucsd.edu/undergraduate-program/majors-effective-fall-2018/sensation_perception_2018.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-psychology-b-s-with-a-specialization-in-social-psychology-major",
+      "institution_id": "ucsd",
+      "name": "Psychology B.S. with a Specialization in Social Psychology",
+      "degree_level": "Undergraduate",
+      "award": "Major",
+      "official_url": "https://psychology.ucsd.edu/undergraduate-program/majors-effective-fall-2018/social_2018.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://psychology.ucsd.edu/undergraduate-program/majors-effective-fall-2018/social_2018.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-cognitive-and-behavioral-neuroscience-b-s-b-s-cbn-2018-html",
+      "institution_id": "ucsd",
+      "name": "Cognitive and Behavioral Neuroscience B.S.",
+      "degree_level": "Undergraduate",
+      "award": "B.S.",
+      "official_url": "https://psychology.ucsd.edu/undergraduate-program/majors-effective-fall-2018/cbn_2018.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://psychology.ucsd.edu/undergraduate-program/majors-effective-fall-2018/cbn_2018.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-business-psychology-b-s-b-s",
+      "institution_id": "ucsd",
+      "name": "Business Psychology B.S.",
+      "degree_level": "Undergraduate",
+      "award": "B.S.",
+      "official_url": "https://psychology.ucsd.edu/undergraduate-program/majors-effective-fall-2018/business_2018.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://psychology.ucsd.edu/undergraduate-program/majors-effective-fall-2018/business_2018.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-sociology-b-a-b-a",
+      "institution_id": "ucsd",
+      "name": "Sociology B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://sociology.ucsd.edu/undergraduate/info-major-minor.html#The-Sociology-Major",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://sociology.ucsd.edu/undergraduate/info-major-minor.html#The-Sociology-Major",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-sociology-american-studies-b-a-b-a",
+      "institution_id": "ucsd",
+      "name": "Sociology - American Studies B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://sociology.ucsd.edu/undergraduate/info-major-minor.html#The-Sociology-Major",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://sociology.ucsd.edu/undergraduate/info-major-minor.html#The-Sociology-Major",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-sociology-culture-and-communication-b-a-b-a",
+      "institution_id": "ucsd",
+      "name": "Sociology - Culture and Communication B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://sociology.ucsd.edu/undergraduate/info-major-minor.html#The-Sociology-Major",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://sociology.ucsd.edu/undergraduate/info-major-minor.html#The-Sociology-Major",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-sociology-economy-and-society-b-a-b-a",
+      "institution_id": "ucsd",
+      "name": "Sociology - Economy and Society B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://sociology.ucsd.edu/undergraduate/info-major-minor.html#The-Sociology-Major",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://sociology.ucsd.edu/undergraduate/info-major-minor.html#The-Sociology-Major",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-sociology-international-studies-b-a-b-a",
+      "institution_id": "ucsd",
+      "name": "Sociology - International Studies B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://sociology.ucsd.edu/undergraduate/info-major-minor.html#The-Sociology-Major",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://sociology.ucsd.edu/undergraduate/info-major-minor.html#The-Sociology-Major",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-sociology-law-and-society-b-a-b-a",
+      "institution_id": "ucsd",
+      "name": "Sociology - Law and Society B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://sociology.ucsd.edu/undergraduate/info-major-minor.html#The-Sociology-Major",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://sociology.ucsd.edu/undergraduate/info-major-minor.html#The-Sociology-Major",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-sociology-science-and-medicine-b-a-b-a",
+      "institution_id": "ucsd",
+      "name": "Sociology - Science and Medicine B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://sociology.ucsd.edu/undergraduate/info-major-minor.html#The-Sociology-Major",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://sociology.ucsd.edu/undergraduate/info-major-minor.html#The-Sociology-Major",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-sociology-social-inequalities-b-a-b-a",
+      "institution_id": "ucsd",
+      "name": "Sociology - Social Inequalities B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://sociology.ucsd.edu/undergraduate/info-major-minor.html#The-Sociology-Major",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://sociology.ucsd.edu/undergraduate/info-major-minor.html#The-Sociology-Major",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-urban-studies-and-planning-b-a-b-a",
+      "institution_id": "ucsd",
+      "name": "Urban Studies and Planning B.A.",
+      "degree_level": "Undergraduate",
+      "award": "B.A.",
+      "official_url": "https://usp.ucsd.edu/undergraduate/usp/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://usp.ucsd.edu/undergraduate/usp/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-un-real-estate-and-development-b-s-b-s",
+      "institution_id": "ucsd",
+      "name": "Real Estate and Development B.S.",
+      "degree_level": "Undergraduate",
+      "award": "B.S.",
+      "official_url": "https://usp.ucsd.edu/undergraduate/red/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://usp.ucsd.edu/undergraduate/red/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego admissions undergraduate majors row"
+      }
+    },
+    {
+      "id": "ucsd-po-anthropology-graduate",
+      "institution_id": "ucsd",
+      "name": "Anthropology",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://anthropology.ucsd.edu/graduate-studies/Admissions/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://anthropology.ucsd.edu/graduate-studies/Admissions/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego graduate admissions all-programs row"
+      }
+    },
+    {
+      "id": "ucsd-po-astronomy-graduate",
+      "institution_id": "ucsd",
+      "name": "Astronomy",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://astronomy.ucsd.edu/admissions/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://astronomy.ucsd.edu/admissions/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego graduate admissions all-programs row"
+      }
+    },
+    {
+      "id": "ucsd-po-audiology-joint-doctoral-program-with-sdsu-joint-doctoral-program-with-sdsu",
+      "institution_id": "ucsd",
+      "name": "Audiology (Joint Doctoral Program with SDSU)",
+      "degree_level": "Postgraduate",
+      "award": "Joint Doctoral Program with SDSU",
+      "official_url": "https://jacobsschool.ucsd.edu/mas/aese/admissions",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://jacobsschool.ucsd.edu/mas/aese/admissions",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego graduate admissions all-programs row"
+      }
+    },
+    {
+      "id": "ucsd-po-bioengineering-graduate",
+      "institution_id": "ucsd",
+      "name": "Bioengineering",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://be.ucsd.edu/grad/prospective-students",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://be.ucsd.edu/grad/prospective-students",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego graduate admissions all-programs row"
+      }
+    },
+    {
+      "id": "ucsd-po-bioinformatics-and-systems-biology-graduate",
+      "institution_id": "ucsd",
+      "name": "Bioinformatics & Systems Biology",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://bioinformatics.ucsd.edu/node/13",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bioinformatics.ucsd.edu/node/13",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego graduate admissions all-programs row"
+      }
+    },
+    {
+      "id": "ucsd-po-biology-graduate",
+      "institution_id": "ucsd",
+      "name": "Biology",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://biology.ucsd.edu/education/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://biology.ucsd.edu/education/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego graduate admissions all-programs row"
+      }
+    },
+    {
+      "id": "ucsd-po-biomedical-sciences-graduate",
+      "institution_id": "ucsd",
+      "name": "Biomedical Sciences",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://biomedsci.ucsd.edu/how-to-apply/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://biomedsci.ucsd.edu/how-to-apply/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego graduate admissions all-programs row"
+      }
+    },
+    {
+      "id": "ucsd-po-biostatistics-graduate",
+      "institution_id": "ucsd",
+      "name": "Biostatistics",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://ph.ucsd.edu/biostat/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://ph.ucsd.edu/biostat/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego graduate admissions all-programs row"
+      }
+    },
+    {
+      "id": "ucsd-po-chemistry-and-biochemistry-graduate",
+      "institution_id": "ucsd",
+      "name": "Chemistry & Biochemistry",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://chemistry.ucsd.edu/graduate-program/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://chemistry.ucsd.edu/graduate-program/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego graduate admissions all-programs row"
+      }
+    },
+    {
+      "id": "ucsd-po-clinical-psychology-joint-doctoral-program-with-sdsu-joint-doctoral-program-with-sdsu",
+      "institution_id": "ucsd",
+      "name": "Clinical Psychology (Joint Doctoral Program with SDSU)",
+      "degree_level": "Postgraduate",
+      "award": "Joint Doctoral Program with SDSU",
+      "official_url": "https://csp.ucsd.edu/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://csp.ucsd.edu/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego graduate admissions all-programs row"
+      }
+    },
+    {
+      "id": "ucsd-po-clinical-research-graduate",
+      "institution_id": "ucsd",
+      "name": "Clinical Research",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://clre.ucsd.edu/application-requirements/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://clre.ucsd.edu/application-requirements/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego graduate admissions all-programs row"
+      }
+    },
+    {
+      "id": "ucsd-po-cognitive-sciences-graduate",
+      "institution_id": "ucsd",
+      "name": "Cognitive Sciences",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://cogsci.ucsd.edu/graduates/phd-program/admissions/index.html#Admission-Information",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cogsci.ucsd.edu/graduates/phd-program/admissions/index.html#Admission-Information",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego graduate admissions all-programs row"
+      }
+    },
+    {
+      "id": "ucsd-po-communication-graduate",
+      "institution_id": "ucsd",
+      "name": "Communication",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://communication.ucsd.edu/graduate/grad-admissions.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://communication.ucsd.edu/graduate/grad-admissions.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego graduate admissions all-programs row"
+      }
+    },
+    {
+      "id": "ucsd-po-computational-social-science-graduate",
+      "institution_id": "ucsd",
+      "name": "Computational Social Science",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://css.ucsd.edu/masters/Prospectives.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://css.ucsd.edu/masters/Prospectives.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego graduate admissions all-programs row"
+      }
+    },
+    {
+      "id": "ucsd-po-computer-science-and-engineering-graduate",
+      "institution_id": "ucsd",
+      "name": "Computer Science and Engineering",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://cse.ucsd.edu/graduate/ucsd-cse-graduate-admissions",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cse.ucsd.edu/graduate/ucsd-cse-graduate-admissions",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego graduate admissions all-programs row"
+      }
+    },
+    {
+      "id": "ucsd-po-data-science-graduate",
+      "institution_id": "ucsd",
+      "name": "Data Science",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://jacobsschool.ucsd.edu/mas/admissions",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://jacobsschool.ucsd.edu/mas/admissions",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego graduate admissions all-programs row"
+      }
+    },
+    {
+      "id": "ucsd-po-drug-development-and-product-management-graduate",
+      "institution_id": "ucsd",
+      "name": "Drug Development and Product Management",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://jacobsschool.ucsd.edu/mas/dse/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://jacobsschool.ucsd.edu/mas/dse/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego graduate admissions all-programs row"
+      }
+    },
+    {
+      "id": "ucsd-po-economics-graduate",
+      "institution_id": "ucsd",
+      "name": "Economics",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://economics.ucsd.edu/graduate-program/prospective-students/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://economics.ucsd.edu/graduate-program/prospective-students/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego graduate admissions all-programs row"
+      }
+    },
+    {
+      "id": "ucsd-po-education-studies-graduate",
+      "institution_id": "ucsd",
+      "name": "Education Studies",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://eds.ucsd.edu/graduate/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://eds.ucsd.edu/graduate/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego graduate admissions all-programs row"
+      }
+    },
+    {
+      "id": "ucsd-po-electrical-and-computer-engineering-graduate",
+      "institution_id": "ucsd",
+      "name": "Electrical and Computer Engineering",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://www.ece.ucsd.edu/graduate/graduate-admissions",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.ece.ucsd.edu/graduate/graduate-admissions",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego graduate admissions all-programs row"
+      }
+    },
+    {
+      "id": "ucsd-po-ethnic-studies-graduate",
+      "institution_id": "ucsd",
+      "name": "Ethnic Studies",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://ethnicstudies.ucsd.edu/graduate-studies/admissions.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://ethnicstudies.ucsd.edu/graduate-studies/admissions.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego graduate admissions all-programs row"
+      }
+    },
+    {
+      "id": "ucsd-po-global-health-graduate",
+      "institution_id": "ucsd",
+      "name": "Global Health",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://globalhealthprogram.ucsd.edu/graduate/admissions.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://globalhealthprogram.ucsd.edu/graduate/admissions.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego graduate admissions all-programs row"
+      }
+    },
+    {
+      "id": "ucsd-po-history-graduate",
+      "institution_id": "ucsd",
+      "name": "History",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://history.ucsd.edu/graduate/prospective.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://history.ucsd.edu/graduate/prospective.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego graduate admissions all-programs row"
+      }
+    },
+    {
+      "id": "ucsd-po-interdisciplinary-research-on-substance-use-joint-doctoral-program-with-sdsu-joint-doctoral-program-with-sdsu",
+      "institution_id": "ucsd",
+      "name": "Interdisciplinary Research on Substance Use (Joint Doctoral Program with SDSU)",
+      "degree_level": "Postgraduate",
+      "award": "Joint Doctoral Program with SDSU",
+      "official_url": "https://chhs.sdsu.edu/irsu/application/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://chhs.sdsu.edu/irsu/application/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego graduate admissions all-programs row"
+      }
+    },
+    {
+      "id": "ucsd-po-language-and-communicative-disorders-joint-doctoral-program-with-sdsu-joint-doctoral-program-with-sdsu",
+      "institution_id": "ucsd",
+      "name": "Language and Communicative Disorders (Joint Doctoral Program with SDSU)",
+      "degree_level": "Postgraduate",
+      "award": "Joint Doctoral Program with SDSU",
+      "official_url": "https://slhs.sdsu.edu/phd/admissions/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://slhs.sdsu.edu/phd/admissions/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego graduate admissions all-programs row"
+      }
+    },
+    {
+      "id": "ucsd-po-latin-american-studies-graduate",
+      "institution_id": "ucsd",
+      "name": "Latin American Studies",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://las.ucsd.edu/graduate/admission/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://las.ucsd.edu/graduate/admission/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego graduate admissions all-programs row"
+      }
+    },
+    {
+      "id": "ucsd-po-linguistics-graduate",
+      "institution_id": "ucsd",
+      "name": "Linguistics",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://linguistics.ucsd.edu/grad/application.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://linguistics.ucsd.edu/grad/application.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego graduate admissions all-programs row"
+      }
+    },
+    {
+      "id": "ucsd-po-literature-graduate",
+      "institution_id": "ucsd",
+      "name": "Literature",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://literature.ucsd.edu/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://literature.ucsd.edu/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego graduate admissions all-programs row"
+      }
+    },
+    {
+      "id": "ucsd-po-materials-science-and-engineering-graduate",
+      "institution_id": "ucsd",
+      "name": "Materials Science and Engineering",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://mbc.ucsd.edu/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://mbc.ucsd.edu/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego graduate admissions all-programs row"
+      }
+    },
+    {
+      "id": "ucsd-po-mathematics-graduate",
+      "institution_id": "ucsd",
+      "name": "Mathematics",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://math.ucsd.edu/students/graduate/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://math.ucsd.edu/students/graduate/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego graduate admissions all-programs row"
+      }
+    },
+    {
+      "id": "ucsd-po-mathematics-and-science-education-graduate",
+      "institution_id": "ucsd",
+      "name": "Mathematics & Science Education",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://sci.sdsu.edu/crmse/msed/admissions.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://sci.sdsu.edu/crmse/msed/admissions.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego graduate admissions all-programs row"
+      }
+    },
+    {
+      "id": "ucsd-po-mechanical-and-aerospace-engineering-graduate",
+      "institution_id": "ucsd",
+      "name": "Mechanical and Aerospace Engineering",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://maeweb.ucsd.edu/grad/graduate-admissions",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://maeweb.ucsd.edu/grad/graduate-admissions",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego graduate admissions all-programs row"
+      }
+    },
+    {
+      "id": "ucsd-po-music-graduate",
+      "institution_id": "ucsd",
+      "name": "Music",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://music-cms.ucsd.edu/grad/admissions.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://music-cms.ucsd.edu/grad/admissions.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego graduate admissions all-programs row"
+      }
+    },
+    {
+      "id": "ucsd-po-nanoengineering-chemical-engineering-graduate",
+      "institution_id": "ucsd",
+      "name": "Nanoengineering / Chemical Engineering",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://ne.ucsd.edu/graduate-programs/admissions/faqs",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://ne.ucsd.edu/graduate-programs/admissions/faqs",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego graduate admissions all-programs row"
+      }
+    },
+    {
+      "id": "ucsd-po-neurosciences-graduate",
+      "institution_id": "ucsd",
+      "name": "Neurosciences",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://neurograd.ucsd.edu/apply/application-info.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://neurograd.ucsd.edu/apply/application-info.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego graduate admissions all-programs row"
+      }
+    },
+    {
+      "id": "ucsd-po-philosophy-graduate",
+      "institution_id": "ucsd",
+      "name": "Philosophy",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://philosophy.ucsd.edu/graduate/prospective.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://philosophy.ucsd.edu/graduate/prospective.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego graduate admissions all-programs row"
+      }
+    },
+    {
+      "id": "ucsd-po-physics-graduate",
+      "institution_id": "ucsd",
+      "name": "Physics",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://physics.ucsd.edu/Student/Prospective/Graduate/Program/Admission/Requirements",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://physics.ucsd.edu/Student/Prospective/Graduate/Program/Admission/Requirements",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego graduate admissions all-programs row"
+      }
+    },
+    {
+      "id": "ucsd-po-political-science-graduate",
+      "institution_id": "ucsd",
+      "name": "Political Science",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://polisci.ucsd.edu/grad/prospective-students/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://polisci.ucsd.edu/grad/prospective-students/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego graduate admissions all-programs row"
+      }
+    },
+    {
+      "id": "ucsd-po-precision-medicine-therapeutics-in-oncology-graduate",
+      "institution_id": "ucsd",
+      "name": "Precision Medicine Therapeutics in Oncology",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://pmto.ucsd.edu/apply/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://pmto.ucsd.edu/apply/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego graduate admissions all-programs row"
+      }
+    },
+    {
+      "id": "ucsd-po-psychology-graduate",
+      "institution_id": "ucsd",
+      "name": "Psychology",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://psychology.ucsd.edu/graduate-program/prospective-students/admissions.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://psychology.ucsd.edu/graduate-program/prospective-students/admissions.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego graduate admissions all-programs row"
+      }
+    },
+    {
+      "id": "ucsd-po-public-health-graduate",
+      "institution_id": "ucsd",
+      "name": "Public Health",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://ph.ucsd.edu/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://ph.ucsd.edu/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego graduate admissions all-programs row"
+      }
+    },
+    {
+      "id": "ucsd-po-rady-school-of-management-graduate",
+      "institution_id": "ucsd",
+      "name": "Rady School of Management",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://ph.ucsd.edu/jdp/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://ph.ucsd.edu/jdp/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego graduate admissions all-programs row"
+      }
+    },
+    {
+      "id": "ucsd-po-school-of-global-policy-and-strategy-graduate",
+      "institution_id": "ucsd",
+      "name": "School of Global Policy and Strategy",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://gps.ucsd.edu/admissions/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://gps.ucsd.edu/admissions/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego graduate admissions all-programs row"
+      }
+    },
+    {
+      "id": "ucsd-po-scripps-institution-of-oceanography-graduate",
+      "institution_id": "ucsd",
+      "name": "Scripps Institution of Oceanography",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://scripps.ucsd.edu/education",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://scripps.ucsd.edu/education",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego graduate admissions all-programs row"
+      }
+    },
+    {
+      "id": "ucsd-po-sociology-graduate",
+      "institution_id": "ucsd",
+      "name": "Sociology",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://sociology.ucsd.edu/graduate/admissions.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://sociology.ucsd.edu/graduate/admissions.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego graduate admissions all-programs row"
+      }
+    },
+    {
+      "id": "ucsd-po-structural-engineering-graduate",
+      "institution_id": "ucsd",
+      "name": "Structural Engineering",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://se.ucsd.edu/academics/graduate-program/2019-applications",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://se.ucsd.edu/academics/graduate-program/2019-applications",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego graduate admissions all-programs row"
+      }
+    },
+    {
+      "id": "ucsd-po-theatre-and-dance-graduate",
+      "institution_id": "ucsd",
+      "name": "Theatre and Dance",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://www-theatre.ucsd.edu/admissions/graduate/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www-theatre.ucsd.edu/admissions/graduate/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego graduate admissions all-programs row"
+      }
+    },
+    {
+      "id": "ucsd-po-urban-studies-and-planning-graduate",
+      "institution_id": "ucsd",
+      "name": "Urban Studies & Planning",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://usp.ucsd.edu/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://usp.ucsd.edu/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego graduate admissions all-programs row"
+      }
+    },
+    {
+      "id": "ucsd-po-visual-arts-graduate",
+      "institution_id": "ucsd",
+      "name": "Visual Arts",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://visarts.ucsd.edu/grad/admissions/index.html",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://visarts.ucsd.edu/grad/admissions/index.html",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official UC San Diego graduate admissions all-programs row"
+      }
+    }
+  ]
+}

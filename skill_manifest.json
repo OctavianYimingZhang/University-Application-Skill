@@ -20,6 +20,11 @@
   ],
   "capability_manifest": "plugin-capability-manifest.v2.json",
   "application_case_schema": "schemas/application-case-v1.schema.json",
+  "catalogue_index": "catalogues/index.json",
+  "catalogue_schemas": [
+    "catalogues/schemas/catalogue-index-v1.schema.json",
+    "catalogues/schemas/institution-catalogue-v1.schema.json"
+  ],
   "supported_context_versions": [1],
   "default_output_language": "en",
   "default_output": "source_backed_programme_list",
@@ -99,6 +104,8 @@
   },
   "health_commands": [
     "python3 -m compileall -q scripts",
+    "python3 scripts/validate_catalogues.py",
+    "python3 -m unittest tests.test_catalogues -v",
     "python3 scripts/check_setup_contract.py",
     "python3 scripts/validate_skill_contracts.py",
     "python3 scripts/plan_workflow.py --self-test",

@@ -1,0 +1,922 @@
+{
+  "$schema": "../schemas/institution-catalogue-v1.schema.json",
+  "contract": "InstitutionProgrammeCatalogue",
+  "version": 1,
+  "language": "en",
+  "institution": {
+    "id": "columbia",
+    "name": "Columbia University",
+    "short_name": "Columbia",
+    "group": "US News Top 30",
+    "region": "United States",
+    "rank_note": "US News 2026 top-30 cutoff source list"
+  },
+  "catalogue_scope": {
+    "record_type": "programme_identity",
+    "identity_status": "official_source_listed",
+    "requirements_status": "not_collected",
+    "placeholder_records_verified": false,
+    "link_only_records_verified": false
+  },
+  "catalogue_provenance": {
+    "accessed_at": "2026-06-26",
+    "official_sources": [
+      {
+        "degree_level": "Undergraduate",
+        "title": "Columbia College departments/programs",
+        "official_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/",
+        "coverage": "Official index",
+        "note": "Official undergraduate programme catalogue or admissions major index."
+      },
+      {
+        "degree_level": "Postgraduate",
+        "title": "Areas of Study",
+        "official_url": "https://www.columbia.edu/content/academics/areas-study",
+        "coverage": "Official index",
+        "note": "Official graduate/professional programme catalogue or graduate school programme index."
+      }
+    ],
+    "allowed_official_hosts": [
+      "bulletin.columbia.edu",
+      "www.columbia.edu"
+    ],
+    "extraction_note": "Official catalogue rows loaded: 57 programme rows. Individual hard requirements must still be read from the relevant programme page.",
+    "caveat": "U.S. institutions distribute requirements across schools, departments, and admissions offices; unsupported details remain source gaps.",
+    "migration_source": "usPrograms.ts"
+  },
+  "illustrative_examples": [
+    {
+      "id": "columbia-ug-catalogue",
+      "name": "Columbia undergraduate programme catalogue",
+      "degree_level": "Undergraduate",
+      "award": "UG",
+      "official_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/",
+      "selection_status": "illustrative_only"
+    },
+    {
+      "id": "columbia-pg-catalogue",
+      "name": "Columbia postgraduate programme catalogue",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://www.columbia.edu/content/academics/areas-study",
+      "selection_status": "illustrative_only"
+    }
+  ],
+  "programmes": [
+    {
+      "id": "columbia-un-african-american-and-african-diaspora-studies-department-program",
+      "institution_id": "columbia",
+      "name": "African American and African Diaspora Studies",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/african-american-studies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/african-american-studies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Columbia College departments/programs row"
+      }
+    },
+    {
+      "id": "columbia-un-american-studies-department-program",
+      "institution_id": "columbia",
+      "name": "American Studies",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/american-studies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/american-studies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Columbia College departments/programs row"
+      }
+    },
+    {
+      "id": "columbia-un-ancient-studies-department-program",
+      "institution_id": "columbia",
+      "name": "Ancient Studies",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/ancient-studies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/ancient-studies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Columbia College departments/programs row"
+      }
+    },
+    {
+      "id": "columbia-un-anthropology-department-program",
+      "institution_id": "columbia",
+      "name": "Anthropology",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/anthropology/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/anthropology/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Columbia College departments/programs row"
+      }
+    },
+    {
+      "id": "columbia-un-archaeology-department-program",
+      "institution_id": "columbia",
+      "name": "Archaeology",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/archaeology/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/archaeology/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Columbia College departments/programs row"
+      }
+    },
+    {
+      "id": "columbia-un-architecture-department-program",
+      "institution_id": "columbia",
+      "name": "Architecture",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/architecture/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/architecture/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Columbia College departments/programs row"
+      }
+    },
+    {
+      "id": "columbia-un-art-history-and-archaeology-department-program",
+      "institution_id": "columbia",
+      "name": "Art History and Archaeology",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/art-history-archaeology/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/art-history-archaeology/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Columbia College departments/programs row"
+      }
+    },
+    {
+      "id": "columbia-un-astronomy-department-program",
+      "institution_id": "columbia",
+      "name": "Astronomy",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/astronomy/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/astronomy/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Columbia College departments/programs row"
+      }
+    },
+    {
+      "id": "columbia-un-biological-sciences-department-program",
+      "institution_id": "columbia",
+      "name": "Biological Sciences",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/biological-sciences/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/biological-sciences/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Columbia College departments/programs row"
+      }
+    },
+    {
+      "id": "columbia-un-business-department-program",
+      "institution_id": "columbia",
+      "name": "Business",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/business/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/business/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Columbia College departments/programs row"
+      }
+    },
+    {
+      "id": "columbia-un-chemistry-department-program",
+      "institution_id": "columbia",
+      "name": "Chemistry",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/chemistry/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/chemistry/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Columbia College departments/programs row"
+      }
+    },
+    {
+      "id": "columbia-un-classics-department-program",
+      "institution_id": "columbia",
+      "name": "Classics",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/classics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/classics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Columbia College departments/programs row"
+      }
+    },
+    {
+      "id": "columbia-un-cognitive-science-department-program",
+      "institution_id": "columbia",
+      "name": "Cognitive Science",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/cognitive-science/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/cognitive-science/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Columbia College departments/programs row"
+      }
+    },
+    {
+      "id": "columbia-un-comparative-literature-and-society-department-program",
+      "institution_id": "columbia",
+      "name": "Comparative Literature and Society",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/comparative-literature-society/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/comparative-literature-society/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Columbia College departments/programs row"
+      }
+    },
+    {
+      "id": "columbia-un-computer-science-department-program",
+      "institution_id": "columbia",
+      "name": "Computer Science",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/computer-science/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/computer-science/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Columbia College departments/programs row"
+      }
+    },
+    {
+      "id": "columbia-un-creative-writing-department-program",
+      "institution_id": "columbia",
+      "name": "Creative Writing",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/creative-writing/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/creative-writing/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Columbia College departments/programs row"
+      }
+    },
+    {
+      "id": "columbia-un-dance-department-program",
+      "institution_id": "columbia",
+      "name": "Dance",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/dance/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/dance/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Columbia College departments/programs row"
+      }
+    },
+    {
+      "id": "columbia-un-drama-and-theatre-arts-department-program",
+      "institution_id": "columbia",
+      "name": "Drama and Theatre Arts",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/drama-theatre-arts/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/drama-theatre-arts/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Columbia College departments/programs row"
+      }
+    },
+    {
+      "id": "columbia-un-earth-and-environmental-sciences-department-program",
+      "institution_id": "columbia",
+      "name": "Earth and Environmental Sciences",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/earth-environmental-sciences/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/earth-environmental-sciences/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Columbia College departments/programs row"
+      }
+    },
+    {
+      "id": "columbia-un-east-asian-languages-and-cultures-department-program",
+      "institution_id": "columbia",
+      "name": "East Asian Languages and Cultures",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/east-asian-languages-cultures/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/east-asian-languages-cultures/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Columbia College departments/programs row"
+      }
+    },
+    {
+      "id": "columbia-un-ecology-evolution-and-environmental-biology-department-program",
+      "institution_id": "columbia",
+      "name": "Ecology, Evolution, and Environmental Biology",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/ecology-evolution-environmental-biology/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/ecology-evolution-environmental-biology/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Columbia College departments/programs row"
+      }
+    },
+    {
+      "id": "columbia-un-economics-department-program",
+      "institution_id": "columbia",
+      "name": "Economics",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/economics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/economics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Columbia College departments/programs row"
+      }
+    },
+    {
+      "id": "columbia-un-education-department-program",
+      "institution_id": "columbia",
+      "name": "Education",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/education/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/education/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Columbia College departments/programs row"
+      }
+    },
+    {
+      "id": "columbia-un-english-and-comparative-literature-department-program",
+      "institution_id": "columbia",
+      "name": "English and Comparative Literature",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/english-comparative-literature/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/english-comparative-literature/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Columbia College departments/programs row"
+      }
+    },
+    {
+      "id": "columbia-un-ethnicity-and-race-studies-department-program",
+      "institution_id": "columbia",
+      "name": "Ethnicity and Race Studies",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/ethnicity-race-studies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/ethnicity-race-studies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Columbia College departments/programs row"
+      }
+    },
+    {
+      "id": "columbia-un-film-and-media-studies-department-program",
+      "institution_id": "columbia",
+      "name": "Film and Media Studies",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/film-studies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/film-studies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Columbia College departments/programs row"
+      }
+    },
+    {
+      "id": "columbia-un-french-department-program",
+      "institution_id": "columbia",
+      "name": "French",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/french-romance-philology/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/french-romance-philology/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Columbia College departments/programs row"
+      }
+    },
+    {
+      "id": "columbia-un-germanic-languages-department-program",
+      "institution_id": "columbia",
+      "name": "Germanic Languages",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/germanic-languages/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/germanic-languages/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Columbia College departments/programs row"
+      }
+    },
+    {
+      "id": "columbia-un-history-department-program",
+      "institution_id": "columbia",
+      "name": "History",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/history/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/history/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Columbia College departments/programs row"
+      }
+    },
+    {
+      "id": "columbia-un-human-rights-department-program",
+      "institution_id": "columbia",
+      "name": "Human Rights",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/human-rights/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/human-rights/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Columbia College departments/programs row"
+      }
+    },
+    {
+      "id": "columbia-un-italian-department-program",
+      "institution_id": "columbia",
+      "name": "Italian",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/italian/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/italian/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Columbia College departments/programs row"
+      }
+    },
+    {
+      "id": "columbia-un-jazz-studies-department-program",
+      "institution_id": "columbia",
+      "name": "Jazz Studies",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/jazz-studies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/jazz-studies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Columbia College departments/programs row"
+      }
+    },
+    {
+      "id": "columbia-un-jewish-studies-department-program",
+      "institution_id": "columbia",
+      "name": "Jewish Studies",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/jewish-studies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/jewish-studies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Columbia College departments/programs row"
+      }
+    },
+    {
+      "id": "columbia-un-language-resource-center-department-program",
+      "institution_id": "columbia",
+      "name": "Language Resource Center",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/language-resource-center/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/language-resource-center/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Columbia College departments/programs row"
+      }
+    },
+    {
+      "id": "columbia-un-latin-american-and-caribbean-studies-department-program",
+      "institution_id": "columbia",
+      "name": "Latin American and Caribbean Studies",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/latin-american-caribbean-studies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/latin-american-caribbean-studies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Columbia College departments/programs row"
+      }
+    },
+    {
+      "id": "columbia-un-latin-american-and-iberian-cultures-department-program",
+      "institution_id": "columbia",
+      "name": "Latin American and Iberian Cultures",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/latin-american-iberian-cultures/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/latin-american-iberian-cultures/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Columbia College departments/programs row"
+      }
+    },
+    {
+      "id": "columbia-un-linguistics-department-program",
+      "institution_id": "columbia",
+      "name": "Linguistics",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/linguistics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/linguistics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Columbia College departments/programs row"
+      }
+    },
+    {
+      "id": "columbia-un-mathematics-department-program",
+      "institution_id": "columbia",
+      "name": "Mathematics",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/mathematics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/mathematics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Columbia College departments/programs row"
+      }
+    },
+    {
+      "id": "columbia-un-medieval-and-renaissance-studies-department-program",
+      "institution_id": "columbia",
+      "name": "Medieval and Renaissance Studies",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/medieval-renaissance-studies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/medieval-renaissance-studies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Columbia College departments/programs row"
+      }
+    },
+    {
+      "id": "columbia-un-middle-eastern-south-asian-and-african-studies-department-program",
+      "institution_id": "columbia",
+      "name": "Middle Eastern, South Asian, and African Studies",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/middle-eastern-south-asian-african-studies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/middle-eastern-south-asian-african-studies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Columbia College departments/programs row"
+      }
+    },
+    {
+      "id": "columbia-un-music-department-program",
+      "institution_id": "columbia",
+      "name": "Music",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/music/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/music/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Columbia College departments/programs row"
+      }
+    },
+    {
+      "id": "columbia-un-philosophy-department-program",
+      "institution_id": "columbia",
+      "name": "Philosophy",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/philosophy/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/philosophy/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Columbia College departments/programs row"
+      }
+    },
+    {
+      "id": "columbia-un-physical-education-and-intercollegiate-athletics-department-program",
+      "institution_id": "columbia",
+      "name": "Physical Education and Intercollegiate Athletics",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/physical-education-intercollegiate-athletics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/physical-education-intercollegiate-athletics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Columbia College departments/programs row"
+      }
+    },
+    {
+      "id": "columbia-un-physics-department-program",
+      "institution_id": "columbia",
+      "name": "Physics",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/physics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/physics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Columbia College departments/programs row"
+      }
+    },
+    {
+      "id": "columbia-un-political-science-department-program",
+      "institution_id": "columbia",
+      "name": "Political Science",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/political-science/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/political-science/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Columbia College departments/programs row"
+      }
+    },
+    {
+      "id": "columbia-un-psychology-department-program",
+      "institution_id": "columbia",
+      "name": "Psychology",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/psychology/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/psychology/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Columbia College departments/programs row"
+      }
+    },
+    {
+      "id": "columbia-un-public-health-department-program",
+      "institution_id": "columbia",
+      "name": "Public Health",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/public-health/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/public-health/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Columbia College departments/programs row"
+      }
+    },
+    {
+      "id": "columbia-un-regional-studies-department-program",
+      "institution_id": "columbia",
+      "name": "Regional Studies",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/regional-studies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/regional-studies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Columbia College departments/programs row"
+      }
+    },
+    {
+      "id": "columbia-un-religion-department-program",
+      "institution_id": "columbia",
+      "name": "Religion",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/religion/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/religion/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Columbia College departments/programs row"
+      }
+    },
+    {
+      "id": "columbia-un-science-and-society-department-program",
+      "institution_id": "columbia",
+      "name": "Science and Society",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/history-philosophy-science/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/history-philosophy-science/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Columbia College departments/programs row"
+      }
+    },
+    {
+      "id": "columbia-un-slavic-languages-department-program",
+      "institution_id": "columbia",
+      "name": "Slavic Languages",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/slavic-languages/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/slavic-languages/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Columbia College departments/programs row"
+      }
+    },
+    {
+      "id": "columbia-un-sociology-department-program",
+      "institution_id": "columbia",
+      "name": "Sociology",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/sociology/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/sociology/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Columbia College departments/programs row"
+      }
+    },
+    {
+      "id": "columbia-un-statistics-department-program",
+      "institution_id": "columbia",
+      "name": "Statistics",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/statistics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/statistics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Columbia College departments/programs row"
+      }
+    },
+    {
+      "id": "columbia-un-sustainable-development-department-program",
+      "institution_id": "columbia",
+      "name": "Sustainable Development",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/sustainable-development/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/sustainable-development/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Columbia College departments/programs row"
+      }
+    },
+    {
+      "id": "columbia-un-urban-studies-department-program",
+      "institution_id": "columbia",
+      "name": "Urban Studies",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/urban-studies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/urban-studies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Columbia College departments/programs row"
+      }
+    },
+    {
+      "id": "columbia-un-visual-arts-department-program",
+      "institution_id": "columbia",
+      "name": "Visual Arts",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/visual-arts/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/visual-arts/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Columbia College departments/programs row"
+      }
+    },
+    {
+      "id": "columbia-un-women-s-and-gender-studies-department-program",
+      "institution_id": "columbia",
+      "name": "Women's and Gender Studies",
+      "degree_level": "Undergraduate",
+      "award": "Department/Program",
+      "official_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/womens-gender-studies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/womens-gender-studies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Columbia College departments/programs row"
+      }
+    }
+  ]
+}

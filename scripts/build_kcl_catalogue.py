@@ -13,8 +13,11 @@ import urllib.request
 from pathlib import Path
 from typing import Any
 
+from catalogue_io import write_programmes
+
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / "web" / "src" / "data" / "kclPrograms.ts"
+CATALOGUE_ID = "kcl"
+OUT = ROOT / "catalogues" / "institutions" / f"{CATALOGUE_ID}.json"
 CHECKED = dt.date.today().isoformat()
 UG_URL = "https://www.kcl.ac.uk/study/undergraduate/courses"
 PGT_URL = "https://www.kcl.ac.uk/study/postgraduate-taught/courses"
@@ -42,10 +45,6 @@ def clean_text(value: str) -> str:
 def slugify(value: str) -> str:
     value = value.lower().replace("&", " and ")
     return re.sub(r"[^a-z0-9]+", "-", value).strip("-")
-
-
-def ts_string(value: str) -> str:
-    return json.dumps(value, ensure_ascii=False)
 
 
 def extract_startup_url(page_html: str, page_url: str) -> str:
@@ -214,25 +213,6 @@ def dedupe(rows: list[dict[str, str]]) -> list[dict[str, str]]:
     return unique
 
 
-def render_rows(name: str, rows: list[dict[str, str]]) -> str:
-    lines = [f"export const {name}: CatalogueProgramOption[] = ["]
-    for row in rows:
-        fields = [
-            f"id: {ts_string(row['id'])}",
-            f"name: {ts_string(row['name'])}",
-            f"level: {ts_string(row['level'])}",
-            f"award: {ts_string(row['award'])}",
-            f"url: {ts_string(row['url'])}",
-            f"note: {ts_string(row['note'])}",
-        ]
-        for optional in ["duration", "mode", "status"]:
-            if row.get(optional):
-                fields.append(f"{optional}: {ts_string(row[optional])}")
-        lines.append(f"  {{ {', '.join(fields)} }},")
-    lines.append("];")
-    return "\n".join(lines)
-
-
 def main() -> int:
     token = extract_access_token(fetch(extract_startup_url(fetch(UG_URL), UG_URL)))
     ug_items = query_catalogue(["undergraduateCourse"], token)
@@ -268,30 +248,7 @@ def main() -> int:
     if len(pgr_rows) != 88:
         raise RuntimeError(f"Expected 88 KCL PGR rows, got {len(pgr_rows)}")
 
-    output = "\n".join(
-        [
-            'import type { CatalogueProgramOption } from "../types";',
-            "",
-            f"export const kclCatalogueChecked = {ts_string(CHECKED)};",
-            f"export const kclUndergraduateCount = {len(ug_rows)};",
-            f"export const kclTaughtCount = {len(pgt_rows)};",
-            f"export const kclResearchCount = {len(pgr_rows)};",
-            "",
-            render_rows("kclUndergraduatePrograms", ug_rows),
-            "",
-            render_rows("kclTaughtPrograms", pgt_rows),
-            "",
-            render_rows("kclResearchPrograms", pgr_rows),
-            "",
-            "export const kclPrograms: CatalogueProgramOption[] = [",
-            "  ...kclUndergraduatePrograms,",
-            "  ...kclTaughtPrograms,",
-            "  ...kclResearchPrograms,",
-            "];",
-            "",
-        ]
-    )
-    OUT.write_text(output, encoding="utf-8")
+    write_programmes(ROOT, CATALOGUE_ID, [*ug_rows, *pgt_rows, *pgr_rows], CHECKED)
     print(f"Wrote {OUT.relative_to(ROOT)}: {len(ug_rows)} UG rows, {len(pgt_rows)} taught rows, {len(pgr_rows)} research rows")
     return 0
 

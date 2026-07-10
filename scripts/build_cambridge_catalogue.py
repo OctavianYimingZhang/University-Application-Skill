@@ -5,7 +5,6 @@ from __future__ import annotations
 
 import datetime as dt
 import html
-import json
 import re
 import sys
 import urllib.error
@@ -15,8 +14,11 @@ from html.parser import HTMLParser
 from pathlib import Path
 from typing import Any
 
+from catalogue_io import write_programmes
+
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / "web" / "src" / "data" / "cambridgePrograms.ts"
+CATALOGUE_ID = "cambridge"
+OUT = ROOT / "catalogues" / "institutions" / f"{CATALOGUE_ID}.json"
 UG_URL = "https://www.undergraduate.study.cam.ac.uk/courses"
 PG_URL = "https://www.postgraduate.study.cam.ac.uk/courses"
 CHECKED = dt.date.today().isoformat()
@@ -233,52 +235,10 @@ def dedupe(rows: list[dict[str, str]]) -> list[dict[str, str]]:
     return unique
 
 
-def ts_string(value: str) -> str:
-    return json.dumps(value, ensure_ascii=False)
-
-
-def render_rows(name: str, rows: list[dict[str, str]]) -> str:
-    lines = [f"export const {name}: CatalogueProgramOption[] = ["]
-    for row in rows:
-        fields = [
-            f"id: {ts_string(row['id'])}",
-            f"name: {ts_string(row['name'])}",
-            f"level: {ts_string(row['level'])}",
-            f"award: {ts_string(row['award'])}",
-            f"url: {ts_string(row['url'])}",
-            f"note: {ts_string(row['note'])}",
-        ]
-        for optional in ["duration", "mode", "status"]:
-            if row.get(optional):
-                fields.append(f"{optional}: {ts_string(row[optional])}")
-        lines.append(f"  {{ {', '.join(fields)} }},")
-    lines.append("];")
-    return "\n".join(lines)
-
-
 def main() -> int:
     ug_rows = parse_ug()
     pg_rows = parse_pg()
-    output = "\n".join(
-        [
-            'import type { CatalogueProgramOption } from "../types";',
-            "",
-            f"export const cambridgeCatalogueChecked = {ts_string(CHECKED)};",
-            f"export const cambridgeUndergraduateCount = {len(ug_rows)};",
-            f"export const cambridgePostgraduateCount = {len(pg_rows)};",
-            "",
-            render_rows("cambridgeUndergraduatePrograms", ug_rows),
-            "",
-            render_rows("cambridgePostgraduatePrograms", pg_rows),
-            "",
-            "export const cambridgePrograms: CatalogueProgramOption[] = [",
-            "  ...cambridgeUndergraduatePrograms,",
-            "  ...cambridgePostgraduatePrograms,",
-            "];",
-            "",
-        ]
-    )
-    OUT.write_text(output, encoding="utf-8")
+    write_programmes(ROOT, CATALOGUE_ID, [*ug_rows, *pg_rows], CHECKED)
     print(f"Wrote {OUT.relative_to(ROOT)}: {len(ug_rows)} UG rows, {len(pg_rows)} PG rows")
     return 0
 

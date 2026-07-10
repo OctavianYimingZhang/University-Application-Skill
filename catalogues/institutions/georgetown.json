@@ -1,0 +1,2242 @@
+{
+  "$schema": "../schemas/institution-catalogue-v1.schema.json",
+  "contract": "InstitutionProgrammeCatalogue",
+  "version": 1,
+  "language": "en",
+  "institution": {
+    "id": "georgetown",
+    "name": "Georgetown University",
+    "short_name": "Georgetown",
+    "group": "US News Top 30",
+    "region": "United States",
+    "rank_note": "US News 2026 top-30 cutoff source list"
+  },
+  "catalogue_scope": {
+    "record_type": "programme_identity",
+    "identity_status": "official_source_listed",
+    "requirements_status": "not_collected",
+    "placeholder_records_verified": false,
+    "link_only_records_verified": false
+  },
+  "catalogue_provenance": {
+    "accessed_at": "2026-06-26",
+    "official_sources": [
+      {
+        "degree_level": "Undergraduate",
+        "title": "Schools and Programs",
+        "official_url": "https://bulletin.georgetown.edu/schools-programs/",
+        "coverage": "Official index",
+        "note": "Official undergraduate programme catalogue or admissions major index."
+      },
+      {
+        "degree_level": "Postgraduate",
+        "title": "Graduate Programs",
+        "official_url": "https://grad.georgetown.edu/programs/",
+        "coverage": "Official index",
+        "note": "Official graduate/professional programme catalogue or graduate school programme index."
+      }
+    ],
+    "allowed_official_hosts": [
+      "addictionpolicy.georgetown.edu",
+      "analytics.georgetown.edu",
+      "biohaz.georgetown.edu",
+      "bioinformatics.georgetown.edu",
+      "biostatistics.georgetown.edu",
+      "biotechnology.georgetown.edu",
+      "bmcb.georgetown.edu",
+      "bulletin.georgetown.edu",
+      "cct.georgetown.edu",
+      "ceh.georgetown.edu",
+      "college.georgetown.edu",
+      "ctsa.georgetown.edu",
+      "curriculum.law.georgetown.edu",
+      "econ.georgetown.edu",
+      "edtransform.georgetown.edu",
+      "eia.georgetown.edu",
+      "epidemiology.georgetown.edu",
+      "esm.georgetown.edu",
+      "glid.georgetown.edu",
+      "globalhealthms.georgetown.edu",
+      "grad.georgetown.edu",
+      "healthinformatics.georgetown.edu",
+      "integrativemedicine.georgetown.edu",
+      "ldt.georgetown.edu",
+      "mccourt.georgetown.edu",
+      "microbiology.georgetown.edu",
+      "msb.georgetown.edu",
+      "msbiochemistry.georgetown.edu",
+      "msbonline.georgetown.edu",
+      "neuro.georgetown.edu",
+      "neuroscience.georgetown.edu",
+      "nurseanesthesia.georgetown.edu",
+      "nursing.georgetown.edu",
+      "online.nursing.georgetown.edu",
+      "patientsafetymasters.georgetown.edu",
+      "pharmacology.georgetown.edu",
+      "philosophy.georgetown.edu",
+      "physiology.georgetown.edu",
+      "science.gmu.edu",
+      "scs.georgetown.edu",
+      "sfs.georgetown.edu",
+      "smp.georgetown.edu",
+      "som.georgetown.edu",
+      "spanport.georgetown.edu",
+      "systemsmedicine.georgetown.edu",
+      "tumorbiology.georgetown.edu",
+      "www.law.georgetown.edu"
+    ],
+    "extraction_note": "Official catalogue rows loaded: 142 programme rows. Individual hard requirements must still be read from the relevant programme page.",
+    "caveat": "U.S. institutions distribute requirements across schools, departments, and admissions offices; unsupported details remain source gaps.",
+    "migration_source": "usPrograms.ts"
+  },
+  "illustrative_examples": [
+    {
+      "id": "georgetown-ug-catalogue",
+      "name": "Georgetown undergraduate programme catalogue",
+      "degree_level": "Undergraduate",
+      "award": "UG",
+      "official_url": "https://bulletin.georgetown.edu/schools-programs/",
+      "selection_status": "illustrative_only"
+    },
+    {
+      "id": "georgetown-pg-catalogue",
+      "name": "Georgetown postgraduate programme catalogue",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://grad.georgetown.edu/programs/",
+      "selection_status": "illustrative_only"
+    }
+  ],
+  "programmes": [
+    {
+      "id": "georgetown-po-addiction-policy-and-practice-master-s",
+      "institution_id": "georgetown",
+      "name": "Addiction Policy & Practice",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://addictionpolicy.georgetown.edu/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://addictionpolicy.georgetown.edu/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-adult-gerontology-acute-care-nurse-practitioner-master-s",
+      "institution_id": "georgetown",
+      "name": "Adult Gerontology Acute Care Nurse Practitioner",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://online.nursing.georgetown.edu/ag-acnp-form/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://online.nursing.georgetown.edu/ag-acnp-form/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-advanced-biomedical-sciences-george-mason-university-joint-certificate-graduate-certificate",
+      "institution_id": "georgetown",
+      "name": "Advanced Biomedical Sciences (George Mason University Joint Certificate)",
+      "degree_level": "Postgraduate",
+      "award": "Graduate Certificate",
+      "official_url": "https://science.gmu.edu/georgesquared",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://science.gmu.edu/georgesquared",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-american-government-master-s",
+      "institution_id": "georgetown",
+      "name": "American Government",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://grad.georgetown.edu/government-m-a/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.georgetown.edu/government-m-a/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-applied-economics-master-s",
+      "institution_id": "georgetown",
+      "name": "Applied Economics",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://grad.georgetown.edu/economics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.georgetown.edu/economics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-applied-intelligence-master-s",
+      "institution_id": "georgetown",
+      "name": "Applied Intelligence",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://scs.georgetown.edu/programs/423/master-of-professional-studies-in-applied-intelligence",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://scs.georgetown.edu/programs/423/master-of-professional-studies-in-applied-intelligence",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-applied-mathematics-doctorate",
+      "institution_id": "georgetown",
+      "name": "Applied Mathematics",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate",
+      "official_url": "https://grad.georgetown.edu/mathematics-and-statistics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.georgetown.edu/mathematics-and-statistics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-arab-studies-master-s",
+      "institution_id": "georgetown",
+      "name": "Arab Studies",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://sfs.georgetown.edu/ma-arab-studies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://sfs.georgetown.edu/ma-arab-studies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-arabic-and-islamic-studies-doctorate",
+      "institution_id": "georgetown",
+      "name": "Arabic & Islamic Studies",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate",
+      "official_url": "https://grad.georgetown.edu/arabic-and-islamic-studies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.georgetown.edu/arabic-and-islamic-studies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-arabic-and-islamic-studies-master-s",
+      "institution_id": "georgetown",
+      "name": "Arabic & Islamic Studies",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://grad.georgetown.edu/arabic-and-islamic-studies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.georgetown.edu/arabic-and-islamic-studies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-art-and-museum-studies-master-s",
+      "institution_id": "georgetown",
+      "name": "Art & Museum Studies",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://grad.georgetown.edu/art-and-museum-studies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.georgetown.edu/art-and-museum-studies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-artificial-intelligence-management-master-s",
+      "institution_id": "georgetown",
+      "name": "Artificial Intelligence Management",
+      "degree_level": "Postgraduate",
+      "award": "Master’s",
+      "official_url": "https://scs.georgetown.edu/programs/547/online/online-masters-in-artificial-intelligence-management/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://scs.georgetown.edu/programs/547/online/online-masters-in-artificial-intelligence-management/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-asian-studies-master-s",
+      "institution_id": "georgetown",
+      "name": "Asian Studies",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://sfs.georgetown.edu/ma-asian-studies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://sfs.georgetown.edu/ma-asian-studies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-biochemistry-and-molecular-biology-master-s",
+      "institution_id": "georgetown",
+      "name": "Biochemistry & Molecular Biology",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://msbiochemistry.georgetown.edu/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://msbiochemistry.georgetown.edu/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-biochemistry-and-molecular-and-cellular-biology-doctorate",
+      "institution_id": "georgetown",
+      "name": "Biochemistry and Molecular & Cellular Biology",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate",
+      "official_url": "https://bmcb.georgetown.edu/phd/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bmcb.georgetown.edu/phd/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-biohazardous-threat-agents-and-emerging-infectious-diseases-graduate-certificate",
+      "institution_id": "georgetown",
+      "name": "Biohazardous Threat Agents & Emerging Infectious Diseases",
+      "degree_level": "Postgraduate",
+      "award": "Graduate Certificate",
+      "official_url": "https://biohaz.georgetown.edu/certificate/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://biohaz.georgetown.edu/certificate/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-biohazardous-threat-agents-and-emerging-infectious-diseases-master-s",
+      "institution_id": "georgetown",
+      "name": "Biohazardous Threat Agents & Emerging Infectious Diseases",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://biohaz.georgetown.edu/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://biohaz.georgetown.edu/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-bioinformatics-master-s",
+      "institution_id": "georgetown",
+      "name": "Bioinformatics",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://bioinformatics.georgetown.edu/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://bioinformatics.georgetown.edu/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-biology-doctorate",
+      "institution_id": "georgetown",
+      "name": "Biology",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate",
+      "official_url": "https://grad.georgetown.edu/biology/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.georgetown.edu/biology/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-biostatistics-doctorate",
+      "institution_id": "georgetown",
+      "name": "Biostatistics",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate",
+      "official_url": "https://biostatistics.georgetown.edu/phd/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://biostatistics.georgetown.edu/phd/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-biostatistics-master-s",
+      "institution_id": "georgetown",
+      "name": "Biostatistics",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://biostatistics.georgetown.edu/ms/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://biostatistics.georgetown.edu/ms/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-biotechnology-biobusiness-graduate-certificate",
+      "institution_id": "georgetown",
+      "name": "Biotechnology BioBusiness",
+      "degree_level": "Postgraduate",
+      "award": "Graduate Certificate",
+      "official_url": "https://biotechnology.georgetown.edu/certificate/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://biotechnology.georgetown.edu/certificate/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-biotechnology-master-s",
+      "institution_id": "georgetown",
+      "name": "Biotechnology",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://biotechnology.georgetown.edu/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://biotechnology.georgetown.edu/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-business-emba-master-s",
+      "institution_id": "georgetown",
+      "name": "Business (EMBA)",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://msb.georgetown.edu/executive-mba/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://msb.georgetown.edu/executive-mba/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-business-mba-master-s",
+      "institution_id": "georgetown",
+      "name": "Business (MBA)",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://msb.georgetown.edu/programs/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://msb.georgetown.edu/programs/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-business-and-global-affairs-bachelor-s",
+      "institution_id": "georgetown",
+      "name": "Business & Global Affairs",
+      "degree_level": "Postgraduate",
+      "award": "Bachelor's",
+      "official_url": "https://grad.georgetown.edu/programs/bga.georgetown.edu",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.georgetown.edu/programs/bga.georgetown.edu",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-business-analytics-master-s",
+      "institution_id": "georgetown",
+      "name": "Business Analytics",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://msb.georgetown.edu/msba/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://msb.georgetown.edu/msba/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-chemistry-doctorate",
+      "institution_id": "georgetown",
+      "name": "Chemistry",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate",
+      "official_url": "https://grad.georgetown.edu/chemistry/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.georgetown.edu/chemistry/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-climate-environment-and-health-master-s",
+      "institution_id": "georgetown",
+      "name": "Climate, Environment and Health",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://ceh.georgetown.edu/about/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://ceh.georgetown.edu/about/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-clinical-and-translational-research-graduate-certificate",
+      "institution_id": "georgetown",
+      "name": "Clinical & Translational Research",
+      "degree_level": "Postgraduate",
+      "award": "Graduate Certificate",
+      "official_url": "https://ctsa.georgetown.edu/certificate/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://ctsa.georgetown.edu/certificate/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-clinical-and-translational-research-master-s",
+      "institution_id": "georgetown",
+      "name": "Clinical & Translational Research",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://ctsa.georgetown.edu/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://ctsa.georgetown.edu/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-clinical-quality-safety-and-leadership-executive-master-s",
+      "institution_id": "georgetown",
+      "name": "Clinical Quality, Safety & Leadership",
+      "degree_level": "Postgraduate",
+      "award": "Executive Master's",
+      "official_url": "https://patientsafetymasters.georgetown.edu/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://patientsafetymasters.georgetown.edu/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-clinical-quality-safety-and-leadership-online-graduate-executive-certificate",
+      "institution_id": "georgetown",
+      "name": "Clinical Quality, Safety & Leadership",
+      "degree_level": "Postgraduate",
+      "award": "Online Graduate Executive Certificate",
+      "official_url": "https://patientsafetymasters.georgetown.edu/executive-certificate-programs/executive-certificate-in-clinical-quality-safety-leadership/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://patientsafetymasters.georgetown.edu/executive-certificate-programs/executive-certificate-in-clinical-quality-safety-leadership/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-communication-culture-and-technology-master-s",
+      "institution_id": "georgetown",
+      "name": "Communication, Culture & Technology",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://cct.georgetown.edu/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://cct.georgetown.edu/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-competitive-business-intelligence-graduate-certificate",
+      "institution_id": "georgetown",
+      "name": "Competitive Business Intelligence",
+      "degree_level": "Postgraduate",
+      "award": "Graduate Certificate",
+      "official_url": "https://scs.georgetown.edu/programs/GCCBI/graduate-certificate-in-competitive-business-intelligence/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://scs.georgetown.edu/programs/GCCBI/graduate-certificate-in-competitive-business-intelligence/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-computer-science-doctorate",
+      "institution_id": "georgetown",
+      "name": "Computer Science",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate",
+      "official_url": "https://grad.georgetown.edu/computer-science/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.georgetown.edu/computer-science/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-computer-science-master-s",
+      "institution_id": "georgetown",
+      "name": "Computer Science",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://grad.georgetown.edu/computer-science/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.georgetown.edu/computer-science/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-conflict-resolution-master-s",
+      "institution_id": "georgetown",
+      "name": "Conflict Resolution",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://grad.georgetown.edu/conflict-resolution/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.georgetown.edu/conflict-resolution/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-cybersecurity-risk-management-graduate-certificate",
+      "institution_id": "georgetown",
+      "name": "Cybersecurity Risk Management",
+      "degree_level": "Postgraduate",
+      "award": "Graduate Certificate",
+      "official_url": "https://scs.georgetown.edu/programs/GCCYRM/graduate-certificate-in-cybersecurity-risk-management/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://scs.georgetown.edu/programs/GCCYRM/graduate-certificate-in-cybersecurity-risk-management/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-cybersecurity-risk-management-master-s",
+      "institution_id": "georgetown",
+      "name": "Cybersecurity Risk Management",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://scs.georgetown.edu/programs/484/master-of-professional-studies-in-cybersecurity-risk-management/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://scs.georgetown.edu/programs/484/master-of-professional-studies-in-cybersecurity-risk-management/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-data-science-and-analytics-master-s",
+      "institution_id": "georgetown",
+      "name": "Data Science & Analytics",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://analytics.georgetown.edu/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://analytics.georgetown.edu/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-data-science-for-public-policy-master-s",
+      "institution_id": "georgetown",
+      "name": "Data Science for Public Policy",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://mccourt.georgetown.edu/master-of-science-in-data-science-for-public-policy/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://mccourt.georgetown.edu/master-of-science-in-data-science-for-public-policy/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-democracy-and-governance-master-s",
+      "institution_id": "georgetown",
+      "name": "Democracy & Governance",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://grad.georgetown.edu/government-m-a/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.georgetown.edu/government-m-a/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-design-management-and-communications-master-s",
+      "institution_id": "georgetown",
+      "name": "Design Management & Communications",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://scs.georgetown.edu/programs/446/online/online-masters-in-design-management-communications/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://scs.georgetown.edu/programs/446/online/online-masters-in-design-management-communications/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-economics-doctorate",
+      "institution_id": "georgetown",
+      "name": "Economics",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate",
+      "official_url": "https://grad.georgetown.edu/economics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.georgetown.edu/economics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-economics-master-s",
+      "institution_id": "georgetown",
+      "name": "Economics",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://grad.georgetown.edu/economics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.georgetown.edu/economics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-educational-transformation-master-s",
+      "institution_id": "georgetown",
+      "name": "Educational Transformation",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://edtransform.georgetown.edu/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://edtransform.georgetown.edu/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-emergency-and-disaster-management-mps-master-s",
+      "institution_id": "georgetown",
+      "name": "Emergency & Disaster Management—MPS",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://scs.georgetown.edu/programs/419/master-of-professional-studies-in-emergency-and-disaster-management",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://scs.georgetown.edu/programs/419/master-of-professional-studies-in-emergency-and-disaster-management",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-engaged-and-public-humanities-master-s",
+      "institution_id": "georgetown",
+      "name": "Engaged & Public Humanities",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://college.georgetown.edu/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://college.georgetown.edu/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-english-master-s",
+      "institution_id": "georgetown",
+      "name": "English",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://grad.georgetown.edu/english/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.georgetown.edu/english/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-entry-to-nursing-program-master-s",
+      "institution_id": "georgetown",
+      "name": "Entry to Nursing Program",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://grad.georgetown.edu/nursing/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.georgetown.edu/nursing/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-environment-and-international-affairs-master-s",
+      "institution_id": "georgetown",
+      "name": "Environment & International Affairs",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://eia.georgetown.edu/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://eia.georgetown.edu/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-environment-and-sustainability-management-master-s",
+      "institution_id": "georgetown",
+      "name": "Environment & Sustainability Management",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://esm.georgetown.edu/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://esm.georgetown.edu/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-epidemiology-master-s",
+      "institution_id": "georgetown",
+      "name": "Epidemiology",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://epidemiology.georgetown.edu/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://epidemiology.georgetown.edu/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-eurasian-russian-and-east-european-studies-master-s",
+      "institution_id": "georgetown",
+      "name": "Eurasian, Russian & East European Studies",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://sfs.georgetown.edu/ma-eurasian-russian-east-european-studies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://sfs.georgetown.edu/ma-eurasian-russian-east-european-studies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-european-studies-master-s",
+      "institution_id": "georgetown",
+      "name": "European Studies",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://sfs.georgetown.edu/ma-european-studies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://sfs.georgetown.edu/ma-european-studies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-family-nurse-practitioner-master-s",
+      "institution_id": "georgetown",
+      "name": "Family Nurse Practitioner",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://nursing.georgetown.edu/degree-programs/masters/fnp-online/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://nursing.georgetown.edu/degree-programs/masters/fnp-online/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-finance-msf-master-s",
+      "institution_id": "georgetown",
+      "name": "Finance (MSF)",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://msbonline.georgetown.edu/online-masters-in-finance",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://msbonline.georgetown.edu/online-masters-in-finance",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-financial-economics-master-s",
+      "institution_id": "georgetown",
+      "name": "Financial Economics",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://econ.georgetown.edu/ms-financial-economics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://econ.georgetown.edu/ms-financial-economics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-foreign-service-master-s",
+      "institution_id": "georgetown",
+      "name": "Foreign Service",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://sfs.georgetown.edu/ms-foreign-service/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://sfs.georgetown.edu/ms-foreign-service/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-german-doctorate",
+      "institution_id": "georgetown",
+      "name": "German",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate",
+      "official_url": "https://grad.georgetown.edu/german/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.georgetown.edu/german/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-german-master-s",
+      "institution_id": "georgetown",
+      "name": "German",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://grad.georgetown.edu/german/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.georgetown.edu/german/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-global-health-law-and-governance-llm",
+      "institution_id": "georgetown",
+      "name": "Global Health Law & Governance",
+      "degree_level": "Postgraduate",
+      "award": "LLM",
+      "official_url": "https://curriculum.law.georgetown.edu/llm/llm-joint-degree-programs/joint-degrees/jd-llm-global-health-law-international-institutions/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://curriculum.law.georgetown.edu/llm/llm-joint-degree-programs/joint-degrees/jd-llm-global-health-law-international-institutions/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-global-health-master-s",
+      "institution_id": "georgetown",
+      "name": "Global Health",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://globalhealthms.georgetown.edu/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://globalhealthms.georgetown.edu/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-global-human-development-master-s",
+      "institution_id": "georgetown",
+      "name": "Global Human Development",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://sfs.georgetown.edu/ma-global-human-development/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://sfs.georgetown.edu/ma-global-human-development/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-global-infectious-disease-doctorate",
+      "institution_id": "georgetown",
+      "name": "Global Infectious Disease",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate",
+      "official_url": "https://glid.georgetown.edu/doctor-of-philosophy/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://glid.georgetown.edu/doctor-of-philosophy/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-global-infectious-disease-master-s",
+      "institution_id": "georgetown",
+      "name": "Global Infectious Disease",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://glid.georgetown.edu/master-of-science/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://glid.georgetown.edu/master-of-science/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-global-real-assets-master-s",
+      "institution_id": "georgetown",
+      "name": "Global Real Assets",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://msb.georgetown.edu/masters-global-real-assets/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://msb.georgetown.edu/masters-global-real-assets/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-global-sports-operations-and-strategy-executive-master-s",
+      "institution_id": "georgetown",
+      "name": "Global Sports Operations & Strategy",
+      "degree_level": "Postgraduate",
+      "award": "Executive Master's",
+      "official_url": "https://scs.georgetown.edu/programs/559/executive-master-of-professional-studies-in-global-sports-operations-strategy/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://scs.georgetown.edu/programs/559/executive-master-of-professional-studies-in-global-sports-operations-strategy/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-global-international-and-comparative-history-master-s",
+      "institution_id": "georgetown",
+      "name": "Global, International & Comparative History",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://grad.georgetown.edu/history-global-international-and-comparative/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.georgetown.edu/history-global-international-and-comparative/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-government-doctorate",
+      "institution_id": "georgetown",
+      "name": "Government",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate",
+      "official_url": "https://grad.georgetown.edu/government/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.georgetown.edu/government/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-health-informatics-and-data-science-master-s",
+      "institution_id": "georgetown",
+      "name": "Health Informatics & Data Science",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://healthinformatics.georgetown.edu/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://healthinformatics.georgetown.edu/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-health-systems-administration-master-s",
+      "institution_id": "georgetown",
+      "name": "Health Systems Administration",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://grad.georgetown.edu/health-systems-administration/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.georgetown.edu/health-systems-administration/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-higher-education-administration-master-s",
+      "institution_id": "georgetown",
+      "name": "Higher Education Administration",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://scs.georgetown.edu/programs/448/master-of-professional-studies-in-higher-education-administration",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://scs.georgetown.edu/programs/448/master-of-professional-studies-in-higher-education-administration",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-history-doctorate",
+      "institution_id": "georgetown",
+      "name": "History",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate",
+      "official_url": "https://grad.georgetown.edu/history/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.georgetown.edu/history/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-human-resources-management-master-s",
+      "institution_id": "georgetown",
+      "name": "Human Resources Management",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://scs.georgetown.edu/programs/341/master-of-professional-studies-in-human-resources-management",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://scs.georgetown.edu/programs/341/master-of-professional-studies-in-human-resources-management",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-information-technology-management-master-s",
+      "institution_id": "georgetown",
+      "name": "Information Technology Management",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://scs.georgetown.edu/programs/525/master-of-professional-studies-in-information-technology-management",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://scs.georgetown.edu/programs/525/master-of-professional-studies-in-information-technology-management",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-integrated-marketing-communications-master-s",
+      "institution_id": "georgetown",
+      "name": "Integrated Marketing Communications",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://scs.georgetown.edu/programs/410/master-of-professional-studies-in-integrated-marketing-communications",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://scs.georgetown.edu/programs/410/master-of-professional-studies-in-integrated-marketing-communications",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-integrative-medicine-and-health-sciences-master-s",
+      "institution_id": "georgetown",
+      "name": "Integrative Medicine & Health Sciences",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://integrativemedicine.georgetown.edu/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://integrativemedicine.georgetown.edu/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-integrative-neuroscience-master-s",
+      "institution_id": "georgetown",
+      "name": "Integrative Neuroscience",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://neuro.georgetown.edu/academic-programs/ms_neuroscience/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://neuro.georgetown.edu/academic-programs/ms_neuroscience/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-international-business-and-economics-llm",
+      "institution_id": "georgetown",
+      "name": "International Business & Economics",
+      "degree_level": "Postgraduate",
+      "award": "LLM",
+      "official_url": "https://curriculum.law.georgetown.edu/llm/llm-llm-programs/llm-international-business-economic-law/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://curriculum.law.georgetown.edu/llm/llm-llm-programs/llm-international-business-economic-law/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-international-business-and-policy-ma-ibp-master-s",
+      "institution_id": "georgetown",
+      "name": "International Business & Policy (MA-IBP)",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://msb.georgetown.edu/masters-international-business-policy/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://msb.georgetown.edu/masters-international-business-policy/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-international-business-language-and-culture-iblc-bachelor-s",
+      "institution_id": "georgetown",
+      "name": "International Business, Language, & Culture (IBLC)",
+      "degree_level": "Postgraduate",
+      "award": "Bachelor's",
+      "official_url": "https://college.georgetown.edu/academics-majors-minors-and-certificates-iblc",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://college.georgetown.edu/academics-majors-minors-and-certificates-iblc",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-international-development-policy-master-s",
+      "institution_id": "georgetown",
+      "name": "International Development Policy",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://mccourt.georgetown.edu/master-of-international-development-policy/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://mccourt.georgetown.edu/master-of-international-development-policy/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-international-migration-and-refugees-imr-master-s",
+      "institution_id": "georgetown",
+      "name": "International Migration & Refugees (IMR)",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://sfs.georgetown.edu/ma-international-migration-refugees/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://sfs.georgetown.edu/ma-international-migration-refugees/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-italian-studies-master-s",
+      "institution_id": "georgetown",
+      "name": "Italian Studies",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://grad.georgetown.edu/italian-studies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.georgetown.edu/italian-studies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-journalism-master-s",
+      "institution_id": "georgetown",
+      "name": "Journalism",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://scs.georgetown.edu/programs/259/master-of-professional-studies-in-journalism",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://scs.georgetown.edu/programs/259/master-of-professional-studies-in-journalism",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-language-and-communication-master-s",
+      "institution_id": "georgetown",
+      "name": "Language & Communication",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://grad.georgetown.edu/linguistics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.georgetown.edu/linguistics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-latin-american-studies-master-s",
+      "institution_id": "georgetown",
+      "name": "Latin American Studies",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://sfs.georgetown.edu/ma-latin-american-studies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://sfs.georgetown.edu/ma-latin-american-studies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-law-j-d",
+      "institution_id": "georgetown",
+      "name": "Law",
+      "degree_level": "Postgraduate",
+      "award": "J.D.",
+      "official_url": "https://www.law.georgetown.edu",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.law.georgetown.edu",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-law-llm",
+      "institution_id": "georgetown",
+      "name": "Law",
+      "degree_level": "Postgraduate",
+      "award": "LLM",
+      "official_url": "https://www.law.georgetown.edu",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.law.georgetown.edu",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-leadership-coaching-certificate",
+      "institution_id": "georgetown",
+      "name": "Leadership Coaching",
+      "degree_level": "Postgraduate",
+      "award": "Certificate",
+      "official_url": "https://scs.georgetown.edu/programs/388/Certificate-in-leadership-coaching",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://scs.georgetown.edu/programs/388/Certificate-in-leadership-coaching",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-lean-and-agile-practices-graduate-certificate",
+      "institution_id": "georgetown",
+      "name": "Lean & Agile Practices",
+      "degree_level": "Postgraduate",
+      "award": "Graduate Certificate",
+      "official_url": "https://scs.georgetown.edu/programs/GCLAP/graduate-certificate-in-lean-agile-practices",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://scs.georgetown.edu/programs/GCLAP/graduate-certificate-in-lean-agile-practices",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-learning-design-and-technology-master-s",
+      "institution_id": "georgetown",
+      "name": "Learning, Design, & Technology",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://ldt.georgetown.edu/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://ldt.georgetown.edu/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-liberal-studies-doctorate",
+      "institution_id": "georgetown",
+      "name": "Liberal Studies",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate",
+      "official_url": "https://scs.georgetown.edu/programs/43/doctor-of-liberal-studies",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://scs.georgetown.edu/programs/43/doctor-of-liberal-studies",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-liberal-studies-master-s",
+      "institution_id": "georgetown",
+      "name": "Liberal Studies",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://scs.georgetown.edu/programs/46/master-of-arts-in-liberal-studies",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://scs.georgetown.edu/programs/46/master-of-arts-in-liberal-studies",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-linguistics-doctorate",
+      "institution_id": "georgetown",
+      "name": "Linguistics",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate",
+      "official_url": "https://grad.georgetown.edu/linguistics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.georgetown.edu/linguistics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-linguistics-master-s",
+      "institution_id": "georgetown",
+      "name": "Linguistics",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://grad.georgetown.edu/linguistics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.georgetown.edu/linguistics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-management-mim-master-s",
+      "institution_id": "georgetown",
+      "name": "Management (MiM)",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://msb.georgetown.edu/masters-in-management/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://msb.georgetown.edu/masters-in-management/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-master-in-diplomacy-and-international-affairs-asia-pacific-graduate",
+      "institution_id": "georgetown",
+      "name": "Master in Diplomacy and International Affairs (Asia Pacific)",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://sfs.georgetown.edu/master-diplomacy-international-affairs/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://sfs.georgetown.edu/master-diplomacy-international-affairs/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-master-of-laws-llm",
+      "institution_id": "georgetown",
+      "name": "Master of Laws",
+      "degree_level": "Postgraduate",
+      "award": "LLM",
+      "official_url": "https://www.law.georgetown.edu/academics/graduate-programs/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://www.law.georgetown.edu/academics/graduate-programs/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-mathematics-and-statistics-master-s",
+      "institution_id": "georgetown",
+      "name": "Mathematics & Statistics",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://grad.georgetown.edu/mathematics-and-statistics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.georgetown.edu/mathematics-and-statistics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-medicine-m-d",
+      "institution_id": "georgetown",
+      "name": "Medicine",
+      "degree_level": "Postgraduate",
+      "award": "M.D.",
+      "official_url": "https://som.georgetown.edu/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://som.georgetown.edu/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-microbiology-and-immunology-doctorate",
+      "institution_id": "georgetown",
+      "name": "Microbiology & Immunology",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate",
+      "official_url": "https://microbiology.georgetown.edu/academics/phd-program/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://microbiology.georgetown.edu/academics/phd-program/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-microbiology-and-immunology-master-s",
+      "institution_id": "georgetown",
+      "name": "Microbiology & Immunology",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://microbiology.georgetown.edu/academics/masters/microbiology-immunology/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://microbiology.georgetown.edu/academics/masters/microbiology-immunology/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-national-and-global-health-llm",
+      "institution_id": "georgetown",
+      "name": "National & Global Health",
+      "degree_level": "Postgraduate",
+      "award": "LLM",
+      "official_url": "https://curriculum.law.georgetown.edu/llm/llm-llm-programs/llm-global-health-law/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://curriculum.law.georgetown.edu/llm/llm-llm-programs/llm-global-health-law/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-national-security-llm",
+      "institution_id": "georgetown",
+      "name": "National Security",
+      "degree_level": "Postgraduate",
+      "award": "LLM",
+      "official_url": "https://curriculum.law.georgetown.edu/llm/llm-llm-programs/llm-national-security-law/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://curriculum.law.georgetown.edu/llm/llm-llm-programs/llm-national-security-law/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-neuroscience-ipn-doctorate",
+      "institution_id": "georgetown",
+      "name": "Neuroscience (IPN)",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate",
+      "official_url": "https://neuroscience.georgetown.edu/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://neuroscience.georgetown.edu/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-nurse-anesthesia-practice-doctorate",
+      "institution_id": "georgetown",
+      "name": "Nurse Anesthesia Practice",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate",
+      "official_url": "https://nurseanesthesia.georgetown.edu/#_ga=2.104259010.311617676.1652114413-2041570422.1651583782",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://nurseanesthesia.georgetown.edu/#_ga=2.104259010.311617676.1652114413-2041570422.1651583782",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-nurse-midwifery-women-s-health-nurse-practitioner-master-s",
+      "institution_id": "georgetown",
+      "name": "Nurse-Midwifery/Women's Health Nurse Practitioner",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://nursing.georgetown.edu/degree-programs/masters/nm-whnp-online/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://nursing.georgetown.edu/degree-programs/masters/nm-whnp-online/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-nursing-practice-doctorate",
+      "institution_id": "georgetown",
+      "name": "Nursing Practice",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate",
+      "official_url": "https://nursing.georgetown.edu/degree-programs/doctoral/doctor-of-nursing-practice-programs/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://nursing.georgetown.edu/degree-programs/doctoral/doctor-of-nursing-practice-programs/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-nursing-ph-d",
+      "institution_id": "georgetown",
+      "name": "Nursing",
+      "degree_level": "Postgraduate",
+      "award": "Ph.D.",
+      "official_url": "https://grad.georgetown.edu/nursing-ph-d/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.georgetown.edu/nursing-ph-d/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-pharmacology-and-physiology-doctorate",
+      "institution_id": "georgetown",
+      "name": "Pharmacology & Physiology",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate",
+      "official_url": "https://pharmacology.georgetown.edu/program/phd-pharmacology/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://pharmacology.georgetown.edu/program/phd-pharmacology/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-pharmacology-master-s",
+      "institution_id": "georgetown",
+      "name": "Pharmacology",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://pharmacology.georgetown.edu/program/ms-pharmacology/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://pharmacology.georgetown.edu/program/ms-pharmacology/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-philosophy-bachelor-s",
+      "institution_id": "georgetown",
+      "name": "Philosophy",
+      "degree_level": "Postgraduate",
+      "award": "Bachelor's",
+      "official_url": "https://philosophy.georgetown.edu/undergraduate",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://philosophy.georgetown.edu/undergraduate",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-philosophy-doctorate",
+      "institution_id": "georgetown",
+      "name": "Philosophy",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate",
+      "official_url": "https://grad.georgetown.edu/philosophy/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.georgetown.edu/philosophy/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-physics-doctorate",
+      "institution_id": "georgetown",
+      "name": "Physics",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate",
+      "official_url": "https://grad.georgetown.edu/physics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.georgetown.edu/physics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-physics-master-s",
+      "institution_id": "georgetown",
+      "name": "Physics",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://grad.georgetown.edu/physics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.georgetown.edu/physics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-physiology-and-biophysics-regular-program-master-s",
+      "institution_id": "georgetown",
+      "name": "Physiology & Biophysics - Regular Program",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://physiology.georgetown.edu/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://physiology.georgetown.edu/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-physiology-and-biophysics-special-master-s-program-master-s",
+      "institution_id": "georgetown",
+      "name": "Physiology & Biophysics - Special Master's Program",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://smp.georgetown.edu/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://smp.georgetown.edu/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-policy-leadership-executive-master-s",
+      "institution_id": "georgetown",
+      "name": "Policy Leadership",
+      "degree_level": "Postgraduate",
+      "award": "Executive Master's",
+      "official_url": "https://mccourt.georgetown.edu/executive-master-policy-leadership/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://mccourt.georgetown.edu/executive-master-policy-leadership/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-policy-management-master-s",
+      "institution_id": "georgetown",
+      "name": "Policy Management",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://mccourt.georgetown.edu/master-of-policy-management/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://mccourt.georgetown.edu/master-of-policy-management/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-project-management-master-s",
+      "institution_id": "georgetown",
+      "name": "Project Management",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://scs.georgetown.edu/programs/417/master-of-professional-studies-in-project-management",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://scs.georgetown.edu/programs/417/master-of-professional-studies-in-project-management",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-psychology-doctorate",
+      "institution_id": "georgetown",
+      "name": "Psychology",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate",
+      "official_url": "https://grad.georgetown.edu/psychology/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.georgetown.edu/psychology/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-public-policy-jppp-bachelor-s",
+      "institution_id": "georgetown",
+      "name": "Public Policy (JPPP)",
+      "degree_level": "Postgraduate",
+      "award": "Bachelor's",
+      "official_url": "https://mccourt.georgetown.edu/joint-program-in-public-policy/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://mccourt.georgetown.edu/joint-program-in-public-policy/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-public-policy-master-s",
+      "institution_id": "georgetown",
+      "name": "Public Policy",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://mccourt.georgetown.edu/master-of-public-policy/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://mccourt.georgetown.edu/master-of-public-policy/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-public-relations-and-corporate-communications-master-s",
+      "institution_id": "georgetown",
+      "name": "Public Relations & Corporate Communications",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://scs.georgetown.edu/programs/70/master-of-professional-studies-in-public-relations-and-corporate-communications",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://scs.georgetown.edu/programs/70/master-of-professional-studies-in-public-relations-and-corporate-communications",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-real-estate-master-s",
+      "institution_id": "georgetown",
+      "name": "Real Estate",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://scs.georgetown.edu/programs/71/master-of-professional-studies-in-real-estate",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://scs.georgetown.edu/programs/71/master-of-professional-studies-in-real-estate",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-securities-and-financial-regulation-llm",
+      "institution_id": "georgetown",
+      "name": "Securities & Financial Regulation",
+      "degree_level": "Postgraduate",
+      "award": "LLM",
+      "official_url": "https://curriculum.law.georgetown.edu/llm/llm-llm-programs/llm-securities-financial-regulation/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://curriculum.law.georgetown.edu/llm/llm-llm-programs/llm-securities-financial-regulation/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-security-studies-master-s",
+      "institution_id": "georgetown",
+      "name": "Security Studies",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://sfs.georgetown.edu/ma-security-studies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://sfs.georgetown.edu/ma-security-studies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-spanish-linguistics-doctorate",
+      "institution_id": "georgetown",
+      "name": "Spanish Linguistics",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate",
+      "official_url": "https://grad.georgetown.edu/spanish/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.georgetown.edu/spanish/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-spanish-linguistics-master-s",
+      "institution_id": "georgetown",
+      "name": "Spanish Linguistics",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://spanport.georgetown.edu/phd-in-spanish-linguistics/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://spanport.georgetown.edu/phd-in-spanish-linguistics/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-spanish-literature-and-cultural-studies-doctorate",
+      "institution_id": "georgetown",
+      "name": "Spanish Literature & Cultural Studies",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate",
+      "official_url": "https://grad.georgetown.edu/spanish/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.georgetown.edu/spanish/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-sports-industry-management-master-s",
+      "institution_id": "georgetown",
+      "name": "Sports Industry Management",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://scs.georgetown.edu/programs/361/master-of-professional-studies-in-sports-industry-management",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://scs.georgetown.edu/programs/361/master-of-professional-studies-in-sports-industry-management",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-supply-chain-management-master-s",
+      "institution_id": "georgetown",
+      "name": "Supply Chain Management",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://scs.georgetown.edu/programs/503/master-of-professional-studies-in-supply-chain-management",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://scs.georgetown.edu/programs/503/master-of-professional-studies-in-supply-chain-management",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-systems-medicine-master-s",
+      "institution_id": "georgetown",
+      "name": "Systems Medicine",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://systemsmedicine.georgetown.edu/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://systemsmedicine.georgetown.edu/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-taxation-llm",
+      "institution_id": "georgetown",
+      "name": "Taxation",
+      "degree_level": "Postgraduate",
+      "award": "LLM",
+      "official_url": "https://curriculum.law.georgetown.edu/llm/llm-llm-programs/llm-taxation/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://curriculum.law.georgetown.edu/llm/llm-llm-programs/llm-taxation/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-theological-and-religious-studies-doctorate",
+      "institution_id": "georgetown",
+      "name": "Theological & Religious Studies",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate",
+      "official_url": "https://grad.georgetown.edu/theological-and-religious-studies/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.georgetown.edu/theological-and-religious-studies/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-tumor-biology-doctorate",
+      "institution_id": "georgetown",
+      "name": "Tumor Biology",
+      "degree_level": "Postgraduate",
+      "award": "Doctorate",
+      "official_url": "https://tumorbiology.georgetown.edu/phd/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://tumorbiology.georgetown.edu/phd/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-tumor-biology-master-s",
+      "institution_id": "georgetown",
+      "name": "Tumor Biology",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://tumorbiology.georgetown.edu/ms/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://tumorbiology.georgetown.edu/ms/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-urban-and-regional-planning-master-s",
+      "institution_id": "georgetown",
+      "name": "Urban & Regional Planning",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://scs.georgetown.edu/programs/356/master-of-professional-studies-urban-and-regional-planning",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://scs.georgetown.edu/programs/356/master-of-professional-studies-urban-and-regional-planning",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    },
+    {
+      "id": "georgetown-po-women-s-health-nurse-practitioner-program-master-s",
+      "institution_id": "georgetown",
+      "name": "Women's Health Nurse Practitioner Program",
+      "degree_level": "Postgraduate",
+      "award": "Master's",
+      "official_url": "https://grad.georgetown.edu/programs/",
+      "identity_status": "official_source_listed",
+      "requirements_status": "not_collected",
+      "provenance": {
+        "source_url": "https://grad.georgetown.edu/programs/",
+        "accessed_at": "2026-06-26",
+        "source_note": "Official Georgetown graduate programme finder AJAX row"
+      }
+    }
+  ]
+}

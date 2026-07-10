@@ -1,0 +1,66 @@
+{
+  "$schema": "../schemas/institution-catalogue-v1.schema.json",
+  "contract": "InstitutionProgrammeCatalogue",
+  "version": 1,
+  "language": "en",
+  "institution": {
+    "id": "princeton",
+    "name": "Princeton University",
+    "short_name": "Princeton",
+    "group": "US News Top 30",
+    "region": "United States",
+    "rank_note": "US News 2026 top-30 cutoff source list"
+  },
+  "catalogue_scope": {
+    "record_type": "programme_identity",
+    "identity_status": "official_source_listed",
+    "requirements_status": "not_collected",
+    "placeholder_records_verified": false,
+    "link_only_records_verified": false
+  },
+  "catalogue_provenance": {
+    "accessed_at": "2026-06-26",
+    "official_sources": [
+      {
+        "degree_level": "Undergraduate",
+        "title": "Undergraduate fields of study",
+        "official_url": "https://ua.princeton.edu/fields-study",
+        "coverage": "Official index",
+        "note": "Official undergraduate programme catalogue or admissions major index."
+      },
+      {
+        "degree_level": "Postgraduate",
+        "title": "Graduate fields of study",
+        "official_url": "https://gradschool.princeton.edu/academics/degrees-requirements/fields-study",
+        "coverage": "Official index",
+        "note": "Official graduate/professional programme catalogue or graduate school programme index."
+      }
+    ],
+    "allowed_official_hosts": [
+      "gradschool.princeton.edu",
+      "ua.princeton.edu"
+    ],
+    "extraction_note": "Coverage remains at official catalogue/index entry-point level because automated row extraction was blocked or not count-validated.",
+    "caveat": "Source row extraction is skipped until the official source can be accessed and count-validated without human verification or guessing.",
+    "migration_source": "usPrograms.ts"
+  },
+  "illustrative_examples": [
+    {
+      "id": "princeton-ug-catalogue",
+      "name": "Princeton undergraduate programme catalogue",
+      "degree_level": "Undergraduate",
+      "award": "UG",
+      "official_url": "https://ua.princeton.edu/fields-study",
+      "selection_status": "illustrative_only"
+    },
+    {
+      "id": "princeton-pg-catalogue",
+      "name": "Princeton postgraduate programme catalogue",
+      "degree_level": "Postgraduate",
+      "award": "Graduate",
+      "official_url": "https://gradschool.princeton.edu/academics/degrees-requirements/fields-study",
+      "selection_status": "illustrative_only"
+    }
+  ],
+  "programmes": []
+}
