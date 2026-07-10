@@ -42,7 +42,8 @@
             "window_seconds": {"type": "integer", "minimum": 1}
           }
         },
-        "plugin_versions": {"type": "object", "additionalProperties": {"type": "string"}}
+        "plugin_versions": {"type": "object", "additionalProperties": {"type": "string"}},
+        "test_runtime": {"type": "boolean", "description": "True only when the bridge uses explicit, disjoint test memory and execution roots under the operating-system temporary directory."}
       }
     },
     "authenticatedRequest": {
