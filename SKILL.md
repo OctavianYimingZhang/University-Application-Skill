@@ -16,14 +16,18 @@ Use this Skill when the user asks for university admissions planning, study-abro
 - Do not produce chance scores, safe/match/reach labels, or admission-probability predictions.
 - Mark missing evidence as a gap or blocker.
 - Ask only for missing inputs that materially change the plan.
+- Use route-specific intake. Do not ask for GPA, language, citizenship, budget, or document status unless the selected workflow depends on that field.
+- Treat `matched`, `needs_confirmation`, and `out_of_scope` as router dispositions, not focused routes. Only `matched` may enter a focused Skill; never default an unknown request to programme research.
 - Keep the public package memory blank. Do not ship populated user memory, private writing samples, lecture notes, credentials, or application facts in the GitHub version.
 - Default every output to English. Use another output language only when the user explicitly requests it.
 - Treat raw profile values, uploads, links, and extracted text as unconfirmed until they satisfy [`references/evidence-contract.md`](references/evidence-contract.md).
+- Use `public_url` evidence for mutable official facts. A private `local_document` or explicit `user_confirmation` may support the applicant's writing narrative, but user confirmation alone cannot satisfy official-requirement, materials-completion, or submission gates.
 - Keep source availability, fact verification, completeness, application cycle, access date, and staleness as separate fields.
+- Explain application-document requirements directly or with a compact table by default. Produce a checklist only when the user explicitly asks for one or invokes a materials/readiness workflow whose function is a checklist.
 
 ## Multiple Skill System
 
-This root Skill is the canonical workflow contract. Load `university-application-index` first when the route is not already confirmed. It recognizes semantic intent in any language, confirms the application task, source policy, applicant-profile gaps, memory needs, and requested output language, then routes to focused Skills. `study-abroad-advisor` is a compatibility alias only.
+This root Skill is the canonical workflow contract. Load `university-application-index` first when the route is not already confirmed. It recognizes semantic intent in any language, distinguishes requirement discovery from writing and materials review, asks only route-specific questions in batches of at most three, and routes only matched application requests. `study-abroad-advisor` is a compatibility alias only.
 
 | User request | Focused Skill |
 | --- | --- |
@@ -48,7 +52,7 @@ This Skill coordinates several memory systems without assuming that any one cont
 - ChatGPT memory should store compact durable preferences only.
 - Codex/local project memory should store task-specific working state and paths to larger local files.
 - `scripts/extract_inspiration_file.py` creates provisional local text blocks from runtime files; extracted text remains unconfirmed until the user reviews it.
-- Conflicts must be resolved by the latest explicit user correction, then uploaded source files, then official sources for requirements, then canonical local memory, then compact summaries.
+- Factual memory conflicts use the latest explicit correction and verified provenance. Conflicting writing instructions remain separate ledger items and must be resolved with the user; do not silently apply newest-wins to revision feedback.
 
 Memory categories:
 
@@ -66,23 +70,25 @@ Before using memory, identify the category needed, retrieve only the smallest re
 
 ## Workflow
 
-1. Setup: capture `workflow_mode`, `output_mode`, source policy, privacy/export settings, memory policy, and applicant-specific fields under `profile`; validate setup JSON when available.
+1. Setup: capture `workflow_mode`, `output_mode`, source policy, privacy/export settings, and only the applicant or programme fields required by that route; validate setup JSON when available.
 2. Memory resolution: check whether the task needs course memory, slide-delta memory, writing voice, notes preferences, application preferences, or no memory. Use blank defaults if no user memory has been supplied.
-3. Intake: applicant profile, target country, degree level, subject, budget, intake, language scores, academic records, constraints, and output format.
-4. Route review: use `scripts/plan_workflow.py` and `scripts/build_review_questions.py` or equivalent `request_user_input` payloads when the route, source policy, memory gaps, applicant gaps, or output language materially affect the result. Keep an `AcademicTaskContext` route or decision at `suggested` until the user explicitly confirms it.
-5. Source collection: use the lazy-load [`catalogues/index.json`](catalogues/index.json) for curated programme identity discovery, then retrieve official programme, admissions, fee, scholarship, visa, and test-provider pages for current facts. Catalogue identity coverage never verifies requirements.
-6. Structured case file: applicant, target routes, programmes, requirements, documents, deadlines, writing tasks, risks, tasks, memory references, and source log.
-7. Hard-requirement audit: separate academic, language, subject, document, fee, deadline, and route-specific requirements from interpretation; compare applicant facts only after the evidence invariant passes.
-8. Materials check: simulate submission readiness by checking each required item against the programme source and normalized applicant evidence. Empty, placeholder, link-only, partial, unverified, or unconfirmed evidence cannot pass.
-9. Writing Studio: lock the writing brief, load writing-voice memory if supplied, run source inspiration intake for uploaded files, build evidence inventory, generate narrative options, map programme fit, review unsupported claims, then request planning approval before drafting.
-10. Output: chat summary, table, workbook, essay plan, document checklist, timeline, source-backed action plan, memory pack, or structured `ApplicationCase` update.
-11. Quality check: verify every hard requirement against a source before presenting it as final; verify memory claims against their recorded source before treating them as durable.
+3. Intake: request only the selected route's missing fields. Applicant-fit comparison may add qualification and language evidence; requirements-only research does not.
+4. Route review: use `scripts/plan_workflow.py` and `scripts/build_review_questions.py`. Continue paged batches until every material gap or writing decision is resolved. When the review payload sets `request_user_input_required: false` and returns an empty `questions` list, skip `request_user_input` and continue directly with the matched route. Keep an `AcademicTaskContext` route or decision at `suggested` until the user explicitly confirms it.
+5. Programme research: verify the exact award type, including `MPhil`, `MRes`, `MSc by Research`, or another explicitly thesis-led research degree; keep taught research-themed degrees separate. Retrieve current official programme pages and verify supervisor-contact status, supervisor research and representative publications, research-area fit, modules, and programme structure when relevant.
+6. Structured case file: keep one `ApplicationCase` per programme with requirements, documents, deadlines, supervisor/programme fit, writing tasks, risks, actions, workstream states, and source log. Separate shared applicant narrative from programme-specific adaptation across multiple cases.
+7. Hard-requirement audit: extract application fields, document types, prompts, word or character limits, AI-use rules, fees, deadlines, references, and mandatory pre-application steps. Separate required, recommended, optional, not-required, and unknown items.
+8. Materials and submission: compare the applicant's current inventory with verified current-cycle requirements. User confirmation can support writing truth but cannot by itself mark a required document or submission step complete.
+9. Writing Studio: maintain its own admissions-specific `RevisionDecisionLedger`, resolve every historical feedback item and conflict, approve the structure, draft directly after approval, and run coverage review before delivery. This workflow remains independent and does not call Coursework Killer.
+10. Output: return the matched route's requested artifact or structured `ApplicationCase` update. Default requirement outputs to direct explanation or a compact table, not a checklist.
+11. Quality check: verify every hard requirement against a current official source and block any unresolved writing-ledger or submission item.
 
 ## Writing Studio Contract
 
 Admissions writing is a planning and evidence task before it is a drafting task.
 
-- Lock the writing brief before planning: programme, prompt, word limit, audience, submission use, applicant background, and source policy.
+- Lock the writing brief before planning: programme, prompt, word or character limit, audience, submission use, applicant background, source policy, output location, and overwrite decision.
+- Build an admissions-specific `RevisionDecisionLedger` from all conversation feedback before planning. Record each stable decision ID, source locator, target document or passage, action, core-argument or example role, experience function, source-use permission, voice and fact boundary, prohibited exaggeration, multi-document invariant or programme-specific variation, length/format/output/overwrite instruction, conflicts, confirmation state, implementation location, and coverage state.
+- Merge only exact duplicate instructions while preserving every source locator. Ask the user to resolve conflicts; never silently prefer the newest feedback.
 - Build an evidence inventory from the applicant before making claims.
 - Load writing-voice memory only from user-supplied writing samples, explicit user preferences, or private local memory supplied in the current task.
 - Treat runtime-uploaded assignments, slides, readings, notes, and images as source inspiration until the user confirms an insight for the evidence map.
@@ -92,6 +98,7 @@ Admissions writing is a planning and evidence task before it is a drafting task.
 - Use programme-specific facts only after source verification.
 - Build the programme-fit paragraph from verified modules, research groups, facilities, teaching structure, placement, accreditation, or faculty fit.
 - Ask for planning approval after the structure and evidence map are visible. Once approved, draft without asking a redundant start-writing question.
+- Before delivery, map every confirmed ledger decision to final text or to an explicitly confirmed rejected, superseded, or not-applicable outcome. Pending, missing, conflicted, or unlocated decisions block delivery.
 - If a plan-breaking issue appears after approval, return to the writing gate instead of silently changing the structure.
 
 ## Reference Files

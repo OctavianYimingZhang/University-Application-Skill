@@ -1,6 +1,6 @@
 {
   "name": "university-application-skill",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Multiple-skill university application system with a canonical router, Plugin-owned programme identity catalogues, confirmed applicant evidence, source-backed research, writing, submission, and visa-readiness routes.",
   "author": {
     "name": "Octavian Yiming Zhang"

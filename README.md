@@ -9,18 +9,19 @@ The Plugin never fills gaps with plausible applicant facts, treats catalogue ide
 The workflow follows the actual dependency order of a defensible application:
 
 ```text
-request -> route lock -> programme identity -> official-source verification
-        -> confirmed applicant evidence -> requirements and materials gaps
-        -> deadlines and costs -> writing brief and plan approval
-        -> visa readiness -> submission QA
+request -> matched / needs confirmation / out of scope
+        -> programme identity and exact degree type -> official-source verification
+        -> requirements, supervisor/programme fit, and applicant evidence
+        -> materials and deadlines -> writing ledger and plan approval
+        -> writing coverage -> visa readiness -> submission QA
 ```
 
 Core capabilities include:
 
-- source-backed programme discovery and comparison;
-- exact academic, language, fee, deadline, and document requirement audits;
+- source-backed programme discovery with exact research-degree filtering and supervisor/programme-fit review;
+- exact academic, language, application-field, writing-prompt, AI-policy, fee, deadline, document, and pre-application requirement audits;
 - evidence-gated application materials checks;
-- personal statement and statement-of-purpose planning with an empty-by-default evidence inventory;
+- independent personal-statement and statement-of-purpose planning with an empty-by-default evidence inventory and complete revision-decision coverage;
 - administrative visa-readiness review from official government sources, with a non-legal-advice boundary;
 - final application-cycle and submission checks;
 - explicit maintenance of curated programme catalogues and admissions workbooks.
@@ -34,10 +35,10 @@ All shipped prompts, plans, questions, errors, tests, metadata, documentation, a
 | Skill | Responsibility |
 | --- | --- |
 | `university-application-index` | Canonical routing, task context, user decisions, and workflow coordination. |
-| `program-research` | Discover and compare programmes using curated identities and current official sources. |
-| `requirement-audit` | Verify programme requirements and compare them with confirmed evidence. |
+| `program-research` | Discover exact degree types and compare programmes, supervisors, research, publications, structure, and modules using current official sources. |
+| `requirement-audit` | Verify programme, document, prompt, policy, deadline, and pre-application requirements and compare them with confirmed evidence. |
 | `materials-check` | Identify document, evidence, and readiness gaps. |
-| `application-writing-studio` | Lock the brief, map evidence, approve the plan, then draft. |
+| `application-writing-studio` | Independently lock the brief, resolve every revision decision, map evidence, approve the plan, draft, and audit coverage. |
 | `submission-readiness` | Run final cycle, evidence, document, deadline, and blocker checks. |
 | `visa-readiness` | Review administrative visa preparation using official government provenance. |
 | `programme-table-cleaning` | Maintain programme tables, workbooks, catalogue lineage, and validation reports. |
@@ -57,7 +58,9 @@ Applicant evidence can satisfy a gate only when it has all of the following:
 
 Links, placeholders, partial extracts, inferred profile details, and suggested answers remain unconfirmed. The main agent owns route or brief locking, applicant-evidence confirmation, permissions, and planning approval. A recommendation remains `suggested` until the user selects it.
 
-Writing Studio begins with no applicant evidence. It locks the programme, prompt, audience, word limit, intended use, source policy, evidence IDs, and visible structure before drafting. A plan-breaking change returns to the approval gate.
+Evidence provenance is purpose-specific. Mutable official facts require `public_url`; applicant writing facts may use a confirmed `local_document` or `user_confirmation`; materials and submission may use local-document evidence but cannot pass from user confirmation alone.
+
+Writing Studio begins with no applicant evidence. It locks the programme, prompt, audience, limit, intended use, source policy, evidence IDs, output and overwrite decisions, and visible structure before drafting. Its admissions-specific `RevisionDecisionLedger` preserves every instruction, conflict, source locator, multi-document invariant, programme-specific variation, implementation location, and coverage result. A plan-breaking change returns to the approval gate.
 
 ## Versioned contracts
 
@@ -73,7 +76,9 @@ The schemas in [`contracts/`](contracts/) are shared with the independently inst
 | `SourceRecord v1` | Stable source identity, checksum, provenance, locators, parser version, and opaque local reference. |
 | `LocalBridgeProtocol v1` | Authenticated loopback handshake, origin control, consent, and request envelopes. |
 
-Admissions state uses [`ApplicationCase v1`](schemas/application-case-v1.schema.json). Its schema prevents source availability, fact verification, completeness, cycle, access date, and staleness from collapsing into one misleading status.
+Admissions state uses [`ApplicationCase v1`](schemas/application-case-v1.schema.json). Version 1 remains backward compatible while optionally recording requirements, documents, deadlines, supervisor/programme fit, writing tasks, risks, actions, source log, lifecycle state, and per-workstream readiness.
+
+The Plugin release version is `0.5.0`; public route IDs and shared Soleil contract versions remain unchanged.
 
 ## Programme catalogue
 

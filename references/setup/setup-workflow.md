@@ -1,6 +1,6 @@
 # Setup Workflow
 
-1. Set `workflow_mode` and `output_mode`; deprecated `task_type` and `output_format` inputs may be normalized for old setup files.
+1. Set `workflow_mode` and `output_mode`; deprecated `task_type` and `output_format` inputs may be normalized for old setup files. Do not collect the entire applicant profile by default: load the route gate and ask only for inputs that materially control that workflow.
 2. Collect only fields required by the selected gate in `task-gates.yaml`.
 3. Store applicant intake hints under `profile`; keep normalized confirmation records under `evidence_records` using [`../evidence-contract.md`](../evidence-contract.md). Profile values alone do not pass an evidence gate.
 4. Initialize `memory` from `memory/blank-memory.json` unless the user supplies a private local memory file.

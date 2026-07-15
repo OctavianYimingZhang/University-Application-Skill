@@ -7,7 +7,7 @@ import json
 import sys
 from pathlib import Path
 
-from validate_evidence import evidence_passes, validate_evidence_record
+from validate_evidence import effective_fact_class, evidence_passes, validate_evidence_record
 
 ALLOWED_WORKFLOW_MODES = {
     "quick_triage",
@@ -15,6 +15,7 @@ ALLOWED_WORKFLOW_MODES = {
     "exact_program_selection",
     "requirement_audit",
     "essay_sop",
+    "materials_check",
     "workbook_build",
     "programme_table_cleaning",
     "submission_readiness",
@@ -30,6 +31,8 @@ WORKFLOW_ALIASES = {
     "visa_readiness": "visa_readiness",
     "visa_route": "visa_readiness",
     "essay_plan": "essay_sop",
+    "application_writing_studio": "essay_sop",
+    "materials_check": "materials_check",
 }
 
 OUTPUT_ALIASES = {
@@ -45,33 +48,36 @@ REQUIRED_BY_WORKFLOW = {
         ("target_degree_level", "degree_level"),
         ("target_countries", "target_country_or_region"),
         ("target_field", "subject_area"),
-        ("gpa_value", "academic_background", "current_qualification", "current_major"),
     ],
     "full_shortlist": [
         ("target_degree_level", "degree_level"),
         ("target_intake", "intake_term"),
         ("target_countries", "target_country_or_region"),
         ("target_field", "subject_area"),
-        ("gpa_value", "academic_background", "current_qualification"),
-        ("gpa_scale", "academic_background", "current_qualification"),
-        ("budget_annual", "budget"),
     ],
     "exact_program_selection": [
         ("target_degree_level", "degree_level"),
         ("target_field", "subject_area"),
         ("target_countries", "target_country_or_region"),
-        ("gpa_value", "academic_background", "current_qualification"),
     ],
     "requirement_audit": [
         ("program_name_or_url", "program_names_or_urls", "target_programs", "program_name"),
-        ("applicant_qualification", "current_qualification", "academic_background"),
-        ("source_policy",),
+        ("target_intake", "intake_term", "application_cycle"),
     ],
     "essay_sop": [
-        ("program_name", "target_programs"),
+        ("program_name", "program_name_or_url", "program_names_or_urls", "target_programs"),
         ("prompt", "essay_prompt"),
-        ("word_limit",),
+        ("word_limit", "character_limit"),
+        ("audience",),
+        ("intended_use", "submission_use"),
         ("applicant_background", "academic_background", "current_qualification"),
+        ("output_location", "output_path"),
+        ("overwrite_existing", "overwrite_decision"),
+    ],
+    "materials_check": [
+        ("program_name_or_url", "program_names_or_urls", "target_programs", "program_name"),
+        ("target_intake", "intake_term", "application_cycle"),
+        ("document_inventory", "application_materials", "documents"),
     ],
     "workbook_build": [
         ("export_format",),
@@ -82,8 +88,8 @@ REQUIRED_BY_WORKFLOW = {
     ],
     "submission_readiness": [
         ("program_name_or_url", "program_names_or_urls", "target_programs", "program_name"),
-        ("citizenship_countries", "citizenship"),
-        ("target_countries", "destination_country", "target_country_or_region"),
+        ("target_intake", "intake_term", "application_cycle"),
+        ("document_inventory", "application_materials", "documents"),
     ],
     "source_refresh": [
         ("source_urls", "source_url", "program_name_or_url", "program_names_or_urls"),
@@ -91,6 +97,7 @@ REQUIRED_BY_WORKFLOW = {
     "visa_readiness": [
         ("citizenship_countries", "citizenship"),
         ("target_countries", "destination_country", "target_country_or_region"),
+        ("visa_application_country",),
         ("target_intake", "intake_term", "intended_intake"),
         ("budget_annual", "funding_plan", "budget"),
     ],
@@ -151,6 +158,13 @@ def normalize_output_mode(data: dict) -> str:
     return OUTPUT_ALIASES.get(output_format, output_format)
 
 
+def first_present(data: dict, aliases: tuple[str, ...]) -> object | None:
+    for value in values_for(data, aliases):
+        if is_present(value):
+            return value
+    return None
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument('setup_json', type=Path)
@@ -183,7 +197,26 @@ def main() -> None:
         errors = validate_evidence_record(record)
         if errors:
             fail(f"invalid evidence_records[{index}]: " + "; ".join(errors))
-        if output_mode == "verified" and not evidence_passes(record):
+        fact_class = effective_fact_class(
+            record,
+            "official_requirement" if workflow_mode == "requirement_audit" else "writing",
+        )
+        if fact_class == "mutable_official_fact":
+            purpose = "official_requirement"
+        elif workflow_mode == "materials_check":
+            purpose = "material_document"
+        elif workflow_mode == "submission_readiness":
+            purpose = "submission"
+        elif workflow_mode == "requirement_audit":
+            purpose = "applicant_comparison"
+        else:
+            purpose = str(record.get("evidence_use") or "writing")
+        current_cycle = first_present(data, ("application_cycle", "target_intake", "intake_term"))
+        if output_mode == "verified" and not evidence_passes(
+            record,
+            purpose=purpose,
+            current_cycle=str(current_cycle) if current_cycle is not None else None,
+        ):
             fail(f"evidence_records[{index}] does not satisfy the evidence passing invariant")
     print('OK: setup validation passed')
 

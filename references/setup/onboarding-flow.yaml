@@ -10,6 +10,7 @@ onboarding_flow:
       - exact_program_selection
       - requirement_audit
       - essay_sop
+      - materials_check
       - workbook_build
       - programme_table_cleaning
       - submission_readiness
@@ -75,6 +76,28 @@ onboarding_flow:
         - source_workbook_dir_or_files
         - cleaned_output_dir
         - copy_back_requested
+    application_case:
+      fields:
+        - program_name_or_url
+        - application_cycle
+    writing_brief:
+      fields:
+        - program_name
+        - prompt
+        - word_limit
+        - character_limit
+        - audience
+        - intended_use
+        - output_location
+        - overwrite_existing
+        - applicant_background
+        - revision_decision_ledger
+        - writing_revision_items
+    materials_inventory:
+      fields:
+        - document_inventory
+        - application_materials
+        - documents
     status_diagnostics:
       output_only: true
       fields:
@@ -89,35 +112,35 @@ onboarding_flow:
       required_cards:
         - workflow_goal
         - target_shape
-        - academic_profile
       gate: quick_triage
     full_shortlist:
       required_cards:
         - workflow_goal
         - target_shape
-        - identity_route
-        - academic_profile
-        - budget_preferences
         - privacy_export
       gate: full_shortlist
     exact_program_selection:
       required_cards:
         - workflow_goal
         - target_shape
-        - academic_profile
       gate: exact_program_selection
     requirement_audit:
       required_cards:
         - workflow_goal
-        - target_shape
-        - identity_route
+        - application_case
       gate: requirement_audit
     essay_sop:
       required_cards:
         - workflow_goal
-        - target_shape
-        - academic_profile
+        - application_case
+        - writing_brief
       gate: essay_sop
+    materials_check:
+      required_cards:
+        - workflow_goal
+        - application_case
+        - materials_inventory
+      gate: materials_check
     workbook_build:
       required_cards:
         - workflow_goal
@@ -132,8 +155,8 @@ onboarding_flow:
     submission_readiness:
       required_cards:
         - workflow_goal
-        - target_shape
-        - identity_route
+        - application_case
+        - materials_inventory
       gate: submission_readiness
     source_refresh:
       required_cards:

@@ -12,6 +12,8 @@ WORKFLOW_ALIASES = {
     "visa_readiness": "visa_readiness",
     "visa_route": "visa_readiness",
     "essay_plan": "essay_sop",
+    "application_writing_studio": "essay_sop",
+    "materials_check": "materials_check",
 }
 
 OUTPUT_ALIASES = {
@@ -85,6 +87,25 @@ def build_template(workflow_mode: str, output_mode: str) -> dict:
         },
         "memory": build_blank_memory(),
         "evidence_records": [],
+        "program_name": "",
+        "program_name_or_url": "",
+        "program_names_or_urls": [],
+        "target_programs": [],
+        "application_cycle": "",
+        "prompt": "",
+        "essay_prompt": "",
+        "word_limit": "",
+        "character_limit": "",
+        "audience": "",
+        "intended_use": "",
+        "output_location": "",
+        "overwrite_existing": None,
+        "applicant_background": "",
+        "document_inventory": [],
+        "application_materials": [],
+        "documents": [],
+        "writing_revision_items": [],
+        "revision_decision_ledger": [],
     }
     if workflow_mode == "programme_table_cleaning":
         data["source_workbook_dir_or_files"] = []

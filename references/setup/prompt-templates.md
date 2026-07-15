@@ -2,7 +2,7 @@
 
 ## Broad shortlist request
 
-Ask for `workflow_mode`, `output_mode`, degree level, target countries, subject, intake term, budget, academic background or GPA scale/value, language status, and constraints.
+Ask first for `workflow_mode` and `output_mode`, then request only the fields required by that route. Programme discovery uses degree level, destination, field, and intake. Requirement audit uses the named programme or official URL and application cycle. Materials review uses the named programme, current application cycle, and current document inventory. Admissions writing uses the programme, prompt, word or character limit, audience, intended use, applicant evidence, output location, overwrite decision, and canonical revision decision ledger. Submission readiness uses the named programme, cycle, and current document or portal status. Visa readiness alone requires citizenship, destination, application location, intake, and funding context.
 
 ## Requirement-check request
 
@@ -10,7 +10,7 @@ Ask for program names or URLs, applicant qualification, source policy, citizensh
 
 ## Essay/SOP request
 
-Ask for program, prompt, word limit, applicant background, achievements, source documents, and tone preference.
+Ask for programme, prompt, word or character limit, audience, intended use, applicant background, source documents, tone preference, output location, and overwrite decision.
 
 ## Programme table cleaning request
 

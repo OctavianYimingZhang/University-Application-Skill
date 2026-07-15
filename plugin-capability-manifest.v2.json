@@ -2,7 +2,7 @@
   "contract": "PluginCapabilityManifest",
   "version": 2,
   "plugin_id": "university-application-skill",
-  "plugin_version": "0.4.0",
+  "plugin_version": "0.5.0",
   "default_output_language": "en",
   "supported_context_versions": [1],
   "routes": [
@@ -10,8 +10,8 @@
       "route_id": "program_research",
       "owning_skill": "program-research",
       "triggers": {
-        "semantic_intents": ["programme discovery", "shortlist research", "official programme comparison"],
-        "examples": ["Find official masters programmes in my field", "帮我查找合适的大学项目", "Buscar programas universitarios oficiales"],
+        "semantic_intents": ["programme discovery", "research degree filtering", "supervisor and programme fit", "official programme comparison"],
+        "examples": ["Find official research masters programmes in my field", "列出研究型生物科学硕士", "Buscar programas universitarios oficiales"],
         "direct_invocation": true
       },
       "required_inputs": [
@@ -36,8 +36,8 @@
       "route_id": "requirement_audit",
       "owning_skill": "requirement-audit",
       "triggers": {
-        "semantic_intents": ["entry requirement audit", "language requirement check", "fee and deadline verification"],
-        "examples": ["Check this programme's exact requirements", "核对这个项目的入学要求", "Verificar los requisitos de admisión"],
+        "semantic_intents": ["entry requirement audit", "required application documents", "writing prompt and AI policy", "fee and deadline verification"],
+        "examples": ["Check this programme's exact requirements", "检查这个项目都需要什么文书", "Verificar los requisitos de admisión"],
         "direct_invocation": true
       },
       "required_inputs": [
@@ -47,9 +47,10 @@
       "gates": [
         {"gate_id": "route_confirmation", "required": true, "satisfied_by": "Direct user intent or explicitly confirmed route"},
         {"gate_id": "official_source_verification", "required": true, "satisfied_by": "Each hard requirement has current official provenance"},
-        {"gate_id": "applicant_evidence_confirmation", "required": true, "satisfied_by": "Applicant comparison uses only evidence records that pass references/evidence-contract.md"}
+        {"gate_id": "applicant_evidence_confirmation", "required": false, "satisfied_by": "Required only when the user requests applicant comparison; requirements-only audits need no applicant evidence"}
       ],
       "outputs": [
+        {"output_id": "requirement_explanation", "media_type": "text/markdown"},
         {"output_id": "requirement_table", "media_type": "application/json"},
         {"output_id": "gap_list", "media_type": "application/json"},
         {"output_id": "source_log", "media_type": "application/json"}
@@ -67,7 +68,9 @@
       },
       "required_inputs": [
         {"input_id": "academic_task_context", "required": false, "schema_ref": "contracts/academic-task-context-v1.schema.json"},
-        {"input_id": "programme_requirements", "required": true, "description": "Source-backed programme document requirements."}
+        {"input_id": "programme_requirements", "required": true, "description": "Source-backed programme document requirements."},
+        {"input_id": "application_cycle", "required": true, "description": "Current application cycle or target intake for the verified requirements."},
+        {"input_id": "applicant_document_inventory", "required": true, "description": "Current applicant document files and statuses to compare with the requirements."}
       ],
       "gates": [
         {"gate_id": "route_confirmation", "required": true, "satisfied_by": "Direct user intent or explicitly confirmed route"},
@@ -90,16 +93,21 @@
       },
       "required_inputs": [
         {"input_id": "academic_task_context", "required": false, "schema_ref": "contracts/academic-task-context-v1.schema.json"},
-        {"input_id": "writing_brief", "required": true, "description": "Programme, prompt, audience, word limit, and intended use."}
+        {"input_id": "writing_brief", "required": true, "description": "Programme, prompt, audience, word or character limit, intended use, output location, and overwrite decision."},
+        {"input_id": "revision_decision_ledger", "required": false, "description": "Atomized historical feedback, conflicts, multi-document invariants, programme-specific decisions, and source locators."}
       ],
       "gates": [
         {"gate_id": "brief_lock", "required": true, "satisfied_by": "User confirms every plan-changing writing field"},
         {"gate_id": "applicant_evidence_confirmation", "required": true, "satisfied_by": "Narrative claims use only evidence records that pass references/evidence-contract.md"},
-        {"gate_id": "planning_approval", "required": true, "satisfied_by": "User approves the visible structure and evidence map"}
+        {"gate_id": "revision_decisions_resolved", "required": true, "satisfied_by": "Every ledger item is explicitly confirmed, adjusted, rejected, superseded, or marked not applicable with a reason"},
+        {"gate_id": "planning_approval", "required": true, "satisfied_by": "User approves the visible structure and evidence map"},
+        {"gate_id": "revision_coverage", "required": true, "satisfied_by": "Every confirmed revision decision maps to final text or an explicit superseded/not-applicable decision"}
       ],
       "outputs": [
         {"output_id": "writing_plan", "media_type": "application/json"},
-        {"output_id": "draft_if_approved", "media_type": "text/markdown"}
+        {"output_id": "revision_decision_ledger", "media_type": "application/json"},
+        {"output_id": "draft_if_approved", "media_type": "text/markdown"},
+        {"output_id": "revision_coverage", "media_type": "application/json"}
       ],
       "adapter_entrypoint": {"type": "skill", "value": "skills/application-writing-studio/SKILL.md"},
       "supported_context_versions": [1]

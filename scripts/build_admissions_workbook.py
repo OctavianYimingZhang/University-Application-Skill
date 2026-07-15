@@ -58,6 +58,7 @@ def applicant_evidence_rows(data: dict[str, Any]) -> list[dict[str, Any]]:
     raw = data.get("applicant_evidence", data.get("evidence_records", []))
     items = rows_from(raw)
     rows: list[dict[str, Any]] = []
+    current_cycle = data.get("application_cycle") or data.get("intake_term")
     for index, item in enumerate(items):
         errors = validate_evidence_record(item)
         if errors:
@@ -65,10 +66,15 @@ def applicant_evidence_rows(data: dict[str, Any]) -> list[dict[str, Any]]:
         source = item.get("source") if isinstance(item.get("source"), dict) else {}
         rows.append({
             **{key: value for key, value in item.items() if key != "source"},
+            "source_type": source.get("type", "public_url"),
             "source_url": source.get("url", ""),
             "source_title": source.get("title", ""),
             "source_publisher": source.get("publisher", ""),
-            "evidence_passes": evidence_passes(item),
+            "source_local_ref": source.get("opaque_local_ref", ""),
+            "source_confirmed_by": source.get("confirmed_by", ""),
+            "evidence_passes": evidence_passes(item, current_cycle=current_cycle),
+            "writing_evidence_passes": evidence_passes(item, purpose="writing", current_cycle=current_cycle),
+            "submission_evidence_passes": evidence_passes(item, purpose="submission", current_cycle=current_cycle),
         })
     return rows
 
@@ -82,6 +88,10 @@ def build_sheets(data: dict[str, Any]) -> dict[str, list[list[Any]]]:
         ['degree_level', data.get('degree_level', '')],
         ['subject_area', data.get('subject_area', '')],
         ['intake_term', data.get('intake_term', '')],
+        ['application_cycle', data.get('application_cycle', '')],
+        ['institution', data.get('institution', '')],
+        ['programme_name', data.get('programme_name', '')],
+        ['lifecycle_status', data.get('lifecycle_status', '')],
     ]
     return {
         'Summary': summary,
@@ -91,9 +101,12 @@ def build_sheets(data: dict[str, Any]) -> dict[str, list[list[Any]]]:
         'Requirements': table_rows(rows_from(data.get('requirements'))),
         'Documents': table_rows(rows_from(data.get('documents'))),
         'Deadlines': table_rows(rows_from(data.get('deadlines'))),
-        'Risks_Gaps': table_rows(rows_from(data.get('risks_and_gaps'))),
-        'Tasks': table_rows(rows_from(data.get('tasks'))),
-        'Source_Log': table_rows(rows_from(data.get('sources'))),
+        'Supervisor_Fit': table_rows(rows_from(data.get('supervisor_fit'))),
+        'Writing_Tasks': table_rows(rows_from(data.get('writing_tasks'))),
+        'Risks_Gaps': table_rows(rows_from(data.get('risks_and_gaps') or data.get('risks'))),
+        'Tasks': table_rows(rows_from(data.get('tasks') or data.get('actions'))),
+        'Source_Log': table_rows(rows_from(data.get('sources') or data.get('source_log'))),
+        'Workstream_Status': table_rows(rows_from(data.get('workstream_status'))),
     }
 
 

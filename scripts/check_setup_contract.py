@@ -15,6 +15,7 @@ WORKFLOW_MODES = [
     "exact_program_selection",
     "requirement_audit",
     "essay_sop",
+    "materials_check",
     "workbook_build",
     "programme_table_cleaning",
     "submission_readiness",
@@ -40,6 +41,18 @@ ROOT_FIELDS = [
     "copy_back_requested",
     "requested_output_language",
     "evidence_records",
+    "program_name",
+    "program_name_or_url",
+    "application_cycle",
+    "prompt",
+    "word_limit",
+    "character_limit",
+    "audience",
+    "intended_use",
+    "output_location",
+    "overwrite_existing",
+    "document_inventory",
+    "revision_decision_ledger",
 ]
 PROFILE_FIELDS = [
     "target_degree_level",
@@ -94,6 +107,28 @@ def check_schema() -> None:
     }
     if set(evidence.get("required", [])) != required_evidence_fields:
         fail("schema evidenceRecord required fields drifted")
+    source = evidence.get("properties", {}).get("source", {})
+    source_text = json.dumps(source)
+    for source_type in ("public_url", "local_document", "user_confirmation"):
+        if source_type not in source_text:
+            fail(f"schema evidence source type missing: {source_type}")
+    local_with_url = {
+        "type": "local_document",
+        "url": "https://www.example.edu/local-copy",
+        "title": "Applicant CV",
+        "publisher": "Applicant",
+    }
+
+    def branch_matches(instance: dict, branch: dict) -> bool:
+        if any(field not in instance for field in branch.get("required", [])):
+            return False
+        for field, field_schema in branch.get("properties", {}).items():
+            if field in instance and "const" in field_schema and instance[field] != field_schema["const"]:
+                return False
+        return True
+
+    if any(branch_matches(local_with_url, branch) for branch in source.get("anyOf", [])):
+        fail("user-setup schema lets local_document URL bypass opaque_local_ref")
 
 
 def check_setup_references() -> None:
@@ -108,6 +143,8 @@ def check_setup_references() -> None:
         fail("onboarding flow missing canonical programme workbook source field")
     if "output_only: true" not in flow:
         fail("status diagnostics card must be marked output_only")
+    if "application_location: [profile.visa_application_country, visa_application_country]" not in gates:
+        fail("visa setup gate is missing visa_application_country")
 
 
 def check_fixtures_and_template() -> None:
@@ -150,6 +187,135 @@ def check_fixtures_and_template() -> None:
         },
     })
     run(["python3", "scripts/validate_setup.py", "/dev/stdin"], input_text=placeholder, expect_ok=False)
+
+    requirement_only = json.dumps({
+        "workflow_mode": "requirement_audit",
+        "output_mode": "source_backed",
+        "program_name_or_url": "https://www.example.edu/programme",
+        "application_cycle": "2026-27",
+    })
+    run(["python3", "scripts/validate_setup.py", "/dev/stdin"], input_text=requirement_only)
+    materials_only = json.dumps({
+        "workflow_mode": "materials_check",
+        "output_mode": "draft",
+        "program_name_or_url": "https://www.example.edu/programme",
+        "application_cycle": "2026-27",
+        "document_inventory": [{"document": "CV", "status": "available"}],
+    })
+    run(["python3", "scripts/validate_setup.py", "/dev/stdin"], input_text=materials_only)
+    materials_without_cycle = json.dumps({
+        "workflow_mode": "materials_check",
+        "output_mode": "draft",
+        "program_name_or_url": "https://www.example.edu/programme",
+        "document_inventory": [{"document": "CV", "status": "available"}],
+    })
+    missing_cycle = run(
+        ["python3", "scripts/validate_setup.py", "/dev/stdin"],
+        input_text=materials_without_cycle,
+        expect_ok=False,
+    )
+    if "application_cycle" not in missing_cycle.stderr:
+        fail("materials_check without an application cycle did not fail the route-specific gate")
+
+    character_limit_writing = json.dumps({
+        "workflow_mode": "essay_sop",
+        "output_mode": "draft",
+        "program_name": "Example MRes",
+        "prompt": "Explain your preparation.",
+        "character_limit": 4000,
+        "audience": "Admissions committee",
+        "intended_use": "Programme application",
+        "applicant_background": "Supplied in the current task",
+        "output_location": "chat",
+        "overwrite_existing": False,
+    })
+    run(["python3", "scripts/validate_setup.py", "/dev/stdin"], input_text=character_limit_writing)
+    writing_with_programme_url = json.dumps({
+        **json.loads(character_limit_writing),
+        "program_name": "",
+        "program_name_or_url": "https://www.example.edu/programme",
+    })
+    run(["python3", "scripts/validate_setup.py", "/dev/stdin"], input_text=writing_with_programme_url)
+
+    local_with_url_but_no_ref = json.dumps({
+        "workflow_mode": "requirement_audit",
+        "output_mode": "verified",
+        "program_name": "Example MRes",
+        "application_cycle": "2026-27",
+        "evidence_records": [{
+            "evidence_id": "local-no-ref",
+            "value": "Applicant fact from a local CV.",
+            "fact_class": "applicant_personal_fact",
+            "evidence_use": "applicant_comparison",
+            "source": {
+                "type": "local_document",
+                "url": "https://www.example.edu/cv-copy",
+                "title": "Applicant CV",
+                "publisher": "Applicant"
+            },
+            "evidence_date": "2026-07-15",
+            "confirmation_status": "explicitly_confirmed",
+            "confirmed_at": "2026-07-15T00:00:00+00:00",
+            "source_availability": "available",
+            "fact_verification": "verified",
+            "completeness": "complete",
+            "application_cycle": "2026-27",
+            "accessed_at": "2026-07-15T00:00:00+00:00",
+            "staleness": "fresh"
+        }],
+    })
+    invalid_local = run(
+        ["python3", "scripts/validate_setup.py", "/dev/stdin"],
+        input_text=local_with_url_but_no_ref,
+        expect_ok=False,
+    )
+    if "opaque_local_ref" not in invalid_local.stderr:
+        fail("local_document with a URL bypassed the required opaque_local_ref")
+
+    research_profile = {
+        "target_degree_level": "masters",
+        "target_countries": ["UK"],
+        "target_field": "neuroscience",
+    }
+    for workflow_mode in ("quick_triage", "exact_program_selection"):
+        setup = {
+            "workflow_mode": workflow_mode,
+            "output_mode": "source_backed",
+            "profile": research_profile,
+        }
+        run(["python3", "scripts/validate_setup.py", "/dev/stdin"], input_text=json.dumps(setup))
+        plan = json.loads(run(
+            ["python3", "scripts/plan_workflow.py", "--setup-json", "/dev/stdin"],
+            input_text=json.dumps(setup),
+        ).stdout)
+        if plan.get("profile_gaps"):
+            fail(f"{workflow_mode} planner drifts from its setup gate: {plan['profile_gaps']}")
+
+    visa_setup = {
+        "workflow_mode": "visa_readiness",
+        "output_mode": "source_backed",
+        "profile": {
+            "citizenship_countries": ["China"],
+            "target_countries": ["UK"],
+            "target_intake": "2026-27",
+            "budget_annual": "confirmed funding plan",
+        },
+    }
+    missing_visa_location = run(
+        ["python3", "scripts/validate_setup.py", "/dev/stdin"],
+        input_text=json.dumps(visa_setup),
+        expect_ok=False,
+    )
+    if "visa_application_country" not in missing_visa_location.stderr:
+        fail("visa setup without visa_application_country did not fail")
+    visa_setup["profile"]["visa_application_country"] = "Taiwan"
+    run(["python3", "scripts/validate_setup.py", "/dev/stdin"], input_text=json.dumps(visa_setup))
+    visa_plan = json.loads(run(
+        ["python3", "scripts/plan_workflow.py", "--setup-json", "/dev/stdin"],
+        input_text=json.dumps(visa_setup),
+    ).stdout)
+    if visa_plan.get("profile_gaps"):
+        fail(f"visa planner drifts from its setup gate: {visa_plan['profile_gaps']}")
 
     for path in (ROOT / "tests" / "fixtures").glob("*.json"):
         fixture = json.loads(path.read_text(encoding="utf-8"))

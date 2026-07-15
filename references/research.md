@@ -11,6 +11,17 @@ Prefer these sources in order:
 
 Record URL, title, publisher, access date, application cycle, and extracted requirement. If official pages conflict, report the conflict and avoid resolving it without evidence.
 
+For research-degree discovery, verify the formal award and delivery structure rather than inferring degree type from the title or subject. Record `MPhil`, `MRes`, `MSc by Research`, another thesis-led research award, or taught degree explicitly. If the official page does not establish the research format, keep it `unknown`.
+
+For supervisor and programme fit, separate:
+
+- whether pre-application supervisor contact is `required`, `recommended`, `optional`, `not_required`, or `unknown`;
+- the supervisor's current official research description and representative publications;
+- the applicant's confirmed research interests and methods;
+- modules, thesis structure, facilities, groups, and other programme-specific fit facts.
+
+Do not treat a plausible thematic match as verified supervisor availability or willingness to supervise.
+
 Keep these statuses independent:
 
 | Field | Meaning |

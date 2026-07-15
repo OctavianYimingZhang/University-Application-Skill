@@ -120,7 +120,7 @@ Stores contradictions between memory systems. Resolve conflicts by this priority
 4. canonical local memory;
 5. compact ChatGPT/Codex summary.
 
-Never silently merge conflicting facts.
+Never silently merge conflicting facts. The priority above applies to factual corrections; conflicting writing or revision instructions remain separate `RevisionDecisionLedger` items until the user explicitly resolves them.
 
 ## Retrieval protocol
 

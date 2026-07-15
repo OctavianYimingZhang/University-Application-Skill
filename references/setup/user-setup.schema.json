@@ -17,15 +17,33 @@
       "properties": {
         "evidence_id": {"type": "string", "minLength": 1},
         "value": {"type": "string", "minLength": 1},
+        "fact_class": {"enum": ["mutable_official_fact", "applicant_personal_fact"]},
+        "evidence_use": {"enum": ["writing", "applicant_comparison", "official_requirement", "material_document", "submission"]},
         "source": {
           "type": "object",
           "additionalProperties": false,
-          "required": ["url", "title", "publisher"],
           "properties": {
+            "type": {"enum": ["public_url", "local_document", "user_confirmation"]},
             "url": {"type": "string", "format": "uri"},
             "title": {"type": "string", "minLength": 1},
-            "publisher": {"type": "string", "minLength": 1}
-          }
+            "publisher": {"type": "string", "minLength": 1},
+            "opaque_local_ref": {"type": "string", "minLength": 1},
+            "confirmed_by": {"type": "string", "minLength": 1}
+          },
+          "anyOf": [
+            {
+              "required": ["url", "title", "publisher"],
+              "properties": {"type": {"const": "public_url"}}
+            },
+            {
+              "required": ["type", "opaque_local_ref", "title"],
+              "properties": {"type": {"const": "local_document"}}
+            },
+            {
+              "required": ["type", "confirmed_by", "title"],
+              "properties": {"type": {"const": "user_confirmation"}}
+            }
+          ]
         },
         "evidence_date": {
           "oneOf": [
@@ -60,6 +78,8 @@
         "exact_program_selection",
         "requirement_audit",
         "essay_sop",
+        "application_writing_studio",
+        "materials_check",
         "workbook_build",
         "programme_table_cleaning",
         "submission_readiness",
@@ -70,7 +90,7 @@
     },
     "task_type": {
       "type": "string",
-      "enum": ["shortlist", "requirement_check", "visa_readiness", "essay_plan"]
+      "enum": ["shortlist", "requirement_check", "visa_readiness", "essay_plan", "materials_check"]
     },
     "output_mode": {
       "type": "string",
@@ -86,6 +106,40 @@
     "source_policy": {"type": "string"},
     "requested_output_language": {"type": "string"},
     "evidence_records": {"type": "array", "items": {"$ref": "#/$defs/evidenceRecord"}},
+    "program_name": {"type": "string"},
+    "program_name_or_url": {"type": "string"},
+    "program_names_or_urls": {"type": "array", "items": {"type": "string"}},
+    "target_programs": {"type": "array", "items": {"type": "string"}},
+    "application_cycle": {"type": "string"},
+    "prompt": {"type": "string"},
+    "essay_prompt": {"type": "string"},
+    "word_limit": {"type": ["integer", "string"]},
+    "character_limit": {"type": ["integer", "string"]},
+    "audience": {"type": "string"},
+    "intended_use": {"type": "string"},
+    "submission_use": {"type": "string"},
+    "output_location": {"type": "string"},
+    "output_path": {"type": "string"},
+    "overwrite_existing": {"type": ["boolean", "null"]},
+    "overwrite_decision": {"type": "string"},
+    "applicant_background": {"type": "string"},
+    "document_inventory": {"type": "array", "items": {"type": "object"}},
+    "application_materials": {"type": "array", "items": {"type": "object"}},
+    "documents": {"type": "array", "items": {"type": "object"}},
+    "writing_revision_items": {"type": "array", "items": {"type": "object"}},
+    "revision_decision_ledger": {
+      "oneOf": [
+        {"type": "array", "items": {"type": "object"}},
+        {
+          "type": "object",
+          "properties": {
+            "items": {"type": "array", "items": {"type": "object"}},
+            "decisions": {"type": "array", "items": {"type": "object"}}
+          },
+          "additionalProperties": true
+        }
+      ]
+    },
     "privacy_mode": {"type": "string"},
     "export_format": {"type": "string"},
     "ranking_weight": {"type": ["number", "string"]},

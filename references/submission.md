@@ -15,5 +15,8 @@ Track:
 - scholarship form
 - visa-readiness items
 - source-verified deadlines
+- portal fields and submission status
+- mandatory pre-application actions, including supervisor contact when officially required
+- deadline timezone and any staged or rolling deadline rule
 
-No item is complete because a link exists, a file was uploaded, or a user clicked a generic completion control. A completed applicant item requires a record that passes [`evidence-contract.md`](evidence-contract.md); current requirements also need the correct application cycle and non-stale official provenance.
+No item is complete because a link exists, a file was uploaded, a user verbally confirms it, or a generic completion control was clicked. A completed applicant item requires a record that passes the `submission` purpose in [`evidence-contract.md`](evidence-contract.md); current requirements also need the correct application cycle and non-stale official provenance.

@@ -32,9 +32,12 @@
   "probability_prediction_policy": "prohibited",
   "human_review_targets": [
     "application_route",
+    "route_status",
     "source_policy",
     "profile_gaps",
     "writing_brief_and_evidence",
+    "revision_decision_ledger",
+    "revision_coverage",
     "route_specific_follow_up"
   ],
   "routes": [
