@@ -1,6 +1,6 @@
 ---
 name: application-readiness
-description: Check university application materials and remaining actions against current official requirements. Use for document inventories, portal steps, tests, references, fees, scholarships, deadlines, submission blockers, final readiness reviews, and administrative student-visa preparation.
+description: Check university application materials and remaining actions against current official requirements. Use for document inventories, portal steps, tests, references, fees, scholarships, deadlines, submission blockers, and final pre-submission readiness reviews.
 ---
 
 # Application Readiness
@@ -15,8 +15,6 @@ Read `references/evidence-contract.md` and `references/submission.md`.
 4. Separate ready items, blockers, date-sensitive actions, optional improvements, and unknowns.
 5. Return the requested explanation, compact table, blocker summary, or action list.
 
-For visa administration, use current official government or immigration-authority sources and record jurisdiction and access date. Use university sources for institution-specific sponsorship steps. Refer legal ambiguity or unusual immigration history to the official authority or a qualified professional.
-
-Describe the current readiness state. Label submission status and immigration outcomes only when official evidence confirms them.
+Describe the current readiness state. Label submission status only when the evidence confirms it.
 
 Use the user's requested output language; otherwise use English.

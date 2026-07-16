@@ -1,6 +1,6 @@
 ---
 name: university-application
-description: Route and complete source-backed university application work covering programme research, requirement comparison, admissions writing, materials readiness, submission preparation, and student-visa administration. Use when an applicant asks to find or compare programmes, verify current requirements, prepare application writing, check documents, or plan the remaining application steps.
+description: Route and complete source-backed university application work covering programme research, requirement comparison, admissions writing, materials readiness, submission preparation, student-visa administration, and programme-data maintenance. Use when an applicant asks to find or compare programmes, verify current requirements, prepare writing, check documents, plan visa steps, or maintain programme tables and catalogues.
 ---
 
 # University Application
@@ -9,18 +9,25 @@ Help the applicant choose programmes, prepare truthful application materials, an
 
 ## Public Skills
 
-- `application-research`: programme discovery, exact degree-type filtering, official requirements, supervisor and programme fit, costs, deadlines, catalogue maintenance, tables, and workbooks.
+- `application-research`: programme discovery, exact degree-type filtering, official requirements, supervisor and programme fit, costs, deadlines, and applicant-facing comparisons.
 - `application-writing`: SOPs, personal statements, supplemental essays, programme-fit paragraphs, planning, drafting, and revision.
-- `application-readiness`: materials, portal fields, references, tests, fees, scholarships, deadlines, submission blockers, and administrative student-visa preparation.
+- `application-readiness`: materials, portal fields, references, tests, fees, scholarships, deadlines, and submission blockers.
+- `application-visa`: jurisdiction-specific administrative student-visa requirements, evidence, timelines, and next actions.
+- `application-data`: programme catalogue, table, CSV, XLSX, and workbook maintenance with lineage and validation.
+
+## Skill Boundaries
+
+Treat the manifest-declared Skill list as the current architecture rather than a fixed quota. Split a focused Skill when its trigger intent, evidence authority, workflow, toolchain, or output is materially independent. Merge focused Skills when those elements are shared and the variants can be handled reliably by one workflow.
 
 ## Routing
 
 1. Read the request and supplied applicant or programme material.
 2. Select the focused Skill that directly produces the requested result.
-3. Use more than one focused Skill when the request explicitly combines research, writing, and readiness work.
+3. Use more than one focused Skill when the request explicitly combines applicant research, writing, readiness, visa, or programme-data work.
 4. Send a named-programme requirement check to Research; send comparison against the applicant's current documents or next actions to Readiness.
-5. Ask one concise question only when a missing input would materially change the result, such as target degree type, application cycle, writing prompt, word limit, document inventory, destination jurisdiction, or citizenship.
-6. Complete the work and verify the finished output.
+5. Route visa rules and administrative immigration steps to Visa. Route explicit catalogue, table, or workbook maintenance to Application Data.
+6. Ask one concise question only when a missing input would materially change the result, such as target degree type, application cycle, writing prompt, word limit, document inventory, destination jurisdiction, citizenship, or supplied data schema.
+7. Complete the work and verify the finished output.
 
 Follow the explicit user request; treat file names and incidental terminology as secondary context.
 
@@ -31,6 +38,8 @@ Read `references/evidence-contract.md` for every task, then read the focused ref
 - Research: `references/research.md`
 - Writing: `references/essay-sop.md`
 - Readiness: `references/submission.md`
+- Visa: `references/submission.md`
+- Programme Data: `references/research.md` and `catalogues/README.md`
 
 Use current official university, government, testing-agency, and scholarship sources for facts that can change. Record the source URL and access date, and keep official requirements, applicant evidence, strategic interpretation, and unresolved gaps distinct.
 
@@ -46,11 +55,11 @@ Use the user's requested output language; otherwise use English. Explain require
 
 - `scripts/validate_evidence.py`: validate official and applicant evidence.
 - `scripts/extract_inspiration_file.py`: extract labelled content from applicant-supplied writing inspiration files.
-- `scripts/build_admissions_workbook.py`: create an admissions workbook from structured input.
-- `scripts/clean_programme_workbooks.py` and `scripts/verify_programme_workbooks.py`: maintain supplied programme tables.
+- `scripts/build_admissions_workbook.py`: create an applicant-facing admissions workbook from structured input.
+- `scripts/clean_programme_workbooks.py` and `scripts/verify_programme_workbooks.py`: maintain supplied programme data.
 - `scripts/validate_catalogues.py`: validate the curated programme identity catalogue.
-- `scripts/validate_skill_contracts.py`: validate the simplified Plugin and four public Skills.
-- `scripts/publish_skill.py`: synchronise and compare the four local Skill installations.
+- `scripts/validate_skill_contracts.py`: validate the manifest-driven Plugin architecture.
+- `scripts/publish_skill.py`: synchronise and compare the manifest-declared local Skill installations.
 
 ## Completion
 

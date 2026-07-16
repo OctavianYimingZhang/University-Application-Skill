@@ -1,19 +1,23 @@
 # University Application Skill
 
-University Application Skill helps applicants research programmes, prepare admissions writing, and reach submission with current, source-backed information.
+University Application Skill helps applicants research programmes, prepare admissions writing, reach submission, handle administrative visa steps, and maintain programme data with current, source-backed information.
 
 ## Structure
 
-The Plugin exposes four Skills:
+The current manifest exposes these Skills:
 
 | Skill | Responsibility |
 | --- | --- |
 | `university-application` | Route an explicit request to the matching workflow. |
-| `application-research` | Discover and compare programmes, verify requirements, assess programme or supervisor fit, and maintain programme tables. |
+| `application-research` | Discover and compare programmes, verify requirements, and assess programme or supervisor fit. |
 | `application-writing` | Plan, draft, and revise SOPs, personal statements, supplements, and programme-fit writing from confirmed evidence. |
-| `application-readiness` | Check materials, portal steps, references, tests, fees, deadlines, submission blockers, and administrative visa preparation. |
+| `application-readiness` | Check materials, portal steps, references, tests, fees, deadlines, and submission blockers. |
+| `application-visa` | Check jurisdiction-specific student-visa requirements, evidence, timelines, and actions. |
+| `application-data` | Maintain and validate programme catalogues, tables, CSV/XLSX files, and workbooks. |
 
 The router acts directly on a clear request. It asks only when a missing input would materially change the result.
+
+The number of focused Skills is manifest-driven. Add or split a Skill when intent, evidence authority, workflow, toolchain, or output is materially independent; merge or remove it when those boundaries are shared.
 
 ## Evidence model
 
@@ -35,7 +39,7 @@ python3 scripts/publish_skill.py --sync-local-skill
 python3 scripts/publish_skill.py --check-installed
 ```
 
-This installs the router and three focused Skills into `~/.codex/skills` and removes the retired entrypoints owned by this Plugin.
+This installs every Skill declared by `skill_manifest.json` into `~/.codex/skills` and removes retired entrypoints owned by this Plugin.
 
 ## Validation
 
@@ -47,6 +51,9 @@ python3 scripts/validate_evidence.py --self-test
 python3 scripts/publish_skill.py --self-test
 python3 scripts/validate_skill_contracts.py
 python3 "$HOME/.codex/skills/.system/skill-creator/scripts/quick_validate.py" .
+for skill in skills/*; do
+  test -f "$skill/SKILL.md" && python3 "$HOME/.codex/skills/.system/skill-creator/scripts/quick_validate.py" "$skill"
+done
 python3 "$HOME/.codex/skills/.system/plugin-creator/scripts/validate_plugin.py" .
 python3 scripts/publish_skill.py --check-installed
 git diff --check
@@ -57,8 +64,8 @@ git diff --check
 | Path | Responsibility |
 | --- | --- |
 | `SKILL.md` | Shared router and operating rules. |
-| `skills/` | Four public Skill entrypoints. |
-| `references/` | Evidence, Research, Writing, and Readiness guidance. |
+| `skills/` | Manifest-declared Router and focused Skill entrypoints. |
+| `references/` | Shared evidence, Research, Writing, Readiness, and Visa guidance. |
 | `catalogues/` | Curated programme identities and their validators. |
 | `scripts/` | Evidence, catalogue, workbook, extraction, validation, and installation tools. |
 | `.codex-plugin/plugin.json` | Plugin metadata. |

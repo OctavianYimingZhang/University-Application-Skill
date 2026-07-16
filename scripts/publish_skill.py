@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Synchronise, compare, or push the simplified University Application Plugin."""
+"""Synchronise, compare, or push manifest-declared University Application Skills."""
 
 from __future__ import annotations
 
@@ -17,7 +17,6 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST_PATH = ROOT / "skill_manifest.json"
 LOCAL_SKILL_ROOT = Path.home() / ".codex" / "skills"
-ROUTER_ID = "university-application"
 SKIP_DIRS = {
     ".git",
     "__pycache__",
@@ -34,7 +33,10 @@ SHARED_FILES = ("LICENSE", "skill_manifest.json")
 
 
 def load_manifest() -> dict[str, Any]:
-    return json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
+    value = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
+    if not isinstance(value, dict):
+        raise RuntimeError("skill_manifest.json must be an object")
+    return value
 
 
 def ignored(_: str, names: list[str]) -> set[str]:
@@ -53,20 +55,25 @@ def skill_name(skill_md: Path) -> str:
 
 
 def public_skills() -> list[dict[str, Any]]:
-    entries = []
-    for item in load_manifest().get("public_skills", []):
+    manifest = load_manifest()
+    raw = manifest.get("public_skills", [])
+    if not isinstance(raw, list) or len(raw) < 2:
+        raise RuntimeError("The manifest must declare a Router and at least one focused Skill")
+    entries: list[dict[str, Any]] = []
+    for item in raw:
+        if not isinstance(item, dict):
+            raise RuntimeError(f"Invalid public Skill declaration: {item!r}")
         source = ROOT / str(item.get("path", ""))
         name = str(item.get("name", ""))
-        if not source.is_file() or source.name != "SKILL.md" or skill_name(source) != name:
+        if source != ROOT / "skills" / name / "SKILL.md" or not source.is_file() or skill_name(source) != name:
             raise RuntimeError(f"Invalid public Skill declaration: {item!r}")
         entries.append({"name": name, "source": source.parent})
-    if [item["name"] for item in entries] != [
-        "university-application",
-        "application-research",
-        "application-writing",
-        "application-readiness",
-    ]:
-        raise RuntimeError("Expected the router followed by Research, Writing, and Readiness")
+    names = [item["name"] for item in entries]
+    if len(set(names)) != len(names) or names[0] != manifest.get("skill_id"):
+        raise RuntimeError("The first unique public Skill must be the manifest Router")
+    architecture = manifest.get("architecture", {})
+    if architecture.get("focused_skill_policy") != "manifest_driven":
+        raise RuntimeError("The focused Skill policy must be manifest_driven")
     return entries
 
 
@@ -101,7 +108,11 @@ def install_focused(source: Path, destination: Path) -> None:
 
 
 def removed_ids() -> list[str]:
-    return [str(item) for item in load_manifest().get("removed_focused_skills", []) if item]
+    public = {entry["name"] for entry in public_skills()}
+    removed = [str(item) for item in load_manifest().get("removed_focused_skills", []) if item]
+    if public & set(removed):
+        raise RuntimeError("A public Skill cannot also be retired")
+    return removed
 
 
 def cleanup_removed(install_root: Path) -> list[dict[str, str]]:
@@ -119,7 +130,7 @@ def cleanup_removed(install_root: Path) -> list[dict[str, str]]:
 
 def synchronise(install_root: Path) -> dict[str, Any]:
     entries = public_skills()
-    router_destination = install_root / ROUTER_ID
+    router_destination = install_root / entries[0]["name"]
     replace_tree(ROOT, router_destination)
     focused = []
     for entry in entries[1:]:
@@ -180,12 +191,7 @@ def check_installed(install_root: Path) -> dict[str, Any]:
 
 
 def run_push() -> dict[str, Any]:
-    proc = subprocess.run(
-        ["git", "push", "origin", "HEAD:main"],
-        cwd=ROOT,
-        text=True,
-        capture_output=True,
-    )
+    proc = subprocess.run(["git", "push", "origin", "HEAD:main"], cwd=ROOT, text=True, capture_output=True)
     return {
         "status": "ok" if proc.returncode == 0 else "error",
         "returncode": proc.returncode,
@@ -196,15 +202,16 @@ def run_push() -> dict[str, Any]:
 
 def self_test() -> None:
     manifest = load_manifest()
-    assert manifest["plugin_version"] == "3.0.0"
-    assert len(public_skills()) == 4
+    entries = public_skills()
+    assert manifest.get("architecture", {}).get("focused_skill_policy") == "manifest_driven"
+    assert len(entries) >= 2
     with tempfile.TemporaryDirectory() as temporary:
         root = Path(temporary) / "skills"
         for name in removed_ids()[:2]:
             (root / name).mkdir(parents=True)
         result = synchronise(root)
         assert result["status"] == "ok"
-        assert all((root / entry["name"] / "SKILL.md").exists() for entry in public_skills())
+        assert all((root / entry["name"] / "SKILL.md").exists() for entry in entries)
         assert not any((root / name).exists() for name in removed_ids())
         assert check_installed(root)["status"] == "ok"
 

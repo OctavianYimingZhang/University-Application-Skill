@@ -1,11 +1,16 @@
 {
   "schema_version": 3,
-  "plugin_version": "3.0.0",
+  "plugin_version": "3.1.0",
   "skill_id": "university-application",
   "repo": "OctavianYimingZhang/University-Application-Skill",
   "branch": "main",
   "entrypoint": "SKILL.md",
   "multi_skill_system": true,
+  "architecture": {
+    "router": "university-application",
+    "focused_skill_policy": "manifest_driven",
+    "boundary_rule": "Split when intent, evidence authority, workflow, toolchain, or output is materially independent; merge when those elements are shared."
+  },
   "default_output_language": "en",
   "public_skills": [
     {
@@ -26,7 +31,17 @@
     {
       "name": "application-readiness",
       "path": "skills/application-readiness/SKILL.md",
-      "purpose": "materials_submission_and_visa_readiness"
+      "purpose": "materials_and_submission_readiness"
+    },
+    {
+      "name": "application-visa",
+      "path": "skills/application-visa/SKILL.md",
+      "purpose": "student_visa_administration"
+    },
+    {
+      "name": "application-data",
+      "path": "skills/application-data/SKILL.md",
+      "purpose": "programme_data_maintenance"
     }
   ],
   "references": [
@@ -39,6 +54,8 @@
     "evidence": "scripts/validate_evidence.py",
     "inspiration": "scripts/extract_inspiration_file.py",
     "workbook": "scripts/build_admissions_workbook.py",
+    "programme_data_cleaning": "scripts/clean_programme_workbooks.py",
+    "programme_data_verification": "scripts/verify_programme_workbooks.py",
     "catalogues": "scripts/validate_catalogues.py",
     "validation": "scripts/validate_skill_contracts.py",
     "installation": "scripts/publish_skill.py"

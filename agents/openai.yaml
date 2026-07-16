@@ -4,10 +4,8 @@ interface:
   default_prompt: "Use $university-application to complete this source-backed university application task."
 multi_skill_system:
   router: "skills/university-application/SKILL.md"
-  focused_skills:
-    - "application-research"
-    - "application-writing"
-    - "application-readiness"
+  manifest: "skill_manifest.json"
+  focused_skill_policy: "manifest_driven"
 source_policy:
   mutable_facts: "current official sources"
   applicant_facts: "user supplied or explicitly confirmed"

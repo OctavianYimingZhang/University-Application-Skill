@@ -1,7 +1,7 @@
 {
   "name": "university-application-skill",
-  "version": "3.0.0",
-  "description": "University applications through a router and three focused Skills for Research, Writing, and Readiness.",
+  "version": "3.1.0",
+  "description": "A manifest-driven university application system for programme research, writing, readiness, visas, and programme data.",
   "author": {
     "name": "Octavian Yiming Zhang"
   },
@@ -19,7 +19,7 @@
   "interface": {
     "displayName": "University Application Skill",
     "shortDescription": "Research, write, and prepare university applications.",
-    "longDescription": "Routes explicit applicant requests to official-source programme Research, truthful admissions Writing, or materials, submission, and visa Readiness.",
+    "longDescription": "Routes explicit applicant requests to official-source programme Research, truthful admissions Writing, application Readiness, student-visa administration, or programme-data maintenance.",
     "developerName": "Octavian Yiming Zhang",
     "category": "Education",
     "capabilities": [

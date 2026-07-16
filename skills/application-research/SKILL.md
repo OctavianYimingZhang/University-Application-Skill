@@ -1,6 +1,6 @@
 ---
 name: application-research
-description: Research and compare university programmes using current official sources. Use for programme discovery, shortlists, exact research-degree filtering, named-programme requirements, supervisor and programme fit, fees, deadlines, scholarships, catalogue maintenance, programme tables, and admissions workbooks.
+description: Research and compare university programmes using current official sources. Use for programme discovery, shortlists, exact research-degree filtering, named-programme requirements, supervisor and programme fit, fees, deadlines, scholarships, and applicant-facing comparison tables or workbooks.
 ---
 
 # Application Research
