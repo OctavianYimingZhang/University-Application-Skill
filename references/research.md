@@ -1,47 +1,35 @@
-# Research
+# Programme and Requirement Research
 
-Prefer these sources in order:
+## Scope
 
-1. Official program page.
-2. Official admissions requirement page.
-3. Official fee and scholarship page.
-4. Official government or visa page.
-5. Official testing-agency page.
-6. Reputable ranking or labor-market source, only when the user asks for that dimension.
+Use this workflow for programme discovery, shortlists, named-programme checks, supervisor and programme fit, catalogue maintenance, programme tables, and admissions workbooks.
 
-Record URL, title, publisher, access date, application cycle, and extracted requirement. If official pages conflict, report the conflict and avoid resolving it without evidence.
+Start with the scope already stated by the user. Ask only for a missing field that changes the search, such as degree level, exact research-degree type, subject, geography, intake, or whether eligibility, cost, or supervisor fit must be compared.
 
-For research-degree discovery, verify the formal award and delivery structure rather than inferring degree type from the title or subject. Record `MPhil`, `MRes`, `MSc by Research`, another thesis-led research award, or taught degree explicitly. If the official page does not establish the research format, keep it `unknown`.
+## Source order
 
-For supervisor and programme fit, separate:
+1. Current official programme page.
+2. Official department, admissions, fee, scholarship, English-language, and application pages.
+3. Official supervisor profiles and representative publications when supervisor fit is requested.
+4. Official government or regulator pages for jurisdiction-specific administration.
+5. The curated catalogue as an identity index, followed by current-page verification.
 
-- whether pre-application supervisor contact is `required`, `recommended`, `optional`, `not_required`, or `unknown`;
-- the supervisor's current official research description and representative publications;
-- the applicant's confirmed research interests and methods;
-- modules, thesis structure, facilities, groups, and other programme-specific fit facts.
+## Research workflow
 
-Do not treat a plausible thematic match as verified supervisor availability or willingness to supervise.
+1. Confirm the exact programme identity, award, degree level, mode, location, and application cycle.
+2. For research degrees, verify the published award and thesis or research structure. Keep `MPhil`, `MRes`, `MSc by Research`, taught master's degrees, and doctoral routes distinct.
+3. Extract the fields needed for the user's result: duration, structure, modules, research groups, supervisor-contact status, academic and subject requirements, English scores, documents, writing prompts and limits, references, fees, scholarships, deadlines, and pre-application steps.
+4. Classify each published requirement as required, recommended, optional, not required, or unknown.
+5. Compare programmes by the requested factors. Keep requirement evidence separate from strategic fit.
+6. Compare supervisor or programme fit against confirmed applicant interests and experience. Treat a relevant topic or supervisor as fit evidence and verify place availability separately.
+7. Mark unpublished, inaccessible, stale, or conflicting fields plainly.
 
-Keep these statuses independent:
+## Tables, catalogues, and workbooks
 
-| Field | Meaning |
-| --- | --- |
-| `source_availability` | Whether the source is currently `available`, `unavailable`, or `unknown`; availability does not verify a claim. |
-| `fact_verification` | Whether the extracted fact is `unverified`, `verified`, or `conflicted`. |
-| `completeness` | Whether the record is a `placeholder`, `partial`, or `complete`. |
-| `application_cycle` | The admissions or visa cycle to which the fact applies. |
-| `accessed_at` | When the source was retrieved. |
-| `staleness` | Whether the fact is `fresh`, `stale`, or `unknown` for the intended use. |
+Use `scripts/clean_programme_workbooks.py` and `scripts/verify_programme_workbooks.py` for supplied programme tables. Use the institution-specific catalogue builder when an official source structure requires it, then run `scripts/validate_catalogues.py`.
 
-Never collapse these fields into a single `verified` or `source status` label. A reachable page can contain an unverified, incomplete, stale, or wrong-cycle fact.
+Preserve programme names, official URLs, raw source values, application cycle, access date, and verification status. Use `scripts/build_admissions_workbook.py` when the user asks for a structured workbook.
 
-## Curated Identity Catalogue
+## Output
 
-Use [`../catalogues/index.json`](../catalogues/index.json) as the Plugin-owned discovery index when the target institution is covered. Load only the selected institution file and degree level. A catalogue row confirms only that an identity appeared in an official source at the recorded access date:
-
-- `identity_status` stays `official_source_listed`;
-- `requirements_status` stays `not_collected`;
-- illustrative examples stay `illustrative_only`;
-- placeholders and link-only records never become verified facts.
-
-Retrieve the current official programme and admissions pages before verifying availability, entry requirements, fees, deadlines, documents, or application-cycle facts.
+Return the requested shortlist, comparison table, direct requirement explanation, source log, cleaned table, or workbook. Include only factors relevant to the user's decision and keep unknowns visible.

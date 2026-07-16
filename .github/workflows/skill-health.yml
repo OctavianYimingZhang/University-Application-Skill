@@ -2,24 +2,27 @@ name: Skill health
 
 on:
   push:
-    branches: [main]
   pull_request:
   workflow_dispatch:
-  schedule:
-    - cron: "43 3 * * 1"
 
 permissions:
   contents: read
 
 jobs:
-  health:
+  validate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
-
-      - name: Run Skill doctor
-        run: python3 scripts/skill_maintenance.py doctor --json
+          python-version: "3.12"
+      - name: Validate Plugin
+        run: |
+          python3 -m compileall -q scripts
+          python3 scripts/validate_catalogues.py
+          python3 -m unittest tests.test_catalogues -v
+          python3 scripts/validate_evidence.py --self-test
+          python3 scripts/publish_skill.py --self-test
+          python3 scripts/validate_skill_contracts.py
+          python3 scripts/publish_skill.py --install-root "$RUNNER_TEMP/codex-skills" --sync-local-skill
+          python3 scripts/publish_skill.py --install-root "$RUNNER_TEMP/codex-skills" --check-installed

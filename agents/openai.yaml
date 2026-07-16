@@ -1,24 +1,15 @@
 interface:
   display_name: "University Application Skill"
-  short_description: "Route source-backed university applications"
-  default_prompt: "Use $university-application-index to route and complete a source-backed university application task in English."
+  short_description: "Research, write, and prepare applications"
+  default_prompt: "Use $university-application to complete this source-backed university application task."
 multi_skill_system:
-  plugin_router_skill: "skills/university-application-index/SKILL.md"
-  compatibility_aliases:
-    - "study-abroad-advisor"
-  index_skill: "skills/university-application-index/SKILL.md"
+  router: "skills/university-application/SKILL.md"
   focused_skills:
-    - "university-application-index"
-    - "program-research"
-    - "requirement-audit"
-    - "materials-check"
-    - "application-writing-studio"
-    - "submission-readiness"
-    - "visa-readiness"
-    - "programme-table-cleaning"
+    - "application-research"
+    - "application-writing"
+    - "application-readiness"
 source_policy:
-  hard_requirements: "official_only"
-  probability_prediction: "prohibited"
-  applicant_evidence_contract: "references/evidence-contract.md"
-  programme_identity_catalogue: "catalogues/index.json; official-source-listed identity only; requirements not collected"
+  mutable_facts: "current official sources"
+  applicant_facts: "user supplied or explicitly confirmed"
+  programme_identity_catalogue: "identity only; verify current requirements"
   default_output_language: "en"

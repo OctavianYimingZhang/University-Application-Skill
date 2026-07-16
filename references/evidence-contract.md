@@ -1,56 +1,39 @@
-# Applicant Evidence Contract
+# Evidence Handling
 
-Applicant evidence is blank by default. A profile value, uploaded file, link, extracted passage, or model suggestion is not confirmed evidence until it satisfies this record contract.
+Use evidence according to the claim it supports.
 
-## Record shape
+## Official facts
 
-Each record uses these independent fields:
+Use a current official public URL for programme availability, award type, entry requirements, English-language requirements, documents, prompts, fees, deadlines, scholarships, supervisor-contact rules, and visa administration. Record:
 
-| Field | Required value |
-| --- | --- |
-| `evidence_id` | Stable non-placeholder identifier. |
-| `value` | Non-empty applicant fact; a URL by itself is not a value. |
-| `fact_class` | Optional explicit class: `mutable_official_fact` or `applicant_personal_fact`; legacy records remain accepted, but plainly official deadline, fee, requirement, policy, cycle, or supervisor-contact claims remain official when the field is omitted. |
-| `evidence_use` | Optional purpose override: `writing`, `applicant_comparison`, `official_requirement`, `material_document`, or `submission`. |
-| `source` | Provenance object. Existing records default to `public_url`; new records use `type: public_url`, `local_document`, or `user_confirmation`. |
-| `evidence_date` | ISO date or date-time for the underlying evidence. |
-| `confirmation_status` | `unconfirmed` or `explicitly_confirmed`. |
-| `confirmed_at` | ISO date-time when explicitly confirmed; otherwise empty or null. |
-| `source_availability` | `available`, `unavailable`, or `unknown`. |
-| `fact_verification` | `unverified`, `verified`, or `conflicted`. |
-| `completeness` | `placeholder`, `partial`, or `complete`. |
-| `application_cycle` | The cycle to which the evidence applies. |
-| `accessed_at` | ISO date or date-time when the source was accessed. |
-| `staleness` | `fresh`, `stale`, or `unknown`. |
+- the factual value;
+- source title, publisher, and URL;
+- application cycle or intake;
+- access date;
+- whether the page was complete and current;
+- any conflict or missing field.
 
-Keep these dimensions separate. Source availability describes whether the source can be accessed, fact verification describes whether the value was checked, completeness describes whether the record contains the required substance, the application cycle scopes the fact, the access date records retrieval time, and staleness records currency.
+An identity catalogue establishes that a programme was listed at its recorded access date. Reopen the current official page before relying on requirements or availability.
 
-### Source types
+## Applicant facts
 
-- `public_url` requires a real URL, title, and publisher. It is the only source type that can verify mutable official programme, fee, deadline, policy, or eligibility facts.
-- `local_document` requires an opaque local reference and title. It may support an applicant fact or document-presence check without publishing the private file.
-- `user_confirmation` requires the current user's explicit confirmation and a title identifying the confirmation context. It may support the applicant's own writing narrative, but cannot satisfy an official requirement, document-completion, or submission gate by itself.
+Use applicant facts from an applicant-supplied document or explicit applicant confirmation. Keep the claim, source label, confirmation date, and intended use together.
 
-## Passing invariant
+Writing samples provide voice evidence. Course material and readings provide knowledge or interest evidence. Treat either as evidence of a personal achievement only when the applicant confirms what they did.
 
-An evidence record passes only when all of the following are true:
+## Readiness evidence
 
-- `value` is substantive and is not empty, a placeholder, or a link by itself;
-- the source fields required by its provenance type are complete;
-- `evidence_date` is present;
-- `confirmation_status` is `explicitly_confirmed` and `confirmed_at` is present;
-- `fact_verification` is `verified`;
-- `completeness` is `complete`;
-- every normalized field above is present and valid.
+An official page proves what is required. An applicant-owned file proves that the applicant has the material. Compare both when marking an item ready.
 
-The fact class and use-case gate are separate from record validity. Plainly mutable official semantics take precedence over a conflicting `fact_class` or `evidence_use`, and a caller-supplied validation purpose cannot be downgraded by the record:
+Use `scripts/validate_evidence.py` when structured evidence records are available. The validator preserves separate fields for source availability, verification, completeness, application cycle, access date, and freshness.
 
-- an `applicant_personal_fact` used for `writing` or `applicant_comparison` accepts complete `public_url`, `local_document`, or `user_confirmation` provenance;
-- a `material_document` item accepts only an `applicant_personal_fact` backed by a currently available `local_document`; an official page saying that a CV is required does not prove that the applicant has a CV;
-- a `submission` item preserves its broader source-aware gate: current official records may use fresh, cycle-matched `public_url` provenance and applicant documents may use currently available `public_url` or `local_document` provenance, while user confirmation alone remains insufficient;
-- a `mutable_official_fact` or `official_requirement` accepts only an available, fresh public URL whose application cycle equals the current target cycle;
-- stale, unavailable, or wrong-cycle official records never pass `official_requirement`, even when their underlying record is otherwise complete.
+## Output
 
-`source_availability`, `application_cycle`, `accessed_at`, and `staleness` remain visible even when the confirmation predicate passes. A stale or unavailable source can still block a current-cycle recommendation under the quality rules.
+For each important conclusion, show one of:
 
-Run [`../scripts/validate_evidence.py`](../scripts/validate_evidence.py) with the relevant `--purpose`; pass `--current-cycle` whenever mutable official facts are evaluated. In `AcademicTaskContext`, keep proposed decisions at `suggested`; only a user selection may set a decision to `explicitly_confirmed`.
+- verified official fact;
+- confirmed applicant fact;
+- interpretation based on named evidence;
+- unresolved evidence gap.
+
+Resolve conflicts from the underlying sources or ask the applicant when the choice changes the result.

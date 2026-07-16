@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
+"""Synchronise, compare, or push the simplified University Application Plugin."""
+
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
 import shutil
@@ -10,36 +13,180 @@ import tempfile
 from pathlib import Path
 from typing import Any
 
+
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST_PATH = ROOT / "skill_manifest.json"
-DEFAULT_LOCAL_SKILL_ROOT = Path.home() / ".codex" / "skills"
+LOCAL_SKILL_ROOT = Path.home() / ".codex" / "skills"
+ROUTER_ID = "university-application"
 SKIP_DIRS = {
     ".git",
     "__pycache__",
     ".pytest_cache",
     ".mypy_cache",
     ".ruff_cache",
-    ".skill_backups",
     "node_modules",
-    "dist",
+    "outputs",
+    "tmp",
 }
 SKIP_SUFFIXES = {".pyc", ".pyo", ".docx", ".pdf", ".pptx", ".xlsx", ".zip", ".jsonl"}
-SHARED_RESOURCE_DIRS = ("references", "scripts", "contracts", "schemas")
-SHARED_RESOURCE_FILES = ("LICENSE", "skill_manifest.json", "plugin-capability-manifest.v2.json")
-CANONICAL_SKILL_NAME = "university-application-index"
-CATALOGUE_SKILLS = {"program-research", "programme-table-cleaning"}
+SHARED_DIRS = ("references", "scripts", "catalogues")
+SHARED_FILES = ("LICENSE", "skill_manifest.json")
 
 
 def load_manifest() -> dict[str, Any]:
     return json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
 
 
-def run(cmd: list[str], dry_run: bool) -> dict[str, Any]:
-    if dry_run:
-        return {"cmd": cmd, "status": "planned"}
-    proc = subprocess.run(cmd, cwd=ROOT, text=True, capture_output=True)
+def ignored(_: str, names: list[str]) -> set[str]:
     return {
-        "cmd": cmd,
+        name
+        for name in names
+        if name in SKIP_DIRS or name == ".DS_Store" or Path(name).suffix in SKIP_SUFFIXES
+    }
+
+
+def skill_name(skill_md: Path) -> str:
+    match = re.search(r"^name:\s*([a-z0-9-]+)\s*$", skill_md.read_text(encoding="utf-8"), re.MULTILINE)
+    if not match:
+        raise RuntimeError(f"Cannot read Skill name from {skill_md}")
+    return match.group(1)
+
+
+def public_skills() -> list[dict[str, Any]]:
+    entries = []
+    for item in load_manifest().get("public_skills", []):
+        source = ROOT / str(item.get("path", ""))
+        name = str(item.get("name", ""))
+        if not source.is_file() or source.name != "SKILL.md" or skill_name(source) != name:
+            raise RuntimeError(f"Invalid public Skill declaration: {item!r}")
+        entries.append({"name": name, "source": source.parent})
+    if [item["name"] for item in entries] != [
+        "university-application",
+        "application-research",
+        "application-writing",
+        "application-readiness",
+    ]:
+        raise RuntimeError("Expected the router followed by Research, Writing, and Readiness")
+    return entries
+
+
+def replace_tree(source: Path, destination: Path) -> None:
+    if destination.exists():
+        shutil.rmtree(destination)
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copytree(source, destination, ignore=ignored)
+
+
+def install_focused(source: Path, destination: Path) -> None:
+    if destination.exists():
+        shutil.rmtree(destination)
+    destination.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(source / "SKILL.md", destination / "SKILL.md")
+    for item in source.iterdir():
+        if item.name == "SKILL.md" or item.name in SKIP_DIRS or item.name == ".DS_Store":
+            continue
+        target = destination / item.name
+        if item.is_dir():
+            shutil.copytree(item, target, ignore=ignored)
+        elif item.suffix not in SKIP_SUFFIXES:
+            shutil.copy2(item, target)
+    for dirname in SHARED_DIRS:
+        shared = ROOT / dirname
+        if shared.exists():
+            shutil.copytree(shared, destination / dirname, ignore=ignored)
+    for filename in SHARED_FILES:
+        shared = ROOT / filename
+        if shared.exists():
+            shutil.copy2(shared, destination / filename)
+
+
+def removed_ids() -> list[str]:
+    return [str(item) for item in load_manifest().get("removed_focused_skills", []) if item]
+
+
+def cleanup_removed(install_root: Path) -> list[dict[str, str]]:
+    results = []
+    for name in removed_ids():
+        destination = install_root / name
+        if destination.exists():
+            shutil.rmtree(destination)
+            status = "removed"
+        else:
+            status = "absent"
+        results.append({"name": name, "destination": str(destination), "status": status})
+    return results
+
+
+def synchronise(install_root: Path) -> dict[str, Any]:
+    entries = public_skills()
+    router_destination = install_root / ROUTER_ID
+    replace_tree(ROOT, router_destination)
+    focused = []
+    for entry in entries[1:]:
+        destination = install_root / entry["name"]
+        install_focused(entry["source"], destination)
+        focused.append({"name": entry["name"], "destination": str(destination), "status": "synchronised"})
+    return {
+        "status": "ok",
+        "router": str(router_destination),
+        "focused_skills": focused,
+        "removed_focused_skills": cleanup_removed(install_root),
+    }
+
+
+def tree_manifest(root: Path) -> dict[str, str]:
+    result: dict[str, str] = {}
+    if not root.exists():
+        return result
+    for path in sorted(item for item in root.rglob("*") if item.is_file()):
+        relative = path.relative_to(root)
+        if any(part in SKIP_DIRS or part == ".DS_Store" for part in relative.parts):
+            continue
+        if path.suffix in SKIP_SUFFIXES:
+            continue
+        result[relative.as_posix()] = hashlib.sha256(path.read_bytes()).hexdigest()
+    return result
+
+
+def compare(expected: Path, actual: Path, name: str) -> dict[str, Any]:
+    left = tree_manifest(expected)
+    right = tree_manifest(actual)
+    missing = sorted(left.keys() - right.keys())
+    unexpected = sorted(right.keys() - left.keys())
+    changed = sorted(key for key in left.keys() & right.keys() if left[key] != right[key])
+    return {
+        "name": name,
+        "status": "ok" if not missing and not unexpected and not changed else "drift",
+        "missing": missing,
+        "unexpected": unexpected,
+        "changed": changed,
+    }
+
+
+def check_installed(install_root: Path) -> dict[str, Any]:
+    with tempfile.TemporaryDirectory() as temporary:
+        expected_root = Path(temporary) / "skills"
+        synchronise(expected_root)
+        checks = [
+            compare(expected_root / entry["name"], install_root / entry["name"], entry["name"])
+            for entry in public_skills()
+        ]
+    retired_present = [name for name in removed_ids() if (install_root / name).exists()]
+    return {
+        "status": "ok" if all(item["status"] == "ok" for item in checks) and not retired_present else "drift",
+        "checks": checks,
+        "retired_present": retired_present,
+    }
+
+
+def run_push() -> dict[str, Any]:
+    proc = subprocess.run(
+        ["git", "push", "origin", "HEAD:main"],
+        cwd=ROOT,
+        text=True,
+        capture_output=True,
+    )
+    return {
         "status": "ok" if proc.returncode == 0 else "error",
         "returncode": proc.returncode,
         "stdout": proc.stdout.strip(),
@@ -47,168 +194,53 @@ def run(cmd: list[str], dry_run: bool) -> dict[str, Any]:
     }
 
 
-def ignore(_: str, names: list[str]) -> set[str]:
-    ignored = set()
-    for name in names:
-        suffix = Path(name).suffix
-        if name in SKIP_DIRS or suffix in SKIP_SUFFIXES or name == ".DS_Store":
-            ignored.add(name)
-    return ignored
-
-
-def read_skill_name(skill_md: Path) -> str:
-    body = skill_md.read_text(encoding="utf-8")
-    match = re.search(r"^name:\s*([a-z0-9-]+)\s*$", body, flags=re.MULTILINE)
-    return match.group(1) if match else skill_md.parent.name
-
-
-def discover_focused_skills() -> list[dict[str, Any]]:
-    skills_dir = ROOT / "skills"
-    out = []
-    for path in sorted(item for item in skills_dir.iterdir() if item.is_dir()):
-        skill_md = path / "SKILL.md"
-        if skill_md.exists() and path.name != CANONICAL_SKILL_NAME:
-            out.append({"name": read_skill_name(skill_md), "source": path})
-    return out
-
-
-def copy_child_resources(source_dir: Path, destination: Path) -> None:
-    for item in source_dir.iterdir():
-        if item.name == "SKILL.md" or item.name in SKIP_DIRS or item.suffix in SKIP_SUFFIXES or item.name == ".DS_Store":
-            continue
-        target = destination / item.name
-        if item.is_dir():
-            shutil.copytree(item, target, ignore=ignore)
-        else:
-            shutil.copy2(item, target)
-
-
-def sync_focused_skill(skill: dict[str, Any], local_skill_root: Path, dry_run: bool) -> dict[str, Any]:
-    destination = local_skill_root / skill["name"]
-    if dry_run:
-        return {"name": skill["name"], "destination": str(destination), "status": "planned"}
-    if destination.exists():
-        shutil.rmtree(destination)
-    destination.mkdir(parents=True, exist_ok=True)
-    skill_text = (skill["source"] / "SKILL.md").read_text(encoding="utf-8")
-    skill_text = skill_text.replace("../../references/", "references/")
-    skill_text = skill_text.replace("../../scripts/", "scripts/")
-    skill_text = skill_text.replace("../../contracts/", "contracts/")
-    skill_text = skill_text.replace("../../catalogues/", "catalogues/")
-    (destination / "SKILL.md").write_text(skill_text, encoding="utf-8")
-    copy_child_resources(skill["source"], destination)
-    for dirname in SHARED_RESOURCE_DIRS:
-        source = ROOT / dirname
-        if source.exists():
-            shutil.copytree(source, destination / dirname, ignore=ignore)
-    if skill["name"] in CATALOGUE_SKILLS:
-        shutil.copytree(ROOT / "catalogues", destination / "catalogues", ignore=ignore)
-    for filename in SHARED_RESOURCE_FILES:
-        source = ROOT / filename
-        if source.exists():
-            shutil.copy2(source, destination / filename)
-    return {"name": skill["name"], "destination": str(destination), "status": "ok"}
-
-
-def sync_local_skill(destination: Path, dry_run: bool) -> dict[str, Any]:
-    canonical_destination = destination if destination.name == CANONICAL_SKILL_NAME else destination.parent / CANONICAL_SKILL_NAME
-    if dry_run:
-        return {
-            "canonical_destination": str(canonical_destination),
-            "focused_skills": [
-                {"name": item["name"], "destination": str(canonical_destination.parent / item["name"]), "status": "planned"}
-                for item in discover_focused_skills()
-            ],
-            "status": "planned",
-        }
-    if canonical_destination.exists():
-        shutil.rmtree(canonical_destination)
-    canonical_destination.parent.mkdir(parents=True, exist_ok=True)
-    shutil.copytree(ROOT, canonical_destination, ignore=ignore)
-    focused = [sync_focused_skill(item, canonical_destination.parent, dry_run=False) for item in discover_focused_skills()]
-    return {"canonical_destination": str(canonical_destination), "focused_skills": focused, "status": "ok"}
-
-
-def basic_status() -> dict[str, Any]:
-    manifest = load_manifest()
-    return {
-        "repo": manifest.get("repo"),
-        "entrypoint_exists": (ROOT / manifest.get("entrypoint", "")).exists(),
-        "focused_skill_count": len(discover_focused_skills()),
-        "catalogue_index_exists": (ROOT / manifest.get("catalogue_index", "")).exists(),
-        "plugin_only_package": not (ROOT / "web").exists(),
-    }
-
-
-def publish(push: bool, sync_local: bool, destination: Path, dry_run: bool) -> dict[str, Any]:
-    result: dict[str, Any] = {"status": basic_status(), "steps": []}
-    if push:
-        result["steps"].append(run(["git", "push"], dry_run))
-    if sync_local:
-        result["steps"].append(sync_local_skill(destination, dry_run))
-    if not push and not sync_local:
-        result["steps"].append({"status": "nothing_requested", "hint": "Use --push and/or --sync-local-skill."})
-    return result
-
-
-def has_error(value: Any) -> bool:
-    if isinstance(value, dict):
-        if value.get("status") == "error":
-            return True
-        return any(has_error(item) for item in value.values())
-    if isinstance(value, list):
-        return any(has_error(item) for item in value)
-    return False
-
-
 def self_test() -> None:
     manifest = load_manifest()
-    assert manifest.get("multi_skill_system") is True
-    assert discover_focused_skills()
-    assert {item["name"] for item in discover_focused_skills()} >= {"study-abroad-advisor", "visa-readiness"}
-    assert manifest.get("skill_id") == CANONICAL_SKILL_NAME
-    assert manifest.get("companion_site", {}).get("source_in_repository") is False
-    assert not (ROOT / "web").exists()
-    dry = sync_local_skill(DEFAULT_LOCAL_SKILL_ROOT / manifest["skill_id"], dry_run=True)
-    assert dry["status"] == "planned"
-    legacy_dry = sync_local_skill(DEFAULT_LOCAL_SKILL_ROOT / "study-abroad-advisor", dry_run=True)
-    assert Path(legacy_dry["canonical_destination"]).name == CANONICAL_SKILL_NAME
-    with tempfile.TemporaryDirectory() as tmp:
-        local_root = Path(tmp)
-        canonical = local_root / CANONICAL_SKILL_NAME
-        result = sync_local_skill(canonical, dry_run=False)
+    assert manifest["plugin_version"] == "3.0.0"
+    assert len(public_skills()) == 4
+    with tempfile.TemporaryDirectory() as temporary:
+        root = Path(temporary) / "skills"
+        for name in removed_ids()[:2]:
+            (root / name).mkdir(parents=True)
+        result = synchronise(root)
         assert result["status"] == "ok"
-        assert (canonical / "SKILL.md").exists()
-        for name in ("study-abroad-advisor", "program-research", "visa-readiness"):
-            installed = local_root / name
-            body = (installed / "SKILL.md").read_text(encoding="utf-8")
-            assert "../../references/" not in body
-            assert "../../scripts/" not in body
-            for target in re.findall(r"\[[^\]]+\]\(([^)]+)\)", body):
-                if target.startswith(("http://", "https://", "#")):
-                    continue
-                assert (installed / target.split("#", 1)[0]).resolve().exists(), (name, target)
-        assert (local_root / "program-research" / "catalogues" / "index.json").exists()
-        assert not (local_root / "visa-readiness" / "catalogues").exists()
+        assert all((root / entry["name"] / "SKILL.md").exists() for entry in public_skills())
+        assert not any((root / name).exists() for name in removed_ids())
+        assert check_installed(root)["status"] == "ok"
 
 
-def main() -> None:
-    parser = argparse.ArgumentParser(description="Publish or sync University Application Skill.")
-    parser.add_argument("--push", action="store_true")
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--sync-local-skill", action="store_true")
-    parser.add_argument("--local-skill-dir", default=str(DEFAULT_LOCAL_SKILL_ROOT / CANONICAL_SKILL_NAME))
-    parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument("--check-installed", action="store_true")
+    parser.add_argument("--push", action="store_true")
     parser.add_argument("--self-test", action="store_true")
+    parser.add_argument("--install-root", type=Path, default=LOCAL_SKILL_ROOT)
     args = parser.parse_args()
+
     if args.self_test:
         self_test()
         print("OK: publish_skill self-test passed")
-        return
-    result = publish(args.push, args.sync_local_skill, Path(args.local_skill_dir), args.dry_run)
-    print(json.dumps(result, ensure_ascii=False, indent=2))
-    if has_error(result):
-        raise SystemExit(1)
+        return 0
+
+    result: dict[str, Any] = {"steps": []}
+    install_root = args.install_root.expanduser().resolve()
+    if args.sync_local_skill:
+        result["steps"].append({"sync": synchronise(install_root)})
+    if args.check_installed:
+        result["steps"].append({"installed_check": check_installed(install_root)})
+    if args.push:
+        result["steps"].append({"push": run_push()})
+    if not result["steps"]:
+        result["steps"].append({"status": "nothing_requested"})
+    print(json.dumps(result, indent=2))
+    failed = any(
+        isinstance(value, dict) and value.get("status") in {"error", "drift"}
+        for step in result["steps"]
+        for value in step.values()
+    )
+    return 1 if failed else 0
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

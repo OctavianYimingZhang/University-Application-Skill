@@ -1,122 +1,62 @@
 {
   "schema_version": 3,
-  "skill_id": "university-application-index",
+  "plugin_version": "3.0.0",
+  "skill_id": "university-application",
   "repo": "OctavianYimingZhang/University-Application-Skill",
   "branch": "main",
   "entrypoint": "SKILL.md",
   "multi_skill_system": true,
-  "plugin_router_skill": {
-    "name": "university-application-index",
-    "path": "skills/university-application-index/SKILL.md",
-    "route": "index"
-  },
-  "index_skill": "skills/university-application-index/SKILL.md",
-  "compatibility_aliases": [
-    {
-      "name": "study-abroad-advisor",
-      "path": "skills/study-abroad-advisor/SKILL.md",
-      "canonical": "university-application-index"
-    }
-  ],
-  "capability_manifest": "plugin-capability-manifest.v2.json",
-  "application_case_schema": "schemas/application-case-v1.schema.json",
-  "catalogue_index": "catalogues/index.json",
-  "catalogue_schemas": [
-    "catalogues/schemas/catalogue-index-v1.schema.json",
-    "catalogues/schemas/institution-catalogue-v1.schema.json"
-  ],
-  "supported_context_versions": [1],
   "default_output_language": "en",
-  "default_output": "source_backed_programme_list",
-  "human_review_required": true,
-  "probability_prediction_policy": "prohibited",
-  "human_review_targets": [
-    "application_route",
-    "route_status",
-    "source_policy",
-    "profile_gaps",
-    "writing_brief_and_evidence",
-    "revision_decision_ledger",
-    "revision_coverage",
-    "route_specific_follow_up"
-  ],
-  "routes": [
-    "program_research",
-    "requirement_audit",
-    "materials_check",
-    "application_writing_studio",
-    "submission_readiness",
-    "programme_table_cleaning",
-    "visa_readiness"
-  ],
-  "focused_skills": [
+  "public_skills": [
     {
-      "name": "university-application-index",
-      "path": "skills/university-application-index/SKILL.md",
-      "route": "index"
+      "name": "university-application",
+      "path": "skills/university-application/SKILL.md",
+      "purpose": "intent_router"
     },
     {
-      "name": "program-research",
-      "path": "skills/program-research/SKILL.md",
-      "route": "program_research"
+      "name": "application-research",
+      "path": "skills/application-research/SKILL.md",
+      "purpose": "programme_and_requirement_research"
     },
     {
-      "name": "requirement-audit",
-      "path": "skills/requirement-audit/SKILL.md",
-      "route": "requirement_audit"
+      "name": "application-writing",
+      "path": "skills/application-writing/SKILL.md",
+      "purpose": "admissions_writing"
     },
     {
-      "name": "materials-check",
-      "path": "skills/materials-check/SKILL.md",
-      "route": "materials_check"
-    },
-    {
-      "name": "application-writing-studio",
-      "path": "skills/application-writing-studio/SKILL.md",
-      "route": "application_writing_studio"
-    },
-    {
-      "name": "submission-readiness",
-      "path": "skills/submission-readiness/SKILL.md",
-      "route": "submission_readiness"
-    },
-    {
-      "name": "visa-readiness",
-      "path": "skills/visa-readiness/SKILL.md",
-      "route": "visa_readiness"
-    },
-    {
-      "name": "programme-table-cleaning",
-      "path": "skills/programme-table-cleaning/SKILL.md",
-      "route": "programme_table_cleaning"
+      "name": "application-readiness",
+      "path": "skills/application-readiness/SKILL.md",
+      "purpose": "materials_submission_and_visa_readiness"
     }
   ],
-  "companion_site": {
-    "name": "Soleil Admissions",
-    "url": "https://soleil-admissions.ready-loach-3659.chatgpt.site",
-    "access": "owner_only",
-    "source_in_repository": false,
-    "state_boundary": "confirmed structured application state only; sensitive originals and extraction remain local"
-  },
-  "publish": {
-    "github_push": "python3 scripts/publish_skill.py --push",
-    "local_skill_update": "python3 scripts/publish_skill.py --sync-local-skill",
-    "push_and_update": "python3 scripts/publish_skill.py --push --sync-local-skill"
-  },
-  "health_commands": [
-    "python3 -m compileall -q scripts",
-    "python3 scripts/validate_catalogues.py",
-    "python3 -m unittest tests.test_catalogues -v",
-    "python3 scripts/check_setup_contract.py",
-    "python3 scripts/validate_skill_contracts.py",
-    "python3 scripts/plan_workflow.py --self-test",
-    "python3 scripts/build_review_questions.py --self-test",
-    "python3 scripts/validate_evidence.py --self-test",
-    "python3 scripts/publish_skill.py --self-test",
-    "python3 scripts/publish_skill.py --dry-run --sync-local-skill",
-    "python3 scripts/build_admissions_workbook.py tests/fixtures/admissions_case_mvp.json /tmp/application_plan.xlsx"
+  "references": [
+    "references/evidence-contract.md",
+    "references/research.md",
+    "references/essay-sop.md",
+    "references/submission.md"
   ],
-  "post_update_commands": [
-    "python3 scripts/publish_skill.py --sync-local-skill"
-  ]
+  "tools": {
+    "evidence": "scripts/validate_evidence.py",
+    "inspiration": "scripts/extract_inspiration_file.py",
+    "workbook": "scripts/build_admissions_workbook.py",
+    "catalogues": "scripts/validate_catalogues.py",
+    "validation": "scripts/validate_skill_contracts.py",
+    "installation": "scripts/publish_skill.py"
+  },
+  "removed_focused_skills": [
+    "university-application-index",
+    "study-abroad-advisor",
+    "program-research",
+    "requirement-audit",
+    "materials-check",
+    "application-writing-studio",
+    "submission-readiness",
+    "visa-readiness",
+    "programme-table-cleaning"
+  ],
+  "publish": {
+    "local_skill_update": "python3 scripts/publish_skill.py --sync-local-skill",
+    "installed_drift_check": "python3 scripts/publish_skill.py --check-installed",
+    "github_push": "python3 scripts/publish_skill.py --push"
+  }
 }

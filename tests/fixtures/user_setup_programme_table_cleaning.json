@@ -1,7 +1,0 @@
-{
-  "workflow_mode": "programme_table_cleaning",
-  "output_mode": "source_backed",
-  "source_workbook_dir_or_files": "/tmp/source_workbooks",
-  "cleaned_output_dir": "/tmp/cleaned_workbooks",
-  "evidence_records": []
-}

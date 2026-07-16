@@ -1,7 +1,7 @@
 {
   "name": "university-application-skill",
-  "version": "0.5.0",
-  "description": "Multiple-skill university application system with a canonical router, Plugin-owned programme identity catalogues, confirmed applicant evidence, source-backed research, writing, submission, and visa-readiness routes.",
+  "version": "3.0.0",
+  "description": "University applications through a router and three focused Skills for Research, Writing, and Readiness.",
   "author": {
     "name": "Octavian Yiming Zhang"
   },
@@ -10,20 +10,16 @@
   "license": "MIT",
   "keywords": [
     "university-application",
-    "study-abroad",
-    "admissions",
-    "requirements",
-    "personal-statement",
-    "sop",
-    "materials-check",
-    "visa-readiness",
-    "programme-research"
+    "programme-research",
+    "admissions-writing",
+    "application-readiness",
+    "student-visa"
   ],
   "skills": "./skills/",
   "interface": {
     "displayName": "University Application Skill",
-    "shortDescription": "Plan source-backed university applications and admissions writing workflows.",
-    "longDescription": "University Application Skill routes multilingual admissions intent through a canonical index into focused workflows for official programme research, hard requirement audits, confirmed-evidence materials checks, interactive SOP and personal-statement planning, submission readiness, student visa readiness, and explicit programme-data maintenance. Its curated programme catalogue stores official-source identity records only, with requirements explicitly uncollected. Outputs default to English, admission-probability prediction is prohibited, and hard requirements remain tied to official provenance.",
+    "shortDescription": "Research, write, and prepare university applications.",
+    "longDescription": "Routes explicit applicant requests to official-source programme Research, truthful admissions Writing, or materials, submission, and visa Readiness.",
     "developerName": "Octavian Yiming Zhang",
     "category": "Education",
     "capabilities": [
@@ -31,15 +27,15 @@
       "Read",
       "Write"
     ],
-    "websiteURL": "https://soleil-admissions.ready-loach-3659.chatgpt.site",
+    "websiteURL": "https://github.com/OctavianYimingZhang/University-Application-Skill",
     "privacyPolicyURL": "https://openai.com/policies/privacy-policy/",
     "termsOfServiceURL": "https://openai.com/policies/terms-of-use/",
     "defaultPrompt": [
-      "Build a source-backed shortlist for my target field.",
-      "Check the hard requirements for this programme.",
-      "Help me plan my personal statement with confirmed evidence before drafting."
+      "Find and compare current programmes using official sources.",
+      "Draft or revise this application essay from my confirmed evidence.",
+      "Check my application materials, deadlines, and remaining actions."
     ],
-    "brandColor": "#22C55E",
+    "brandColor": "#2563EB",
     "screenshots": []
   }
 }
